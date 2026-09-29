@@ -1,0 +1,26 @@
+{
+  "scope": "edition-2 documentation consistency, not molecular qualification",
+  "passed": false,
+  "counts": {
+    "markdown_files": 75,
+    "internal_link_occurrences": 816,
+    "external_link_occurrences_not_fetched": 38,
+    "gates": 14,
+    "milestones": 9,
+    "specifications": 7,
+    "small_tasks": 42,
+    "requirements": 32,
+    "planned_tests": 82,
+    "preserved_original_tests": 81,
+    "preserved_mathematical_expressions": 81,
+    "actual_worker_logs": 1,
+    "actual_audit_logs": 0
+  },
+  "errors": [
+    "worker report still draft: Documentation_v1_worker.md",
+    "missing worker metadata Model: Documentation_v1_worker.md",
+    "missing worker metadata Reasoning setting: Documentation_v1_worker.md",
+    "missing worker metadata Finished at: Documentation_v1_worker.md",
+    "missing worker metadata Outcome: Documentation_v1_worker.md"
+  ]
+}

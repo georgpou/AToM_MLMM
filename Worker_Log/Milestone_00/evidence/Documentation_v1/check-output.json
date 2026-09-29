@@ -1,0 +1,62 @@
+{
+  "scope": "edition-2 documentation consistency, not molecular qualification",
+  "passed": true,
+  "counts": {
+    "markdown_files": 75,
+    "internal_link_occurrences": 825,
+    "external_link_occurrences_not_fetched": 38,
+    "gates": 14,
+    "milestones": 9,
+    "specifications": 7,
+    "small_tasks": 42,
+    "requirements": 32,
+    "planned_tests": 82,
+    "preserved_original_tests": 81,
+    "preserved_mathematical_expressions": 81,
+    "actual_worker_logs": 1,
+    "actual_audit_logs": 0
+  },
+  "errors": [],
+  "checker_self_tests": [
+    {
+      "deliberate_error": "broken_link",
+      "detected": true,
+      "reported_errors": [
+        "AGENTS.md: missing target: does-not-exist.md"
+      ]
+    },
+    {
+      "deliberate_error": "wrong_log_folder",
+      "detected": true,
+      "reported_errors": [
+        "missing log destination: G01",
+        "wrong log directory: G01"
+      ]
+    },
+    {
+      "deliberate_error": "changed_formula",
+      "detected": true,
+      "reported_errors": [
+        "scientific expression changed: docs/project-0/specs/S04-embedding-and-model-contracts.md"
+      ]
+    },
+    {
+      "deliberate_error": "false_acceptance",
+      "detected": true,
+      "reported_errors": [
+        "false execution status: G01"
+      ]
+    },
+    {
+      "deliberate_error": "bad_attempt_name",
+      "detected": true,
+      "reported_errors": [
+        "invalid log filename: Gate_01_v0_worker.md",
+        "missing worker metadata Model: Gate_01_v0_worker.md",
+        "missing worker metadata Reasoning setting: Gate_01_v0_worker.md",
+        "missing worker metadata Finished at: Gate_01_v0_worker.md",
+        "missing worker metadata Outcome: Gate_01_v0_worker.md"
+      ]
+    }
+  ]
+}
