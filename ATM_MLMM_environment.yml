@@ -42,6 +42,7 @@ dependencies:
   - netcdf4
   - pdb2pqr
   - requests
+  - docutils
   - scipy
   - pyyaml
   - packaging
@@ -54,7 +55,7 @@ dependencies:
 
   # Independent free-energy estimator and trajectory utilities.
   - pymbar=4.0.3
-  - mdtraj
+  - mdtraj=1.10.3
 
   # Test and developer utilities.
   - pytest

@@ -354,3 +354,71 @@ def test_manifest_rejects_dependency_ranges_inconsistent_with_amendment(name, ve
     next(p for p in report["packages"] if p["name"] == name)["version"] = version
     with pytest.raises(ValueError, match="dependency range"):
         validate_environment_manifest(report)
+
+
+def _propka_mace_fixture(prefix, monkeypatch, mutation=None):
+    import base64
+    import hashlib
+    from importlib import metadata
+    from types import SimpleNamespace
+    relative = "lib/python3.11/site-packages/tests/__init__.py"
+    if mutation == "runtime_module":
+        relative = "lib/python3.11/site-packages/propka/__init__.py"
+    target = prefix / relative
+    target.parent.mkdir(parents=True)
+    content = b'import os\n\nos.environ["TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD"] = "1"\n'
+    target.write_bytes(content)
+    (prefix / "conda-meta").mkdir()
+    record = {"name": "propka", "version": "3.5.1", "files": [relative],
+              "paths_data": {"paths": [{"_path": relative, "path_type": "hardlink",
+                                        "sha256": hashlib.sha256(b"\n").hexdigest()}]}}
+    if mutation == "conda_owner":
+        record["name"] = "unknown-package"
+    if mutation == "conda_version":
+        record["version"] = "3.5.2"
+    (prefix / "conda-meta/propka.json").write_text(json.dumps(record))
+    file = metadata.PackagePath(str(target.relative_to(prefix / "lib/python3.11/site-packages")))
+    digest = hashlib.sha256(content if mutation != "record_hash" else b"wrong").digest()
+    file.hash = metadata.FileHash("sha256=" + base64.urlsafe_b64encode(digest).decode().rstrip("="))
+    dist = SimpleNamespace(
+        metadata={"Name": "unknown-package" if mutation == "pip_owner" else "mace-torch"},
+        version="0.3.17" if mutation == "pip_version" else "0.3.16",
+        files=[file], locate_file=lambda f: prefix / "lib/python3.11/site-packages" / str(f),
+        read_text=lambda name: "pip" if name == "INSTALLER" else None)
+    monkeypatch.setattr(metadata, "distributions", lambda: [dist])
+    if mutation == "content":
+        target.write_bytes(b"unrecorded content")
+    return target
+
+
+def test_conda_integrity_records_exact_propka_mace_test_initializer_collision(tmp_path, monkeypatch):
+    from atm_mlmm.persistence import verify_conda_files
+    target = _propka_mace_fixture(tmp_path, monkeypatch)
+    report = verify_conda_files(tmp_path)
+    collision, = report["documented_collisions"]
+    assert collision["path"] == target.relative_to(tmp_path).as_posix()
+    assert {owner["name"] for owner in collision["owners"]} == {"propka", "mace-torch"}
+    assert report["checked_files"] == 1
+
+
+@pytest.mark.parametrize("mutation", [
+    "runtime_module", "conda_owner", "conda_version", "pip_owner",
+    "pip_version", "record_hash", "content"])
+def test_conda_integrity_rejects_other_test_initializer_overwrites(tmp_path, monkeypatch, mutation):
+    from atm_mlmm.persistence import verify_conda_files
+    _propka_mace_fixture(tmp_path, monkeypatch, mutation)
+    with pytest.raises(ValueError, match="overwritten|integrity"):
+        verify_conda_files(tmp_path)
+
+
+def test_project_test_namespace_does_not_activate_upstream_loader_override():
+    import os
+    import sys
+    root = Path(__file__).parents[2]
+    expected = str(root / "tests/__init__.py")
+    code = ("import os, tests; "
+            f"assert tests.__file__ == {expected!r}, tests.__file__; "
+            "assert os.environ.get('TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD') is None")
+    environment = {**os.environ, "PYTHONPATH": os.pathsep.join((str(root), str(root / "src")))}
+    environment.pop("TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD", None)
+    subprocess.run([sys.executable, "-c", code], env=environment, check=True)
