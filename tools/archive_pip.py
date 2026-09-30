@@ -12,14 +12,16 @@ def main():
     prefix = Path(sys.prefix)
     owned = set()
     for path in (prefix / "conda-meta").glob("*.json"):
-        owned.update(json.loads(path.read_text()).get("files", []))
+        record = json.loads(path.read_text())
+        owned.update(record.get("files", []))
+        owned.update(p["_path"] for p in record.get("paths_data", {}).get("paths", []))
     specs, sources = [], {}
     for dist in metadata.distributions():
         name = dist.metadata["Name"]
         if name.lower().replace("_", "-") == "atm-mlmm":
             continue  # project source is pinned by the repository commit
         files = [f for f in dist.files or [] if str(f).endswith(".dist-info/METADATA")]
-        if any(str(dist.locate_file(f).relative_to(prefix)) in owned for f in files):
+        if any(dist.locate_file(f).resolve().relative_to(prefix).as_posix() in owned for f in files):
             continue
         origin = dist.read_text("direct_url.json")
         origin = json.loads(origin) if origin else None

@@ -13,12 +13,16 @@ from importlib import metadata
 from pathlib import Path
 
 SOURCE_TAGS = {"openmmml": "1.8", "atom-openmm": "v8.5.0"}
+SOURCE_URLS = {"openmmml": "https://github.com/openmm/openmm-ml.git",
+               "atom-openmm": "https://github.com/Gallicchio-Lab/AToM-OpenMM.git"}
 REQUIRED_VERSIONS = {
     "openmm": "8.6.1", "openmmml": "1.8", "atom-openmm": "8.5.0b0",
     "torch": "2.8.0", "mace-torch": "0.3.16", "e3nn": "0.4.4",
     "pymbar": "4.0.3", "openmmforcefields": "0.16.0", "configobj": "5.0.9",
 }
-REQUIRED_CHECKS = ("pip_check", "openmm_installation", "api_check")
+REQUIRED_CHECKS = ("solver", "project_install", "conda_integrity", "conda_packages",
+                   "conda_explicit", "environment_export", "archive_pip",
+                   "pip_check", "openmm_installation", "api_check")
 
 
 def _git(root: Path, *args: str) -> str:
@@ -76,10 +80,26 @@ def validate_environment_manifest(report: dict) -> None:
     """Reject incomplete G00-T1 evidence before it can advance a CPU claim."""
     if report.get("schema_version") != 1:
         raise ValueError("Unsupported environment evidence schema")
+    if not re.fullmatch(r"3\.11\.\d+", report.get("python", {}).get("version", "")) or not report.get("python", {}).get("build"):
+        raise ValueError("Missing exact candidate Python patch/build identity")
+    target = report.get("platform", {})
+    if target.get("system") != "Linux" or target.get("machine") != "x86_64" or not target.get("release"):
+        raise ValueError("Missing or unsupported CPU platform identity")
+    if not re.fullmatch(r"[0-9a-f]{40}", report.get("repository", {}).get("commit", "")):
+        raise ValueError("Missing repository commit identity")
+    if report.get("repository", {}).get("working_tree") != "":
+        raise ValueError("Uncommitted repository changes require separate content identity")
+    if not re.fullmatch(r"[0-9a-f]{64}", report.get("candidate_sha256", "")):
+        raise ValueError("Missing candidate content identity")
+    artifacts = report.get("artifact_hashes", {})
+    if not all(name in artifacts for name in ("conda-explicit.txt", "pip-wheels.lock", "source-origins.json")) or any(not re.fullmatch(r"[0-9a-f]{64}", h) for h in artifacts.values()):
+        raise ValueError("Missing or malformed archived artifact identity")
     conda = report.get("conda_packages", [])
     if not conda or any(not all(p.get(k) for k in ("name", "version", "build", "url", "sha256"))
                         for p in conda):
         raise ValueError("Missing Conda package build, URL or SHA-256 evidence")
+    if any(not re.fullmatch(r"[0-9a-f]{64}", p["sha256"]) or not p["url"].startswith("https://") for p in conda):
+        raise ValueError("Malformed Conda artifact identity")
     packages = {p["name"].lower().replace("_", "-"): p for p in report["packages"]}
     for name, version in REQUIRED_VERSIONS.items():
         if name not in packages or packages[name]["version"].split("+")[0] != version:
@@ -94,8 +114,11 @@ def validate_environment_manifest(report: dict) -> None:
             if not installed_hash or installed_hash != wheel_hash or wheel_hash not in report.get("artifact_hashes", {}).values():
                 raise ValueError(f"Installed source wheel is not tied to archived provenance: {name}")
             commit = archived.get("vcs_info", {}).get("commit_id", "")
+            origin = archived
         if not re.fullmatch(r"[0-9a-f]{40}", commit):
             raise ValueError(f"Missing installed source commit: {name}")
+        if origin.get("url") != SOURCE_URLS[name] or origin.get("vcs_info", {}).get("requested_revision") != SOURCE_TAGS[name]:
+            raise ValueError(f"Source URL/tag differs from reviewed candidate: {name}")
     for name in REQUIRED_CHECKS:
         if report.get("checks", {}).get(name, {}).get("exit_code") != 0:
             raise ValueError(f"Required installation check did not pass: {name}")
@@ -103,6 +126,43 @@ def validate_environment_manifest(report: dict) -> None:
         raise ValueError("Installation is incomplete")
     if report.get("qualification_status") != "not_qualified":
         raise ValueError("G00 cannot establish molecular qualification")
+
+
+def verify_conda_files(prefix: Path) -> dict:
+    """Detect clobbered Conda files using recorded installed/relocated hashes."""
+    prefix = Path(prefix)
+    checked, prefix_unverifiable = 0, []
+    records = list((prefix / "conda-meta").glob("*.json"))
+    if not records:
+        raise ValueError("No Conda metadata for integrity check")
+    for path in records:
+        record = json.loads(path.read_text())
+        entries = record.get("paths_data", {}).get("paths", [])
+        if not entries:
+            source = Path(record.get("link", {}).get("source", "")) / "info/paths.json"
+            if source.is_file():
+                entries = json.loads(source.read_text()).get("paths", [])
+        if record.get("files") and not entries:
+            raise ValueError(f"Missing file integrity evidence: {record['name']}")
+        for entry in entries:
+            relative = entry["_path"]
+            if entry.get("path_type") == "softlink":
+                continue
+            digest = entry.get("sha256_in_prefix")
+            if not digest and entry.get("prefix_placeholder"):
+                prefix_unverifiable.append(relative)
+                continue
+            digest = digest or entry.get("sha256")
+            if not digest:
+                continue  # e.g. generated bytecode/directory; recorded separately
+            target = prefix / relative
+            if not target.is_file() or hashlib.sha256(target.read_bytes()).hexdigest() != digest:
+                raise ValueError(f"Conda file overwritten or missing (integrity): {record['name']}: {relative}")
+            checked += 1
+    if not checked:
+        raise ValueError("No Conda files had verifiable hashes")
+    return {"status": "passed", "checked_files": checked,
+            "prefix_relocated_without_installed_hash": prefix_unverifiable}
 
 
 def _zero_energy(state):

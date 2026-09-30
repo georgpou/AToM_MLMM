@@ -55,3 +55,110 @@ def test_package_import_does_not_initialize_backends():
     code = "import sys, atm_mlmm; assert not {'openmm','torch','mace'} & sys.modules.keys()"
     subprocess.run([__import__("sys").executable, "-c", code], check=True,
                    env={**__import__("os").environ, "PYTHONPATH": str(Path(__file__).parents[2] / "src")})
+
+
+def _complete_manifest():
+    from atm_mlmm.persistence import REQUIRED_VERSIONS, SOURCE_TAGS, REQUIRED_CHECKS
+    packages = [{"name": name, "version": version, "origin": None}
+                for name, version in REQUIRED_VERSIONS.items()]
+    for package in packages:
+        if package["name"] in SOURCE_TAGS:
+            url = "https://github.com/openmm/openmm-ml.git" if package["name"] == "openmmml" else "https://github.com/Gallicchio-Lab/AToM-OpenMM.git"
+            package["origin"] = {"url": url, "vcs_info": {"commit_id": "a" * 40,
+                                             "requested_revision": SOURCE_TAGS[package["name"]]}}
+    return {"schema_version": 1, "python": {"version": "3.11.13", "build": ["main", "date"]},
+            "platform": {"system": "Linux", "machine": "x86_64", "release": "6.8"},
+            "repository": {"commit": "b" * 40, "working_tree": ""}, "candidate_sha256": "c" * 64,
+            "artifact_hashes": {name: "e" * 64 for name in ("conda-explicit.txt", "pip-wheels.lock", "source-origins.json")},
+            "conda_packages": [{"name": "python", "version": "3.11.13", "build": "example",
+                                "url": "https://example.invalid/python.conda", "sha256": "d" * 64}],
+            "packages": packages, "checks": {name: {"exit_code": 0} for name in REQUIRED_CHECKS},
+            "installation_status": "installed", "qualification_status": "not_qualified"}
+
+
+@pytest.mark.parametrize("field", ["python", "platform", "repository", "candidate_sha256"])
+def test_manifest_requires_runtime_and_input_identity(field):
+    from atm_mlmm.persistence import validate_environment_manifest
+    report = _complete_manifest()
+    del report[field]
+    with pytest.raises(ValueError, match="identity|Python|platform|candidate|repository"):
+        validate_environment_manifest(report)
+
+
+def test_manifest_rejects_wrong_installed_source_wheel_hash():
+    from atm_mlmm.persistence import validate_environment_manifest
+    report = _complete_manifest()
+    package = next(p for p in report["packages"] if p["name"] == "openmmml")
+    package["origin"] = {"archive_info": {"hashes": {"sha256": "a" * 64}}}
+    report["archived_source_origins"] = {"openmmml": {"vcs_info": {"commit_id": "b" * 40},
+                                                      "wheel_sha256": "c" * 64}}
+    with pytest.raises(ValueError, match="source wheel"):
+        validate_environment_manifest(report)
+
+
+def test_complete_manifest_is_accepted_for_installation_only():
+    from atm_mlmm.persistence import validate_environment_manifest
+    validate_environment_manifest(_complete_manifest())
+
+
+@pytest.mark.parametrize("mutation", ["conda_digest", "candidate_digest", "source_url", "source_tag", "artifacts"])
+def test_manifest_rejects_unverifiable_provenance(mutation):
+    from atm_mlmm.persistence import validate_environment_manifest
+    report = _complete_manifest()
+    if mutation == "conda_digest":
+        report["conda_packages"][0]["sha256"] = "x"
+    elif mutation == "candidate_digest":
+        report["candidate_sha256"] = "x"
+    elif mutation == "artifacts":
+        report["artifact_hashes"] = {}
+    else:
+        source = next(p["origin"] for p in report["packages"] if p["name"] == "openmmml")
+        if mutation == "source_url": source["url"] = "https://wrong.invalid/repo.git"
+        else: source["vcs_info"]["requested_revision"] = "main"
+    with pytest.raises(ValueError):
+        validate_environment_manifest(report)
+
+
+def test_conda_integrity_rejects_overwritten_file(tmp_path):
+    from atm_mlmm.persistence import verify_conda_files
+    import hashlib
+    prefix = tmp_path
+    (prefix / "conda-meta").mkdir()
+    (prefix / "metadata").write_text("original")
+    record = {"name": "example", "files": ["metadata"], "paths_data": {"paths": [
+        {"_path": "metadata", "path_type": "hardlink",
+         "sha256": hashlib.sha256(b"original").hexdigest()}]}}
+    (prefix / "conda-meta/example.json").write_text(json.dumps(record))
+    assert verify_conda_files(prefix)["checked_files"] == 1
+    (prefix / "metadata").write_text("overwritten")
+    with pytest.raises(ValueError, match="overwritten|integrity"):
+        verify_conda_files(prefix)
+
+
+def test_conda_integrity_uses_relocated_hash(tmp_path):
+    from atm_mlmm.persistence import verify_conda_files
+    import hashlib
+    (tmp_path / "conda-meta").mkdir()
+    (tmp_path / "metadata").write_text("relocated")
+    record = {"name": "example", "files": ["metadata"], "paths_data": {"paths": [
+        {"_path": "metadata", "path_type": "hardlink", "prefix_placeholder": "/old/prefix",
+         "sha256": hashlib.sha256(b"original").hexdigest(),
+         "sha256_in_prefix": hashlib.sha256(b"relocated").hexdigest()}]}}
+    (tmp_path / "conda-meta/example.json").write_text(json.dumps(record))
+    assert verify_conda_files(tmp_path)["checked_files"] == 1
+
+
+def test_bootstrap_refuses_existing_evidence_before_solver(tmp_path):
+    script = Path(__file__).parents[2] / "environment/bootstrap_cpu.sh"
+    result = subprocess.run(["bash", str(script), str(tmp_path)], capture_output=True, text=True)
+    assert result.returncode == 1
+    assert "Evidence path already exists" in result.stderr
+
+
+def test_qualification_refuses_stale_checks(tmp_path):
+    script = Path(__file__).parents[2] / "environment/qualify_cpu.sh"
+    (tmp_path / "solver.exit").write_text("0\n")
+    (tmp_path / "project_install.exit").write_text("0\n")
+    result = subprocess.run(["bash", str(script), str(tmp_path)], capture_output=True, text=True)
+    assert result.returncode == 1
+    assert "fresh successful solve" in result.stderr

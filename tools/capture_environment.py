@@ -19,6 +19,8 @@ def main():
     checks = {p.stem: {"exit_code": int(p.read_text()), "log": f"{p.stem}.log"}
               for p in output.glob("*.exit")}
     report = capture_environment(root, Path(sys.prefix), checks)
+    conda_records = [json.loads(p.read_text()) for p in (Path(sys.prefix) / "conda-meta").glob("*.json")]
+    (output / "conda-metadata.json").write_text(json.dumps(conda_records, indent=2) + "\n")
     source_record = output / "source-origins.json"
     report["archived_source_origins"] = json.loads(source_record.read_text()) if source_record.exists() else {}
     report["artifact_hashes"] = {
