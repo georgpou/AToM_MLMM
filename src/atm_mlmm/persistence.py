@@ -1,6 +1,7 @@
 """G00 installation provenance; this module imports no molecular backend."""
 from __future__ import annotations
 
+import base64
 import hashlib
 import inspect
 import json
@@ -18,7 +19,7 @@ SOURCE_URLS = {"openmmml": "https://github.com/openmm/openmm-ml.git",
 REQUIRED_VERSIONS = {
     "openmm": "8.6.1", "openmmml": "1.8", "atom-openmm": "8.5.0b0",
     "torch": "2.8.0", "mace-torch": "0.3.16", "e3nn": "0.4.4",
-    "matscipy": "1.1.1", "pymbar": "4.0.3", "openmmforcefields": "0.16.0", "configobj": "5.0.9",
+    "matscipy": "1.1.1", "mdtraj": "1.10.3", "pymbar": "4.0.3", "openmmforcefields": "0.16.0", "configobj": "5.0.9",
 }
 REQUIRED_CHECKS = ("solver", "project_install", "conda_integrity", "conda_packages",
                    "conda_explicit", "environment_export", "archive_pip", "conda_integrity_after_archive",
@@ -89,6 +90,8 @@ def _validate_dependency_ranges(packages: dict) -> None:
 
 def validate_environment_manifest(report: dict) -> None:
     """Reject incomplete G00-T1 evidence before it can advance a CPU claim."""
+    if report.get("runtime_settings", {}).get("TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD"):
+        raise ValueError("Global permissive Torch loader override is not allowed")
     if report.get("schema_version") != 1:
         raise ValueError("Unsupported environment evidence schema")
     if not re.fullmatch(r"3\.11\.\d+", report.get("python", {}).get("version", "")) or not report.get("python", {}).get("build"):
@@ -140,6 +143,48 @@ def validate_environment_manifest(report: dict) -> None:
         raise ValueError("G00 cannot establish molecular qualification")
 
 
+def _known_test_initializer_collision(prefix: Path, installed: list) -> dict | None:
+    """Admit only the exact upstream PROPKA/MACE bundled test-file collision."""
+    relative = "lib/python3.11/site-packages/tests/__init__.py"
+    propka_digest = "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    mace_digest = "93370f0df51084312bf42215b21caa72cb2ed0d2859cb8770282d938d5a260a0"
+    owners = [(record, entry) for record, entries in installed for entry in entries
+              if entry["_path"] == relative]
+    if len(owners) != 1:
+        return None
+    record, entry = owners[0]
+    declared = entry.get("sha256_in_prefix") or entry.get("sha256")
+    if record["name"] != "propka" or record.get("version") != "3.5.1" or declared != propka_digest:
+        return None
+    target = prefix / relative
+    if not target.is_file() or hashlib.sha256(target.read_bytes()).hexdigest() != mace_digest:
+        return None
+    mace_records = []
+    expected = {"propka": ("3.5.1", propka_digest), "mace-torch": ("0.3.16", mace_digest)}
+    for dist in metadata.distributions():
+        for file in dist.files or []:
+            if Path(str(file)).name != "__init__.py" or dist.locate_file(file).resolve() != target.resolve():
+                continue
+            name = dist.metadata["Name"].lower().replace("_", "-")
+            if name not in expected or not file.hash or file.hash.mode != "sha256":
+                return None
+            digest = base64.urlsafe_b64decode(file.hash.value + "===").hex()
+            if (dist.version, digest) != expected[name]:
+                return None
+            if name == "mace-torch":
+                if (dist.read_text("INSTALLER") or "").strip() != "pip":
+                    return None
+                mace_records.append({"name": name, "version": dist.version,
+                                     "installer": "pip", "sha256": digest})
+    if len(mace_records) != 1:
+        return None
+    return {"path": relative,
+            "owners": [{"name": "propka", "version": "3.5.1", "installer": "conda",
+                        "sha256": propka_digest}, mace_records[0]],
+            "installed_sha256": mace_digest,
+            "reason": "Exact bundled test initializer collision; upstream tests are not imported"}
+
+
 def verify_conda_files(prefix: Path) -> dict:
     """Detect clobbered Conda files using recorded installed/relocated hashes."""
     prefix = Path(prefix)
@@ -176,6 +221,11 @@ def verify_conda_files(prefix: Path) -> dict:
                                      "installed_sha256": actual,
                                      "reason": "Known nonruntime Sphinx configuration collision"})
         checked += 1
+    test_collision = _known_test_initializer_collision(prefix, installed)
+    if test_collision:
+        documented_collisions.append(test_collision)
+        checked += 1
+    collision_paths = {collision["path"] for collision in documented_collisions}
     for record, entries in installed:
         hashed_sources = {e["_path"] for e in entries
                           if e["_path"].endswith(".py")
@@ -183,7 +233,7 @@ def verify_conda_files(prefix: Path) -> dict:
                                (e.get("sha256") and not e.get("prefix_placeholder")))}
         for entry in entries:
             relative = entry["_path"]
-            if relative == documentation_path and documented_collisions:
+            if relative in collision_paths:
                 continue
             if relative.endswith(".pyc") and "/__pycache__/" in relative:
                 try:
@@ -224,6 +274,8 @@ def _zero_energy(state):
 
 def check_required_apis() -> dict:
     """Exercise the source-verified G00 APIs without loading neural weights."""
+    if os.environ.get("TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD"):
+        raise RuntimeError("Global permissive Torch loader override is not allowed")
     for name, expected in REQUIRED_VERSIONS.items():
         actual = metadata.version(name)
         if actual.split("+")[0] != expected:
