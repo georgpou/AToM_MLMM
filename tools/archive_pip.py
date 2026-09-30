@@ -1,10 +1,15 @@
 """Archive non-Conda distributions as immutable wheels for the G00 lock."""
 import hashlib
 import json
+import re
 import subprocess
 import sys
 from importlib import metadata
 from pathlib import Path
+
+
+def _canonical_name(name):
+    return re.sub(r"[-_.]+", "-", name).lower()
 
 
 def main():
@@ -15,8 +20,8 @@ def main():
         record = json.loads(path.read_text())
         owned.update(record.get("files", []))
         owned.update(p["_path"] for p in record.get("paths_data", {}).get("paths", []))
-    owned_metadata = {prefix / relative for relative in owned
-                      if relative.endswith(".dist-info/METADATA")}
+    owned_metadata = [(prefix / relative, metadata.PathDistribution((prefix / relative).parent))
+                      for relative in sorted(owned) if relative.endswith(".dist-info/METADATA")]
     specs, sources = [], {}
     for dist in metadata.distributions():
         name = dist.metadata["Name"]
@@ -24,8 +29,10 @@ def main():
             continue  # project source is pinned by the repository commit
         # Conda can remove a wheel's RECORD while retaining dist-info metadata.
         # Locate that metadata directly; do not infer ownership from RECORD.
-        if any(dist.locate_file(Path(path.parent.name) / "METADATA").resolve() == path.resolve()
-               for path in owned_metadata):
+        if any(_canonical_name(owner.metadata["Name"]) == _canonical_name(name)
+               and owner.version == dist.version
+               and dist.locate_file(Path(path.parent.name) / "METADATA").resolve() == path.resolve()
+               for path, owner in owned_metadata):
             continue
         origin = dist.read_text("direct_url.json")
         origin = json.loads(origin) if origin else None
