@@ -1,61 +1,24 @@
 # Audit log template
 
-Copy this template beside the selected worker log, with the same task and attempt number: `Gate_YY_vN_audit.md`. Do not create a second audit for the same attempt or overwrite an existing one. This template is not audit evidence.
+Write the sibling `vN_audit.md` for the submitted worker attempt. Follow [AGENTS.md](../../../AGENTS.md#logs-and-handoff). Do not create an audit for a self-check or an unperformed review. Omit inapplicable subsections.
 
 # [Task name] - attempt [N] - audit
 
-## Audit at a glance
+**Worker log:** [path].\
+**Audited scope:** [task/requirement IDs; full gate or milestone only if explicitly covered].\
+**Snapshot:** [exact worker result commit or delivered manifest; distinguish later report-only changes].\
+**Model/version; reasoning setting:** [actual exposed metadata or not exposed].\
+**Finished:** [ISO 8601 timestamp with timezone].\
+**Verdict:** [accepted_for_scope / changes_required / blocked].
 
-| Field | Actual value |
-|---|---|
-| Worker log | [Exact repository-relative path] |
-| Task page and smaller scope | [Document heading and task IDs] |
-| Auditor model | [Luna, Sol, Astra, or actual reported label; identify source] |
-| Exact model version | [Reported value or not exposed] |
-| Reasoning setting | [Reported setting or not exposed] |
-| Finished at | [Actual ISO 8601 timestamp with timezone] |
-| Independence | [Separate audit session; disclose any involvement in implementation] |
-| Audited code snapshot | [Commit, or base plus patch/full-file manifest] |
-| Snapshot matches worker report? | [Yes, or exact discrepancy and its effect] |
-| Verdict | [accepted_for_scope / changes_required / blocked] |
-| Accepted scope and setup | [Exact task/profile, or none] |
-| Whole gate accepted? | [No, or yes with complete gate/test evidence references] |
+## Independent checks
 
-## 1. What I checked against
+[Relevant specification paths/sections and revisions; inspected changes/callers; prior unresolved findings; exact commands, working directory, environment/input/profile, exit codes and observations. Link raw evidence. State what was not run and why. A newer checkout is not automatically the recorded snapshot.]
 
-[Assigned behavior, relevant requirement IDs, specification paths/headings/revisions, earlier open findings, and intended results. Do not infer the specification from the code under review.]
+## Findings
 
-## 2. Checks actually performed
+For each finding record **A01**, **blocking / required / optional**, observed versus expected behavior, file/function, evidence or reproduction, smallest justified repair, regression test, and closure condition. Label unconfirmed explanations as hypotheses requiring a diagnostic. Optional improvements do not block otherwise correct work.
 
-| Check | Command / inspection and working directory | Inputs / setup | Exit code | Observed result and evidence |
-|---|---|---|---|---|
-| [Check] | [Actual command or precise code inspection] | [Actual setup] | [Actual code or not applicable] | [Result, not an expectation] |
+## Accepted scope and next action
 
-[Include relevant reruns, independent spot checks, likely edge cases, and checks not run with reasons. A worker's output can be cited as worker evidence, not relabeled as your own execution.]
-
-## 3. Findings and directions for the next worker
-
-### A01 - [Specific issue]
-
-**Priority:** [blocking / required / optional]\
-**Location:** [File, function, and stable code context; line numbers alone are not enough]\
-**Requirement:** [ID and reference section]
-
-**Observed:** [What actually happens and supporting evidence. Label an untested hypothesis.]\
-**Required:** [What the specification requires instead.]\
-**Why it matters:** [Concrete consequence.]
-
-**Next worker should:** [Smallest justified repair. For a hypothesis, first specify the diagnostic that decides whether a repair is needed. Do not ask for unrelated rewrites.]\
-**Regression test:** [Test name/path and exact behavior it must assert.]\
-**Close this finding when:** [Observable acceptance condition, including affected earlier tests.]\
-**Preserve:** [Existing behavior or files that must remain unchanged.]
-
-[Repeat for each finding. When there are no findings, say so explicitly and still state audit limits. Do not leave an empty A01 section.]
-
-## 4. Earlier findings
-
-[State which earlier findings are closed, still open, or outside this audit's scope, with reasons. Acceptance of a small repair does not silently close the rest of a gate.]
-
-## 5. Decision and next handoff
-
-[Explain the verdict for the exact assigned scope. Name the next worker-log filename, baseline snapshot, findings to address, required tests, and remaining limitations. Accept a whole gate only when all applicable tasks and combined checks support it. State the justified status update; do not claim a review qualifies untested models or hardware.]
+[State precisely what is accepted, what remains, the next worker-attempt path, and any warranted STATUS.md update. Check gate coverage and combined milestone criteria only when in scope; identify profiles and earlier reviews. Do not infer whole-gate acceptance from one task, or model/GPU support from analytic CPU results.]

@@ -2,7 +2,7 @@
 
 These locations preserve the preceding research audit's reference trail. The earlier documentation package organized these references. This edition updates wording and handoffs; it did not refetch or reverify upstream pages. G00 must record the actual admitted source commits. Moving documentation is not a lock. U-identifiers below distinguish upstream references from S-identifiers used for shared specifications.
 
-The original brainstorming file is a local unchanged archive. The earlier package reported that the large generated plan was unavailable as raw bytes during its creation; this edition uses the supplied package. See [provenance](../PROVENANCE.md). Architectural choices in the new specs are proposed design, not claims established by a source citation.
+The original brainstorming note and later large plan are preserved as historical context. The [history archive](../../../README.md#history) retains the previous editions and their evidence. Architectural choices in S01-S07 remain proposed until reviewed; this cleanup did not fetch or reverify upstream pages.
 
 | ID | Relevant material | Source |
 |---|---|---|

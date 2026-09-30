@@ -2,15 +2,13 @@
 
 **Design status:** proposed until a recorded M00 review or later approved amendment. **Scientific contract version:** 1; this documentation edit does not claim new numerical support.
 
-[Roadmap](../README.md) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
+[Roadmap](../../../README.md#roadmap) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
 
 ## In plain terms
 
 This page states what the first mechanical embedding computes, where its forces must go, and what must remain flexible for a later electrostatic embedding. The equations give independent expected results for the small tests.
 
 **When to read it:** Read the boundary section for G04, the model section for G05, and the periodic section for G06. The gate pages point to exact sections.
-
-The detailed names and equations below are kept precise because they define the behavior the tests must check. Unfamiliar terms are explained in [the glossary](../reference/glossary.md).
 
 ## The physical contract is broader than the first embedding
 
@@ -83,3 +81,33 @@ A later design must specify the electrostatic Hamiltonian, MM field/potential re
 Environment descriptors must be reconstructed after each coordinate map. Any self-consistent polarization solve must be deterministic to its admitted convergence tolerance and independent of evaluation order; a warm start may speed convergence but cannot select a different energy. Its residual/convergence diagnostics belong in evidence. Static caches may hold immutable species or topology; geometry-dependent caches require a proven key/update policy covering coordinates, box, and relevant state.
 
 Current NVT interfaces do not establish cell/virial correctness for NPT. That is a separate extension. No actual electrostatic backend is included or qualified here. The promise is that these additional requirements can be implemented inside the embedding/model boundary while reusing the same physical, transfer, recording, and analysis contracts.
+
+## A diagnostic energy is not a free-energy correction
+
+First identify the actual retained/removed classical terms under the admitted periodic convention. Then specify a scientifically defined alternative Hamiltonian. If it adds an energy difference delta U_s at endpoint s, its endpoint free-energy change is
+
+$$\delta F_s=-RT\ln\left\langle e^{-\delta U_s/(RT)}\right\rangle_{s,\mathrm{hyb}}.$$
+
+The average is over the original hybrid endpoint ensemble. The correction to a bound-minus-bulk result is delta F_bound minus delta F_bulk. A mean and standard deviation of delta U do not evaluate this exponential average or establish statistical overlap; rare configurations may dominate it.
+
+Treat bulk-placement, box-size and boundary/region sensitivity separately from sampling error. If the declared physical approximation is too large, stop and choose a better-defined Hamiltonian or narrower application. Do not add a state-dependent switch that uses ML 'when bound' and MM 'when bulk' as an emergency repair.
+
+## Model data and local disconnected fragments
+
+For an additive local architecture, a graph with no intercomponent edges may enforce additivity. This does not require arbitrary 10-20 Angstrom separated training pairs merely to teach geometric disconnection. The result concerns the ML contribution, not the complete solvated hybrid energy; it does not automatically apply to long-range or charge-aware models.
+
+Future useful data may include ligand conformers, exactly capped fragments, bound/contact geometries and the compressed/boundary distortions encountered in qualification. Charges, multiplicities, cap conventions and model energy definitions must match deployment. Hold out trajectory families or configuration sources rather than evaluating on nearly duplicate frames. Fine-tuning is not a repair for wrong units, maps, force ownership or unsupported model inputs.
+
+## A second local model
+
+Add one model adapter with explicit asset, units, chemical domain and locality metadata. Reuse the native-reference, cap, full-force, endpoint, serialization and model-domain contract suite. Do not require the transfer engine to import the new model. A supported-model name in an upstream library is not a qualified project profile.
+
+Start on capped fragments and the solvated toy before repeating protein benchmarks. The new model is a new physical identity and needs new profile evidence. Check model licensing and checkpoint compatibility independently from the package code license.
+
+## Actual electrostatic embedding
+
+First write the electrostatic scientific specification: which field/potential the model sees; how it is computed under PBC; boundary charge treatment; long-range/self/background conventions; charge/spin inputs; additional coupling and double-counting rules; all real-coordinate derivatives; and, if needed, self-consistent convergence and state history. Do not equate a model having internal long-range interactions with electronic embedding by external MM charges.
+
+Implement those details in the embedding/model components. Reuse the physical evaluator, protocol maps, ATM assembler, raw record schema, restraint/correction machinery and runner. The G02/G04/G07 environment probes make missing MM derivatives and stale mapped fields visible before this extension. Real field, periodic, response and model tests remain additional requirements; the probes do not settle them.
+
+A local model's disconnected-additivity test becomes inapplicable for a justified nonlocal provider. Record that capability-specific applicability, while retaining universal energy/force/state/restart tests. Do not turn every failing old test into a skip without explaining whether its premise still applies.

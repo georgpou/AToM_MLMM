@@ -2,15 +2,13 @@
 
 **Design status:** proposed until a recorded M00 review or later approved amendment. **Scientific contract version:** 1; this documentation edit does not claim new numerical support.
 
-[Roadmap](../README.md) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
+[Roadmap](../../../README.md#roadmap) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
 
 ## In plain terms
 
 A result applies to the exact code, model, inputs, hardware, and settings that were checked. A profile is the short name for that complete setup. A log must make the tested setup recoverable.
 
 **When to read it:** Use it when writing results, loading saved work, reviewing status, or accepting a gate.
-
-The detailed names and equations below are kept precise because they define the behavior the tests must check. Unfamiliar terms are explained in [the glossary](../reference/glossary.md).
 
 ## Evidence must identify what was tested
 
@@ -80,15 +78,10 @@ For CUDA workers, preserve the admitted process-start method and verify both Ope
 
 ## Review and reporting
 
-Use the mandatory [worker log](../templates/worker-log.md) and [audit log](../templates/audit-log.md) in [Worker_Log](../../../Worker_Log/README.md). The [gate evidence checklist](../templates/gate-evidence.md) adds technical fields when needed; it is not a competing handoff report. Scientific raw data may be stored externally, but acceptance records and checksums must remain inspectable. Do not create fabricated 'passed' examples in the committed status index. Empty evidence means unexecuted, not failed and not passed.
+Use the [worker](../templates/worker-log.md) and [audit](../templates/audit-log.md) templates under the task's milestone folder. [AGENTS.md](../../../AGENTS.md#logs-and-handoff) owns attempt naming, role boundaries, required metadata and immutable submitted logs. No separate gate, milestone or PR report is required for a routine assignment; a combined review records its explicitly broader scope in the same handoff format.
 
-`plan-index.json` contains stable gate/milestone identities, dependencies, file paths, requirement ownership, planned tests, and initial statuses. It is the machine-readable index. `STATUS.md` is the human summary; update it in the same change and validate their consistency. Review decisions and per-profile evidence are authoritative for acceptance; editing either status file alone cannot create an accepted gate.
+[STATUS.md](../STATUS.md) is the only live progress summary, linked to actual logs and profile evidence. Gates own planned assertions; [REQUIREMENTS.md](../REQUIREMENTS.md) locates stable IDs. A status edit cannot create an accepted result. Runtime manifests, schema versions, raw records and evidence validation defined above remain required even though the redundant documentation planning index has been retired.
 
-A future CI job may run structural and analytic suites on ordinary CPU workers and schedule model/GPU/sampling profiles separately. Creating the CI job belongs to the relevant implementation work; this package does not ship an always-green placeholder workflow. Documentation QA results must remain clearly labeled as documentation-only evidence.
+Scientific raw data may be stored externally, with inspectable checksums and access requirements. Empty evidence means unexecuted, not failed or passed. A future CI job may separate structural/analytic CPU checks from model/GPU/sampling profiles; no always-green placeholder is provided. Documentation checks are not molecular qualification.
 
-
-## Task-sized handoffs
-
-Every assignment, including a partial or blocked one, leaves a worker log under its milestone. The auditor writes a sibling file for the same attempt and snapshot. File names, required metadata, unchanged submitted logs, and repair directions follow [the logging rules](../../../Worker_Log/README.md).
-
-The documentation index can point to the latest worker/audit files, but those pointers do not replace the history or approve the result. Whole-gate acceptance must account for every applicable task and unresolved finding on the combined code snapshot. A milestone adds a review that its gates work together. Reports of a documentation-only change do not count as molecular qualification.
+Whole-gate acceptance must cover every applicable task and unresolved finding on the combined snapshot. A milestone adds the closing gate's combined review and its earlier milestone dependencies. A partial accepted task does not erase earlier open findings or qualify a different profile.

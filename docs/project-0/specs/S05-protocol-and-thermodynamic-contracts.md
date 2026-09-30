@@ -2,15 +2,13 @@
 
 **Design status:** proposed until a recorded M00 review or later approved amendment. **Scientific contract version:** 1; this documentation edit does not claim new numerical support.
 
-[Roadmap](../README.md) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
+[Roadmap](../../../README.md#roadmap) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
 
 ## In plain terms
 
 Moving a ligand correctly is not enough. We also need to know which two states we compare, what the sign means, and which restraint or standard-state corrections are required.
 
 **When to read it:** Read it before changing a protocol, schedule, restraint, estimator, or reported binding value.
-
-The detailed names and equations below are kept precise because they define the behavior the tests must check. Unfamiliar terms are explained in [the glossary](../reference/glossary.md).
 
 ## One protocol contract, two initial presets
 
@@ -89,3 +87,9 @@ G08 checks these against independent quadrature and independent analytic samples
 At fixed-temperature NVT use dimensionless reduced potentials $v_k(\mathbf R_n)=U_k(\mathbf R_n)/(RT)$. Reconstruct the exact expression at all required states, with outside terms where needed, and verify selected rows by direct context evaluation. A protocol supplies endpoint weights and correction obligations; the estimator consumes energies, not embedding labels.
 
 A-to-A RBFE has zero equilibrium free-energy difference only under the declared symmetric setup; instantaneous perturbations need not be zero. Compare RBFE and ABFE differences only for matched physical definitions. A two-ligand box contains a spectator molecule absent from a naive one-ligand ABFE subtraction; quantify that finite-box contribution or use matched controls before interpreting closure. Keep the same cavity, cap, model, and restraint conventions across a series whenever testing cancellation.
+
+## A new protocol or map
+
+An ABFE/RBFE preset supplies MobileGroups, maps, endpoint meanings, restraints and observable/correction obligations. It should not change the physical builder. Whole-molecule RBFE is already represented in the initial records and analytic tests, so G12 is molecular qualification rather than a data-model rewrite.
+
+A coordinate-dependent map, common-region swap or restrained rotation needs new derivatives and measure/constraint analysis. It may require a versioned transform contract extension. Such a change is different from adding another set of fixed translation vectors.

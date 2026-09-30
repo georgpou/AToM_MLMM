@@ -1,24 +1,22 @@
-# Current work status
+# Current status and qualification
 
-This package records a documentation revision, not an implemented molecular platform. No numerical gate or M00 design review has been accepted here. Existing work in an uninspected live repository must be assessed from that checkout and its evidence, not assumed absent or complete.
-
-**Documentation work:** [Documentation attempt 1](../../Worker_Log/Milestone_00/Documentation_v1_worker.md), ready for an independent audit. This does not count as M00 approval. The code/test plans remain unexecuted.
+This snapshot contains plans and documentation tooling, not an implemented molecular platform. No M00 design approval or numerical gate acceptance is claimed. The current documentation cleanup is [Documentation v2](../../Worker_Log/Milestone_00/Documentation_v2_worker.md), submitted for independent audit. [Documentation v1](../../Worker_Log/Milestone_00/Documentation_v1_worker.md) remains historical evidence; it was not rewritten or independently approved by this cleanup.
 
 ## Gate and milestone summary
 
-The table and [plan-index.json](plan-index.json) must agree. Task pages link here instead of keeping their own stale status labels. Actual worker/audit logs and snapshots support a status; changing the label alone does not establish acceptance.
+This is the only live progress summary. Link each change to the exact snapshot, profile, worker/audit record and actual evidence. Gate pages define work, not separate status claims.
 
 | ID | Work status | Evidence | Next condition |
 |---|---|---|---|
 | [M00](milestones/M00-architecture-review.md) | not_started | none | Design review required |
-| [M01](milestones/M01-reproducible-foundation.md) | not_started | none | Required gate evidence and combined review |
-| [M02](milestones/M02-transfer-kernel.md) | not_started | none | Required gate evidence and combined review |
-| [M03](milestones/M03-mechanical-hybrid.md) | not_started | none | Required gate evidence and combined review |
-| [M04](milestones/M04-thermodynamic-accounting.md) | not_started | none | Required gate evidence and combined review |
-| [M05](milestones/M05-solvated-workflow.md) | not_started | none | Required gate evidence and combined review |
-| [M06](milestones/M06-abfe-demonstration.md) | not_started | none | Required gate evidence and combined review |
-| [M07](milestones/M07-rbfe-demonstration.md) | not_started | none | Required gate evidence and combined review |
-| [M08](milestones/M08-project-1-handover.md) | not_started | none | Required gate evidence and combined review |
+| [M01](gates/G01-identity-partition-and-contracts.md#m01-combined-review) | not_started | none | Required gates and combined review |
+| [M02](gates/G03-atom-routing-and-integration.md#m02-combined-review) | not_started | none | Required gates and combined review |
+| [M03](gates/G07-joint-cavity-ligand-atm.md#m03-combined-review) | not_started | none | Required gates and combined review |
+| [M04](gates/G08-thermodynamics-and-estimators.md#m04-combined-review) | not_started | none | Required gates and combined review |
+| [M05](gates/G10-restart-and-replica-exchange.md#m05-combined-review) | not_started | none | Required gates and combined review |
+| [M06](gates/G11-protein-abfe.md#m06-combined-review) | not_started | none | Required gates and combined review |
+| [M07](gates/G12-dual-ligand-rbfe.md#m07-combined-review) | not_started | none | Required gates and combined review |
+| [M08](gates/G13-performance-and-release.md#m08-combined-review) | not_started | none | Required gates and combined review |
 | [G00](gates/G00-environment-and-provenance.md) | not_started | not_run | Assigned work under M01 |
 | [G01](gates/G01-identity-partition-and-contracts.md) | not_started | not_run | Assigned work under M01 |
 | [G02](gates/G02-analytic-force-in-native-atm.md) | not_started | not_run | Assigned work under M02 |
@@ -48,14 +46,36 @@ The table and [plan-index.json](plan-index.json) must agree. Task pages link her
 
 Worker attempts separately use `ready_for_audit`, `partial`, or `blocked`. Audit files use `accepted_for_scope`, `changes_required`, or `blocked`. An accepted `G01-T1` can leave G01 `in_progress` because other parts remain. Do not promote a whole gate after one small accepted repair.
 
-## Record a new attempt without losing earlier work
+## Record evidence without duplicate bookkeeping
 
-The index provides `log_directory`, `log_stem`, `tasks`, and optional `latest_worker_log` / `latest_audit_log` pointers for each gate or milestone. Paths to logs are relative to the repository root; task-document paths are relative to `docs/project-0/`. Use null when there is no log, not an invented filename.
+For each actual attempt, record the task/subscope, attempt number, profile, snapshot, worker-log path, audit-log path when it exists, decision and open findings. Link these records from the relevant summary row; do not create example passes or invented log pointers. Gate pages specify their folder/stem. Existing logs remain the history, not just the newest pointer.
 
-Use `execution_records` for small completed or partial assignments once they exist. Each entry should identify task ID, smaller scope, attempt, profile, worker-log path, audit-log path if any, snapshot identity, and audit decision. It records history; it does not automatically accept a gate. Do not insert a fabricated example entry. `acceptance_records` remains empty until actual whole-gate or milestone acceptance exists.
+An accepted small task can leave its gate in progress. Accepted parts must coexist on the reviewed snapshot with required combined regressions. Keep CPU/GPU, model and other distinct profiles separate. Changes that affect an accepted contract or profile invalidate the relevant evidence until checked again. The scientific evidence-record schemas in S03/S07 remain required; removing the documentation planning index does not remove those runtime records.
 
-When a summary changes, update this table and the index in the same change and cite the actual log/evidence. Keep separate records when one model/hardware setup passes and another is blocked. The latest pointer is a convenience; unresolved older findings still matter.
+## Qualification profiles
+
+A component saying it can support a feature is not proof that the complete setup works. A simple environment-dependent test is not a real electrostatic embedding. This initial matrix contains no numerical evidence from a live repository. Actual results belong in the worker/audit logs and [status](STATUS.md), with the tested setup stated explicitly.
+
+| Physical provider | Protocol | Purpose | Current evidence in this package | Primary gates |
+|---|---|---|---|---|
+| Analytic local | ABFE one group | Coordinate, energy, units, ownership | Planned; not_run | G02-G03 |
+| Analytic local | RBFE two unequal groups | No one-ligand assumptions in common code | Planned; not_run | G02-G03 |
+| Analytic environment-coupled | ABFE one group | Full MM derivatives and mapped-environment reevaluation | Planned; not_run | G02, G04, G07 |
+| Analytic environment-coupled | RBFE two groups | Protocol/provider independence | Planned; not_run | G02-G03, G07 |
+| Local MACE + mechanical caps | Toy transfer | Native/adapter/link/PBC composition | Planned; not_run | G04-G07 |
+| Local MACE + mechanical caps | Solvated workflow | Preparation, restart, exchange | Planned; not_run | G09-G10 |
+| Local MACE + mechanical caps | Protein ABFE | Molecular absolute-binding profile | Planned; not_run | G11 |
+| Local MACE + mechanical caps | Protein RBFE | Molecular relative-binding profile | Planned; not_run | G12 |
+| Actual electrostatic embedding | ABFE or RBFE | Future new physical profile | Deferred; unsupported by this plan's numerical evidence | New extension gates required |
+| Long-range/charge-aware new model | Either protocol | Future model/periodic bookkeeping | Deferred; unsupported by this plan's numerical evidence | New model/embedding qualification |
+| Metals/reactive/adaptive regions | Either protocol | Future chemistry/method development | Out of initial scope | New scientific specification |
+
+CPU/GPU, precision, timestep, model hash, environment lock, constraints, box convention and ensemble subdivide every relevant row. G13 admits only profiles with the required evidence. Completing one row cannot silently qualify its neighbor.
+
+For each future admission, record: declared capabilities, applicable contracts, executed tests, fixture/source/model identities, physical limitations, skipped/unavailable checks, reviewer and evidence locations. A generic `supports_electrostatic: true` flag is not an admission mechanism.
+
+The first admitted profile can be `core-analytic-cpu`, without actual neural weights. Mark real-model loader tests not applicable to that narrow claim; do not count them as passes. Upgrade the G00 asset/loader evidence before G05 and qualify the complete mechanical model combination in later gates. See S07 for applicability versus outcome.
 
 ## First implementation work
 
-Complete the relevant M00 design review, then G00 environment checks and G01's small tasks. Start with the analytic CPU setup when model weights or a GPU are unavailable. The missing resources remain prerequisites for their later claims; they are not silently waived.
+Complete the relevant M00 design review, then G00 environment checks and G01 tasks. Start with the analytic CPU setup when weights or GPUs are unavailable; the missing evidence still blocks their later specific claims.

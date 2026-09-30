@@ -1,0 +1,11 @@
+{
+  "errors": [],
+  "counts": {
+    "gates": 14,
+    "tasks": 42,
+    "planned_tests": 82,
+    "requirements": 32,
+    "distinct_preserved_math_expressions": 75
+  },
+  "scope": "cleanup preservation only; not scientific implementation or installation"
+}

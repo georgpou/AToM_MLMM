@@ -1,0 +1,27 @@
+{
+  "errors": [
+    "one root README is required",
+    "retire the duplicate live JSON index",
+    "retire the duplicate planned-test catalog",
+    "remove placeholder milestone READMEs",
+    "environment commands must name the actual YAML",
+    "YAML must point to the actual environment guide",
+    "preserve every scientific expression from specs and merged notes",
+    "preserve combined review for M01",
+    "preserve combined review for M02",
+    "preserve combined review for M03",
+    "preserve combined review for M04",
+    "preserve combined review for M05",
+    "preserve combined review for M06",
+    "preserve combined review for M07",
+    "preserve combined review for M08"
+  ],
+  "counts": {
+    "gates": 14,
+    "tasks": 42,
+    "planned_tests": 82,
+    "requirements": 32,
+    "distinct_preserved_math_expressions": 75
+  },
+  "scope": "cleanup preservation only; not scientific implementation or installation"
+}

@@ -2,15 +2,13 @@
 
 **Design status:** proposed until a recorded M00 review or later approved amendment. **Scientific contract version:** 1; this documentation edit does not claim new numerical support.
 
-[Roadmap](../README.md) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
+[Roadmap](../../../README.md#roadmap) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
 
 ## In plain terms
 
 A shared contract is an agreement about names, units, ordering, and meaning. The records below make those agreements explicit, so two agents do not create incompatible versions of the same data.
 
 **When to read it:** Read the relevant record rows and signatures for your task. Do not implement every possible future field at once.
-
-The detailed names and equations below are kept precise because they define the behavior the tests must check. Unfamiliar terms are explained in [the glossary](../reference/glossary.md).
 
 ## Shared units and array conventions
 

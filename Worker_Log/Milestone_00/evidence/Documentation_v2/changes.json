@@ -1,0 +1,406 @@
+{
+  "base_git_head": "e662a442641367f8056d0254166b49c4803f1f7c",
+  "basis": "uploaded ZIP, including its tracked working files; not the live remote",
+  "files": [
+    {
+      "path": ".DS_Store",
+      "action": "removed"
+    },
+    {
+      "path": ".gitignore",
+      "action": "added"
+    },
+    {
+      "path": "AGENTS.md",
+      "action": "modified"
+    },
+    {
+      "path": "ATM_MLMM_Environment.md",
+      "action": "modified"
+    },
+    {
+      "path": "ATM_MLMM_environment.yml",
+      "action": "modified"
+    },
+    {
+      "path": "Original_planning_docs/Project_0_ATM_MLMM_Implementation_and_Validation_Plan_crude.md",
+      "action": "unchanged"
+    },
+    {
+      "path": "PROJECT_PLAN.md",
+      "action": "removed"
+    },
+    {
+      "path": "README.md",
+      "action": "added"
+    },
+    {
+      "path": "Worker_Log/.DS_Store",
+      "action": "removed"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/.DS_Store",
+      "action": "removed"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/Documentation_v1_worker.md",
+      "action": "unchanged"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/Documentation_v2_worker.md",
+      "action": "added"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/.DS_Store",
+      "action": "removed"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/baseline-summary.json",
+      "action": "unchanged"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/check-output.json",
+      "action": "unchanged"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/check_docs.py",
+      "action": "unchanged"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/draft-metadata-check.json",
+      "action": "unchanged"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/file-manifest.sha256",
+      "action": "unchanged"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/baseline-checks.json",
+      "action": "added"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/changes.json",
+      "action": "added"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/check_cleanup.py",
+      "action": "added"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/documentation-checks.json",
+      "action": "added"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/mutation-checks.json",
+      "action": "added"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/preservation-checks.json",
+      "action": "added"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/result-manifest.sha256",
+      "action": "added"
+    },
+    {
+      "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/snapshot_before_cleanup.zip",
+      "action": "added"
+    },
+    {
+      "path": "Worker_Log/Milestone_01/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "Worker_Log/Milestone_02/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "Worker_Log/Milestone_03/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "Worker_Log/Milestone_04/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "Worker_Log/Milestone_05/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "Worker_Log/Milestone_06/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "Worker_Log/Milestone_07/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "Worker_Log/Milestone_08/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "Worker_Log/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/DOCUMENTATION_QA.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/PROVENANCE.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/QUALIFICATION_MATRIX.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/REQUIREMENTS.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/STATUS.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/TEST_CATALOG.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/decisions/ADR-0001-independent-components.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/decisions/ADR-0002-early-extension-contracts.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/decisions/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/gates/G00-environment-and-provenance.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G01-identity-partition-and-contracts.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G05-local-model-adapter.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G06-periodicity-and-interaction-ledger.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G08-thermodynamics-and-estimators.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G09-solvent-preparation-and-export.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G10-restart-and-replica-exchange.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G11-protein-abfe.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/G13-performance-and-release.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/gates/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/guides/adding-a-model-or-embedding.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/guides/assigning-work.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/guides/documentation-maintenance.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/guides/repository-integration.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/guides/spec-and-test-workflow.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/milestones/M00-architecture-review.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/milestones/M01-reproducible-foundation.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/milestones/M02-transfer-kernel.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/milestones/M03-mechanical-hybrid.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/milestones/M04-thermodynamic-accounting.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/milestones/M05-solvated-workflow.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/milestones/M06-abfe-demonstration.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/milestones/M07-rbfe-demonstration.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/milestones/M08-project-1-handover.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/milestones/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/plan-index.json",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/reference/coverage-map.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/reference/environment.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/reference/glossary.md",
+      "action": "unchanged"
+    },
+    {
+      "path": "docs/project-0/reference/original-brainstorming-plan.md",
+      "action": "unchanged"
+    },
+    {
+      "path": "docs/project-0/reference/scientific-notes.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/reference/sources.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/specs/README.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/specs/S01-scope-and-invariants.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/specs/S02-architecture-and-dependencies.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/specs/S03-data-and-interface-contracts.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/specs/S04-embedding-and-model-contracts.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/specs/S05-protocol-and-thermodynamic-contracts.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/specs/S06-validation-and-tolerances.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/specs/S07-artifacts-and-qualification.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/templates/audit-log.md",
+      "action": "modified"
+    },
+    {
+      "path": "docs/project-0/templates/gate-evidence.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/templates/milestone-review.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/templates/pull-request.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/templates/spec-change.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/templates/task.md",
+      "action": "removed"
+    },
+    {
+      "path": "docs/project-0/templates/worker-log.md",
+      "action": "modified"
+    },
+    {
+      "path": "tools/check_docs.py",
+      "action": "added"
+    }
+  ]
+}

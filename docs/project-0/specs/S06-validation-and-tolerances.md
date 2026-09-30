@@ -2,15 +2,13 @@
 
 **Design status:** proposed until a recorded M00 review or later approved amendment. **Scientific contract version:** 1; this documentation edit does not claim new numerical support.
 
-[Roadmap](../README.md) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
+[Roadmap](../../../README.md#roadmap) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
 
 ## In plain terms
 
 Small tests with known answers come before long simulations. Numerical limits help reveal errors, but they must be checked for the actual precision and system size rather than relaxed to hide a failure.
 
 **When to read it:** Use the relevant test layer and numerical limits. A documentation check is not a molecular test.
-
-The detailed names and equations below are kept precise because they define the behavior the tests must check. Unfamiliar terms are explained in [the glossary](../reference/glossary.md).
 
 ## Specification-driven and test-driven are complementary
 

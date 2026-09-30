@@ -1,6 +1,6 @@
 # G03: Make sure AToM evaluates and integrates every intended force
 
-**Part of:** [M02](../milestones/M02-transfer-kernel.md). **Progress:** see [STATUS.md](../STATUS.md); this page defines the work, not its completion status.
+**Part of:** [M02](../../../README.md#roadmap). **Progress:** [STATUS.md](../STATUS.md).
 
 ## Why this gate exists
 
@@ -12,25 +12,9 @@ A small AToM adapter that matches the native-ATM checks for both protocol shapes
 
 **Not part of this gate:** Keep AToM-specific names, units, and class selection inside its adapter. Do not disguise a PythonForce by renaming it.
 
-## Read for this task
-
-Start with [AGENTS.md](../../../AGENTS.md). Read the assigned task below, the relevant parts of the following pages, and earlier worker/audit logs for that task. Use [the working guide](../guides/spec-and-test-workflow.md) for the test-first cycle. Do not read the entire archive by default.
-
-| Read | Why |
-|---|---|
-| [M02: outcome and dependencies](../milestones/M02-transfer-kernel.md) | See how this gate fits into the larger result. |
-| [S02: Force ownership and execution](../specs/S02-architecture-and-dependencies.md#force-ownership-and-execution) | Count each force once and make sure the integrator uses it. |
-| [S03: Identity and transformation rules](../specs/S03-data-and-interface-contracts.md#identity-and-transformation-rules) | Preserve real atom identities when building final particle maps. |
-| [S05: Raw physical energies and alchemical energy](../specs/S05-protocol-and-thermodynamic-contracts.md#raw-physical-energies-and-alchemical-energy) | Distinguish raw child energies, outside terms, and the sampled energy. |
-| [This gate's log folder](../../../Worker_Log/Milestone_02/README.md) | Find earlier work, open findings, and the next attempt number. |
-
-A shared **contract** means the agreed inputs, outputs, and behavior used by other code. A **profile** means the exact software, model, hardware, and settings tested. Read [the glossary](../reference/glossary.md) only for unfamiliar terms. The task's specification takes precedence over historical notes.
-
 ## Before starting
 
 Required earlier gates: [G01](../gates/G01-identity-partition-and-contracts.md), [G02](../gates/G02-analytic-force-in-native-atm.md). Check evidence covering the features this task actually needs; a CPU-only result does not qualify a GPU or real-model claim. M00 must have reviewed the relevant design. All [S01 rules](../specs/S01-scope-and-invariants.md) still apply.
-
-The gate dependencies control when implementation can start. A parent milestone's combined review can require additional gates; that does not create a hidden implementation dependency. Do not silently skip an explicit prerequisite.
 
 ## Inputs, outputs, and code to work on
 
@@ -40,11 +24,7 @@ The gate dependencies control when implementation can start. A parent milestone'
 
 **Planned source/test paths:** `routing.py`, `adapters/atom.py`, `prepare.py`, `tests/workflow/test_atom_force_routing.py`, `tests/workflow/test_active_force_groups.py`.
 
-Source module paths are under `src/atm_mlmm/`; `tests/`, `fixtures/`, and `environment/` are relative to the repository root. These paths are plans, not a claim that implementation files already exist. Inspect existing code before creating replacements. Exact shared records and signatures are in [S03](../specs/S03-data-and-interface-contracts.md).
-
 ## Small tasks you can assign separately
-
-Default to one named task per worker session. Where a task is still too large, name one acceptance test or repair within it. Carry unfinished work into the log rather than expanding the session silently.
 
 | Task ID | Work | Main planned checks |
 |---|---|---|
@@ -54,31 +34,31 @@ Default to one named task per worker session. Where a task is still too large, n
 
 ### G03-T1: route by explicit ownership, not misleading labels
 
+**Read:** [S02: Force ownership and execution](../specs/S02-architecture-and-dependencies.md#force-ownership-and-execution); [S03: Identity and transformation rules](../specs/S03-data-and-interface-contracts.md#identity-and-transformation-rules).
+
 Create a separate physical export copy with all physical potential forces assigned to an unoccupied reserved group, initially 1. Use AToM's explicit group-selection mechanism. Recursively enumerate the constructed system: each physical force belongs once under ATM, each separately defined restraint belongs in its intended scope, and originals are not left active outside after child-force copying.
 
 Do not rename `PythonForce` as a nonbonded force to trigger default matching. The original audit found the default selection insufficient for the cavity-inclusive case; demonstrate this failure in a regression fixture rather than assuming upstream behavior is unchanged.
 
-**Finish this part with:** the relevant test results above and a worker log that states `G03-T1` as its scope. Completing this part alone does not complete G03.
-
 ### G03-T2: verify actual integration in every stage
+
+**Read:** [S02: Force ownership and execution](../specs/S02-architecture-and-dependencies.md#force-ownership-and-execution); [S05: Raw physical energies and alchemical energy](../specs/S05-protocol-and-thermodynamic-contracts.md#raw-physical-energies-and-alchemical-energy).
 
 Force routing and integration masks are separate checks. Introduce a marker force large enough that an omitted group is obvious. Compare full-state forces with the groups used by the actual integrator, separately for ABFE, RBFE, and ordinary physical preparation.
 
 Use the project-owned group-0 preparation copy. Export a reserved-group copy only after preparation. Do not feed that copy into an unqualified stock no-ATM path. Keep LangevinMiddle and the conservative timestep explicit; do not assume production settings control stock preparation internals.
 
-**Finish this part with:** the relevant test results above and a worker log that states `G03-T2` as its scope. Completing this part alone does not complete G03.
-
 ### G03-T3: contain upstream knowledge
+
+**Read:** [S02: Dependency rules and ownership tests](../specs/S02-architecture-and-dependencies.md#dependency-rules-and-ownership-tests); [S03: Proposed signatures](../specs/S03-data-and-interface-contracts.md#proposed-signatures).
 
 Keep upstream classes, `VARIABLE_FORCE_GROUP`, ligand selection keys, timestep/displacement units, and file handover names in `adapters/atom.py`. Compare both protocol paths with G02's native oracle before admitting them. Restoring a State may override parameters, so include parameter state in checks rather than comparing only coordinates.
 
 The narrow adapter should reuse upstream scheduling and replica exchange. If a small upstream patch is necessary, document the exact commit/diff and reproducer. Do not fork ATM's mathematical definition to resolve routing.
 
-**Finish this part with:** the relevant test results above and a worker log that states `G03-T3` as its scope. Completing this part alone does not complete G03.
-
 ## Checks and the answers they must establish
 
-These are **planned tests**, not executed results. The named checks define the required behavior. A worker runs those relevant to its small task and the affected earlier tests. A full-gate audit must cover every applicable row, including work split across attempts.
+These are **planned tests**, not executed results. Use the rows for the assigned task; full-gate acceptance covers all applicable rows.
 
 | Test ID | Planned pytest node | Required assertion | Requirements |
 |---|---|---|---|
@@ -91,15 +71,13 @@ These are **planned tests**, not executed results. The named checks define the r
 
 ## How to test and decide
 
-Follow [specification -> failing test -> implementation -> regression checks](../guides/spec-and-test-workflow.md). Save the actual failure and pass results. Do not change scientific expectations or tolerances just to make a test pass. Use [S06](../specs/S06-validation-and-tolerances.md) for numerical limits.
+Use [S06](../specs/S06-validation-and-tolerances.md) for applicable tolerances and independent checks.
 
 Full-gate command, once the test code exists:
 
 ```bash
 python -m pytest tests/workflow/test_atom_force_routing.py tests/workflow/test_active_force_groups.py -v
 ```
-
-For a small assignment, start with its named test rather than running unrelated expensive work. A missing package or hardware blocks that test setup; it is not a successful result. State what has and has not been checked.
 
 **Stop and diagnose:** An omitted active group or double-counted force blocks downstream gates even if trajectories appear stable. Fix the adapter or a narrowly identified upstream behavior; do not proceed by relaxing energy tolerances.
 
@@ -110,10 +88,19 @@ The adapter may select upstream ABFE/RBFE classes, but the scientific physical b
 ## Required log and audit handoff
 
 **Folder:** `Worker_Log/Milestone_02/`\
-**Task stem:** `Gate_03`\
-**Worker:** `Gate_03_vN_worker.md`\
-**Matching audit:** `Gate_03_vN_audit.md`
+**Worker:** `Gate_03_vN_worker.md`; **audit:** `Gate_03_vN_audit.md`. Use the next attempt and name the smaller task; see [AGENTS.md](../../../AGENTS.md#logs-and-handoff).
 
-N is the next available attempt number for this gate. The first is v1; a partial attempt or a later task inside the gate also uses the next number. State the smaller task IDs in the log. Follow [the logging rules](../../../Worker_Log/README.md), [worker template](../templates/worker-log.md), and [audit template](../templates/audit-log.md).
 
-A worker submits evidence for its assigned scope. An auditor checks that scope on the recorded snapshot and gives directions for any repair. Whole-gate acceptance requires all applicable tasks, tests, and affected regressions together; a small accepted fix is not a full-gate pass. Update [status](../STATUS.md) and [the index](../plan-index.json) only when supported by that evidence.
+## M02 combined review
+
+**Review scope:** G02, G03. **Earlier milestone reviews:** M01. These are combined-review conditions, not additional implementation prerequisites.
+
+Review direct/native/AToM comparisons with a nonzero outside restraint. Confirm the raw endpoint tuple order, all-real-force output, subset remapping and active integration masks. Check that the test suite fails when a physical force is omitted or counted twice.
+
+Inspect the unequal two-ligand fixture and the analytic environment-coupled fixture. The same assembler must handle them without added embedding branches. Moving only an MM environment atom and reevaluating A-B-A must produce the expected result, catching stale descriptors and missing environment derivatives.
+
+These are analytic transfer-kernel claims. They do not qualify a pretrained model, protein cap, physical electrostatic embedding or molecular RBFE.
+
+G02 and G03 accepted on admitted analytic profiles, including deliberately introduced mistakes and both protocol shapes. An agent can identify each physical/outside contribution and each module boundary.
+
+One audit may cover the closing gate and this milestone on the same recorded snapshot. Individual task acceptance is insufficient. Report the combined scope in this gate's worker/audit pair, or use `Milestone_02_vN_worker.md` / `_audit.md` in the same folder for a separately assigned milestone review.

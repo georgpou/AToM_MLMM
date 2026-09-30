@@ -2,15 +2,13 @@
 
 **Design status:** proposed until a recorded M00 review or later approved amendment. **Scientific contract version:** 1; this documentation edit does not claim new numerical support.
 
-[Roadmap](../README.md) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
+[Roadmap](../../../README.md#roadmap) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
 
 ## In plain terms
 
 The energy builder should not need to know whether the calculation is ABFE or RBFE. The transfer code should not need to know how the embedding computes energy. This separation is what makes later additions manageable.
 
 **When to read it:** Use the ownership table before adding a module or moving responsibility between components.
-
-The detailed names and equations below are kept precise because they define the behavior the tests must check. Unfamiliar terms are explained in [the glossary](../reference/glossary.md).
 
 ## Decision: compose independent parts, do not multiply complete pipelines
 
@@ -86,3 +84,33 @@ Moving an invariant term outside ATM is a later optimization. It requires both c
 Adding a second local model should require a model adapter plus the existing contract suite. Adding electrostatic embedding should require an embedding/model implementation, new coupling and convergence evidence, and a capability declaration; it should not require rewriting transfer, scheduling, raw-record storage, or binding-result assembly. Adding an ABFE or RBFE preset should require protocol/adapter changes, not another physical builder.
 
 This is a design target, not a guarantee that every future method will fit without change. If a future method needs new physics inputs, extend the versioned contract deliberately. Do not conceal an incompatible requirement in a generic dictionary or misrepresent a fake implementation as supported physics.
+
+## Proposed decision rationale
+
+The following inherited decisions remain **proposed for M00 review**; this consolidation does not approve them.
+
+### ADR-0001
+
+**Context:** A first implementation may accidentally hard-code mechanical subtraction, ML-only force arrays or one-ligand inputs into common ATM logic. Extending it later would require changes across simulation, storage and analysis. Conversely, designing a universal backend framework before a correct small example would add unnecessary work.
+
+**Alternatives:** A document-only split without explicit contracts is easiest but leaves the refactoring risk unresolved. Separate full pipelines for every model/embedding/protocol combination are locally convenient but duplicate physics and corrections. A general plugin/engine framework is more ambitious than Project 0 needs. The proposed small composition retains only the extension boundaries tested by concrete examples.
+
+**Consequences:** Early structural and analytic tests cost some work before molecular examples, but expose incompatible assumptions cheaply. A future physical method may still need a reviewed contract extension; the project does not promise zero refactoring for arbitrary new physics. Existing admitted behavior must remain tested through any migration.
+
+
+### ADR-0002
+
+**Context:** Waiting until G12 to introduce the idea of two ligand groups can expose a one-ligand core too late. Waiting for a real electrostatic model before testing environment derivatives can similarly leave ML-only force outputs and stale field caching hidden inside the transfer engine.
+
+**Proposed decision:** G01 admits tuple-based mobile groups and full-real-force result semantics. G02 tests one and two unequal groups through the same assembler, and an analytic energy depending on an MM coordinate. G04/G07 extend the latter to cap parents and the integrated pipeline. Actual molecular RBFE remains G12; actual electrostatic physics remains outside Project 0.
+
+**Acceptance and boundaries:** The environment probe must change energy/forces when only MM coordinates change, rebuild its dependencies under both maps, and be independent of evaluation order. It must produce all influencing real-coordinate derivatives. The two-group probe must preserve unequal/noncontiguous identities without atom-pair mapping assumptions.
+
+Passing these probes admits architectural behavior only. It does not establish external-field physics, charge response, self-consistent convergence, periodic electrostatics, model accuracy, or a production electrostatic backend. Those require a future scientific specification and profile evidence.
+
+
+## The architecture review test
+
+Before merging any extension, identify which files changed. Changes concentrated in a new backend, its declared capabilities and tests are expected. A need to add `if embedding == ...` inside ATM or raw-analysis code, drop environment forces from a shared result, or introduce another per-protocol physical pipeline indicates a boundary problem.
+
+Do not promise literally zero future refactoring. Promise small reviewed extensions, stable contracts where justified, explicit migrations where necessary, and permanent evidence that earlier admitted mechanical ABFE/RBFE behavior still works.

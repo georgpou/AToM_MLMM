@@ -1,6 +1,6 @@
 # G07: Combine the capped fragment, ligand, model, and ATM
 
-**Part of:** [M03](../milestones/M03-mechanical-hybrid.md). **Progress:** see [STATUS.md](../STATUS.md); this page defines the work, not its completion status.
+**Part of:** [M03](../../../README.md#roadmap). **Progress:** [STATUS.md](../STATUS.md).
 
 ## Why this gate exists
 
@@ -12,25 +12,9 @@ A small complete cavity-inclusive example that agrees between direct evaluation,
 
 **Not part of this gate:** Keep this example small enough to debug. Do not move to a whole protein while a combined energy or force mismatch remains.
 
-## Read for this task
-
-Start with [AGENTS.md](../../../AGENTS.md). Read the assigned task below, the relevant parts of the following pages, and earlier worker/audit logs for that task. Use [the working guide](../guides/spec-and-test-workflow.md) for the test-first cycle. Do not read the entire archive by default.
-
-| Read | Why |
-|---|---|
-| [M03: outcome and dependencies](../milestones/M03-mechanical-hybrid.md) | See how this gate fits into the larger result. |
-| [S04: The physical contract is broader than the first embedding](../specs/S04-embedding-and-model-contracts.md#the-physical-contract-is-broader-than-the-first-embedding) | Keep all real-coordinate forces available to the transfer machinery. |
-| [S04: Early environment-dependent contract probe](../specs/S04-embedding-and-model-contracts.md#early-environment-dependent-contract-probe) | Check forces on MM atoms and reevaluation after a coordinate change. |
-| [S06: Independent oracles and fault injection](../specs/S06-validation-and-tolerances.md#independent-oracles-and-fault-injection) | Use an independent answer and prove the tests catch known mistakes. |
-| [This gate's log folder](../../../Worker_Log/Milestone_03/README.md) | Find earlier work, open findings, and the next attempt number. |
-
-A shared **contract** means the agreed inputs, outputs, and behavior used by other code. A **profile** means the exact software, model, hardware, and settings tested. Read [the glossary](../reference/glossary.md) only for unfamiliar terms. The task's specification takes precedence over historical notes.
-
 ## Before starting
 
 Required earlier gates: [G03](../gates/G03-atom-routing-and-integration.md), [G04](../gates/G04-link-boundary-and-derivatives.md), [G05](../gates/G05-local-model-adapter.md), [G06](../gates/G06-periodicity-and-interaction-ledger.md). Check evidence covering the features this task actually needs; a CPU-only result does not qualify a GPU or real-model claim. M00 must have reviewed the relevant design. All [S01 rules](../specs/S01-scope-and-invariants.md) still apply.
-
-The gate dependencies control when implementation can start. A parent milestone's combined review can require additional gates; that does not create a hidden implementation dependency. Do not silently skip an explicit prerequisite.
 
 ## Inputs, outputs, and code to work on
 
@@ -40,11 +24,7 @@ The gate dependencies control when implementation can start. A parent milestone'
 
 **Planned source/test paths:** `fixtures/fragment_ligand/`, `endpoints.py`, `tests/integration/test_joint_hybrid_atm.py`, `tests/contracts/test_embedding_extension.py`.
 
-Source module paths are under `src/atm_mlmm/`; `tests/`, `fixtures/`, and `environment/` are relative to the repository root. These paths are plans, not a claim that implementation files already exist. Inspect existing code before creating replacements. Exact shared records and signatures are in [S03](../specs/S03-data-and-interface-contracts.md).
-
 ## Small tasks you can assign separately
-
-Default to one named task per worker session. Where a task is still too large, name one acceptance test or repair within it. Carry unfinished work into the log rather than expanding the session silently.
 
 | Task ID | Work | Main planned checks |
 |---|---|---|
@@ -54,31 +34,31 @@ Default to one named task per worker session. Where a task is still too large, n
 
 ### G07-T1: combine already qualified ingredients without solvent
 
+**Read:** [S04: The physical contract is broader than the first embedding](../specs/S04-embedding-and-model-contracts.md#the-physical-contract-is-broader-than-the-first-embedding); [S06: Independent oracles and fault injection](../specs/S06-validation-and-tolerances.md#independent-oracles-and-fault-injection).
+
 Assemble one stationary capped neutral fragment and one complete neutral ligand. Use the real local checkpoint and exact cap/ledger convention. Directly evaluate a contacting and a separated geometry. Repeat via native ATM and the explicit AToM adapter for endpoint and intermediate settings.
 
 Check forces on every relevant kind of real coordinate, particularly an MM boundary parent. A ligand-only comparison would miss part of the new cavity-inclusive problem. Save hand-checked atom maps and confirm fixed ML membership; the joint ML energy should respond to contact geometry without any 'bound' branch.
 
-**Finish this part with:** the relevant test results above and a worker log that states `G07-T1` as its scope. Completing this part alone does not complete G07.
-
 ### G07-T2: run extension-contract regressions against the integrated architecture
+
+**Read:** [S04: Early environment-dependent contract probe](../specs/S04-embedding-and-model-contracts.md#early-environment-dependent-contract-probe); [S02: Dependency rules and ownership tests](../specs/S02-architecture-and-dependencies.md#dependency-rules-and-ownership-tests).
 
 Reuse the analytic environment-dependent provider with the combined boundary fixture. Verify that full MM and parent forces still travel through the same assembler and checker. Run both one-/two-group protocol definitions from G02. These are small contract probes, not molecular RBFE acceptance and not actual electrostatic embedding.
 
 Review common-module imports and signatures. If adding this provider requires editing the transfer engine, stop and correct the abstraction now. A capability rejection is appropriate for unsupported physics, but not an excuse to leave a shared ML-only-force assumption untested.
 
-**Finish this part with:** the relevant test results above and a worker log that states `G07-T2` as its scope. Completing this part alone does not complete G07.
-
 ### G07-T3: introduce the admitted periodic version
+
+**Read:** [S04: Periodic and long-range accounting](../specs/S04-embedding-and-model-contracts.md#periodic-and-long-range-accounting); [S06: Starting numerical thresholds](../specs/S06-validation-and-tolerances.md#starting-numerical-thresholds).
 
 Only after the nonperiodic comparison passes, add the G06 periodic convention and repeat geometry, graph, endpoint and derivative checks. Record caps, box and alternate geometries. Test near the relevant safety limits rather than one relaxed favorable frame.
 
 This fixture should stay small enough for a colleague to understand every selected atom and boundary. It is the central correctness reproducer to preserve when later protein runs fail.
 
-**Finish this part with:** the relevant test results above and a worker log that states `G07-T3` as its scope. Completing this part alone does not complete G07.
-
 ## Checks and the answers they must establish
 
-These are **planned tests**, not executed results. The named checks define the required behavior. A worker runs those relevant to its small task and the affected earlier tests. A full-gate audit must cover every applicable row, including work split across attempts.
+These are **planned tests**, not executed results. Use the rows for the assigned task; full-gate acceptance covers all applicable rows.
 
 | Test ID | Planned pytest node | Required assertion | Requirements |
 |---|---|---|---|
@@ -91,15 +71,13 @@ These are **planned tests**, not executed results. The named checks define the r
 
 ## How to test and decide
 
-Follow [specification -> failing test -> implementation -> regression checks](../guides/spec-and-test-workflow.md). Save the actual failure and pass results. Do not change scientific expectations or tolerances just to make a test pass. Use [S06](../specs/S06-validation-and-tolerances.md) for numerical limits.
+Use [S06](../specs/S06-validation-and-tolerances.md) for applicable tolerances and independent checks.
 
 Full-gate command, once the test code exists:
 
 ```bash
 python -m pytest tests/integration/test_joint_hybrid_atm.py tests/contracts/test_embedding_extension.py -v
 ```
-
-For a small assignment, start with its named test rather than running unrelated expensive work. A missing package or hardware blocks that test setup; it is not a successful result. State what has and has not been checked.
 
 **Stop and diagnose:** Return to the smallest failing lower gate for an energy, derivative, topology or periodic mismatch. Do not prepare a protein until this combined physical/transfer composition is demonstrated.
 
@@ -110,10 +88,19 @@ At this point architectural substitution is demonstrated with analytic providers
 ## Required log and audit handoff
 
 **Folder:** `Worker_Log/Milestone_03/`\
-**Task stem:** `Gate_07`\
-**Worker:** `Gate_07_vN_worker.md`\
-**Matching audit:** `Gate_07_vN_audit.md`
+**Worker:** `Gate_07_vN_worker.md`; **audit:** `Gate_07_vN_audit.md`. Use the next attempt and name the smaller task; see [AGENTS.md](../../../AGENTS.md#logs-and-handoff).
 
-N is the next available attempt number for this gate. The first is v1; a partial attempt or a later task inside the gate also uses the next number. State the smaller task IDs in the log. Follow [the logging rules](../../../Worker_Log/README.md), [worker template](../templates/worker-log.md), and [audit template](../templates/audit-log.md).
 
-A worker submits evidence for its assigned scope. An auditor checks that scope on the recorded snapshot and gives directions for any repair. Whole-gate acceptance requires all applicable tasks, tests, and affected regressions together; a small accepted fix is not a full-gate pass. Update [status](../STATUS.md) and [the index](../plan-index.json) only when supported by that evidence.
+## M03 combined review
+
+**Review scope:** G04, G05, G06, G07. **Earlier milestone reviews:** M02. These are combined-review conditions, not additional implementation prerequisites.
+
+Inspect the cap-parent Jacobian evidence and the complete retained/removed boundary ledger. Verify caps are derived sites with the intended classical treatment. An energy-only check is not sufficient.
+
+Review native-model agreement, units/energy convention, local-component tests, counterfactual contact scans and offline identity. Inspect the exact retained PME convention, mask diagnostics and periodic geometry/seam tests; do not call all classical cavity-ligand electrostatics missing by definition.
+
+Finally inspect the small capped-cavity/ligand fixture through direct, native ATM and AToM paths. Include MM-parent derivatives and the early extension-contract regressions. The combined fixture remains the reproducible reference for later protein failures.
+
+G04-G07 accepted for the declared local mechanical profile; no unexplained identity, derivative, interaction-ledger, image or counterfactual-domain failure remains.
+
+One audit may cover the closing gate and this milestone on the same recorded snapshot. Individual task acceptance is insufficient. Report the combined scope in this gate's worker/audit pair, or use `Milestone_03_vN_worker.md` / `_audit.md` in the same folder for a separately assigned milestone review.

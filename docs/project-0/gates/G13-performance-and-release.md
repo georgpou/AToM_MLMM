@@ -1,6 +1,6 @@
 # G13: Measure cost and decide what the release actually supports
 
-**Part of:** [M08](../milestones/M08-project-1-handover.md). **Progress:** see [STATUS.md](../STATUS.md); this page defines the work, not its completion status.
+**Part of:** [M08](../../../README.md#roadmap). **Progress:** [STATUS.md](../STATUS.md).
 
 ## Why this gate exists
 
@@ -12,26 +12,9 @@ A reproducible release package with measured costs, explicit supported setups, u
 
 **Not part of this gate:** Do not optimize before correctness or advertise untested model, hardware, or embedding combinations.
 
-## Read for this task
-
-Start with [AGENTS.md](../../../AGENTS.md). Read the assigned task below, the relevant parts of the following pages, and earlier worker/audit logs for that task. Use [the working guide](../guides/spec-and-test-workflow.md) for the test-first cycle. Do not read the entire archive by default.
-
-| Read | Why |
-|---|---|
-| [M08: outcome and dependencies](../milestones/M08-project-1-handover.md) | See how this gate fits into the larger result. |
-| [S07: Evidence must identify what was tested](../specs/S07-artifacts-and-qualification.md#evidence-must-identify-what-was-tested) | Tie a result to the actual code, checkpoint, input, and hardware. |
-| [S07: Review and reporting](../specs/S07-artifacts-and-qualification.md#review-and-reporting) | Make release claims only for the tested and reviewed setup. |
-| [S02: Extension promises and limits](../specs/S02-architecture-and-dependencies.md#extension-promises-and-limits) | Keep extension points without claiming all future physics already fits. |
-| [Scientific notes](../reference/scientific-notes.md) | Diagnostic-versus-correction meaning or performance units, as relevant. |
-| [This gate's log folder](../../../Worker_Log/Milestone_08/README.md) | Find earlier work, open findings, and the next attempt number. |
-
-A shared **contract** means the agreed inputs, outputs, and behavior used by other code. A **profile** means the exact software, model, hardware, and settings tested. Read [the glossary](../reference/glossary.md) only for unfamiliar terms. The task's specification takes precedence over historical notes.
-
 ## Before starting
 
 Required earlier gates: [G11](../gates/G11-protein-abfe.md), [G12](../gates/G12-dual-ligand-rbfe.md). Check evidence covering the features this task actually needs; a CPU-only result does not qualify a GPU or real-model claim. M00 must have reviewed the relevant design. All [S01 rules](../specs/S01-scope-and-invariants.md) still apply.
-
-The gate dependencies control when implementation can start. A parent milestone's combined review can require additional gates; that does not create a hidden implementation dependency. Do not silently skip an explicit prerequisite.
 
 ## Inputs, outputs, and code to work on
 
@@ -41,11 +24,7 @@ The gate dependencies control when implementation can start. A parent milestone'
 
 **Planned source/test paths:** `report.py`, benchmark scripts, qualification documentation, release manifests and regression tests for any admitted optimization.
 
-Source module paths are under `src/atm_mlmm/`; `tests/`, `fixtures/`, and `environment/` are relative to the repository root. These paths are plans, not a claim that implementation files already exist. Inspect existing code before creating replacements. Exact shared records and signatures are in [S03](../specs/S03-data-and-interface-contracts.md).
-
 ## Small tasks you can assign separately
-
-Default to one named task per worker session. Where a task is still too large, name one acceptance test or repair within it. Carry unfinished work into the log rather than expanding the session silently.
 
 | Task ID | Work | Main planned checks |
 |---|---|---|
@@ -55,31 +34,31 @@ Default to one named task per worker session. Where a task is still too large, n
 
 ### G13-T1: benchmark the correct implementation
 
+**Read:** [performance arithmetic](#performance-arithmetic); [S07: Evidence must identify what was tested](../specs/S07-artifacts-and-qualification.md#evidence-must-identify-what-was-tested).
+
 Measure context/model loading, first evaluation, and steady-state stepping separately, synchronizing accelerators appropriately. Compare all-MM, ligand-only ML/MM, cavity-inclusive ML/MM, native ATM and AToM worker paths on the same hardware and relevant common settings. Record real/ML/cap counts, graph size, dtype, OpenMM precision, timestep, force evaluations, memory per worker and synchronization/transfer overhead.
 
 Start with one worker. Measure nested model copies and process costs before assuming ATM is exactly twice as expensive. Throughput with a changed timestep is not a pure backend speedup. Use the explicit unit formulas and distinguish wall time from aggregate GPU hours.
 
-**Finish this part with:** the relevant test results above and a worker log that states `G13-T1` as its scope. Completing this part alone does not complete G13.
-
 ### G13-T2: admit optimizations one at a time
+
+**Read:** [S02: Force ownership and execution](../specs/S02-architecture-and-dependencies.md#force-ownership-and-execution); [S02: Extension promises and limits](../specs/S02-architecture-and-dependencies.md#extension-promises-and-limits).
 
 Profile before changing behavior. First reduce avoidable transfers or repeated immutable work, then consider context/model reuse and approved precision. Excluding rigorously invariant terms from ATM requires a coordinate and mixing-expression proof plus numerical regression. A new timestep, HMR, MTS, pressure ensemble or multigpu configuration is not a free optimization; it requires its own admission.
 
 Do not design a GPU neighbor-list kernel or train a smaller model before demonstrating that it addresses the measured bottleneck. The unoptimized correct reference remains available for regression.
 
-**Finish this part with:** the relevant test results above and a worker log that states `G13-T2` as its scope. Completing this part alone does not complete G13.
-
 ### G13-T3: release only the qualified claims
+
+**Read:** [S07: Review and reporting](../specs/S07-artifacts-and-qualification.md#review-and-reporting); [Project 1 handover](#path-to-project-1).
 
 Run the complete applicable suite from a clean environment. Have a colleague reproduce the smallest correct example and inspect an intentional fault-injection failure. Record independent review only if it happened. Produce a matrix by model/embedding/protocol/hardware/precision/ensemble, with unsupported and unexecuted combinations clearly marked.
 
 Handover includes source/asset identity, requirements, gate reports, ABFE/RBFE examples, known-answer analysis, restart/exchange evidence, performance and scientific limitations. The decision may be qualified for stated Project-1 trials, qualified for a narrower configuration, or not qualified. A partial hardware profile is not a reason to claim universal completion.
 
-**Finish this part with:** the relevant test results above and a worker log that states `G13-T3` as its scope. Completing this part alone does not complete G13.
-
 ## Checks and the answers they must establish
 
-These are **planned tests**, not executed results. The named checks define the required behavior. A worker runs those relevant to its small task and the affected earlier tests. A full-gate audit must cover every applicable row, including work split across attempts.
+These are **planned tests**, not executed results. Use the rows for the assigned task; full-gate acceptance covers all applicable rows.
 
 | Test ID | Planned pytest node | Required assertion | Requirements |
 |---|---|---|---|
@@ -91,15 +70,13 @@ These are **planned tests**, not executed results. The named checks define the r
 
 ## How to test and decide
 
-Follow [specification -> failing test -> implementation -> regression checks](../guides/spec-and-test-workflow.md). Save the actual failure and pass results. Do not change scientific expectations or tolerances just to make a test pass. Use [S06](../specs/S06-validation-and-tolerances.md) for numerical limits.
+Use [S06](../specs/S06-validation-and-tolerances.md) for applicable tolerances and independent checks.
 
 Full-gate command, once the test code exists:
 
 ```bash
 python -m pytest tests/workflow/test_release_bundle.py tests/contracts/test_release_evidence.py tests/unit/test_benchmark_metrics.py tests/integration/test_optimization_equivalence.py -v
 ```
-
-For a small assignment, start with its named test rather than running unrelated expensive work. A missing package or hardware blocks that test setup; it is not a successful result. State what has and has not been checked.
 
 **Stop and diagnose:** Without reproducible evidence for the claimed profile, do not tag it as qualified. Fix a reproducibility or regression failure before performance promotion; retain partial supported scope honestly.
 
@@ -110,10 +87,39 @@ The release matrix keeps future electrostatic and model additions separate while
 ## Required log and audit handoff
 
 **Folder:** `Worker_Log/Milestone_08/`\
-**Task stem:** `Gate_13`\
-**Worker:** `Gate_13_vN_worker.md`\
-**Matching audit:** `Gate_13_vN_audit.md`
+**Worker:** `Gate_13_vN_worker.md`; **audit:** `Gate_13_vN_audit.md`. Use the next attempt and name the smaller task; see [AGENTS.md](../../../AGENTS.md#logs-and-handoff).
 
-N is the next available attempt number for this gate. The first is v1; a partial attempt or a later task inside the gate also uses the next number. State the smaller task IDs in the log. Follow [the logging rules](../../../Worker_Log/README.md), [worker template](../templates/worker-log.md), and [audit template](../templates/audit-log.md).
 
-A worker submits evidence for its assigned scope. An auditor checks that scope on the recorded snapshot and gives directions for any repair. Whole-gate acceptance requires all applicable tasks, tests, and affected regressions together; a small accepted fix is not a full-gate pass. Update [status](../STATUS.md) and [the index](../plan-index.json) only when supported by that evidence.
+## M08 combined review
+
+**Review scope:** G13. **Earlier milestone reviews:** M07. These are combined-review conditions, not additional implementation prerequisites.
+
+Review a clean offline reproduction and the complete applicable regression suite. Ensure accepted claims reference exact model/embedding/protocol/platform/precision/ensemble profiles. Skipped hardware and unrun long sampling stay visibly unqualified.
+
+Review startup versus steady-state performance, model/worker memory, actual throughput units and any optimization-equivalence evidence. Record independent colleague review only when performed.
+
+Decide whether the framework is qualified for named Project-1 trials, only a narrower configuration, or not yet qualified. Preserve the smallest fixtures, exact manifests, analysis/sign/correction documentation and limitations in the release.
+
+G13 accepted and a release review explicitly states supported, unqualified and deferred combinations. Both ABFE and RBFE claims have their own molecular evidence.
+
+One audit may cover the closing gate and this milestone on the same recorded snapshot. Individual task acceptance is insufficient. Report the combined scope in this gate's worker/audit pair, or use `Milestone_08_vN_worker.md` / `_audit.md` in the same folder for a separately assigned milestone review.
+
+## Performance arithmetic
+
+Separate context construction, model loading, first evaluation and steady-state stepping. Synchronize accelerator timing. For timestep dt in fs and step time t in seconds:
+
+$$\mathrm{ns/day}=0.0864\,dt/t.$$
+
+For Nw windows, Nr independent repetitions, Tns nanoseconds per window and effective throughput s ns/day per occupied GPU:
+
+$$\mathrm{GPU\ hours}\approx 24 N_wN_r T_{\mathrm{ns}}/s.$$
+
+Do not double-count windows if measured throughput already aggregates them. Wall time and total GPU use differ. A larger timestep is not a pure backend speed improvement. Profile before implementing a new neighbor kernel, reducing the ML region, or training a smaller model.
+
+## Path to Project 1
+
+Project 0 establishes the declared numerical and thermodynamic platform. Project 1 evaluates ordinary noncovalent systems and the physical usefulness of cavity-inclusive ML/MM. Start with matched all-MM, ligand-only and cavity-inclusive comparisons on a small well-characterized series. Keep cavity, caps and model definitions fixed where cancellation is intended.
+
+Experimental disagreement can arise from sampling, preparation, protonation, force-field cross interactions, embedding or model chemistry. Experimental agreement cannot prove that an implementation has the right gradients or correction signs. Later fine-tuning should test ligand-only versus cavity-plus-ligand training with appropriate independent data, not tune hidden corrections to match affinities.
+
+Actual electrostatic embedding, metals and covalent reactions require new physical definitions and possibly new thermodynamic cycles. The current contracts make the transfer engine reusable; they do not solve those future chemistry problems.

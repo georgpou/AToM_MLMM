@@ -1,6 +1,6 @@
 # G01: Give every atom a reliable identity and define shared records
 
-**Part of:** [M01](../milestones/M01-reproducible-foundation.md). **Progress:** see [STATUS.md](../STATUS.md); this page defines the work, not its completion status.
+**Part of:** [M01](../../../README.md#roadmap). **Progress:** [STATUS.md](../STATUS.md).
 
 ## Why this gate exists
 
@@ -12,27 +12,9 @@ Checked atom identities, fixed ML selections, shared input/output records, and a
 
 **Not part of this gate:** No neural model or protein binding calculation is needed. Do not bury one-ligand assumptions inside common records.
 
-## Read for this task
-
-Start with [AGENTS.md](../../../AGENTS.md). Read the assigned task below, the relevant parts of the following pages, and earlier worker/audit logs for that task. Use [the working guide](../guides/spec-and-test-workflow.md) for the test-first cycle. Do not read the entire archive by default.
-
-| Read | Why |
-|---|---|
-| [M01: outcome and dependencies](../milestones/M01-reproducible-foundation.md) | See how this gate fits into the larger result. |
-| [S01: Permanent invariants](../specs/S01-scope-and-invariants.md#permanent-invariants) | Keep atom membership, energy meaning, and physical scope unchanged. |
-| [S02: Dependency rules and ownership tests](../specs/S02-architecture-and-dependencies.md#dependency-rules-and-ownership-tests) | Keep basic records independent of model imports and GPU setup. |
-| [S03: Shared units and array conventions](../specs/S03-data-and-interface-contracts.md#shared-units-and-array-conventions) | Use the same units and atom ordering in every component. |
-| [S03: Records, required fields, and ownership](../specs/S03-data-and-interface-contracts.md#records-required-fields-and-ownership) | Implement the agreed record fields rather than a second data format. |
-| [S03: Errors, capabilities, and schema evolution](../specs/S03-data-and-interface-contracts.md#errors-capabilities-and-schema-evolution) | Reject unsupported data or requests without silently changing their meaning. |
-| [This gate's log folder](../../../Worker_Log/Milestone_01/README.md) | Find earlier work, open findings, and the next attempt number. |
-
-A shared **contract** means the agreed inputs, outputs, and behavior used by other code. A **profile** means the exact software, model, hardware, and settings tested. Read [the glossary](../reference/glossary.md) only for unfamiliar terms. The task's specification takes precedence over historical notes.
-
 ## Before starting
 
 Required earlier gates: [G00](../gates/G00-environment-and-provenance.md). Check evidence covering the features this task actually needs; a CPU-only result does not qualify a GPU or real-model claim. M00 must have reviewed the relevant design. All [S01 rules](../specs/S01-scope-and-invariants.md) still apply.
-
-The gate dependencies control when implementation can start. A parent milestone's combined review can require additional gates; that does not create a hidden implementation dependency. Do not silently skip an explicit prerequisite.
 
 ## Inputs, outputs, and code to work on
 
@@ -42,11 +24,7 @@ The gate dependencies control when implementation can start. A parent milestone'
 
 **Planned source/test paths:** `schema.py`, `capabilities.py`, `identity.py`, `partition.py`, `ledger.py`, `tests/unit/test_identity.py`, `tests/unit/test_partition.py`, `tests/contracts/`, `tests/unit/test_force_inventory.py`.
 
-Source module paths are under `src/atm_mlmm/`; `tests/`, `fixtures/`, and `environment/` are relative to the repository root. These paths are plans, not a claim that implementation files already exist. Inspect existing code before creating replacements. Exact shared records and signatures are in [S03](../specs/S03-data-and-interface-contracts.md).
-
 ## Small tasks you can assign separately
-
-Default to one named task per worker session. Where a task is still too large, name one acceptance test or repair within it. Carry unfinished work into the log rather than expanding the session silently.
 
 | Task ID | Work | Main planned checks |
 |---|---|---|
@@ -56,33 +34,33 @@ Default to one named task per worker session. Where a task is still too large, n
 
 ### G01-T1: implement stable identities and fixed selection
 
+**Read:** [S03: Shared units and array conventions](../specs/S03-data-and-interface-contracts.md#shared-units-and-array-conventions); [S03: AtomIdentity and TopologyView rows](../specs/S03-data-and-interface-contracts.md#records-required-fields-and-ownership); [S04: Mechanical baseline and boundary policy](../specs/S04-embedding-and-model-contracts.md#mechanical-baseline-and-boundary-policy).
+
 Implement the minimum `AtomIdentity` and `TopologyView` fields needed for this task from S03; G01-T2 completes the other shared records. Do not invent a second temporary identity format.
 
 Use unique per-input real-atom IDs together with chain, residue, insertion, element, and atom-name metadata. Build intentionally awkward topologies: duplicate residue numbers, noncontiguous ligand atoms, reordered particles, and incomplete molecules. Establish expected selected identities by hand. Resolve boundaries using actual connectivity and include the selected fragment's hydrogens.
 
 Enumerate and validate every crossing bond. Begin with the reviewed neutral single-cut policy. Reject unknown elements, unsupported chemistry, ambiguous charged fragments, and multiple caps per MM parent. Distinguish formal chemical states from inherited partial-charge sums. Reject before context construction when the metadata suffices.
 
-**Finish this part with:** the relevant test results above and a worker log that states `G01-T1` as its scope. Completing this part alone does not complete G01.
-
 ### G01-T2: implement the common records and extension boundaries
+
+**Read:** [S03: Records, required fields, and ownership](../specs/S03-data-and-interface-contracts.md#records-required-fields-and-ownership); [S03: Errors, capabilities, and schema evolution](../specs/S03-data-and-interface-contracts.md#errors-capabilities-and-schema-evolution); [S02: Dependency rules and ownership tests](../specs/S02-architecture-and-dependencies.md#dependency-rules-and-ownership-tests).
 
 Implement the fields in S03, including a tuple of `MobileGroup` records and forces on all real atoms in `EnergyForces`. The ABFE/RBFE protocol checks whether it has the required number of ligands; the shared physical record does not assume that number. Do not encode a required first ligand and optional second ligand throughout common records.
 
 Add schema-version, round-trip, unit, empty-field, and unknown-capability tests. Prevent shared data from being changed accidentally after it is finalized. A schema record can exist before a physical implementation, but cannot imply the capability works. Test that basic records can be imported without loading a model or GPU library. Do not add unused future model classes.
 
-**Finish this part with:** the relevant test results above and a worker log that states `G01-T2` as its scope. Completing this part alone does not complete G01.
-
 ### G01-T3: inventory the original MM system and connect requirements to evidence
+
+**Read:** [S04: The physical contract is broader than the first embedding](../specs/S04-embedding-and-model-contracts.md#the-physical-contract-is-broader-than-the-first-embedding); [S03: ledger/evidence record rows](../specs/S03-data-and-interface-contracts.md#records-required-fields-and-ownership); [S07: Evidence must identify what was tested](../specs/S07-artifacts-and-qualification.md#evidence-must-identify-what-was-tested).
 
 Capture particle counts, masses, constraints, force classes/names/groups, bonded terms, exceptions, offsets, and box settings before conversion. Use distinctive fixture parameters. Unknown force types fail rather than being silently ignored. Save the original immutable fixture and its identity.
 
 Implement the lightweight evidence-record validation needed for later tests. Each planned behavior has requirement IDs and an independent expected result. The existence of this record does not make its tests pass; it prevents status from drifting away from evidence.
 
-**Finish this part with:** the relevant test results above and a worker log that states `G01-T3` as its scope. Completing this part alone does not complete G01.
-
 ## Checks and the answers they must establish
 
-These are **planned tests**, not executed results. The named checks define the required behavior. A worker runs those relevant to its small task and the affected earlier tests. A full-gate audit must cover every applicable row, including work split across attempts.
+These are **planned tests**, not executed results. Use the rows for the assigned task; full-gate acceptance covers all applicable rows.
 
 | Test ID | Planned pytest node | Required assertion | Requirements |
 |---|---|---|---|
@@ -96,15 +74,13 @@ These are **planned tests**, not executed results. The named checks define the r
 
 ## How to test and decide
 
-Follow [specification -> failing test -> implementation -> regression checks](../guides/spec-and-test-workflow.md). Save the actual failure and pass results. Do not change scientific expectations or tolerances just to make a test pass. Use [S06](../specs/S06-validation-and-tolerances.md) for numerical limits.
+Use [S06](../specs/S06-validation-and-tolerances.md) for applicable tolerances and independent checks.
 
 Full-gate command, once the test code exists:
 
 ```bash
 python -m pytest tests/unit/test_identity.py tests/unit/test_partition.py tests/contracts/test_schema.py tests/contracts/test_architecture_boundaries.py tests/contracts/test_capabilities.py tests/contracts/test_evidence_schema.py tests/unit/test_force_inventory.py -v
 ```
-
-For a small assignment, start with its named test rather than running unrelated expensive work. A missing package or hardware blocks that test setup; it is not a successful result. State what has and has not been checked.
 
 **Stop and diagnose:** Unresolved identity, connectivity, unit semantics, or conflicts in shared inputs and outputs stop implementation at this layer. Do not build neural model logic on top of ambiguous atom ownership.
 
@@ -115,10 +91,17 @@ The shared records already allow one or two ligand groups and forces on every re
 ## Required log and audit handoff
 
 **Folder:** `Worker_Log/Milestone_01/`\
-**Task stem:** `Gate_01`\
-**Worker:** `Gate_01_vN_worker.md`\
-**Matching audit:** `Gate_01_vN_audit.md`
+**Worker:** `Gate_01_vN_worker.md`; **audit:** `Gate_01_vN_audit.md`. Use the next attempt and name the smaller task; see [AGENTS.md](../../../AGENTS.md#logs-and-handoff).
 
-N is the next available attempt number for this gate. The first is v1; a partial attempt or a later task inside the gate also uses the next number. State the smaller task IDs in the log. Follow [the logging rules](../../../Worker_Log/README.md), [worker template](../templates/worker-log.md), and [audit template](../templates/audit-log.md).
 
-A worker submits evidence for its assigned scope. An auditor checks that scope on the recorded snapshot and gives directions for any repair. Whole-gate acceptance requires all applicable tasks, tests, and affected regressions together; a small accepted fix is not a full-gate pass. Update [status](../STATUS.md) and [the index](../plan-index.json) only when supported by that evidence.
+## M01 combined review
+
+**Review scope:** G00, G01. **Earlier milestone reviews:** M00. These are combined-review conditions, not additional implementation prerequisites.
+
+Review the G00 manifest rather than just import screenshots. Software identity includes source commit, package metadata, resolved builds and checkpoint digest. Missing GPU evidence stays missing. M01 may accept the core analytic CPU profile without neural weights; actual model loader/asset prerequisites must be admitted before G05. Confirm the trusted loader policy and allowed model use.
+
+Inspect G01 identity fixtures with duplicate residue numbers, reordered indices, incomplete ligands and forbidden boundaries. Confirm shared records and protocol descriptions import without a model or GPU. Review schema round trips and capability rejection. An actual electrostatic request must not fall back silently to mechanical embedding.
+
+G00 and G01 are accepted for their declared profiles; stable IDs, units, schema and evidence contracts are demonstrable. Any deferred asset/hardware profile is explicitly blocked rather than marked qualified.
+
+One audit may cover the closing gate and this milestone on the same recorded snapshot. Individual task acceptance is insufficient. Report the combined scope in this gate's worker/audit pair, or use `Milestone_01_vN_worker.md` / `_audit.md` in the same folder for a separately assigned milestone review.

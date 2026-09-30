@@ -1,0 +1,38 @@
+{
+  "deleted_acceptance_assertion": {
+    "detected": true,
+    "errors": [
+      "preserve exact assertions/nodes/requirement links in docs/project-0/gates/G01-identity-partition-and-contracts.md"
+    ]
+  },
+  "changed_force_expression": {
+    "detected": true,
+    "errors": [
+      "preserve every scientific expression from specs and merged notes"
+    ]
+  },
+  "changed_environment_pin": {
+    "detected": true,
+    "errors": [
+      "do not change environment dependency values"
+    ]
+  },
+  "modified_historical_log": {
+    "detected": true,
+    "errors": [
+      "preserve historical bytes: Worker_Log/Milestone_00/Documentation_v1_worker.md"
+    ]
+  },
+  "removed_gate_dependency": {
+    "detected": true,
+    "errors": [
+      "preserve direct dependencies for G01"
+    ]
+  },
+  "changed_task_instruction": {
+    "detected": true,
+    "errors": [
+      "preserve task-specific text for G01-T1"
+    ]
+  }
+}

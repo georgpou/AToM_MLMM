@@ -2,15 +2,13 @@
 
 **Design status:** proposed until a recorded M00 review or later approved amendment. **Scientific contract version:** 1; this documentation edit does not claim new numerical support.
 
-[Roadmap](../README.md) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
+[Roadmap](../../../README.md#roadmap) | [Requirements](../REQUIREMENTS.md) | [Status](../STATUS.md)
 
 ## In plain terms
 
 This page sets the limits of the first working platform. It separates correct code, a correct free-energy calculation, and useful chemical accuracy. Those are three different questions.
 
 **When to read it:** Use it when a task changes the allowed chemistry or claims that a result is complete.
-
-The detailed names and equations below are kept precise because they define the behavior the tests must check. Unfamiliar terms are explained in [the glossary](../reference/glossary.md).
 
 ## The question Project 0 answers
 
@@ -44,4 +42,4 @@ The architecture reserves extension boundaries, not unsupported physics defaults
 
 Changing the Hamiltonian, supported chemical states, mass/constraint ensemble, periodic convention, or thermodynamic cycle requires a specification amendment. Changing an internal loop without changing those contracts does not. Promoting a proposed model to qualified support requires evidence for its full profile, not merely successful import.
 
-M00 reviews these boundaries. G01 and G02 implement cheap structural and analytic guards. G07 checks that the real mechanical implementation respects them. G11 and G12 qualify molecular ABFE and RBFE. The original source and revised-plan distribution are recorded in [the coverage map](../reference/coverage-map.md).
+M00 reviews these boundaries. G01 and G02 implement cheap structural and analytic guards. G07 checks that the real mechanical implementation respects them. G11 and G12 qualify molecular ABFE and RBFE. The original source and revised-plan distribution are recorded in [the coverage map](../../../README.md#history).
