@@ -1,6 +1,6 @@
 # Project 0 Conda environment
 
-**Specification:** [ATM_MLMM_environment.yml](ATM_MLMM_environment.yml). **Candidate target:** Linux x86_64, Python 3.11. **Status:** inherited qualification candidates, not a solved platform lock. This cleanup changes documentation and filenames, not package versions; it did not recheck package availability or install the stack. [G00](docs/project-0/gates/G00-environment-and-provenance.md) owns those checks.
+**Specification:** [ATM_MLMM_environment.yml](ATM_MLMM_environment.yml). **Candidate target:** Linux x86_64, Python 3.11. **Status:** qualification candidates, not a solved platform lock. The 30 September 2026 scientific amendment preserves the package versions and corrects the PyTorch source/build choice. The conda-forge listing was checked, but this revision did not solve or install the complete environment. [G00](docs/project-0/gates/G00-environment-and-provenance.md) still owns that evidence.
 
 This environment supports the intended OpenMM physical builder, OpenMM-ML mechanical embedding and links, one local MACE model, native ATM, the AToM workflow and independent PyMBAR analysis. Installation alone does not establish that these components work together. [S01](docs/project-0/specs/S01-scope-and-invariants.md) defines the admitted initial science.
 
@@ -14,7 +14,7 @@ The YAML is the executable package specification. These explanations are not a s
 | OpenMM 8.6.1 | Molecular engine and native ATMForce/PythonForce. The inherited source audit identified this floor for OpenMM-ML 1.8; confirm the actual API/build during G00. |
 | OpenMM-ML tag 1.8 | Mixed-system construction, mechanical embedding, caps and mapping. Record the resolved commit, not only the tag. |
 | AToM-OpenMM tag v8.5.0 | Production workflow and bundled Python UWHAM. Record source commit separately from package-reported version; qualify its composition with the newer OpenMM baseline. |
-| PyTorch 2.8.0 | MACE tensor backend. CPU/GPU builds and actual channels must be checked on the target machine; a version-only pin is not proof of a CPU-only solve. |
+| PyTorch 2.8.0, conda-forge CPU variant | MACE tensor backend. The YAML now constrains the build with `pytorch=2.8.0=cpu*`. Record the resolved build and verify the installed backend; GPU use needs a separate profile. |
 | mace-torch 0.3.16; e3nn 0.4.4 | Initial local-model implementation and its inherited equivariant-library compatibility point. Test the approved asset and adapter, not just imports. |
 | AmberTools 26.0; openmmforcefields 0.16.0 | Biomolecular preparation. Keep these out of the basic records/analytic tests' import path. Explicitly select and record force fields and charges. |
 | configobj 5.0.9; setproctitle | Workflow configuration and process labeling, respectively. |
@@ -27,6 +27,12 @@ Use one approved local MACE-OFF23-small checkpoint initially. Other model stacks
 
 The YAML includes preparation tools for later fixtures. Core analytic CPU work does not require licensed neural weights or a parameterization pipeline. Reuse small deterministic fixtures first. The inherited ff14SB/TIP3P with GAFF2 option is a continuity proposal, not a new mandatory optimization; archive the actual parameter files and charge vectors. Chemical repair belongs in documented preparation, not hidden in the hybrid builder.
 
+## Why the PyTorch channel changed
+
+Official PyTorch Conda publication stopped starting with version 2.6. The upstream announcement directs Conda users to conda-forge as one alternative. Its package listing includes Linux x86_64/Python 3.11 CPU builds of 2.8.0. Therefore the candidate YAML uses conda-forge, excludes default channels with `nodefaults`, and constrains the PyTorch build to `cpu*`. It no longer implies that the discontinued official channel supplies this version. See [U40 and U41](docs/project-0/reference/sources.md#scientific-amendment-source-checks).
+
+A published package is not proof that this complete environment solves or that MACE, OpenMM-ML and AToM work together. G00 must preserve the actual solver result and check that pip has not replaced the intended Torch distribution during installation.
+
 ## Install and record the result
 
 Run from the repository root in a clean environment:
@@ -38,7 +44,7 @@ python -m pip check
 python -m openmm.testInstallation
 ```
 
-If solving fails, save the error. Do not silently change versions or bypass required dependencies and then call the original specification qualified. The two selected Conda channels and the CPU/GPU build choice require actual G00 evidence.
+If solving fails, save the error. Do not silently change versions or bypass required dependencies and then call the original specification qualified. The conda-forge channel and CPU build choice require actual G00 evidence. Do not repair a solve by silently reintroducing the discontinued PyTorch channel or an unrecorded wheel.
 
 Inspect installed identities:
 
@@ -57,12 +63,20 @@ for name in ('openmm', 'torch', 'e3nn', 'mace-torch', 'openmmml',
             print(origin)
     except metadata.PackageNotFoundError:
         print(name, 'NOT INSTALLED AS A DISTRIBUTION')
+
+import torch
+print('Torch CUDA runtime:', torch.version.cuda)
+print('Torch HIP runtime:', getattr(torch.version, 'hip', None))
+assert torch.version.cuda is None, 'Expected the candidate CPU Torch build'
+assert getattr(torch.version, 'hip', None) is None, 'Expected no HIP runtime'
+print('Explicit test tensor device:', torch.ones(1, device='cpu').device)
 PYCODE
 ```
 
 Preserve output and resolved builds in the actual G00 evidence folder:
 
 ```bash
+conda list --json > conda-packages.json
 conda list --explicit > conda-explicit.txt
 conda env export > environment-resolved.yml
 python -m pip freeze > pip-freeze.txt
@@ -96,6 +110,6 @@ Run the admitted deterministic checks, then native-MACE versus OpenMM-ML compari
 
 ## What installation does not prove
 
-G00 establishes a named environment/asset profile. G02-G03 qualify force composition and routing; G04-G07 add caps, real models and periodicity; G08 checks thermodynamic meaning; G09-G10 check preparation/reload/exchange; G11-G12 demonstrate molecular ABFE/RBFE; G13 admits only supported release claims. These remain planned tests, not results of this cleanup.
+G00 establishes a named environment/asset profile. G02-G03 qualify force composition, the actual fixed maps and routing; G04-G07 add caps, real models, periodicity and small-system chemical references; G08 checks thermodynamic meaning; G09-G10 check preparation/reload/exchange; G11-G12 demonstrate molecular ABFE/RBFE; G13 admits only supported release claims. These remain planned tests, not results of this amendment. Quantum-reference data for G05/G07 may be generated in a separately approved environment and archived with its calculation settings; no quantum-chemistry package is silently added to this runtime recipe.
 
-Upstream references are inherited in [the source register](docs/project-0/reference/sources.md), especially U04, U13, U19, U21-U27 and U39. The preserved [pre-cleanup snapshot](Worker_Log/Milestone_00/evidence/Documentation_v2/snapshot_before_cleanup.zip) contains both previous environment guides and their original external-source lists. None was freshly verified here.
+Upstream references and the specifically rechecked pages are distinguished in [the source register](docs/project-0/reference/sources.md), especially U04, U12-U13, U19, U21-U27 and U39-U41. The preserved [pre-cleanup snapshot](Worker_Log/Milestone_00/evidence/Documentation_v2/snapshot_before_cleanup.zip) contains both previous environment guides. Unfetched exact-tag files remain G00 source-inspection work; moving online documentation is not proof of the installed API.

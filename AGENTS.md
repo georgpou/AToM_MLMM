@@ -2,7 +2,7 @@
 
 ## Scope and reading
 
-Build the smallest correct cavity-inclusive ML/MM platform for ATM ABFE and RBFE. Project 0 establishes numerical and thermodynamic correctness; Project 1 tests physical usefulness. Do not turn one assignment into the whole project.
+Build the smallest correct cavity-inclusive ML/MM platform for ATM ABFE and RBFE. Project 0 establishes numerical and thermodynamic correctness plus limited, reference-based chemical adequacy on small systems; Project 1 tests broader physical usefulness. Do not turn one assignment into the whole project.
 
 Read this file, the assigned task and its task-specific reading links, relevant [status](docs/project-0/STATUS.md), and prior findings. Inspect the actual checkout and preserve other work. Use the [roadmap](README.md#roadmap) only to locate an assignment. A milestone-only assignment means its first unblocked unfinished task unless the user explicitly requests its combined review. Record that choice. Historical plans and unrelated logs are optional, not default reading.
 
@@ -18,7 +18,7 @@ Count physical forces once and activate them in preparation and production. Pres
 
 ## Work and changes
 
-Read the expected assertion, write a focused failing test, verify its intended failure, implement the smallest change, and rerun affected checks. Missing dependencies are not proof that a regression test detects its intended defect. Scientific definitions and tolerances cannot be relaxed to obtain a pass.
+Read the expected assertion, write a focused failing test, verify its intended failure, implement the smallest change, and rerun affected checks. Missing dependencies are not proof that a regression test detects its intended defect. Scientific definitions and tolerances cannot be relaxed to obtain a pass. For real-model acceptance, complete the G05/G07 chemical-reference checks with predeclared limits; native/adapter agreement or a finite trajectory cannot replace them. A missing reference calculation can leave an implementation task complete but the relevant physical profile unqualified.
 
 Changing units, energy/force meaning, caps, constraints, masses, periodic rules, signs, corrections or shared fields needs a recorded specification amendment: rationale, affected requirements/tests and prior evidence, migration/rejection policy, reviewer decision. Keep proposed decisions proposed until reviewed. Internal cleanup needs no extra design document. Do not reopen approved decisions without a relevant change.
 

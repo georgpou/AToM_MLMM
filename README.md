@@ -1,6 +1,6 @@
 # AToM ML/MM
 
-Project 0 builds a reusable ML/MM energy model containing complete ligands, selected protein atoms and hydrogen link atoms, then evaluates it through ATM for ABFE and RBFE. The first implementation uses mechanical embedding and uncomplicated neutral chemistry. Project 1 tests physical accuracy after numerical and thermodynamic correctness is established.
+Project 0 builds a reusable ML/MM energy model containing complete ligands, selected protein atoms and hydrogen link atoms, then evaluates it through ATM for ABFE and RBFE. The first implementation uses mechanical embedding and uncomplicated neutral chemistry. Project 0 also requires a small chemical-reference and boundary-sensitivity check before protein demonstrations. Project 1 then tests predictive accuracy more broadly; correct code and a well-converged free energy are not, by themselves, proof of accurate chemistry.
 
 **Current state:** planning and documentation only in this supplied snapshot. No numerical gate or M00 design review is accepted. [Status and qualification](docs/project-0/STATUS.md) records actual evidence; files named under future `src/` and `tests/` paths are not implemented merely because the plan names them.
 
@@ -47,7 +47,7 @@ These direct dependencies govern implementation; milestone combined reviews do n
 | [G12](docs/project-0/gates/G12-dual-ligand-rbfe.md) | [G11](docs/project-0/gates/G11-protein-abfe.md) |
 | [G13](docs/project-0/gates/G13-performance-and-release.md) | [G11](docs/project-0/gates/G11-protein-abfe.md), [G12](docs/project-0/gates/G12-dual-ligand-rbfe.md) |
 
-M03 physical work and M04 analysis may advance separately after their actual prerequisites pass; both are required for M05's combined review.
+M03 physical work and M04 analysis may advance separately after their actual prerequisites pass; both are required for M05's combined review. G05-T4 and G07-T4 provide the small physical-reference checks. G07-T2 adds early real-model, two-ligand single-point checks without waiting for protein ABFE. Keeping the final G12 demonstration after G11 is the chosen work order, not a scientific prerequisite for those earlier two-ligand checks.
 
 ## Reference map
 

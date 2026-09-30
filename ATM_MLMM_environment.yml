@@ -12,8 +12,8 @@ name: atm-mlmm-p0
 # build set and record the model/checkpoint hash as described in ATM_MLMM_Environment.md.
 
 channels:
-  - pytorch
   - conda-forge
+  - nodefaults
 
 # The first qualification target is Python 3.11 on Linux x86_64.
 # This environment file intentionally does not use a nonstandard `platforms`
@@ -55,10 +55,11 @@ dependencies:
   - pytest
   - pytest-cov
 
-  # PyTorch is installed from the PyTorch Conda channel. The CPU build is the
-  # portable qualification baseline. GPU installations are described in
-  # ATM_MLMM_Environment.md rather than hard-coding a CUDA build into the portable file.
-  - pytorch=2.8.0
+  # Official PyTorch-channel Conda releases stopped before 2.8. Use the
+  # conda-forge CPU variant explicitly; this is still a candidate, not a lock.
+  # nodefaults above excludes inherited default channels. G00 records and checks
+  # the solved channel/build and actual torch backend. GPU profiles are separate.
+  - pytorch=2.8.0=cpu*
 
   - pip:
       # MACE reference implementation. Keep the version fixed.
