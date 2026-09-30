@@ -61,6 +61,8 @@ def _complete_manifest():
     from atm_mlmm.persistence import REQUIRED_VERSIONS, SOURCE_TAGS, REQUIRED_CHECKS
     packages = [{"name": name, "version": version, "origin": None}
                 for name, version in REQUIRED_VERSIONS.items()]
+    packages.extend([{"name": "numpy", "version": "1.26.4", "origin": None},
+                     {"name": "biopython", "version": "1.85", "origin": None}])
     for package in packages:
         if package["name"] in SOURCE_TAGS:
             url = "https://github.com/openmm/openmm-ml.git" if package["name"] == "openmmml" else "https://github.com/Gallicchio-Lab/AToM-OpenMM.git"
@@ -341,3 +343,14 @@ def test_archive_does_not_treat_neighboring_pip_metadata_as_conda_owned(tmp_path
     archive.main()
     assert (output / "pip-source-lock.txt").read_text().strip() == "ase==3.29.0"
     assert "ase-3.29.0" in (output / "pip-wheels.lock").read_text()
+
+
+@pytest.mark.parametrize("name,version", [
+    ("numpy", "2.4.6"), ("numpy", "1.25.2"),
+    ("biopython", "1.86"), ("biopython", "1.82")])
+def test_manifest_rejects_dependency_ranges_inconsistent_with_amendment(name, version):
+    from atm_mlmm.persistence import validate_environment_manifest
+    report = _complete_manifest()
+    next(p for p in report["packages"] if p["name"] == name)["version"] = version
+    with pytest.raises(ValueError, match="dependency range"):
+        validate_environment_manifest(report)
