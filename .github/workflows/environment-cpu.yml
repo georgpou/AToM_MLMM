@@ -7,6 +7,7 @@ on:
       - '.github/workflows/environment-cpu.yml'
       - 'ATM_MLMM_environment.yml'
       - 'environment/**'
+      - '!environment/**/*.md'
       - 'src/**'
       - 'tests/**'
       - 'tools/archive_pip.py'
