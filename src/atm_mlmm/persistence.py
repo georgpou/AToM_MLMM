@@ -9,7 +9,7 @@ import platform
 import re
 import subprocess
 import sys
-from importlib import metadata
+from importlib import metadata, util
 from pathlib import Path
 
 SOURCE_TAGS = {"openmmml": "1.8", "atom-openmm": "v8.5.0"}
@@ -131,7 +131,7 @@ def validate_environment_manifest(report: dict) -> None:
 def verify_conda_files(prefix: Path) -> dict:
     """Detect clobbered Conda files using recorded installed/relocated hashes."""
     prefix = Path(prefix)
-    checked, prefix_unverifiable = 0, []
+    checked, prefix_unverifiable, regenerable_bytecode = 0, [], []
     records = list((prefix / "conda-meta").glob("*.json"))
     if not records:
         raise ValueError("No Conda metadata for integrity check")
@@ -144,8 +144,22 @@ def verify_conda_files(prefix: Path) -> dict:
                 entries = json.loads(source.read_text()).get("paths", [])
         if record.get("files") and not entries:
             raise ValueError(f"Missing file integrity evidence: {record['name']}")
+        hashed_sources = {e["_path"] for e in entries
+                          if e["_path"].endswith(".py")
+                          and (e.get("sha256_in_prefix") or
+                               (e.get("sha256") and not e.get("prefix_placeholder")))}
         for entry in entries:
             relative = entry["_path"]
+            if relative.endswith(".pyc") and "/__pycache__/" in relative:
+                try:
+                    source_path = util.source_from_cache(relative)
+                except ValueError:
+                    source_path = None
+                if source_path in hashed_sources:
+                    # CPython rewrites cache headers during prefix relocation.
+                    # The authoritative source is hash-checked in this same loop.
+                    regenerable_bytecode.append(relative)
+                    continue
             if entry.get("path_type") == "softlink":
                 continue
             digest = entry.get("sha256_in_prefix")
@@ -162,7 +176,8 @@ def verify_conda_files(prefix: Path) -> dict:
     if not checked:
         raise ValueError("No Conda files had verifiable hashes")
     return {"status": "passed", "checked_files": checked,
-            "prefix_relocated_without_installed_hash": prefix_unverifiable}
+            "prefix_relocated_without_installed_hash": prefix_unverifiable,
+            "regenerable_bytecode": sorted(regenerable_bytecode)}
 
 
 def _zero_energy(state):

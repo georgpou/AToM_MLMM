@@ -1,0 +1,314 @@
+﻿2026-09-30T18:47:34.2627268Z Current runner version: '2.337.0'
+2026-09-30T18:47:34.2652692Z ##[group]Runner Image Provisioner
+2026-09-30T18:47:34.2653617Z Hosted Compute Agent
+2026-09-30T18:47:34.2654364Z Version: 20260828.587
+2026-09-30T18:47:34.2655013Z Commit: abac92662cab4cc7352de4f9f9d2e2419aad9c29
+2026-09-30T18:47:34.2655780Z Build Date: 2026-08-28T16:44:25Z
+2026-09-30T18:47:34.2656475Z Worker ID: {7487e0d3-893b-436b-a953-93d218d61821}
+2026-09-30T18:47:34.2657186Z Azure Region: westus2
+2026-09-30T18:47:34.2657849Z ##[endgroup]
+2026-09-30T18:47:34.2659546Z ##[group]Operating System
+2026-09-30T18:47:34.2660298Z Ubuntu
+2026-09-30T18:47:34.2660838Z 24.04.5
+2026-09-30T18:47:34.2661360Z LTS
+2026-09-30T18:47:34.2662424Z ##[endgroup]
+2026-09-30T18:47:34.2663040Z ##[group]Runner Image
+2026-09-30T18:47:34.2663633Z Image: ubuntu-24.04
+2026-09-30T18:47:34.2664297Z Version: 20260920.314.1
+2026-09-30T18:47:34.2665577Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260920.314/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-30T18:47:34.2667226Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260920.314
+2026-09-30T18:47:34.2668195Z ##[endgroup]
+2026-09-30T18:47:34.2669388Z ##[group]GITHUB_TOKEN Permissions
+2026-09-30T18:47:34.2671547Z Contents: read
+2026-09-30T18:47:34.2672665Z Metadata: read
+2026-09-30T18:47:34.2673633Z ##[endgroup]
+2026-09-30T18:47:34.2675899Z Secret source: Actions
+2026-09-30T18:47:34.2677037Z Cache mode: write
+2026-09-30T18:47:34.2677754Z Prepare workflow directory
+2026-09-30T18:47:34.3018453Z Prepare all required actions
+2026-09-30T18:47:34.3068316Z Getting action download info
+2026-09-30T18:47:34.6872852Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-30T18:47:34.7856857Z Download action repository 'actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065' (SHA:a26af69be951a213d495a4c3e4e4022e16d87065)
+2026-09-30T18:47:34.9668929Z Complete job name: documentation-and-unit
+2026-09-30T18:47:35.0472150Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-09-30T18:47:35.0473271Z with:
+2026-09-30T18:47:35.0473718Z   persist-credentials: false
+2026-09-30T18:47:35.0474258Z   repository: georgpou/AToM_MLMM
+2026-09-30T18:47:35.0478347Z   token: ***
+2026-09-30T18:47:35.0478785Z   ssh-strict: true
+2026-09-30T18:47:35.0479218Z   ssh-user: git
+2026-09-30T18:47:35.0479643Z   clean: true
+2026-09-30T18:47:35.0480090Z   sparse-checkout-cone-mode: true
+2026-09-30T18:47:35.0480619Z   fetch-depth: 1
+2026-09-30T18:47:35.0481052Z   fetch-tags: false
+2026-09-30T18:47:35.0481500Z   show-progress: true
+2026-09-30T18:47:35.0482400Z   lfs: false
+2026-09-30T18:47:35.0482831Z   submodules: false
+2026-09-30T18:47:35.0483282Z   set-safe-directory: true
+2026-09-30T18:47:35.0483811Z   allow-unsafe-pr-checkout: false
+2026-09-30T18:47:35.0484673Z ##[endgroup]
+2026-09-30T18:47:35.1472391Z Syncing repository: georgpou/AToM_MLMM
+2026-09-30T18:47:35.1474375Z ##[group]Getting Git version info
+2026-09-30T18:47:35.1475544Z Working directory is '/home/runner/work/AToM_MLMM/AToM_MLMM'
+2026-09-30T18:47:35.1477129Z [command]/usr/bin/git version
+2026-09-30T18:47:35.1561679Z git version 2.55.0
+2026-09-30T18:47:35.1593657Z ##[endgroup]
+2026-09-30T18:47:35.1607015Z Temporarily overriding HOME='/home/runner/work/_temp/8c5c92e4-5227-4882-8efd-87996b0cbd93' before making global git config changes
+2026-09-30T18:47:35.1609223Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-30T18:47:35.1614489Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AToM_MLMM/AToM_MLMM
+2026-09-30T18:47:35.1672129Z Deleting the contents of '/home/runner/work/AToM_MLMM/AToM_MLMM'
+2026-09-30T18:47:35.1686371Z ##[group]Initializing the repository
+2026-09-30T18:47:35.1687502Z [command]/usr/bin/git init /home/runner/work/AToM_MLMM/AToM_MLMM
+2026-09-30T18:47:35.1808850Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-30T18:47:35.1810635Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-30T18:47:35.1812368Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-30T18:47:35.1813760Z hint: call:
+2026-09-30T18:47:35.1814512Z hint:
+2026-09-30T18:47:35.1815471Z hint: 	git config --global init.defaultBranch <name>
+2026-09-30T18:47:35.1816637Z hint:
+2026-09-30T18:47:35.1817710Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-30T18:47:35.1819449Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-30T18:47:35.1820842Z hint:
+2026-09-30T18:47:35.1821572Z hint: 	git branch -m <name>
+2026-09-30T18:47:35.1822721Z hint:
+2026-09-30T18:47:35.1823832Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-30T18:47:35.1825717Z Initialized empty Git repository in /home/runner/work/AToM_MLMM/AToM_MLMM/.git/
+2026-09-30T18:47:35.1830325Z [command]/usr/bin/git remote add origin https://github.com/georgpou/AToM_MLMM
+2026-09-30T18:47:35.1879825Z ##[endgroup]
+2026-09-30T18:47:35.1880703Z ##[group]Disabling automatic garbage collection
+2026-09-30T18:47:35.1884345Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-30T18:47:35.1916136Z ##[endgroup]
+2026-09-30T18:47:35.1916999Z ##[group]Setting up auth
+2026-09-30T18:47:35.1923642Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-30T18:47:35.1957127Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-30T18:47:35.2399998Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-30T18:47:35.2437455Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-30T18:47:35.2664595Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-30T18:47:35.2700400Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-30T18:47:35.2924478Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-30T18:47:35.2964342Z ##[endgroup]
+2026-09-30T18:47:35.2965225Z ##[group]Fetching the repository
+2026-09-30T18:47:35.2973936Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +47779a8468dee340c43aa1713f1739027b9b3a9e:refs/remotes/origin/M00
+2026-09-30T18:47:35.7415493Z From https://github.com/georgpou/AToM_MLMM
+2026-09-30T18:47:35.7416511Z  * [new ref]         47779a8468dee340c43aa1713f1739027b9b3a9e -> origin/M00
+2026-09-30T18:47:35.7419853Z ##[endgroup]
+2026-09-30T18:47:35.7420685Z ##[group]Determining the checkout info
+2026-09-30T18:47:35.7422936Z ##[endgroup]
+2026-09-30T18:47:35.7428976Z [command]/usr/bin/git sparse-checkout disable
+2026-09-30T18:47:35.7483223Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-30T18:47:35.7517145Z ##[group]Checking out the ref
+2026-09-30T18:47:35.7521207Z [command]/usr/bin/git checkout --progress --force -B M00 refs/remotes/origin/M00
+2026-09-30T18:47:35.7663196Z Switched to a new branch 'M00'
+2026-09-30T18:47:35.7669725Z branch 'M00' set up to track 'origin/M00'.
+2026-09-30T18:47:35.7674840Z ##[endgroup]
+2026-09-30T18:47:35.7719060Z [command]/usr/bin/git log -1 --format=%H
+2026-09-30T18:47:35.7745791Z 47779a8468dee340c43aa1713f1739027b9b3a9e
+2026-09-30T18:47:35.7755215Z ##[group]Removing auth
+2026-09-30T18:47:35.7758853Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-30T18:47:35.7791116Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-30T18:47:35.8011555Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-30T18:47:35.8039932Z http.https://github.com/.extraheader
+2026-09-30T18:47:35.8047805Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-30T18:47:35.8082602Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-30T18:47:35.8303063Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-30T18:47:35.8335045Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-30T18:47:35.8553846Z ##[endgroup]
+2026-09-30T18:47:35.8815086Z ##[group]Run actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065
+2026-09-30T18:47:35.8815896Z with:
+2026-09-30T18:47:35.8816311Z   python-version: 3.11
+2026-09-30T18:47:35.8816774Z   check-latest: false
+2026-09-30T18:47:35.8820680Z   token: ***
+2026-09-30T18:47:35.8821114Z   update-environment: true
+2026-09-30T18:47:35.8821619Z   allow-prereleases: false
+2026-09-30T18:47:35.8822353Z   freethreaded: false
+2026-09-30T18:47:35.8822804Z ##[endgroup]
+2026-09-30T18:47:36.0175797Z ##[group]Installed versions
+2026-09-30T18:47:36.0276072Z (node:2321) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T18:47:36.0278119Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T18:47:36.0279379Z Successfully set up CPython (3.11.16)
+2026-09-30T18:47:36.0280649Z ##[endgroup]
+2026-09-30T18:47:36.0542648Z ##[group]Run python -m pip install -e '.[test]'
+2026-09-30T18:47:36.0543872Z [36;1mpython -m pip install -e '.[test]'[0m
+2026-09-30T18:47:36.0883841Z shell: /usr/bin/bash -e {0}
+2026-09-30T18:47:36.0884514Z env:
+2026-09-30T18:47:36.0885180Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-30T18:47:36.0886236Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-09-30T18:47:36.0887257Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-30T18:47:36.0888172Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-30T18:47:36.0889101Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-30T18:47:36.0890035Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-09-30T18:47:36.0890839Z ##[endgroup]
+2026-09-30T18:47:39.0774730Z Obtaining file:///home/runner/work/AToM_MLMM/AToM_MLMM
+2026-09-30T18:47:39.0789380Z   Installing build dependencies: started
+2026-09-30T18:47:40.0350902Z   Installing build dependencies: finished with status 'done'
+2026-09-30T18:47:40.0358413Z   Checking if build backend supports build_editable: started
+2026-09-30T18:47:40.3966937Z   Checking if build backend supports build_editable: finished with status 'done'
+2026-09-30T18:47:40.3975385Z   Getting requirements to build editable: started
+2026-09-30T18:47:40.7340294Z   Getting requirements to build editable: finished with status 'done'
+2026-09-30T18:47:40.7349540Z   Preparing editable metadata (pyproject.toml): started
+2026-09-30T18:47:40.9051145Z   Preparing editable metadata (pyproject.toml): finished with status 'done'
+2026-09-30T18:47:40.9986873Z Collecting pytest<10,>=8 (from atm-mlmm==0.0.1)
+2026-09-30T18:47:41.0548580Z   Downloading pytest-9.1.1-py3-none-any.whl.metadata (7.6 kB)
+2026-09-30T18:47:41.0712026Z Collecting iniconfig>=1.0.1 (from pytest<10,>=8->atm-mlmm==0.0.1)
+2026-09-30T18:47:41.0781868Z   Downloading iniconfig-2.3.0-py3-none-any.whl.metadata (2.5 kB)
+2026-09-30T18:47:41.0884791Z Collecting packaging>=22 (from pytest<10,>=8->atm-mlmm==0.0.1)
+2026-09-30T18:47:41.0901660Z   Using cached packaging-26.3-py3-none-any.whl.metadata (3.5 kB)
+2026-09-30T18:47:41.1036312Z Collecting pluggy<2,>=1.5 (from pytest<10,>=8->atm-mlmm==0.0.1)
+2026-09-30T18:47:41.1107024Z   Downloading pluggy-1.6.0-py3-none-any.whl.metadata (4.8 kB)
+2026-09-30T18:47:41.1344857Z Collecting pygments>=2.7.2 (from pytest<10,>=8->atm-mlmm==0.0.1)
+2026-09-30T18:47:41.1416180Z   Downloading pygments-2.21.0-py3-none-any.whl.metadata (2.5 kB)
+2026-09-30T18:47:41.1537955Z Downloading pytest-9.1.1-py3-none-any.whl (386 kB)
+2026-09-30T18:47:41.1947024Z Downloading pluggy-1.6.0-py3-none-any.whl (20 kB)
+2026-09-30T18:47:41.2036046Z Downloading iniconfig-2.3.0-py3-none-any.whl (7.5 kB)
+2026-09-30T18:47:41.2067955Z Using cached packaging-26.3-py3-none-any.whl (129 kB)
+2026-09-30T18:47:41.2137026Z Downloading pygments-2.21.0-py3-none-any.whl (1.3 MB)
+2026-09-30T18:47:41.2725433Z    ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ 1.3/1.3 MB 23.2 MB/s  0:00:00
+2026-09-30T18:47:41.2967524Z Building wheels for collected packages: atm-mlmm
+2026-09-30T18:47:41.2974674Z   Building editable for atm-mlmm (pyproject.toml): started
+2026-09-30T18:47:41.4808350Z   Building editable for atm-mlmm (pyproject.toml): finished with status 'done'
+2026-09-30T18:47:41.4815508Z   Created wheel for atm-mlmm: filename=atm_mlmm-0.0.1-0.editable-py3-none-any.whl size=4817 sha256=f545137eb9b89192016d157df85c2810d2540b4679449a5eee545d7de4474b5e
+2026-09-30T18:47:41.4817803Z   Stored in directory: /tmp/pip-ephem-wheel-cache-jn7l3njd/wheels/84/47/86/58bc9bdea689a39dfe5adb952a73c47fdf0c6d63eb91ac84ce
+2026-09-30T18:47:41.4839011Z Successfully built atm-mlmm
+2026-09-30T18:47:41.5090073Z Installing collected packages: pygments, pluggy, packaging, iniconfig, atm-mlmm, pytest
+2026-09-30T18:47:42.4846137Z 
+2026-09-30T18:47:42.4857110Z Successfully installed atm-mlmm-0.0.1 iniconfig-2.3.0 packaging-26.3 pluggy-1.6.0 pygments-2.21.0 pytest-9.1.1
+2026-09-30T18:47:42.5510621Z ##[group]Run python tools/check_docs.py --self-test
+2026-09-30T18:47:42.5511066Z [36;1mpython tools/check_docs.py --self-test[0m
+2026-09-30T18:47:42.5575962Z shell: /usr/bin/bash -e {0}
+2026-09-30T18:47:42.5576220Z env:
+2026-09-30T18:47:42.5576490Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-30T18:47:42.5576963Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-09-30T18:47:42.5577405Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-30T18:47:42.5577790Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-30T18:47:42.5578179Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-30T18:47:42.5578590Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-09-30T18:47:42.5578927Z ##[endgroup]
+2026-09-30T18:47:42.6966482Z {
+2026-09-30T18:47:42.6966918Z   "errors": [],
+2026-09-30T18:47:42.6967248Z   "counts": {
+2026-09-30T18:47:42.6967594Z     "markdown_files": 44,
+2026-09-30T18:47:42.6968069Z     "local_links": 461,
+2026-09-30T18:47:42.6968462Z     "external_links_not_fetched": 152
+2026-09-30T18:47:42.6968879Z   },
+2026-09-30T18:47:42.6969427Z   "scope": "local documentation only; no external-link or scientific qualification",
+2026-09-30T18:47:42.6970083Z   "self_tests": {
+2026-09-30T18:47:42.6970467Z     "valid_links_and_duplicate_heading": true,
+2026-09-30T18:47:42.6970929Z     "broken_file_detected": true,
+2026-09-30T18:47:42.6971341Z     "broken_anchor_detected": true,
+2026-09-30T18:47:42.6972022Z     "undefined_reference_detected": true,
+2026-09-30T18:47:42.6972497Z     "escape_detected": true,
+2026-09-30T18:47:42.6972902Z     "unclosed_fence_detected": true,
+2026-09-30T18:47:42.6973386Z     "code_examples_are_not_live_links": true,
+2026-09-30T18:47:42.6973930Z     "implementation_audits_and_progress_are_allowed": true
+2026-09-30T18:47:42.6974412Z   }
+2026-09-30T18:47:42.6974706Z }
+2026-09-30T18:47:42.7056230Z ##[group]Run python -m pytest -m 'not environment' -v
+2026-09-30T18:47:42.7056676Z [36;1mpython -m pytest -m 'not environment' -v[0m
+2026-09-30T18:47:42.7121204Z shell: /usr/bin/bash -e {0}
+2026-09-30T18:47:42.7121470Z env:
+2026-09-30T18:47:42.7122072Z   pythonLocation: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-30T18:47:42.7122570Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib/pkgconfig
+2026-09-30T18:47:42.7123226Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-30T18:47:42.7123643Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-30T18:47:42.7124053Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.11.16/x64
+2026-09-30T18:47:42.7124469Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.11.16/x64/lib
+2026-09-30T18:47:42.7124823Z ##[endgroup]
+2026-09-30T18:47:43.1765303Z ============================= test session starts ==============================
+2026-09-30T18:47:43.1766343Z platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /opt/hostedtoolcache/Python/3.11.16/x64/bin/python
+2026-09-30T18:47:43.1767089Z cachedir: .pytest_cache
+2026-09-30T18:47:43.1767519Z rootdir: /home/runner/work/AToM_MLMM/AToM_MLMM
+2026-09-30T18:47:43.1767953Z configfile: pyproject.toml
+2026-09-30T18:47:43.1768284Z testpaths: tests
+2026-09-30T18:47:43.2089485Z collecting ... collected 26 items / 3 deselected / 23 selected
+2026-09-30T18:47:43.2090339Z 
+2026-09-30T18:47:43.2459458Z tests/unit/test_provenance.py::test_capture_records_exact_repository_and_candidate_identity PASSED [  4%]
+2026-09-30T18:47:43.2659241Z tests/unit/test_provenance.py::test_failed_checks_cannot_report_installed PASSED [  8%]
+2026-09-30T18:47:43.2669514Z tests/unit/test_provenance.py::test_manifest_rejects_missing_source_and_build_evidence PASSED [ 13%]
+2026-09-30T18:47:43.2681499Z tests/unit/test_provenance.py::test_missing_candidate_is_an_error PASSED [ 17%]
+2026-09-30T18:47:43.2799752Z tests/unit/test_provenance.py::test_package_import_does_not_initialize_backends PASSED [ 21%]
+2026-09-30T18:47:43.2809875Z tests/unit/test_provenance.py::test_manifest_requires_runtime_and_input_identity[python] PASSED [ 26%]
+2026-09-30T18:47:43.2818767Z tests/unit/test_provenance.py::test_manifest_requires_runtime_and_input_identity[platform] PASSED [ 30%]
+2026-09-30T18:47:43.2828418Z tests/unit/test_provenance.py::test_manifest_requires_runtime_and_input_identity[repository] PASSED [ 34%]
+2026-09-30T18:47:43.2837622Z tests/unit/test_provenance.py::test_manifest_requires_runtime_and_input_identity[candidate_sha256] PASSED [ 39%]
+2026-09-30T18:47:43.2845945Z tests/unit/test_provenance.py::test_manifest_rejects_wrong_installed_source_wheel_hash PASSED [ 43%]
+2026-09-30T18:47:43.2853582Z tests/unit/test_provenance.py::test_complete_manifest_is_accepted_for_installation_only PASSED [ 47%]
+2026-09-30T18:47:43.2862133Z tests/unit/test_provenance.py::test_manifest_rejects_unverifiable_provenance[conda_digest] PASSED [ 52%]
+2026-09-30T18:47:43.2870270Z tests/unit/test_provenance.py::test_manifest_rejects_unverifiable_provenance[candidate_digest] PASSED [ 56%]
+2026-09-30T18:47:43.2881243Z tests/unit/test_provenance.py::test_manifest_rejects_unverifiable_provenance[source_url] PASSED [ 60%]
+2026-09-30T18:47:43.2890457Z tests/unit/test_provenance.py::test_manifest_rejects_unverifiable_provenance[source_tag] PASSED [ 65%]
+2026-09-30T18:47:43.2898572Z tests/unit/test_provenance.py::test_manifest_rejects_unverifiable_provenance[artifacts] PASSED [ 69%]
+2026-09-30T18:47:43.2918633Z tests/unit/test_provenance.py::test_conda_integrity_rejects_overwritten_file PASSED [ 73%]
+2026-09-30T18:47:43.2932437Z tests/unit/test_provenance.py::test_conda_integrity_uses_relocated_hash PASSED [ 78%]
+2026-09-30T18:47:43.2988784Z tests/unit/test_provenance.py::test_bootstrap_refuses_existing_evidence_before_solver PASSED [ 82%]
+2026-09-30T18:47:43.3044811Z tests/unit/test_provenance.py::test_qualification_refuses_stale_checks PASSED [ 86%]
+2026-09-30T18:47:43.3298146Z tests/unit/test_provenance.py::test_conda_integrity_records_regenerated_source_backed_cache FAILED [ 91%]
+2026-09-30T18:47:43.3315646Z tests/unit/test_provenance.py::test_conda_integrity_still_rejects_changed_bytecode_source PASSED [ 95%]
+2026-09-30T18:47:43.3460388Z tests/unit/test_provenance.py::test_conda_integrity_does_not_exempt_sourceless_bytecode PASSED [100%]
+2026-09-30T18:47:43.3461233Z 
+2026-09-30T18:47:43.3461431Z =================================== FAILURES ===================================
+2026-09-30T18:47:43.3462500Z _________ test_conda_integrity_records_regenerated_source_backed_cache _________
+2026-09-30T18:47:43.3462920Z 
+2026-09-30T18:47:43.3463253Z tmp_path = PosixPath('/tmp/pytest-of-runner/pytest-0/test_conda_integrity_records_r0')
+2026-09-30T18:47:43.3463717Z 
+2026-09-30T18:47:43.3464010Z     def test_conda_integrity_records_regenerated_source_backed_cache(tmp_path):
+2026-09-30T18:47:43.3464619Z         from atm_mlmm.persistence import verify_conda_files
+2026-09-30T18:47:43.3465068Z         _, cache = _bytecode_fixture(tmp_path)
+2026-09-30T18:47:43.3465479Z >       report = verify_conda_files(tmp_path)
+2026-09-30T18:47:43.3465845Z                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+2026-09-30T18:47:43.3466081Z 
+2026-09-30T18:47:43.3466222Z tests/unit/test_provenance.py:190: 
+2026-09-30T18:47:43.3466637Z _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+2026-09-30T18:47:43.3466962Z 
+2026-09-30T18:47:43.3467290Z prefix = PosixPath('/tmp/pytest-of-runner/pytest-0/test_conda_integrity_records_r0')
+2026-09-30T18:47:43.3467744Z 
+2026-09-30T18:47:43.3467908Z     def verify_conda_files(prefix: Path) -> dict:
+2026-09-30T18:47:43.3468467Z         """Detect clobbered Conda files using recorded installed/relocated hashes."""
+2026-09-30T18:47:43.3468967Z         prefix = Path(prefix)
+2026-09-30T18:47:43.3469310Z         checked, prefix_unverifiable = 0, []
+2026-09-30T18:47:43.3469725Z         records = list((prefix / "conda-meta").glob("*.json"))
+2026-09-30T18:47:43.3470111Z         if not records:
+2026-09-30T18:47:43.3470472Z             raise ValueError("No Conda metadata for integrity check")
+2026-09-30T18:47:43.3470898Z         for path in records:
+2026-09-30T18:47:43.3471210Z             record = json.loads(path.read_text())
+2026-09-30T18:47:43.3471635Z             entries = record.get("paths_data", {}).get("paths", [])
+2026-09-30T18:47:43.3472201Z             if not entries:
+2026-09-30T18:47:43.3472628Z                 source = Path(record.get("link", {}).get("source", "")) / "info/paths.json"
+2026-09-30T18:47:43.3473123Z                 if source.is_file():
+2026-09-30T18:47:43.3473536Z                     entries = json.loads(source.read_text()).get("paths", [])
+2026-09-30T18:47:43.3474001Z             if record.get("files") and not entries:
+2026-09-30T18:47:43.3474490Z                 raise ValueError(f"Missing file integrity evidence: {record['name']}")
+2026-09-30T18:47:43.3474975Z             for entry in entries:
+2026-09-30T18:47:43.3475289Z                 relative = entry["_path"]
+2026-09-30T18:47:43.3475655Z                 if entry.get("path_type") == "softlink":
+2026-09-30T18:47:43.3476004Z                     continue
+2026-09-30T18:47:43.3476310Z                 digest = entry.get("sha256_in_prefix")
+2026-09-30T18:47:43.3476764Z                 if not digest and entry.get("prefix_placeholder"):
+2026-09-30T18:47:43.3477203Z                     prefix_unverifiable.append(relative)
+2026-09-30T18:47:43.3477564Z                     continue
+2026-09-30T18:47:43.3477886Z                 digest = digest or entry.get("sha256")
+2026-09-30T18:47:43.3478264Z                 if not digest:
+2026-09-30T18:47:43.3478608Z                     continue  # e.g. generated bytecode/directory; recorded separately
+2026-09-30T18:47:43.3479008Z                 target = prefix / relative
+2026-09-30T18:47:43.3479438Z                 if not target.is_file() or hashlib.sha256(target.read_bytes()).hexdigest() != digest:
+2026-09-30T18:47:43.3480303Z >                   raise ValueError(f"Conda file overwritten or missing (integrity): {record['name']}: {relative}")
+2026-09-30T18:47:43.3481114Z E                   ValueError: Conda file overwritten or missing (integrity): example: lib/python3.11/__pycache__/example.cpython-311.pyc
+2026-09-30T18:47:43.3481597Z 
+2026-09-30T18:47:43.3481894Z src/atm_mlmm/persistence.py:160: ValueError
+2026-09-30T18:47:43.3482255Z =========================== short test summary info ============================
+2026-09-30T18:47:43.3483395Z FAILED tests/unit/test_provenance.py::test_conda_integrity_records_regenerated_source_backed_cache - ValueError: Conda file overwritten or missing (integrity): example: lib/python3.11/__pycache__/example.cpython-311.pyc
+2026-09-30T18:47:43.3484379Z ================== 1 failed, 22 passed, 3 deselected in 0.16s ==================
+2026-09-30T18:47:43.3673816Z ##[error]Process completed with exit code 1.
+2026-09-30T18:47:43.3825356Z Post job cleanup.
+2026-09-30T18:47:43.4690655Z [command]/usr/bin/git version
+2026-09-30T18:47:43.4733782Z git version 2.55.0
+2026-09-30T18:47:43.4774888Z Temporarily overriding HOME='/home/runner/work/_temp/868d0062-4da1-4046-b3ff-3a8c6a248385' before making global git config changes
+2026-09-30T18:47:43.4776699Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-30T18:47:43.4780836Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AToM_MLMM/AToM_MLMM
+2026-09-30T18:47:43.4819652Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-30T18:47:43.4854962Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-30T18:47:43.5108654Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-30T18:47:43.5147847Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-30T18:47:43.5408017Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-30T18:47:43.5449238Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-30T18:47:43.5859382Z Cleaning up orphan processes
+2026-09-30T18:47:43.6195476Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
