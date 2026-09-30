@@ -21,7 +21,8 @@ def main():
         owned.update(record.get("files", []))
         owned.update(p["_path"] for p in record.get("paths_data", {}).get("paths", []))
     owned_metadata = [(prefix / relative, metadata.PathDistribution((prefix / relative).parent))
-                      for relative in sorted(owned) if relative.endswith(".dist-info/METADATA")]
+                      for relative in sorted(owned)
+                      if relative.endswith((".dist-info/METADATA", ".egg-info/PKG-INFO"))]
     specs, sources = [], {}
     for dist in metadata.distributions():
         name = dist.metadata["Name"]
@@ -31,7 +32,7 @@ def main():
         # Locate that metadata directly; do not infer ownership from RECORD.
         if any(_canonical_name(owner.metadata["Name"]) == _canonical_name(name)
                and owner.version == dist.version
-               and dist.locate_file(Path(path.parent.name) / "METADATA").resolve() == path.resolve()
+               and dist.locate_file(Path(path.parent.name) / path.name).resolve() == path.resolve()
                for path, owner in owned_metadata):
             continue
         origin = dist.read_text("direct_url.json")
