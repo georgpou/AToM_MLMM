@@ -1,0 +1,10 @@
+2026-09-30T19:25:14.1069043Z fetkutils 3.6.5 requires netcdf4, which is not installed.
+2026-09-30T19:25:14.1069198Z proprep 1.0.0 requires pdb2pqr, which is not installed.
+2026-09-30T19:25:14.1069340Z proprep 1.0.0 requires requests, which is not installed.
+2026-09-30T19:25:14.1069582Z packmol-memgen 2026.3.25 requires pdb2pqr, which is not installed.
+2026-09-30T19:25:14.1069717Z ndfes 3.6.5 requires netcdf4, which is not installed.
+2026-09-30T19:25:14.1069915Z fetkutils 3.6.5 has requirement numpy<2, but you have numpy 2.4.6.
+2026-09-30T19:25:14.1070078Z edgembar 3.6.5 has requirement numpy<2, but you have numpy 2.4.6.
+2026-09-30T19:25:14.1070290Z proprep 1.0.0 has requirement biopython<1.86,>=1.83, but you have biopython 1.88.
+2026-09-30T19:25:14.1070487Z proprep 1.0.0 has requirement numpy<2.0,>=1.26, but you have numpy 2.4.6.
+2026-09-30T19:25:14.1070642Z ndfes 3.6.5 has requirement numpy<2, but you have numpy 2.4.6.

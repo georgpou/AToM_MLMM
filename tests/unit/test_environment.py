@@ -1,5 +1,6 @@
 """G00-T1 checks for the inherited CPU candidate, not molecular qualification."""
 import json
+import hashlib
 import os
 from pathlib import Path
 
@@ -19,7 +20,10 @@ def test_required_apis_and_versions():
 def test_environment_manifest_complete():
     from atm_mlmm.persistence import validate_environment_manifest
     manifest = Path(os.environ["ATM_MLMM_MANIFEST"])
-    validate_environment_manifest(json.loads(manifest.read_text()))
+    report = json.loads(manifest.read_text())
+    candidate = Path(__file__).parents[2] / "ATM_MLMM_environment.yml"
+    assert report["candidate_sha256"] == hashlib.sha256(candidate.read_bytes()).hexdigest()
+    validate_environment_manifest(report)
 
 
 def test_unavailable_platform_is_unqualified():

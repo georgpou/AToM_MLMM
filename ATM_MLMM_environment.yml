@@ -36,7 +36,12 @@ dependencies:
   - setproctitle
 
   # Numerical / scientific Python stack.
-  - numpy
+  # G00 dependency consistency amendment: AmberTools bundled Python tools.
+  - numpy>=1.26,<2
+  - biopython>=1.83,<1.86
+  - netcdf4
+  - pdb2pqr
+  - requests
   - scipy
   - pyyaml
   - packaging
@@ -64,6 +69,8 @@ dependencies:
   - pip:
       # MACE reference implementation. Keep the version fixed.
       - mace-torch==0.3.16
+      # 1.3 requires NumPy 2; this release explicitly supports NumPy 1.x.
+      - matscipy==1.1.1
 
       # OpenMM-ML 1.8 is required because the Project 0 design uses its
       # mechanical-embedding/link-site implementation. Install the selected

@@ -1,6 +1,6 @@
 # Project 0 Conda environment
 
-**Specification:** [ATM_MLMM_environment.yml](ATM_MLMM_environment.yml). **Candidate target:** Linux x86_64, Python 3.11. **Status:** qualification candidates, not a solved platform lock. The 30 September 2026 scientific amendment preserves the package versions and corrects the PyTorch source/build choice. The conda-forge listing was checked, but this revision did not solve or install the complete environment. [G00](docs/project-0/gates/G00-environment-and-provenance.md) still owns that evidence.
+**Specification:** [ATM_MLMM_environment.yml](ATM_MLMM_environment.yml). **Candidate target:** Linux x86_64, Python 3.11. **Status:** qualification candidates, not a solved platform lock. The original 30 September 2026 amendment corrected the PyTorch source/build choice. G00 subsequently found missing and inconsistent dependencies in the installed candidate. The [CPU dependency consistency amendment](environment/cpu-dependency-amendment.md) preserves the inherited pinned engines and adds explicit constraints/dependencies; its clean qualification evidence is recorded separately. [G00](docs/project-0/gates/G00-environment-and-provenance.md) still owns that evidence.
 
 This environment supports the intended OpenMM physical builder, OpenMM-ML mechanical embedding and links, one local MACE model, native ATM, the AToM workflow and independent PyMBAR analysis. Installation alone does not establish that these components work together. [S01](docs/project-0/specs/S01-scope-and-invariants.md) defines the admitted initial science.
 
@@ -18,7 +18,8 @@ The YAML is the executable package specification. These explanations are not a s
 | mace-torch 0.3.16; e3nn 0.4.4 | Initial local-model implementation and its inherited equivariant-library compatibility point. Test the approved asset and adapter, not just imports. |
 | AmberTools 26.0; openmmforcefields 0.16.0 | Biomolecular preparation. Keep these out of the basic records/analytic tests' import path. Explicitly select and record force fields and charges. |
 | configobj 5.0.9; setproctitle | Workflow configuration and process labeling, respectively. |
-| NumPy; SciPy | Arrays and independent numerical checks, including analytic-example quadrature. |
+| NumPy >=1.26,<2; SciPy | Arrays and independent numerical checks, including analytic-example quadrature. |
+| Biopython >=1.83,<1.86; netCDF4; pdb2pqr; requests; matscipy 1.1.1 | Complete AmberTools' bundled requirements and preserve a NumPy 1.x-compatible MACE dependency. See the recorded CPU amendment. |
 | PyYAML; packaging; psutil | Structured settings, version handling and process/resource information. |
 | PyMBAR 4.0.3; MDTraj | Independent free-energy analysis and trajectory utilities. |
 | pytest; pytest-cov | Tests and coverage; neither substitutes for an independent expected result. |

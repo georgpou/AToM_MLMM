@@ -11,6 +11,7 @@ on:
       - 'tests/**'
       - 'tools/archive_pip.py'
       - 'tools/capture_environment.py'
+      - 'tools/check_conda_integrity.py'
       - 'pyproject.toml'
       - '.devcontainer/**'
   workflow_dispatch:
@@ -38,7 +39,7 @@ jobs:
         with:
           micromamba-version: '2.3.3-0'
           init-shell: none
-      - name: Resolve and check the unchanged CPU candidate
+      - name: Resolve and check the reviewed CPU candidate
         shell: bash
         run: bash environment/bootstrap_cpu.sh
       - name: Preserve installation or failure evidence
