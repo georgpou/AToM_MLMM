@@ -162,3 +162,50 @@ def test_qualification_refuses_stale_checks(tmp_path):
     result = subprocess.run(["bash", str(script), str(tmp_path)], capture_output=True, text=True)
     assert result.returncode == 1
     assert "fresh successful solve" in result.stderr
+
+
+def _bytecode_fixture(prefix):
+    import hashlib
+    (prefix / "conda-meta").mkdir()
+    source = prefix / "lib/python3.11/example.py"
+    cache = source.parent / "__pycache__/example.cpython-311.pyc"
+    cache.parent.mkdir(parents=True)
+    source.write_bytes(b"value = 1\n")
+    cache.write_bytes(b"regenerated cache")
+    entries = [
+        {"_path": source.relative_to(prefix).as_posix(), "path_type": "hardlink",
+         "sha256": hashlib.sha256(source.read_bytes()).hexdigest()},
+        {"_path": cache.relative_to(prefix).as_posix(), "path_type": "hardlink",
+         "sha256": hashlib.sha256(b"packaged cache").hexdigest()},
+    ]
+    (prefix / "conda-meta/example.json").write_text(json.dumps(
+        {"name": "example", "files": [p["_path"] for p in entries],
+         "paths_data": {"paths": entries}}))
+    return source, cache
+
+
+def test_conda_integrity_records_regenerated_source_backed_cache(tmp_path):
+    from atm_mlmm.persistence import verify_conda_files
+    _, cache = _bytecode_fixture(tmp_path)
+    report = verify_conda_files(tmp_path)
+    assert report["checked_files"] == 1
+    assert report["regenerable_bytecode"] == [cache.relative_to(tmp_path).as_posix()]
+
+
+def test_conda_integrity_still_rejects_changed_bytecode_source(tmp_path):
+    from atm_mlmm.persistence import verify_conda_files
+    source, _ = _bytecode_fixture(tmp_path)
+    source.write_bytes(b"value = 2\n")
+    with pytest.raises(ValueError, match="overwritten|integrity"):
+        verify_conda_files(tmp_path)
+
+
+def test_conda_integrity_does_not_exempt_sourceless_bytecode(tmp_path):
+    from atm_mlmm.persistence import verify_conda_files
+    _, cache = _bytecode_fixture(tmp_path)
+    record_path = tmp_path / "conda-meta/example.json"
+    record = json.loads(record_path.read_text())
+    record["paths_data"]["paths"] = [record["paths_data"]["paths"][1]]
+    record_path.write_text(json.dumps(record))
+    with pytest.raises(ValueError, match="overwritten|integrity"):
+        verify_conda_files(tmp_path)
