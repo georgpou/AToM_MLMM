@@ -422,3 +422,11 @@ def test_project_test_namespace_does_not_activate_upstream_loader_override():
     environment = {**os.environ, "PYTHONPATH": os.pathsep.join((str(root), str(root / "src")))}
     environment.pop("TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD", None)
     subprocess.run([sys.executable, "-c", code], env=environment, check=True)
+
+
+def test_manifest_rejects_global_permissive_torch_loader_override():
+    from atm_mlmm.persistence import validate_environment_manifest
+    report = _complete_manifest()
+    report["runtime_settings"] = {"TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD": "1"}
+    with pytest.raises(ValueError, match="loader override"):
+        validate_environment_manifest(report)
