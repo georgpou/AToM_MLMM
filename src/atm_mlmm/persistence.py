@@ -18,7 +18,7 @@ SOURCE_URLS = {"openmmml": "https://github.com/openmm/openmm-ml.git",
 REQUIRED_VERSIONS = {
     "openmm": "8.6.1", "openmmml": "1.8", "atom-openmm": "8.5.0b0",
     "torch": "2.8.0", "mace-torch": "0.3.16", "e3nn": "0.4.4",
-    "pymbar": "4.0.3", "openmmforcefields": "0.16.0", "configobj": "5.0.9",
+    "matscipy": "1.1.1", "pymbar": "4.0.3", "openmmforcefields": "0.16.0", "configobj": "5.0.9",
 }
 REQUIRED_CHECKS = ("solver", "project_install", "conda_integrity", "conda_packages",
                    "conda_explicit", "environment_export", "archive_pip", "conda_integrity_after_archive",
@@ -76,6 +76,17 @@ def capture_environment(repo_root: Path, conda_prefix: Path | None,
     }
 
 
+def _validate_dependency_ranges(packages: dict) -> None:
+    ranges = {"numpy": ((1, 26), (2, 0)), "biopython": ((1, 83), (1, 86))}
+    for name, (lower, upper) in ranges.items():
+        version = packages.get(name, {}).get("version", "")
+        if not re.fullmatch(r"\d+\.\d+(?:\.\d+)?", version):
+            raise ValueError(f"Missing exact dependency range evidence: {name}")
+        release = tuple(int(part) for part in version.split("."))
+        if not lower <= release < upper:
+            raise ValueError(f"Installed version violates reviewed dependency range: {name} {version}")
+
+
 def validate_environment_manifest(report: dict) -> None:
     """Reject incomplete G00-T1 evidence before it can advance a CPU claim."""
     if report.get("schema_version") != 1:
@@ -104,6 +115,7 @@ def validate_environment_manifest(report: dict) -> None:
     for name, version in REQUIRED_VERSIONS.items():
         if name not in packages or packages[name]["version"].split("+")[0] != version:
             raise ValueError(f"Missing or inconsistent package version: {name} == {version}")
+    _validate_dependency_ranges(packages)
     for name in SOURCE_TAGS:
         origin = packages[name].get("origin") or {}
         commit = origin.get("vcs_info", {}).get("commit_id", "")
@@ -216,6 +228,8 @@ def check_required_apis() -> dict:
         actual = metadata.version(name)
         if actual.split("+")[0] != expected:
             raise RuntimeError(f"{name}: expected {expected}, installed {actual}")
+    _validate_dependency_ranges({name: {"version": metadata.version(name)}
+                                 for name in ("numpy", "biopython")})
     import openmm
     import torch
     from openmmml import MLPotential
@@ -237,7 +251,10 @@ def check_required_apis() -> dict:
         raise RuntimeError("Inherited CPU candidate unexpectedly has CUDA/HIP runtime")
     if str(torch.ones(1, device="cpu").device) != "cpu":
         raise RuntimeError("Explicit CPU tensor placement failed")
-    return {"status": "passed", "python_force_selected_particles": selected,
+    return {"status": "passed",
+            "installed_versions": {name: metadata.version(name)
+                                   for name in (*REQUIRED_VERSIONS, "numpy", "biopython")},
+            "python_force_selected_particles": selected,
             "mixed_system_return_info": True, "torch_backend": "cpu",
             "platforms": [openmm.Platform.getPlatform(i).getName()
                           for i in range(openmm.Platform.getNumPlatforms())]}

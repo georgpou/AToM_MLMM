@@ -8,7 +8,7 @@ from atm_mlmm.persistence import verify_conda_files
 
 try:
     report = verify_conda_files(Path(sys.prefix))
-except ValueError:
+except ValueError as error:
     # Report every shared file owner before rejecting an unreviewed collision.
     import hashlib
     from collections import defaultdict
@@ -28,6 +28,31 @@ except ValueError:
                                "installed_sha256": hashlib.sha256(path.read_bytes()).hexdigest()
                                if path.is_file() else None})
     print("G00_COLLISION_DIAGNOSTIC " + json.dumps(collisions), flush=True)
+    import base64
+    import subprocess
+    from importlib import metadata
+    relative = str(error).rsplit(": ", 1)[-1]
+    target = prefix / relative
+    pip_owners = []
+    for dist in metadata.distributions():
+        for file in dist.files or []:
+            if Path(str(file)).name != target.name:
+                continue
+            if dist.locate_file(file).resolve() != target.resolve():
+                continue
+            digest = None
+            if file.hash and file.hash.mode == "sha256":
+                digest = base64.urlsafe_b64decode(file.hash.value + "===" ).hex()
+            pip_owners.append({"name": dist.metadata["Name"], "version": dist.version,
+                               "installer": (dist.read_text("INSTALLER") or "unknown").strip(),
+                               "sha256": digest})
+    print("G00_FILE_DIAGNOSTIC " + json.dumps({
+        "path": relative, "conda_owners": owners.get(relative, []),
+        "distribution_owners": pip_owners,
+        "installed_sha256": hashlib.sha256(target.read_bytes()).hexdigest()
+        if target.is_file() else None}), flush=True)
+    # Dependency metadata diagnostics do not turn the failed integrity check green.
+    subprocess.run([sys.executable, "-m", "pip", "check"], check=False)
     raise
 Path(sys.argv[1]).write_text(json.dumps(report, indent=2) + "\n")
 print(json.dumps({
