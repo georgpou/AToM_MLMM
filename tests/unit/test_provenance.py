@@ -271,3 +271,35 @@ def test_qualification_refuses_failed_solver_before_install(tmp_path):
     assert result.returncode == 1
     assert "fresh successful solve" in result.stderr
     assert not (evidence / "project_install.exit").exists()
+
+
+def test_archive_keeps_conda_distribution_without_record(tmp_path, monkeypatch):
+    import importlib.util
+    import sys
+    from importlib import metadata
+    script = Path(__file__).parents[2] / "tools/archive_pip.py"
+    spec = importlib.util.spec_from_file_location("archive_pip_under_test", script)
+    archive = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(archive)
+    prefix = tmp_path / "prefix"
+    dist_info = prefix / "lib/python3.11/site-packages/jaxlib-0.9.0.dist-info"
+    dist_info.mkdir(parents=True)
+    (dist_info / "METADATA").write_text("Name: jaxlib\nVersion: 0.9.0\n")
+    (dist_info / "direct_url.json").write_text(json.dumps({
+        "url": "file:///conda-build/work/dist/jaxlib.whl",
+        "archive_info": {"hashes": {"sha256": "a" * 64}}}))
+    (prefix / "conda-meta").mkdir()
+    (prefix / "conda-meta/jaxlib.json").write_text(json.dumps({
+        "name": "jaxlib",
+        "files": [str((dist_info / "METADATA").relative_to(prefix))]}))
+    dist = metadata.PathDistribution(dist_info)
+    assert dist.files is None  # Conda need not retain the wheel RECORD.
+    output = tmp_path / "output"
+    output.mkdir()
+    monkeypatch.setattr(sys, "prefix", str(prefix))
+    monkeypatch.setattr(sys, "argv", [str(script), str(output)])
+    monkeypatch.setattr(archive.metadata, "distributions", lambda: [dist])
+    monkeypatch.setattr(archive.subprocess, "run", lambda *args, **kwargs: None)
+    archive.main()
+    assert (output / "pip-source-lock.txt").read_text().strip() == ""
+    assert json.loads((output / "source-origins.json").read_text()) == {}

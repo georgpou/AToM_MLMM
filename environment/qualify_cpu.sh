@@ -5,7 +5,7 @@ cd "$(dirname "${BASH_SOURCE[0]}")/.."
 output="${1:-artifacts/g00-cpu}"
 mkdir -p "$output"
 output="$(cd "$output" && pwd)"
-if [[ ! -f "$output/solver.exit" || -f "$output/project_install.exit" ]]; then
+if [[ ! -f "$output/solver.exit" || "$(cat "$output/solver.exit")" != 0 || -f "$output/project_install.exit" ]]; then
     printf '%s\n' 'Qualification requires a fresh successful solve attempt.' >&2
     exit 1
 fi
@@ -36,12 +36,14 @@ record environment_export micromamba env export -n atm-mlmm-p0
 cp "$output/environment_export.log" "$output/environment-resolved.yml"
 python -m pip freeze --all > "$output/pip-freeze-initial.txt"
 record archive_pip python tools/archive_pip.py "$output"
+record conda_integrity_after_archive python -c 'import json,sys; from pathlib import Path; from atm_mlmm.persistence import verify_conda_files; print(json.dumps(verify_conda_files(Path(sys.prefix)), indent=2))'
 record pip_check python -m pip check
 record openmm_installation python -m openmm.testInstallation
 record api_check python -c 'import json; from atm_mlmm.persistence import check_required_apis; print(json.dumps(check_required_apis(), indent=2))'
 python tools/capture_environment.py "$output"
 record pytest python -m pytest -v --junitxml="$output/pytest.xml"
 python -m pip freeze --all > "$output/pip-freeze.txt"
+python tools/capture_environment.py "$output"
 python - "$output" <<'PY'
 import json, sys
 from pathlib import Path

@@ -21,7 +21,7 @@ REQUIRED_VERSIONS = {
     "pymbar": "4.0.3", "openmmforcefields": "0.16.0", "configobj": "5.0.9",
 }
 REQUIRED_CHECKS = ("solver", "project_install", "conda_integrity", "conda_packages",
-                   "conda_explicit", "environment_export", "archive_pip",
+                   "conda_explicit", "environment_export", "archive_pip", "conda_integrity_after_archive",
                    "pip_check", "openmm_installation", "api_check")
 
 
