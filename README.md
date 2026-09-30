@@ -2,7 +2,9 @@
 
 Project 0 builds a reusable ML/MM energy model containing complete ligands, selected protein atoms and hydrogen link atoms, then evaluates it through ATM for ABFE and RBFE. The first implementation uses mechanical embedding and uncomplicated neutral chemistry. Project 0 also requires a small chemical-reference and boundary-sensitivity check before protein demonstrations. Project 1 then tests predictive accuracy more broadly; correct code and a well-converged free energy are not, by themselves, proof of accurate chemistry.
 
-**Current state:** planning and documentation only in this supplied snapshot. No numerical gate or M00 design review is accepted. [Status and qualification](docs/project-0/STATUS.md) records actual evidence; files named under future `src/` and `tests/` paths are not implemented merely because the plan names them.
+**Current state:** M00 architecture review accepted; repository metadata and CPU installation/provenance tooling added. The molecular platform and later gate tests remain planned. [Status and qualification](docs/project-0/STATUS.md) records actual evidence; files named under future `src/` and `tests/` paths are not implemented merely because the plan names them.
+
+For cloud development, use branch `M00` or another work branch and follow [CPU Actions/Codespaces setup](environment/README.md). GitHub Actions characterizes the inherited candidate on CPU. Codespaces reuses that recipe; real model assets and GPU execution require separate approval and evidence.
 
 ## Start with the assigned task
 

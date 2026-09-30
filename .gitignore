@@ -1,0 +1,31 @@
+# Local environments, caches, build output and linked worktrees
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+.venv/
+.micromamba/
+.worktrees/
+build/
+dist/
+*.egg-info/
+
+# Credentials and local editor/OS files
+.env
+.env.*
+!.env.example
+.DS_Store
+.idea/
+.vscode/
+
+# Generated qualification output; curated Worker_Log evidence stays tracked
+/artifacts/
+/model-assets/
+*.pt
+*.pth
+*.model
+*.dcd
+*.xtc
+*.trr
+*.chk

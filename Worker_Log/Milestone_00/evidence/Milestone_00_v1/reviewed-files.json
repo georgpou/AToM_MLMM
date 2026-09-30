@@ -1,0 +1,18 @@
+{
+  "base_commit": "2d7bcc94f901738e39f536f16de84699d4e8d631",
+  "sha256": {
+    "AGENTS.md": "08eb4eca7750b124e340a17968934e850f1349512a6c6f5e30944b0c696616a6",
+    "ATM_MLMM_Environment.md": "7028fdf9f1b037e2f0947c512de93b5ecde84d8f2a3341d95c73d64829673504",
+    "ATM_MLMM_environment.yml": "9e164133a7446268606e555276da600382ddbd4216b9b521676e33fba2eb55d7",
+    "docs/project-0/specs/S04-embedding-and-model-contracts.md": "b562bfe92893e947bdeba2fe2f3b0ebf93b201e2622d84b1155a13a1bc90a7f9",
+    "docs/project-0/specs/S01-scope-and-invariants.md": "b739d643382231f35e2a32dcdd5807b7ac2f8a116a9bd5919261b95fccd261c3",
+    "docs/project-0/specs/S05-protocol-and-thermodynamic-contracts.md": "e8efb215eef544023adfdc4f4d37761878e4e3d95bb72d909f8e727565fc5773",
+    "docs/project-0/specs/S06-validation-and-tolerances.md": "9077a689e53c1e8f396365a8867b2aff9f7964735783fb3519b6b110551f6d4f",
+    "docs/project-0/specs/S03-data-and-interface-contracts.md": "1fbb01d02e97c85b4581e136860f01a7437b7d6aefcb17284ea099183d4de95b",
+    "docs/project-0/specs/S02-architecture-and-dependencies.md": "acf039741c8fa66a4833367f6f81cfcc013e0d263177ef2c2104714709c036d1",
+    "docs/project-0/specs/S07-artifacts-and-qualification.md": "e32cb13f4bf1d6bac8a2a02d4d7280e255f0663372d194126c9677fde24a779f",
+    "docs/project-0/milestones/M00-architecture-review.md": "ff40d5c164ac35534ec22d7271479b0bb67be3e9ad58016ce801e3b044b72f57",
+    "docs/project-0/gates/G00-environment-and-provenance.md": "71941a0f17f684f52669c312b73940a4368ae270f5aff4f6d4ebdc75e06dce1a",
+    "docs/project-0/REQUIREMENTS.md": "f62a917f6a5d5b496b5b08d695347a5f233d8799f02e5e7a81236000820292df"
+  }
+}

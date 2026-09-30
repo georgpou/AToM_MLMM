@@ -49,3 +49,16 @@ The original brainstorming note and later large plan are preserved as historical
 ## Where the source evidence is used
 
 U04-U11 and U19 support the inherited API/link/adapter issues in G00-G07. U13-U18 and U31-U32 identify the workflow implementation points for G03 and G08-G12. U28 is a ligand-only precedent, not proof of cavity-inclusive caps. U29-U30 support the thermodynamic setting; the harmonic and derivative oracles are mathematical derivations stated explicitly in the specifications. U24-U27 and U39 identify environment, process, loader and restart checks. U33-U34 identify the independent analysis APIs. U35-U36 concern optional preparation, not a prerequisite for analytic tests.
+
+## Scientific amendment source checks
+
+The current environment note and historical Documentation v4 log reference this heading, which was absent from the baseline. The [v4 verification record](../../../Worker_Log/Milestone_00/evidence/Documentation_v4/verification.json) records historical document checks, not raw upstream source observations. Its broader amendment claims are not adopted as evidence for the current checkout.
+
+On 30 September 2026, the metadata/setup worker checked these primary sources independently:
+
+| ID | Source and observation |
+|---|---|
+| U40 | [PyTorch 2.6 release announcement](https://pytorch.org/blog/pytorch2-6/) and [official Conda-channel announcement](https://github.com/pytorch/pytorch/issues/138506): official Conda releases stop after 2.5; conda-forge is an alternative. |
+| U41 | [conda-forge PyTorch 2.8.0 package listing](https://anaconda.org/conda-forge/pytorch/files/manage?version=2.8.0): Linux x86_64 Python 3.11 CPU builds are listed. |
+
+These observations are not a solved environment. G00 must test the exact candidate and capture its actual builds and source commits.

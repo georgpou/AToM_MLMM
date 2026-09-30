@@ -1,6 +1,6 @@
 # Current status and qualification
 
-This snapshot contains plans and documentation tooling, not an implemented molecular platform. No M00 design approval or numerical gate acceptance is claimed. The current documentation cleanup is [Documentation v2](../../Worker_Log/Milestone_00/Documentation_v2_worker.md), submitted for independent audit. [Documentation v1](../../Worker_Log/Milestone_00/Documentation_v1_worker.md) remains historical evidence; it was not rewritten or independently approved by this cleanup.
+This snapshot contains reviewed architecture, documentation tooling and CPU installation/provenance tooling; the molecular platform is not implemented. [M00 attempt 1](../../Worker_Log/Milestone_00/Milestone_00_v1_worker.md) has an [independent design audit](../../Worker_Log/Milestone_00/Milestone_00_v1_audit.md). No numerical gate acceptance is claimed. Historical documentation attempts remain immutable; their claims are not automatically evidence for this checkout.
 
 ## Gate and milestone summary
 
@@ -8,8 +8,8 @@ This is the only live progress summary. Link each change to the exact snapshot, 
 
 | ID | Work status | Evidence | Next condition |
 |---|---|---|---|
-| [M00](milestones/M00-architecture-review.md) | not_started | none | Design review required |
-| [M01](gates/G01-identity-partition-and-contracts.md#m01-combined-review) | not_started | none | Required gates and combined review |
+| [M00](milestones/M00-architecture-review.md) | accepted | [Full design audit, source snapshot 2d7bcc94](../../Worker_Log/Milestone_00/Milestone_00_v1_audit.md) | Numerical/model/GPU work requires its own evidence |
+| [M01](gates/G01-identity-partition-and-contracts.md#m01-combined-review) | in_progress | G00-T1 cloud setup underway | G00/G01 and combined review |
 | [M02](gates/G03-atom-routing-and-integration.md#m02-combined-review) | not_started | none | Required gates and combined review |
 | [M03](gates/G07-joint-cavity-ligand-atm.md#m03-combined-review) | not_started | none | Required gates and combined review |
 | [M04](gates/G08-thermodynamics-and-estimators.md#m04-combined-review) | not_started | none | Required gates and combined review |
@@ -17,7 +17,7 @@ This is the only live progress summary. Link each change to the exact snapshot, 
 | [M06](gates/G11-protein-abfe.md#m06-combined-review) | not_started | none | Required gates and combined review |
 | [M07](gates/G12-dual-ligand-rbfe.md#m07-combined-review) | not_started | none | Required gates and combined review |
 | [M08](gates/G13-performance-and-release.md#m08-combined-review) | not_started | none | Required gates and combined review |
-| [G00](gates/G00-environment-and-provenance.md) | not_started | not_run | Assigned work under M01 |
+| [G00](gates/G00-environment-and-provenance.md) | in_progress | G00-T1 implementation; cloud checks pending | CPU solve/check evidence and independent audit; model/GPU separate |
 | [G01](gates/G01-identity-partition-and-contracts.md) | not_started | not_run | Assigned work under M01 |
 | [G02](gates/G02-analytic-force-in-native-atm.md) | not_started | not_run | Assigned work under M02 |
 | [G03](gates/G03-atom-routing-and-integration.md) | not_started | not_run | Assigned work under M02 |

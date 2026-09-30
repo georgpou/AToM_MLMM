@@ -1,0 +1,50 @@
+name: G00 CPU candidate
+
+on:
+  push:
+    branches: [M00]
+    paths:
+      - '.github/workflows/environment-cpu.yml'
+      - 'ATM_MLMM_environment.yml'
+      - 'environment/**'
+      - 'src/**'
+      - 'tests/**'
+      - 'tools/archive_pip.py'
+      - 'tools/capture_environment.py'
+      - 'pyproject.toml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: cpu-environment-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  characterize-cpu:
+    if: github.ref != 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 35
+    env:
+      OPENMM_CPU_THREADS: '2'
+      OMP_NUM_THREADS: '2'
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: mamba-org/setup-micromamba@add3a49764cedee8ee24e82dfde87f5bc2914462 # v2
+        with:
+          micromamba-version: '2.3.3-0'
+          init-shell: none
+      - name: Resolve and check the unchanged CPU candidate
+        shell: bash
+        run: bash environment/bootstrap_cpu.sh
+      - name: Preserve installation or failure evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: g00-cpu-${{ github.sha }}-${{ github.run_attempt }}
+          path: artifacts/g00-cpu/
+          if-no-files-found: error
+          retention-days: 30

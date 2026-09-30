@@ -1,0 +1,42 @@
+FFFF.                                                                    [100%]
+=================================== FAILURES ===================================
+_________ test_capture_records_exact_repository_and_candidate_identity _________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_capture_records_exact_rep0')
+
+    def test_capture_records_exact_repository_and_candidate_identity(tmp_path):
+>       from atm_mlmm.persistence import capture_environment
+E       ModuleNotFoundError: No module named 'atm_mlmm.persistence'
+
+tests/unit/test_provenance.py:20: ModuleNotFoundError
+__________________ test_failed_checks_cannot_report_installed __________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_failed_checks_cannot_repo0')
+
+    def test_failed_checks_cannot_report_installed(tmp_path):
+>       from atm_mlmm.persistence import capture_environment
+E       ModuleNotFoundError: No module named 'atm_mlmm.persistence'
+
+tests/unit/test_provenance.py:35: ModuleNotFoundError
+___________ test_manifest_rejects_missing_source_and_build_evidence ____________
+
+    def test_manifest_rejects_missing_source_and_build_evidence():
+>       from atm_mlmm.persistence import validate_environment_manifest
+E       ModuleNotFoundError: No module named 'atm_mlmm.persistence'
+
+tests/unit/test_provenance.py:42: ModuleNotFoundError
+______________________ test_missing_candidate_is_an_error ______________________
+
+tmp_path = PosixPath('/tmp/pytest-of-root/pytest-0/test_missing_candidate_is_an_e0')
+
+    def test_missing_candidate_is_an_error(tmp_path):
+>       from atm_mlmm.persistence import capture_environment
+E       ModuleNotFoundError: No module named 'atm_mlmm.persistence'
+
+tests/unit/test_provenance.py:49: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/unit/test_provenance.py::test_capture_records_exact_repository_and_candidate_identity
+FAILED tests/unit/test_provenance.py::test_failed_checks_cannot_report_installed
+FAILED tests/unit/test_provenance.py::test_manifest_rejects_missing_source_and_build_evidence
+FAILED tests/unit/test_provenance.py::test_missing_candidate_is_an_error - Mo...
+4 failed, 1 passed, 3 deselected in 0.04s
