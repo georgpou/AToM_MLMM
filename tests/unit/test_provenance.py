@@ -209,3 +209,46 @@ def test_conda_integrity_does_not_exempt_sourceless_bytecode(tmp_path):
     record_path.write_text(json.dumps(record))
     with pytest.raises(ValueError, match="overwritten|integrity"):
         verify_conda_files(tmp_path)
+
+
+def _collision_fixture(prefix, relative="lib/python3.11/site-packages/docs/conf.py",
+                       names=("openff-utilities", "openff-toolkit-base")):
+    import hashlib
+    (prefix / "conda-meta").mkdir()
+    target = prefix / relative
+    target.parent.mkdir(parents=True)
+    for index, name in enumerate(names):
+        content = f"package = {index}\n".encode()
+        target.write_bytes(content)
+        record = {"name": name, "files": [relative], "paths_data": {"paths": [
+            {"_path": relative, "path_type": "hardlink",
+             "sha256": hashlib.sha256(content).hexdigest()}]}}
+        (prefix / f"conda-meta/{name}.json").write_text(json.dumps(record))
+    return target
+
+
+def test_conda_integrity_records_known_documentation_collision(tmp_path):
+    from atm_mlmm.persistence import verify_conda_files
+    target = _collision_fixture(tmp_path)
+    report = verify_conda_files(tmp_path)
+    collision, = report["documented_collisions"]
+    assert collision["path"] == target.relative_to(tmp_path).as_posix()
+    assert {owner["name"] for owner in collision["owners"]} == {
+        "openff-utilities", "openff-toolkit-base"}
+    assert report["checked_files"] == 1
+
+
+@pytest.mark.parametrize("kind", ["unknown_owner", "runtime_module", "unrecorded_hash"])
+def test_conda_integrity_rejects_unapproved_collision(tmp_path, kind):
+    from atm_mlmm.persistence import verify_conda_files
+    names = ("openff-utilities", "openff-toolkit-base")
+    relative = "lib/python3.11/site-packages/docs/conf.py"
+    if kind == "unknown_owner":
+        names = ("unknown-package", "openff-toolkit-base")
+    elif kind == "runtime_module":
+        relative = "lib/python3.11/site-packages/openff/example.py"
+    target = _collision_fixture(tmp_path, relative=relative, names=names)
+    if kind == "unrecorded_hash":
+        target.write_bytes(b"not any installed package")
+    with pytest.raises(ValueError, match="overwritten|integrity"):
+        verify_conda_files(tmp_path)
