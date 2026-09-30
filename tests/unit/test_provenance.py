@@ -303,3 +303,37 @@ def test_archive_keeps_conda_distribution_without_record(tmp_path, monkeypatch):
     archive.main()
     assert (output / "pip-source-lock.txt").read_text().strip() == ""
     assert json.loads((output / "source-origins.json").read_text()) == {}
+
+
+def test_archive_does_not_treat_neighboring_pip_metadata_as_conda_owned(tmp_path, monkeypatch):
+    import importlib.util
+    import sys
+    from importlib import metadata
+    script = Path(__file__).parents[2] / "tools/archive_pip.py"
+    spec = importlib.util.spec_from_file_location("archive_pip_under_test", script)
+    archive = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(archive)
+    prefix = tmp_path / "prefix"
+    site = prefix / "lib/python3.11/site-packages"
+    conda_info = site / "jaxlib-0.9.0.dist-info"
+    pip_info = site / "ase-3.29.0.dist-info"
+    for path, name, version in ((conda_info, "jaxlib", "0.9.0"), (pip_info, "ase", "3.29.0")):
+        path.mkdir(parents=True)
+        (path / "METADATA").write_text(f"Name: {name}\nVersion: {version}\n")
+    (prefix / "conda-meta").mkdir()
+    (prefix / "conda-meta/jaxlib.json").write_text(json.dumps({
+        "name": "jaxlib", "files": [(conda_info / "METADATA").relative_to(prefix).as_posix()]}))
+    output = tmp_path / "output"
+    output.mkdir()
+    def fake_run(args, **kwargs):
+        if "wheel" in args:
+            wheelhouse = Path(args[args.index("--wheel-dir") + 1])
+            (wheelhouse / "ase-3.29.0-py3-none-any.whl").write_bytes(b"fixture wheel")
+    monkeypatch.setattr(sys, "prefix", str(prefix))
+    monkeypatch.setattr(sys, "argv", [str(script), str(output)])
+    monkeypatch.setattr(archive.metadata, "distributions",
+                        lambda: [metadata.PathDistribution(conda_info), metadata.PathDistribution(pip_info)])
+    monkeypatch.setattr(archive.subprocess, "run", fake_run)
+    archive.main()
+    assert (output / "pip-source-lock.txt").read_text().strip() == "ase==3.29.0"
+    assert "ase-3.29.0" in (output / "pip-wheels.lock").read_text()
