@@ -15,13 +15,17 @@ def main():
         record = json.loads(path.read_text())
         owned.update(record.get("files", []))
         owned.update(p["_path"] for p in record.get("paths_data", {}).get("paths", []))
+    owned_metadata = {prefix / relative for relative in owned
+                      if relative.endswith(".dist-info/METADATA")}
     specs, sources = [], {}
     for dist in metadata.distributions():
         name = dist.metadata["Name"]
         if name.lower().replace("_", "-") == "atm-mlmm":
             continue  # project source is pinned by the repository commit
-        files = [f for f in dist.files or [] if str(f).endswith(".dist-info/METADATA")]
-        if any(dist.locate_file(f).resolve().relative_to(prefix).as_posix() in owned for f in files):
+        # Conda can remove a wheel's RECORD while retaining dist-info metadata.
+        # Locate that metadata directly; do not infer ownership from RECORD.
+        if any(dist.locate_file(Path(path.parent.name) / "METADATA").resolve() == path.resolve()
+               for path in owned_metadata):
             continue
         origin = dist.read_text("direct_url.json")
         origin = json.loads(origin) if origin else None
