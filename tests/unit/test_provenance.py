@@ -252,3 +252,22 @@ def test_conda_integrity_rejects_unapproved_collision(tmp_path, kind):
         target.write_bytes(b"not any installed package")
     with pytest.raises(ValueError, match="overwritten|integrity"):
         verify_conda_files(tmp_path)
+
+
+def test_qualification_refuses_failed_solver_before_install(tmp_path):
+    import os
+    script = Path(__file__).parents[2] / "environment/qualify_cpu.sh"
+    evidence = tmp_path / "evidence"
+    evidence.mkdir()
+    (evidence / "solver.exit").write_text("1\n")
+    fake_bin = tmp_path / "bin"
+    fake_bin.mkdir()
+    fake_python = fake_bin / "python"
+    fake_python.write_text("#!/bin/sh\nexit 91\n")
+    fake_python.chmod(0o755)
+    result = subprocess.run(["bash", str(script), str(evidence)],
+                            env={**os.environ, "PATH": str(fake_bin) + os.pathsep + os.environ["PATH"]},
+                            capture_output=True, text=True)
+    assert result.returncode == 1
+    assert "fresh successful solve" in result.stderr
+    assert not (evidence / "project_install.exit").exists()
