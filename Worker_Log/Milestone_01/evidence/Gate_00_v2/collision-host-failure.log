@@ -1,0 +1,851 @@
+﻿2026-09-30T18:50:11.2597977Z Current runner version: '2.337.0'
+2026-09-30T18:50:11.2637843Z ##[group]Runner Image Provisioner
+2026-09-30T18:50:11.2639118Z Hosted Compute Agent
+2026-09-30T18:50:11.2640353Z Version: 20260901.588
+2026-09-30T18:50:11.2641433Z Commit: f88ec8081b781fac6c440065ac7ff9e710ce3d0b
+2026-09-30T18:50:11.2642670Z Build Date: 2026-09-01T19:56:44Z
+2026-09-30T18:50:11.2643831Z Worker ID: {008a4ed5-c976-4f9c-aa71-5cf79cc1143e}
+2026-09-30T18:50:11.2645167Z Azure Region: eastus2
+2026-09-30T18:50:11.2646169Z ##[endgroup]
+2026-09-30T18:50:11.2648718Z ##[group]Operating System
+2026-09-30T18:50:11.2649870Z Ubuntu
+2026-09-30T18:50:11.2650682Z 24.04.5
+2026-09-30T18:50:11.2651457Z LTS
+2026-09-30T18:50:11.2652500Z ##[endgroup]
+2026-09-30T18:50:11.2653405Z ##[group]Runner Image
+2026-09-30T18:50:11.2654483Z Image: ubuntu-24.04
+2026-09-30T18:50:11.2655400Z Version: 20260927.320.1
+2026-09-30T18:50:11.2658364Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20260927.320/images/ubuntu/Ubuntu2404-Readme.md
+2026-09-30T18:50:11.2661160Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20260927.320
+2026-09-30T18:50:11.2662892Z ##[endgroup]
+2026-09-30T18:50:11.2664762Z ##[group]GITHUB_TOKEN Permissions
+2026-09-30T18:50:11.2668135Z Contents: read
+2026-09-30T18:50:11.2669138Z Metadata: read
+2026-09-30T18:50:11.2670168Z ##[endgroup]
+2026-09-30T18:50:11.2673239Z Secret source: Actions
+2026-09-30T18:50:11.2674831Z Cache mode: write
+2026-09-30T18:50:11.2676368Z Prepare workflow directory
+2026-09-30T18:50:11.3290884Z Prepare all required actions
+2026-09-30T18:50:11.3365109Z Getting action download info
+2026-09-30T18:50:11.5949720Z Download action repository 'actions/checkout@11d5960a326750d5838078e36cf38b85af677262' (SHA:11d5960a326750d5838078e36cf38b85af677262)
+2026-09-30T18:50:11.6915122Z Download action repository 'mamba-org/setup-micromamba@add3a49764cedee8ee24e82dfde87f5bc2914462' (SHA:add3a49764cedee8ee24e82dfde87f5bc2914462)
+2026-09-30T18:50:11.9593488Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-09-30T18:50:12.1745251Z Complete job name: characterize-cpu
+2026-09-30T18:50:12.2529074Z ##[group]Run actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+2026-09-30T18:50:12.2530152Z with:
+2026-09-30T18:50:12.2530600Z   persist-credentials: false
+2026-09-30T18:50:12.2531125Z   repository: georgpou/AToM_MLMM
+2026-09-30T18:50:12.2534868Z   token: ***
+2026-09-30T18:50:12.2535305Z   ssh-strict: true
+2026-09-30T18:50:12.2535741Z   ssh-user: git
+2026-09-30T18:50:12.2536163Z   clean: true
+2026-09-30T18:50:12.2537056Z   sparse-checkout-cone-mode: true
+2026-09-30T18:50:12.2537622Z   fetch-depth: 1
+2026-09-30T18:50:12.2538048Z   fetch-tags: false
+2026-09-30T18:50:12.2538493Z   show-progress: true
+2026-09-30T18:50:12.2538932Z   lfs: false
+2026-09-30T18:50:12.2539343Z   submodules: false
+2026-09-30T18:50:12.2539788Z   set-safe-directory: true
+2026-09-30T18:50:12.2540294Z   allow-unsafe-pr-checkout: false
+2026-09-30T18:50:12.2541148Z env:
+2026-09-30T18:50:12.2541561Z   OPENMM_CPU_THREADS: 2
+2026-09-30T18:50:12.2542022Z   OMP_NUM_THREADS: 2
+2026-09-30T18:50:12.2542494Z ##[endgroup]
+2026-09-30T18:50:12.3660119Z Syncing repository: georgpou/AToM_MLMM
+2026-09-30T18:50:12.3662227Z ##[group]Getting Git version info
+2026-09-30T18:50:12.3662960Z Working directory is '/home/runner/work/AToM_MLMM/AToM_MLMM'
+2026-09-30T18:50:12.3664405Z [command]/usr/bin/git version
+2026-09-30T18:50:12.3752415Z git version 2.55.0
+2026-09-30T18:50:12.3789497Z ##[endgroup]
+2026-09-30T18:50:12.3797673Z Temporarily overriding HOME='/home/runner/work/_temp/65836d47-879e-4306-9139-37c0e70e951b' before making global git config changes
+2026-09-30T18:50:12.3800177Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-30T18:50:12.3802302Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AToM_MLMM/AToM_MLMM
+2026-09-30T18:50:12.3860651Z Deleting the contents of '/home/runner/work/AToM_MLMM/AToM_MLMM'
+2026-09-30T18:50:12.3864622Z ##[group]Initializing the repository
+2026-09-30T18:50:12.3870213Z [command]/usr/bin/git init /home/runner/work/AToM_MLMM/AToM_MLMM
+2026-09-30T18:50:12.3976011Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-09-30T18:50:12.3978109Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-09-30T18:50:12.3979820Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-09-30T18:50:12.3981200Z hint: call:
+2026-09-30T18:50:12.3981995Z hint:
+2026-09-30T18:50:12.3982924Z hint: 	git config --global init.defaultBranch <name>
+2026-09-30T18:50:12.3984001Z hint:
+2026-09-30T18:50:12.3985079Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-09-30T18:50:12.3986869Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-09-30T18:50:12.3988193Z hint:
+2026-09-30T18:50:12.3988939Z hint: 	git branch -m <name>
+2026-09-30T18:50:12.3989768Z hint:
+2026-09-30T18:50:12.3990892Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-09-30T18:50:12.3997423Z Initialized empty Git repository in /home/runner/work/AToM_MLMM/AToM_MLMM/.git/
+2026-09-30T18:50:12.4008569Z [command]/usr/bin/git remote add origin https://github.com/georgpou/AToM_MLMM
+2026-09-30T18:50:12.4060559Z ##[endgroup]
+2026-09-30T18:50:12.4061876Z ##[group]Disabling automatic garbage collection
+2026-09-30T18:50:12.4063887Z [command]/usr/bin/git config --local gc.auto 0
+2026-09-30T18:50:12.4095747Z ##[endgroup]
+2026-09-30T18:50:12.4097260Z ##[group]Setting up auth
+2026-09-30T18:50:12.4102922Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-30T18:50:12.4135440Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-30T18:50:12.4539448Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-30T18:50:12.4579958Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-30T18:50:12.4807551Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-30T18:50:12.4845080Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-30T18:50:12.5069975Z [command]/usr/bin/git config --local http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-09-30T18:50:12.5112567Z ##[endgroup]
+2026-09-30T18:50:12.5113817Z ##[group]Fetching the repository
+2026-09-30T18:50:12.5123875Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +57af9e54e1e71c866712568db791cb9216e72bae:refs/remotes/origin/M00
+2026-09-30T18:50:13.8979754Z From https://github.com/georgpou/AToM_MLMM
+2026-09-30T18:50:13.8983338Z  * [new ref]         57af9e54e1e71c866712568db791cb9216e72bae -> origin/M00
+2026-09-30T18:50:13.8990838Z ##[endgroup]
+2026-09-30T18:50:13.8992767Z ##[group]Determining the checkout info
+2026-09-30T18:50:13.8994339Z ##[endgroup]
+2026-09-30T18:50:13.8995462Z [command]/usr/bin/git sparse-checkout disable
+2026-09-30T18:50:13.9039554Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-09-30T18:50:13.9075223Z ##[group]Checking out the ref
+2026-09-30T18:50:13.9079053Z [command]/usr/bin/git checkout --progress --force -B M00 refs/remotes/origin/M00
+2026-09-30T18:50:13.9219814Z Switched to a new branch 'M00'
+2026-09-30T18:50:13.9225577Z branch 'M00' set up to track 'origin/M00'.
+2026-09-30T18:50:13.9232282Z ##[endgroup]
+2026-09-30T18:50:13.9273595Z [command]/usr/bin/git log -1 --format=%H
+2026-09-30T18:50:13.9301535Z 57af9e54e1e71c866712568db791cb9216e72bae
+2026-09-30T18:50:13.9311962Z ##[group]Removing auth
+2026-09-30T18:50:13.9316776Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-30T18:50:13.9351268Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-30T18:50:13.9572737Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-30T18:50:13.9599822Z http.https://github.com/.extraheader
+2026-09-30T18:50:13.9606440Z [command]/usr/bin/git config --local --unset-all http.https://github.com/.extraheader
+2026-09-30T18:50:13.9643594Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-30T18:50:13.9865292Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-30T18:50:13.9896794Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-30T18:50:14.0117494Z ##[endgroup]
+2026-09-30T18:50:14.0389088Z ##[group]Run mamba-org/setup-micromamba@add3a49764cedee8ee24e82dfde87f5bc2914462
+2026-09-30T18:50:14.0390059Z with:
+2026-09-30T18:50:14.0390680Z   micromamba-version: 2.3.3-0
+2026-09-30T18:50:14.0391278Z   init-shell: none
+2026-09-30T18:50:14.0391842Z env:
+2026-09-30T18:50:14.0392367Z   OPENMM_CPU_THREADS: 2
+2026-09-30T18:50:14.0392976Z   OMP_NUM_THREADS: 2
+2026-09-30T18:50:14.0393566Z ##[endgroup]
+2026-09-30T18:50:14.1887584Z Will download micromamba to /home/runner/micromamba-bin/micromamba
+2026-09-30T18:50:14.1896367Z ##[group]Install micromamba
+2026-09-30T18:50:14.5048282Z micromamba installed to /home/runner/micromamba-bin/micromamba
+2026-09-30T18:50:14.5051579Z ##[endgroup]
+2026-09-30T18:50:14.5053696Z Adding conda-forge to condarc channels ...
+2026-09-30T18:50:14.5063367Z Set environment variables.
+2026-09-30T18:50:14.5068109Z ##[group]micromamba info
+2026-09-30T18:50:14.5083414Z [command]/home/runner/micromamba-bin/micromamba info -r /home/runner/micromamba
+2026-09-30T18:50:14.5208443Z 
+2026-09-30T18:50:14.5209569Z        libmamba version : 2.3.3
+2026-09-30T18:50:14.5211176Z      micromamba version : 2.3.3
+2026-09-30T18:50:14.5213733Z            curl version : libcurl/8.14.1 OpenSSL/3.5.4 zlib/1.3.1 zstd/1.5.7 libssh2/1.11.1 nghttp2/1.67.0
+2026-09-30T18:50:14.5217312Z      libarchive version : libarchive 3.8.2 zlib/1.3.1 bz2lib/1.0.8 libzstd/1.5.7 libb2/bundled
+2026-09-30T18:50:14.5219402Z        envs directories : /home/runner/micromamba/envs
+2026-09-30T18:50:14.5220756Z           package cache : /home/runner/micromamba/pkgs
+2026-09-30T18:50:14.5222483Z                           /home/runner/.mamba/pkgs
+2026-09-30T18:50:14.5224059Z             environment : base (not found)
+2026-09-30T18:50:14.5226729Z            env location : /home/runner/micromamba
+2026-09-30T18:50:14.5229576Z       user config files : /home/runner/.mambarc
+2026-09-30T18:50:14.5232756Z  populated config files : /home/runner/work/_temp/setup-micromamba/.condarc
+2026-09-30T18:50:14.5235676Z        virtual packages : __unix=0=0
+2026-09-30T18:50:14.5238474Z                           __linux=6.17.0=0
+2026-09-30T18:50:14.5240222Z                           __glibc=2.39=0
+2026-09-30T18:50:14.5241751Z                           __archspec=1=x86_64_v3
+2026-09-30T18:50:14.5243695Z                channels : https://conda.anaconda.org/conda-forge/linux-64
+2026-09-30T18:50:14.5245844Z                           https://conda.anaconda.org/conda-forge/noarch
+2026-09-30T18:50:14.5248021Z        base environment : /home/runner/micromamba
+2026-09-30T18:50:14.5249615Z                platform : linux-64
+2026-09-30T18:50:14.5251863Z ##[endgroup]
+2026-09-30T18:50:14.5405466Z ##[group]Run bash environment/bootstrap_cpu.sh
+2026-09-30T18:50:14.5407471Z [36;1mbash environment/bootstrap_cpu.sh[0m
+2026-09-30T18:50:14.5706752Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-09-30T18:50:14.5708738Z env:
+2026-09-30T18:50:14.5709727Z   OPENMM_CPU_THREADS: 2
+2026-09-30T18:50:14.5710874Z   OMP_NUM_THREADS: 2
+2026-09-30T18:50:14.5712084Z   MAMBA_ROOT_PREFIX: /home/runner/micromamba
+2026-09-30T18:50:14.5713725Z   MAMBA_EXE: /home/runner/micromamba-bin/micromamba
+2026-09-30T18:50:14.5715591Z   CONDARC: /home/runner/work/_temp/setup-micromamba/.condarc
+2026-09-30T18:50:14.5717355Z ##[endgroup]
+2026-09-30T18:50:27.4300805Z 
+2026-09-30T18:51:20.5469524Z 
+2026-09-30T18:51:20.5469963Z Transaction
+2026-09-30T18:51:20.5470574Z 
+2026-09-30T18:51:20.5473694Z   Prefix: /home/runner/micromamba/envs/atm-mlmm-p0
+2026-09-30T18:51:20.5474506Z 
+2026-09-30T18:51:20.5474715Z   Updating specs:
+2026-09-30T18:51:20.5474996Z 
+2026-09-30T18:51:20.5475262Z    - python=3.11
+2026-09-30T18:51:20.5475618Z    - pip[version=">=25,<27"]
+2026-09-30T18:51:20.5476022Z    - git
+2026-09-30T18:51:20.5476334Z    - setuptools
+2026-09-30T18:51:20.5476995Z    - wheel
+2026-09-30T18:51:20.5477331Z    - openmm=8.6.1
+2026-09-30T18:51:20.5477739Z    - ambertools=26.0
+2026-09-30T18:51:20.5478126Z    - openmmforcefields=0.16.0
+2026-09-30T18:51:20.5478542Z    - configobj=5.0.9
+2026-09-30T18:51:20.5478913Z    - setproctitle
+2026-09-30T18:51:20.5479251Z    - numpy
+2026-09-30T18:51:20.5479554Z    - scipy
+2026-09-30T18:51:20.5479954Z    - pyyaml
+2026-09-30T18:51:20.5480271Z    - packaging
+2026-09-30T18:51:20.5480637Z    - psutil
+2026-09-30T18:51:20.5480978Z    - e3nn=0.4.4
+2026-09-30T18:51:20.5481314Z    - pymbar=4.0.3
+2026-09-30T18:51:20.5481647Z    - mdtraj
+2026-09-30T18:51:20.5481948Z    - pytest
+2026-09-30T18:51:20.5482253Z    - pytest-cov
+2026-09-30T18:51:20.5482638Z    - pytorch[version="=2.8.0",build="cpu*"]
+2026-09-30T18:51:20.5483173Z    - pip
+2026-09-30T18:51:20.5483371Z 
+2026-09-30T18:51:20.5483391Z 
+2026-09-30T18:51:20.5733882Z   Package                           Version  Build                              Channel          Size
+2026-09-30T18:51:20.5735783Z ───────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-09-30T18:51:20.5737203Z   Install:
+2026-09-30T18:51:20.5738472Z ───────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-09-30T18:51:20.5739377Z 
+2026-09-30T18:51:20.5739859Z   + _openmp_mutex                       4.5  8_kmp_llvm                         conda-forge       8kB
+2026-09-30T18:51:20.5741131Z   + _python_abi3_support                1.0  hd8ed1ab_3                         conda-forge       8kB
+2026-09-30T18:51:20.5742326Z   + ambertools                         26.0  cuda_None_nompi_py311h232f31e_100  conda-forge     101MB
+2026-09-30T18:51:20.5743492Z   + annotated-types                   0.8.0  pyhd8ed1ab_0                       conda-forge      19kB
+2026-09-30T18:51:20.5744429Z   + arpack                            3.9.1  nompi_hf03ea27_102                 conda-forge     130kB
+2026-09-30T18:51:20.5745280Z   + aws-c-auth                       0.10.4  h4610da3_2                         conda-forge     135kB
+2026-09-30T18:51:20.5746141Z   + aws-c-cal                        0.9.15  h6bbde05_1                         conda-forge      57kB
+2026-09-30T18:51:20.5747193Z   + aws-c-common                     0.14.3  hb03c661_0                         conda-forge     246kB
+2026-09-30T18:51:20.5748101Z   + aws-c-compression                 0.3.2  h01ee8f8_5                         conda-forge      22kB
+2026-09-30T18:51:20.5748893Z   + aws-c-http                       0.11.0  hbe094ff_5                         conda-forge     231kB
+2026-09-30T18:51:20.5749457Z   + aws-c-io                         0.27.5  h4f381ba_1                         conda-forge     184kB
+2026-09-30T18:51:20.5749987Z   + aws-c-s3                         0.13.1  h7508075_1                         conda-forge     158kB
+2026-09-30T18:51:20.5750852Z   + aws-c-sdkutils                    0.2.7  h01ee8f8_3                         conda-forge      69kB
+2026-09-30T18:51:20.5751459Z   + aws-checksums                    0.2.10  h01ee8f8_5                         conda-forge     102kB
+2026-09-30T18:51:20.5752226Z   + biopython                          1.88  py311h0d48ccd_1                    conda-forge       3MB
+2026-09-30T18:51:20.5752786Z   + blosc                            1.21.6  he440d0b_1                         conda-forge      48kB
+2026-09-30T18:51:20.5753320Z   + brotli                            1.2.0  h505cf86_4                         conda-forge      21kB
+2026-09-30T18:51:20.5753860Z   + brotli-bin                        1.2.0  h9908984_4                         conda-forge      22kB
+2026-09-30T18:51:20.5754358Z   + bson                             0.5.10  pyhd8ed1ab_0                       conda-forge      17kB
+2026-09-30T18:51:20.5754833Z   + bzip2                             1.0.8  hda65f42_10                        conda-forge     258kB
+2026-09-30T18:51:20.5755297Z   + c-ares                           1.34.8  hebe6cf0_2                         conda-forge     229kB
+2026-09-30T18:51:20.5755765Z   + c-blosc2                          3.3.5  hea3f660_0                         conda-forge     416kB
+2026-09-30T18:51:20.5756274Z   + ca-certificates               2026.7.22  hbd8a1cb_0                         conda-forge     132kB
+2026-09-30T18:51:20.5757342Z   + cachetools                        7.2.0  pyhd8ed1ab_0                       conda-forge      22kB
+2026-09-30T18:51:20.5757884Z   + cairo                            1.18.6  h3c89d7e_0                         conda-forge       1MB
+2026-09-30T18:51:20.5758388Z   + charset-normalizer                3.5.2  h1114479_0                         conda-forge     217kB
+2026-09-30T18:51:20.5758886Z   + click                             8.5.0  pyh5ded981_0                       conda-forge     112kB
+2026-09-30T18:51:20.5759396Z   + click-option-group                0.5.9  pyhcf101f3_0                       conda-forge      21kB
+2026-09-30T18:51:20.5759912Z   + cloudpickle                       3.1.2  pyhcf101f3_1                       conda-forge      27kB
+2026-09-30T18:51:20.5760409Z   + colorama                          0.4.6  pyhd8ed1ab_1                       conda-forge      27kB
+2026-09-30T18:51:20.5760894Z   + configobj                         5.0.9  pyhd8ed1ab_1                       conda-forge      38kB
+2026-09-30T18:51:20.5761379Z   + contourpy                         1.3.3  py311h724c32c_4                    conda-forge     321kB
+2026-09-30T18:51:20.5761956Z   + coverage                         7.16.2  py311h364832d_0                    conda-forge     430kB
+2026-09-30T18:51:20.5762440Z   + cpython                         3.11.16  py311hd8ed1ab_2                    conda-forge      49kB
+2026-09-30T18:51:20.5762925Z   + cuda-nvrtc                      13.4.92  hd2095e1_0                         conda-forge      41MB
+2026-09-30T18:51:20.5763413Z   + cuda-version                       13.4  hfacf21a_3                         conda-forge      21kB
+2026-09-30T18:51:20.5763948Z   + cycler                           0.12.1  pyhcf101f3_2                       conda-forge      15kB
+2026-09-30T18:51:20.5764500Z   + cyrus-sasl                       2.1.28  hac629b4_1                         conda-forge     210kB
+2026-09-30T18:51:20.5764969Z   + e3nn                              0.4.4  pyhd8ed1ab_1                       conda-forge     321kB
+2026-09-30T18:51:20.5765445Z   + eigen-abi                     3.4.0.100  h3bcb7cf_2                         conda-forge      13kB
+2026-09-30T18:51:20.5765952Z   + exceptiongroup                    1.3.1  pyhd8ed1ab_0                       conda-forge      21kB
+2026-09-30T18:51:20.5766714Z   + fftw                             3.3.11  nompi_h3b011a4_100                 conda-forge       2MB
+2026-09-30T18:51:20.5767262Z   + filelock                          4.0.7  pyhd8ed1ab_0                       conda-forge      85kB
+2026-09-30T18:51:20.5767958Z   + flexcache                           0.3  pyh5ded981_2                       conda-forge      19kB
+2026-09-30T18:51:20.5768462Z   + flexparser                          0.4  pyh5ded981_2                       conda-forge      31kB
+2026-09-30T18:51:20.5769120Z   + font-ttf-dejavu-sans-mono          2.37  hab24e00_0                         conda-forge     397kB
+2026-09-30T18:51:20.5769673Z   + font-ttf-inconsolata              3.000  h77eed37_0                         conda-forge      97kB
+2026-09-30T18:51:20.5770219Z   + font-ttf-source-code-pro          2.038  h77eed37_0                         conda-forge     701kB
+2026-09-30T18:51:20.5770776Z   + font-ttf-ubuntu                    0.83  h77eed37_3                         conda-forge       2MB
+2026-09-30T18:51:20.5771280Z   + fontconfig                       2.18.3  h4db4eae_1                         conda-forge     296kB
+2026-09-30T18:51:20.5771782Z   + fonts-conda-ecosystem                 1  0                                  conda-forge       4kB
+2026-09-30T18:51:20.5772352Z   + fonts-conda-forge                     1  hc364b38_1                         conda-forge       4kB
+2026-09-30T18:51:20.5772948Z   + fonttools                        4.66.1  py311h92159aa_0                    conda-forge       3MB
+2026-09-30T18:51:20.5773646Z   + freesasa                          2.2.1  hd8ed1ab_5                         conda-forge       7kB
+2026-09-30T18:51:20.5774146Z   + freesasa-python                   2.2.1  py311h49ec1c0_1                    conda-forge     257kB
+2026-09-30T18:51:20.5774644Z   + freetype                         2.14.3  ha770c72_2                         conda-forge     175kB
+2026-09-30T18:51:20.5775125Z   + freetype-py                       2.3.0  pyhd8ed1ab_0                       conda-forge      59kB
+2026-09-30T18:51:20.5775604Z   + fribidi                          1.0.17  h7cc23a3_0                         conda-forge      64kB
+2026-09-30T18:51:20.5776091Z   + fsspec                         2026.9.0  pyhd8ed1ab_0                       conda-forge     164kB
+2026-09-30T18:51:20.5776708Z   + gemmi                             0.7.5  py311h5b8264c_0                    conda-forge       4MB
+2026-09-30T18:51:20.5777174Z   + git                              2.56.0  pl5440h3795e67_0                   conda-forge      12MB
+2026-09-30T18:51:20.5777631Z   + gmp                               6.3.0  hfd2156b_3                         conda-forge     493kB
+2026-09-30T18:51:20.5778086Z   + gmpy2                             2.3.1  py311hbc40be8_1                    conda-forge     313kB
+2026-09-30T18:51:20.5778556Z   + graphite2                        1.3.15  h54a6638_1                         conda-forge     103kB
+2026-09-30T18:51:20.5779022Z   + hdf4                             4.2.15  h2a13503_7                         conda-forge     757kB
+2026-09-30T18:51:20.5779485Z   + hdf5                              2.2.0  nompi_hc529623_100                 conda-forge       4MB
+2026-09-30T18:51:20.5779945Z   + icu                                78.3  py310h44b86e0_2                    conda-forge      14MB
+2026-09-30T18:51:20.5780443Z   + importlib-metadata                9.0.1  pyhcf101f3_0                       conda-forge      35kB
+2026-09-30T18:51:20.5780979Z   + importlib_resources               7.1.0  pyhd8ed1ab_0                       conda-forge      35kB
+2026-09-30T18:51:20.5781491Z   + iniconfig                         2.3.0  pyhd8ed1ab_0                       conda-forge      13kB
+2026-09-30T18:51:20.5781957Z   + jax                               0.9.0  pyhd8ed1ab_0                       conda-forge       2MB
+2026-09-30T18:51:20.5782420Z   + jaxlib                            0.9.0  cpu_py311ha68bf88_0                conda-forge      64MB
+2026-09-30T18:51:20.5782898Z   + jinja2                            3.1.6  pyhcf101f3_1                       conda-forge     121kB
+2026-09-30T18:51:20.5783358Z   + joblib                            1.6.0  pyhcf101f3_0                       conda-forge     229kB
+2026-09-30T18:51:20.5783945Z   + keyutils                          1.6.3  h7cc23a3_1                         conda-forge     135kB
+2026-09-30T18:51:20.5784433Z   + kiwisolver                        1.5.1  py311h4c6fd42_3                    conda-forge      77kB
+2026-09-30T18:51:20.5785023Z   + krb5                             1.22.2  hbc21106_2                         conda-forge       1MB
+2026-09-30T18:51:20.5785473Z   + lcms2                            2.19.1  h9073bf1_3                         conda-forge     254kB
+2026-09-30T18:51:20.5785964Z   + ld_impl_linux-64                 2.46.1  default_hbd61a6d_102               conda-forge     745kB
+2026-09-30T18:51:20.5786571Z   + lerc                              4.2.0  hdb68285_0                         conda-forge     271kB
+2026-09-30T18:51:20.5787053Z   + libabseil                    20250512.1  cxx17_hba17884_0                   conda-forge       1MB
+2026-09-30T18:51:20.5787540Z   + libaec                            1.1.5  h088129d_0                         conda-forge      37kB
+2026-09-30T18:51:20.5788005Z   + libblas                          3.11.0  6_h5875eb1_mkl                     conda-forge      19kB
+2026-09-30T18:51:20.5788475Z   + libboost                         1.86.0  hd24cca6_5                         conda-forge       3MB
+2026-09-30T18:51:20.5788980Z   + libboost-python                  1.86.0  py311h1d5f577_5                    conda-forge     120kB
+2026-09-30T18:51:20.5789496Z   + libbrotlicommon                   1.2.0  h39a168f_4                         conda-forge      81kB
+2026-09-30T18:51:20.5789998Z   + libbrotlidec                      1.2.0  ha411449_4                         conda-forge      35kB
+2026-09-30T18:51:20.5790483Z   + libbrotlienc                      1.2.0  h018ffa1_4                         conda-forge     298kB
+2026-09-30T18:51:20.5790962Z   + libcblas                         3.11.0  6_hfef963f_mkl                     conda-forge      19kB
+2026-09-30T18:51:20.5791435Z   + libcufft                      12.4.0.43  hd2095e1_0                         conda-forge     128MB
+2026-09-30T18:51:20.5791908Z   + libcurl                          8.22.0  ha042cf0_0                         conda-forge     500kB
+2026-09-30T18:51:20.5792376Z   + libdeflate                         1.25  hd45a770_1                         conda-forge      74kB
+2026-09-30T18:51:20.5792875Z   + libedit                    3.1.20250104  pl5321h373387f_1                   conda-forge     135kB
+2026-09-30T18:51:20.5793359Z   + libev                              4.33  h280c20c_3                         conda-forge      43kB
+2026-09-30T18:51:20.5793817Z   + libexpat                          2.8.5  hd2095e1_0                         conda-forge      78kB
+2026-09-30T18:51:20.5794280Z   + libffi                            3.7.0  h81df57d_1                         conda-forge      68kB
+2026-09-30T18:51:20.5794754Z   + libfreetype                      2.14.3  ha770c72_2                         conda-forge       8kB
+2026-09-30T18:51:20.5795246Z   + libfreetype6                     2.14.3  h5e6c136_2                         conda-forge     388kB
+2026-09-30T18:51:20.5795725Z   + libgcc                           16.2.0  ha9f2e26_7                         conda-forge       1MB
+2026-09-30T18:51:20.5796196Z   + libgcc-ng                        16.2.0  h69a702a_7                         conda-forge      29kB
+2026-09-30T18:51:20.5796805Z   + libgfortran                      16.2.0  h69a702a_7                         conda-forge      29kB
+2026-09-30T18:51:20.5797291Z   + libgfortran5                     16.2.0  h6b99dfc_7                         conda-forge       3MB
+2026-09-30T18:51:20.5797766Z   + libglib                          2.90.0  h569388d_0                         conda-forge       5MB
+2026-09-30T18:51:20.5798233Z   + libgomp                          16.2.0  he0feb66_7                         conda-forge     641kB
+2026-09-30T18:51:20.5798696Z   + libgrpc                          1.73.1  h3288cfb_1                         conda-forge       8MB
+2026-09-30T18:51:20.5799308Z   + libharfbuzz                      14.5.0  h23af247_0                         conda-forge       1MB
+2026-09-30T18:51:20.5799803Z   + libhwloc                         2.15.0  default_hd7c4d0c_1001              conda-forge       2MB
+2026-09-30T18:51:20.5800284Z   + libiconv                           1.18  h0cb94f2_3                         conda-forge     789kB
+2026-09-30T18:51:20.5800891Z   + libjpeg-turbo                     3.2.0  hb03c661_1                         conda-forge     650kB
+2026-09-30T18:51:20.5801380Z   + liblapack                        3.11.0  6_h5e43f62_mkl                     conda-forge      19kB
+2026-09-30T18:51:20.5801859Z   + libllvm21                        21.1.8  h474f4eb_1                         conda-forge      45MB
+2026-09-30T18:51:20.5802337Z   + liblzma                           5.8.3  hb03c661_1                         conda-forge     113kB
+2026-09-30T18:51:20.5802814Z   + libnetcdf                        4.10.1  nompi_he3e3c8e_201                 conda-forge       1MB
+2026-09-30T18:51:20.5803309Z   + libnghttp2                       1.68.1  h74cf4be_1                         conda-forge     650kB
+2026-09-30T18:51:20.5803787Z   + libnsl                            2.0.1  hb9d3cd8_1                         conda-forge      34kB
+2026-09-30T18:51:20.5804249Z   + libntlm                             1.8  hb9d3cd8_0                         conda-forge      33kB
+2026-09-30T18:51:20.5804718Z   + libpng                           1.6.58  h922cc85_1                         conda-forge     317kB
+2026-09-30T18:51:20.5805167Z   + libpq                              18.6  h3883810_2                         conda-forge      12MB
+2026-09-30T18:51:20.5805637Z   + libprotobuf                      6.31.1  hfb7daa7_5                         conda-forge       4MB
+2026-09-30T18:51:20.5806115Z   + libpsl                           0.23.1  hd9e3e90_1                         conda-forge      73kB
+2026-09-30T18:51:20.5806938Z   + libpython                       3.11.16  h0c77377_2_cpython                 conda-forge       8MB
+2026-09-30T18:51:20.5807439Z   + libraqm                          0.11.0  h6406941_0                         conda-forge      34kB
+2026-09-30T18:51:20.5807911Z   + librdkit                      2026.03.1  h4dfd318_0                         conda-forge      10MB
+2026-09-30T18:51:20.5808398Z   + libre2-11                    2025.11.05  h7b12aa8_0                         conda-forge     211kB
+2026-09-30T18:51:20.5808876Z   + libsqlite                        3.53.4  h13e7031_1                         conda-forge     974kB
+2026-09-30T18:51:20.5809348Z   + libssh2                          1.11.1  h6154650_1                         conda-forge     306kB
+2026-09-30T18:51:20.5809815Z   + libstdcxx                        16.2.0  h934c35e_7                         conda-forge       7MB
+2026-09-30T18:51:20.5810298Z   + libstdcxx-ng                     16.2.0  hdf11a46_7                         conda-forge      29kB
+2026-09-30T18:51:20.5810773Z   + libtiff                           4.7.2  hcc2c06a_1                         conda-forge     460kB
+2026-09-30T18:51:20.5811249Z   + libtorch                          2.8.0  cpu_mkl_h09b866c_102               conda-forge      59MB
+2026-09-30T18:51:20.5811719Z   + libuuid                          2.42.4  hcfc3c73_0                         conda-forge      34kB
+2026-09-30T18:51:20.5812188Z   + libuv                            1.52.1  h280c20c_1                         conda-forge     420kB
+2026-09-30T18:51:20.5812670Z   + libwebp-base                      1.6.0  hd42ef1d_1                         conda-forge     428kB
+2026-09-30T18:51:20.5813145Z   + libxcb                           1.17.0  hb83e432_2                         conda-forge     395kB
+2026-09-30T18:51:20.5813622Z   + libxcrypt                        4.4.38  h280c20c_0                         conda-forge     102kB
+2026-09-30T18:51:20.5814095Z   + libxml2                          2.15.4  h7df9aa5_0                         conda-forge      47kB
+2026-09-30T18:51:20.5814559Z   + libxml2-16                       2.15.4  hf3af7cc_0                         conda-forge     569kB
+2026-09-30T18:51:20.5815202Z   + libxslt                          1.1.45  h8e12856_1                         conda-forge     250kB
+2026-09-30T18:51:20.5815673Z   + libzip                           1.11.4  h6008cf6_0                         conda-forge     113kB
+2026-09-30T18:51:20.5816259Z   + libzlib                           1.3.2  h25fd6f3_3                         conda-forge      64kB
+2026-09-30T18:51:20.5817035Z   + lightning-utilities              0.15.3  pyhd8ed1ab_0                       conda-forge      32kB
+2026-09-30T18:51:20.5817558Z   + llvm-openmp                      23.1.2  h7148c6a_0                         conda-forge       6MB
+2026-09-30T18:51:20.5818045Z   + llvmlite                         0.49.0  py311h1369f55_5                    conda-forge      41MB
+2026-09-30T18:51:20.5818513Z   + lxml                              6.1.3  py311h0537bf7_0                    conda-forge       2MB
+2026-09-30T18:51:20.5818972Z   + lz4-c                            1.10.0  hee9eb32_2                         conda-forge     182kB
+2026-09-30T18:51:20.5819453Z   + markdown-it-py                    4.2.0  pyhd8ed1ab_0                       conda-forge      69kB
+2026-09-30T18:51:20.5819959Z   + markupsafe                        3.0.3  py311h3778330_1                    conda-forge      27kB
+2026-09-30T18:51:20.5820474Z   + matplotlib-base                  3.11.2  py311hfea5af0_1                    conda-forge       9MB
+2026-09-30T18:51:20.5820980Z   + mda-xdrlib                        0.2.0  pyhd8ed1ab_1                       conda-forge      17kB
+2026-09-30T18:51:20.5821458Z   + mdtraj                           1.11.1  py311h90ed22e_2                    conda-forge       2MB
+2026-09-30T18:51:20.5821924Z   + mdurl                             0.1.2  pyhd8ed1ab_1                       conda-forge      14kB
+2026-09-30T18:51:20.5822382Z   + mkl                            2025.3.1  h0e700b2_12                        conda-forge     125MB
+2026-09-30T18:51:20.5822864Z   + ml_dtypes                         0.5.4  np2py311h5a3f614_2                 conda-forge     348kB
+2026-09-30T18:51:20.5823337Z   + mpc                               1.4.0  ha2cb11d_1                         conda-forge     101kB
+2026-09-30T18:51:20.5823784Z   + mpfr                              4.2.2  ha2cb11d_1                         conda-forge     730kB
+2026-09-30T18:51:20.5824244Z   + mpmath                            1.4.1  pyhd8ed1ab_0                       conda-forge     465kB
+2026-09-30T18:51:20.5824713Z   + munkres                           1.1.4  pyhd8ed1ab_1                       conda-forge      16kB
+2026-09-30T18:51:20.5825190Z   + narwhals                         2.26.0  pyh5ded981_0                       conda-forge     297kB
+2026-09-30T18:51:20.5825662Z   + ncurses                             6.6  hdb14827_1                         conda-forge     911kB
+2026-09-30T18:51:20.5826151Z   + netcdf-fortran                    4.6.4  nompi_h52816da_101                 conda-forge     477kB
+2026-09-30T18:51:20.5826775Z   + networkx                          3.6.1  pyhcf101f3_0                       conda-forge       2MB
+2026-09-30T18:51:20.5827258Z   + nlopt                            2.11.0  np2py311h1a37cdc_2                 conda-forge     462kB
+2026-09-30T18:51:20.5827735Z   + numba                            0.67.0  py311hdfc3925_1                    conda-forge       6MB
+2026-09-30T18:51:20.5828210Z   + numexpr                          2.14.1  mkl_py311hf9c0e9f_1                conda-forge     221kB
+2026-09-30T18:51:20.5828701Z   + numpy                             2.4.6  py311h2e04523_0                    conda-forge       9MB
+2026-09-30T18:51:20.5829164Z   + ocl-icd                           2.3.4  hb03c661_1                         conda-forge     110kB
+2026-09-30T18:51:20.5829632Z   + ocl-icd-system                    1.0.0  1                                  conda-forge       4kB
+2026-09-30T18:51:20.5830127Z   + onemkl-license                 2025.3.1  hf2ce2f3_12                        conda-forge      40kB
+2026-09-30T18:51:20.5830773Z   + opencl-headers               2025.06.13  hecca717_0                         conda-forge      56kB
+2026-09-30T18:51:20.5831327Z   + openff-amber-ff-ports         2025.09.0  pyhd8ed1ab_0                       conda-forge     222kB
+2026-09-30T18:51:20.5832013Z   + openff-forcefields            2026.01.0  pyhd8ed1ab_0                       conda-forge     119kB
+2026-09-30T18:51:20.5832555Z   + openff-interchange                0.5.2  pyhd8ed1ab_1                       conda-forge       9kB
+2026-09-30T18:51:20.5833101Z   + openff-interchange-base           0.5.2  pyhd8ed1ab_1                       conda-forge     699kB
+2026-09-30T18:51:20.5833627Z   + openff-nagl                       0.5.5  pyh3fa9b46_2                       conda-forge       8kB
+2026-09-30T18:51:20.5834127Z   + openff-nagl-base                  0.5.5  pyhc364b38_2                       conda-forge     127kB
+2026-09-30T18:51:20.5834653Z   + openff-nagl-models             2025.9.0  pyhd8ed1ab_1                       conda-forge      53MB
+2026-09-30T18:51:20.5835183Z   + openff-toolkit                   0.18.0  pyhd8ed1ab_6                       conda-forge      10kB
+2026-09-30T18:51:20.5835714Z   + openff-toolkit-base              0.18.0  pyhd8ed1ab_6                       conda-forge       8MB
+2026-09-30T18:51:20.5836237Z   + openff-units                      0.3.2  pyhd8ed1ab_0                       conda-forge      25kB
+2026-09-30T18:51:20.5836870Z   + openff-utilities                 0.1.18  pyh5ded981_0                       conda-forge      21kB
+2026-09-30T18:51:20.5837367Z   + openjpeg                          2.5.4  heb1ab33_2                         conda-forge     391kB
+2026-09-30T18:51:20.5837844Z   + openldap                         2.6.13  hbde042b_0                         conda-forge     786kB
+2026-09-30T18:51:20.5838321Z   + openmm                            8.6.1  py311h1aadaef_0                    conda-forge      14MB
+2026-09-30T18:51:20.5838825Z   + openmmforcefields                0.16.0  pyhc364b38_1                       conda-forge       3MB
+2026-09-30T18:51:20.5839324Z   + openssl                           3.6.4  h781a0a9_0                         conda-forge       3MB
+2026-09-30T18:51:20.5839797Z   + opt-einsum                        3.4.0  hd8ed1ab_1                         conda-forge       7kB
+2026-09-30T18:51:20.5840285Z   + opt_einsum                        3.4.0  pyhd8ed1ab_1                       conda-forge      62kB
+2026-09-30T18:51:20.5840775Z   + opt_einsum_fx                     0.1.4  pyh5ded981_2                       conda-forge      19kB
+2026-09-30T18:51:20.5841253Z   + optree                           0.20.0  py311h5f908af_1                    conda-forge     573kB
+2026-09-30T18:51:20.5841732Z   + packaging                          26.3  pyhc364b38_0                       conda-forge     116kB
+2026-09-30T18:51:20.5842220Z   + pandas                            2.3.3  py311hed34c8f_2                    conda-forge      15MB
+2026-09-30T18:51:20.5842708Z   + parmed                            4.3.1  py311h74232ed_1                    conda-forge      20MB
+2026-09-30T18:51:20.5843181Z   + pcre2                             10.47  h8b3dc9c_1                         conda-forge       1MB
+2026-09-30T18:51:20.5843653Z   + perl                             5.44.0  1_h7cc23a3_perl5                   conda-forge      11MB
+2026-09-30T18:51:20.5844125Z   + pillow                           12.3.0  py311hf303fd3_4                    conda-forge       1MB
+2026-09-30T18:51:20.5844597Z   + pint                             0.25.3  pyhc364b38_0                       conda-forge     245kB
+2026-09-30T18:51:20.5845055Z   + pip                              26.2.1  pyh8b19718_0                       conda-forge       1MB
+2026-09-30T18:51:20.5845510Z   + pixman                           0.46.4  h54a6638_3                         conda-forge     377kB
+2026-09-30T18:51:20.5845997Z   + platformdirs                     4.12.2  pyh5ded981_0                       conda-forge      34kB
+2026-09-30T18:51:20.5846799Z   + pluggy                            1.6.0  pyhf9edf01_1                       conda-forge      26kB
+2026-09-30T18:51:20.5847434Z   + psutil                            7.2.2  py311h194be0f_3                    conda-forge     232kB
+2026-09-30T18:51:20.5847928Z   + pthread-stubs                       0.4  h7cc23a3_1004                      conda-forge      10kB
+2026-09-30T18:51:20.5848571Z   + py-cpuinfo                        9.0.0  pyhd8ed1ab_1                       conda-forge      26kB
+2026-09-30T18:51:20.5849054Z   + pybind11                         2.13.6  pyhc790b64_3                       conda-forge     187kB
+2026-09-30T18:51:20.5849532Z   + pybind11-abi                          4  hd8ed1ab_3                         conda-forge      10kB
+2026-09-30T18:51:20.5850038Z   + pybind11-global                  2.13.6  pyh217bc35_3                       conda-forge     180kB
+2026-09-30T18:51:20.5850544Z   + pycairo                          1.29.1  py311h616d719_2                    conda-forge     122kB
+2026-09-30T18:51:20.5851033Z   + pydantic                        2.11.10  pyh3cfb1c2_0                       conda-forge     308kB
+2026-09-30T18:51:20.5851532Z   + pydantic-core                    2.33.2  py311h902ca64_1                    conda-forge       2MB
+2026-09-30T18:51:20.5852022Z   + pyedr                             0.8.0  pyhd8ed1ab_1                       conda-forge     345kB
+2026-09-30T18:51:20.5852495Z   + pygments                         2.21.0  pyhcf101f3_0                       conda-forge     959kB
+2026-09-30T18:51:20.5852962Z   + pymbar                            4.0.3  h38be061_3                         conda-forge       7kB
+2026-09-30T18:51:20.5853450Z   + pymbar-core                       4.0.3  py311h9f3472d_3                    conda-forge     194kB
+2026-09-30T18:51:20.5853950Z   + pyparsing                         3.3.3  pyh5ded981_0                       conda-forge     114kB
+2026-09-30T18:51:20.5854437Z   + pytables                         3.11.1  py311h9acb22d_6                    conda-forge       2MB
+2026-09-30T18:51:20.5854917Z   + pytest                            9.1.1  pyhc364b38_2                       conda-forge     307kB
+2026-09-30T18:51:20.5855392Z   + pytest-cov                        7.1.0  pyhcf101f3_0                       conda-forge      30kB
+2026-09-30T18:51:20.5855879Z   + python                          3.11.16  h5f976f7_2_cpython                 conda-forge      23MB
+2026-09-30T18:51:20.5856391Z   + python-constraint                 1.4.0  pyhff2d567_1                       conda-forge      26kB
+2026-09-30T18:51:20.5857237Z   + python-dateutil             2.9.0.post0  pyhe01879c_2                       conda-forge     233kB
+2026-09-30T18:51:20.5857783Z   + python-gil                      3.11.16  hd8ed1ab_2                         conda-forge      49kB
+2026-09-30T18:51:20.5858289Z   + python-tzdata                    2026.4  pyh5ded981_0                       conda-forge     141kB
+2026-09-30T18:51:20.5858778Z   + python_abi                         3.11  9_cp311                            conda-forge       7kB
+2026-09-30T18:51:20.5859259Z   + pytorch                           2.8.0  cpu_mkl_py311_hcfbaf12_102         conda-forge      25MB
+2026-09-30T18:51:20.5859770Z   + pytorch-lightning                 2.6.6  pyh5ded981_0                       conda-forge     498kB
+2026-09-30T18:51:20.5860284Z   + pytz                             2026.4  pyh5ded981_0                       conda-forge     202kB
+2026-09-30T18:51:20.5860761Z   + pyyaml                            6.0.3  py311h3778330_1                    conda-forge     206kB
+2026-09-30T18:51:20.5861239Z   + qhull                            2020.2  h434a139_5                         conda-forge     553kB
+2026-09-30T18:51:20.5861722Z   + rdkit                         2026.03.1  py311h34e1bb8_0                    conda-forge      20MB
+2026-09-30T18:51:20.5862195Z   + re2                          2025.11.05  h5301d42_0                         conda-forge      27kB
+2026-09-30T18:51:20.5862784Z   + readline                            8.3  hd6e31c0_1                         conda-forge     349kB
+2026-09-30T18:51:20.5863272Z   + reportlab                         5.0.1  pyhc364b38_0                       conda-forge       2MB
+2026-09-30T18:51:20.5863750Z   + rich                             15.0.0  pyhcf101f3_0                       conda-forge     209kB
+2026-09-30T18:51:20.5864346Z   + rlpycairo                         0.4.0  pyh6c17108_0                       conda-forge      16kB
+2026-09-30T18:51:20.5864825Z   + rocm-core                         7.2.4  h54a6638_1                         conda-forge      37kB
+2026-09-30T18:51:20.5865284Z   + s2n                               1.7.6  h7e3ee7f_0                         conda-forge     394kB
+2026-09-30T18:51:20.5865763Z   + scikit-learn                      1.9.1  np2py311h1e9b377_1                 conda-forge      10MB
+2026-09-30T18:51:20.5866257Z   + scipy                            1.17.1  py311hbe70eeb_1                    conda-forge      17MB
+2026-09-30T18:51:20.5866934Z   + setproctitle                      1.3.7  py311h194be0f_1                    conda-forge      24kB
+2026-09-30T18:51:20.5867435Z   + setuptools                       84.0.0  pyh332efcf_0                       conda-forge     524kB
+2026-09-30T18:51:20.5867911Z   + six                              1.17.0  pyhe01879c_1                       conda-forge      18kB
+2026-09-30T18:51:20.5868370Z   + sleef                             3.9.0  ha0421bc_0                         conda-forge       2MB
+2026-09-30T18:51:20.5868825Z   + snappy                            1.2.2  h34e00bb_2                         conda-forge      46kB
+2026-09-30T18:51:20.5869300Z   + sqlalchemy                        2.1.1  py311h194be0f_0                    conda-forge       4MB
+2026-09-30T18:51:20.5869780Z   + sympy                            1.14.0  pyh2585a3b_106                     conda-forge       5MB
+2026-09-30T18:51:20.5870236Z   + tbb                            2023.1.0  haa8c3ee_2                         conda-forge     187kB
+2026-09-30T18:51:20.5870718Z   + threadpoolctl                     3.7.0  pyhc455866_0                       conda-forge      32kB
+2026-09-30T18:51:20.5871210Z   + tinydb                            4.8.2  pyhd8ed1ab_1                       conda-forge      28kB
+2026-09-30T18:51:20.5871677Z   + tk                               8.6.13  noxft_h1df4ec4_4                   conda-forge       4MB
+2026-09-30T18:51:20.5872130Z   + tomli                             2.4.1  pyhcf101f3_0                       conda-forge      22kB
+2026-09-30T18:51:20.5872612Z   + torchmetrics                      1.9.0  pyhd8ed1ab_0                       conda-forge     399kB
+2026-09-30T18:51:20.5873091Z   + tqdm                             4.70.1  pyhfa0c392_0                       conda-forge      96kB
+2026-09-30T18:51:20.5873585Z   + typing-extensions                4.16.0  h69aa097_0                         conda-forge      94kB
+2026-09-30T18:51:20.5874114Z   + typing-inspection                 0.4.4  pyhcf101f3_0                       conda-forge      21kB
+2026-09-30T18:51:20.5874651Z   + typing_extensions                4.16.0  pyhcf101f3_0                       conda-forge      53kB
+2026-09-30T18:51:20.5875150Z   + tzdata                            2026c  h151e31d_0                         conda-forge     119kB
+2026-09-30T18:51:20.5875648Z   + unicodedata2                     18.0.0  py311h0d48ccd_0                    conda-forge     421kB
+2026-09-30T18:51:20.5876145Z   + validators                       0.35.0  pyhd8ed1ab_0                       conda-forge      40kB
+2026-09-30T18:51:20.5876734Z   + wheel                            0.48.0  pyhd8ed1ab_0                       conda-forge      35kB
+2026-09-30T18:51:20.5877206Z   + xmltodict                         1.0.2  pyhcf101f3_0                       conda-forge      20kB
+2026-09-30T18:51:20.5877688Z   + xorg-libice                       1.1.2  h280c20c_0                         conda-forge      63kB
+2026-09-30T18:51:20.5878169Z   + xorg-libsm                        1.2.6  h0d788c3_1                         conda-forge      31kB
+2026-09-30T18:51:20.5878765Z   + xorg-libx11                      1.8.13  he1eb515_1                         conda-forge     840kB
+2026-09-30T18:51:20.5879251Z   + xorg-libxau                      1.0.12  h7cc23a3_2                         conda-forge      19kB
+2026-09-30T18:51:20.5879855Z   + xorg-libxdmcp                     1.1.5  h7cc23a3_2                         conda-forge      23kB
+2026-09-30T18:51:20.5880346Z   + xorg-libxext                      1.3.7  h7cc23a3_1                         conda-forge      53kB
+2026-09-30T18:51:20.5880844Z   + xorg-libxrender                  0.9.12  hb03c661_1                         conda-forge      35kB
+2026-09-30T18:51:20.5881336Z   + xorg-libxt                        1.3.1  h7cc23a3_1                         conda-forge     384kB
+2026-09-30T18:51:20.5881815Z   + yaml                              0.2.5  hebe6cf0_3                         conda-forge      85kB
+2026-09-30T18:51:20.5882271Z   + zipp                              4.1.0  pyhcf101f3_0                       conda-forge      24kB
+2026-09-30T18:51:20.5882720Z   + zlib                              1.3.2  h25fd6f3_3                         conda-forge      96kB
+2026-09-30T18:51:20.5883168Z   + zlib-ng                           2.3.3  hce19668_1                         conda-forge     124kB
+2026-09-30T18:51:20.5883628Z   + zstd                              1.5.7  hb78ec9c_7                         conda-forge     601kB
+2026-09-30T18:51:20.5883909Z 
+2026-09-30T18:51:20.5883986Z   Summary:
+2026-09-30T18:51:20.5884100Z 
+2026-09-30T18:51:20.5884185Z   Install: 273 packages
+2026-09-30T18:51:20.5884329Z 
+2026-09-30T18:51:20.5884416Z   Total download: 1GB
+2026-09-30T18:51:20.5884542Z 
+2026-09-30T18:51:20.5885031Z ───────────────────────────────────────────────────────────────────────────────────────────────────────
+2026-09-30T18:51:20.5885499Z 
+2026-09-30T18:51:20.5885504Z 
+2026-09-30T18:51:20.5885507Z 
+2026-09-30T18:51:20.5885595Z Transaction starting
+2026-09-30T18:51:33.1562309Z Linking python_abi-3.11-9_cp311
+2026-09-30T18:51:33.1564687Z Linking pybind11-abi-4-hd8ed1ab_3
+2026-09-30T18:51:33.1568134Z Linking tzdata-2026c-h151e31d_0
+2026-09-30T18:51:33.1906946Z Linking ca-certificates-2026.7.22-hbd8a1cb_0
+2026-09-30T18:51:33.1914095Z Linking cuda-version-13.4-hfacf21a_3
+2026-09-30T18:51:33.1916545Z Linking font-ttf-dejavu-sans-mono-2.37-hab24e00_0
+2026-09-30T18:51:33.1922162Z Linking font-ttf-ubuntu-0.83-h77eed37_3
+2026-09-30T18:51:33.1933665Z Linking font-ttf-inconsolata-3.000-h77eed37_0
+2026-09-30T18:51:33.1937951Z Linking font-ttf-source-code-pro-2.038-h77eed37_0
+2026-09-30T18:51:33.1949036Z Linking fonts-conda-forge-1-hc364b38_1
+2026-09-30T18:51:33.1952017Z Linking fonts-conda-ecosystem-1-0
+2026-09-30T18:51:33.1955135Z Linking libgomp-16.2.0-he0feb66_7
+2026-09-30T18:51:33.1961653Z Linking libzlib-1.3.2-h25fd6f3_3
+2026-09-30T18:51:33.1965939Z Linking llvm-openmp-23.1.2-h7148c6a_0
+2026-09-30T18:51:33.1976301Z Linking onemkl-license-2025.3.1-hf2ce2f3_12
+2026-09-30T18:51:33.1985134Z Linking eigen-abi-3.4.0.100-h3bcb7cf_2
+2026-09-30T18:51:33.1988599Z Linking zstd-1.5.7-hb78ec9c_7
+2026-09-30T18:51:33.2006319Z Linking zlib-1.3.2-h25fd6f3_3
+2026-09-30T18:51:33.2014117Z Linking _openmp_mutex-4.5-8_kmp_llvm
+2026-09-30T18:51:33.2029553Z Linking ld_impl_linux-64-2.46.1-default_hbd61a6d_102
+2026-09-30T18:51:33.2162755Z Linking libgcc-16.2.0-ha9f2e26_7
+2026-09-30T18:51:33.2175825Z Linking aws-c-common-0.14.3-hb03c661_0
+2026-09-30T18:51:33.2241684Z Linking xorg-libice-1.1.2-h280c20c_0
+2026-09-30T18:51:33.2252335Z Linking xorg-libxdmcp-1.1.5-h7cc23a3_2
+2026-09-30T18:51:33.2261973Z Linking xorg-libxau-1.0.12-h7cc23a3_2
+2026-09-30T18:51:33.2269275Z Linking yaml-0.2.5-hebe6cf0_3
+2026-09-30T18:51:33.2276258Z Linking libev-4.33-h280c20c_3
+2026-09-30T18:51:33.2282556Z Linking c-ares-1.34.8-hebe6cf0_2
+2026-09-30T18:51:33.2386988Z Linking libbrotlicommon-1.2.0-h39a168f_4
+2026-09-30T18:51:33.2397004Z Linking keyutils-1.6.3-h7cc23a3_1
+2026-09-30T18:51:33.2444793Z Linking libiconv-1.18-h0cb94f2_3
+2026-09-30T18:51:33.2503407Z Linking fribidi-1.0.17-h7cc23a3_0
+2026-09-30T18:51:33.2523928Z Linking libdeflate-1.25-hd45a770_1
+2026-09-30T18:51:33.2533895Z Linking pthread-stubs-0.4-h7cc23a3_1004
+2026-09-30T18:51:33.2538177Z Linking libgcc-ng-16.2.0-h69a702a_7
+2026-09-30T18:51:33.2541077Z Linking libpng-1.6.58-h922cc85_1
+2026-09-30T18:51:33.2560364Z Linking libntlm-1.8-hb9d3cd8_0
+2026-09-30T18:51:33.2568594Z Linking libwebp-base-1.6.0-hd42ef1d_1
+2026-09-30T18:51:33.2598122Z Linking libjpeg-turbo-3.2.0-hb03c661_1
+2026-09-30T18:51:33.2627614Z Linking tk-8.6.13-noxft_h1df4ec4_4
+2026-09-30T18:51:33.2950659Z Linking openssl-3.6.4-h781a0a9_0
+2026-09-30T18:51:33.3140534Z Linking ncurses-6.6-hdb14827_1
+2026-09-30T18:51:35.1414351Z Linking libuuid-2.42.4-hcfc3c73_0
+2026-09-30T18:51:35.1429131Z Linking libnsl-2.0.1-hb9d3cd8_1
+2026-09-30T18:51:35.1440004Z Linking liblzma-5.8.3-hb03c661_1
+2026-09-30T18:51:35.1444489Z Linking libffi-3.7.0-h81df57d_1
+2026-09-30T18:51:35.1456631Z Linking bzip2-1.0.8-hda65f42_10
+2026-09-30T18:51:35.1474326Z Linking libuv-1.52.1-h280c20c_1
+2026-09-30T18:51:35.1485141Z Linking libgfortran5-16.2.0-h6b99dfc_7
+2026-09-30T18:51:35.1491655Z Linking libstdcxx-16.2.0-h934c35e_7
+2026-09-30T18:51:35.1498769Z Linking libxcrypt-4.4.38-h280c20c_0
+2026-09-30T18:51:35.1515547Z Linking libexpat-2.8.5-hd2095e1_0
+2026-09-30T18:51:35.1520283Z Linking aws-c-compression-0.3.2-h01ee8f8_5
+2026-09-30T18:51:35.1529863Z Linking aws-checksums-0.2.10-h01ee8f8_5
+2026-09-30T18:51:35.1540107Z Linking aws-c-sdkutils-0.2.7-h01ee8f8_3
+2026-09-30T18:51:35.1553975Z Linking libbrotlienc-1.2.0-h018ffa1_4
+2026-09-30T18:51:35.1560554Z Linking libbrotlidec-1.2.0-ha411449_4
+2026-09-30T18:51:35.1566867Z Linking libxcb-1.17.0-hb83e432_2
+2026-09-30T18:51:35.1705622Z Linking libfreetype6-2.14.3-h5e6c136_2
+2026-09-30T18:51:35.1709992Z Linking s2n-1.7.6-h7e3ee7f_0
+2026-09-30T18:51:35.1726286Z Linking aws-c-cal-0.9.15-h6bbde05_1
+2026-09-30T18:51:35.1741887Z Linking libssh2-1.11.1-h6154650_1
+2026-09-30T18:51:35.1872035Z Linking libedit-3.1.20250104-pl5321h373387f_1
+2026-09-30T18:51:35.1920551Z Linking readline-8.3-hd6e31c0_1
+2026-09-30T18:51:35.1941811Z Linking xorg-libsm-1.2.6-h0d788c3_1
+2026-09-30T18:51:35.1950448Z Linking libzip-1.11.4-h6008cf6_0
+2026-09-30T18:51:35.2043411Z Linking pcre2-10.47-h8b3dc9c_1
+2026-09-30T18:51:35.2196788Z Linking libgfortran-16.2.0-h69a702a_7
+2026-09-30T18:51:35.2199549Z Linking lz4-c-1.10.0-hee9eb32_2
+2026-09-30T18:51:35.2217288Z Linking opencl-headers-2025.06.13-hecca717_0
+2026-09-30T18:51:35.2233736Z Linking libaec-1.1.5-h088129d_0
+2026-09-30T18:51:35.2245643Z Linking zlib-ng-2.3.3-hce19668_1
+2026-09-30T18:51:35.2256887Z Linking graphite2-1.3.15-h54a6638_1
+2026-09-30T18:51:35.2267808Z Linking icu-78.3-py310h44b86e0_2
+2026-09-30T18:51:35.2467486Z Linking pixman-0.46.4-h54a6638_3
+2026-09-30T18:51:35.2474927Z Linking gmp-6.3.0-hfd2156b_3
+2026-09-30T18:51:35.2492092Z Linking libnghttp2-1.68.1-h74cf4be_1
+2026-09-30T18:51:35.2502256Z Linking libstdcxx-ng-16.2.0-hdf11a46_7
+2026-09-30T18:51:35.2505062Z Linking snappy-1.2.2-h34e00bb_2
+2026-09-30T18:51:35.2515570Z Linking rocm-core-7.2.4-h54a6638_1
+2026-09-30T18:51:35.2531838Z Linking libcufft-12.4.0.43-hd2095e1_0
+2026-09-30T18:51:35.2542855Z Linking cuda-nvrtc-13.4.92-hd2095e1_0
+2026-09-30T18:51:35.2552977Z Linking lerc-4.2.0-hdb68285_0
+2026-09-30T18:51:35.2559890Z Linking sleef-3.9.0-ha0421bc_0
+2026-09-30T18:51:35.2578054Z Linking libabseil-20250512.1-cxx17_hba17884_0
+2026-09-30T18:51:35.3632376Z Linking libpython-3.11.16-h0c77377_2_cpython
+2026-09-30T18:51:35.3969843Z Linking perl-5.44.0-1_h7cc23a3_perl5
+2026-09-30T18:51:35.5642452Z Linking brotli-bin-1.2.0-h9908984_4
+2026-09-30T18:51:35.5645029Z Linking xorg-libx11-1.8.13-he1eb515_1
+2026-09-30T18:51:35.5818657Z Linking libfreetype-2.14.3-ha770c72_2
+2026-09-30T18:51:35.5820499Z Linking aws-c-io-0.27.5-h4f381ba_1
+2026-09-30T18:51:35.5847239Z Linking krb5-1.22.2-hbc21106_2
+2026-09-30T18:51:35.6011477Z Linking libglib-2.90.0-h569388d_0
+2026-09-30T18:51:35.6400584Z Linking fftw-3.3.11-nompi_h3b011a4_100
+2026-09-30T18:51:35.6633004Z Linking ocl-icd-2.3.4-hb03c661_1
+2026-09-30T18:51:35.6652462Z Linking c-blosc2-3.3.5-hea3f660_0
+2026-09-30T18:51:35.6673022Z Linking libxml2-16-2.15.4-hf3af7cc_0
+2026-09-30T18:51:35.6695760Z Linking libsqlite-3.53.4-h13e7031_1
+2026-09-30T18:51:35.6703887Z Linking libpsl-0.23.1-hd9e3e90_1
+2026-09-30T18:51:35.6711752Z Linking libboost-1.86.0-hd24cca6_5
+2026-09-30T18:51:35.6796108Z Linking mpfr-4.2.2-ha2cb11d_1
+2026-09-30T18:51:35.6814163Z Linking hdf4-4.2.15-h2a13503_7
+2026-09-30T18:51:35.6868595Z Linking qhull-2020.2-h434a139_5
+2026-09-30T18:51:35.6938377Z Linking blosc-1.21.6-he440d0b_1
+2026-09-30T18:51:35.6946782Z Linking libtiff-4.7.2-hcc2c06a_1
+2026-09-30T18:51:35.6970931Z Linking libre2-11-2025.11.05-h7b12aa8_0
+2026-09-30T18:51:35.6975722Z Linking libprotobuf-6.31.1-hfb7daa7_5
+2026-09-30T18:51:35.7195334Z Linking brotli-1.2.0-h505cf86_4
+2026-09-30T18:51:35.7202165Z Linking xorg-libxt-1.3.1-h7cc23a3_1
+2026-09-30T18:51:35.7245612Z Linking xorg-libxrender-0.9.12-hb03c661_1
+2026-09-30T18:51:35.7253389Z Linking xorg-libxext-1.3.7-h7cc23a3_1
+2026-09-30T18:51:35.7270034Z Linking fontconfig-2.18.3-h4db4eae_1
+2026-09-30T18:51:35.7367440Z Linking freetype-2.14.3-ha770c72_2
+2026-09-30T18:51:35.7414007Z Linking aws-c-http-0.11.0-hbe094ff_5
+2026-09-30T18:51:35.7436357Z Linking cyrus-sasl-2.1.28-hac629b4_1
+2026-09-30T18:51:35.7503416Z Linking ocl-icd-system-1.0.0-1
+2026-09-30T18:51:35.8067630Z 
+2026-09-30T18:51:35.8285740Z Linking libxml2-2.15.4-h7df9aa5_0
+2026-09-30T18:51:35.8294279Z Linking python-3.11.16-h5f976f7_2_cpython
+2026-09-30T18:51:36.0113669Z Linking libcurl-8.22.0-ha042cf0_0
+2026-09-30T18:51:36.0150788Z Linking mpc-1.4.0-ha2cb11d_1
+2026-09-30T18:51:36.0158520Z Linking openjpeg-2.5.4-heb1ab33_2
+2026-09-30T18:51:36.0173484Z Linking lcms2-2.19.1-h9073bf1_3
+2026-09-30T18:51:36.0187179Z Linking re2-2025.11.05-h5301d42_0
+2026-09-30T18:51:36.0202091Z Linking cairo-1.18.6-h3c89d7e_0
+2026-09-30T18:51:36.0247343Z Linking aws-c-auth-0.10.4-h4610da3_2
+2026-09-30T18:51:36.0265129Z Linking openldap-2.6.13-hbde042b_0
+2026-09-30T18:51:36.0813415Z Linking libhwloc-2.15.0-default_hd7c4d0c_1001
+2026-09-30T18:51:36.1183452Z Linking libllvm21-21.1.8-h474f4eb_1
+2026-09-30T18:51:36.1191218Z Linking libxslt-1.1.45-h8e12856_1
+2026-09-30T18:51:36.1266592Z Linking git-2.56.0-pl5440h3795e67_0
+2026-09-30T18:51:36.2731574Z Linking libgrpc-1.73.1-h3288cfb_1
+2026-09-30T18:51:36.3042044Z Linking libharfbuzz-14.5.0-h23af247_0
+2026-09-30T18:51:36.3066532Z Linking librdkit-2026.03.1-h4dfd318_0
+2026-09-30T18:51:36.3707661Z Linking aws-c-s3-0.13.1-h7508075_1
+2026-09-30T18:51:36.3724348Z Linking tbb-2023.1.0-haa8c3ee_2
+2026-09-30T18:51:36.3733883Z Linking libpq-18.6-h3883810_2
+2026-09-30T18:51:36.5008978Z Linking libraqm-0.11.0-h6406941_0
+2026-09-30T18:51:36.5016415Z Linking hdf5-2.2.0-nompi_hc529623_100
+2026-09-30T18:51:36.5270879Z Linking mkl-2025.3.1-h0e700b2_12
+2026-09-30T18:51:36.5306500Z Linking libnetcdf-4.10.1-nompi_he3e3c8e_201
+2026-09-30T18:51:36.5359874Z Linking libblas-3.11.0-6_h5875eb1_mkl
+2026-09-30T18:51:36.5631535Z Linking netcdf-fortran-4.6.4-nompi_h52816da_101
+2026-09-30T18:51:36.5658286Z Linking libcblas-3.11.0-6_hfef963f_mkl
+2026-09-30T18:51:36.5929495Z Linking liblapack-3.11.0-6_h5e43f62_mkl
+2026-09-30T18:51:36.6204208Z Linking libtorch-2.8.0-cpu_mkl_h09b866c_102
+2026-09-30T18:51:37.1794378Z Linking arpack-3.9.1-nompi_hf03ea27_102
+2026-09-30T18:51:37.1811744Z Linking setuptools-84.0.0-pyh332efcf_0
+2026-09-30T18:51:37.2182232Z Linking packaging-26.3-pyhc364b38_0
+2026-09-30T18:51:37.2207064Z Linking wheel-0.48.0-pyhd8ed1ab_0
+2026-09-30T18:51:37.2225388Z Linking pip-26.2.1-pyh8b19718_0
+2026-09-30T18:51:37.2585117Z Linking py-cpuinfo-9.0.0-pyhd8ed1ab_1
+2026-09-30T18:51:37.2598779Z Linking pybind11-global-2.13.6-pyh217bc35_3
+2026-09-30T18:51:37.2634445Z Linking threadpoolctl-3.7.0-pyhc455866_0
+2026-09-30T18:51:37.2643656Z Linking narwhals-2.26.0-pyh5ded981_0
+2026-09-30T18:51:37.2763018Z Linking cloudpickle-3.1.2-pyhcf101f3_1
+2026-09-30T18:51:37.2774554Z Linking mdurl-0.1.2-pyhd8ed1ab_1
+2026-09-30T18:51:37.2787573Z Linking platformdirs-4.12.2-pyh5ded981_0
+2026-09-30T18:51:37.2806178Z Linking mda-xdrlib-0.2.0-pyhd8ed1ab_1
+2026-09-30T18:51:37.2819055Z Linking munkres-1.1.4-pyhd8ed1ab_1
+2026-09-30T18:51:37.2826077Z Linking cycler-0.12.1-pyhcf101f3_2
+2026-09-30T18:51:37.2836672Z Linking pyparsing-3.3.3-pyh5ded981_0
+2026-09-30T18:51:37.2869274Z Linking pytz-2026.4-pyh5ded981_0
+2026-09-30T18:51:37.3480822Z Linking python-tzdata-2026.4-pyh5ded981_0
+2026-09-30T18:51:37.4121906Z Linking fsspec-2026.9.0-pyhd8ed1ab_0
+2026-09-30T18:51:37.4207778Z Linking filelock-4.0.7-pyhd8ed1ab_0
+2026-09-30T18:51:37.4297511Z Linking freetype-py-2.3.0-pyhd8ed1ab_0
+2026-09-30T18:51:37.4397564Z Linking six-1.17.0-pyhe01879c_1
+2026-09-30T18:51:37.4467286Z Linking zipp-4.1.0-pyhcf101f3_0
+2026-09-30T18:51:37.4527574Z Linking tqdm-4.70.1-pyhfa0c392_0
+2026-09-30T18:51:37.4627514Z Linking click-8.5.0-pyh5ded981_0
+2026-09-30T18:51:37.4717357Z Linking openff-forcefields-2026.01.0-pyhd8ed1ab_0
+2026-09-30T18:51:37.4927612Z Linking networkx-3.6.1-pyhcf101f3_0
+2026-09-30T18:51:37.5811090Z Linking xmltodict-1.0.2-pyhcf101f3_0
+2026-09-30T18:51:37.5842374Z Linking typing_extensions-4.16.0-pyhcf101f3_0
+2026-09-30T18:51:37.5843365Z Linking python-constraint-1.4.0-pyhff2d567_1
+2026-09-30T18:51:37.5885280Z Linking cachetools-7.2.0-pyhd8ed1ab_0
+2026-09-30T18:51:37.5908059Z Linking openff-utilities-0.1.18-pyh5ded981_0
+2026-09-30T18:51:37.5968237Z Linking validators-0.35.0-pyhd8ed1ab_0
+2026-09-30T18:51:37.6019424Z Linking openff-amber-ff-ports-2025.09.0-pyhd8ed1ab_0
+2026-09-30T18:51:37.6067141Z Linking tinydb-4.8.2-pyhd8ed1ab_1
+2026-09-30T18:51:37.6124644Z Linking opt_einsum-3.4.0-pyhd8ed1ab_1
+2026-09-30T18:51:37.6125508Z Linking tomli-2.4.1-pyhcf101f3_0
+2026-09-30T18:51:37.6131609Z Linking pygments-2.21.0-pyhcf101f3_0
+2026-09-30T18:51:37.6627860Z Linking iniconfig-2.3.0-pyhd8ed1ab_0
+2026-09-30T18:51:37.6657298Z Linking colorama-0.4.6-pyhd8ed1ab_1
+2026-09-30T18:51:37.6687193Z Linking pluggy-1.6.0-pyhf9edf01_1
+2026-09-30T18:51:37.6717285Z Linking mpmath-1.4.1-pyhd8ed1ab_0
+2026-09-30T18:51:37.6837765Z Linking cpython-3.11.16-py311hd8ed1ab_2
+2026-09-30T18:51:37.6867186Z Linking pybind11-2.13.6-pyhc790b64_3
+2026-09-30T18:51:37.6927245Z Linking joblib-1.6.0-pyhcf101f3_0
+2026-09-30T18:51:37.7066972Z Linking markdown-it-py-4.2.0-pyhd8ed1ab_0
+2026-09-30T18:51:37.7187421Z Linking python-dateutil-2.9.0.post0-pyhe01879c_2
+2026-09-30T18:51:37.7212942Z Linking configobj-5.0.9-pyhd8ed1ab_1
+2026-09-30T18:51:37.7232146Z Linking importlib-metadata-9.0.1-pyhcf101f3_0
+2026-09-30T18:51:37.7287488Z Linking importlib_resources-7.1.0-pyhd8ed1ab_0
+2026-09-30T18:51:37.7327294Z Linking click-option-group-0.5.9-pyhcf101f3_0
+2026-09-30T18:51:37.7367173Z Linking typing-inspection-0.4.4-pyhcf101f3_0
+2026-09-30T18:51:37.7407198Z Linking lightning-utilities-0.15.3-pyhd8ed1ab_0
+2026-09-30T18:51:37.7437175Z Linking typing-extensions-4.16.0-h69aa097_0
+2026-09-30T18:51:37.7437778Z Linking exceptiongroup-1.3.1-pyhd8ed1ab_0
+2026-09-30T18:51:37.7467392Z Linking opt-einsum-3.4.0-hd8ed1ab_1
+2026-09-30T18:51:37.7497116Z Linking python-gil-3.11.16-hd8ed1ab_2
+2026-09-30T18:51:37.7497672Z Linking rich-15.0.0-pyhcf101f3_0
+2026-09-30T18:51:37.7609277Z Linking bson-0.5.10-pyhd8ed1ab_0
+2026-09-30T18:51:37.7647271Z Linking openff-nagl-models-2025.9.0-pyhd8ed1ab_1
+2026-09-30T18:51:37.7677762Z warning  libmamba [openff-nagl-models-2025.9.0-pyhd8ed1ab_1] The following files were already present in the environment:
+2026-09-30T18:51:37.7707291Z     - lib/python3.11/site-packages/docs/conf.py
+2026-09-30T18:51:37.7737102Z Linking flexparser-0.4-pyh5ded981_2
+2026-09-30T18:51:37.7767161Z Linking flexcache-0.3-pyh5ded981_2
+2026-09-30T18:51:37.7767732Z Linking annotated-types-0.8.0-pyhd8ed1ab_0
+2026-09-30T18:51:37.7768250Z Linking pytest-9.1.1-pyhc364b38_2
+2026-09-30T18:51:37.7877484Z Linking _python_abi3_support-1.0-hd8ed1ab_3
+2026-09-30T18:51:37.7907246Z Linking pint-0.25.3-pyhc364b38_0
+2026-09-30T18:51:37.8057684Z Linking llvmlite-0.49.0-py311h1369f55_5
+2026-09-30T18:51:37.8147508Z Linking freesasa-python-2.2.1-py311h49ec1c0_1
+2026-09-30T18:51:37.8193119Z Linking markupsafe-3.0.3-py311h3778330_1
+2026-09-30T18:51:37.8207485Z Linking unicodedata2-18.0.0-py311h0d48ccd_0
+2026-09-30T18:51:37.8237217Z Linking kiwisolver-1.5.1-py311h4c6fd42_3
+2026-09-30T18:51:37.8267111Z Linking pycairo-1.29.1-py311h616d719_2
+2026-09-30T18:51:37.8297049Z Linking pillow-12.3.0-py311hf303fd3_4
+2026-09-30T18:51:37.8507322Z Linking lxml-6.1.3-py311h0537bf7_0
+2026-09-30T18:51:37.8647531Z Linking coverage-7.16.2-py311h364832d_0
+2026-09-30T18:51:37.8750539Z Linking gmpy2-2.3.1-py311hbc40be8_1
+2026-09-30T18:51:37.8797458Z Linking setproctitle-1.3.7-py311h194be0f_1
+2026-09-30T18:51:37.8842291Z Linking pyyaml-6.0.3-py311h3778330_1
+2026-09-30T18:51:37.8878066Z Linking gemmi-0.7.5-py311h5b8264c_0
+2026-09-30T18:51:37.9197662Z Linking psutil-7.2.2-py311h194be0f_3
+2026-09-30T18:51:37.9241355Z Linking numpy-2.4.6-py311h2e04523_0
+2026-09-30T18:51:38.0899280Z Linking sqlalchemy-2.1.1-py311h194be0f_0
+2026-09-30T18:51:38.1512690Z Linking pydantic-core-2.33.2-py311h902ca64_1
+2026-09-30T18:51:38.1587513Z Linking optree-0.20.0-py311h5f908af_1
+2026-09-30T18:51:38.1597314Z Linking charset-normalizer-3.5.2-h1114479_0
+2026-09-30T18:51:38.1628341Z Linking fonttools-4.66.1-py311h92159aa_0
+2026-09-30T18:51:38.2574897Z Linking numba-0.67.0-py311hdfc3925_1
+2026-09-30T18:51:38.4398950Z Linking nlopt-2.11.0-np2py311h1a37cdc_2
+2026-09-30T18:51:38.4429469Z Linking biopython-1.88-py311h0d48ccd_1
+2026-09-30T18:51:38.5514264Z Linking ml_dtypes-0.5.4-np2py311h5a3f614_2
+2026-09-30T18:51:38.5567431Z Linking contourpy-1.3.3-py311h724c32c_4
+2026-09-30T18:51:38.5591528Z Linking numexpr-2.14.1-mkl_py311hf9c0e9f_1
+2026-09-30T18:51:38.5647310Z Linking pandas-2.3.3-py311hed34c8f_2
+2026-09-30T18:51:39.0027668Z Linking libboost-python-1.86.0-py311h1d5f577_5
+2026-09-30T18:51:39.0057575Z Linking scipy-1.17.1-py311hbe70eeb_1
+2026-09-30T18:51:39.1480537Z Linking matplotlib-base-3.11.2-py311hfea5af0_1
+2026-09-30T18:51:39.3287793Z Linking pytables-3.11.1-py311h9acb22d_6
+2026-09-30T18:51:39.3607266Z Linking parmed-4.3.1-py311h74232ed_1
+2026-09-30T18:51:39.3907738Z Linking scikit-learn-1.9.1-np2py311h1e9b377_1
+2026-09-30T18:51:39.5737658Z Linking jaxlib-0.9.0-cpu_py311ha68bf88_0
+2026-09-30T18:51:40.1638541Z Linking pymbar-core-4.0.3-py311h9f3472d_3
+2026-09-30T18:51:40.1677623Z Linking openmm-8.6.1-py311h1aadaef_0
+2026-09-30T18:51:40.2171578Z Linking mdtraj-1.11.1-py311h90ed22e_2
+2026-09-30T18:51:40.2310266Z Linking freesasa-2.2.1-hd8ed1ab_5
+2026-09-30T18:51:40.2312956Z Linking jinja2-3.1.6-pyhcf101f3_1
+2026-09-30T18:51:40.2340977Z Linking rlpycairo-0.4.0-pyh6c17108_0
+2026-09-30T18:51:40.2359461Z Linking pytest-cov-7.1.0-pyhcf101f3_0
+2026-09-30T18:51:40.2387307Z Linking sympy-1.14.0-pyh2585a3b_106
+2026-09-30T18:51:40.3751515Z Linking pyedr-0.8.0-pyhd8ed1ab_1
+2026-09-30T18:51:40.3788419Z Linking openff-units-0.3.2-pyhd8ed1ab_0
+2026-09-30T18:51:40.3810246Z Linking pydantic-2.11.10-pyh3cfb1c2_0
+2026-09-30T18:51:40.3892472Z Linking jax-0.9.0-pyhd8ed1ab_0
+2026-09-30T18:51:40.4617635Z Linking reportlab-5.0.1-pyhc364b38_0
+2026-09-30T18:51:40.4837841Z Linking openff-toolkit-base-0.18.0-pyhd8ed1ab_6
+2026-09-30T18:51:40.5162257Z warning  libmamba [openff-toolkit-base-0.18.0-pyhd8ed1ab_6] The following files were already present in the environment:
+2026-09-30T18:51:40.5187654Z     - lib/python3.11/site-packages/docs/conf.py
+2026-09-30T18:51:40.5210784Z Linking openff-interchange-base-0.5.2-pyhd8ed1ab_1
+2026-09-30T18:51:40.5567574Z Linking pytorch-2.8.0-cpu_mkl_py311_hcfbaf12_102
+2026-09-30T18:51:41.7477678Z Linking ambertools-26.0-cuda_None_nompi_py311h232f31e_100
+2026-09-30T18:51:42.3464381Z Linking pymbar-4.0.3-h38be061_3
+2026-09-30T18:51:42.3497546Z Linking rdkit-2026.03.1-py311h34e1bb8_0
+2026-09-30T18:51:42.6047596Z Linking torchmetrics-1.9.0-pyhd8ed1ab_0
+2026-09-30T18:51:42.6801914Z Linking opt_einsum_fx-0.1.4-pyh5ded981_2
+2026-09-30T18:51:42.6827679Z Linking pytorch-lightning-2.6.6-pyh5ded981_0
+2026-09-30T18:51:42.7197709Z Linking e3nn-0.4.4-pyhd8ed1ab_1
+2026-09-30T18:51:42.7327566Z Linking openff-nagl-base-0.5.5-pyhc364b38_2
+2026-09-30T18:51:42.7477644Z Linking openff-nagl-0.5.5-pyh3fa9b46_2
+2026-09-30T18:51:42.7507564Z Linking openff-toolkit-0.18.0-pyhd8ed1ab_6
+2026-09-30T18:51:42.7537247Z Linking openff-interchange-0.5.2-pyhd8ed1ab_1
+2026-09-30T18:51:42.7597353Z Linking openmmforcefields-0.16.0-pyhc364b38_1
+2026-09-30T18:51:44.1244024Z 
+2026-09-30T18:51:44.1244928Z Transaction finished
+2026-09-30T18:51:44.1245229Z 
+2026-09-30T18:51:44.1258391Z 
+2026-09-30T18:51:44.1258831Z To activate this environment, use:
+2026-09-30T18:51:44.1259184Z 
+2026-09-30T18:51:44.1259377Z     micromamba activate atm-mlmm-p0
+2026-09-30T18:51:44.1259686Z 
+2026-09-30T18:51:44.1259933Z Or to execute a single command in this environment, use:
+2026-09-30T18:51:44.1260345Z 
+2026-09-30T18:51:44.1260540Z     micromamba run -n atm-mlmm-p0 mycommand
+2026-09-30T18:51:44.1260877Z 
+2026-09-30T18:51:44.1261197Z warning  libmamba You are using 'pip' as an additional package manager.
+2026-09-30T18:51:44.1262361Z     Be aware that packages installed with 'pip' are managed independently from 'conda-forge' channel.
+2026-09-30T18:51:44.1309253Z 
+2026-09-30T18:51:44.1310586Z Installing pip packages: mace-torch==0.3.16, openmmml @ git+https://github.com/openmm/openmm-ml.git@1.8, atom-openmm @ git+https://github.com/Gallicchio-Lab/AToM-OpenMM.git@v8.5.0
+2026-09-30T18:51:56.5812535Z Obtaining file:///home/runner/work/AToM_MLMM/AToM_MLMM
+2026-09-30T18:51:56.5827869Z   Installing build dependencies: started
+2026-09-30T18:51:57.2845384Z   Installing build dependencies: finished with status 'done'
+2026-09-30T18:51:57.2850612Z   Checking if build backend supports build_editable: started
+2026-09-30T18:51:57.5192843Z   Checking if build backend supports build_editable: finished with status 'done'
+2026-09-30T18:51:57.5199674Z   Getting requirements to build editable: started
+2026-09-30T18:51:57.7767698Z   Getting requirements to build editable: finished with status 'done'
+2026-09-30T18:51:57.7776803Z   Preparing editable metadata (pyproject.toml): started
+2026-09-30T18:51:57.9347924Z   Preparing editable metadata (pyproject.toml): finished with status 'done'
+2026-09-30T18:51:57.9372482Z Building wheels for collected packages: atm-mlmm
+2026-09-30T18:51:57.9379700Z   Building editable for atm-mlmm (pyproject.toml): started
+2026-09-30T18:51:58.1154326Z   Building editable for atm-mlmm (pyproject.toml): finished with status 'done'
+2026-09-30T18:51:58.1160065Z   Created wheel for atm-mlmm: filename=atm_mlmm-0.0.1-0.editable-py3-none-any.whl size=4817 sha256=21473d43ffe94fc24e2d867895493091a0619466c091679beb537039f16f2a6b
+2026-09-30T18:51:58.1161866Z   Stored in directory: /tmp/pip-ephem-wheel-cache-g4tnydzw/wheels/84/47/86/58bc9bdea689a39dfe5adb952a73c47fdf0c6d63eb91ac84ce
+2026-09-30T18:51:58.1181439Z Successfully built atm-mlmm
+2026-09-30T18:51:58.1271626Z Installing collected packages: atm-mlmm
+2026-09-30T18:51:58.1379649Z Successfully installed atm-mlmm-0.0.1
+2026-09-30T18:52:00.8969353Z Traceback (most recent call last):
+2026-09-30T18:52:00.8969960Z   File "<string>", line 1, in <module>
+2026-09-30T18:52:00.8971083Z   File "/home/runner/work/AToM_MLMM/AToM_MLMM/src/atm_mlmm/persistence.py", line 174, in verify_conda_files
+2026-09-30T18:52:00.8972840Z     raise ValueError(f"Conda file overwritten or missing (integrity): {record['name']}: {relative}")
+2026-09-30T18:52:00.8974681Z ValueError: Conda file overwritten or missing (integrity): openff-utilities: lib/python3.11/site-packages/docs/conf.py
+2026-09-30T18:52:01.7734056Z ##[error]Process completed with exit code 1.
+2026-09-30T18:52:01.7843022Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-09-30T18:52:01.7843452Z with:
+2026-09-30T18:52:01.7843710Z   name: g00-cpu-57af9e54e1e71c866712568db791cb9216e72bae-1
+2026-09-30T18:52:01.7844035Z   path: artifacts/g00-cpu/
+2026-09-30T18:52:01.7844267Z   if-no-files-found: error
+2026-09-30T18:52:01.7844492Z   retention-days: 30
+2026-09-30T18:52:01.7844707Z   compression-level: 6
+2026-09-30T18:52:01.7844928Z   overwrite: false
+2026-09-30T18:52:01.7845142Z   include-hidden-files: false
+2026-09-30T18:52:01.7845380Z env:
+2026-09-30T18:52:01.7845567Z   OPENMM_CPU_THREADS: 2
+2026-09-30T18:52:01.7845784Z   OMP_NUM_THREADS: 2
+2026-09-30T18:52:01.7846016Z   MAMBA_ROOT_PREFIX: /home/runner/micromamba
+2026-09-30T18:52:01.7846335Z   MAMBA_EXE: /home/runner/micromamba-bin/micromamba
+2026-09-30T18:52:01.7847283Z   CONDARC: /home/runner/work/_temp/setup-micromamba/.condarc
+2026-09-30T18:52:01.7847609Z ##[endgroup]
+2026-09-30T18:52:01.9602103Z (node:3564) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-09-30T18:52:01.9603412Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-09-30T18:52:01.9682706Z With the provided path, there will be 9 files uploaded
+2026-09-30T18:52:01.9690699Z Artifact name is valid!
+2026-09-30T18:52:01.9691311Z Root directory input is valid!
+2026-09-30T18:52:02.1664018Z Beginning upload of artifact content to blob storage
+2026-09-30T18:52:02.6013820Z (node:3564) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-09-30T18:52:02.7775967Z Uploaded bytes 3877513
+2026-09-30T18:52:02.7967819Z Finished uploading artifact content to blob storage!
+2026-09-30T18:52:02.7968950Z SHA256 digest of uploaded artifact zip is 86fa802ff86e6e8e7712651466530cf6fa6ee4bbf7ed713f07e1f9bd4f4839c0
+2026-09-30T18:52:02.7970632Z Finalizing artifact upload
+2026-09-30T18:52:03.0204393Z Artifact g00-cpu-57af9e54e1e71c866712568db791cb9216e72bae-1.zip successfully finalized. Artifact ID 11118712628
+2026-09-30T18:52:03.0206024Z Artifact g00-cpu-57af9e54e1e71c866712568db791cb9216e72bae-1 has been successfully uploaded! Final size is 3877513 bytes. Artifact ID is 11118712628
+2026-09-30T18:52:03.0212937Z Artifact download URL: https://github.com/georgpou/AToM_MLMM/actions/runs/36761401488/artifacts/11118712628
+2026-09-30T18:52:03.0411211Z Post job cleanup.
+2026-09-30T18:52:03.1850821Z Will use pre-installed micromamba at /home/runner/micromamba-bin/micromamba
+2026-09-30T18:52:03.2020559Z Post job cleanup.
+2026-09-30T18:52:03.3003017Z [command]/usr/bin/git version
+2026-09-30T18:52:03.3046456Z git version 2.55.0
+2026-09-30T18:52:03.3088076Z Temporarily overriding HOME='/home/runner/work/_temp/333cced6-72ae-4754-88f7-f9ba12cb3831' before making global git config changes
+2026-09-30T18:52:03.3089955Z Adding repository directory to the temporary git global config as a safe directory
+2026-09-30T18:52:03.3094300Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/AToM_MLMM/AToM_MLMM
+2026-09-30T18:52:03.3206775Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-09-30T18:52:03.3209054Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-09-30T18:52:03.3480802Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-09-30T18:52:03.3521884Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-09-30T18:52:03.3799803Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-09-30T18:52:03.3843784Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-09-30T18:52:03.4258721Z Cleaning up orphan processes
+2026-09-30T18:52:03.4667628Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/checkout@11d5960a326750d5838078e36cf38b85af677262, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02, mamba-org/setup-micromamba@add3a49764cedee8ee24e82dfde87f5bc2914462. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

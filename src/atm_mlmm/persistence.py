@@ -135,7 +135,8 @@ def verify_conda_files(prefix: Path) -> dict:
     records = list((prefix / "conda-meta").glob("*.json"))
     if not records:
         raise ValueError("No Conda metadata for integrity check")
-    for path in records:
+    installed = []
+    for path in sorted(records):
         record = json.loads(path.read_text())
         entries = record.get("paths_data", {}).get("paths", [])
         if not entries:
@@ -144,12 +145,34 @@ def verify_conda_files(prefix: Path) -> dict:
                 entries = json.loads(source.read_text()).get("paths", [])
         if record.get("files") and not entries:
             raise ValueError(f"Missing file integrity evidence: {record['name']}")
+        installed.append((record, entries))
+    # Known OpenFF packaging collision: three distributions ship Sphinx config
+    # under the same generic docs path. It is not an imported runtime module.
+    documentation_path = "lib/python3.11/site-packages/docs/conf.py"
+    allowed_owners = {"openff-utilities", "openff-nagl-models", "openff-toolkit-base"}
+    owners = [{"name": record["name"],
+               "sha256": entry.get("sha256_in_prefix") or entry.get("sha256")}
+              for record, entries in installed for entry in entries
+              if entry["_path"] == documentation_path]
+    documented_collisions = []
+    if len(owners) > 1 and {owner["name"] for owner in owners} <= allowed_owners:
+        target = prefix / documentation_path
+        actual = hashlib.sha256(target.read_bytes()).hexdigest() if target.is_file() else None
+        if not actual or any(not owner["sha256"] for owner in owners) or actual not in {owner["sha256"] for owner in owners}:
+            raise ValueError(f"Conda documentation collision overwritten or missing (integrity): {documentation_path}")
+        documented_collisions.append({"path": documentation_path, "owners": owners,
+                                     "installed_sha256": actual,
+                                     "reason": "Known nonruntime Sphinx configuration collision"})
+        checked += 1
+    for record, entries in installed:
         hashed_sources = {e["_path"] for e in entries
                           if e["_path"].endswith(".py")
                           and (e.get("sha256_in_prefix") or
                                (e.get("sha256") and not e.get("prefix_placeholder")))}
         for entry in entries:
             relative = entry["_path"]
+            if relative == documentation_path and documented_collisions:
+                continue
             if relative.endswith(".pyc") and "/__pycache__/" in relative:
                 try:
                     source_path = util.source_from_cache(relative)
@@ -177,7 +200,8 @@ def verify_conda_files(prefix: Path) -> dict:
         raise ValueError("No Conda files had verifiable hashes")
     return {"status": "passed", "checked_files": checked,
             "prefix_relocated_without_installed_hash": prefix_unverifiable,
-            "regenerable_bytecode": sorted(regenerable_bytecode)}
+            "regenerable_bytecode": sorted(regenerable_bytecode),
+            "documented_collisions": documented_collisions}
 
 
 def _zero_energy(state):

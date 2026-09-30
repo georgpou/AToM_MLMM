@@ -42,3 +42,10 @@ record api_check python -c 'import json; from atm_mlmm.persistence import check_
 python tools/capture_environment.py "$output"
 record pytest python -m pytest -v --junitxml="$output/pytest.xml"
 python -m pip freeze --all > "$output/pip-freeze.txt"
+python - "$output" <<'PY'
+import json, sys
+from pathlib import Path
+output = Path(sys.argv[1])
+for name in ("environment-manifest.json", "conda-explicit.txt", "pip-wheels.lock", "source-origins.json", "file-manifest.sha256"):
+    print("G00_EVIDENCE " + json.dumps({"name": name, "content": (output / name).read_text()}))
+PY
