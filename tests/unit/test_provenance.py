@@ -273,7 +273,8 @@ def test_qualification_refuses_failed_solver_before_install(tmp_path):
     assert not (evidence / "project_install.exit").exists()
 
 
-def test_archive_keeps_conda_distribution_without_record(tmp_path, monkeypatch):
+@pytest.mark.parametrize("metadata_kind", ["wheel", "egg"])
+def test_archive_keeps_conda_distribution_without_record(tmp_path, monkeypatch, metadata_kind):
     import importlib.util
     import sys
     from importlib import metadata
@@ -282,16 +283,19 @@ def test_archive_keeps_conda_distribution_without_record(tmp_path, monkeypatch):
     archive = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(archive)
     prefix = tmp_path / "prefix"
-    dist_info = prefix / "lib/python3.11/site-packages/jaxlib-0.9.0.dist-info"
+    dist_info = prefix / ("lib/python3.11/site-packages/jaxlib-0.9.0.dist-info"
+                          if metadata_kind == "wheel" else
+                          "lib/python3.11/site-packages/jaxlib-0.9.0-py3.11.egg-info")
+    metadata_name = "METADATA" if metadata_kind == "wheel" else "PKG-INFO"
     dist_info.mkdir(parents=True)
-    (dist_info / "METADATA").write_text("Name: jaxlib\nVersion: 0.9.0\n")
+    (dist_info / metadata_name).write_text("Name: jaxlib\nVersion: 0.9.0\n")
     (dist_info / "direct_url.json").write_text(json.dumps({
         "url": "file:///conda-build/work/dist/jaxlib.whl",
         "archive_info": {"hashes": {"sha256": "a" * 64}}}))
     (prefix / "conda-meta").mkdir()
     (prefix / "conda-meta/jaxlib.json").write_text(json.dumps({
         "name": "jaxlib",
-        "files": [str((dist_info / "METADATA").relative_to(prefix))]}))
+        "files": [str((dist_info / metadata_name).relative_to(prefix))]}))
     dist = metadata.PathDistribution(dist_info)
     assert dist.files is None  # Conda need not retain the wheel RECORD.
     output = tmp_path / "output"
