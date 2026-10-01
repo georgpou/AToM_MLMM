@@ -1,0 +1,211 @@
+Using Cached Shard Index for conda-forge/linux-64                                                   ✔ Done
+Using Cached Shard Index for conda-forge/noarch                                                     ✔ Done
+Fetching and Parsing Packages' Shards                                                           ⧖ Starting
+Fetching and Parsing Packages' Shards                                                     ✔ Done (1.3 sec)
+
+Resolving Environment                                                                           ⧖ Starting
+Resolving Environment                                                                     ✔ Done (4.2 sec)
+
+Transaction
+
+  Prefix: /workspace/.onboarding/atom-mlmm/env
+
+  Updating specs:
+
+   - python=3.11
+   - pip[version=">=25,<27"]
+   - git
+   - setuptools
+   - wheel
+   - openmm=8.6.1
+   - ambertools=26.0
+   - openmmforcefields=0.16.0
+   - configobj=5.0.9
+   - setproctitle
+   - numpy
+   - scipy
+   - pyyaml
+   - packaging
+   - psutil
+   - e3nn=0.4.4
+   - pymbar=4.0.3
+   - mdtraj
+   - pytest
+   - pytest-cov
+   - pytorch[version="=2.8.0",build="cpu*"]
+   - pip
+
+
+  Package                       Version  Build            Channel           Size
+──────────────────────────────────────────────────────────────────────────────────
+  Install:
+──────────────────────────────────────────────────────────────────────────────────
+
+  + _python_abi3_support            1.0  hd8ed1ab_3       conda-forge        8kB
+  + bson                         0.5.10  pyhd8ed1ab_0     conda-forge       17kB
+  + cachetools                    7.2.0  pyhd8ed1ab_0     conda-forge       22kB
+  + charset-normalizer            3.5.2  h1114479_0       conda-forge      217kB
+  + click                         8.5.0  pyh5ded981_0     conda-forge      112kB
+  + click-option-group            0.5.9  pyhcf101f3_0     conda-forge       21kB
+  + cuda-nvrtc                  13.4.92  hd2095e1_0       conda-forge       41MB
+  + cuda-version                   13.4  hfacf21a_3       conda-forge       21kB
+  + cyrus-sasl                   2.1.28  hac629b4_1       conda-forge      210kB
+  + eigen-abi                 3.4.0.100  h3bcb7cf_2       conda-forge       13kB
+  + flexcache                       0.3  pyh5ded981_2     conda-forge       19kB
+  + flexparser                      0.4  pyh5ded981_2     conda-forge       31kB
+  + freetype-py                   2.3.0  pyhd8ed1ab_0     conda-forge       59kB
+  + importlib_resources           7.1.0  pyhd8ed1ab_0     conda-forge       35kB
+  + libboost-python              1.86.0  py311h1d5f577_5  conda-forge      120kB
+  + libcufft                  12.4.0.43  hd2095e1_0       conda-forge      128MB
+  + libllvm21                    21.1.8  h474f4eb_1       conda-forge       45MB
+  + libntlm                         1.8  hb9d3cd8_0       conda-forge       33kB
+  + libpq                          18.6  h3883810_2       conda-forge       12MB
+  + librdkit                  2026.03.1  h4dfd318_0       conda-forge       10MB
+  + libxslt                      1.1.45  h8e12856_1       conda-forge      250kB
+  + lightning-utilities          0.15.3  pyhd8ed1ab_0     conda-forge       32kB
+  + lxml                          6.1.3  py311h0537bf7_0  conda-forge        2MB
+  + mda-xdrlib                    0.2.0  pyhd8ed1ab_1     conda-forge       17kB
+  + ocl-icd                       2.3.4  hb03c661_1       conda-forge      110kB
+  + ocl-icd-system                1.0.0  1                conda-forge        4kB
+  + opencl-headers           2025.06.13  hecca717_0       conda-forge       56kB
+  + openff-amber-ff-ports     2025.09.0  pyhd8ed1ab_0     conda-forge      222kB
+  + openff-forcefields        2026.01.0  pyhd8ed1ab_0     conda-forge      119kB
+  + openff-interchange            0.5.2  pyhd8ed1ab_1     conda-forge        9kB
+  + openff-interchange-base       0.5.2  pyhd8ed1ab_1     conda-forge      699kB
+  + openff-nagl                   0.5.5  pyh3fa9b46_2     conda-forge        8kB
+  + openff-nagl-base              0.5.5  pyhc364b38_2     conda-forge      127kB
+  + openff-nagl-models         2025.9.0  pyhd8ed1ab_1     conda-forge       53MB
+  + openff-toolkit               0.18.0  pyhd8ed1ab_6     conda-forge       10kB
+  + openff-toolkit-base          0.18.0  pyhd8ed1ab_6     conda-forge        8MB
+  + openff-units                  0.3.2  pyhd8ed1ab_0     conda-forge       25kB
+  + openff-utilities             0.1.18  pyh5ded981_0     conda-forge       21kB
+  + openldap                     2.6.13  hbde042b_0       conda-forge      786kB
+  + openmm                        8.6.1  py311h1aadaef_0  conda-forge       14MB
+  + openmmforcefields            0.16.0  pyhc364b38_1     conda-forge        3MB
+  + pint                         0.25.3  pyhc364b38_0     conda-forge      245kB
+  + platformdirs                 4.12.2  pyh5ded981_0     conda-forge       34kB
+  + pycairo                      1.29.1  py311h616d719_2  conda-forge      122kB
+  + pyedr                         0.8.0  pyhd8ed1ab_1     conda-forge      345kB
+  + python-constraint             1.4.0  pyhff2d567_1     conda-forge       26kB
+  + python-gil                  3.11.16  hd8ed1ab_2       conda-forge       49kB
+  + pytorch-lightning             2.6.6  pyh5ded981_0     conda-forge      498kB
+  + rdkit                     2026.03.1  py311h34e1bb8_0  conda-forge       20MB
+  + reportlab                     5.0.1  pyhc364b38_0     conda-forge        2MB
+  + rlpycairo                     0.4.0  pyh6c17108_0     conda-forge       16kB
+  + rocm-core                     7.2.4  h54a6638_1       conda-forge       37kB
+  + sqlalchemy                    2.1.1  py311h194be0f_0  conda-forge        4MB
+  + tinydb                        4.8.2  pyhd8ed1ab_1     conda-forge       28kB
+  + torchmetrics                  1.9.0  pyhd8ed1ab_0     conda-forge      399kB
+  + tqdm                         4.70.1  pyhfa0c392_0     conda-forge       96kB
+  + validators                   0.35.0  pyhd8ed1ab_0     conda-forge       40kB
+  + xmltodict                     1.0.2  pyhcf101f3_0     conda-forge       20kB
+
+  Downgrade:
+──────────────────────────────────────────────────────────────────────────────────
+
+  - pydantic                     2.13.5  pyhcf101f3_0     conda-forge     Cached
+  + pydantic                    2.11.10  pyh3cfb1c2_0     conda-forge      308kB
+  - pydantic-core                2.46.5  py311ha6e1976_2  conda-forge     Cached
+  + pydantic-core                2.33.2  py311h902ca64_1  conda-forge        2MB
+
+  Summary:
+
+  Install: 58 packages
+  Downgrade: 2 packages
+
+  Total download: 351MB
+
+──────────────────────────────────────────────────────────────────────────────────
+
+
+warning  libmamba Security Warning: This transaction includes executing package scripts (pre/post-link/unlink) if present. These scripts can contain arbitrary code. Please ensure you trust the package sources.
+
+Transaction starting
+Unlinking pydantic-core-2.46.5-py311ha6e1976_2
+Unlinking pydantic-2.13.5-pyhcf101f3_0
+Linking pydantic-core-2.33.2-py311h902ca64_1
+Linking libxslt-1.1.45-h8e12856_1
+Linking rocm-core-7.2.4-h54a6638_1
+Linking eigen-abi-3.4.0.100-h3bcb7cf_2
+Linking libntlm-1.8-hb9d3cd8_0
+Linking sqlalchemy-2.1.1-py311h194be0f_0
+Linking libboost-python-1.86.0-py311h1d5f577_5
+Linking pycairo-1.29.1-py311h616d719_2
+Linking libllvm21-21.1.8-h474f4eb_1
+Linking opencl-headers-2025.06.13-hecca717_0
+Linking lxml-6.1.3-py311h0537bf7_0
+Linking librdkit-2026.03.1-h4dfd318_0
+Linking cyrus-sasl-2.1.28-hac629b4_1
+Linking ocl-icd-2.3.4-hb03c661_1
+Linking openldap-2.6.13-hbde042b_0
+Linking ocl-icd-system-1.0.0-1
+warning  libmamba Executing post-link script for package 'ocl-icd-system'.
+
+Linking libpq-18.6-h3883810_2
+Linking importlib_resources-7.1.0-pyhd8ed1ab_0
+Linking tinydb-4.8.2-pyhd8ed1ab_1
+Linking validators-0.35.0-pyhd8ed1ab_0
+Linking openff-amber-ff-ports-2025.09.0-pyhd8ed1ab_0
+Linking openff-forcefields-2026.01.0-pyhd8ed1ab_0
+Linking cachetools-7.2.0-pyhd8ed1ab_0
+Linking python-constraint-1.4.0-pyhff2d567_1
+Linking xmltodict-1.0.2-pyhcf101f3_0
+Linking bson-0.5.10-pyhd8ed1ab_0
+Linking openff-utilities-0.1.18-pyh5ded981_0
+Linking cuda-version-13.4-hfacf21a_3
+Linking freetype-py-2.3.0-pyhd8ed1ab_0
+Linking click-8.5.0-pyh5ded981_0
+Linking tqdm-4.70.1-pyhfa0c392_0
+Linking mda-xdrlib-0.2.0-pyhd8ed1ab_1
+Linking platformdirs-4.12.2-pyh5ded981_0
+Linking flexparser-0.4-pyh5ded981_2
+Linking flexcache-0.3-pyh5ded981_2
+Linking lightning-utilities-0.15.3-pyhd8ed1ab_0
+Linking python-gil-3.11.16-hd8ed1ab_2
+Linking pydantic-2.11.10-pyh3cfb1c2_0
+Linking rlpycairo-0.4.0-pyh6c17108_0
+Linking click-option-group-0.5.9-pyhcf101f3_0
+Linking pyedr-0.8.0-pyhd8ed1ab_1
+Linking openff-nagl-models-2025.9.0-pyhd8ed1ab_1
+warning  libmamba [openff-nagl-models-2025.9.0-pyhd8ed1ab_1] The following files were already present in the environment:
+    - lib/python3.11/site-packages/docs/conf.py
+Linking pint-0.25.3-pyhc364b38_0
+Linking torchmetrics-1.9.0-pyhd8ed1ab_0
+Linking _python_abi3_support-1.0-hd8ed1ab_3
+Linking openff-units-0.3.2-pyhd8ed1ab_0
+Linking pytorch-lightning-2.6.6-pyh5ded981_0
+Linking openff-toolkit-base-0.18.0-pyhd8ed1ab_6
+warning  libmamba [openff-toolkit-base-0.18.0-pyhd8ed1ab_6] The following files were already present in the environment:
+    - lib/python3.11/site-packages/docs/conf.py
+Linking openff-interchange-base-0.5.2-pyhd8ed1ab_1
+Linking libcufft-12.4.0.43-hd2095e1_0
+Linking cuda-nvrtc-13.4.92-hd2095e1_0
+Linking charset-normalizer-3.5.2-h1114479_0
+Linking openmm-8.6.1-py311h1aadaef_0
+Linking reportlab-5.0.1-pyhc364b38_0
+Linking rdkit-2026.03.1-py311h34e1bb8_0
+Linking openff-nagl-base-0.5.5-pyhc364b38_2
+Linking openff-nagl-0.5.5-pyh3fa9b46_2
+Linking openff-toolkit-0.18.0-pyhd8ed1ab_6
+Linking openff-interchange-0.5.2-pyhd8ed1ab_1
+Linking openmmforcefields-0.16.0-pyhc364b38_1
+
+Transaction finished
+
+warning  libmamba You are using 'pip' as an additional package manager.
+    Be aware that packages installed with 'pip' are managed independently from 'conda-forge' channel.
+
+Installing pip packages: mace-torch==0.3.16, openmmml @ git+https://github.com/openmm/openmm-ml.git@1.8, atom-openmm @ git+https://github.com/Gallicchio-Lab/AToM-OpenMM.git@v8.5.0
+Collecting openmmml @ git+https://github.com/openmm/openmm-ml.git@1.8 (from -r /workspace/AToM_MLMM/mambafhymn2wesu2 (line 2))
+  Cloning https://github.com/openmm/openmm-ml.git (to revision 1.8) to /tmp/pip-install-qdlx1ksa/openmmml_0ab1dfca8a7946eca2b135a32cec2cfc
+  Running command git clone --filter=blob:none --quiet https://github.com/openmm/openmm-ml.git /tmp/pip-install-qdlx1ksa/openmmml_0ab1dfca8a7946eca2b135a32cec2cfc
+  fatal: unable to access 'https://github.com/openmm/openmm-ml.git/': SSL certificate OpenSSL verify result: self-signed certificate in certificate chain (19)
+  error: subprocess-exited-with-error
+  
+  × git clone --filter=blob:none --quiet https://github.com/openmm/openmm-ml.git /tmp/pip-install-qdlx1ksa/openmmml_0ab1dfca8a7946eca2b135a32cec2cfc did not run successfully.
+  │ exit code: 128
+  ╰─> No available output.
+  
+  note: This error originates from a subprocess, and is likely not a problem with pip.
+ERROR: Failed to build 'openmmml' when git clone --filter=blob:none --quiet https://github.com/openmm/openmm-ml.git /tmp/pip-install-qdlx1ksa/openmmml_0ab1dfca8a7946eca2b135a32cec2cfc
+critical libmamba pip failed to install packages

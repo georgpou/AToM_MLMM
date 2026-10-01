@@ -1,0 +1,5 @@
+Command: curl -fL --max-time 30 https://micro.mamba.pm/api/micromamba/linux-64/latest -o /workspace/.onboarding/atom-mlmm/micromamba.tar.bz2
+Exit code: 22
+Exact failure: curl: (22) The requested URL returned error: 403
+Conda solving and environment installation did not run: no Conda-compatible manager was available.
+Additional HTTPS HEAD checks: repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh and conda.anaconda.org/conda-forge/linux-64/repodata.json.zst both HTTP 403 Forbidden.
