@@ -1,5 +1,18 @@
 # Agent instructions
 
+## Branch and environment handoff
+
+The user requires the next agent to create a working branch from
+`m01-g00-cloud-environment-setup`, never `main`; subsequent milestone/gate
+branches retain this lineage. Read [AGENT_HANDOFF.md](AGENT_HANDOFF.md) before
+starting. For dependency setup, use the [branch-contained setup guide](environment/cloud-cpu/README.md)
+and run `bash environment/cloud-cpu/install.sh` from the repository root. It
+supplies all 51 wheels and exact source archives, and creates **two separate
+environments**: main ML/AToM with NumPy 2 and AmberTools with NumPy 1.26. Activate
+main through `/workspace/.onboarding/atom-mlmm/activate.sh` (or your chosen
+installation prefix). Do not assume another agent inherits installed filesystem
+state, and do not use the old evidence-directory installer or an absent tarball.
+
 ## Scope and reading
 
 Build the smallest correct cavity-inclusive ML/MM platform for ATM ABFE and RBFE. Project 0 establishes numerical and thermodynamic correctness plus limited, reference-based chemical adequacy on small systems; Project 1 tests broader physical usefulness. Do not turn one assignment into the whole project.

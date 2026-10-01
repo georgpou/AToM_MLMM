@@ -6,6 +6,13 @@ Project 0 builds a reusable ML/MM energy model containing complete ligands, sele
 
 ## Start with the assigned task
 
+**Cloud environment and branch handoff:** read [AGENT_HANDOFF.md](AGENT_HANDOFF.md)
+and the [reproducible setup guide](environment/cloud-cpu/README.md). Create your
+branch from `m01-g00-cloud-environment-setup`, never `main`. From the repository
+root, `bash environment/cloud-cpu/install.sh` installs the main ML/AToM and
+separate AmberTools environments using the exact artifacts included on that
+branch. No separately transferred wheel bundle is required.
+
 An implementation worker reads [AGENTS.md](AGENTS.md), the named gate/task and its specific reading links, plus relevant prior findings. An auditor starts from the exact worker log and recorded snapshot. Do not read all documentation by default. [Environment setup](ATM_MLMM_Environment.md) is needed when installing or qualifying software, not for every editing task.
 
 Example assignment: "Implement **G01-T1** in its gate page. Do not start T2/T3. Read only its referenced specification sections and relevant previous findings. Leave the next `Gate_01_vN_worker.md` under `Worker_Log/Milestone_01/`." For review, name that worker log; for repair, name its matching audit and finding IDs.

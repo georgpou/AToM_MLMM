@@ -1,5 +1,13 @@
 # Project 0: handoff to the next agent
 
+**Environment setup is now contained in this branch.** After creating your child
+branch as required below, run `bash environment/cloud-cpu/install.sh` from the
+repository root, then `source /workspace/.onboarding/atom-mlmm/activate.sh`.
+Read the [complete setup guide](environment/cloud-cpu/README.md) for the two
+environments, exact versions, custom prefixes, checks and troubleshooting.
+All 51 wheels and pinned upstream sources are included in Git; no missing
+external setup tarball is needed.
+
 ## Mandatory branch rule
 
 **Create your first working branch FROM `m01-g00-cloud-environment-setup`. Never start from `main`. Never commit, merge, rebase, reset, or push work to `main`.** This is an explicit user requirement and takes precedence over generic branch workflows.
@@ -43,7 +51,7 @@ If a local branch of that name already exists, inspect its identity before fetch
 
 ## Scope and immediate next assignment
 
-Continue Project 0 in the prepared CPU environment, completing the relevant prerequisite review and then progressing through M01's G00/G01 tasks. Use [AGENTS.md](AGENTS.md) and [STATUS.md](docs/project-0/STATUS.md) as the controlling procedure and progress record. The repository currently contains planning documents and documentation tooling; planned `src/`, `tests/`, `fixtures/` and `environment/` paths are not already implemented.
+Continue Project 0 in the prepared CPU environment, completing the relevant prerequisite review and then progressing through M01's G00/G01 tasks. Use [AGENTS.md](AGENTS.md) and [STATUS.md](docs/project-0/STATUS.md) as the controlling procedure and progress record. The repository contains planning documents, documentation tooling and the reusable installer under `environment/cloud-cpu/`; planned scientific `src/`, `tests/` and `fixtures/` paths are not already implemented.
 
 **The installation is complete, but M00 and G00 have not been accepted. Do not interpret the setup branch's M01/G00 name or its passing smoke checks as gate approval.** The first task is the relevant [M00 architecture/contract review](docs/project-0/milestones/M00-architecture-review.md), unless a newer recorded review on the inherited branch already satisfies it.
 
@@ -107,11 +115,33 @@ MACE 0.3.16 sets an unsafe-loading variable on top-level import. The weight-free
 
 ## Reproducing the setup in another cloud task or machine
 
-The prepared cloud filesystem retains `/workspace/.onboarding/atom-mlmm`, including the installed environments, verified bootstrap, exact SHA-256 Conda locks, 51 hash-locked pip wheels and tested installer. Saved cloud draft fields contain install/startup instructions; saving them does not itself publish a snapshot or validate a newly spawned task.
+Use [environment/cloud-cpu/README.md](environment/cloud-cpu/README.md), the maintained
+reproduction guide. All 51 hash-locked pip wheels, both exact SHA-256 Conda
+locks, inventories, constraints, activation helpers, and pinned upstream source
+archives are in this branch. **A copy of this branch plus network access to the
+documented Conda/bootstrap destinations is sufficient.** No separately supplied
+setup tarball, Git LFS download or original machine is required.
 
-Git contains the handoff, locks, scripts and evidence. **Git does not contain installed packages or the wheel archive.** Another machine needs the prepared cloud snapshot or the separately supplied `atom-mlmm-setup-linux-64.tar.gz` bundle. The Git bundle and setup bundle serve different purposes: the former transfers the required parent branch, the latter recreates dependencies.
+After creating a child from this setup branch, from the repository root:
 
-Extract the setup bundle and follow its README. Install into a new directory with `ATOM_MLMM_SETUP_ROOT=/your/chosen/directory bash install.sh`, then source that directory's `activate.sh`. The installer reuses exact artifact hashes; do not guess replacement versions when an artifact or API is unavailable. Test a new runtime before claiming it is usable. Maintain Linux x86_64 for these locks; other platforms need their own recorded environment solve.
+```bash
+bash environment/cloud-cpu/install.sh
+source /workspace/.onboarding/atom-mlmm/activate.sh
+```
+
+To use an empty custom prefix, set `ATOM_MLMM_SETUP_ROOT=/absolute/writable/path`
+on the installer command and source that prefix's `activate.sh`. The installer
+checks every artifact, replays the exact packages and runs the complete CPU,
+AmberTools integration and upstream regression checks. It records individual
+exit codes, including the existing docs defects, under the prefix's `logs/`.
+Read [fresh-install evidence](Worker_Log/Documentation/Cloud_CPU_Reproduction_v1_worker.md).
+Do not guess replacement versions when an artifact or API is unavailable.
+Other platforms require a separate recorded environment solve.
+
+The old installer and evidence under `Worker_Log/Documentation/evidence/Cloud_CPU_Setup_v2/`
+are historical records, not the current install entrypoint. Saved Cloud draft
+fields point to the branch-contained installer; saving a draft does not publish
+a filesystem snapshot or move another running agent to this branch.
 
 ## Blockers, dependencies and reporting to the user
 
