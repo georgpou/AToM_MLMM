@@ -98,7 +98,13 @@ def characterize_environment(repository, setup_root):
     checks = []
     builds, inventories, locks = {}, {}, {}
     for label, prefix in (('core', root/'env'), ('amber', root/'amber-env')):
-        builds[label] = [json.loads(p.read_text()) for p in sorted((prefix/'conda-meta').glob('*.json'))]
+        builds[label] = []
+        for path in sorted((prefix/'conda-meta').glob('*.json')):
+            installed = json.loads(path.read_text())
+            # Build identities and dependencies suffice; thousands of per-package
+            # file entries are reproducible from the hashed artifact, not new evidence.
+            keys = ('name', 'version', 'build', 'build_number', 'subdir', 'url', 'sha256', 'depends')
+            builds[label].append({key: installed[key] for key in keys if key in installed})
         if not builds[label]:
             raise ValueError(f'missing {label} Conda builds')
         command = [str(prefix/'bin/python'), '-c',
