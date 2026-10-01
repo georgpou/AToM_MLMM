@@ -26,14 +26,20 @@ All later working branches must remain descendants of this setup branch. Name th
 
 ### If the setup branch is missing in another checkout
 
-The branch is local; it has not been pushed to GitHub. A complete Git bundle is provided separately as `atom-mlmm-agent-handoff.bundle`. In an existing checkout, import just its side-branch reference:
+The setup branch is published on GitHub as `origin/m01-g00-cloud-environment-setup`. In another checkout, fetch only that side-branch reference:
+
+```bash
+git fetch origin refs/heads/m01-g00-cloud-environment-setup:refs/heads/m01-g00-cloud-environment-setup
+```
+
+Then execute the branch-creation checks above. A complete Git bundle is also provided separately as `atom-mlmm-agent-handoff.bundle` for offline transfer of the original handoff snapshot:
 
 ```bash
 git bundle verify /path/to/atom-mlmm-agent-handoff.bundle
 git fetch /path/to/atom-mlmm-agent-handoff.bundle refs/heads/m01-g00-cloud-environment-setup:refs/heads/m01-g00-cloud-environment-setup
 ```
 
-Then execute the branch-creation checks above. If a local branch of that name already exists, inspect its identity before importing; do not force-update it. Do not silently substitute `main` when the parent branch is unavailable. Report the missing parent branch or bundle and continue independent read-only inspection. Remote publication is a separate action, not something this handoff claims was performed.
+If a local branch of that name already exists, inspect its identity before fetching or importing; do not force-update it. Do not silently substitute `main` when the parent branch is unavailable. Report the missing parent branch or access and continue independent read-only inspection. Git branch publication is separate from publishing a prepared Codex Cloud environment snapshot.
 
 ## Scope and immediate next assignment
 
