@@ -20,6 +20,8 @@ Install and activate using the [CPU guide](../environment/cloud-cpu/README.md). 
 
 Inspect installed APIs and the full pinned sources under `<setup-prefix>/sources/` when integrating upstream code. [S02](project-0/specs/S02-architecture-and-dependencies.md) defines module ownership; [S03](project-0/specs/S03-data-and-interface-contracts.md) defines records and units. Package versions alone do not establish numerical behavior.
 
+For the analytic metadata profile, `EmbeddingSpec` uses `kind="mechanical"`, `policy_version="1"`, `boundary_policy="protein_c_c"` and `periodic_convention="nonperiodic"`. Both analytic model descriptions use `output_energy_convention="declared_relative_energy"`; `analytic-local` declares `locality="local"`, while `analytic-environment` declares `locality="environment_dependent"`. These descriptions preserve the common kJ/mol convention and explicitly identify the MM dependence of the architectural probe. Unknown policy or model semantics are rejected; an admitted description still reports `qualified=False` until its owning numerical gate supplies evidence.
+
 ## Source and test layout
 
 Create implementation modules under `src/atm_mlmm/` according to S02 and the gate's paths. `pytest.ini` adds `src` to Python's test import path, so testing source code does not require changing the locked package inventory. For direct development commands use:

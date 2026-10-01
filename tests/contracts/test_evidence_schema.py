@@ -33,3 +33,14 @@ def test_acceptance_requires_evidence():
             replace(evidence, **malformed)
     # A documented not-applicable profile is not an accepted GPU profile.
     assert replace(evidence, status='blocked', reports=(), reviewer='', reviewer_decision='', verdict='blocked').status == 'blocked'
+
+
+@pytest.mark.parametrize('field', ['fixture_identities', 'logs', 'reviewer_references', 'all'])
+def test_blank_evidence_reference_cannot_accept_scope(field):
+    from atm_mlmm.schema import AcceptanceRecord, QualificationError
+    fields = ('fixture_identities', 'logs', 'reviewer_references') if field == 'all' else (field,)
+    report = replace(make_report(), **{name: (' \t\n ',) for name in fields})
+    with pytest.raises(QualificationError, match='evidence'):
+        AcceptanceRecord('G01-T3', 'core-analytic-cpu', 'a'*40,
+                         ('P0-REQ-003', 'P0-REQ-023'), ('P0-TEST-G01-07',),
+                         (report,), 'independent-auditor', 'accepted_for_scope', 'audit.md', 'accepted')

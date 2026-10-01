@@ -521,7 +521,10 @@ class AcceptanceRecord(Record):
                 raise QualificationError('test evidence belongs to a different snapshot')
             if report.profile != self.profile or report.status != 'passed':
                 raise QualificationError('applicable test missing a passed result on the requested profile')
-            if not report.logs or not report.fixture_identities or not report.reviewer_references or not report.measured_values or not report.thresholds:
+            references = (report.logs, report.fixture_identities, report.reviewer_references)
+            if any(not entries or any(not entry.strip() for entry in entries) for entries in references):
+                raise QualificationError('test evidence references must identify nonblank inputs/logs/reviewers')
+            if not report.measured_values or not report.thresholds:
                 raise QualificationError('test evidence needs inputs/results/limits/logs/reviewer references')
 
 

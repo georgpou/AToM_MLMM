@@ -54,3 +54,44 @@ def test_fixed_translation_description_rejects_wrong_shape_and_nonfinite():
             make_protocol((group,), vector)
     # Identity-map controls are permitted; no artificial nonzero-map requirement.
     assert make_protocol((group,), (0, 0, 0)).geometry_requests['displacement_nm'] == (0, 0, 0)
+
+
+def _admitted_request(partition_spec):
+    from atm_mlmm.schema import CalculationRequest, CapabilitySet, EmbeddingSpec, ModelSpec, MobileGroup, RuntimeSpec
+    from atm_mlmm.protocols.abfe import make_protocol
+    request = CalculationRequest(
+        ModelSpec('analytic-local', None, 'declared_relative_energy', ('H', 'C'), 'neutral_singlet', 'local', 'float64'),
+        EmbeddingSpec('mechanical', '1', 'protein_c_c', 'nonperiodic'), partition_spec,
+        make_protocol((MobileGroup('a', ('l-a1', 'l-a2'), ('ligand',), 'ligand-a'),), (1, 0, 0)),
+        RuntimeSpec('Reference', 'double', (), 0.0005, 300.0, 'NVT'))
+    caps = CapabilitySet(('analytic-local', 'analytic-environment'), ('mechanical',), ('abfe',), ('H', 'C'), ('nonperiodic',), 'all_real', ('json-v1',))
+    return request, caps
+
+
+@pytest.mark.parametrize('component,field,value', [
+    ('embedding', 'policy_version', '999'),
+    ('embedding', 'boundary_policy', 'disulfide'),
+    ('embedding', 'boundary_policy', 'charged_fragment'),
+    ('embedding', 'boundary_policy', 'unknown'),
+    ('model', 'output_energy_convention', 'eV'),
+    ('model', 'locality', 'reactive'),
+    ('model', 'locality', 'unknown'),
+])
+def test_unreviewed_physics_policy_fields_fail_closed(partition_spec, component, field, value):
+    from atm_mlmm.capabilities import validate_request
+    from atm_mlmm.schema import UnsupportedCapability
+    request, caps = _admitted_request(partition_spec)
+    malformed = replace(request, **{component: replace(getattr(request, component), **{field: value})})
+    with pytest.raises(UnsupportedCapability, match=field):
+        validate_request(malformed, caps)
+
+
+def test_environment_probe_declares_environment_dependence(partition_spec):
+    from atm_mlmm.capabilities import validate_request
+    from atm_mlmm.schema import UnsupportedCapability
+    request, caps = _admitted_request(partition_spec)
+    model = replace(request.model, backend='analytic-environment', locality='environment_dependent')
+    report = validate_request(replace(request, model=model), caps)
+    assert report.status == 'passed' and report.measured_values['qualified'] is False
+    with pytest.raises(UnsupportedCapability, match='locality'):
+        validate_request(replace(request, model=replace(model, locality='local')), caps)

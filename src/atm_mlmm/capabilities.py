@@ -7,6 +7,15 @@ def validate_request(request, capabilities):
         raise UnsupportedCapability(f'actual {request.embedding.kind} embedding is unsupported')
     if request.model.backend not in ('analytic-local', 'analytic-environment'):
         raise UnsupportedCapability(f'backend not admitted to analytic CPU profile: {request.model.backend}')
+    if request.embedding.policy_version != '1':
+        raise UnsupportedCapability(f'policy_version not reviewed: {request.embedding.policy_version}')
+    if request.embedding.boundary_policy != 'protein_c_c':
+        raise UnsupportedCapability(f'boundary_policy unsupported: {request.embedding.boundary_policy}')
+    if request.model.output_energy_convention != 'declared_relative_energy':
+        raise UnsupportedCapability(f'output_energy_convention unsupported for analytic providers: {request.model.output_energy_convention}')
+    expected_locality = {'analytic-local': 'local', 'analytic-environment': 'environment_dependent'}[request.model.backend]
+    if request.model.locality != expected_locality:
+        raise UnsupportedCapability(f'locality inconsistent with {request.model.backend}: expected {expected_locality}, got {request.model.locality}')
     for feature, value, declared in (
         ('backend', request.model.backend, capabilities.backends),
         ('embedding', request.embedding.kind, capabilities.embeddings),

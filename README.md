@@ -6,12 +6,12 @@ Build a cavity-inclusive ML/MM Hamiltonian for ATM absolute and relative binding
 
 ## Start here
 
-Create your next working branch from the current tip of `m01-g00-environment-audit-v1`. Preserve existing changes and use an unused branch name:
+Create your next working branch from the current development successor, `m00-audit-m01-development`. It preserves the `m01-g00-environment-audit-v1` setup lineage. Preserve existing changes and use an unused branch name:
 
 ```bash
 git status --short --branch
-git fetch origin refs/heads/m01-g00-environment-audit-v1:refs/remotes/origin/m01-g00-environment-audit-v1
-git switch --no-track -c m01-cpu-implementation origin/m01-g00-environment-audit-v1
+git fetch origin refs/heads/m00-audit-m01-development:refs/remotes/origin/m00-audit-m01-development
+git switch --no-track -c m02-analytic-atm origin/m00-audit-m01-development
 ```
 
 Work and push on the child branch. Keep main unchanged. Later tasks inherit the completed predecessor.
