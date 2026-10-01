@@ -1,6 +1,8 @@
 # Current status
 
-The branch is prepared for scientific implementation. The maintained CPU environment and local academic MACE link-atom example are implemented. Scientific platform modules and gate tests remain to be implemented; setup/example passes do not accept M00 or molecular gates. [Current preparation record](../../Worker_Log/Documentation/Repository_Ready_v1_worker.md) contains the tested snapshot and [validation/calculation evidence](../../Worker_Log/Documentation/evidence/Repository_Ready_v1.json.gz). Strict validation passed all nine checks; all five available project tests passed; documentation has zero errors and all eight self-tests pass.
+M01's analytic CPU implementation is ready for independent combined review on `m00-audit-m01-development`, code snapshot `e3303000e187e9d03fb0e2fa53d0a22a709feb80`. [G00 worker](../../Worker_Log/Milestone_01/Gate_00_v1_worker.md) records exact CPU APIs/provenance; [G01/M01 worker](../../Worker_Log/Milestone_01/Gate_01_v1_worker.md) records identities, fixed partitions, immutable versioned records, capability rejection, MM inventory and evidence validation. The full available suite passed 35 tests; the analytic selection passed 34 with one model test deselected. Strict environment validation passed all nine checks. [Raw validation evidence](../../Worker_Log/Milestone_01/evidence/M01_v1/validation.json.gz) and [complete environment identity](../../Worker_Log/Milestone_01/evidence/M01_v1/environment-manifest.json.gz) identify the tested profile. These results do not accept a molecular gate.
+
+The [independent M00 audit](../../Worker_Log/Milestone_00/Milestone_00_v1_audit.md) accepts scientific contract version 1 for G00-T1/G01-T1/T2/T3 on `core-analytic-cpu`. Full M00 physical-reference closure remains open: exact G05/G07 references, quantum method/settings and profile limits need a separate reviewed decision before comparison results are inspected. The prior [repository preparation record](../../Worker_Log/Documentation/Repository_Ready_v1_worker.md) remains setup/example provenance.
 
 ## Available calculation
 
@@ -8,16 +10,13 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-From the current tip of `m01-g00-environment-audit-v1`, create an unused child for M00/M01. Read the [development guide](../DEVELOPMENT.md) and the assigned gate's linked sections.
-
-1. Complete the relevant [M00 design review](milestones/M00-architecture-review.md): Hamiltonian, cap rule, force/map/unit contracts, two-environment setup and proposed physical-reference checks. Record scoped decisions; choose reference methods/limits before inspecting results.
-2. Implement the analytic CPU scope of [G00-T1](gates/G00-environment-and-provenance.md), then [G01-T1/T2/T3](gates/G01-identity-partition-and-contracts.md). Reuse the maintained setup and implement the gate's API/record/identity assertions.
-3. Run applicable tests and record M01 combined review. Model/GPU tasks remain pending until their profiles need them. Continue through each later gate's real prerequisites.
+Complete independent combined G00/G01/M01 review on the recorded implementation. After acceptance, start [G02](gates/G02-analytic-force-in-native-atm.md) from this development predecessor. Keep G00 model/GPU profiles pending until needed, and resolve M00 physical-reference choices before any G05/G07 reference comparison.
 
 | Scientific scope | Status | Next condition |
 |---|---|---|
-| M00 | not_started | Recorded review of relevant proposed contracts |
-| M01 / G00-G01 | not_started | Implement and review analytic CPU API/identity/record scope |
+| M00 / analytic CPU design | accepted_for_scope | [Independent version 1 design review](../../Worker_Log/Milestone_00/Milestone_00_v1_audit.md) |
+| M00 / physical-reference closure | blocked | Predeclare/review exact G05/G07 reference inputs, method, metrics and limits |
+| M01 / G00-T1, G01-T1/T2/T3 | ready_for_review | 35-test result and independent combined review pending |
 | M02-M08 / G02-G13 | not_started | Follow [roadmap](../../README.md#roadmap) and gate prerequisites |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model chemical/protein qualification | not_run | G00/G05/G07 evidence and predeclared physical-reference limits |

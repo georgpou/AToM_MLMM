@@ -1,6 +1,6 @@
 # Development guide
 
-Start with the assigned gate's assertions and the current [status](project-0/STATUS.md). The first implementation scope is M00's relevant design decisions followed by M01's analytic CPU G00/G01 work. Scientific modules are planned under `src/atm_mlmm/`; implement them as their gates need them. Current tests cover CPU loading policy and Cloud setup fallback under `tests/environment/`, plus the local-weight [MACE link example](../examples/README.md) under `tests/integration/`.
+Start with the assigned gate's assertions and the current [status](project-0/STATUS.md). M01 now implements dependency-light records, identity/partition/protocol descriptions, capability/evidence checks and the original-MM inventory under `src/atm_mlmm/`. Its checks live in `tests/unit/` and `tests/contracts/`; later scientific modules still belong to their owning gates. Existing regressions cover CPU loading policy and Cloud setup fallback under `tests/environment/`, plus the local-weight [MACE link example](../examples/README.md) under `tests/integration/`.
 
 ## Environment and imports
 

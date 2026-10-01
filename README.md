@@ -2,7 +2,7 @@
 
 Build a cavity-inclusive ML/MM Hamiltonian for ATM absolute and relative binding free energies. Start with mechanical embedding, complete neutral ligands and capped neutral protein fragments. Keep the physical energy builder independent of coordinate transfer and analysis.
 
-**Current state:** the reproducible CPU setup and a real-weight MACE ML/MM link-atom example are implemented. Scientific modules and gate tests are the next work. [STATUS](docs/project-0/STATUS.md) records results and qualification; GPU and pretrained-model profiles will be tested separately.
+**Current state:** the reproducible CPU setup, real-weight MACE link example and M01 analytic CPU records/identity/inventory checks are implemented. [STATUS](docs/project-0/STATUS.md) records exact review/qualification results; GPU and full pretrained-model profiles remain separate.
 
 ## Start here
 
@@ -26,7 +26,7 @@ python -m pytest -q
 
 Read [AGENTS.md](AGENTS.md), the [CPU setup guide](environment/cloud-cpu/README.md), and [development guide](docs/DEVELOPMENT.md). The installer carries the exact locks, wheels and source archives; a fresh agent needs no previous agent's filesystem. Its default prefix is external to the checkout and can be customized.
 
-**Next assignment:** complete the relevant [M00 design review](docs/project-0/milestones/M00-architecture-review.md), then implement the M01 analytic CPU scope: [G00-T1](docs/project-0/gates/G00-environment-and-provenance.md), [G01-T1/T2/T3](docs/project-0/gates/G01-identity-partition-and-contracts.md), and M01 combined review. Use the gates' assertions and focused tests. Model assets and GPU qualification are deferred to their relevant profiles; they do not block analytic CPU development.
+**Current development successor:** `m00-audit-m01-development`. M00's analytic design review and G00-T1/G01-T1/T2/T3 implementation are recorded in [STATUS](docs/project-0/STATUS.md). After M01 combined acceptance, [G02](docs/project-0/gates/G02-analytic-force-in-native-atm.md) is the next implementation. Model assets, physical-reference decisions and GPU qualification remain with their relevant profiles.
 
 ## Quick MACE calculation
 
