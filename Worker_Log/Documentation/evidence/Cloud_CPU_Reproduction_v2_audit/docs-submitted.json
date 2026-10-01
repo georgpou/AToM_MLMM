@@ -1,0 +1,16 @@
+{
+  "command": [
+    "python",
+    "tools/check_docs.py",
+    "--self-test",
+    "--output",
+    "/workspace/AToM_MLMM/Worker_Log/Documentation/evidence/Cloud_CPU_Reproduction_v2_audit/docs-submitted-output.json"
+  ],
+  "cwd": "/workspace/.onboarding/atom-mlmm-audit-v1-submitted-tree",
+  "started": "2026-10-01T14:15:34.696273+00:00",
+  "finished": "2026-10-01T14:15:34.855379+00:00",
+  "exit_code": 1,
+  "raw_output": "docs-submitted.log",
+  "archived_raw_output": "docs-submitted.log.gz",
+  "raw_sha256": "7efde209b81571f546820a5d4db36eb5ede57a8f534aeabe1ce2b9baef7a9abf"
+}

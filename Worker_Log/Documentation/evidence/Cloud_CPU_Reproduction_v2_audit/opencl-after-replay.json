@@ -1,0 +1,13 @@
+{
+  "is_symlink": true,
+  "target": "/etc/OpenCL/vendors",
+  "target_exists": false,
+  "target_unchanged": true,
+  "warning": [
+    "ln: failed to create symbolic link '/workspace/.onboarding/atom-mlmm-independent-audit-v1b/env/etc/OpenCL/vendors/ocl-icd-system': File exists"
+  ],
+  "installer_exit_code": 0,
+  "environment_ok": true,
+  "hook_sha256": "ae3ab20d1f336be8721eedc040e68f831c8c1dcf20a17ad4bdde8d59f20dc03d",
+  "cpu_log": "\nOpenMM Version: 8.6.1\nGit Revision: b399af4725573963b46d6c1083fdcf7a37615857\n\nThere are 2 Platforms available:\n\n1 Reference - Successfully computed forces\n2 CPU - Successfully computed forces\n\nMedian difference in forces between platforms:\n\nReference vs. CPU: 6.31482e-06\n\nAll differences are within tolerance.\n"
+}

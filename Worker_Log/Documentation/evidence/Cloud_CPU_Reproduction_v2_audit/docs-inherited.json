@@ -1,0 +1,16 @@
+{
+  "command": [
+    "python",
+    "tools/check_docs.py",
+    "--self-test",
+    "--output",
+    "Worker_Log/Documentation/evidence/Cloud_CPU_Reproduction_v2_audit/docs-inherited-output.json"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "started": "2026-10-01T14:15:34.740058+00:00",
+  "finished": "2026-10-01T14:15:34.875435+00:00",
+  "exit_code": 1,
+  "raw_output": "docs-inherited.log",
+  "archived_raw_output": "docs-inherited.log.gz",
+  "raw_sha256": "d66eeb4f76335c7e03f5606aeeab1588fcc75055aec1cf4a60eaa1c794311dc2"
+}

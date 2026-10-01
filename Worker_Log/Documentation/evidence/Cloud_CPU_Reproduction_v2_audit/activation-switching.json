@@ -1,0 +1,13 @@
+{
+  "command": [
+    "bash",
+    "Worker_Log/Documentation/evidence/Cloud_CPU_Reproduction_v2_audit/activation_probe.sh"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "started": "2026-10-01T14:24:23.740912+00:00",
+  "finished": "2026-10-01T14:24:24.945023+00:00",
+  "exit_code": 0,
+  "raw_output": "activation-switching.log",
+  "archived_raw_output": "activation-switching.log.gz",
+  "raw_sha256": "e8263d3222f7585b67b529061d2e7ffeebe8f3f7890dc7971c1a21ebcb28dc95"
+}

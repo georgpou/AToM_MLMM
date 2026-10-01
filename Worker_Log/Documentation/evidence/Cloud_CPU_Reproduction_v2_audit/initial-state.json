@@ -1,0 +1,100 @@
+{
+  "recorded": "2026-10-01T14:14:13.624110+00:00",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.41",
+  "fresh_prefix": "/workspace/.onboarding/atom-mlmm-independent-audit-v1",
+  "prefix_initially_absent": true,
+  "submitted_tree": "/workspace/.onboarding/atom-mlmm-audit-v1-submitted-tree",
+  "home": "/home/agent",
+  "commands": [
+    {
+      "command": [
+        "git",
+        "status",
+        "--porcelain=v1",
+        "--branch"
+      ],
+      "exit_code": 0,
+      "stdout": "## m01-g00-environment-audit-v1\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "28f89cb23bdb7081c3723b9794fbde7d9bb50dca\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "refs/remotes/origin/main"
+      ],
+      "exit_code": 0,
+      "stdout": "2d7bcc94f901738e39f536f16de84699d4e8d631\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "show-ref"
+      ],
+      "exit_code": 0,
+      "stdout": "28f89cb23bdb7081c3723b9794fbde7d9bb50dca refs/heads/m01-g00-environment-audit-v1\n2d7bcc94f901738e39f536f16de84699d4e8d631 refs/heads/work\n28f89cb23bdb7081c3723b9794fbde7d9bb50dca refs/remotes/origin/m01-g00-cloud-environment-setup\n2d7bcc94f901738e39f536f16de84699d4e8d631 refs/remotes/origin/main\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--stat",
+        "dcfd99d51e991f0cf6f838b81f2f14752b0a9afa",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": " AGENTS.md                                          |   4 +-\n AGENT_HANDOFF.md                                   |  60 +++++--\n NEXT_AGENT_AUDIT_HANDOUT.md                        | 191 +++++++++++++++++++++\n NEXT_AGENT_AUDIT_PROMPT.md                         |  45 +++++\n README.md                                          |   4 +\n .../Cloud_CPU_Audit_Export_v1_worker.md            |  28 +++\n .../Cloud_CPU_Audit_Handoff_v1_worker.md           |  89 ++++++++++\n .../after-docs-check.json                          |  22 +++\n .../after-docs-status.txt                          |   3 +\n .../Cloud_CPU_Audit_Handoff_v1/bash-examples.json  |  67 ++++++++\n .../before-docs-check.json                         |  22 +++\n .../before-docs-status.txt                         |   3 +\n .../Cloud_CPU_Audit_Handoff_v1/bundle-check.log    |  76 ++++++++\n environment/cloud-cpu/CLOUD_START.md               |  16 +-\n environment/cloud-cpu/README.md                    |   5 +-\n environment/cloud-cpu/bundle.sha256                |   4 +-\n 16 files changed, 615 insertions(+), 24 deletions(-)\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--name-only",
+        "dcfd99d51e991f0cf6f838b81f2f14752b0a9afa",
+        "HEAD",
+        "--",
+        "environment/cloud-cpu"
+      ],
+      "exit_code": 0,
+      "stdout": "environment/cloud-cpu/CLOUD_START.md\nenvironment/cloud-cpu/README.md\nenvironment/cloud-cpu/bundle.sha256\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "git",
+        "log",
+        "-1",
+        "--format=%H",
+        "--",
+        "Worker_Log/Documentation/Cloud_CPU_Reproduction_v2_worker.md"
+      ],
+      "exit_code": 0,
+      "stdout": "dcfd99d51e991f0cf6f838b81f2f14752b0a9afa\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "df",
+        "-h",
+        "/workspace",
+        "/tmp"
+      ],
+      "exit_code": 0,
+      "stdout": "Filesystem      Size  Used Avail Use% Mounted on\noverlay          32G  320M   30G   2% /workspace\nnone            4.9G   56K  4.9G   1% /tmp\n",
+      "stderr": ""
+    }
+  ]
+}

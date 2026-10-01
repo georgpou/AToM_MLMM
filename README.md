@@ -2,20 +2,23 @@
 
 Project 0 builds a reusable ML/MM energy model containing complete ligands, selected protein atoms and hydrogen link atoms, then evaluates it through ATM for ABFE and RBFE. The first implementation uses mechanical embedding and uncomplicated neutral chemistry. Project 0 also requires a small chemical-reference and boundary-sensitivity check before protein demonstrations. Project 1 then tests predictive accuracy more broadly; correct code and a well-converged free energy are not, by themselves, proof of accurate chemistry.
 
-**Current state:** planning and documentation only in this supplied snapshot. No numerical gate or M00 design review is accepted. [Status and qualification](docs/project-0/STATUS.md) records actual evidence; files named under future `src/` and `tests/` paths are not implemented merely because the plan names them.
+**Current state:** plans, documentation tooling and a CPU dependency setup; the molecular platform is not implemented. No numerical gate or M00 design review is accepted. [Status and qualification](docs/project-0/STATUS.md) records actual evidence; files named under future `src/` and `tests/` paths are not implemented merely because the plan names them.
 
 ## Start with the assigned task
 
 **Cloud environment and branch handoff:** read [AGENT_HANDOFF.md](AGENT_HANDOFF.md)
 and the [reproducible setup guide](environment/cloud-cpu/README.md). Create your
-branch from `m01-g00-cloud-environment-setup`, never `main`. From the repository
+first setup branch from `m01-g00-cloud-environment-setup`, never `main`; repair
+successors inherit the recorded audit branch. From the repository
 root, `bash environment/cloud-cpu/install.sh` installs the main ML/AToM and
 separate AmberTools environments using the exact artifacts included on that
 branch. No separately transferred wheel bundle is required.
 
-**Immediate next assignment:** [independent audit handout](NEXT_AGENT_AUDIT_HANDOUT.md)
-and [copy-ready agent prompt](NEXT_AGENT_AUDIT_PROMPT.md). Verify the setup and
-flagged baseline inconsistencies before advancing to M00 or implementation.
+**Immediate next assignment:** [required baseline repairs](NEXT_AGENT_REPAIR_HANDOUT.md)
+from the [completed independent audit](Worker_Log/Documentation/Cloud_CPU_Reproduction_v2_audit.md).
+[Status](docs/project-0/STATUS.md) distinguishes open findings from nonblocking
+CPU warnings. The original [audit handout](NEXT_AGENT_AUDIT_HANDOUT.md) and
+[agent prompt](NEXT_AGENT_AUDIT_PROMPT.md) remain assignment history.
 
 An implementation worker reads [AGENTS.md](AGENTS.md), the named gate/task and its specific reading links, plus relevant prior findings. An auditor starts from the exact worker log and recorded snapshot. Do not read all documentation by default. [Environment setup](ATM_MLMM_Environment.md) is needed when installing or qualifying software, not for every editing task.
 

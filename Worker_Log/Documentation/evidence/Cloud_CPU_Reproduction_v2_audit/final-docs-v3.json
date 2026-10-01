@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python",
+    "tools/check_docs.py",
+    "--self-test",
+    "--output",
+    "Worker_Log/Documentation/evidence/Cloud_CPU_Reproduction_v2_audit/final-docs-v3-output.json"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "started": "2026-10-01T14:59:22.281354+00:00",
+  "finished": "2026-10-01T14:59:22.421769+00:00",
+  "exit_code": 1,
+  "raw_output": "final-docs-v3.log"
+}

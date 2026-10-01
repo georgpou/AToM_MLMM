@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python",
+    "Worker_Log/Documentation/evidence/Cloud_CPU_Reproduction_v2_audit/verify_audit_delivery.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "started": "2026-10-01T14:52:25.963135+00:00",
+  "finished": "2026-10-01T14:52:26.243771+00:00",
+  "exit_code": 1,
+  "raw_output": "final-delivery.log",
+  "archived_raw_output": "final-delivery.log.gz",
+  "raw_sha256": "730f69aedef73adcbf53ab851cc973f6b6052cbe6ad5875f2e644c04b082fade"
+}

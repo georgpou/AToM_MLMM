@@ -2,12 +2,16 @@
 
 ## Branch and environment handoff
 
-The user requires the next agent to create a working branch from
-`m01-g00-cloud-environment-setup`, never `main`; subsequent milestone/gate
-branches retain this lineage. Read [AGENT_HANDOFF.md](AGENT_HANDOFF.md) before
-starting. The user's immediate next assignment is the independent setup/baseline
-audit in [NEXT_AGENT_AUDIT_HANDOUT.md](NEXT_AGENT_AUDIT_HANDOUT.md), before M00
-or gate implementation. For dependency setup, use the [branch-contained setup guide](environment/cloud-cpu/README.md)
+The user requires working branches to retain the lineage from
+`m01-g00-cloud-environment-setup`, never `main`; subsequent repair/milestone/gate
+branches inherit their recorded predecessor. Read [AGENT_HANDOFF.md](AGENT_HANDOFF.md) before
+starting. The completed independent setup/baseline
+[audit](Worker_Log/Documentation/Cloud_CPU_Reproduction_v2_audit.md) and
+[STATUS](docs/project-0/STATUS.md) identify the current required repairs in
+[NEXT_AGENT_REPAIR_HANDOUT.md](NEXT_AGENT_REPAIR_HANDOUT.md), before M00 or gate
+implementation. Repair successors inherit the audit branch, retaining the setup
+lineage; the original [audit handout](NEXT_AGENT_AUDIT_HANDOUT.md) remains scope
+history. For dependency setup, use the [branch-contained setup guide](environment/cloud-cpu/README.md)
 and run `bash environment/cloud-cpu/install.sh` from the repository root. It
 supplies all 51 wheels and exact source archives, and creates **two separate
 environments**: main ML/AToM with NumPy 2 and AmberTools with NumPy 1.26. Activate

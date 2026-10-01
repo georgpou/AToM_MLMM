@@ -1,6 +1,23 @@
 # Current status and qualification
 
-This snapshot contains plans and documentation tooling, not an implemented molecular platform. No M00 design approval or numerical gate acceptance is claimed. The current documentation cleanup is [Documentation v2](../../Worker_Log/Milestone_00/Documentation_v2_worker.md), submitted for independent audit. [Documentation v1](../../Worker_Log/Milestone_00/Documentation_v1_worker.md) remains historical evidence; it was not rewritten or independently approved by this cleanup.
+This snapshot contains plans, documentation tooling and a reproducible CPU dependency setup, not an implemented molecular platform. No M00 design approval or numerical gate acceptance is claimed. The [independent reproduction v2 audit](../../Worker_Log/Documentation/Cloud_CPU_Reproduction_v2_audit.md) reports **changes_required** for the clean baseline. Its fresh CPU installation and eight environment checks passed; required documentation-delivery and loading-policy findings remain open. Earlier Documentation v1-v4 submissions remain historical and have not been rewritten or retroactively approved.
+
+## Independent setup and baseline audit
+
+The audit branch is `m01-g00-environment-audit-v1`, created directly from setup tip `28f89cb23bdb7081c3723b9794fbde7d9bb50dca`. It audits submitted reproduction result `dcfd99d51e991f0cf6f838b81f2f14752b0a9afa` separately from later handout changes. [Raw evidence](../../Worker_Log/Documentation/evidence/Cloud_CPU_Reproduction_v2_audit/) records an empty-prefix installation, strict validation, exact inventories/artifacts/upstream identities, activation, replay and controlled failure propagation. These are development-environment results, not scientific G00 acceptance.
+
+| Finding | Current disposition | Importance and next action |
+|---|---|---|
+| A01 - missing Documentation v4 amendment | open; blocks the intended scientific-document baseline | At the audited parent, eighteen documentation files match the historical before hashes; P0-REQ-033, G05-T4/G07-T4 and the 93-node catalog are absent. Recover the original delivery or record/review a new traceable amendment before proceeding against the claimed revised plan. |
+| A02 - two source anchors and U40/U41 | open; low runtime impact, required documentation closure | No effect on CPU calculations. These are genuinely missing source records, not obsolete folder paths. Repair meaningful provenance once under A01; zero doc errors/eight self-tests are needed for clean-baseline closure. |
+| A03 - MACECalculator unsafe-loading override | open; required helper repair | The calculator import resets the variable after the helper clears it. CPU smokes still pass and no weights were loaded. A scratch second cleanup passes the policy regression; production repair and independent review remain necessary. |
+| A04 - OpenCL/optional acceleration warnings | closed as nonblocking for tested CPU scope | Replay keeps the same symlink and passes all CPU checks. Do not delete links, substitute packages, suppress stderr or reopen without relevant new evidence. GPU/OpenCL/serialization claims remain unqualified. |
+| A05 - historical outer driver 1 / installer 0 | no reproduced current defect; historical cause unknown | Current real Cloud fallback succeeds with status 0; all five controlled artifact failures return 1 before installation. No speculative fix needed. Preserve the historical unknown; reopen only with a reproducible driver/status trace. |
+| A06 - stale progress/task pointers | closed by audit reporting update | This status and root task-entry links now identify the actual audit and next repair assignment. No production or scientific repair is self-approved. |
+
+The previously missing wheel delivery is independently confirmed resolved: all 51 wheels and three complete upstream archives match their locked identities. The standard Conda registry sandbox prerequisite was resolved with narrow access and a new absent prefix; no package/network installation blocker remains on the tested host. Both environment-only and strict runs retain docs exit 1; all eight checker self-tests pass. The complete clean baseline is **not accepted**.
+
+**Next assignment:** [close A01-A03 on a child of the audit branch](../../NEXT_AGENT_REPAIR_HANDOUT.md), suggested `m01-g00-environment-repair-v3`. Preserve the closed CPU dispositions above. Obtain independent review of repairs, then complete relevant M00 review and applicable G00-T1/G01 tasks. Do not repeat the full audit without changed evidence or count setup smoke checks as numerical gates.
 
 ## Gate and milestone summary
 
@@ -78,4 +95,4 @@ The first admitted profile can be `core-analytic-cpu`, without actual neural wei
 
 ## First implementation work
 
-Complete the relevant M00 design review, then G00 environment checks and G01 tasks. Start with the analytic CPU setup when weights or GPUs are unavailable; the missing evidence still blocks their later specific claims.
+Close the required baseline audit findings above, complete the relevant M00 design review, then perform G00 environment checks and G01 tasks. Start with the analytic CPU setup when weights or GPUs are unavailable; the missing evidence still blocks their later specific claims.

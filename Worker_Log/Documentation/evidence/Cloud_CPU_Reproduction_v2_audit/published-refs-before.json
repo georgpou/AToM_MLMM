@@ -1,0 +1,17 @@
+{
+  "started": "2026-10-01T14:52:35.467546+00:00",
+  "finished": "2026-10-01T14:52:37.910361+00:00",
+  "command": [
+    "git",
+    "ls-remote",
+    "--heads",
+    "origin"
+  ],
+  "exit_code": 0,
+  "raw_output": "28f89cb23bdb7081c3723b9794fbde7d9bb50dca\trefs/heads/m01-g00-cloud-environment-setup\n2d7bcc94f901738e39f536f16de84699d4e8d631\trefs/heads/main\n",
+  "refs": {
+    "refs/heads/m01-g00-cloud-environment-setup": "28f89cb23bdb7081c3723b9794fbde7d9bb50dca",
+    "refs/heads/main": "2d7bcc94f901738e39f536f16de84699d4e8d631"
+  },
+  "no_existing_audit_or_repair_branch_published_at_sample": true
+}

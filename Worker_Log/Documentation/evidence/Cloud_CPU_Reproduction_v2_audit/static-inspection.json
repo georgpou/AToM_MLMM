@@ -1,0 +1,1602 @@
+{
+  "snapshots": {
+    "inherited-bundle.sha256": {
+      "exit_code": 0,
+      "entries": 76
+    },
+    "inherited-wheels.sha256": {
+      "exit_code": 0,
+      "entries": 51
+    },
+    "submitted-bundle.sha256": {
+      "exit_code": 0,
+      "entries": 76
+    },
+    "submitted-wheels.sha256": {
+      "exit_code": 0,
+      "entries": 51
+    },
+    "setup_differences": [
+      "environment/cloud-cpu/CLOUD_START.md",
+      "environment/cloud-cpu/README.md",
+      "environment/cloud-cpu/bundle.sha256"
+    ]
+  },
+  "locks": {
+    "core": {
+      "conda_count": 255,
+      "python_count": 156,
+      "selected_conda": {
+        "e3nn": {
+          "version": "0.4.4",
+          "build": "pyhd8ed1ab_1"
+        },
+        "mdtraj": {
+          "version": "1.11.1",
+          "build": "py311h90ed22e_2"
+        },
+        "numpy": {
+          "version": "2.4.6",
+          "build": "py311h2e04523_0"
+        },
+        "openmm": {
+          "version": "8.6.1",
+          "build": "py311h1aadaef_0"
+        },
+        "python": {
+          "version": "3.11.16",
+          "build": "h5f976f7_2_cpython"
+        },
+        "pytorch": {
+          "version": "2.8.0",
+          "build": "cpu_mkl_py311_hcfbaf12_102"
+        }
+      },
+      "selected_python": {
+        "atom-openmm": "8.5.0b0",
+        "e3nn": "0.4.4",
+        "mace-torch": "0.3.16",
+        "numpy": "2.4.6",
+        "OpenMM": "8.6.1",
+        "openmmml": "1.8",
+        "torch": "2.8.0",
+        "torchani": "2.9.0"
+      }
+    },
+    "amber": {
+      "conda_count": 201,
+      "python_count": 80,
+      "selected_conda": {
+        "ambertools": {
+          "version": "26.0",
+          "build": "cuda_None_nompi_py311h232f31e_100"
+        },
+        "numpy": {
+          "version": "1.26.4",
+          "build": "py311h64a7726_0"
+        },
+        "python": {
+          "version": "3.11.16",
+          "build": "h5f976f7_2_cpython"
+        }
+      },
+      "selected_python": {
+        "numpy": "1.26.4"
+      }
+    }
+  },
+  "wheels": [
+    {
+      "file": "annotated_doc-0.0.5-py3-none-any.whl",
+      "name": "annotated-doc",
+      "version": "0.0.5",
+      "sha256": "117bac03a25ede5df5440e855b32d556049ca169ead221505badf432fed4b101"
+    },
+    {
+      "file": "anyio-4.15.1-py3-none-any.whl",
+      "name": "anyio",
+      "version": "4.15.1",
+      "sha256": "6152fdbbf9a77fdec97731721bebf7c4c44f7c29b424b0065826173efc7ed101"
+    },
+    {
+      "file": "asciitree-0.3.3-py3-none-any.whl",
+      "name": "asciitree",
+      "version": "0.3.3",
+      "sha256": "a3a55f5270f6e2e0fcdd79db30d5f7a5ae52104e5634fd03e3ba2f1d2ab3de65"
+    },
+    {
+      "file": "ase-3.29.0-py3-none-any.whl",
+      "name": "ase",
+      "version": "3.29.0",
+      "sha256": "7b9dd103f007810339c24acfee2f6b677c0c48443b21d3c98e52959246cf4ebf"
+    },
+    {
+      "file": "atom_openmm-8.5.0b0-py3-none-any.whl",
+      "name": "atom-openmm",
+      "version": "8.5.0b0",
+      "sha256": "0845ac22e7edeb9072e8e9fe2f10e5b49e5bd26f1476ef0e9840a098094d0eb9"
+    },
+    {
+      "file": "click-8.5.0-py3-none-any.whl",
+      "name": "click",
+      "version": "8.5.0",
+      "sha256": "255bc9599cf7748b4b1a446ccc735421bd08a2ae529a8b88597d3de5664ee360"
+    },
+    {
+      "file": "configargparse-1.8.0-py3-none-any.whl",
+      "name": "configargparse",
+      "version": "1.8.0",
+      "sha256": "bb25b307c3cd46a3e868e7f7aa51487eb8003a9f01cac3ae129b66ec26eb794c"
+    },
+    {
+      "file": "contourpy-1.3.3-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "contourpy",
+      "version": "1.3.3",
+      "sha256": "51e79c1f7470158e838808d4a996fa9bac72c498e93d8ebe5119bc1e6becb0db"
+    },
+    {
+      "file": "cycler-0.12.1-py3-none-any.whl",
+      "name": "cycler",
+      "version": "0.12.1",
+      "sha256": "85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30"
+    },
+    {
+      "file": "deprecated-1.3.1-py2.py3-none-any.whl",
+      "name": "deprecated",
+      "version": "1.3.1",
+      "sha256": "597bfef186b6f60181535a29fbe44865ce137a5079f295b479886c82729d5f3f"
+    },
+    {
+      "file": "fasteners-0.20-py3-none-any.whl",
+      "name": "fasteners",
+      "version": "0.20",
+      "sha256": "9422c40d1e350e4259f509fb2e608d6bc43c0136f79a00db1b49046029d0b3b7"
+    },
+    {
+      "file": "fonttools-4.66.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "name": "fonttools",
+      "version": "4.66.1",
+      "sha256": "72299346b96b9244dabcc051b24e4653da4edfda6105544cfb10ce856a1afaac"
+    },
+    {
+      "file": "gitdb-4.0.12-py3-none-any.whl",
+      "name": "gitdb",
+      "version": "4.0.12",
+      "sha256": "67073e15955400952c6565cc3e707c554a4eea2e428946f7a4c162fab9bd9bcf"
+    },
+    {
+      "file": "gitpython-3.2.0-py3-none-any.whl",
+      "name": "gitpython",
+      "version": "3.2.0",
+      "sha256": "bd70c5ec05cd2b797423e7eb312147d2458d3cca92085888fba2213f85905537"
+    },
+    {
+      "file": "h11-0.16.0-py3-none-any.whl",
+      "name": "h11",
+      "version": "0.16.0",
+      "sha256": "63cf8bbe7522de3bf65932fda1d9c2772064ffb3dae62d55932da54b31cb6c86"
+    },
+    {
+      "file": "h5py-3.16.0-cp311-cp311-manylinux_2_28_x86_64.whl",
+      "name": "h5py",
+      "version": "3.16.0",
+      "sha256": "fb1720028d99040792bb2fb31facb8da44a6f29df7697e0b84f0d79aff2e9bd3"
+    },
+    {
+      "file": "hf_xet-1.6.0-cp38-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "name": "hf-xet",
+      "version": "1.6.0",
+      "sha256": "d62671bb130879cef0ee4c9ebe47a14af6c66ec53e6d84dc15936e5ffdfac82f"
+    },
+    {
+      "file": "httpcore2-2.13.1-py3-none-any.whl",
+      "name": "httpcore2",
+      "version": "2.13.1",
+      "sha256": "e1e05d4f25f7d7d496bfb96748f6f4b67657b03da069b3a68c36069f3db73d0a"
+    },
+    {
+      "file": "httpx2-2.13.1-py3-none-any.whl",
+      "name": "httpx2",
+      "version": "2.13.1",
+      "sha256": "6dff50fabc270ee5fd25d845d0b078ed20564579744d6d962850975996d2f9a4"
+    },
+    {
+      "file": "huggingface_hub-2.0.0-py3-none-any.whl",
+      "name": "huggingface-hub",
+      "version": "2.0.0",
+      "sha256": "b3eecb60540c17e8ef94c187104f4a5c0c451afcb9510ba8e17739bedcc2d6dd"
+    },
+    {
+      "file": "kiwisolver-1.5.1-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "name": "kiwisolver",
+      "version": "1.5.1",
+      "sha256": "95a02752aa032eef4aed01cda6d9b687c669bd0396bf4519eef8bba22a286720"
+    },
+    {
+      "file": "lightning_utilities-0.15.3-py3-none-any.whl",
+      "name": "lightning-utilities",
+      "version": "0.15.3",
+      "sha256": "6c55f1bee70084a1cbeaa41ada96e4b3a0fea5909e844dd335bd80f5a73c5f91"
+    },
+    {
+      "file": "lmdb-2.3.0-cp311-cp311-manylinux2014_x86_64.manylinux_2_17_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "lmdb",
+      "version": "2.3.0",
+      "sha256": "4d0019870b5b93b2160fc324a609ffee1447024b2b8ce0da3b3f2f04b0131870"
+    },
+    {
+      "file": "lxml-6.1.3-cp311-cp311-manylinux_2_26_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "lxml",
+      "version": "6.1.3",
+      "sha256": "527195c188d7d0af748cd48d220ab8cdc5cb99be3d49ac4d9be7324d8abf9bc0"
+    },
+    {
+      "file": "mace_torch-0.3.16-py3-none-any.whl",
+      "name": "mace-torch",
+      "version": "0.3.16",
+      "sha256": "b80407edf6b2a1ec8523668c2a36852d20927ce1c3c56b70983a9f2dc53233ad"
+    },
+    {
+      "file": "markdown_it_py-4.2.0-py3-none-any.whl",
+      "name": "markdown-it-py",
+      "version": "4.2.0",
+      "sha256": "9f7ebbcd14fe59494226453aed97c1070d83f8d24b6fc3a3bcf9a38092641c4a"
+    },
+    {
+      "file": "matscipy-1.3.0-cp311-cp311-manylinux_2_24_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "matscipy",
+      "version": "1.3.0",
+      "sha256": "60df5a90e5fc0db57e2518dfa08cf0ccb75dbae28b1c929513991f1d7dba9620"
+    },
+    {
+      "file": "mdurl-0.1.2-py3-none-any.whl",
+      "name": "mdurl",
+      "version": "0.1.2",
+      "sha256": "84008a41e51615a49fc9966191ff91509e3c40b939176e643fd50a5c2196b8f8"
+    },
+    {
+      "file": "ninja-1.13.2-py3-none-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "name": "ninja",
+      "version": "1.13.2",
+      "sha256": "65a24341b5ac09fcadcc37082660be40a94174e51a937fabf6e2cae26225fa2c"
+    },
+    {
+      "file": "numcodecs-0.15.1-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "name": "numcodecs",
+      "version": "0.15.1",
+      "sha256": "cdfaef9f5f2ed8f65858db801f1953f1007c9613ee490a1c56233cd78b505ed5"
+    },
+    {
+      "file": "openmmforcefields-0.16.0-py3-none-any.whl",
+      "name": "openmmforcefields",
+      "version": "0.16.0",
+      "sha256": "e44de883e5882d646a6fa034e90ae8089b811bca62ff34761a81e5d4d3d6f979"
+    },
+    {
+      "file": "openmmml-1.8-py3-none-any.whl",
+      "name": "openmmml",
+      "version": "1.8",
+      "sha256": "5652ee4043dac16e10f5dd54f55de7a9e85f15b7709354ec707d042207e8bdfa"
+    },
+    {
+      "file": "orjson-3.12.0-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl",
+      "name": "orjson",
+      "version": "3.12.0",
+      "sha256": "9caf3d09f47c3c70c4451ada20ef9bc4a4cdffa26f49862cf0a253b329aae2d5"
+    },
+    {
+      "file": "pillow-12.3.0-cp311-cp311-manylinux_2_27_x86_64.manylinux_2_28_x86_64.whl",
+      "name": "pillow",
+      "version": "12.3.0",
+      "sha256": "23d27a3e0307ec2244cc51e7287b919aa68d097504ebe19df4e76a98a3eea5bd"
+    },
+    {
+      "file": "prettytable-3.18.0-py3-none-any.whl",
+      "name": "prettytable",
+      "version": "3.18.0",
+      "sha256": "b3346e0e6f79180833aebaac088ae926340586cf6d7d991b9eb125b65f72313a"
+    },
+    {
+      "file": "pyarrow-25.0.1-cp311-cp311-manylinux_2_28_x86_64.whl",
+      "name": "pyarrow",
+      "version": "25.0.1",
+      "sha256": "25f8720bf6387d5dc2ebd2622112de630760419e4b66134405dd24110d15f37e"
+    },
+    {
+      "file": "python_hostlist-2.3.0-py3-none-any.whl",
+      "name": "python-hostlist",
+      "version": "2.3.0",
+      "sha256": "9efb6a89f4a57ce586d130aa29ababbb972d9ded753b2b10558bc8e064091c63"
+    },
+    {
+      "file": "rich-15.0.0-py3-none-any.whl",
+      "name": "rich",
+      "version": "15.0.0",
+      "sha256": "33bd4ef74232fb73fe9279a257718407f169c09b78a87ad3d296f548e27de0bb"
+    },
+    {
+      "file": "shellingham-1.5.4-py2.py3-none-any.whl",
+      "name": "shellingham",
+      "version": "1.5.4",
+      "sha256": "7ecfff8f2fd72616f7481040475a65b2bf8af90a56c89140852d1120324e8686"
+    },
+    {
+      "file": "smmap-5.0.3-py3-none-any.whl",
+      "name": "smmap",
+      "version": "5.0.3",
+      "sha256": "c106e05d5a61449cf6ba9a1e650227ecfb141590d2a98412103ff35d89fc7b2f"
+    },
+    {
+      "file": "tinydb-4.9.0-py3-none-any.whl",
+      "name": "tinydb",
+      "version": "4.9.0",
+      "sha256": "111f1f680978a1b7c534d698dd1d76739ff31c74c27fd26a111140b51d8b35d6"
+    },
+    {
+      "file": "torch_ema-0.3-py3-none-any.whl",
+      "name": "torch-ema",
+      "version": "0.3",
+      "sha256": "823ad8da5c10bc1eebcec739cc3f521aa9573229fe04e5673c304d29f1433279"
+    },
+    {
+      "file": "torchani-2.9.0-py3-none-any.whl",
+      "name": "torchani",
+      "version": "2.9.0",
+      "sha256": "8acf2b015a749ec59ff7e8e43a0c681039206f93bf44e54f8f59a04aacd2caa7"
+    },
+    {
+      "file": "torchmetrics-1.9.0-py3-none-any.whl",
+      "name": "torchmetrics",
+      "version": "1.9.0",
+      "sha256": "bfdcbff3dd1d96b3374bb2496eb39f23c4b28b8a845b6a18c313688e0d2d9ca1"
+    },
+    {
+      "file": "tqdm-4.70.1-py3-none-any.whl",
+      "name": "tqdm",
+      "version": "4.70.1",
+      "sha256": "c293e525e6fef9c20e8728fd4612df02a0aa31bb5fe91ecd93e123b1b7bffa73"
+    },
+    {
+      "file": "truststore-0.10.4-py3-none-any.whl",
+      "name": "truststore",
+      "version": "0.10.4",
+      "sha256": "adaeaecf1cbb5f4de3b1959b42d41f6fab57b2b1666adb59e89cb0b53361d981"
+    },
+    {
+      "file": "typer-0.27.2-py3-none-any.whl",
+      "name": "typer",
+      "version": "0.27.2",
+      "sha256": "b3a5fc4342d5fc8fda8fc3010b1cf117e9249aab7fae800c2eff62fd3842d97d"
+    },
+    {
+      "file": "validators-0.35.0-py3-none-any.whl",
+      "name": "validators",
+      "version": "0.35.0",
+      "sha256": "e8c947097eae7892cb3d26868d637f79f47b4a0554bc6b80065dfe5aac3705dd"
+    },
+    {
+      "file": "wcwidth-0.9.1-cp310-abi3-manylinux2014_x86_64.manylinux_2_17_x86_64.whl",
+      "name": "wcwidth",
+      "version": "0.9.1",
+      "sha256": "747fb724223f417a17541a95a17c1dac3a8ef9a0cf41684950f0eab191a35f65"
+    },
+    {
+      "file": "wrapt-2.5.0-cp311-cp311-manylinux1_x86_64.manylinux_2_28_x86_64.manylinux_2_5_x86_64.whl",
+      "name": "wrapt",
+      "version": "2.5.0",
+      "sha256": "fd91203e156d610ecb28b9ccd7b764af7a7b38662d7c163090babab0d10def0c"
+    },
+    {
+      "file": "zarr-2.18.7-py3-none-any.whl",
+      "name": "zarr",
+      "version": "2.18.7",
+      "sha256": "ac3dc4033e9ae4e9d7b5e27c97ea3eaf1003cc0a07f010bd83d5134bf8c4b223"
+    }
+  ],
+  "sources": [
+    {
+      "directory": "AToM-OpenMM",
+      "url": "https://github.com/Gallicchio-Lab/AToM-OpenMM.git",
+      "tag": "v8.5.0",
+      "commit": "9e26c5a3811038be1c98e3be6af4c78cd0dd57a7",
+      "distribution_version": "8.5.0b0",
+      "archive": "sources/AToM-OpenMM-9e26c5a3811038be1c98e3be6af4c78cd0dd57a7.tar.gz",
+      "archive_sha256": "45615a51b085f5a35c72ca770d17046f29294a4874d0acdccf67a9cbc47f3337",
+      "pax_commit": "9e26c5a3811038be1c98e3be6af4c78cd0dd57a7",
+      "file_count": 252,
+      "wheel_matching_files": 26,
+      "generated_or_different": [],
+      "wheel_files_absent_from_source": [],
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "directory": "openmm-ml",
+      "url": "https://github.com/openmm/openmm-ml.git",
+      "tag": "1.8",
+      "commit": "a7fb40ebecd031db3a5d1da08202cad6819c366f",
+      "distribution_version": "1.8",
+      "archive": "sources/openmm-ml-a7fb40ebecd031db3a5d1da08202cad6819c366f.tar.gz",
+      "archive_sha256": "21f30ffaff01f0577386d672f179cff1b162b8cf66ae245dad6dbb631d8ed549",
+      "pax_commit": "a7fb40ebecd031db3a5d1da08202cad6819c366f",
+      "file_count": 59,
+      "wheel_matching_files": 15,
+      "generated_or_different": [],
+      "wheel_files_absent_from_source": [],
+      "license_files": [
+        "LICENSE"
+      ]
+    },
+    {
+      "directory": "openmmforcefields",
+      "url": "https://github.com/openmm/openmmforcefields.git",
+      "tag": "0.16.0",
+      "commit": "3aa91626db3aeea8e8388c43c42a51bf1d99159e",
+      "distribution_version": "0.16.0",
+      "archive": "sources/openmmforcefields-3aa91626db3aeea8e8388c43c42a51bf1d99159e.tar.gz",
+      "archive_sha256": "274730766ecef1ffe69dbf535290cae329f6c079fc09a318fa834081c9b12c82",
+      "pax_commit": "3aa91626db3aeea8e8388c43c42a51bf1d99159e",
+      "file_count": 434,
+      "wheel_matching_files": 171,
+      "generated_or_different": [
+        "openmmforcefields/_version.py"
+      ],
+      "wheel_files_absent_from_source": [],
+      "license_files": [
+        "LICENSE"
+      ]
+    }
+  ],
+  "documentation_v4": {
+    "inherited": {
+      "changed_files": [
+        {
+          "path": "AGENTS.md",
+          "before": "8b793684d40c9501f33266f3cd7df1ee40cc58b36c69b2c04d11256b983c3896",
+          "claimed_after": "08eb4eca7750b124e340a17968934e850f1349512a6c6f5e30944b0c696616a6",
+          "actual": "96eb59b34dcc4ac5afb3d3196d5989c009dd56fe591a1f2ad52bc961b9d6a020",
+          "matches_before": false,
+          "matches_after": false
+        },
+        {
+          "path": "ATM_MLMM_Environment.md",
+          "before": "447afcadc3eebddeb135214390d82b3607b2daa55fc9352ad6b99a7f1339fc5d",
+          "claimed_after": "7028fdf9f1b037e2f0947c512de93b5ecde84d8f2a3341d95c73d64829673504",
+          "actual": "7028fdf9f1b037e2f0947c512de93b5ecde84d8f2a3341d95c73d64829673504",
+          "matches_before": false,
+          "matches_after": true
+        },
+        {
+          "path": "ATM_MLMM_environment.yml",
+          "before": "634024e4614526b67df8c6528d43ebf4c59a788ade77d06eae33f70de65f65a9",
+          "claimed_after": "9e164133a7446268606e555276da600382ddbd4216b9b521676e33fba2eb55d7",
+          "actual": "9e164133a7446268606e555276da600382ddbd4216b9b521676e33fba2eb55d7",
+          "matches_before": false,
+          "matches_after": true
+        },
+        {
+          "path": "README.md",
+          "before": "575fb4971f4efd43038d8a267cc19bd82b2b32d40e1684647ac57f051ae1a827",
+          "claimed_after": "84090c9a71e683580c8c9c7469cf836594ed4815523fd356e917655eb4a783d8",
+          "actual": "22614812f12e6553126de768e0259cf0131994e685e5d514b89ff9560609bef9",
+          "matches_before": false,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/REQUIREMENTS.md",
+          "before": "f62a917f6a5d5b496b5b08d695347a5f233d8799f02e5e7a81236000820292df",
+          "claimed_after": "04aa57cdd1a9d9dc7de88f5700cb840b7ee1f12570c23f87c30b048f93920a55",
+          "actual": "f62a917f6a5d5b496b5b08d695347a5f233d8799f02e5e7a81236000820292df",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/STATUS.md",
+          "before": "e222085b8b02dd72a570268bfcd910a508bb6b33a032c1c66897d6ef3d0cd67a",
+          "claimed_after": "e25649297f6005585ebb925e8be02d1abb78b62bf27a8aaf1d9912cb3a224ba7",
+          "actual": "e222085b8b02dd72a570268bfcd910a508bb6b33a032c1c66897d6ef3d0cd67a",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G00-environment-and-provenance.md",
+          "before": "71941a0f17f684f52669c312b73940a4368ae270f5aff4f6d4ebdc75e06dce1a",
+          "claimed_after": "75341549e5dfd0c592b5973e2cb5122f43b8006f9e31fc5c958c19ce98e65048",
+          "actual": "71941a0f17f684f52669c312b73940a4368ae270f5aff4f6d4ebdc75e06dce1a",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+          "before": "0fe0fcd885628dbfdfe6833fa6afb8ea77e61e3183d3ce6acbf2c5efba990e20",
+          "claimed_after": "cf557aa2fb3767daf8fe9b67088a49214a032f82b120c9fe1ad9d2cc8cd5db7e",
+          "actual": "0fe0fcd885628dbfdfe6833fa6afb8ea77e61e3183d3ce6acbf2c5efba990e20",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+          "before": "40f5304191ead4454690bef7c843fee1e65646f6daf9bff20a06e9fbcd46119e",
+          "claimed_after": "d3286a7f6c8dd4efd414e0d89d2d4584373bd5e1e3522a3eda5e703d166f9d99",
+          "actual": "40f5304191ead4454690bef7c843fee1e65646f6daf9bff20a06e9fbcd46119e",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+          "before": "aa4d8e58b344d605f827e08f80acbba38eca908a41fcd73d0d4be912d8eae6f6",
+          "claimed_after": "756be6b46763d2ecc0ef4ffb79ef86b467ab20a70c8a24e4b4fbd137dac319d8",
+          "actual": "aa4d8e58b344d605f827e08f80acbba38eca908a41fcd73d0d4be912d8eae6f6",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G05-local-model-adapter.md",
+          "before": "a88ab372aa863ffcc794b8664aef61999787837bc68e61481c8d84e57918730b",
+          "claimed_after": "3c286637b855d9262a20b7ae7425fa2e7a1a08f55517f19c55a287679ffb3cc8",
+          "actual": "a88ab372aa863ffcc794b8664aef61999787837bc68e61481c8d84e57918730b",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+          "before": "f0b692e947e935c891011d109ccc34535cb80720c779f9f704bf486a6c35ed71",
+          "claimed_after": "250b52c349df2cef9b224b15d038c824f037a2cafa7d799aa08b45bda7b29004",
+          "actual": "f0b692e947e935c891011d109ccc34535cb80720c779f9f704bf486a6c35ed71",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G11-protein-abfe.md",
+          "before": "f76556d522a4907ee500fceb98459ccccc277fd0557df885d6804daa70446620",
+          "claimed_after": "e390c3555a9e8ec555159c6f886895ae70454193337399e963a2511b30f85203",
+          "actual": "f76556d522a4907ee500fceb98459ccccc277fd0557df885d6804daa70446620",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+          "before": "7c5d73d30c9af8119c11fa332ae9bd3dfa5424ef4e92391301d660bac0c8734c",
+          "claimed_after": "a79e17eb1d71df21e2fa6d7627242e2a37606928e47ce8313bab1543588287d7",
+          "actual": "7c5d73d30c9af8119c11fa332ae9bd3dfa5424ef4e92391301d660bac0c8734c",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G13-performance-and-release.md",
+          "before": "4ae0fd7c064843e8c5b97d28c1f102ca84ca32cfc673f1bed4a1166722ee77b1",
+          "claimed_after": "7c9e1db653cdc51fdb7e91f581bd451f238185eff10d4a6b5a23e614e3d459fa",
+          "actual": "4ae0fd7c064843e8c5b97d28c1f102ca84ca32cfc673f1bed4a1166722ee77b1",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/milestones/M00-architecture-review.md",
+          "before": "ff40d5c164ac35534ec22d7271479b0bb67be3e9ad58016ce801e3b044b72f57",
+          "claimed_after": "5a4646c8dc5a09b05727d4f05f70f1a890223283483c4ee04ddf06451b84ba39",
+          "actual": "ff40d5c164ac35534ec22d7271479b0bb67be3e9ad58016ce801e3b044b72f57",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/reference/sources.md",
+          "before": "b9cc660a894c3847ff471d91d76f27159ab50b954da7ee24bcb69af2a03ffff3",
+          "claimed_after": "42968f71afa21b1fc2ae8e12bcd568c9585d3ca7e3f641520418365e5a79bf91",
+          "actual": "b9cc660a894c3847ff471d91d76f27159ab50b954da7ee24bcb69af2a03ffff3",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/specs/S01-scope-and-invariants.md",
+          "before": "b739d643382231f35e2a32dcdd5807b7ac2f8a116a9bd5919261b95fccd261c3",
+          "claimed_after": "1c7dc2fececb29ae6b3c54db158f5731d3d91fe39aac6801ed05c963cb57defd",
+          "actual": "b739d643382231f35e2a32dcdd5807b7ac2f8a116a9bd5919261b95fccd261c3",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/specs/S04-embedding-and-model-contracts.md",
+          "before": "b562bfe92893e947bdeba2fe2f3b0ebf93b201e2622d84b1155a13a1bc90a7f9",
+          "claimed_after": "2dbf93fcb55207b8ddb7f6417acbdf7e6628e8065659f51a9868590c35b008de",
+          "actual": "b562bfe92893e947bdeba2fe2f3b0ebf93b201e2622d84b1155a13a1bc90a7f9",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/specs/S05-protocol-and-thermodynamic-contracts.md",
+          "before": "e8efb215eef544023adfdc4f4d37761878e4e3d95bb72d909f8e727565fc5773",
+          "claimed_after": "fb7018fbfe3b616f95028c60e094ab065a288c8bca4717eaa5130d5ba6b854ba",
+          "actual": "e8efb215eef544023adfdc4f4d37761878e4e3d95bb72d909f8e727565fc5773",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/specs/S06-validation-and-tolerances.md",
+          "before": "9077a689e53c1e8f396365a8867b2aff9f7964735783fb3519b6b110551f6d4f",
+          "claimed_after": "dcf3f94e1cb1b27eda3ebeb6095e0232225909d6acb2b9506bc4be105259cf43",
+          "actual": "9077a689e53c1e8f396365a8867b2aff9f7964735783fb3519b6b110551f6d4f",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/specs/S07-artifacts-and-qualification.md",
+          "before": "e32cb13f4bf1d6bac8a2a02d4d7280e255f0663372d194126c9677fde24a779f",
+          "claimed_after": "0cf0f9f85a646d6c0b5c0759cc253b27b251c7c06adee1511928f2a7ca5b0e08",
+          "actual": "e32cb13f4bf1d6bac8a2a02d4d7280e255f0663372d194126c9677fde24a779f",
+          "matches_before": true,
+          "matches_after": false
+        }
+      ],
+      "full_manifest": [
+        {
+          "path": "AGENTS.md",
+          "recorded": "08eb4eca7750b124e340a17968934e850f1349512a6c6f5e30944b0c696616a6",
+          "actual": "96eb59b34dcc4ac5afb3d3196d5989c009dd56fe591a1f2ad52bc961b9d6a020",
+          "matches": false
+        },
+        {
+          "path": "ATM_MLMM_Environment.md",
+          "recorded": "7028fdf9f1b037e2f0947c512de93b5ecde84d8f2a3341d95c73d64829673504",
+          "actual": "7028fdf9f1b037e2f0947c512de93b5ecde84d8f2a3341d95c73d64829673504",
+          "matches": true
+        },
+        {
+          "path": "ATM_MLMM_environment.yml",
+          "recorded": "9e164133a7446268606e555276da600382ddbd4216b9b521676e33fba2eb55d7",
+          "actual": "9e164133a7446268606e555276da600382ddbd4216b9b521676e33fba2eb55d7",
+          "matches": true
+        },
+        {
+          "path": "Original_planning_docs/Project_0_ATM_MLMM_Implementation_and_Validation_Plan_crude.md",
+          "recorded": "69e65cf675f2266b828e2512f1e140de234ba50ed4bca9a661215eea88e8c420",
+          "actual": "69e65cf675f2266b828e2512f1e140de234ba50ed4bca9a661215eea88e8c420",
+          "matches": true
+        },
+        {
+          "path": "README.md",
+          "recorded": "84090c9a71e683580c8c9c7469cf836594ed4815523fd356e917655eb4a783d8",
+          "actual": "22614812f12e6553126de768e0259cf0131994e685e5d514b89ff9560609bef9",
+          "matches": false
+        },
+        {
+          "path": "Worker_Log/Milestone_00/Documentation_v1_worker.md",
+          "recorded": "9837d30f9f0d3c04d1c293a3f952254aae3d19d93be862c0f5055a86bf794827",
+          "actual": "9837d30f9f0d3c04d1c293a3f952254aae3d19d93be862c0f5055a86bf794827",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/Documentation_v2_worker.md",
+          "recorded": "35118e2ef8eed586a90ae62d3dbca998f0321fb2b1e33cb4859305f98fb388e5",
+          "actual": "35118e2ef8eed586a90ae62d3dbca998f0321fb2b1e33cb4859305f98fb388e5",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/Documentation_v3_worker.md",
+          "recorded": "44c803bcc4dd68eca07e937123dbcab580d362667655c8fce1f365beb6cf5dad",
+          "actual": "44c803bcc4dd68eca07e937123dbcab580d362667655c8fce1f365beb6cf5dad",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/Documentation_v4_worker.md",
+          "recorded": "caa0a4186c73a7c3b86341806ce023ef4c49382f0691381af05a5af853c0fbbc",
+          "actual": "caa0a4186c73a7c3b86341806ce023ef4c49382f0691381af05a5af853c0fbbc",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/baseline-summary.json",
+          "recorded": "eb3e1e0c56006b1ac34806aadd2bcdfc49ce8125d3720e4bdf1860aa3e9136b9",
+          "actual": "eb3e1e0c56006b1ac34806aadd2bcdfc49ce8125d3720e4bdf1860aa3e9136b9",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/check-output.json",
+          "recorded": "02d5757ffac998673ce87b93cdc9a803fdaa6d4f2a9d46193e438982bf0f24f3",
+          "actual": "02d5757ffac998673ce87b93cdc9a803fdaa6d4f2a9d46193e438982bf0f24f3",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/check_docs.py",
+          "recorded": "775f39f06a4aca38677491433918cbf702ae89f4021241ac8fd7754434392264",
+          "actual": "775f39f06a4aca38677491433918cbf702ae89f4021241ac8fd7754434392264",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/draft-metadata-check.json",
+          "recorded": "c22dfff48281be72a23cb18b803cb366ffbffa0c6f7524837b475b831abc1a59",
+          "actual": "c22dfff48281be72a23cb18b803cb366ffbffa0c6f7524837b475b831abc1a59",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/file-manifest.sha256",
+          "recorded": "ffac870ae4d232a9b5c735d48748d74d05300f5a78c7dec1013e30afe2f8b736",
+          "actual": "ffac870ae4d232a9b5c735d48748d74d05300f5a78c7dec1013e30afe2f8b736",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/baseline-checks.json",
+          "recorded": "cac57d2e674709274d76e148551d02e479266d92cb742fe318134546e0319c4b",
+          "actual": "cac57d2e674709274d76e148551d02e479266d92cb742fe318134546e0319c4b",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/changes.json",
+          "recorded": "5c5139dbbdcc3f8eace0f50870b0645fe9d6f038572b420974c6803bb8f37f8d",
+          "actual": "5c5139dbbdcc3f8eace0f50870b0645fe9d6f038572b420974c6803bb8f37f8d",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/check_cleanup.py",
+          "recorded": "8eddc448dcaf9f3ce2290b31aa8807c6af878b3989dcdddfe6d7180c8dc801ca",
+          "actual": "8eddc448dcaf9f3ce2290b31aa8807c6af878b3989dcdddfe6d7180c8dc801ca",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/documentation-checks.json",
+          "recorded": "bd664b6b39358cd71ad4d068d0056b4c838f0ba54fe361df3784f1d99bc187eb",
+          "actual": "bd664b6b39358cd71ad4d068d0056b4c838f0ba54fe361df3784f1d99bc187eb",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/mutation-checks.json",
+          "recorded": "19c898be6daeda6408dadc7862e36060d33cdd3f96381cb05ef4fb4ed098b174",
+          "actual": "19c898be6daeda6408dadc7862e36060d33cdd3f96381cb05ef4fb4ed098b174",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/preservation-checks.json",
+          "recorded": "25a75daed4d79c938cf5c4377e92d357157d39a78217b579037a6a5d24475139",
+          "actual": "25a75daed4d79c938cf5c4377e92d357157d39a78217b579037a6a5d24475139",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/result-manifest.sha256",
+          "recorded": "afedfa11378b5af8340ebf7198559a28e79b379630d1bd154ffbcbe55d676b9d",
+          "actual": "afedfa11378b5af8340ebf7198559a28e79b379630d1bd154ffbcbe55d676b9d",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/snapshot_before_cleanup.zip",
+          "recorded": "299b631b97b3d9152a1e4b8055b30a416d33692165d9917512f842acdc533d82",
+          "actual": "299b631b97b3d9152a1e4b8055b30a416d33692165d9917512f842acdc533d82",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v3/packaging-checks.json",
+          "recorded": "7baaa4c41c2267dfde6e685eaeafa96da900b3c50275ac5b17773ff30f57933c",
+          "actual": "7baaa4c41c2267dfde6e685eaeafa96da900b3c50275ac5b17773ff30f57933c",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v4/verification.json",
+          "recorded": "5746bff500660103c6e6c9e2a16ca6f015f2bfedb71bc761e6b53f3d4de74515",
+          "actual": "5746bff500660103c6e6c9e2a16ca6f015f2bfedb71bc761e6b53f3d4de74515",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/DOCUMENTATION_QA.md",
+          "recorded": "9a53c3b421555854a727682d2f5fe9f2c777ffb240315d53210379952cefd790",
+          "actual": "9a53c3b421555854a727682d2f5fe9f2c777ffb240315d53210379952cefd790",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/REQUIREMENTS.md",
+          "recorded": "04aa57cdd1a9d9dc7de88f5700cb840b7ee1f12570c23f87c30b048f93920a55",
+          "actual": "f62a917f6a5d5b496b5b08d695347a5f233d8799f02e5e7a81236000820292df",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/STATUS.md",
+          "recorded": "e25649297f6005585ebb925e8be02d1abb78b62bf27a8aaf1d9912cb3a224ba7",
+          "actual": "e222085b8b02dd72a570268bfcd910a508bb6b33a032c1c66897d6ef3d0cd67a",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G00-environment-and-provenance.md",
+          "recorded": "75341549e5dfd0c592b5973e2cb5122f43b8006f9e31fc5c958c19ce98e65048",
+          "actual": "71941a0f17f684f52669c312b73940a4368ae270f5aff4f6d4ebdc75e06dce1a",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G01-identity-partition-and-contracts.md",
+          "recorded": "b8eb455384b1ef78c5237f8b63c054d1e1d9d74c1371eb62d124e949d87b75d5",
+          "actual": "b8eb455384b1ef78c5237f8b63c054d1e1d9d74c1371eb62d124e949d87b75d5",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+          "recorded": "cf557aa2fb3767daf8fe9b67088a49214a032f82b120c9fe1ad9d2cc8cd5db7e",
+          "actual": "0fe0fcd885628dbfdfe6833fa6afb8ea77e61e3183d3ce6acbf2c5efba990e20",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+          "recorded": "d3286a7f6c8dd4efd414e0d89d2d4584373bd5e1e3522a3eda5e703d166f9d99",
+          "actual": "40f5304191ead4454690bef7c843fee1e65646f6daf9bff20a06e9fbcd46119e",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+          "recorded": "756be6b46763d2ecc0ef4ffb79ef86b467ab20a70c8a24e4b4fbd137dac319d8",
+          "actual": "aa4d8e58b344d605f827e08f80acbba38eca908a41fcd73d0d4be912d8eae6f6",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G05-local-model-adapter.md",
+          "recorded": "3c286637b855d9262a20b7ae7425fa2e7a1a08f55517f19c55a287679ffb3cc8",
+          "actual": "a88ab372aa863ffcc794b8664aef61999787837bc68e61481c8d84e57918730b",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G06-periodicity-and-interaction-ledger.md",
+          "recorded": "c48e1a80aaff23600912f0216a3293c176242f067f4a5ccd91240b0bd0af1001",
+          "actual": "c48e1a80aaff23600912f0216a3293c176242f067f4a5ccd91240b0bd0af1001",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+          "recorded": "250b52c349df2cef9b224b15d038c824f037a2cafa7d799aa08b45bda7b29004",
+          "actual": "f0b692e947e935c891011d109ccc34535cb80720c779f9f704bf486a6c35ed71",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G08-thermodynamics-and-estimators.md",
+          "recorded": "e45921db13deca87810546e5d8f395b46018ea2e13afe552e9e3df83f6669369",
+          "actual": "e45921db13deca87810546e5d8f395b46018ea2e13afe552e9e3df83f6669369",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/gates/G09-solvent-preparation-and-export.md",
+          "recorded": "b187998aadb373961288af31591f6c24598b8bf224f231ad0fbdfaef59b75f9f",
+          "actual": "b187998aadb373961288af31591f6c24598b8bf224f231ad0fbdfaef59b75f9f",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/gates/G10-restart-and-replica-exchange.md",
+          "recorded": "ddacd0baf1a5487f48223a01a322ff691c91d8fa316e8bca473863e4fda9a215",
+          "actual": "ddacd0baf1a5487f48223a01a322ff691c91d8fa316e8bca473863e4fda9a215",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/gates/G11-protein-abfe.md",
+          "recorded": "e390c3555a9e8ec555159c6f886895ae70454193337399e963a2511b30f85203",
+          "actual": "f76556d522a4907ee500fceb98459ccccc277fd0557df885d6804daa70446620",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+          "recorded": "a79e17eb1d71df21e2fa6d7627242e2a37606928e47ce8313bab1543588287d7",
+          "actual": "7c5d73d30c9af8119c11fa332ae9bd3dfa5424ef4e92391301d660bac0c8734c",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G13-performance-and-release.md",
+          "recorded": "7c9e1db653cdc51fdb7e91f581bd451f238185eff10d4a6b5a23e614e3d459fa",
+          "actual": "4ae0fd7c064843e8c5b97d28c1f102ca84ca32cfc673f1bed4a1166722ee77b1",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/guides/documentation-maintenance.md",
+          "recorded": "952eaddfaad3128ad6c4b5634a6921bac6afbfb3da264e431f1723276431a7bd",
+          "actual": "952eaddfaad3128ad6c4b5634a6921bac6afbfb3da264e431f1723276431a7bd",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/milestones/M00-architecture-review.md",
+          "recorded": "5a4646c8dc5a09b05727d4f05f70f1a890223283483c4ee04ddf06451b84ba39",
+          "actual": "ff40d5c164ac35534ec22d7271479b0bb67be3e9ad58016ce801e3b044b72f57",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/reference/glossary.md",
+          "recorded": "8f4b2c6338cefa776aebd74d8ff000167ede3533e6ed4d8b0304a0555ecefc8a",
+          "actual": "8f4b2c6338cefa776aebd74d8ff000167ede3533e6ed4d8b0304a0555ecefc8a",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/reference/original-brainstorming-plan.md",
+          "recorded": "c5f9c8642964783f399522683a3bc20f45f58576f9c748accf37e62612a191e7",
+          "actual": "c5f9c8642964783f399522683a3bc20f45f58576f9c748accf37e62612a191e7",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/reference/sources.md",
+          "recorded": "42968f71afa21b1fc2ae8e12bcd568c9585d3ca7e3f641520418365e5a79bf91",
+          "actual": "b9cc660a894c3847ff471d91d76f27159ab50b954da7ee24bcb69af2a03ffff3",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/specs/S01-scope-and-invariants.md",
+          "recorded": "1c7dc2fececb29ae6b3c54db158f5731d3d91fe39aac6801ed05c963cb57defd",
+          "actual": "b739d643382231f35e2a32dcdd5807b7ac2f8a116a9bd5919261b95fccd261c3",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/specs/S02-architecture-and-dependencies.md",
+          "recorded": "acf039741c8fa66a4833367f6f81cfcc013e0d263177ef2c2104714709c036d1",
+          "actual": "acf039741c8fa66a4833367f6f81cfcc013e0d263177ef2c2104714709c036d1",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/specs/S03-data-and-interface-contracts.md",
+          "recorded": "1fbb01d02e97c85b4581e136860f01a7437b7d6aefcb17284ea099183d4de95b",
+          "actual": "1fbb01d02e97c85b4581e136860f01a7437b7d6aefcb17284ea099183d4de95b",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/specs/S04-embedding-and-model-contracts.md",
+          "recorded": "2dbf93fcb55207b8ddb7f6417acbdf7e6628e8065659f51a9868590c35b008de",
+          "actual": "b562bfe92893e947bdeba2fe2f3b0ebf93b201e2622d84b1155a13a1bc90a7f9",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/specs/S05-protocol-and-thermodynamic-contracts.md",
+          "recorded": "fb7018fbfe3b616f95028c60e094ab065a288c8bca4717eaa5130d5ba6b854ba",
+          "actual": "e8efb215eef544023adfdc4f4d37761878e4e3d95bb72d909f8e727565fc5773",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/specs/S06-validation-and-tolerances.md",
+          "recorded": "dcf3f94e1cb1b27eda3ebeb6095e0232225909d6acb2b9506bc4be105259cf43",
+          "actual": "9077a689e53c1e8f396365a8867b2aff9f7964735783fb3519b6b110551f6d4f",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/specs/S07-artifacts-and-qualification.md",
+          "recorded": "0cf0f9f85a646d6c0b5c0759cc253b27b251c7c06adee1511928f2a7ca5b0e08",
+          "actual": "e32cb13f4bf1d6bac8a2a02d4d7280e255f0663372d194126c9677fde24a779f",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/templates/audit-log.md",
+          "recorded": "a9623e24b5d72dee8c7dbea57ae78cae7eacd4285e1c0a3dd03ae017370d5231",
+          "actual": "a9623e24b5d72dee8c7dbea57ae78cae7eacd4285e1c0a3dd03ae017370d5231",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/templates/worker-log.md",
+          "recorded": "8a905f1dd571469ffce239e3a468675c5e57036ea3301a5fe4acde43bfe71f1a",
+          "actual": "8a905f1dd571469ffce239e3a468675c5e57036ea3301a5fe4acde43bfe71f1a",
+          "matches": true
+        },
+        {
+          "path": "tools/check_docs.py",
+          "recorded": "5386af1444349af646f2bf03675756f1e194b6cd22be95e06142a5c4d334f635",
+          "actual": "5386af1444349af646f2bf03675756f1e194b6cd22be95e06142a5c4d334f635",
+          "matches": true
+        }
+      ],
+      "missing_delivery": [
+        "docs/project-0/REQUIREMENTS.md",
+        "docs/project-0/STATUS.md",
+        "docs/project-0/gates/G00-environment-and-provenance.md",
+        "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+        "docs/project-0/gates/G03-atom-routing-and-integration.md",
+        "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+        "docs/project-0/gates/G05-local-model-adapter.md",
+        "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+        "docs/project-0/gates/G11-protein-abfe.md",
+        "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+        "docs/project-0/gates/G13-performance-and-release.md",
+        "docs/project-0/milestones/M00-architecture-review.md",
+        "docs/project-0/reference/sources.md",
+        "docs/project-0/specs/S01-scope-and-invariants.md",
+        "docs/project-0/specs/S04-embedding-and-model-contracts.md",
+        "docs/project-0/specs/S05-protocol-and-thermodynamic-contracts.md",
+        "docs/project-0/specs/S06-validation-and-tolerances.md",
+        "docs/project-0/specs/S07-artifacts-and-qualification.md"
+      ],
+      "source_register_actual": "b9cc660a894c3847ff471d91d76f27159ab50b954da7ee24bcb69af2a03ffff3"
+    },
+    "submitted": {
+      "changed_files": [
+        {
+          "path": "AGENTS.md",
+          "before": "8b793684d40c9501f33266f3cd7df1ee40cc58b36c69b2c04d11256b983c3896",
+          "claimed_after": "08eb4eca7750b124e340a17968934e850f1349512a6c6f5e30944b0c696616a6",
+          "actual": "14433e13ebc093da48a3b1dabfac872924fd77d8247704cbd4774aceb820a83a",
+          "matches_before": false,
+          "matches_after": false
+        },
+        {
+          "path": "ATM_MLMM_Environment.md",
+          "before": "447afcadc3eebddeb135214390d82b3607b2daa55fc9352ad6b99a7f1339fc5d",
+          "claimed_after": "7028fdf9f1b037e2f0947c512de93b5ecde84d8f2a3341d95c73d64829673504",
+          "actual": "7028fdf9f1b037e2f0947c512de93b5ecde84d8f2a3341d95c73d64829673504",
+          "matches_before": false,
+          "matches_after": true
+        },
+        {
+          "path": "ATM_MLMM_environment.yml",
+          "before": "634024e4614526b67df8c6528d43ebf4c59a788ade77d06eae33f70de65f65a9",
+          "claimed_after": "9e164133a7446268606e555276da600382ddbd4216b9b521676e33fba2eb55d7",
+          "actual": "9e164133a7446268606e555276da600382ddbd4216b9b521676e33fba2eb55d7",
+          "matches_before": false,
+          "matches_after": true
+        },
+        {
+          "path": "README.md",
+          "before": "575fb4971f4efd43038d8a267cc19bd82b2b32d40e1684647ac57f051ae1a827",
+          "claimed_after": "84090c9a71e683580c8c9c7469cf836594ed4815523fd356e917655eb4a783d8",
+          "actual": "b77a8b51f0e07332aa34ce9fc5bf8062d73d3ed0fb1adba17c04436f8571f329",
+          "matches_before": false,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/REQUIREMENTS.md",
+          "before": "f62a917f6a5d5b496b5b08d695347a5f233d8799f02e5e7a81236000820292df",
+          "claimed_after": "04aa57cdd1a9d9dc7de88f5700cb840b7ee1f12570c23f87c30b048f93920a55",
+          "actual": "f62a917f6a5d5b496b5b08d695347a5f233d8799f02e5e7a81236000820292df",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/STATUS.md",
+          "before": "e222085b8b02dd72a570268bfcd910a508bb6b33a032c1c66897d6ef3d0cd67a",
+          "claimed_after": "e25649297f6005585ebb925e8be02d1abb78b62bf27a8aaf1d9912cb3a224ba7",
+          "actual": "e222085b8b02dd72a570268bfcd910a508bb6b33a032c1c66897d6ef3d0cd67a",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G00-environment-and-provenance.md",
+          "before": "71941a0f17f684f52669c312b73940a4368ae270f5aff4f6d4ebdc75e06dce1a",
+          "claimed_after": "75341549e5dfd0c592b5973e2cb5122f43b8006f9e31fc5c958c19ce98e65048",
+          "actual": "71941a0f17f684f52669c312b73940a4368ae270f5aff4f6d4ebdc75e06dce1a",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+          "before": "0fe0fcd885628dbfdfe6833fa6afb8ea77e61e3183d3ce6acbf2c5efba990e20",
+          "claimed_after": "cf557aa2fb3767daf8fe9b67088a49214a032f82b120c9fe1ad9d2cc8cd5db7e",
+          "actual": "0fe0fcd885628dbfdfe6833fa6afb8ea77e61e3183d3ce6acbf2c5efba990e20",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+          "before": "40f5304191ead4454690bef7c843fee1e65646f6daf9bff20a06e9fbcd46119e",
+          "claimed_after": "d3286a7f6c8dd4efd414e0d89d2d4584373bd5e1e3522a3eda5e703d166f9d99",
+          "actual": "40f5304191ead4454690bef7c843fee1e65646f6daf9bff20a06e9fbcd46119e",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+          "before": "aa4d8e58b344d605f827e08f80acbba38eca908a41fcd73d0d4be912d8eae6f6",
+          "claimed_after": "756be6b46763d2ecc0ef4ffb79ef86b467ab20a70c8a24e4b4fbd137dac319d8",
+          "actual": "aa4d8e58b344d605f827e08f80acbba38eca908a41fcd73d0d4be912d8eae6f6",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G05-local-model-adapter.md",
+          "before": "a88ab372aa863ffcc794b8664aef61999787837bc68e61481c8d84e57918730b",
+          "claimed_after": "3c286637b855d9262a20b7ae7425fa2e7a1a08f55517f19c55a287679ffb3cc8",
+          "actual": "a88ab372aa863ffcc794b8664aef61999787837bc68e61481c8d84e57918730b",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+          "before": "f0b692e947e935c891011d109ccc34535cb80720c779f9f704bf486a6c35ed71",
+          "claimed_after": "250b52c349df2cef9b224b15d038c824f037a2cafa7d799aa08b45bda7b29004",
+          "actual": "f0b692e947e935c891011d109ccc34535cb80720c779f9f704bf486a6c35ed71",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G11-protein-abfe.md",
+          "before": "f76556d522a4907ee500fceb98459ccccc277fd0557df885d6804daa70446620",
+          "claimed_after": "e390c3555a9e8ec555159c6f886895ae70454193337399e963a2511b30f85203",
+          "actual": "f76556d522a4907ee500fceb98459ccccc277fd0557df885d6804daa70446620",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+          "before": "7c5d73d30c9af8119c11fa332ae9bd3dfa5424ef4e92391301d660bac0c8734c",
+          "claimed_after": "a79e17eb1d71df21e2fa6d7627242e2a37606928e47ce8313bab1543588287d7",
+          "actual": "7c5d73d30c9af8119c11fa332ae9bd3dfa5424ef4e92391301d660bac0c8734c",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/gates/G13-performance-and-release.md",
+          "before": "4ae0fd7c064843e8c5b97d28c1f102ca84ca32cfc673f1bed4a1166722ee77b1",
+          "claimed_after": "7c9e1db653cdc51fdb7e91f581bd451f238185eff10d4a6b5a23e614e3d459fa",
+          "actual": "4ae0fd7c064843e8c5b97d28c1f102ca84ca32cfc673f1bed4a1166722ee77b1",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/milestones/M00-architecture-review.md",
+          "before": "ff40d5c164ac35534ec22d7271479b0bb67be3e9ad58016ce801e3b044b72f57",
+          "claimed_after": "5a4646c8dc5a09b05727d4f05f70f1a890223283483c4ee04ddf06451b84ba39",
+          "actual": "ff40d5c164ac35534ec22d7271479b0bb67be3e9ad58016ce801e3b044b72f57",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/reference/sources.md",
+          "before": "b9cc660a894c3847ff471d91d76f27159ab50b954da7ee24bcb69af2a03ffff3",
+          "claimed_after": "42968f71afa21b1fc2ae8e12bcd568c9585d3ca7e3f641520418365e5a79bf91",
+          "actual": "b9cc660a894c3847ff471d91d76f27159ab50b954da7ee24bcb69af2a03ffff3",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/specs/S01-scope-and-invariants.md",
+          "before": "b739d643382231f35e2a32dcdd5807b7ac2f8a116a9bd5919261b95fccd261c3",
+          "claimed_after": "1c7dc2fececb29ae6b3c54db158f5731d3d91fe39aac6801ed05c963cb57defd",
+          "actual": "b739d643382231f35e2a32dcdd5807b7ac2f8a116a9bd5919261b95fccd261c3",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/specs/S04-embedding-and-model-contracts.md",
+          "before": "b562bfe92893e947bdeba2fe2f3b0ebf93b201e2622d84b1155a13a1bc90a7f9",
+          "claimed_after": "2dbf93fcb55207b8ddb7f6417acbdf7e6628e8065659f51a9868590c35b008de",
+          "actual": "b562bfe92893e947bdeba2fe2f3b0ebf93b201e2622d84b1155a13a1bc90a7f9",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/specs/S05-protocol-and-thermodynamic-contracts.md",
+          "before": "e8efb215eef544023adfdc4f4d37761878e4e3d95bb72d909f8e727565fc5773",
+          "claimed_after": "fb7018fbfe3b616f95028c60e094ab065a288c8bca4717eaa5130d5ba6b854ba",
+          "actual": "e8efb215eef544023adfdc4f4d37761878e4e3d95bb72d909f8e727565fc5773",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/specs/S06-validation-and-tolerances.md",
+          "before": "9077a689e53c1e8f396365a8867b2aff9f7964735783fb3519b6b110551f6d4f",
+          "claimed_after": "dcf3f94e1cb1b27eda3ebeb6095e0232225909d6acb2b9506bc4be105259cf43",
+          "actual": "9077a689e53c1e8f396365a8867b2aff9f7964735783fb3519b6b110551f6d4f",
+          "matches_before": true,
+          "matches_after": false
+        },
+        {
+          "path": "docs/project-0/specs/S07-artifacts-and-qualification.md",
+          "before": "e32cb13f4bf1d6bac8a2a02d4d7280e255f0663372d194126c9677fde24a779f",
+          "claimed_after": "0cf0f9f85a646d6c0b5c0759cc253b27b251c7c06adee1511928f2a7ca5b0e08",
+          "actual": "e32cb13f4bf1d6bac8a2a02d4d7280e255f0663372d194126c9677fde24a779f",
+          "matches_before": true,
+          "matches_after": false
+        }
+      ],
+      "full_manifest": [
+        {
+          "path": "AGENTS.md",
+          "recorded": "08eb4eca7750b124e340a17968934e850f1349512a6c6f5e30944b0c696616a6",
+          "actual": "14433e13ebc093da48a3b1dabfac872924fd77d8247704cbd4774aceb820a83a",
+          "matches": false
+        },
+        {
+          "path": "ATM_MLMM_Environment.md",
+          "recorded": "7028fdf9f1b037e2f0947c512de93b5ecde84d8f2a3341d95c73d64829673504",
+          "actual": "7028fdf9f1b037e2f0947c512de93b5ecde84d8f2a3341d95c73d64829673504",
+          "matches": true
+        },
+        {
+          "path": "ATM_MLMM_environment.yml",
+          "recorded": "9e164133a7446268606e555276da600382ddbd4216b9b521676e33fba2eb55d7",
+          "actual": "9e164133a7446268606e555276da600382ddbd4216b9b521676e33fba2eb55d7",
+          "matches": true
+        },
+        {
+          "path": "Original_planning_docs/Project_0_ATM_MLMM_Implementation_and_Validation_Plan_crude.md",
+          "recorded": "69e65cf675f2266b828e2512f1e140de234ba50ed4bca9a661215eea88e8c420",
+          "actual": "69e65cf675f2266b828e2512f1e140de234ba50ed4bca9a661215eea88e8c420",
+          "matches": true
+        },
+        {
+          "path": "README.md",
+          "recorded": "84090c9a71e683580c8c9c7469cf836594ed4815523fd356e917655eb4a783d8",
+          "actual": "b77a8b51f0e07332aa34ce9fc5bf8062d73d3ed0fb1adba17c04436f8571f329",
+          "matches": false
+        },
+        {
+          "path": "Worker_Log/Milestone_00/Documentation_v1_worker.md",
+          "recorded": "9837d30f9f0d3c04d1c293a3f952254aae3d19d93be862c0f5055a86bf794827",
+          "actual": "9837d30f9f0d3c04d1c293a3f952254aae3d19d93be862c0f5055a86bf794827",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/Documentation_v2_worker.md",
+          "recorded": "35118e2ef8eed586a90ae62d3dbca998f0321fb2b1e33cb4859305f98fb388e5",
+          "actual": "35118e2ef8eed586a90ae62d3dbca998f0321fb2b1e33cb4859305f98fb388e5",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/Documentation_v3_worker.md",
+          "recorded": "44c803bcc4dd68eca07e937123dbcab580d362667655c8fce1f365beb6cf5dad",
+          "actual": "44c803bcc4dd68eca07e937123dbcab580d362667655c8fce1f365beb6cf5dad",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/Documentation_v4_worker.md",
+          "recorded": "caa0a4186c73a7c3b86341806ce023ef4c49382f0691381af05a5af853c0fbbc",
+          "actual": "caa0a4186c73a7c3b86341806ce023ef4c49382f0691381af05a5af853c0fbbc",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/baseline-summary.json",
+          "recorded": "eb3e1e0c56006b1ac34806aadd2bcdfc49ce8125d3720e4bdf1860aa3e9136b9",
+          "actual": "eb3e1e0c56006b1ac34806aadd2bcdfc49ce8125d3720e4bdf1860aa3e9136b9",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/check-output.json",
+          "recorded": "02d5757ffac998673ce87b93cdc9a803fdaa6d4f2a9d46193e438982bf0f24f3",
+          "actual": "02d5757ffac998673ce87b93cdc9a803fdaa6d4f2a9d46193e438982bf0f24f3",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/check_docs.py",
+          "recorded": "775f39f06a4aca38677491433918cbf702ae89f4021241ac8fd7754434392264",
+          "actual": "775f39f06a4aca38677491433918cbf702ae89f4021241ac8fd7754434392264",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/draft-metadata-check.json",
+          "recorded": "c22dfff48281be72a23cb18b803cb366ffbffa0c6f7524837b475b831abc1a59",
+          "actual": "c22dfff48281be72a23cb18b803cb366ffbffa0c6f7524837b475b831abc1a59",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v1/file-manifest.sha256",
+          "recorded": "ffac870ae4d232a9b5c735d48748d74d05300f5a78c7dec1013e30afe2f8b736",
+          "actual": "ffac870ae4d232a9b5c735d48748d74d05300f5a78c7dec1013e30afe2f8b736",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/baseline-checks.json",
+          "recorded": "cac57d2e674709274d76e148551d02e479266d92cb742fe318134546e0319c4b",
+          "actual": "cac57d2e674709274d76e148551d02e479266d92cb742fe318134546e0319c4b",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/changes.json",
+          "recorded": "5c5139dbbdcc3f8eace0f50870b0645fe9d6f038572b420974c6803bb8f37f8d",
+          "actual": "5c5139dbbdcc3f8eace0f50870b0645fe9d6f038572b420974c6803bb8f37f8d",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/check_cleanup.py",
+          "recorded": "8eddc448dcaf9f3ce2290b31aa8807c6af878b3989dcdddfe6d7180c8dc801ca",
+          "actual": "8eddc448dcaf9f3ce2290b31aa8807c6af878b3989dcdddfe6d7180c8dc801ca",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/documentation-checks.json",
+          "recorded": "bd664b6b39358cd71ad4d068d0056b4c838f0ba54fe361df3784f1d99bc187eb",
+          "actual": "bd664b6b39358cd71ad4d068d0056b4c838f0ba54fe361df3784f1d99bc187eb",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/mutation-checks.json",
+          "recorded": "19c898be6daeda6408dadc7862e36060d33cdd3f96381cb05ef4fb4ed098b174",
+          "actual": "19c898be6daeda6408dadc7862e36060d33cdd3f96381cb05ef4fb4ed098b174",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/preservation-checks.json",
+          "recorded": "25a75daed4d79c938cf5c4377e92d357157d39a78217b579037a6a5d24475139",
+          "actual": "25a75daed4d79c938cf5c4377e92d357157d39a78217b579037a6a5d24475139",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/result-manifest.sha256",
+          "recorded": "afedfa11378b5af8340ebf7198559a28e79b379630d1bd154ffbcbe55d676b9d",
+          "actual": "afedfa11378b5af8340ebf7198559a28e79b379630d1bd154ffbcbe55d676b9d",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v2/snapshot_before_cleanup.zip",
+          "recorded": "299b631b97b3d9152a1e4b8055b30a416d33692165d9917512f842acdc533d82",
+          "actual": "299b631b97b3d9152a1e4b8055b30a416d33692165d9917512f842acdc533d82",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v3/packaging-checks.json",
+          "recorded": "7baaa4c41c2267dfde6e685eaeafa96da900b3c50275ac5b17773ff30f57933c",
+          "actual": "7baaa4c41c2267dfde6e685eaeafa96da900b3c50275ac5b17773ff30f57933c",
+          "matches": true
+        },
+        {
+          "path": "Worker_Log/Milestone_00/evidence/Documentation_v4/verification.json",
+          "recorded": "5746bff500660103c6e6c9e2a16ca6f015f2bfedb71bc761e6b53f3d4de74515",
+          "actual": "5746bff500660103c6e6c9e2a16ca6f015f2bfedb71bc761e6b53f3d4de74515",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/DOCUMENTATION_QA.md",
+          "recorded": "9a53c3b421555854a727682d2f5fe9f2c777ffb240315d53210379952cefd790",
+          "actual": "9a53c3b421555854a727682d2f5fe9f2c777ffb240315d53210379952cefd790",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/REQUIREMENTS.md",
+          "recorded": "04aa57cdd1a9d9dc7de88f5700cb840b7ee1f12570c23f87c30b048f93920a55",
+          "actual": "f62a917f6a5d5b496b5b08d695347a5f233d8799f02e5e7a81236000820292df",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/STATUS.md",
+          "recorded": "e25649297f6005585ebb925e8be02d1abb78b62bf27a8aaf1d9912cb3a224ba7",
+          "actual": "e222085b8b02dd72a570268bfcd910a508bb6b33a032c1c66897d6ef3d0cd67a",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G00-environment-and-provenance.md",
+          "recorded": "75341549e5dfd0c592b5973e2cb5122f43b8006f9e31fc5c958c19ce98e65048",
+          "actual": "71941a0f17f684f52669c312b73940a4368ae270f5aff4f6d4ebdc75e06dce1a",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G01-identity-partition-and-contracts.md",
+          "recorded": "b8eb455384b1ef78c5237f8b63c054d1e1d9d74c1371eb62d124e949d87b75d5",
+          "actual": "b8eb455384b1ef78c5237f8b63c054d1e1d9d74c1371eb62d124e949d87b75d5",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+          "recorded": "cf557aa2fb3767daf8fe9b67088a49214a032f82b120c9fe1ad9d2cc8cd5db7e",
+          "actual": "0fe0fcd885628dbfdfe6833fa6afb8ea77e61e3183d3ce6acbf2c5efba990e20",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+          "recorded": "d3286a7f6c8dd4efd414e0d89d2d4584373bd5e1e3522a3eda5e703d166f9d99",
+          "actual": "40f5304191ead4454690bef7c843fee1e65646f6daf9bff20a06e9fbcd46119e",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+          "recorded": "756be6b46763d2ecc0ef4ffb79ef86b467ab20a70c8a24e4b4fbd137dac319d8",
+          "actual": "aa4d8e58b344d605f827e08f80acbba38eca908a41fcd73d0d4be912d8eae6f6",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G05-local-model-adapter.md",
+          "recorded": "3c286637b855d9262a20b7ae7425fa2e7a1a08f55517f19c55a287679ffb3cc8",
+          "actual": "a88ab372aa863ffcc794b8664aef61999787837bc68e61481c8d84e57918730b",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G06-periodicity-and-interaction-ledger.md",
+          "recorded": "c48e1a80aaff23600912f0216a3293c176242f067f4a5ccd91240b0bd0af1001",
+          "actual": "c48e1a80aaff23600912f0216a3293c176242f067f4a5ccd91240b0bd0af1001",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+          "recorded": "250b52c349df2cef9b224b15d038c824f037a2cafa7d799aa08b45bda7b29004",
+          "actual": "f0b692e947e935c891011d109ccc34535cb80720c779f9f704bf486a6c35ed71",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G08-thermodynamics-and-estimators.md",
+          "recorded": "e45921db13deca87810546e5d8f395b46018ea2e13afe552e9e3df83f6669369",
+          "actual": "e45921db13deca87810546e5d8f395b46018ea2e13afe552e9e3df83f6669369",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/gates/G09-solvent-preparation-and-export.md",
+          "recorded": "b187998aadb373961288af31591f6c24598b8bf224f231ad0fbdfaef59b75f9f",
+          "actual": "b187998aadb373961288af31591f6c24598b8bf224f231ad0fbdfaef59b75f9f",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/gates/G10-restart-and-replica-exchange.md",
+          "recorded": "ddacd0baf1a5487f48223a01a322ff691c91d8fa316e8bca473863e4fda9a215",
+          "actual": "ddacd0baf1a5487f48223a01a322ff691c91d8fa316e8bca473863e4fda9a215",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/gates/G11-protein-abfe.md",
+          "recorded": "e390c3555a9e8ec555159c6f886895ae70454193337399e963a2511b30f85203",
+          "actual": "f76556d522a4907ee500fceb98459ccccc277fd0557df885d6804daa70446620",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+          "recorded": "a79e17eb1d71df21e2fa6d7627242e2a37606928e47ce8313bab1543588287d7",
+          "actual": "7c5d73d30c9af8119c11fa332ae9bd3dfa5424ef4e92391301d660bac0c8734c",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/gates/G13-performance-and-release.md",
+          "recorded": "7c9e1db653cdc51fdb7e91f581bd451f238185eff10d4a6b5a23e614e3d459fa",
+          "actual": "4ae0fd7c064843e8c5b97d28c1f102ca84ca32cfc673f1bed4a1166722ee77b1",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/guides/documentation-maintenance.md",
+          "recorded": "952eaddfaad3128ad6c4b5634a6921bac6afbfb3da264e431f1723276431a7bd",
+          "actual": "952eaddfaad3128ad6c4b5634a6921bac6afbfb3da264e431f1723276431a7bd",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/milestones/M00-architecture-review.md",
+          "recorded": "5a4646c8dc5a09b05727d4f05f70f1a890223283483c4ee04ddf06451b84ba39",
+          "actual": "ff40d5c164ac35534ec22d7271479b0bb67be3e9ad58016ce801e3b044b72f57",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/reference/glossary.md",
+          "recorded": "8f4b2c6338cefa776aebd74d8ff000167ede3533e6ed4d8b0304a0555ecefc8a",
+          "actual": "8f4b2c6338cefa776aebd74d8ff000167ede3533e6ed4d8b0304a0555ecefc8a",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/reference/original-brainstorming-plan.md",
+          "recorded": "c5f9c8642964783f399522683a3bc20f45f58576f9c748accf37e62612a191e7",
+          "actual": "c5f9c8642964783f399522683a3bc20f45f58576f9c748accf37e62612a191e7",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/reference/sources.md",
+          "recorded": "42968f71afa21b1fc2ae8e12bcd568c9585d3ca7e3f641520418365e5a79bf91",
+          "actual": "b9cc660a894c3847ff471d91d76f27159ab50b954da7ee24bcb69af2a03ffff3",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/specs/S01-scope-and-invariants.md",
+          "recorded": "1c7dc2fececb29ae6b3c54db158f5731d3d91fe39aac6801ed05c963cb57defd",
+          "actual": "b739d643382231f35e2a32dcdd5807b7ac2f8a116a9bd5919261b95fccd261c3",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/specs/S02-architecture-and-dependencies.md",
+          "recorded": "acf039741c8fa66a4833367f6f81cfcc013e0d263177ef2c2104714709c036d1",
+          "actual": "acf039741c8fa66a4833367f6f81cfcc013e0d263177ef2c2104714709c036d1",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/specs/S03-data-and-interface-contracts.md",
+          "recorded": "1fbb01d02e97c85b4581e136860f01a7437b7d6aefcb17284ea099183d4de95b",
+          "actual": "1fbb01d02e97c85b4581e136860f01a7437b7d6aefcb17284ea099183d4de95b",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/specs/S04-embedding-and-model-contracts.md",
+          "recorded": "2dbf93fcb55207b8ddb7f6417acbdf7e6628e8065659f51a9868590c35b008de",
+          "actual": "b562bfe92893e947bdeba2fe2f3b0ebf93b201e2622d84b1155a13a1bc90a7f9",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/specs/S05-protocol-and-thermodynamic-contracts.md",
+          "recorded": "fb7018fbfe3b616f95028c60e094ab065a288c8bca4717eaa5130d5ba6b854ba",
+          "actual": "e8efb215eef544023adfdc4f4d37761878e4e3d95bb72d909f8e727565fc5773",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/specs/S06-validation-and-tolerances.md",
+          "recorded": "dcf3f94e1cb1b27eda3ebeb6095e0232225909d6acb2b9506bc4be105259cf43",
+          "actual": "9077a689e53c1e8f396365a8867b2aff9f7964735783fb3519b6b110551f6d4f",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/specs/S07-artifacts-and-qualification.md",
+          "recorded": "0cf0f9f85a646d6c0b5c0759cc253b27b251c7c06adee1511928f2a7ca5b0e08",
+          "actual": "e32cb13f4bf1d6bac8a2a02d4d7280e255f0663372d194126c9677fde24a779f",
+          "matches": false
+        },
+        {
+          "path": "docs/project-0/templates/audit-log.md",
+          "recorded": "a9623e24b5d72dee8c7dbea57ae78cae7eacd4285e1c0a3dd03ae017370d5231",
+          "actual": "a9623e24b5d72dee8c7dbea57ae78cae7eacd4285e1c0a3dd03ae017370d5231",
+          "matches": true
+        },
+        {
+          "path": "docs/project-0/templates/worker-log.md",
+          "recorded": "8a905f1dd571469ffce239e3a468675c5e57036ea3301a5fe4acde43bfe71f1a",
+          "actual": "8a905f1dd571469ffce239e3a468675c5e57036ea3301a5fe4acde43bfe71f1a",
+          "matches": true
+        },
+        {
+          "path": "tools/check_docs.py",
+          "recorded": "5386af1444349af646f2bf03675756f1e194b6cd22be95e06142a5c4d334f635",
+          "actual": "5386af1444349af646f2bf03675756f1e194b6cd22be95e06142a5c4d334f635",
+          "matches": true
+        }
+      ],
+      "missing_delivery": [
+        "docs/project-0/REQUIREMENTS.md",
+        "docs/project-0/STATUS.md",
+        "docs/project-0/gates/G00-environment-and-provenance.md",
+        "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+        "docs/project-0/gates/G03-atom-routing-and-integration.md",
+        "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+        "docs/project-0/gates/G05-local-model-adapter.md",
+        "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+        "docs/project-0/gates/G11-protein-abfe.md",
+        "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+        "docs/project-0/gates/G13-performance-and-release.md",
+        "docs/project-0/milestones/M00-architecture-review.md",
+        "docs/project-0/reference/sources.md",
+        "docs/project-0/specs/S01-scope-and-invariants.md",
+        "docs/project-0/specs/S04-embedding-and-model-contracts.md",
+        "docs/project-0/specs/S05-protocol-and-thermodynamic-contracts.md",
+        "docs/project-0/specs/S06-validation-and-tolerances.md",
+        "docs/project-0/specs/S07-artifacts-and-qualification.md"
+      ],
+      "source_register_actual": "b9cc660a894c3847ff471d91d76f27159ab50b954da7ee24bcb69af2a03ffff3"
+    },
+    "source_history": "fb852ea7efc26ab36b3d17f244efeed28f3abdcc documentation cleanup\n4f1b9242f9e7ecd68ea8b494bb4895769803e449 Set up of documentation and agent ruleset to build this\n"
+  },
+  "cloud-entrypoint-first": {
+    "line_count": 247,
+    "selected": [
+      {
+        "line": 79,
+        "text": "ln: failed to create symbolic link '/workspace/.onboarding/atom-mlmm-fresh-proof/env/etc/OpenCL/vendors/ocl-icd-system': File exists"
+      },
+      {
+        "line": 219,
+        "text": "repository_documentation: exit 1"
+      },
+      {
+        "line": 243,
+        "text": "Environment checks: PASS; documentation: FAIL"
+      },
+      {
+        "line": 247,
+        "text": "Installer exit code: 0"
+      }
+    ],
+    "tail": [
+      "    \"escape_detected\": true,",
+      "    \"unclosed_fence_detected\": true,",
+      "    \"code_examples_are_not_live_links\": true,",
+      "    \"implementation_audits_and_progress_are_allowed\": true",
+      "  }",
+      "}",
+      "",
+      "Environment checks: PASS; documentation: FAIL",
+      "Full results: /workspace/.onboarding/atom-mlmm-fresh-proof/logs/validation-20261001T130239Z-12016/results.json",
+      "Activate ML/MM: source /workspace/.onboarding/atom-mlmm-fresh-proof/activate.sh",
+      "Activate AmberTools Python: source /workspace/.onboarding/atom-mlmm-fresh-proof/activate-amber.sh",
+      "Installer exit code: 0"
+    ]
+  },
+  "cloud-entrypoint-repeat": {
+    "line_count": 247,
+    "selected": [
+      {
+        "line": 79,
+        "text": "ln: failed to create symbolic link '/workspace/.onboarding/atom-mlmm-fresh-proof/env/etc/OpenCL/vendors/ocl-icd-system': File exists"
+      },
+      {
+        "line": 219,
+        "text": "repository_documentation: exit 1"
+      },
+      {
+        "line": 243,
+        "text": "Environment checks: PASS; documentation: FAIL"
+      },
+      {
+        "line": 247,
+        "text": "Installer exit code: 0"
+      }
+    ],
+    "tail": [
+      "    \"escape_detected\": true,",
+      "    \"unclosed_fence_detected\": true,",
+      "    \"code_examples_are_not_live_links\": true,",
+      "    \"implementation_audits_and_progress_are_allowed\": true",
+      "  }",
+      "}",
+      "",
+      "Environment checks: PASS; documentation: FAIL",
+      "Full results: /workspace/.onboarding/atom-mlmm-fresh-proof/logs/validation-20261001T130612Z-12325/results.json",
+      "Activate ML/MM: source /workspace/.onboarding/atom-mlmm-fresh-proof/activate.sh",
+      "Activate AmberTools Python: source /workspace/.onboarding/atom-mlmm-fresh-proof/activate-amber.sh",
+      "Installer exit code: 0"
+    ]
+  }
+}

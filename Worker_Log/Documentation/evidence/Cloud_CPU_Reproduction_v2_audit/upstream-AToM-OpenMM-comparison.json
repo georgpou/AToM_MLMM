@@ -1,0 +1,13 @@
+{
+  "directory": "AToM-OpenMM",
+  "url": "https://github.com/Gallicchio-Lab/AToM-OpenMM.git",
+  "tag": "v8.5.0",
+  "commit": "9e26c5a3811038be1c98e3be6af4c78cd0dd57a7",
+  "distribution_version": "8.5.0b0",
+  "archive": "sources/AToM-OpenMM-9e26c5a3811038be1c98e3be6af4c78cd0dd57a7.tar.gz",
+  "fetched_commit": "9e26c5a3811038be1c98e3be6af4c78cd0dd57a7",
+  "entries": 366,
+  "all_names_types_modes_links_and_file_hashes_match": true,
+  "supplied_archive_sha256": "45615a51b085f5a35c72ca770d17046f29294a4874d0acdccf67a9cbc47f3337",
+  "uncompressed_bytes_match": true
+}

@@ -1,0 +1,13 @@
+{
+  "directory": "openmmforcefields",
+  "url": "https://github.com/openmm/openmmforcefields.git",
+  "tag": "0.16.0",
+  "commit": "3aa91626db3aeea8e8388c43c42a51bf1d99159e",
+  "distribution_version": "0.16.0",
+  "archive": "sources/openmmforcefields-3aa91626db3aeea8e8388c43c42a51bf1d99159e.tar.gz",
+  "fetched_commit": "3aa91626db3aeea8e8388c43c42a51bf1d99159e",
+  "entries": 496,
+  "all_names_types_modes_links_and_file_hashes_match": true,
+  "supplied_archive_sha256": "274730766ecef1ffe69dbf535290cae329f6c079fc09a318fa834081c9b12c82",
+  "uncompressed_bytes_match": true
+}

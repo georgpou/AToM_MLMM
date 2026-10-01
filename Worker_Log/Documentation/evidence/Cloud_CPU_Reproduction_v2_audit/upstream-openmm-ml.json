@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python",
+    "Worker_Log/Documentation/evidence/Cloud_CPU_Reproduction_v2_audit/verify_upstream.py",
+    "openmm-ml"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "started": "2026-10-01T14:20:44.869900+00:00",
+  "finished": "2026-10-01T14:20:52.250149+00:00",
+  "exit_code": 0,
+  "raw_output": "upstream-openmm-ml.log",
+  "archived_raw_output": "upstream-openmm-ml.log.gz",
+  "raw_sha256": "8c21a2294475137733d47633bac55d5f9b25b04762ad88d781264f8157f6e068"
+}

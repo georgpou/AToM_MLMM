@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "ATOM_MLMM_SETUP_ROOT=/workspace/.onboarding/atom-mlmm-independent-audit-v1b",
+    "ATOM_MLMM_REPOSITORY=/workspace/.onboarding/atom-mlmm-audit-v1-cloud-checkout",
+    "bash",
+    "/workspace/AToM_MLMM/environment/cloud-cpu/cloud-install.sh"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "started": "2026-10-01T14:27:47.836625+00:00",
+  "finished": "2026-10-01T14:28:24.392699+00:00",
+  "exit_code": 0,
+  "raw_output": "cloud-fallback-success.log",
+  "archived_raw_output": "cloud-fallback-success.log.gz",
+  "raw_sha256": "7ae351a4ccdc19bc118e4c17dcd4c710c046ddd8b7c9eaf46ae0c394e5c0e4c4"
+}

@@ -1,0 +1,14 @@
+{
+  "command": [
+    "bash",
+    "-c",
+    "source /workspace/.onboarding/atom-mlmm-independent-audit-v1b/activate.sh\npython Worker_Log/Documentation/evidence/Cloud_CPU_Reproduction_v2_audit/runtime_probe.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "started": "2026-10-01T14:28:20.870382+00:00",
+  "finished": "2026-10-01T14:28:25.723890+00:00",
+  "exit_code": 1,
+  "raw_output": "runtime-identities-v2.log",
+  "archived_raw_output": "runtime-identities-v2.log.gz",
+  "raw_sha256": "18eafbb273b99b3153cc7024200cf9158c7b266b701a65ddd766779a2fc9f020"
+}

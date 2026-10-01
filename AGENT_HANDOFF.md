@@ -1,11 +1,12 @@
 # Project 0: handoff to the next agent
 
-**Immediate next assignment: independent environment and repository-baseline
-audit.** Read [the audit handout](NEXT_AGENT_AUDIT_HANDOUT.md); use
-[the copy-ready prompt](NEXT_AGENT_AUDIT_PROMPT.md) when assigning the new agent.
-Audit the delivered setup and flagged inconsistencies before scientific M00/G00
-work. Record findings first, then hand required repairs to a worker on a child
-branch; repaired work needs independent review.
+**Immediate next assignment: required baseline repairs on a child of the audit
+branch.** Read [the completed independent audit](Worker_Log/Documentation/Cloud_CPU_Reproduction_v2_audit.md),
+[the repair assignment](NEXT_AGENT_REPAIR_HANDOUT.md) and live
+[STATUS](docs/project-0/STATUS.md). Preserve the recorded nonblocking CPU
+dispositions; close required findings with independent repair review before
+scientific M00/G00 work. The original [audit handout](NEXT_AGENT_AUDIT_HANDOUT.md)
+and [copy-ready prompt](NEXT_AGENT_AUDIT_PROMPT.md) remain assignment history.
 
 **Environment setup is now contained in this branch.** After creating your child
 branch as required below, run `bash environment/cloud-cpu/install.sh` from the
@@ -17,7 +18,7 @@ external setup tarball is needed.
 
 ## Mandatory branch rule
 
-**Create your first working branch FROM `m01-g00-cloud-environment-setup`. Never start from `main`. Never commit, merge, rebase, reset, or push work to `main`.** This is an explicit user requirement and takes precedence over generic branch workflows.
+**The first setup-audit branch starts FROM `m01-g00-cloud-environment-setup`; subsequent repair/gate branches inherit their recorded predecessor, currently `m01-g00-environment-audit-v1`. Never start from `main`. Never commit, merge, rebase, reset, or push work to `main`.** This retains the user's required setup lineage. Repair successors use the commands in the repair assignment; the initial audit-entry commands below describe the earlier setup handoff.
 
 The setup records are committed on `m01-g00-cloud-environment-setup` at `4c835e0a25cbfa7c178b1b0333873d1e9cce93c9`. This handoff is added by a subsequent commit on that same branch. Use the branch's current tip, which includes this file. The original `origin/main` reference was `2d7bcc94f901738e39f536f16de84699d4e8d631`; it has not been changed. This cloud checkout has no local `main` branch, and there is no need to create one.
 
@@ -62,17 +63,17 @@ publication is separate from publishing a prepared Codex Cloud snapshot.
 
 ## Scope and immediate next assignment
 
-First perform the user's independent setup/baseline audit and record any required
-repairs as specified in the audit handout. Once those findings are closed,
+The independent setup/baseline audit is now recorded. First close its required
+findings as specified in the repair assignment. Once those findings are closed,
 continue with the relevant M00 review and M01 G00/G01 prerequisites. Use
 [AGENTS.md](AGENTS.md) and [STATUS.md](docs/project-0/STATUS.md) as the controlling
 procedure and progress record. The repository contains planning documents,
 documentation tooling and the installer under `environment/cloud-cpu/`; planned
 scientific `src/`, `tests/` and `fixtures/` paths are not already implemented.
 
-**The installation is delivered for independent audit; M00 and G00 have not been
-accepted.** Neither the setup branch's name nor passing smoke checks imply gate
-approval. The immediate task is the setup/baseline audit. Relevant
+**The installation has independent CPU evidence; the clean baseline, M00 and G00
+have not been accepted.** Neither the setup branch's name nor passing smoke
+checks imply gate approval. The immediate task is required baseline repair. Relevant
 [M00 architecture/contract review](docs/project-0/milestones/M00-architecture-review.md)
 follows closure of required baseline findings, unless already satisfied by newer
 accepted evidence.
@@ -135,7 +136,7 @@ Read the [setup worker log](Worker_Log/Documentation/Cloud_CPU_Setup_v2_worker.m
 
 Run relevant checks against the current snapshot rather than treating historical passes as current gate evidence. The recorded full gate pytest commands refer to future tests; a zero-test or missing-test run is not acceptance.
 
-MACE 0.3.16 sets an unsafe-loading variable on top-level import. The weight-free smoke helper clears it immediately, then imports trusted e3nn constants within `torch.serialization.safe_globals([slice])`. Do not add a global unsafe-loading override or monkey-patch `torch.load`. Approved pretrained checkpoint loading remains separate work.
+MACE 0.3.16 sets an unsafe-loading variable on top-level import. The weight-free smoke helper clears it immediately, then imports trusted e3nn constants within `torch.serialization.safe_globals([slice])`. Audit finding A03 establishes that the later MACECalculator import sets it again; the maintained helper still needs the second cleanup and policy regression in the repair assignment. Current weight-free CPU evidence remains valid, but this import pattern does not qualify checkpoint loading. Do not add a global unsafe-loading override or monkey-patch `torch.load`. Approved pretrained checkpoint loading remains separate work.
 
 ## Reproducing the setup in another cloud task or machine
 

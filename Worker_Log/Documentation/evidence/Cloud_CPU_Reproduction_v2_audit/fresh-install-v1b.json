@@ -1,0 +1,16 @@
+{
+  "command": [
+    "env",
+    "ATOM_MLMM_SETUP_ROOT=/workspace/.onboarding/atom-mlmm-independent-audit-v1b",
+    "ATOM_MLMM_REPOSITORY=/workspace/.onboarding/atom-mlmm-audit-v1-submitted-tree",
+    "bash",
+    "/workspace/.onboarding/atom-mlmm-audit-v1-submitted-tree/environment/cloud-cpu/install.sh"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "started": "2026-10-01T14:19:06.211752+00:00",
+  "finished": "2026-10-01T14:21:01.467564+00:00",
+  "exit_code": 0,
+  "raw_output": "fresh-install-v1b.log",
+  "archived_raw_output": "fresh-install-v1b.log.gz",
+  "raw_sha256": "174c6f0fe5fdceefe26486976a2855344950c5b5d31ee5c2dff181c48469967a"
+}
