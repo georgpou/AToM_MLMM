@@ -9,6 +9,17 @@ and remain descendants of this setup lineage. Preserve existing user changes.
 Read AGENT_HANDOFF.md and AGENTS.md on the setup branch before starting; if they
 are missing from the initial checkout, use git show on the fetched setup ref.
 
+IMMEDIATE USER ASSIGNMENT: read NEXT_AGENT_AUDIT_HANDOUT.md and
+NEXT_AGENT_AUDIT_PROMPT.md. Create an unused child such as
+m01-g00-environment-audit-v1 from the latest setup tip and independently audit
+reproduction v2's result dcfd99d51e991f0cf6f838b81f2f14752b0a9afa, plus the later
+handoff instructions. Investigate all listed documentation/provenance, exit-status,
+replay-warning and handoff/status inconsistencies. Write the actual sibling audit
+with your own evidence and concrete repair handoff; preserve historical reports.
+The audit precedes M00 or gate implementation. A clean baseline needs zero docs
+errors/all eight self-tests, all applicable environment checks and issue closure;
+environment-only installer success does not establish a clean repository.
+
 For dependencies read environment/cloud-cpu/README.md, ATM_MLMM_Environment.md
 and ATM_MLMM_environment.yml. The operational setup is two separate Python 3.11
 environments, with all replay wheels and pinned source archives in the branch.
@@ -44,8 +55,9 @@ anchors; all eight self-tests pass. Report the defect separately and preserve
 all exit codes. Strict validate.py fails on docs too; installer environment-only
 mode still executes, prints and records docs failures. No services must restart.
 
-No scientific gate or model/GPU profile is accepted by installation. M00 review
-is the first unfinished prerequisite unless newer accepted evidence exists.
+No scientific gate or model/GPU profile is accepted by installation. After the
+user's setup/baseline audit and required finding closure, relevant M00 review
+is the first scientific prerequisite unless newer accepted evidence exists.
 Read STATUS.md and the assigned task's actual prerequisites. Preserve scientific
 specifications and historical worker logs. Do not download any pretrained
 model weights unless explicitly authorized. MACE's unsafe import-time loading

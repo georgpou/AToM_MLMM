@@ -10,12 +10,13 @@ There are no pretrained model weights in these artifacts.
 
 ## First: create your branch from the setup branch
 
-Read [AGENT_HANDOFF.md](../../AGENT_HANDOFF.md). The user requires the next agent
+Read [AGENT_HANDOFF.md](../../AGENT_HANDOFF.md) and the
+[immediate audit assignment](../../NEXT_AGENT_AUDIT_HANDOUT.md). The user requires the next agent
 to start from `m01-g00-cloud-environment-setup`, never `main`. In a clean checkout:
 
 ```bash
 git fetch origin refs/heads/m01-g00-cloud-environment-setup:refs/remotes/origin/m01-g00-cloud-environment-setup
-git switch --no-track -c m00-architecture-review origin/m01-g00-cloud-environment-setup
+git switch --no-track -c m01-g00-environment-audit-v1 origin/m01-g00-cloud-environment-setup
 git merge-base --is-ancestor origin/m01-g00-cloud-environment-setup HEAD
 test "$(git branch --show-current)" != main
 ```

@@ -1,5 +1,12 @@
 # Project 0: handoff to the next agent
 
+**Immediate next assignment: independent environment and repository-baseline
+audit.** Read [the audit handout](NEXT_AGENT_AUDIT_HANDOUT.md); use
+[the copy-ready prompt](NEXT_AGENT_AUDIT_PROMPT.md) when assigning the new agent.
+Audit the delivered setup and flagged inconsistencies before scientific M00/G00
+work. Record findings first, then hand required repairs to a worker on a child
+branch; repaired work needs independent review.
+
 **Environment setup is now contained in this branch.** After creating your child
 branch as required below, run `bash environment/cloud-cpu/install.sh` from the
 repository root, then `source /workspace/.onboarding/atom-mlmm/activate.sh`.
@@ -14,21 +21,23 @@ external setup tarball is needed.
 
 The setup records are committed on `m01-g00-cloud-environment-setup` at `4c835e0a25cbfa7c178b1b0333873d1e9cce93c9`. This handoff is added by a subsequent commit on that same branch. Use the branch's current tip, which includes this file. The original `origin/main` reference was `2d7bcc94f901738e39f536f16de84699d4e8d631`; it has not been changed. This cloud checkout has no local `main` branch, and there is no need to create one.
 
-In the prepared cloud checkout, run these commands before changing files:
+In the prepared cloud checkout or another clone, fetch the current remote tip
+and run these commands before changing files:
 
 ```bash
 cd /workspace/AToM_MLMM
 git status --short --branch
-git show-ref --verify refs/heads/m01-g00-cloud-environment-setup
-git merge-base --is-ancestor 4c835e0a25cbfa7c178b1b0333873d1e9cce93c9 refs/heads/m01-g00-cloud-environment-setup
-atom_mlmm_parent_commit="$(git rev-parse refs/heads/m01-g00-cloud-environment-setup)"
-git switch --no-track -c m00-architecture-review refs/heads/m01-g00-cloud-environment-setup
+git fetch origin refs/heads/m01-g00-cloud-environment-setup:refs/remotes/origin/m01-g00-cloud-environment-setup
+git show-ref --verify refs/remotes/origin/m01-g00-cloud-environment-setup
+git merge-base --is-ancestor 4c835e0a25cbfa7c178b1b0333873d1e9cce93c9 refs/remotes/origin/m01-g00-cloud-environment-setup
+atom_mlmm_parent_commit="$(git rev-parse refs/remotes/origin/m01-g00-cloud-environment-setup)"
+git switch --no-track -c m01-g00-environment-audit-v1 "$atom_mlmm_parent_commit"
 test "$(git rev-parse HEAD)" = "$atom_mlmm_parent_commit"
 test "$(git branch --show-current)" != main
 git merge-base --is-ancestor "$atom_mlmm_parent_commit" HEAD
 ```
 
-Expected: the new branch is `m00-architecture-review`, its starting commit exactly equals the setup branch's tip, and all checks succeed. If that name already exists, inspect it and choose an unused attempt suffix such as `m00-architecture-review-v2`; do not overwrite a branch. Inspect and preserve any existing user changes. Do not clean or reset files to make the checkout appear clean.
+Expected: the new branch is `m01-g00-environment-audit-v1`, its starting commit exactly equals the setup branch's tip, and all checks succeed. If that name already exists, inspect it and choose an unused attempt suffix such as `m01-g00-environment-audit-v2`; do not overwrite a branch. Inspect and preserve any existing user changes. Do not clean or reset files to make the checkout appear clean.
 
 All later working branches must remain descendants of this setup branch. Name them for their actual milestone/gate/task. Start a follow-on gate branch from the reviewed predecessor branch so it retains prerequisite work; do not restart the lineage from `main`. Verify ancestry with `git merge-base --is-ancestor`. Leave the setup branch as the handoff parent while doing new work on child branches.
 
@@ -37,7 +46,7 @@ All later working branches must remain descendants of this setup branch. Name th
 The setup branch is published on GitHub as `origin/m01-g00-cloud-environment-setup`. In another checkout, fetch only that side-branch reference:
 
 ```bash
-git fetch origin refs/heads/m01-g00-cloud-environment-setup:refs/heads/m01-g00-cloud-environment-setup
+git fetch origin refs/heads/m01-g00-cloud-environment-setup:refs/remotes/origin/m01-g00-cloud-environment-setup
 ```
 
 Then execute the branch-creation checks above. Fetch the current remote tip:
@@ -45,22 +54,39 @@ the older offline `atom-mlmm-agent-handoff.bundle` contains only the original
 handoff snapshot and lacks the branch-contained wheel/source setup added later.
 It is not sufficient for the current environment reproduction.
 
-If a local branch of that name already exists, inspect its identity before fetching or importing; do not force-update it. Do not silently substitute `main` when the parent branch is unavailable. Report the missing parent branch or access and continue independent read-only inspection. Git branch publication is separate from publishing a prepared Codex Cloud environment snapshot.
+This updates the remote-tracking reference without rewriting a local setup
+branch. If a fetch is rejected, inspect its reason instead of forcing an update.
+Do not silently substitute main when the parent is unavailable. Report the
+missing parent/access and continue independent read-only inspection. Git branch
+publication is separate from publishing a prepared Codex Cloud snapshot.
 
 ## Scope and immediate next assignment
 
-Continue Project 0 in the prepared CPU environment, completing the relevant prerequisite review and then progressing through M01's G00/G01 tasks. Use [AGENTS.md](AGENTS.md) and [STATUS.md](docs/project-0/STATUS.md) as the controlling procedure and progress record. The repository contains planning documents, documentation tooling and the reusable installer under `environment/cloud-cpu/`; planned scientific `src/`, `tests/` and `fixtures/` paths are not already implemented.
+First perform the user's independent setup/baseline audit and record any required
+repairs as specified in the audit handout. Once those findings are closed,
+continue with the relevant M00 review and M01 G00/G01 prerequisites. Use
+[AGENTS.md](AGENTS.md) and [STATUS.md](docs/project-0/STATUS.md) as the controlling
+procedure and progress record. The repository contains planning documents,
+documentation tooling and the installer under `environment/cloud-cpu/`; planned
+scientific `src/`, `tests/` and `fixtures/` paths are not already implemented.
 
-**The installation is complete, but M00 and G00 have not been accepted. Do not interpret the setup branch's M01/G00 name or its passing smoke checks as gate approval.** The first task is the relevant [M00 architecture/contract review](docs/project-0/milestones/M00-architecture-review.md), unless a newer recorded review on the inherited branch already satisfies it.
+**The installation is delivered for independent audit; M00 and G00 have not been
+accepted.** Neither the setup branch's name nor passing smoke checks imply gate
+approval. The immediate task is the setup/baseline audit. Relevant
+[M00 architecture/contract review](docs/project-0/milestones/M00-architecture-review.md)
+follows closure of required baseline findings, unless already satisfied by newer
+accepted evidence.
 
 | Order | Assignment and suggested branch | Required outcome before advancing |
 |---|---|---|
-| 1 | M00 review, `m00-architecture-review` | Review the relevant S01–S07 design, the environment decisions below, and one-group/two-group and environment-force extension boundaries. Record reviewed revisions, decisions, scope and identified reviewer. Follow M00's combined-review condition. |
-| 2 | [G00-T1](docs/project-0/gates/G00-environment-and-provenance.md), `m01-g00-t1-cpu-qualification` | After relevant M00 review, implement the prescribed CPU API/version checks and complete environment/source evidence, reusing the installed dependencies and exact locks. Missing APIs must fail clearly. |
-| 3 | [G01-T1](docs/project-0/gates/G01-identity-partition-and-contracts.md), `m01-g01-t1-identity-partition` | After applicable G00 evidence and relevant design review, implement stable identities and complete fixed selections using the reviewed S03 records. |
-| 4 | G01-T2, `m01-g01-t2-shared-records` | Complete the common records, schema round trips, capability rejection and lightweight import boundaries. |
-| 5 | G01-T3, `m01-g01-t3-mm-inventory` | Preserve the original MM inventory and implement the required evidence validation. |
-| 6 | M01 combined review, `m01-combined-review` | Review G00 and G01 together on the same snapshot with required M00 evidence. Individual passing tasks do not automatically accept the milestone. |
+| 1 | Independent setup/baseline audit, `m01-g00-environment-audit-v1` | Follow the audit handout; audit reproduction v2's exact snapshot, reproduce checks and disposition every flagged inconsistency. Write the real sibling audit with evidence. |
+| 2 | Required baseline repairs, child of audit branch | Each finding has a concrete repair, regression and closure record; repairs receive independent review before a clean-baseline claim. No scientific gate is implemented by this cleanup. |
+| 3 | M00 review, `m00-architecture-review` | Review relevant S01–S07 design and the environment decisions; record scope, decisions and reviewer, following M00's combined-review condition. |
+| 4 | [G00-T1](docs/project-0/gates/G00-environment-and-provenance.md), `m01-g00-t1-cpu-qualification` | After relevant M00 review, implement the prescribed CPU API/version/source checks; missing APIs fail clearly. |
+| 5 | [G01-T1](docs/project-0/gates/G01-identity-partition-and-contracts.md), `m01-g01-t1-identity-partition` | After applicable G00 evidence and design review, implement stable identities and fixed selections using reviewed S03 records. |
+| 6 | G01-T2, `m01-g01-t2-shared-records` | Complete common records, schema round trips, capability rejection and lightweight import boundaries. |
+| 7 | G01-T3, `m01-g01-t3-mm-inventory` | Preserve the original MM inventory and implement evidence validation. |
+| 8 | M01 combined review, `m01-combined-review` | Review G00/G01 together with required M00 evidence; individual tasks do not accept the milestone. |
 
 These are ordered assignments, not permission to report them as implemented. Start with the first unblocked unfinished task and record the choice. Read its exact gate/spec sections, then follow the focused failing-test → smallest implementation → affected-checks cycle in AGENTS.md. Obtain the required review evidence before advancing. Only proceed to M02/G02/G03 when their actual prerequisites are satisfied; do not turn a small assignment into the whole project in one unreviewed change.
 
