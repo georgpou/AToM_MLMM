@@ -14,7 +14,7 @@ Read [AGENT_HANDOFF.md](../../AGENT_HANDOFF.md). The user requires the next agen
 to start from `m01-g00-cloud-environment-setup`, never `main`. In a clean checkout:
 
 ```bash
-git fetch origin m01-g00-cloud-environment-setup
+git fetch origin refs/heads/m01-g00-cloud-environment-setup:refs/remotes/origin/m01-g00-cloud-environment-setup
 git switch --no-track -c m00-architecture-review origin/m01-g00-cloud-environment-setup
 git merge-base --is-ancestor origin/m01-g00-cloud-environment-setup HEAD
 test "$(git branch --show-current)" != main
@@ -166,7 +166,7 @@ loading. Pretrained checkpoint loading remains unqualified and weights must
 not be downloaded without the user's authorization.
 
 Fresh-install evidence and exact commands are recorded in
-[the reproduction worker log](../../Worker_Log/Documentation/Cloud_CPU_Reproduction_v1_worker.md).
+[the reproduction worker log](../../Worker_Log/Documentation/Cloud_CPU_Reproduction_v2_worker.md).
 Historical setup evidence describes the earlier local installation; it does
 not replace this branch-contained installer.
 

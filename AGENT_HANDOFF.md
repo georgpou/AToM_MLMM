@@ -40,12 +40,10 @@ The setup branch is published on GitHub as `origin/m01-g00-cloud-environment-set
 git fetch origin refs/heads/m01-g00-cloud-environment-setup:refs/heads/m01-g00-cloud-environment-setup
 ```
 
-Then execute the branch-creation checks above. A complete Git bundle is also provided separately as `atom-mlmm-agent-handoff.bundle` for offline transfer of the original handoff snapshot:
-
-```bash
-git bundle verify /path/to/atom-mlmm-agent-handoff.bundle
-git fetch /path/to/atom-mlmm-agent-handoff.bundle refs/heads/m01-g00-cloud-environment-setup:refs/heads/m01-g00-cloud-environment-setup
-```
+Then execute the branch-creation checks above. Fetch the current remote tip:
+the older offline `atom-mlmm-agent-handoff.bundle` contains only the original
+handoff snapshot and lacks the branch-contained wheel/source setup added later.
+It is not sufficient for the current environment reproduction.
 
 If a local branch of that name already exists, inspect its identity before fetching or importing; do not force-update it. Do not silently substitute `main` when the parent branch is unavailable. Report the missing parent branch or access and continue independent read-only inspection. Git branch publication is separate from publishing a prepared Codex Cloud environment snapshot.
 
@@ -134,7 +132,7 @@ on the installer command and source that prefix's `activate.sh`. The installer
 checks every artifact, replays the exact packages and runs the complete CPU,
 AmberTools integration and upstream regression checks. It records individual
 exit codes, including the existing docs defects, under the prefix's `logs/`.
-Read [fresh-install evidence](Worker_Log/Documentation/Cloud_CPU_Reproduction_v1_worker.md).
+Read [fresh-install evidence](Worker_Log/Documentation/Cloud_CPU_Reproduction_v2_worker.md).
 Do not guess replacement versions when an artifact or API is unavailable.
 Other platforms require a separate recorded environment solve.
 
