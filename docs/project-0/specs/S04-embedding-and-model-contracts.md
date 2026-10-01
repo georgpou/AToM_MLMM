@@ -42,6 +42,8 @@ $$A=(d_h/r)(I-\mathbf n\mathbf n^{\mathsf T}).$$
 
 A raw cap force $\mathbf F_h$ adds $(I-A)^{\mathsf T}\mathbf F_h$ to parent $a$ and $A^{\mathsf T}\mathbf F_h$ to parent $b$. These sum to the cap force and are generally not a fixed fractional split. Production uses the validated virtual-site machinery; the analytic formula is an independent expected answer, not a second force-redistribution layer.
 
+On an isolated translation/rotation-invariant cap-dependent potential, the projected real forces must conserve net force and torque. Check each parent component as well as aggregate errors; this oracle does not apply to a fixture with external restraints or periodic image conventions that break those symmetries.
+
 For each perturbation in a force check, reconstruct virtual sites using the production convention. Do not project perturbed coordinates onto constraints unless intentionally checking a constrained derivative. A cap particle's raw force slot is not the final real-parent derivative. Repeat the parent derivative checks inside ATM; the revised plan flagged nested virtual-site handling as a question requiring direct evidence, not an established defect.
 
 ## Periodic and long-range accounting
@@ -81,6 +83,10 @@ A later design must specify the electrostatic Hamiltonian, MM field/potential re
 Environment descriptors must be reconstructed after each coordinate map. Any self-consistent polarization solve must be deterministic to its admitted convergence tolerance and independent of evaluation order; a warm start may speed convergence but cannot select a different energy. Its residual/convergence diagnostics belong in evidence. Static caches may hold immutable species or topology; geometry-dependent caches require a proven key/update policy covering coordinates, box, and relevant state.
 
 Current NVT interfaces do not establish cell/virial correctness for NPT. That is a separate extension. No actual electrostatic backend is included or qualified here. The promise is that these additional requirements can be implemented inside the embedding/model boundary while reusing the same physical, transfer, recording, and analysis contracts.
+
+## Boundary approximation and reference checks
+
+Caps define a physical approximation; there is no automatic cap free-energy correction. Keep the fixed cap rule and retained-MM ledger explicit. G05/G07 use the small physical references in [S06](S06-validation-and-tolerances.md#small-system-physical-references) to characterize capped chemistry, uncut/partitioned differences and boundary/contact sensitivity before protein claims.
 
 ## A diagnostic energy is not a free-energy correction
 

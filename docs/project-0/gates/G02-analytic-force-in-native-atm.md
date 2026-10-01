@@ -28,7 +28,7 @@ Required earlier gates: [G00](../gates/G00-environment-and-provenance.md), [G01]
 
 | Task ID | Work | Main planned checks |
 |---|---|---|
-| `G02-T1` | Construct a genuinely independent oracle | `P0-TEST-G02-01`, `P0-TEST-G02-02`, `P0-TEST-G02-03` |
+| `G02-T1` | Construct a genuinely independent oracle | `P0-TEST-G02-01`, `P0-TEST-G02-02`, `P0-TEST-G02-03`, `P0-TEST-G02-08`, `P0-TEST-G02-09` |
 | `G02-T2` | Run the same contracts on both protocol shapes | `P0-TEST-G02-04` |
 | `G02-T3` | Challenge the ML-only-force assumption | `P0-TEST-G02-05`, `P0-TEST-G02-06`, `P0-TEST-G02-07` |
 
@@ -56,6 +56,8 @@ Use the S04 analytic environment coupling. Check nonzero equal-and-opposite real
 
 Run deliberately introduced mistakes after the correct implementation passes. A test suite that remains green when environment forces or an entire physical child force are removed is not a useful oracle. Save the smallest complete reproducer and rerun after fresh-process reload.
 
+Independently derive the harmonic forces without calling the callback under test. Then exercise the exact nonlinear production expression and its endpoint weights from S05 at transition regions and intermediate states; compare to coordinate finite differences. Linear lambda weights cannot stand in for this check.
+
 ## Checks and the answers they must establish
 
 These are **planned tests**, not executed results. Use the rows for the assigned task; full-gate acceptance covers all applicable rows.
@@ -69,6 +71,8 @@ These are **planned tests**, not executed results. Use the rows for the assigned
 | P0-TEST-G02-05 | `tests/contracts/test_physical_evaluator.py::test_environment_force_and_recomputed_mapping` | For the S04 harmonic coupling, moving only the MM atom changes energy; ATM translation changes its force; all real derivatives match. | P0-REQ-006, P0-REQ-007 |
 | P0-TEST-G02-06 | `tests/contracts/test_physical_evaluator.py::test_evaluation_history_independence` | Evaluate geometry A, then B, then A; the final A result matches the first and does not reuse stale mapped descriptors. | P0-REQ-007 |
 | P0-TEST-G02-07 | `tests/contracts/test_fault_injection.py::test_known_transfer_errors_are_detected` | Deliberate wrong-index, omitted force, reversed raw tuple and stale-environment injections fail the appropriate checks. | P0-REQ-030 |
+| P0-TEST-G02-08 | `tests/integration/test_pythonforce_atm.py::test_independent_harmonic_forces` | Harmonic endpoint and outside forces match hand-derived negative energy gradients at independently mapped coordinates. | P0-REQ-013, P0-REQ-030 |
+| P0-TEST-G02-09 | `tests/integration/test_pythonforce_atm.py::test_nonlinear_mixing_force_chain_rule` | The admitted nonlinear production expression gives endpoint weights from independent differentiation and agrees with coordinate finite differences, including soft-core/softplus transitions. | P0-REQ-013, P0-REQ-030 |
 
 ## How to test and decide
 

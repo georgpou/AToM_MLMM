@@ -29,7 +29,7 @@ Required earlier gates: [G10](../gates/G10-restart-and-replica-exchange.md). Che
 | Task ID | Work | Main planned checks |
 |---|---|---|
 | `G11-T1` | Choose the easiest informative protein fixture | `P0-TEST-G11-01` |
-| `G11-T2` | Run deterministic preflight and controls | `P0-TEST-G11-01`, `P0-TEST-G11-02`, `P0-TEST-G11-05` |
+| `G11-T2` | Run deterministic preflight and controls | `P0-TEST-G11-01`, `P0-TEST-G11-02`, `P0-TEST-G11-05`, `P0-TEST-G11-06` |
 | `G11-T3` | Advance sampling only after preflight | `P0-TEST-G11-03`, `P0-TEST-G11-04`, `P0-TEST-G11-05` |
 
 ### G11-T1: choose the easiest informative protein fixture
@@ -56,6 +56,8 @@ Run staged single-state and short schedule pilots before longer independently se
 
 Assess one admissible alternative bulk placement and a box-size check where needed to resolve residual periodic effects. Region-size changes are changes of model, not sampling error. Agreement with experimental affinity is useful later but is not this implementation gate's acceptance criterion.
 
+Before sampling, check every boundary parent in x/y/z at both maps with a Cartesian finite-difference step sweep. Recompute virtual sites after each perturbation and keep constraints unprojected for this derivative check. Review the G05/G07 physical-reference profile before making protein claims.
+
 ## Checks and the answers they must establish
 
 These are **planned tests**, not executed results. Use the rows for the assigned task; full-gate acceptance covers all applicable rows.
@@ -67,6 +69,7 @@ These are **planned tests**, not executed results. Use the rows for the assigned
 | P0-TEST-G11-03 | `tests/workflow/test_protein_abfe.py::test_abfe_result_correction_ledger` | The reported result includes explicit signs, restraints, midpoint connection and standard-state/release status. | P0-REQ-016, P0-REQ-017 |
 | P0-TEST-G11-04 | `tests/workflow/test_protein_abfe.py::test_bulk_placement_and_box_sensitivity_recorded` | Alternative admitted bulk placement and justified box-size checks produce a separate physical sensitivity record. | P0-REQ-005, P0-REQ-019 |
 | P0-TEST-G11-05 | `tests/workflow/test_protein_abfe.py::test_protein_restart_exchange_and_domain` | Realistic topology retains admitted force, restart, graph and counterfactual-domain behavior before sampled interpretation. | P0-REQ-015, P0-REQ-020 |
+| P0-TEST-G11-06 | `tests/workflow/test_protein_abfe.py::test_all_boundary_parent_cartesian_derivatives` | Every real parent at every protein cut is checked in x/y/z at both maps by unconstrained coordinate step sweeps and recomputed virtual sites. | P0-REQ-004, P0-REQ-006, P0-REQ-030 |
 
 ## How to test and decide
 

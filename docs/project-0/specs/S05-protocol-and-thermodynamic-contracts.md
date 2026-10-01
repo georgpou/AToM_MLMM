@@ -32,6 +32,14 @@ $K$ is the explicitly outside contribution, usually the declared restraint layer
 
 For the first analytic test use $\Phi_\lambda=(1-\lambda)u_0+\lambda u_1$ at 0, 0.37, and 1. Fixed translations have identity coordinate Jacobians, so the force is the weighted endpoint-force sum plus the outside force. This is a test oracle, not a replacement for the production ATM schedule.
 
+For an arbitrary differentiable production expression, the fixed-map force is
+
+$$\mathbf F_k=\mathbf F_K+\frac{\partial\Phi_k}{\partial u_0}\mathbf F_0+\frac{\partial\Phi_k}{\partial u_1}\mathbf F_1.$$
+
+Differentiate the exact admitted soft-core/softplus expression independently, including every nested derivative. The linear lambda weights apply only to the linear oracle. Test nonlinear transition regions, offsets, endpoints and intermediate states against coordinate finite differences.
+
+Both maps are fixed full-particle translations. Record/check them after native/AToM construction, parameter changes and reload. Reject any runtime change to membership or displacement maps before evaluation; coordinate-dependent maps need a new derivative/measure contract.
+
 The revised audit reports `getPerturbationEnergy()` returns `(u1, u0, energy)`. Name the fields explicitly and confirm against the admitted API in G00/G02. An independent direct evaluation must match the same child scope; include a nonzero outside restraint so a mistaken scope cannot pass accidentally.
 
 ## Binding definition and correction completeness
@@ -85,6 +93,8 @@ G08 checks these against independent quadrature and independent analytic samples
 ## Shared analysis and molecular closure
 
 At fixed-temperature NVT use dimensionless reduced potentials $v_k(\mathbf R_n)=U_k(\mathbf R_n)/(RT)$. Reconstruct the exact expression at all required states, with outside terms where needed, and verify selected rows by direct context evaluation. A protocol supplies endpoint weights and correction obligations; the estimator consumes energies, not embedding labels.
+
+Deterministic reversal of endpoint labels checks bookkeeping. Separately initialized forward/reverse sampling on a small molecular fixture checks reproducibility under the reversed protocol; compare sign, overlap and uncertainty using predeclared criteria. Reusing the same sampled data under new labels is not independent reverse evidence.
 
 A-to-A RBFE has zero equilibrium free-energy difference only under the declared symmetric setup; instantaneous perturbations need not be zero. Compare RBFE and ABFE differences only for matched physical definitions. A two-ligand box contains a spectator molecule absent from a naive one-ligand ABFE subtraction; quantify that finite-box contribution or use matched controls before interpreting closure. Keep the same cavity, cap, model, and restraint conventions across a series whenever testing cancellation.
 

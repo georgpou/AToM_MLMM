@@ -31,10 +31,11 @@ Required earlier gates: [G04](../gates/G04-link-boundary-and-derivatives.md). Ch
 | `G05-T1` | Freeze exactly what the model means | `P0-TEST-G05-06` |
 | `G05-T2` | Compare independent evaluations | `P0-TEST-G05-01`, `P0-TEST-G05-02`, `P0-TEST-G05-03`, `P0-TEST-G05-04` |
 | `G05-T3` | Establish an admitted numerical domain | `P0-TEST-G05-05`, `P0-TEST-G05-06` |
+| `G05-T4` | Compare small frozen chemical references | `P0-TEST-G05-07`, `P0-TEST-G05-08` |
 
 ### G05-T1: freeze exactly what the model means
 
-**Read:** [Environment: model assets and loading](../../../ATM_MLMM_Environment.md#model-assets-and-loading); [S07: Evidence must identify what was tested](../specs/S07-artifacts-and-qualification.md#evidence-must-identify-what-was-tested).
+**Read:** [Model assets and loading](../../../environment/cloud-cpu/README.md#model-assets-and-loading); [S07: Evidence must identify what was tested](../specs/S07-artifacts-and-qualification.md#evidence-must-identify-what-was-tested).
 
 Use one approved local model, initially the proposed MACE-OFF23-small checkpoint. Save elements, architecture, cutoff, dtype, locality, and chemical-domain limitations. Explicitly request the same energy convention in both native and OpenMM paths. The inherited plan distinguishes MACE's `interaction_energy` from a ligand-protein pair energy; do not interpret that name as an interaction decomposition.
 
@@ -54,7 +55,11 @@ Test translation, consistent joint rotation/box handling, and atom permutations.
 
 Run approach, compression, cap-adjacent rotation, cutoff-crossing and separated-state scans. Inspect the alternate geometry that ATM will evaluate even when it carries little current weight. Characterize deliberate extreme overlaps without pretending every singular coincidence must be supported. Save nonfinite results and unphysical wells rather than masking them.
 
-Test offline fresh-process loading and serialization on CPU. GPU qualification follows the same mathematical checks with its own measured precision. Actual chemical accuracy or fine-tuning remains a separate study unless the candidate model fails to provide a usable potential on the allowed range of configurations.
+Test offline fresh-process loading and serialization on CPU. GPU qualification follows the same mathematical checks with its own measured precision. G05-T4 establishes limited small-system chemical adequacy for the admitted profile; broader prediction accuracy and fine-tuning remain later studies.
+
+### G05-T4: compare small frozen chemical references
+
+Read [S06: Small-system physical references](../specs/S06-validation-and-tolerances.md#small-system-physical-references). Use the M00-reviewed exact capped conformers and frozen joint contact/separated geometries. Compare relative energies and Cartesian forces to documented quantum data under the declared composition/energy-zero convention. Record methods, charge/spin, units, digests and predeclared limits. An unavailable reference leaves the real physical profile unqualified; native/adapter agreement cannot replace it.
 
 ## Checks and the answers they must establish
 
@@ -68,6 +73,8 @@ These are **planned tests**, not executed results. Use the rows for the assigned
 | P0-TEST-G05-04 | `tests/integration/test_model_adapter.py::test_consistent_translation_rotation_and_permutation` | Joint coordinate/box transformations and atom reordering preserve the expected scalar/vector behavior. | P0-REQ-010, P0-REQ-030 |
 | P0-TEST-G05-05 | `tests/integration/test_model_domain.py::test_contact_cutoff_and_counterfactual_scans` | Admitted contact and cutoff scans yield finite values and interpretable repulsion; preserve failing alternate geometry and graph for diagnosis. | P0-REQ-020 |
 | P0-TEST-G05-06 | `tests/integration/test_model_adapter.py::test_local_asset_fresh_process_reload` | The exact checkpoint and output convention survive offline reload; no cache-dependent replacement or dtype change occurs. | P0-REQ-014, P0-REQ-029 |
+| P0-TEST-G05-07 | `tests/integration/test_chemical_reference.py::test_exact_capped_conformer_reference` | Exact capped neutral conformer relative energies and Cartesian forces meet predeclared, reviewed quantum-reference limits with frozen provenance. | P0-REQ-033 |
+| P0-TEST-G05-08 | `tests/integration/test_chemical_reference.py::test_frozen_contact_reference` | Joint capped-fragment/ligand contacts and separated controls meet reviewed reference limits using one documented energy-zero/composition convention. | P0-REQ-009, P0-REQ-033 |
 
 ## How to test and decide
 
@@ -76,7 +83,7 @@ Use [S06](../specs/S06-validation-and-tolerances.md) for applicable tolerances a
 Full-gate command, once the test code exists:
 
 ```bash
-python -m pytest tests/integration/test_model_adapter.py tests/integration/test_locality.py tests/integration/test_model_domain.py -v
+python -m pytest tests/integration/test_model_adapter.py tests/integration/test_locality.py tests/integration/test_model_domain.py tests/integration/test_chemical_reference.py -v
 ```
 
 **Stop and diagnose:** Distinguish model-domain failures from mapping, units, precision and neighbor construction. A model replacement or residual repulsion changes the physical definition and requires reviewed requalification, not a hidden fallback.

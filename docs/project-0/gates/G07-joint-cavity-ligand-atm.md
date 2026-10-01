@@ -29,8 +29,9 @@ Required earlier gates: [G03](../gates/G03-atom-routing-and-integration.md), [G0
 | Task ID | Work | Main planned checks |
 |---|---|---|
 | `G07-T1` | Combine already qualified ingredients without solvent | `P0-TEST-G07-01`, `P0-TEST-G07-02`, `P0-TEST-G07-03`, `P0-TEST-G07-04` |
-| `G07-T2` | Run extension-contract regressions against the integrated architecture | `P0-TEST-G07-05`, `P0-TEST-G07-02` |
+| `G07-T2` | Run extension-contract regressions against the integrated architecture | `P0-TEST-G07-05`, `P0-TEST-G07-02`, `P0-TEST-G07-07` |
 | `G07-T3` | Introduce the admitted periodic version | `P0-TEST-G07-06` |
+| `G07-T4` | Measure partition and boundary sensitivity | `P0-TEST-G07-08`, `P0-TEST-G07-09` |
 
 ### G07-T1: combine already qualified ingredients without solvent
 
@@ -56,6 +57,12 @@ Only after the nonperiodic comparison passes, add the G06 periodic convention an
 
 This fixture should stay small enough for a colleague to understand every selected atom and boundary. It is the central correctness reproducer to preserve when later protein runs fail.
 
+Also run real-model single points with one capped cavity and two complete neutral ligands of unequal sizes. Reuse the direct/native/AToM paths and test both maps, all real forces, graph membership and fixed cap maps. This small routing test precedes the final protein RBFE demonstration; it does not depend on G11/G12.
+
+### G07-T4: measure partition and boundary sensitivity
+
+Read [S06: Small-system physical references](../specs/S06-validation-and-tolerances.md#small-system-physical-references). Compare declared uncut/partitioned small systems and admitted alternative cuts/ML regions using frozen references and contact/separated geometries. Keep the retained-MM ledger, cap rule and error attribution explicit; these Hamiltonians need not be exactly equal. Apply M00-reviewed limits before protein claims.
+
 ## Checks and the answers they must establish
 
 These are **planned tests**, not executed results. Use the rows for the assigned task; full-gate acceptance covers all applicable rows.
@@ -68,6 +75,9 @@ These are **planned tests**, not executed results. Use the rows for the assigned
 | P0-TEST-G07-04 | `tests/integration/test_joint_hybrid_atm.py::test_only_mobile_groups_translate` | Protein real atoms, cap parents and cap sites have zero explicit displacement while complete ligand IDs move. | P0-REQ-002, P0-REQ-013 |
 | P0-TEST-G07-05 | `tests/contracts/test_embedding_extension.py::test_environment_provider_reuses_atm_and_protocols` | Swap only the analytic physical provider and reuse both protocols, assembler, records and checker; no embedding branch is added to common code. | P0-REQ-001, P0-REQ-028 |
 | P0-TEST-G07-06 | `tests/integration/test_joint_hybrid_atm.py::test_joint_periodic_geometry_and_forces` | Repeat the small admitted periodic version after the nonperiodic oracle passes; preserve both geometries on failure. | P0-REQ-005 |
+| P0-TEST-G07-07 | `tests/integration/test_joint_hybrid_atm.py::test_real_model_two_unequal_ligand_single_points` | One capped cavity and two unequal complete ligands reproduce direct/native/AToM energy and all real forces at both maps without changing shared modules or membership. | P0-REQ-022, P0-REQ-006 |
+| P0-TEST-G07-08 | `tests/integration/test_boundary_reference.py::test_uncut_and_partitioned_reference` | The declared uncut/partitioned comparison characterizes cap/ledger approximation against a reviewed frozen reference, with no assumption of exact Hamiltonian equality. | P0-REQ-003, P0-REQ-033 |
+| P0-TEST-G07-09 | `tests/integration/test_boundary_reference.py::test_boundary_location_and_contact_sensitivity` | Alternative admitted cuts/ML-region choices quantify relative/contact energy and force sensitivity within predeclared limits; failing comparisons narrow or block the profile. | P0-REQ-004, P0-REQ-033 |
 
 ## How to test and decide
 
@@ -76,7 +86,7 @@ Use [S06](../specs/S06-validation-and-tolerances.md) for applicable tolerances a
 Full-gate command, once the test code exists:
 
 ```bash
-python -m pytest tests/integration/test_joint_hybrid_atm.py tests/contracts/test_embedding_extension.py -v
+python -m pytest tests/integration/test_joint_hybrid_atm.py tests/contracts/test_embedding_extension.py tests/integration/test_boundary_reference.py -v
 ```
 
 **Stop and diagnose:** Return to the smallest failing lower gate for an energy, derivative, topology or periodic mismatch. Do not prepare a protein until this combined physical/transfer composition is demonstrated.
@@ -100,6 +110,8 @@ Inspect the cap-parent Jacobian evidence and the complete retained/removed bound
 Review native-model agreement, units/energy convention, local-component tests, counterfactual contact scans and offline identity. Inspect the exact retained PME convention, mask diagnostics and periodic geometry/seam tests; do not call all classical cavity-ligand electrostatics missing by definition.
 
 Finally inspect the small capped-cavity/ligand fixture through direct, native ATM and AToM paths. Include MM-parent derivatives and the early extension-contract regressions. The combined fixture remains the reproducible reference for later protein failures.
+
+Review G05-T4/G07-T4 reference and sensitivity evidence against the limits set before model results. Include the early real two-ligand single points. Missing physical-reference evidence keeps the corresponding profile unqualified.
 
 G04-G07 accepted for the declared local mechanical profile; no unexplained identity, derivative, interaction-ledger, image or counterfactual-domain failure remains.
 

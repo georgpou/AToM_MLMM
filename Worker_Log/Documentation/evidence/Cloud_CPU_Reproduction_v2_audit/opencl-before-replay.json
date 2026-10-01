@@ -1,9 +1,0 @@
-{
-  "link": "/workspace/.onboarding/atom-mlmm-independent-audit-v1b/env/etc/OpenCL/vendors/ocl-icd-system",
-  "is_symlink": true,
-  "target": "/etc/OpenCL/vendors",
-  "target_exists": false,
-  "hook": "/workspace/.onboarding/atom-mlmm-independent-audit-v1b/env/bin/.ocl-icd-system-post-link.sh",
-  "hook_contents": "ln -s /etc/OpenCL/vendors \"${CONDA_PREFIX}\"/etc/OpenCL/vendors/${PKG_NAME} || true\n",
-  "cpu_check": "see fresh/strict OpenMM installation log"
-}

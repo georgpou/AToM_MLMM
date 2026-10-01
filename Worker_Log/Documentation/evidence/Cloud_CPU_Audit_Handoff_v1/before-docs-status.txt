@@ -1,3 +1,0 @@
-Exit code: 1
-Errors: 2
-Passing self-tests: 8

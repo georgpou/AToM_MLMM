@@ -14,6 +14,8 @@ Walk through two future changes on paper. First, replace the local mechanical pr
 
 Review requirement ownership, proposed tolerances, candidate dependencies and the cap/periodic/thermodynamic definitions. Do not approve an actual electrostatic Hamiltonian by implication; only its extension boundary is being designed here. Identify scientific questions as explicit decisions rather than leaving agents to guess during coding.
 
+Review the operational CPU/Amber split in the maintained [setup guide](../../../environment/cloud-cpu/README.md), the fixed-map guard and nonlinear force weights in S05, and cap force/torque assumptions in S04. Decide the G05/G07 small-reference methods, fixtures, error metrics and limits in S06 before inspecting results. Record a scoped decision so analytic CPU work can proceed while real-model/reference and GPU evidence remain pending.
+
 ## Acceptance condition
 
 An identified reviewer records the scope, reviewed spec revisions, accepted/amended decisions and requirement ownership. No unresolved conflict in a public force/map/unit/correction contract remains. This is a design acceptance, not a numerical pass.
@@ -22,4 +24,4 @@ A review split across assignments needs a final recorded decision covering the c
 
 ## Handoff
 
-Use `Worker_Log/Milestone_00/Milestone_00_vN_worker.md` and matching `_audit.md`; documentation maintenance instead uses `Documentation_vN_worker.md`. Follow [AGENTS.md](../../../AGENTS.md#logs-and-handoff). No earlier milestone is required. After relevant design approval, assign G00/G01 work; later numerical gates still require evidence.
+Use `Worker_Log/Milestone_00/Milestone_00_vN_worker.md` and matching `_audit.md`. Follow [AGENTS.md](../../../AGENTS.md#logs-and-handoff). No earlier milestone is required. After relevant design approval, assign G00/G01 work; later numerical gates still require evidence.

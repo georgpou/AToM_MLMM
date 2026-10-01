@@ -1,7 +1,0 @@
-{
-  "prefix": "/workspace/.onboarding/atom-mlmm-independent-audit-v1b",
-  "initially_absent": true,
-  "recorded": "2026-10-01T14:19:06.180575+00:00",
-  "reason": "prior fresh prefix stopped at the standard Conda registry mkdir; preserved unchanged",
-  "registry_directory_exists": true
-}

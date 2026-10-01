@@ -29,7 +29,7 @@ Required earlier gates: [G11](../gates/G11-protein-abfe.md). Check evidence cove
 | Task ID | Work | Main planned checks |
 |---|---|---|
 | `G12-T1` | Qualify molecular two-ligand geometry on the small fixture | `P0-TEST-G12-01`, `P0-TEST-G12-02`, `P0-TEST-G12-06` |
-| `G12-T2` | Run identity, reversal and nontrivial-pair controls | `P0-TEST-G12-03`, `P0-TEST-G12-04`, `P0-TEST-G12-06` |
+| `G12-T2` | Run identity, reversal and nontrivial-pair controls | `P0-TEST-G12-03`, `P0-TEST-G12-04`, `P0-TEST-G12-06`, `P0-TEST-G12-07` |
 | `G12-T3` | Interpret closure against matched states | `P0-TEST-G12-05` |
 
 ### G12-T1: qualify molecular two-ligand geometry on the small fixture
@@ -56,6 +56,8 @@ Compare an RBFE with corresponding ABFE differences and, where useful, a small c
 
 Keep covariance where calculations share data or corrections. A mismatch first triggers an audit of thermodynamic definition, restraints, identity and spectator effects; it is not immediate evidence of faulty ML chemistry.
 
+In addition to endpoint relabeling, independently initialize and sample the reversed pair on a small molecular fixture. Predeclare overlap/uncertainty criteria and compare the opposite signed observable under matched physical, restraint and correction definitions.
+
 ## Checks and the answers they must establish
 
 These are **planned tests**, not executed results. Use the rows for the assigned task; full-gate acceptance covers all applicable rows.
@@ -68,6 +70,7 @@ These are **planned tests**, not executed results. Use the rows for the assigned
 | P0-TEST-G12-04 | `tests/sampling/test_binding_closure.py::test_reversed_pair_sign` | Reversed endpoint labels negate the intended relative observable while preserving the same physical model and correction accounting. | P0-REQ-016, P0-REQ-031 |
 | P0-TEST-G12-05 | `tests/sampling/test_binding_closure.py::test_abfe_rbfe_comparison_matches_states` | Account for spectator-ligand, restraint, cavity/model/constraint and finite-box differences before interpreting closure. | P0-REQ-031, P0-REQ-019 |
 | P0-TEST-G12-06 | `tests/workflow/test_rbfe_transforms.py::test_shared_pipeline_and_restart` | The larger joint input uses the same physical builder, ATM assembler, observable schema and restart contracts without per-RBFE physics forks. | P0-REQ-001, P0-REQ-022, P0-REQ-015 |
+| P0-TEST-G12-07 | `tests/sampling/test_binding_closure.py::test_independently_sampled_reverse_pair` | Independently initialized reverse sampling on a small molecular fixture gives the opposite observable within predeclared uncertainty/overlap criteria; deterministic relabeling alone cannot pass. | P0-REQ-016, P0-REQ-019, P0-REQ-031 |
 
 ## How to test and decide
 

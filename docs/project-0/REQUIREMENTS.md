@@ -1,6 +1,6 @@
 # Requirement locator
 
-The 32 requirement IDs and their meanings are unchanged. Read only those named by the assigned task. Gate-local acceptance tables own planned assertions and pytest nodes; this optional index does not duplicate them.
+Requirements P0-REQ-001 through P0-REQ-032 retain their meanings; P0-REQ-033 adds the scoped physical-reference checks. Read only those named by the assigned task. Gate-local acceptance tables own planned assertions and pytest nodes; this optional index does not duplicate them.
 
 | Requirement | Required behavior | Specification | Primary gate |
 |---|---|---|---|
@@ -36,3 +36,4 @@ The 32 requirement IDs and their meanings are unchanged. Read only those named b
 | P0-REQ-030 | Independent oracles and deliberately injected faults demonstrate that checks detect errors. | [S06](specs/S06-validation-and-tolerances.md) | [G02](gates/G02-analytic-force-in-native-atm.md) |
 | P0-REQ-031 | Protein ABFE and RBFE reuse one cavity/model/boundary definition for comparable results. | [S05](specs/S05-protocol-and-thermodynamic-contracts.md) | [G12](gates/G12-dual-ligand-rbfe.md) |
 | P0-REQ-032 | Absent hardware, skipped tests, and short pilots cannot be reported as numerical qualification. | [S07](specs/S07-artifacts-and-qualification.md) | [G13](gates/G13-performance-and-release.md) |
+| P0-REQ-033 | Real-model chemical and boundary adequacy is checked on small frozen references with M00-reviewed methods and limits before protein claims. | [S06](specs/S06-validation-and-tolerances.md#small-system-physical-references) | [G05](gates/G05-local-model-adapter.md), [G07](gates/G07-joint-cavity-ligand-atm.md) |

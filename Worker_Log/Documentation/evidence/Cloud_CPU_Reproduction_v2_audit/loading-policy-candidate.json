@@ -1,9 +1,0 @@
-{
-  "scope": "scratch-only minimal repair experiment; production installer/helpers unchanged; not independently approved",
-  "recorded": "2026-10-01T14:31:43.250497+00:00",
-  "source": "/workspace/.onboarding/atom-mlmm-independent-audit-v1b/smoke_cpu.py",
-  "source_sha256": "5d85e78af99431b0187146c5952013fdb04dee330f292acff6b97e4626e59f93",
-  "candidate": "/workspace/.onboarding/atom-mlmm-audit-v1-safe-loading-candidate.py",
-  "candidate_sha256": "5ce05bacca976035f92fba8d98c5eed76722175b380d9cb239ad0f383bdbe612",
-  "change": "clear the override again after MACECalculator import; assert safe-policy postcondition"
-}

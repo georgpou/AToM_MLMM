@@ -56,6 +56,16 @@ Scan approach, modest compression, severe overlap for diagnosis, rotations near 
 
 Separate causes: units/indices, graph construction, cap coordinates, precision, model training domain, and sampling. Fine-tuning is justified only after identifying an actual model limitation. A new residual repulsion would define a new Hamiltonian and needs new validation.
 
+## Small-system physical references
+
+Before accepting the real mechanical model for protein work, predeclare a small reference set and numerical limits in M00. Record the exact capped molecules, conformers, contact/separated geometries, charge/multiplicity, electronic-structure method/basis, convergence settings, units, atom order and provenance/digests. Quantum data may be generated separately and frozen; a runtime quantum backend is not required.
+
+G05-T4 compares relative conformer energies and Cartesian forces for the exact capped chemistry, then frozen ligand/capped-fragment contacts. Use the same composition and explicitly defined energy zero; comparing absolute energies across different atom counts without an atom-reference convention is invalid. Native/adapter agreement establishes implementation consistency and cannot supply the chemical reference.
+
+G07-T4 compares uncut and partitioned descriptions under a documented reference protocol and measures sensitivity to admitted cut locations/ML regions. These Hamiltonians need not be identical. Separate cap/partition approximation, retained-MM/coupling terms, model error and sampling uncertainty; do not call a diagnostic mean-energy difference a binding correction. Check representative contact and separated geometries.
+
+M00 decides the reference choices, error metrics, limits and applicability before inspecting the physical-reference comparison results. Use no invented universal chemical threshold. Missing reference data leaves the relevant physical profile unqualified; analytic CPU code can advance. An exceeded limit requires a narrower profile or a reviewed physical change, not discarded samples or relaxed limits. Keep broader predictive benchmarking for Project 1.
+
 ## Sampling, covariance, and reproducibility
 
 Evaluate overlap, effective contribution counts, correlation, state visits, independent seeds, and estimate stability versus retained time. A connected overlap graph is necessary in the chosen analysis but not sufficient evidence of all relevant conformations. A practical initial flag is fewer than 100 effectively contributing samples or incompatible full/last-half estimates; these are investigation triggers, not universal convergence laws.
@@ -66,4 +76,4 @@ For $X-Y$, include covariance: $\mathrm{Var}(X-Y)=\mathrm{Var}(X)+\mathrm{Var}(Y
 
 ## Planned commands and what they mean
 
-Gate files list future `pytest` commands and test paths. These commands are not executable against this documentation-only package because simulation/test code has not yet been implemented. During implementation, capture command, environment/profile, exit code, and test outcome. A documentation link checker is not an OpenMM qualification test. The [evidence contract](S07-artifacts-and-qualification.md) defines acceptance records.
+Gate files list future `pytest` commands and test paths. The CPU setup regression is runnable now; planned molecular gate commands become executable as their code/tests are implemented. During implementation, capture command, environment/profile, exit code, and test outcome. A documentation link checker is not an OpenMM qualification test. The [evidence contract](S07-artifacts-and-qualification.md) defines acceptance records.

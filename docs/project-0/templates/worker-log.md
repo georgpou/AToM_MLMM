@@ -1,32 +1,26 @@
 # Worker log template
 
-Copy to the folder/stem named by the task; use the next `vN_worker.md`. This is a template, not evidence. Replace brackets with facts, and omit inapplicable subsections rather than filling empty tables. Follow [AGENTS.md](../../../AGENTS.md#logs-and-handoff).
+Use the folder/stem in the assigned gate and an unused attempt number. Keep one record for the task; omit inapplicable fields. This template is not evidence.
 
-# [Task name] - attempt [N] - worker
+# [Task] — v[N] worker
 
-**Scope:** [task path/heading, milestone/gate/task IDs, requirements, exclusions].\
-**Outcome:** [ready_for_audit / partial / blocked; whether the whole gate is in scope].\
-**Model/version:** [actual label and source; exact version or not exposed].\
-**Reasoning setting:** [exposed setting or not exposed; no private reasoning].\
-**Finished:** [ISO 8601 timestamp with timezone].\
-**Previous worker/audit:** [paths or none].
+**Scope:** [milestone/gate/task and tested profile].\
+**Outcome:** [ready_for_audit / partial / blocked].\
+**Finished:** [timestamp with timezone].\
+**Snapshot:** [branch, base commit, tested code commit; identify report-only changes].
 
-## Snapshot and references
+## Changes
 
-[Base/result commits and branch; relevant dirty/untracked files. Without Git, provide a known base and delivered file manifest/patch. Identify any report-only changes. List documents actually read, their sections and revision/hash; external retrieval dates only when fetched. Record applicable profile, inputs and resource limits.]
+[What changed and why; relevant files/specification decisions. Scientific changes include affected requirements, tests and review status.]
 
-## Changes and decisions
+## Verification
 
-[What changed, why, files/functions affected, and any scientific/specification amendment with affected evidence, migration/rejection policy and review status.]
-
-## Checks
-
-| Requirement/test | Command; working directory | Profile/input | Exit code; result |
+| Check | Command and working directory | Profile/input identity | Exit and observed result |
 |---|---|---|---|
-| [ID] | [actual command] | [exact setup] | [observed result or not run with reason] |
+| [requirement/test] | [exact command] | [environment/fixture/model] | [actual outcome] |
 
-[Show the expected failing check and later passing result where applicable; link larger raw output. Distinguish failed, skipped, unrun and nonapplicable checks.]
+[For a bugfix, record the intended failing check and subsequent pass. Link larger output when needed. Skipped/unrun checks remain explicit.]
 
-## Findings and next handoff
+## Handoff
 
-[Account for prior finding IDs; identify outstanding issues and the smallest next step. Name the matching audit path and few necessary references. Gate/milestone scope needs combined-snapshot evidence, not just individual accepted attempts. No independent acceptance is claimed here.]
+[Remaining issues, limitations and next action. Update STATUS. Name the sibling audit only if an independent review is assigned/performed; self-checks do not approve a gate or milestone.]

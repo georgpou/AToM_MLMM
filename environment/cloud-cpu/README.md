@@ -1,94 +1,42 @@
-# Reproduce the working ML/MM and AmberTools environments
+# CPU development environment
 
-This is the operational **core-analytic-cpu** development setup. Everything that
-was missing from the previous handoff is now carried by the Git branch: all 51
-pip wheels, full pinned upstream source archives (including AToM regression
-inputs), both exact Conda locks, both Python version inventories, constraints,
-activation scripts and checks. No separate setup tarball or original workspace
-is required. Conda packages and the fixed Miniforge bootstrap are downloaded.
-There are no pretrained model weights in these artifacts.
+This is the maintained Linux x86_64 setup for analytic CPU development. The branch includes two exact Conda locks, 51 hashed pip wheels, three full pinned upstream source archives, inventories, activation scripts and checks. Miniforge and Conda artifacts are downloaded during installation. The approved academic MACE-OFF23-small checkpoint is carried separately under `models/` for the link-atom example. GPU and complete model qualification are separate profiles.
 
-## First: create your branch from the setup branch
+## Install and record the result
 
-Read [AGENT_HANDOFF.md](../../AGENT_HANDOFF.md) and the
-[immediate audit assignment](../../NEXT_AGENT_AUDIT_HANDOUT.md). The user requires the next agent
-to start from `m01-g00-cloud-environment-setup`, never `main`. In a clean checkout:
-
-```bash
-git fetch origin refs/heads/m01-g00-cloud-environment-setup:refs/remotes/origin/m01-g00-cloud-environment-setup
-git switch --no-track -c m01-g00-environment-audit-v1 origin/m01-g00-cloud-environment-setup
-git merge-base --is-ancestor origin/m01-g00-cloud-environment-setup HEAD
-test "$(git branch --show-current)" != main
-```
-
-Choose an unused milestone/gate/task branch name if that name already exists.
-Preserve existing changes. Later branches inherit the reviewed predecessor and
-remain descendants of this setup lineage. Do not create a worktree unless the
-user explicitly requests one; Cloud tasks already have isolated checkouts.
-
-## One-command setup
-
-From the repository root in Bash:
+Start from the current development branch as described in [README](../../README.md#start-here). Run in Bash from the repository root:
 
 ```bash
 bash environment/cloud-cpu/install.sh
 source /workspace/.onboarding/atom-mlmm/activate.sh
+python /workspace/.onboarding/atom-mlmm/validate.py --repository "$PWD"
+python -m pytest -q
 ```
 
-The default installation prefix is `/workspace/.onboarding/atom-mlmm`. To choose
-a fresh prefix elsewhere on a Linux machine:
+The default prefix is external to the repository. To customize it:
 
 ```bash
 ATOM_MLMM_SETUP_ROOT=/absolute/writable/path/atom-mlmm bash environment/cloud-cpu/install.sh
 source /absolute/writable/path/atom-mlmm/activate.sh
+python /absolute/writable/path/atom-mlmm/validate.py --repository "$PWD"
 ```
 
-Always invoke the installer from this branch's `environment/cloud-cpu` directory
-as shown, rather than the historical evidence directory. It installs into the
-chosen external prefix and leaves repository files unchanged. Run it again to
-replay the same locks and checks. It stops on installation failure and preserves
-the exact output and exit status; it never solves a replacement package set.
+Use the same prefix on replay. The installer verifies `bundle.sha256` before installation, uses exact artifact locks without solving a replacement package set, and preserves each command's output/status in `<prefix>/logs/` plus `<prefix>/latest-validation.json`. Replaying the installer copies current maintained helpers into the prefix before checking them. It leaves repository files unchanged.
 
-Requirements: Linux x86_64, glibc 2.28 or newer, Bash, curl, tar, sha256sum, system
-CA certificates at `/etc/ssl/certs/ca-certificates.crt`, a writable prefix and
-Conda's standard `~/.conda` registry. Allow at least 16 GB free disk space for a
-fresh installation and its package cache. The checks use two CPU threads.
-Neither a GPU nor system CUDA is needed. OpenMM's locked packages include
-CUDA/ROCm libraries, as permitted by the user; PyTorch remains its CPU build.
+Requirements: Linux x86_64, glibc 2.28+, Bash, curl, tar, sha256sum, system CA certificates at `/etc/ssl/certs/ca-certificates.crt`, a writable prefix and Conda's standard `~/.conda` registry. Allow at least 16 GB free disk for installation/cache. Activation uses two CPU threads. A GPU/system CUDA installation is unnecessary for this profile.
 
-Network destinations: `github.com` and `release-assets.githubusercontent.com`
-for Miniforge 26.7.2-0, and `conda.anaconda.org` for exact conda-forge artifacts.
-Fetching this repository also uses GitHub. PyPI and model-hosting services are
-not needed during replay. Existing platform HTTPS Git authentication suffices
-for the repository; no new token is part of this setup.
+Network: `github.com` and `release-assets.githubusercontent.com` for Miniforge 26.7.2-0, `conda.anaconda.org` for exact conda-forge artifacts. Bootstrap SHA-256: `281b0ac7d550802efc81af633225a5e6116d29ae72f3ab4eae7168c3931a4c05`. TLS, Conda SHA-256 URL hashes, bundle and wheel hashes remain checked. Replay needs no PyPI or model-hosting download.
 
-The bootstrap SHA-256 is
-`281b0ac7d550802efc81af633225a5e6116d29ae72f3ab4eae7168c3931a4c05`.
-TLS, Conda SHA-256 URL hashes, the complete bundle manifest and pip wheel hashes
-are checked. Do not disable verification to repair a download failure.
+## Two environments
 
-## Two environments, one preparation workflow
-
-| Environment under the prefix | Purpose | Selected versions |
+| Prefix directory | Purpose | Selected locked versions |
 |---|---|---|
-| `env` | Main AToM, ML potentials, OpenMM and analysis | Python 3.11.16; NumPy 2.4.6; CPU PyTorch 2.8.0; OpenMM 8.6.1; OpenMM-ML 1.8; MACE 0.3.16; e3nn 0.4.4; TorchANI 2.9.0; MDTraj 1.11.1; PyMBAR 4.0.3; OpenFF toolkit 0.18.0; openmmforcefields 0.16.0; AToM 8.5.0b0 from tag v8.5.0 |
-| `amber-env` | AmberTools preparation executables and its Python utilities | Python 3.11.16; AmberTools 26.0 CPU; NumPy 1.26.4; Biopython 1.85 |
+| `env` | ML/AToM, OpenMM, preparation interfaces and analysis | Python 3.11.16; NumPy 2.4.6; CPU PyTorch 2.8.0; OpenMM 8.6.1; OpenMM-ML 1.8; MACE 0.3.16/e3nn 0.4.4; TorchANI 2.9.0; MDTraj 1.11.1; PyMBAR 4.0.3; OpenFF toolkit 0.18.0; openmmforcefields 0.16.0; AToM 8.5.0b0 |
+| `amber-env` | AmberTools executables and Python utilities | Python 3.11.16; AmberTools 26.0 CPU; NumPy 1.26.4; Biopython 1.85 |
 
-The complete versions/builds are in `core-conda-linux-64.lock` and
-`amber-conda-linux-64.lock`. `core-pip-inventory.txt` and
-`amber-pip-inventory.txt` list every installed Python distribution, including
-those supplied by Conda. `pip-wheels.lock` specifies the 51 additional main-env
-distributions with hashes; there is no separate Amber PyPI installation step.
-Amber's bundled Python distributions are supplied by its locked Conda artifact.
-Do not try to fetch those distribution names independently from PyPI.
+Amber's Python utilities need NumPy below 2 while the main MDTraj/matscipy stack needs NumPy 2. Keep the environments separate. Main activation retains main Python, sets `AMBERHOME=<prefix>/amber-env`, and exposes `antechamber`, `parmchk2`, `tleap` and `sqm` after main `bin`. Main OpenFF/openmmforcefields calls these executables. Amber Python scripts retain their own interpreter.
 
-Main activation sets `AMBERHOME=<prefix>/amber-env` and appends its `bin` directory
-after the main environment's `bin`. Main `python` therefore remains NumPy 2,
-while `antechamber`, `parmchk2`, `tleap` and `sqm` run from AmberTools. Amber's
-Python scripts use their own interpreter. This is how OpenFF/openmmforcefields
-in the main environment calls the separate preparation tools.
-
-For work with AmberTools Python utilities, explicitly switch:
+For direct Amber Python work and return to main:
 
 ```bash
 source /workspace/.onboarding/atom-mlmm/activate-amber.sh
@@ -97,101 +45,44 @@ source /workspace/.onboarding/atom-mlmm/activate.sh
 python -c 'import sys, numpy; print(sys.executable, numpy.__version__)'
 ```
 
-Use your chosen prefix in those commands if you changed the default. Do not
-install AmberTools into the main environment: its bundled Python utilities
-require NumPy below 2, while this main stack's MDTraj/matscipy requires NumPy 2.
-This is a Python dependency conflict, not evidence that all Amber executables
-require NumPy 1. Main activation sets `PIP_CONSTRAINT` to the core constraints;
-Amber activation removes it. Use a separate profile for incompatible ML extras
-and qualify compatible additions before updating these reproducible locks.
+Use your custom prefix if applicable. Main activation applies the core pip constraints; Amber activation removes them. Keep incompatible backends in separate profiles. OpenMM's locks include CUDA/ROCm libraries; this does not make CPU PyTorch or GPU execution qualified.
 
-The repository's original candidate YAML and scientific specifications remain
-unchanged. The two-environment arrangement is the user's agreed operational
-setup; formal M00/G00 review must account for it. Installation is not acceptance
-of any scientific gate, model or GPU profile.
+## Versions and sources
 
-## Sources and package provenance
+`core-conda-linux-64.lock` and `amber-conda-linux-64.lock` identify every Conda build and SHA-256 artifact. The matching pip inventories list all Python distributions. `pip-wheels.lock` and `wheels.sha256` identify the 51 supplied main-env wheels. Amber's Python distributions come from its Conda lock, with no separate PyPI step.
 
-These archives are unmodified `git archive` outputs from the exact commits used
-to build the three supplied source wheels. `upstream-sources.json` and
-`bundle.sha256` identify them. Their upstream licenses remain inside the archives
-and wheels; AToM's corresponding complete source is supplied alongside its wheel.
-
-| Upstream repository | Selected tag | Full commit | Distribution version |
+| Upstream | Tag | Exact source commit | Package version |
 |---|---|---|---|
 | [AToM-OpenMM](https://github.com/Gallicchio-Lab/AToM-OpenMM) | v8.5.0 | `9e26c5a3811038be1c98e3be6af4c78cd0dd57a7` | 8.5.0b0 |
 | [OpenMM-ML](https://github.com/openmm/openmm-ml) | 1.8 | `a7fb40ebecd031db3a5d1da08202cad6819c366f` | 1.8 |
 | [openmmforcefields](https://github.com/openmm/openmmforcefields) | 0.16.0 | `3aa91626db3aeea8e8388c43c42a51bf1d99159e` | 0.16.0 |
 
-The installer extracts these under `<prefix>/sources/`. The AToM checkout
-includes `tests/test_uwham.py`, its three reference datasets and the upstream
-pytest configuration; the test function is named `_test_uwham_analysis`.
-Use the supplied source and configuration, not a similarly named test from a
-moving branch. `pip-requirements.lock` records original source-install inputs;
-replay uses the supplied wheels and `pip-wheels.lock`, without rebuilding.
-`package-identities.json` records provenance of the original successful build.
+Complete source archives and upstream licenses accompany these wheels. Installation extracts them under `<prefix>/sources/`; `upstream-sources.json` identifies them. AToM's tag and its package version are intentionally distinct. Its UWHAM test and three reference datasets are included. `package-identities.json` records original build provenance; wheel replay does not recreate VCS install metadata. `pip-requirements.lock` retains the original source-build inputs; installation uses `pip-wheels.lock`.
 
-If a Git checkout is needed for development, fetch the full commit from the
-listed upstream URL into a separate directory and verify `git rev-parse HEAD`
-equals that commit. Tags alone and package-reported versions are insufficient.
+## Checks
 
-## Checks and recorded outcomes
+Validation runs eight environment checks: both exact inventories, both pip dependency checks, OpenMM Reference/CPU installation, weight-free MACE/TorchANI/ASE/native ATM smoke, main OpenFF/GAFF preparation through separate Amber, and upstream AToM UWHAM. Its ninth check verifies local documentation and eight checker self-tests. Strict validation returns nonzero for any failure. Installer environment-only mode still runs and records documentation failures; its exit reflects environment checks. Use strict validation for the complete baseline.
 
-The installer automatically runs both complete version/build comparisons, both
-`python -m pip check` commands, OpenMM's installation test, CPU MACE/TorchANI/
-ASE/native ATM smoke checks, main OpenFF/GAFF preparation through separate
-AmberTools, the upstream AToM UWHAM regression, and the documentation self-test.
-It retains all individual command outputs and exit codes in `<prefix>/logs/`
-and writes `<prefix>/latest-validation.json`.
+The smoke uses a random untrained MACE model and TorchANI descriptors. The project regression also checks the loading policy after the complete smoke. CPU setup is development evidence; M00 and scientific gates require their own contract tests and reviews.
 
-To run the checks again after main activation, from the repository root:
+## Model assets and loading
 
-```bash
-python /workspace/.onboarding/atom-mlmm/validate.py --repository "$PWD"
-```
+The user-authorized academic MACE-OFF23-small weights, licence and pinned manifest are in [models/mace-off23-small](../../models/mace-off23-small/). Run [the link-atom example](../../examples/README.md) to evaluate a small local ML/MM system and verify its parent derivatives. Check the pinned digest before loading. The full-module checkpoint uses explicit `weights_only=False` only for those verified trusted bytes, then `MACECalculator(models=...)`; the global unsafe-loading override stays absent.
 
-This strict validation command exits nonzero for any failing check. The
-installer invokes it with `--environment-only`: all checks still run and all
-failures are printed/recorded, but the installer's status reflects environment
-checks. The repository has two existing missing
-`scientific-amendment-source-checks` anchors; the docs command exits 1 while its
-eight self-tests pass. That separate repository defect is not suppressed or
-described as a pass. Any dependency, CPU, preparation or upstream-test failure
-still fails installation.
+MACE 0.3.16 sets `TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD` in both its top-level and calculator imports. Clear it after each import before later model use. The smoke narrowly allows `slice` via `torch.serialization.safe_globals([slice])` while importing trusted e3nn packaged constants, then restores the prior allowance. Preserve the safe default and never enable a global unsafe loader.
 
-The CPU smoke uses a random untrained MACE model and TorchANI descriptors.
-MACE 0.3.16 sets `TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD` at import; the helper clears
-it and narrowly allows the builtin `slice` for trusted e3nn packaged constants
-via `torch.serialization.safe_globals([slice])`. Do not enable global unsafe
-loading. Pretrained checkpoint loading remains unqualified and weights must
-not be downloaded without the user's authorization.
+Real-model work in G00-T2/G05 requires an approved local checkpoint, digest, allowed use, architecture/elements/domain/output convention and a fresh-process loading test. Follow [S07](../../docs/project-0/specs/S07-artifacts-and-qualification.md#loading-restart-and-workers). The package license does not establish checkpoint permissions. Avoid silent downloads or replacement assets. A scoped compatibility change must apply to the identified trusted artifact and receive its own regression; the weight-free smoke does not qualify arbitrary checkpoints.
 
-Fresh-install evidence and exact commands are recorded in
-[the reproduction worker log](../../Worker_Log/Documentation/Cloud_CPU_Reproduction_v2_worker.md).
-Historical setup evidence describes the earlier local installation; it does
-not replace this branch-contained installer.
+## GPU qualification
 
-## If setup fails
+Create a separate GPU profile when hardware/model work needs it. Record the driver/device, OpenMM platform/precision and PyTorch runtime/build, then run the relevant energy/force, mapped-state, loading, restart and worker-device checks. Calibrate GPU precision against independent CPU references. GPU/model tests use the markers documented in [DEVELOPMENT](../../docs/DEVELOPMENT.md#commands). Current CPU passes leave that profile pending.
 
-Read the exact failing command in `<prefix>/logs/install-*.log` and the individual
-validation logs. Preserve the failure rather than guessing new versions.
+## Troubleshooting
 
-- Missing wheels or archives: confirm you fetched this setup branch's latest
-  tip, not `main` or an older child. There must be 51 actual `.whl` files, not
-  Git LFS pointer files. `sha256sum -c bundle.sha256` from this directory must pass.
-- HTTPS 403: check Cloud egress access to the three required destinations above;
-  allowlist settings and actual runtime access are separate. Retest the failed
-  destination before claiming a network change applied.
-- A write denial for `~/.conda`: the standard Conda environment registry needs
-  access in addition to the installation prefix. In a sandboxed task, request
-  the narrow filesystem escalation for the installer through the command tool;
-  do not change `HOME` or disable the sandbox as a workaround.
-- An interrupted bootstrap can leave a partial `conda` directory. Preserve its
-  log and choose another empty prefix for a clean reproduction.
-- Both environments must be activated through the supplied scripts. A bare
-  system Python, missing `AMBERHOME`, or a GPU PyPI Torch reinstall is a different
-  environment. Check `which python`, `python -m pip check`, `which antechamber`
-  and the exact-version check before attempting scientific work.
+- A bundle checksum failure means an incomplete or modified artifact; inspect the current branch and the exact failing file. Preserve hashes and restore the intended bytes.
+- A network failure needs access to the destinations above. Preserve proxy/CA settings and inspect the failed URL/status.
+- A sandbox write denial at `~/.conda` needs narrow access to Conda's standard registry in addition to the prefix. Preserve HOME and the failed log; use another empty prefix after an interrupted bootstrap.
+- Check the active interpreter, `AMBERHOME`, Amber executable paths and pip constraints before scientific work. Activate through the supplied scripts in each shell.
+- The replay `ocl-icd-system` existing-symlink warning and missing optional ML acceleration extensions were nonblocking for tested Reference/CPU work. Leave them alone unless a relevant CPU check fails or you qualify OpenCL/GPU. Keep warnings visible.
 
-Report genuine blockers with the failing command, exit status, reason and the
-smallest action needed to resolve them; continue independent authorized work.
+`cloud-install.sh` is the optional Cloud setup hook. Prefer configuring the checkout on the development branch; if setup files are absent, the hook obtains the current development branch's artifacts without changing the checkout. [CLOUD_START.md](CLOUD_START.md) is a short Cloud startup instruction.

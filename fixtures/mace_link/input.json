@@ -1,0 +1,214 @@
+{
+  "description": "Neutral ethane cavity-boundary surrogate and a complete methane ligand, GAFF 2.2.20. Single C-C cut leaves one capped methane-like ML fragment. Small nonperiodic demonstration, not protein/model-domain qualification.",
+  "prepared": "2026-10-01T16:06:17.688799+00:00",
+  "smiles": [
+    "CC",
+    "C"
+  ],
+  "positions_nm": [
+    [
+      -0.0747636682702161,
+      0.004183756987532164,
+      0.0010686704904145315
+    ],
+    [
+      0.0750956127888317,
+      9.690460113991228e-05,
+      8.526644596997686e-05
+    ],
+    [
+      -0.11297565115075811,
+      -0.06360191277357641,
+      0.08138988586935651
+    ],
+    [
+      -0.11884767165848263,
+      0.10249559857573291,
+      0.01995987696101134
+    ],
+    [
+      -0.11998609043691727,
+      -0.03334918429893493,
+      -0.0937948616775402
+    ],
+    [
+      0.1084153327774484,
+      -0.07365202837071094,
+      -0.07731932606837714
+    ],
+    [
+      0.12265441762320711,
+      0.09578272607871832,
+      -0.026435417752725728
+    ],
+    [
+      0.12040771832688707,
+      -0.031955860799900995,
+      0.09504590573189073
+    ],
+    [
+      -0.0747636682702161,
+      0.4041837569875322,
+      0.0010686704904145315
+    ],
+    [
+      -0.02030874357122711,
+      0.48078964822292825,
+      -0.059230876963413226
+    ],
+    [
+      -0.00029912918510652253,
+      0.34645141728373274,
+      0.058995705249041235
+    ],
+    [
+      -0.1339507956168076,
+      0.3400322252796518,
+      -0.06714191967299693
+    ],
+    [
+      -0.1470553610137581,
+      0.45477198649576084,
+      0.06864463260560526
+    ]
+  ],
+  "atoms": [
+    {
+      "name": "C1x",
+      "atomic_number": 6,
+      "residue": 0
+    },
+    {
+      "name": "C2x",
+      "atomic_number": 6,
+      "residue": 0
+    },
+    {
+      "name": "H1x",
+      "atomic_number": 1,
+      "residue": 0
+    },
+    {
+      "name": "H2x",
+      "atomic_number": 1,
+      "residue": 0
+    },
+    {
+      "name": "H3x",
+      "atomic_number": 1,
+      "residue": 0
+    },
+    {
+      "name": "H4x",
+      "atomic_number": 1,
+      "residue": 0
+    },
+    {
+      "name": "H5x",
+      "atomic_number": 1,
+      "residue": 0
+    },
+    {
+      "name": "H6x",
+      "atomic_number": 1,
+      "residue": 0
+    },
+    {
+      "name": "C1x",
+      "atomic_number": 6,
+      "residue": 1
+    },
+    {
+      "name": "H1x",
+      "atomic_number": 1,
+      "residue": 1
+    },
+    {
+      "name": "H2x",
+      "atomic_number": 1,
+      "residue": 1
+    },
+    {
+      "name": "H3x",
+      "atomic_number": 1,
+      "residue": 1
+    },
+    {
+      "name": "H4x",
+      "atomic_number": 1,
+      "residue": 1
+    }
+  ],
+  "bonds": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ],
+    [
+      0,
+      3
+    ],
+    [
+      0,
+      4
+    ],
+    [
+      1,
+      5
+    ],
+    [
+      1,
+      6
+    ],
+    [
+      1,
+      7
+    ],
+    [
+      8,
+      9
+    ],
+    [
+      8,
+      10
+    ],
+    [
+      8,
+      11
+    ],
+    [
+      8,
+      12
+    ]
+  ],
+  "ml_real_indices": [
+    0,
+    2,
+    3,
+    4,
+    8,
+    9,
+    10,
+    11,
+    12
+  ],
+  "boundary_parents": [
+    0,
+    1
+  ],
+  "link_distance_nm": 0.109,
+  "mm_system_sha256": "da8d4194c140b4290507450e42d0b86f0ca8da6ec688138d3884cba394314cb3",
+  "forcefield": "gaff-2.2.20",
+  "constraints": null,
+  "nonbonded_method": "NoCutoff",
+  "versions": {
+    "openff-toolkit": "0.18.0",
+    "openmmforcefields": "0.16.0",
+    "openmm": "8.6.1",
+    "numpy": "2.4.6"
+  }
+}

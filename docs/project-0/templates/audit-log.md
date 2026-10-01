@@ -1,24 +1,24 @@
 # Audit log template
 
-Write the sibling `vN_audit.md` for the submitted worker attempt. Follow [AGENTS.md](../../../AGENTS.md#logs-and-handoff). Do not create an audit for a self-check or an unperformed review. Omit inapplicable subsections.
+Use for an actual independent review of the worker's recorded snapshot. Match its folder/stem and attempt number. This template is not evidence.
 
-# [Task name] - attempt [N] - audit
+# [Task] — v[N] audit
 
-**Worker log:** [path].\
-**Audited scope:** [task/requirement IDs; full gate or milestone only if explicitly covered].\
-**Snapshot:** [exact worker result commit or delivered manifest; distinguish later report-only changes].\
-**Model/version; reasoning setting:** [actual exposed metadata or not exposed].\
-**Finished:** [ISO 8601 timestamp with timezone].\
+**Reviewed worker/snapshot:** [log, branch and commit].\
+**Scope/profile:** [task, gate or milestone combined scope].\
+**Reviewer and finished time:** [identity; timestamp with timezone].\
 **Verdict:** [accepted_for_scope / changes_required / blocked].
 
-## Independent checks
+## Evidence
 
-[Relevant specification paths/sections and revisions; inspected changes/callers; prior unresolved findings; exact commands, working directory, environment/input/profile, exit codes and observations. Link raw evidence. State what was not run and why. A newer checkout is not automatically the recorded snapshot.]
+[Relevant requirements and independently rerun commands, inputs, exit codes and outcomes. Distinguish available CPU/model/GPU evidence.]
 
 ## Findings
 
-For each finding record **A01**, **blocking / required / optional**, observed versus expected behavior, file/function, evidence or reproduction, smallest justified repair, regression test, and closure condition. Label unconfirmed explanations as hypotheses requiring a diagnostic. Optional improvements do not block otherwise correct work.
+| Finding and importance | Evidence/location | Required repair and closure check |
+|---|---|---|
+| [actual issue] | [reproducer] | [smallest correct change/test] |
 
-## Accepted scope and next action
+## Decision and handoff
 
-[State precisely what is accepted, what remains, the next worker-attempt path, and any warranted STATUS.md update. Check gate coverage and combined milestone criteria only when in scope; identify profiles and earlier reviews. Do not infer whole-gate acceptance from one task, or model/GPU support from analytic CPU results.]
+[Exactly what is accepted or remains unqualified; next action. A small-task result does not accept a whole gate. Update STATUS with the real reviewed scope.]

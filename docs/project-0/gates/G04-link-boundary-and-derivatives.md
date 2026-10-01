@@ -29,7 +29,7 @@ Required earlier gates: [G01](../gates/G01-identity-partition-and-contracts.md),
 | Task ID | Work | Main planned checks |
 |---|---|---|
 | `G04-T1` | Exercise the actual link builder without MACE | `P0-TEST-G04-01`, `P0-TEST-G04-03`, `P0-TEST-G04-04` |
-| `G04-T2` | Validate geometry and both real-parent forces | `P0-TEST-G04-02`, `P0-TEST-G04-06` |
+| `G04-T2` | Validate geometry and both real-parent forces | `P0-TEST-G04-02`, `P0-TEST-G04-06`, `P0-TEST-G04-07` |
 | `G04-T3` | Repeat under ATM and across reload | `P0-TEST-G04-05`, `P0-TEST-G04-02`, `P0-TEST-G04-06` |
 
 ### G04-T1: exercise the actual link builder without MACE
@@ -56,6 +56,8 @@ Place the stationary boundary in the analytic ATM fixture while translating a se
 
 Add the cap-environment analytic term to exercise a future environment-sensitive force path. Serialize, reload in a fresh process, and repeat positions/parent derivatives. Periodic image handling is expanded in G06, but preserve an explicit coordinate convention already here.
 
+Add an isolated, translation/rotation-invariant cap-dependent potential. Check net force and torque after real-parent projection and each parent force component independently. Do not apply this balance oracle to external restraints or incompatible periodic conventions.
+
 ## Checks and the answers they must establish
 
 These are **planned tests**, not executed results. Use the rows for the assigned task; full-gate acceptance covers all applicable rows.
@@ -68,6 +70,7 @@ These are **planned tests**, not executed results. Use the rows for the assigned
 | P0-TEST-G04-04 | `tests/integration/test_link_geometry.py::test_actual_and_nonidentity_index_maps` | Consume current appended-site mapping and a synthetic nonidentity map; cap and ligand identities remain correct. | P0-REQ-002 |
 | P0-TEST-G04-05 | `tests/integration/test_link_geometry.py::test_stationary_cap_force_under_atm` | Both real parents receive exactly one cap contribution inside ATM; energy agreement alone cannot satisfy this check. | P0-REQ-004, P0-REQ-013 |
 | P0-TEST-G04-06 | `tests/integration/test_link_geometry.py::test_cap_environment_cross_derivative` | A harmonic cap-MM environment term produces both parent derivatives and the real environment derivative without double redistribution. | P0-REQ-004, P0-REQ-006 |
+| P0-TEST-G04-07 | `tests/integration/test_link_geometry.py::test_cap_projected_force_and_torque_balance` | An isolated translation/rotation-invariant cap-dependent potential has zero net real force and torque after projection; each parent component matches the independent Jacobian and finite differences. | P0-REQ-004, P0-REQ-006, P0-REQ-030 |
 
 ## How to test and decide
 

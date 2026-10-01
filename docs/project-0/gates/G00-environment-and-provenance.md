@@ -18,11 +18,11 @@ Required earlier gates: none after the required M00 design review. Check evidenc
 
 ## Inputs, outputs, and code to work on
 
-**Use:** Reviewed M00 boundaries; the inherited candidate environment; one explicitly approved model asset or a recorded reason it is not yet available.
+**Use:** Reviewed M00 boundaries; the maintained two-environment CPU setup; an approved model asset when qualifying the real-model profile.
 
 **Outputs used by later gates:** Environment and source manifests, candidate CPU profile, an approved model manifest, and a reproducible import/API-check report. GPU qualification remains a separate profile.
 
-**Planned source/test paths:** `environment/cpu.in`, `environment/gpu.in`, `schema.py`, `persistence.py`, `tests/unit/test_environment.py`.
+**Source/test paths:** existing `environment/cloud-cpu/` locks, scripts and artifacts; planned `schema.py`, `persistence.py`, `tests/unit/test_environment.py`. A separate GPU profile is added when needed.
 
 ## Small tasks you can assign separately
 
@@ -34,23 +34,23 @@ Required earlier gates: none after the required M00 design review. Check evidenc
 
 ### G00-T1: characterize the clean CPU environment
 
-**Read:** [Environment: installation](../../../ATM_MLMM_Environment.md#install-and-record-the-result); [S07: Capability-specific applicability](../specs/S07-artifacts-and-qualification.md#capability-specific-applicability).
+**Read:** [CPU installation](../../../environment/cloud-cpu/README.md#install-and-record-the-result); [S07: Capability-specific applicability](../specs/S07-artifacts-and-qualification.md#capability-specific-applicability).
 
-Start from the candidate recipe in [the environment note](../../../ATM_MLMM_Environment.md), not a guessed latest combination. Create a separate CPU environment. Write and run the API/version checks; failures must identify an unavailable API or inconsistent version rather than silently disabling that check. Resolve dependencies, run `python -m pip check` and `python -m openmm.testInstallation`, and save their full outputs.
+Use the existing locked installer and its checks in [the CPU guide](../../../environment/cloud-cpu/README.md). Keep main ML/AToM and AmberTools Python environments separate. Reuse a verified installation or create it in a fresh prefix when needed; record the prefix, source/build identities and current check results. Implement the project's required API/provenance tests; missing APIs or inconsistent versions fail clearly. Run both pip checks and OpenMM's installation test. Setup smokes can supply dependency evidence, while gate-specific API/manifest assertions still need implementation.
 
 Pin the resolved Python patch version, transitive dependency builds, source commits, and downloaded artifact hashes after a successful solve. AToM's source tag and package metadata can disagree; record both. Do not force an older OpenMM installation below the reviewed OpenMM-ML floor to reproduce a historical tutorial. Do not install the old standalone ATM plugin for the native-ATM route.
 
 ### G00-T2: approve and characterize the model asset
 
-**Read:** [Environment: assets and loading](../../../ATM_MLMM_Environment.md#model-assets-and-loading); [S07: Evidence must identify what was tested](../specs/S07-artifacts-and-qualification.md#evidence-must-identify-what-was-tested).
+**Read:** [Model assets and loading](../../../environment/cloud-cpu/README.md#model-assets-and-loading); [S07: Evidence must identify what was tested](../specs/S07-artifacts-and-qualification.md#evidence-must-identify-what-was-tested).
 
-Select the one candidate local checkpoint for the first fixtures, document allowed use, and freeze a local digest. The package license and checkpoint license are different obligations. Asset presence, model identity, architecture/element/domain metadata, and numerical qualification are separate states.
+Use the bundled academic MACE-OFF23-small checkpoint for the initial candidate, with its pinned manifest/licence under `models/mace-off23-small/` and the loading path in [the working example](../../../examples/README.md). Record its architecture/elements/domain metadata and the applicable qualification scope. A new asset requires its own allowed-use decision and digest. The package license and checkpoint license are separate obligations.
 
-Test actual loading with the proposed PyTorch version before building a mixed System. The inherited audit identified default `weights_only` compatibility as a specific risk. A required adapter patch must be narrowly scoped to an approved trusted artifact, recorded as a source change, and retested; no global monkey-patch of `torch.load` is acceptable.
+The example already loads these identified full-module weights with explicit `weights_only=False` after hash verification, then passes `models=` to the calculator while preserving the safe global policy. Implement the gate assertions for wrong/absent assets, manifest completeness and offline fresh-process loading. Reuse the maintained path; keep any future compatibility change scoped to the identified trusted artifact and regression-tested. No global monkey-patch of `torch.load` is acceptable.
 
 ### G00-T3: create the optional hardware profile only when available
 
-**Read:** [Environment: GPU qualification](../../../ATM_MLMM_Environment.md#gpu-qualification); [S07: Loading, restart, and workers](../specs/S07-artifacts-and-qualification.md#loading-restart-and-workers).
+**Read:** [GPU qualification](../../../environment/cloud-cpu/README.md#gpu-qualification); [S07: Loading, restart, and workers](../specs/S07-artifacts-and-qualification.md#loading-restart-and-workers).
 
 Use a separate GPU environment and record OpenMM and PyTorch runtime builds, driver, GPU architecture, precision and visible-device settings. Import success alone does not demonstrate nested-force correctness or device placement. Schedule those checks in their owning gates. Do not replace packages repeatedly in the CPU environment and call its final state a lock.
 

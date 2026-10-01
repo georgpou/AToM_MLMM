@@ -1,28 +1,42 @@
 # AToM ML/MM
 
-Project 0 builds a reusable ML/MM energy model containing complete ligands, selected protein atoms and hydrogen link atoms, then evaluates it through ATM for ABFE and RBFE. The first implementation uses mechanical embedding and uncomplicated neutral chemistry. Project 0 also requires a small chemical-reference and boundary-sensitivity check before protein demonstrations. Project 1 then tests predictive accuracy more broadly; correct code and a well-converged free energy are not, by themselves, proof of accurate chemistry.
+Build a cavity-inclusive ML/MM Hamiltonian for ATM absolute and relative binding free energies. Start with mechanical embedding, complete neutral ligands and capped neutral protein fragments. Keep the physical energy builder independent of coordinate transfer and analysis.
 
-**Current state:** plans, documentation tooling and a CPU dependency setup; the molecular platform is not implemented. No numerical gate or M00 design review is accepted. [Status and qualification](docs/project-0/STATUS.md) records actual evidence; files named under future `src/` and `tests/` paths are not implemented merely because the plan names them.
+**Current state:** the reproducible CPU setup and a real-weight MACE ML/MM link-atom example are implemented. Scientific modules and gate tests are the next work. [STATUS](docs/project-0/STATUS.md) records results and qualification; GPU and pretrained-model profiles will be tested separately.
 
-## Start with the assigned task
+## Start here
 
-**Cloud environment and branch handoff:** read [AGENT_HANDOFF.md](AGENT_HANDOFF.md)
-and the [reproducible setup guide](environment/cloud-cpu/README.md). Create your
-first setup branch from `m01-g00-cloud-environment-setup`, never `main`; repair
-successors inherit the recorded audit branch. From the repository
-root, `bash environment/cloud-cpu/install.sh` installs the main ML/AToM and
-separate AmberTools environments using the exact artifacts included on that
-branch. No separately transferred wheel bundle is required.
+Create your next working branch from the current tip of `m01-g00-environment-audit-v1`. Preserve existing changes and use an unused branch name:
 
-**Immediate next assignment:** [required baseline repairs](NEXT_AGENT_REPAIR_HANDOUT.md)
-from the [completed independent audit](Worker_Log/Documentation/Cloud_CPU_Reproduction_v2_audit.md).
-[Status](docs/project-0/STATUS.md) distinguishes open findings from nonblocking
-CPU warnings. The original [audit handout](NEXT_AGENT_AUDIT_HANDOUT.md) and
-[agent prompt](NEXT_AGENT_AUDIT_PROMPT.md) remain assignment history.
+```bash
+git status --short --branch
+git fetch origin refs/heads/m01-g00-environment-audit-v1:refs/remotes/origin/m01-g00-environment-audit-v1
+git switch --no-track -c m01-cpu-implementation origin/m01-g00-environment-audit-v1
+```
 
-An implementation worker reads [AGENTS.md](AGENTS.md), the named gate/task and its specific reading links, plus relevant prior findings. An auditor starts from the exact worker log and recorded snapshot. Do not read all documentation by default. [Environment setup](ATM_MLMM_Environment.md) is needed when installing or qualifying software, not for every editing task.
+Work and push on the child branch. Keep main unchanged. Later tasks inherit the completed predecessor.
 
-Example assignment: "Implement **G01-T1** in its gate page. Do not start T2/T3. Read only its referenced specification sections and relevant previous findings. Leave the next `Gate_01_vN_worker.md` under `Worker_Log/Milestone_01/`." For review, name that worker log; for repair, name its matching audit and finding IDs.
+From the repository root, install and activate:
+
+```bash
+bash environment/cloud-cpu/install.sh
+source /workspace/.onboarding/atom-mlmm/activate.sh
+python -m pytest -q
+```
+
+Read [AGENTS.md](AGENTS.md), the [CPU setup guide](environment/cloud-cpu/README.md), and [development guide](docs/DEVELOPMENT.md). The installer carries the exact locks, wheels and source archives; a fresh agent needs no previous agent's filesystem. Its default prefix is external to the checkout and can be customized.
+
+**Next assignment:** complete the relevant [M00 design review](docs/project-0/milestones/M00-architecture-review.md), then implement the M01 analytic CPU scope: [G00-T1](docs/project-0/gates/G00-environment-and-provenance.md), [G01-T1/T2/T3](docs/project-0/gates/G01-identity-partition-and-contracts.md), and M01 combined review. Use the gates' assertions and focused tests. Model assets and GPU qualification are deferred to their relevant profiles; they do not block analytic CPU development.
+
+## Quick MACE calculation
+
+The small MACE-OFF23 checkpoint is bundled for the user's academic use. After activation, run:
+
+```bash
+python examples/mace_link_cpu.py --output /workspace/.onboarding/atom-mlmm/mace-link-result.json
+```
+
+The [example guide](examples/README.md) explains the 13-real-atom GAFF/MACE fixture, its one massless link atom, loading policy, energy/force checks and model licence. The run uses local weights and needs no download.
 
 ## Roadmap
 
@@ -40,51 +54,10 @@ Milestones group outcomes; gates contain separately assignable tasks. The final 
 | [M07](docs/project-0/gates/G12-dual-ligand-rbfe.md#m07-combined-review) | Protein RBFE | [G12](docs/project-0/gates/G12-dual-ligand-rbfe.md); [combined review](docs/project-0/gates/G12-dual-ligand-rbfe.md#m07-combined-review) | [M06](docs/project-0/gates/G11-protein-abfe.md#m06-combined-review) | `Worker_Log/Milestone_07/` |
 | [M08](docs/project-0/gates/G13-performance-and-release.md#m08-combined-review) | Release and Project 1 handover | [G13](docs/project-0/gates/G13-performance-and-release.md); [combined review](docs/project-0/gates/G13-performance-and-release.md#m08-combined-review) | [M07](docs/project-0/gates/G12-dual-ligand-rbfe.md#m07-combined-review) | `Worker_Log/Milestone_08/` |
 
-### Gate prerequisites
+Each gate owns its direct prerequisites, task instructions, planned tests and closing review. Read the assigned gate and its linked specification sections. M03 physical work and M04 analysis can advance separately after their actual prerequisites pass; both precede M05.
 
-These direct dependencies govern implementation; milestone combined reviews do not add hidden prerequisites. M00 must review the relevant design. S07 limits each prerequisite to the features actually used: analytic CPU evidence does not qualify weights or GPUs, and G05 additionally needs the G00 model-asset/loading evidence.
+## Scientific references
 
-| Gate | Direct earlier gates |
-|---|---|
-| [G00](docs/project-0/gates/G00-environment-and-provenance.md) | None; relevant M00 design review |
-| [G01](docs/project-0/gates/G01-identity-partition-and-contracts.md) | [G00](docs/project-0/gates/G00-environment-and-provenance.md) |
-| [G02](docs/project-0/gates/G02-analytic-force-in-native-atm.md) | [G00](docs/project-0/gates/G00-environment-and-provenance.md), [G01](docs/project-0/gates/G01-identity-partition-and-contracts.md) |
-| [G03](docs/project-0/gates/G03-atom-routing-and-integration.md) | [G01](docs/project-0/gates/G01-identity-partition-and-contracts.md), [G02](docs/project-0/gates/G02-analytic-force-in-native-atm.md) |
-| [G04](docs/project-0/gates/G04-link-boundary-and-derivatives.md) | [G01](docs/project-0/gates/G01-identity-partition-and-contracts.md), [G02](docs/project-0/gates/G02-analytic-force-in-native-atm.md) |
-| [G05](docs/project-0/gates/G05-local-model-adapter.md) | [G04](docs/project-0/gates/G04-link-boundary-and-derivatives.md) |
-| [G06](docs/project-0/gates/G06-periodicity-and-interaction-ledger.md) | [G04](docs/project-0/gates/G04-link-boundary-and-derivatives.md), [G05](docs/project-0/gates/G05-local-model-adapter.md) |
-| [G07](docs/project-0/gates/G07-joint-cavity-ligand-atm.md) | [G03](docs/project-0/gates/G03-atom-routing-and-integration.md), [G04](docs/project-0/gates/G04-link-boundary-and-derivatives.md), [G05](docs/project-0/gates/G05-local-model-adapter.md), [G06](docs/project-0/gates/G06-periodicity-and-interaction-ledger.md) |
-| [G08](docs/project-0/gates/G08-thermodynamics-and-estimators.md) | [G02](docs/project-0/gates/G02-analytic-force-in-native-atm.md), [G03](docs/project-0/gates/G03-atom-routing-and-integration.md) |
-| [G09](docs/project-0/gates/G09-solvent-preparation-and-export.md) | [G07](docs/project-0/gates/G07-joint-cavity-ligand-atm.md), [G08](docs/project-0/gates/G08-thermodynamics-and-estimators.md) |
-| [G10](docs/project-0/gates/G10-restart-and-replica-exchange.md) | [G09](docs/project-0/gates/G09-solvent-preparation-and-export.md) |
-| [G11](docs/project-0/gates/G11-protein-abfe.md) | [G10](docs/project-0/gates/G10-restart-and-replica-exchange.md) |
-| [G12](docs/project-0/gates/G12-dual-ligand-rbfe.md) | [G11](docs/project-0/gates/G11-protein-abfe.md) |
-| [G13](docs/project-0/gates/G13-performance-and-release.md) | [G11](docs/project-0/gates/G11-protein-abfe.md), [G12](docs/project-0/gates/G12-dual-ligand-rbfe.md) |
+[S01](docs/project-0/specs/S01-scope-and-invariants.md) defines scope; [S02](docs/project-0/specs/S02-architecture-and-dependencies.md) owns module boundaries; [S03](docs/project-0/specs/S03-data-and-interface-contracts.md) owns records and units. [S04](docs/project-0/specs/S04-embedding-and-model-contracts.md), [S05](docs/project-0/specs/S05-protocol-and-thermodynamic-contracts.md), [S06](docs/project-0/specs/S06-validation-and-tolerances.md) and [S07](docs/project-0/specs/S07-artifacts-and-qualification.md) cover physical energy, thermodynamics, validation and saved evidence. Use the [requirement locator](docs/project-0/REQUIREMENTS.md), [upstream references](docs/project-0/reference/sources.md) and [glossary](docs/project-0/reference/glossary.md) as needed.
 
-M03 physical work and M04 analysis may advance separately after their actual prerequisites pass; both are required for M05's combined review. G05-T4 and G07-T4 provide the small physical-reference checks. G07-T2 adds early real-model, two-ligand single-point checks without waiting for protein ABFE. Keeping the final G12 demonstration after G11 is the chosen work order, not a scientific prerequisite for those earlier two-ligand checks.
-
-## Reference map
-
-Each type of information has one maintained home. Global procedure and logging live in AGENTS.md; task scope, implementation steps and planned assertions live in gates; progress and profile evidence live in STATUS.md.
-
-| Shared specification | Read for |
-|---|---|
-| [S01](docs/project-0/specs/S01-scope-and-invariants.md) | Scope and permanent invariants |
-| [S06](docs/project-0/specs/S06-validation-and-tolerances.md) | Independent checks, numerical tolerances and sampling |
-| [S07](docs/project-0/specs/S07-artifacts-and-qualification.md) | Saved artifacts, qualification evidence and restart |
-| [S04](docs/project-0/specs/S04-embedding-and-model-contracts.md) | Embedding, caps, periodic bookkeeping and model contracts |
-| [S05](docs/project-0/specs/S05-protocol-and-thermodynamic-contracts.md) | Maps, signs, restraints and free-energy meaning |
-| [S02](docs/project-0/specs/S02-architecture-and-dependencies.md) | Module ownership, dependencies and extension rationale |
-| [S03](docs/project-0/specs/S03-data-and-interface-contracts.md) | Units, identity and shared input/output records |
-
-Use the [requirement locator](docs/project-0/REQUIREMENTS.md), [source register](docs/project-0/reference/sources.md), and [glossary](docs/project-0/reference/glossary.md) only as needed. The [worker](docs/project-0/templates/worker-log.md) and [audit](docs/project-0/templates/audit-log.md) templates are the only routine handoff forms.
-
-## Documentation checks
-
-From the repository root, run `python tools/check_docs.py --self-test`. It checks local Markdown destinations/anchors and its own deliberate-error cases using the standard library. It does not fetch external websites, install the molecular stack or certify scientific results. Planned scientific tests remain in their owning gates.
-
-## History
-
-The [original brainstorming note](docs/project-0/reference/original-brainstorming-plan.md) and [later large plan](Original_planning_docs/Project_0_ATM_MLMM_Implementation_and_Validation_Plan_crude.md) are historical, not controlling instructions. The [unchanged prior worker report](Worker_Log/Milestone_00/Documentation_v1_worker.md) and its evidence remain at their original paths.
-
-[Documentation cleanup attempt 2](Worker_Log/Milestone_00/Documentation_v2_worker.md) records this consolidation. Its [compressed pre-cleanup snapshot](Worker_Log/Milestone_00/evidence/Documentation_v2/snapshot_before_cleanup.zip) preserves all 84 original project files and the supplied cleanup audit, excluding Git/Finder metadata. Extract that archive elsewhere when reconstructing old evidence, not into the current checkout. Two tiny historical pointer pages remain solely to keep the prior report's links usable; they are not required agent reading. The old documentation checker is snapshot-specific and is not the current validation command.
+Before real-model/protein claims, G05-T4 and G07-T4 require small chemical-reference and boundary-sensitivity checks with limits decided in M00 before results are inspected. Numerical agreement between two adapters alone does not establish chemical adequacy.

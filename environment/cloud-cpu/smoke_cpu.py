@@ -12,13 +12,15 @@ from openmmml import MLPotential
 assert torch.version.cuda is None and torch.version.hip is None
 assert torch.ones(2, device="cpu").sum().item() == 2
 
-# MACE 0.3.16 sets an unsafe-load environment override in its top-level import.
-# Undo it before importing submodules; no pretrained checkpoints are loaded.
+# MACE 0.3.16 sets an unsafe-load override in both imports below.
+# Restore the safe default after each; no pretrained checkpoints are loaded.
 import mace
 os.environ.pop("TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD", None)
 with torch.serialization.safe_globals([slice]):
     from mace import modules
     from mace.calculators import MACECalculator
+os.environ.pop("TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD", None)
+assert "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD" not in os.environ
 from e3nn import o3
 import torchani
 
@@ -83,3 +85,4 @@ np.testing.assert_allclose(state.getPotentialEnergy().value_in_unit(unit.kilojou
 np.testing.assert_allclose(state.getForces(asNumpy=True).value_in_unit(unit.kilojoule_per_mole/unit.nanometer), expected_forces, rtol=1e-6, atol=1e-8)
 print("Native ATMForce accepts the ASE PythonForce on CPU")
 print({name: metadata.version(name) for name in ["numpy", "torch", "mace-torch", "torchani", "e3nn", "openmm", "openmmml", "atom-openmm", "openmmforcefields"]})
+assert "TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD" not in os.environ

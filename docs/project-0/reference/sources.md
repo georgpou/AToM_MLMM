@@ -1,12 +1,11 @@
-# Source register inherited from the revised plan
+# Upstream references
 
-These locations preserve the preceding research audit's reference trail. The earlier documentation package organized these references. This edition updates wording and handoffs; it did not refetch or reverify upstream pages. G00 must record the actual admitted source commits. Moving documentation is not a lock. U-identifiers below distinguish upstream references from S-identifiers used for shared specifications.
+Use these references when integrating the relevant upstream behavior. G00 records the admitted source commits/builds; the maintained CPU locks and archives identify the current setup. U-identifiers distinguish upstream references from shared S-specifications. This list is a source locator, not a claim that moving upstream pages were refetched or qualified.
 
-The original brainstorming note and later large plan are preserved as historical context. The [history archive](../../../README.md#history) retains the previous editions and their evidence. Architectural choices in S01-S07 remain proposed until reviewed; this cleanup did not fetch or reverify upstream pages.
+S01-S07 are the current scientific design for M00 review. Historical planning notes and documentation audits remain in Git at `ecd2c90bc67a8f9b6a5ab35e3da0e9cdeca89368`; they are optional context. U01 is retired with its historical note.
 
 | ID | Relevant material | Source |
 |---|---|---|
-| U01 | Original uploaded brainstorming note; historical, not the current implementation authority | [U01](original-brainstorming-plan.md) |
 | U02 | OpenMM release history; API/version checks | [U02](https://github.com/openmm/openmm/releases) |
 | U03 | OpenMM-ML releases | [U03](https://github.com/openmm/openmm-ml/releases) |
 | U04 | OpenMM-ML 1.8 setup requirements | [U04](https://raw.githubusercontent.com/openmm/openmm-ml/1.8/setup.py) |

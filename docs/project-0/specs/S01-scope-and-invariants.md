@@ -14,6 +14,8 @@ This page sets the limits of the first working platform. It separates correct co
 
 Can one well-defined, cavity-inclusive ML/MM Hamiltonian with protein link sites be evaluated, differentiated, serialized, and sampled correctly under ATM, for both one-ligand ABFE and dual-ligand RBFE? This retains the original plan's separation of the energy engine from the transfer engine. It is not an experiment showing that ML improves binding affinity predictions.
 
+Small frozen chemical and boundary-reference checks precede protein claims, using M00-reviewed choices and limits as specified in S06. These characterize the admitted approximation; broader predictive accuracy remains Project 1.
+
 The first scientific implementation is deliberately narrow: a local model, mechanical embedding, fixed ML membership, complete neutral ligands, neutral uncomplicated capped protein fragments, explicit solvent, a documented periodic convention, fixed-temperature NVT production, and fixed whole-ligand translations. Initial timestep is 0.5 fs. Longer timesteps and multiple-time-step integration are separate qualification changes.
 
 The common interfaces must nevertheless admit multiple mobile molecules and physical energies depending on the MM environment. This is an architectural requirement now, not a promise to implement electrostatic embedding now. Such a future embedding will require its own scientific specification, model, force and periodic treatment, and numerical qualification.
@@ -42,4 +44,4 @@ The architecture reserves extension boundaries, not unsupported physics defaults
 
 Changing the Hamiltonian, supported chemical states, mass/constraint ensemble, periodic convention, or thermodynamic cycle requires a specification amendment. Changing an internal loop without changing those contracts does not. Promoting a proposed model to qualified support requires evidence for its full profile, not merely successful import.
 
-M00 reviews these boundaries. G01 and G02 implement cheap structural and analytic guards. G07 checks that the real mechanical implementation respects them. G11 and G12 qualify molecular ABFE and RBFE. The original source and revised-plan distribution are recorded in [the coverage map](../../../README.md#history).
+M00 reviews these boundaries. G01 and G02 implement cheap structural and analytic guards. G07 checks that the real mechanical implementation respects them. G11 and G12 qualify molecular ABFE and RBFE. Use the [upstream references](../reference/sources.md) for source/API context.

@@ -30,7 +30,7 @@ Required earlier gates: [G01](../gates/G01-identity-partition-and-contracts.md),
 |---|---|---|
 | `G03-T1` | Route by explicit ownership, not misleading labels | `P0-TEST-G03-01`, `P0-TEST-G03-06` |
 | `G03-T2` | Verify actual integration in every stage | `P0-TEST-G03-02`, `P0-TEST-G03-03` |
-| `G03-T3` | Contain upstream knowledge | `P0-TEST-G03-04`, `P0-TEST-G03-05` |
+| `G03-T3` | Contain upstream knowledge | `P0-TEST-G03-04`, `P0-TEST-G03-05`, `P0-TEST-G03-07` |
 
 ### G03-T1: route by explicit ownership, not misleading labels
 
@@ -56,6 +56,8 @@ Keep upstream classes, `VARIABLE_FORCE_GROUP`, ligand selection keys, timestep/d
 
 The narrow adapter should reuse upstream scheduling and replica exchange. If a small upstream patch is necessary, document the exact commit/diff and reproducer. Do not fork ATM's mathematical definition to resolve routing.
 
+Check the fixed full-particle maps after every construction path, runtime parameter change and reload. Reject any mutation to the maps or fixed ML membership before evaluation; use S05's fixed-map contract.
+
 ## Checks and the answers they must establish
 
 These are **planned tests**, not executed results. Use the rows for the assigned task; full-gate acceptance covers all applicable rows.
@@ -68,6 +70,7 @@ These are **planned tests**, not executed results. Use the rows for the assigned
 | P0-TEST-G03-04 | `tests/workflow/test_atom_force_routing.py::test_both_protocols_match_native_oracle` | ABFE and RBFE upstream construction paths reproduce the same native-ATM observables without changing the physical builder. | P0-REQ-021, P0-REQ-022 |
 | P0-TEST-G03-05 | `tests/workflow/test_atom_force_routing.py::test_upstream_unit_and_key_conversion` | Convert 0.5 fs to 0.0005 ps and nm displacements to Angstrom once; select protocol-specific upstream ligand keys only inside the adapter. | P0-REQ-010, P0-REQ-021 |
 | P0-TEST-G03-06 | `tests/workflow/test_atom_force_routing.py::test_duplicate_and_nested_atm_rejected` | Reject an already nested ATM input, an occupied reserved force group, and a physical force left both outside and inside. | P0-REQ-011, P0-REQ-023 |
+| P0-TEST-G03-07 | `tests/workflow/test_atom_force_routing.py::test_fixed_map_guard_after_construction` | Every native/upstream construction and reload preserves the fixed full-particle maps; a runtime parameter/map mutation is rejected before evaluation. | P0-REQ-002, P0-REQ-013, P0-REQ-021 |
 
 ## How to test and decide
 

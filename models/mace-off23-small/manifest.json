@@ -1,0 +1,25 @@
+{
+  "name": "MACE-OFF23-small",
+  "upstream_repository": "https://github.com/ACEsuit/mace-off",
+  "upstream_commit": "91a78c5a9c300d1104700d9352c8bfe449227737",
+  "checkpoint_url": "https://raw.githubusercontent.com/ACEsuit/mace-off/91a78c5a9c300d1104700d9352c8bfe449227737/mace_off23/MACE-OFF23_small.model",
+  "retrieved": "2026-10-01T16:03:55.881511+00:00",
+  "license": "Academic Software Licence v1.0; academic noncommercial use",
+  "user_authorization": "I will use it for academic purposes.",
+  "energy_convention": "energy (includes atom reference energies)",
+  "device": "CPU",
+  "dtype": "float64",
+  "loading_policy": "Verify the pinned checkpoint SHA-256 before explicit trusted-artifact torch.load(weights_only=False); no global unsafe-load override. Pass the loaded model to MACECalculator(models=...).",
+  "files": {
+    "LICENSE.md": {
+      "sha256": "6a77e88bfed86fe9476ed36e453e2ea1e154ff1ec464b0fdeb3e079b6112d71e",
+      "bytes": 16366
+    },
+    "MACE-OFF23_small.model": {
+      "sha256": "165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f",
+      "bytes": 7347350
+    }
+  },
+  "upstream_readme_url": "https://github.com/ACEsuit/mace-off/blob/91a78c5a9c300d1104700d9352c8bfe449227737/README.md",
+  "citation": "Kovacs et al., MACE-OFF23: Transferable Machine Learning Force Fields for Organic Molecules (2023), arXiv:2312.15211"
+}
