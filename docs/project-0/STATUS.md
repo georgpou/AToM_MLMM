@@ -10,7 +10,7 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-The [v1 independent combined review](../../Worker_Log/Milestone_01/Gate_01_v1_audit.md) required M01-R1/R2 repairs. Both have failing/passing regressions in [v2](../../Worker_Log/Milestone_01/Gate_01_v2_worker.md) and independent closure in the [v2 audit](../../Worker_Log/Milestone_01/Gate_01_v2_audit.md). Start [G02](gates/G02-analytic-force-in-native-atm.md) from this development predecessor under its own scope and tests. Keep G00 model/GPU profiles pending until needed, and resolve M00 physical-reference choices before any G05/G07 reference comparison.
+The [v1 independent combined review](../../Worker_Log/Milestone_01/Gate_01_v1_audit.md) required M01-R1/R2 repairs. Both have failing/passing regressions in [v2](../../Worker_Log/Milestone_01/Gate_01_v2_worker.md) and independent closure in the [v2 audit](../../Worker_Log/Milestone_01/Gate_01_v2_audit.md). The [M02 implementation and audit handoff](handoffs/M02-implementation-and-audit.md) gives branch-copy checks, inherited evidence, setup, G02/G03 scope and combined-review instructions. Start [G02](gates/G02-analytic-force-in-native-atm.md) on a child of this development predecessor under its own scope and tests. Keep G00 model/GPU profiles pending until needed, and resolve M00 physical-reference choices before any G05/G07 reference comparison.
 
 | Scientific scope | Status | Next condition |
 |---|---|---|

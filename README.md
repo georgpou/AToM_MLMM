@@ -26,7 +26,7 @@ python -m pytest -q
 
 Read [AGENTS.md](AGENTS.md), the [CPU setup guide](environment/cloud-cpu/README.md), and [development guide](docs/DEVELOPMENT.md). The installer carries the exact locks, wheels and source archives; a fresh agent needs no previous agent's filesystem. Its default prefix is external to the checkout and can be customized.
 
-**Current development successor:** `m00-audit-m01-development`. M00's analytic design review and G00-T1/G01-T1/T2/T3 implementation are recorded in [STATUS](docs/project-0/STATUS.md). After M01 combined acceptance, [G02](docs/project-0/gates/G02-analytic-force-in-native-atm.md) is the next implementation. Model assets, physical-reference decisions and GPU qualification remain with their relevant profiles.
+**Current development successor:** `m00-audit-m01-development`. M00's analytic design review and combined M01 acceptance for G00-T1/G01-T1/T2/T3 are recorded in [STATUS](docs/project-0/STATUS.md). Follow the [M02 implementation and audit handoff](docs/project-0/handoffs/M02-implementation-and-audit.md) to create a child branch and continue with G02, then G03 and their combined review. Model assets, physical-reference decisions and GPU qualification remain with their relevant profiles.
 
 ## Quick MACE calculation
 
