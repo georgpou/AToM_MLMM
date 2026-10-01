@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<System openmmVersion="8.6.1" type="System" version="1">
+	<PeriodicBoxVectors>
+		<A x="2.1" y="0" z="0"/>
+		<B x="0" y="2.2" z="0"/>
+		<C x="0" y="0" z="2.3"/>
+	</PeriodicBoxVectors>
+	<Particles>
+		<Particle mass="12.01"/>
+		<Particle mass="1.02"/>
+		<Particle mass="14.03"/>
+		<Particle mass="16.04"/>
+	</Particles>
+	<Constraints>
+		<Constraint d=".109" p1="0" p2="1"/>
+	</Constraints>
+	<Forces>
+		<Force forceGroup="3" name="distinct-bonds" type="HarmonicBondForce" usesPeriodic="1" version="2">
+			<Bonds>
+				<Bond d=".123" k="456" p1="0" p2="1"/>
+				<Bond d=".234" k="789" p1="1" p2="2"/>
+			</Bonds>
+		</Force>
+		<Force forceGroup="0" name="HarmonicAngleForce" type="HarmonicAngleForce" usesPeriodic="0" version="2">
+			<Angles>
+				<Angle a="1.234" k="2.345" p1="0" p2="1" p3="2"/>
+			</Angles>
+		</Force>
+		<Force forceGroup="0" name="PeriodicTorsionForce" type="PeriodicTorsionForce" usesPeriodic="0" version="2">
+			<Torsions>
+				<Torsion k="5.678" p1="0" p2="1" p3="2" p4="3" periodicity="3" phase=".456"/>
+			</Torsions>
+		</Force>
+		<Force forceGroup="0" name="RBTorsionForce" type="RBTorsionForce" usesPeriodic="0" version="2">
+			<Torsions>
+				<Torsion c0="1.1" c1="1.4" c2="1.7" c3="2" c4="2.3" c5="2.6" p1="0" p2="1" p3="2" p4="3"/>
+			</Torsions>
+		</Force>
+		<Force alpha="3.2" cutoff=".9" dispersionCorrection="0" ewaldTolerance="1e-05" exceptionsUsePeriodic="1" forceGroup="5" includeDirectSpace="1" ljAlpha="3.3" ljnx="18" ljny="20" ljnz="22" method="4" name="distinct-nonbonded" nx="12" ny="14" nz="16" recipForceGroup="6" rfDielectric="45.5" switchingDistance=".65" type="NonbondedForce" useSwitchingFunction="1" version="4">
+			<GlobalParameters>
+				<Parameter default=".4" name="scale"/>
+			</GlobalParameters>
+			<ParticleOffsets>
+				<Offset eps=".004" parameter="scale" particle="1" q=".012" sig=".003"/>
+			</ParticleOffsets>
+			<ExceptionOffsets>
+				<Offset eps=".006" exception="0" parameter="scale" q=".015" sig=".005"/>
+			</ExceptionOffsets>
+			<Particles>
+				<Particle eps=".31" q=".11" sig=".21"/>
+				<Particle eps=".32" q="-.22" sig=".22"/>
+				<Particle eps=".33" q=".33" sig=".23"/>
+				<Particle eps=".34" q="-.22" sig=".24"/>
+			</Particles>
+			<Exceptions>
+				<Exception eps=".357" p1="0" p2="3" q="-.045" sig=".246"/>
+			</Exceptions>
+		</Force>
+		<Force forceGroup="0" frequency="7" name="CMMotionRemover" type="CMMotionRemover" version="1"/>
+	</Forces>
+</System>

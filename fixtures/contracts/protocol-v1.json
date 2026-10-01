@@ -1,0 +1,17 @@
+{
+  "schema_version": "1.0",
+  "record_type": "ProtocolSpec",
+  "data": {
+    "kind": "rbfe",
+    "mobile_groups": [
+      {"record_type": "MobileGroup", "data": {"group_id": "A", "atom_ids": ["a3", "a1"], "roles": ["ligand"], "molecule_id": "ligand-a"}},
+      {"record_type": "MobileGroup", "data": {"group_id": "B", "atom_ids": ["b1", "b4", "b2"], "roles": ["ligand"], "molecule_id": "ligand-b"}}
+    ],
+    "geometry_requests": {"displacement_nm": [1.2, 0.0, 0.0]},
+    "endpoints": [
+      {"record_type": "Endpoint", "data": {"state_id": "A-bound", "description": "A bound; B bulk"}},
+      {"record_type": "Endpoint", "data": {"state_id": "B-bound", "description": "B bound; A bulk"}}
+    ],
+    "observable": "ddG_bind_B_minus_A"
+  }
+}
