@@ -2,19 +2,21 @@
 
 Build a cavity-inclusive ML/MM Hamiltonian for ATM absolute and relative binding free energies. Start with mechanical embedding, complete neutral ligands and capped neutral protein fragments. Keep the physical energy builder independent of coordinate transfer and analysis.
 
-**Current state:** the reproducible CPU setup, real-weight MACE link example and M01 analytic CPU records/identity/inventory checks are implemented. [STATUS](docs/project-0/STATUS.md) records exact review/qualification results; GPU and full pretrained-model profiles remain separate.
+**Current state:** the reproducible CPU setup, real-weight MACE link example, M01 records/identity/inventory checks and combined M02 analytic ATM/routing are implemented. M01 and M02 are independently accepted for `core-analytic-cpu`; [STATUS](docs/project-0/STATUS.md) records exact review/qualification results. G04 link-boundary work is next; molecular, GPU and full pretrained-model profiles remain separate.
 
 ## Start here
 
-Create your next working branch from the current development successor, `m00-audit-m01-development`. It preserves the `m01-g00-environment-audit-v1` setup lineage. Preserve existing changes and use an unused branch name:
+Create your next working branch from the current development successor, `m02-analytic-atm`. It preserves the accepted M01 and setup lineage. Follow the [G04 fresh-agent handoff](docs/project-0/handoffs/M03-G04-fresh-agent.md), verify its exact supplied commit, preserve existing changes and use an unused branch name:
 
 ```bash
 git status --short --branch
-git fetch origin refs/heads/m00-audit-m01-development:refs/remotes/origin/m00-audit-m01-development
-git switch --no-track -c m02-analytic-atm origin/m00-audit-m01-development
+git fetch origin refs/heads/m02-analytic-atm:refs/remotes/origin/m02-analytic-atm
+# Use the exact handoff commit supplied in your assignment as the start point.
+# Example when the fetched tip matches that commit:
+git switch --no-track -c m03-link-boundary origin/m02-analytic-atm
 ```
 
-Work and push on the child branch. Keep main unchanged. Later tasks inherit the completed predecessor.
+Work and push on the child branch. Keep main and both accepted M01/M02 predecessor branches unchanged. Later tasks inherit the completed predecessor.
 
 From the repository root, install and activate:
 
@@ -26,7 +28,7 @@ python -m pytest -q
 
 Read [AGENTS.md](AGENTS.md), the [CPU setup guide](environment/cloud-cpu/README.md), and [development guide](docs/DEVELOPMENT.md). The installer carries the exact locks, wheels and source archives; a fresh agent needs no previous agent's filesystem. Its default prefix is external to the checkout and can be customized.
 
-**Current development successor:** `m00-audit-m01-development`. M00's analytic design review and combined M01 acceptance for G00-T1/G01-T1/T2/T3 are recorded in [STATUS](docs/project-0/STATUS.md). Follow the [M02 implementation and audit handoff](docs/project-0/handoffs/M02-implementation-and-audit.md) to create a child branch and continue with G02, then G03 and their combined review. Model assets, physical-reference decisions and GPU qualification remain with their relevant profiles.
+**Current development successor:** `m02-analytic-atm`. M00's analytic design review and combined M01/M02 acceptance are recorded in [STATUS](docs/project-0/STATUS.md). Follow the [G04 handoff](docs/project-0/handoffs/M03-G04-fresh-agent.md) for the next scope, protected branches, baseline and required independent **Astra high** review. M03 closes at G07 after G04–G07; G08 is the separate M04 analysis path. Physical-reference decisions and broader qualification remain with their relevant gates.
 
 ## Quick MACE calculation
 

@@ -16,7 +16,7 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-Analytic M02 continuation is complete. G04 physical boundary work and G08 analysis can start separately under their own prerequisites. Keep G00 model/GPU profiles pending until needed, and resolve M00 physical-reference choices before any G05/G07 reference comparison. Molecular, chemical/protein, GPU, periodic/actual electrostatic and full workflow qualification remain deferred. The [original M02 handoff](handoffs/M02-implementation-and-audit.md) retains branch/provenance instructions.
+Analytic M02 continuation is complete. The [G04 fresh-agent handoff](handoffs/M03-G04-fresh-agent.md) assigns G04-T1/T2/T3 and all seven checks on a new child of `m02-analytic-atm`, with independent **gpt-6-astra / high** review. G04 remains unimplemented/unqualified; M03 closes at G07 after G04–G07. G08 analysis can proceed separately under its own prerequisites. Keep G00 model/GPU profiles pending until needed, and resolve M00 physical-reference choices before any G05/G07 reference comparison. Molecular, chemical/protein, GPU, periodic/actual electrostatic and full workflow qualification remain deferred. The [original M02 handoff](handoffs/M02-implementation-and-audit.md) remains historical provenance.
 
 | Scientific scope | Status | Next condition |
 |---|---|---|

@@ -1,6 +1,6 @@
 # Development guide
 
-Start with the assigned gate's assertions and the current [status](project-0/STATUS.md). M01 now implements dependency-light records, identity/partition/protocol descriptions, capability/evidence checks and the original-MM inventory under `src/atm_mlmm/`. Its checks live in `tests/unit/` and `tests/contracts/`; later scientific modules still belong to their owning gates. Existing regressions cover CPU loading policy and Cloud setup fallback under `tests/environment/`, plus the local-weight [MACE link example](../examples/README.md) under `tests/integration/`.
+Start with the assigned gate's assertions and the current [status](project-0/STATUS.md). M01 implements dependency-light records, identity/partition/protocol descriptions, capability/evidence checks and the original-MM inventory under `src/atm_mlmm/`. M02 implements the shared analytic physical/ATM evaluators, complete transfer maps, production schedule, preparation/export ownership and pinned AToM routing adapter, with independently reviewed admission safeguards. Its checks span `tests/contracts/`, `tests/integration/` and `tests/workflow/`. Follow the [G04 handoff](project-0/handoffs/M03-G04-fresh-agent.md) on a new child of `m02-analytic-atm`; cap building, retained-MM boundary dispositions and later physical modules remain with their owning gates. Existing regressions cover CPU loading policy and Cloud setup fallback under `tests/environment/`, plus the local-weight [MACE link example](../examples/README.md) under `tests/integration/`.
 
 ## Environment and imports
 
