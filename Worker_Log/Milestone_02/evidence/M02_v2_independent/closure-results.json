@@ -1,0 +1,650 @@
+{
+  "negative_count": 120,
+  "positive_count": 9,
+  "observations": [
+    {
+      "name": "native-Lambda1-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Lambda1']"
+    },
+    {
+      "name": "native-Lambda1-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Lambda1']"
+    },
+    {
+      "name": "native-Lambda1-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Lambda1-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Lambda2-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Lambda2']"
+    },
+    {
+      "name": "native-Lambda2-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Lambda2']"
+    },
+    {
+      "name": "native-Lambda2-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Lambda2-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Alpha-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Alpha']"
+    },
+    {
+      "name": "native-Alpha-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Alpha']"
+    },
+    {
+      "name": "native-Alpha-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Alpha-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Uh-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Uh']"
+    },
+    {
+      "name": "native-Uh-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Uh']"
+    },
+    {
+      "name": "native-Uh-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Uh-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-W0-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['W0']"
+    },
+    {
+      "name": "native-W0-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['W0']"
+    },
+    {
+      "name": "native-W0-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-W0-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Umax-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Umax']"
+    },
+    {
+      "name": "native-Umax-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Umax']"
+    },
+    {
+      "name": "native-Umax-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Umax-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Ubcore-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Ubcore']"
+    },
+    {
+      "name": "native-Ubcore-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Ubcore']"
+    },
+    {
+      "name": "native-Ubcore-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Ubcore-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Acore-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Acore']"
+    },
+    {
+      "name": "native-Acore-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Acore']"
+    },
+    {
+      "name": "native-Acore-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Acore-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Direction-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Direction']"
+    },
+    {
+      "name": "native-Direction-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Direction']"
+    },
+    {
+      "name": "native-Direction-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-Direction-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-UOffset-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['UOffset']"
+    },
+    {
+      "name": "native-UOffset-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['UOffset']"
+    },
+    {
+      "name": "native-UOffset-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-UOffset-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Lambda1-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Lambda1']"
+    },
+    {
+      "name": "upstream-Lambda1-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Lambda1']"
+    },
+    {
+      "name": "upstream-Lambda1-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Lambda1-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Lambda2-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Lambda2']"
+    },
+    {
+      "name": "upstream-Lambda2-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Lambda2']"
+    },
+    {
+      "name": "upstream-Lambda2-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Lambda2-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Alpha-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Alpha']"
+    },
+    {
+      "name": "upstream-Alpha-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Alpha']"
+    },
+    {
+      "name": "upstream-Alpha-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Alpha-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Uh-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Uh']"
+    },
+    {
+      "name": "upstream-Uh-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Uh']"
+    },
+    {
+      "name": "upstream-Uh-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Uh-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-W0-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['W0']"
+    },
+    {
+      "name": "upstream-W0-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['W0']"
+    },
+    {
+      "name": "upstream-W0-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-W0-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Umax-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Umax']"
+    },
+    {
+      "name": "upstream-Umax-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Umax']"
+    },
+    {
+      "name": "upstream-Umax-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Umax-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Ubcore-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Ubcore']"
+    },
+    {
+      "name": "upstream-Ubcore-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Ubcore']"
+    },
+    {
+      "name": "upstream-Ubcore-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Ubcore-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Acore-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Acore']"
+    },
+    {
+      "name": "upstream-Acore-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Acore']"
+    },
+    {
+      "name": "upstream-Acore-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Acore-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Direction-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Direction']"
+    },
+    {
+      "name": "upstream-Direction-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['Direction']"
+    },
+    {
+      "name": "upstream-Direction-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-Direction-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-UOffset-missing-seal",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['UOffset']"
+    },
+    {
+      "name": "upstream-UOffset-missing-artifact",
+      "rejected": true,
+      "diagnostic": "ATM lacks required schedule global parameters: ['UOffset']"
+    },
+    {
+      "name": "upstream-UOffset-duplicate-seal",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "upstream-UOffset-duplicate-artifact",
+      "rejected": true,
+      "diagnostic": "ATM schedule/global parameter names must be unique"
+    },
+    {
+      "name": "native-early-collision-Lambda1",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Lambda1']"
+    },
+    {
+      "name": "upstream-early-collision-Lambda1",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Lambda1']"
+    },
+    {
+      "name": "bypassed-collision-Lambda1-seal",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Lambda1']"
+    },
+    {
+      "name": "bypassed-collision-Lambda1-artifact",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Lambda1']"
+    },
+    {
+      "name": "native-early-collision-Lambda2",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Lambda2']"
+    },
+    {
+      "name": "upstream-early-collision-Lambda2",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Lambda2']"
+    },
+    {
+      "name": "bypassed-collision-Lambda2-seal",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Lambda2']"
+    },
+    {
+      "name": "bypassed-collision-Lambda2-artifact",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Lambda2']"
+    },
+    {
+      "name": "native-early-collision-Alpha",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Alpha']"
+    },
+    {
+      "name": "upstream-early-collision-Alpha",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Alpha']"
+    },
+    {
+      "name": "bypassed-collision-Alpha-seal",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Alpha']"
+    },
+    {
+      "name": "bypassed-collision-Alpha-artifact",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Alpha']"
+    },
+    {
+      "name": "native-early-collision-Uh",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Uh']"
+    },
+    {
+      "name": "upstream-early-collision-Uh",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Uh']"
+    },
+    {
+      "name": "bypassed-collision-Uh-seal",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Uh']"
+    },
+    {
+      "name": "bypassed-collision-Uh-artifact",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Uh']"
+    },
+    {
+      "name": "native-early-collision-W0",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['W0']"
+    },
+    {
+      "name": "upstream-early-collision-W0",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['W0']"
+    },
+    {
+      "name": "bypassed-collision-W0-seal",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['W0']"
+    },
+    {
+      "name": "bypassed-collision-W0-artifact",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['W0']"
+    },
+    {
+      "name": "native-early-collision-Umax",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Umax']"
+    },
+    {
+      "name": "upstream-early-collision-Umax",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Umax']"
+    },
+    {
+      "name": "bypassed-collision-Umax-seal",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Umax']"
+    },
+    {
+      "name": "bypassed-collision-Umax-artifact",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Umax']"
+    },
+    {
+      "name": "native-early-collision-Ubcore",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Ubcore']"
+    },
+    {
+      "name": "upstream-early-collision-Ubcore",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Ubcore']"
+    },
+    {
+      "name": "bypassed-collision-Ubcore-seal",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Ubcore']"
+    },
+    {
+      "name": "bypassed-collision-Ubcore-artifact",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Ubcore']"
+    },
+    {
+      "name": "native-early-collision-Acore",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Acore']"
+    },
+    {
+      "name": "upstream-early-collision-Acore",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Acore']"
+    },
+    {
+      "name": "bypassed-collision-Acore-seal",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Acore']"
+    },
+    {
+      "name": "bypassed-collision-Acore-artifact",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Acore']"
+    },
+    {
+      "name": "native-early-collision-Direction",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Direction']"
+    },
+    {
+      "name": "upstream-early-collision-Direction",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Direction']"
+    },
+    {
+      "name": "bypassed-collision-Direction-seal",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Direction']"
+    },
+    {
+      "name": "bypassed-collision-Direction-artifact",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Direction']"
+    },
+    {
+      "name": "native-early-collision-UOffset",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['UOffset']"
+    },
+    {
+      "name": "upstream-early-collision-UOffset",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['UOffset']"
+    },
+    {
+      "name": "bypassed-collision-UOffset-seal",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['UOffset']"
+    },
+    {
+      "name": "bypassed-collision-UOffset-artifact",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['UOffset']"
+    },
+    {
+      "name": "ownership-name-preserved-group-normalized",
+      "passed": true
+    },
+    {
+      "name": "mobile-global-and-stale-State-abfe-Reference-native",
+      "passed": true,
+      "max_raw_delta_error": 3.3306690738754696e-16
+    },
+    {
+      "name": "mobile-global-and-stale-State-abfe-Reference-upstream",
+      "passed": true,
+      "max_raw_delta_error": 3.3306690738754696e-16
+    },
+    {
+      "name": "mobile-global-and-stale-State-abfe-CPU-native",
+      "passed": true,
+      "max_raw_delta_error": 3.3306690738754696e-16
+    },
+    {
+      "name": "mobile-global-and-stale-State-abfe-CPU-upstream",
+      "passed": true,
+      "max_raw_delta_error": 3.3306690738754696e-16
+    },
+    {
+      "name": "mobile-global-and-stale-State-rbfe-Reference-native",
+      "passed": true,
+      "max_raw_delta_error": 8.881784197001252e-16
+    },
+    {
+      "name": "mobile-global-and-stale-State-rbfe-Reference-upstream",
+      "passed": true,
+      "max_raw_delta_error": 8.881784197001252e-16
+    },
+    {
+      "name": "mobile-global-and-stale-State-rbfe-CPU-native",
+      "passed": true,
+      "max_raw_delta_error": 8.881784197001252e-16
+    },
+    {
+      "name": "mobile-global-and-stale-State-rbfe-CPU-upstream",
+      "passed": true,
+      "max_raw_delta_error": 8.881784197001252e-16
+    }
+  ]
+}

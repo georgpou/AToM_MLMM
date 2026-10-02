@@ -1,0 +1,5 @@
+Command: source /workspace/.onboarding/atom-mlmm-m02-v2/activate.sh
+PYTHONPATH=src:. python Worker_Log/Milestone_02/evidence/M02_v2_independent/check_snapshot.py
+Cwd: /workspace/AToM_MLMM
+Exit: 1
+All source/input/protected/v1 assertions completed; reporting then failed because refs/remotes/origin/m00-audit-m01-development is absent locally. Git fatal unknown revision; subprocess.CalledProcessError exit 128. Corrected report to record predecessor object and absent remote ref without changing repository refs or implementation.

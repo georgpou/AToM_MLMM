@@ -1,0 +1,634 @@
+{
+  "data": {
+    "profile": "core-analytic-cpu",
+    "reports": [
+      {
+        "data": {
+          "check_id": "P0-TEST-G02-01",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/integration/test_pythonforce_atm.py#sha256=e3f80f69896c00e1abeafa045091867a67625d1feb6d36f270d222093baf1ab4",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 12,
+            "pytest_node": "tests/integration/test_pythonforce_atm.py::test_linear_endpoint_and_force_identity"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-013"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G02-analytic-force-in-native-atm.md: P0-TEST-G02-01",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G02-02",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/integration/test_pythonforce_atm.py#sha256=e3f80f69896c00e1abeafa045091867a67625d1feb6d36f270d222093baf1ab4",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 1,
+            "pytest_node": "tests/integration/test_pythonforce_atm.py::test_permuted_subset_and_units"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-002",
+            "P0-REQ-010",
+            "P0-REQ-030"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G02-analytic-force-in-native-atm.md: P0-TEST-G02-02",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G02-03",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/integration/test_pythonforce_atm.py#sha256=e3f80f69896c00e1abeafa045091867a67625d1feb6d36f270d222093baf1ab4",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 1,
+            "pytest_node": "tests/integration/test_pythonforce_atm.py::test_nonzero_outside_term_and_tuple_order"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-011",
+            "P0-REQ-013"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G02-analytic-force-in-native-atm.md: P0-TEST-G02-03",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G02-04",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/contracts/test_transfer_protocols.py#sha256=a424d78f5f71f98aa3100a3bf5e88be1c3598634d68b06c626715b2a23ca84c3",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 2,
+            "pytest_node": "tests/contracts/test_transfer_protocols.py::test_one_and_two_unequal_mobile_groups"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-022"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G02-analytic-force-in-native-atm.md: P0-TEST-G02-04",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G02-05",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/contracts/test_physical_evaluator.py#sha256=b741edf13ad4d1c71c10bc2a4a1083b3afb2a1a74caa1b67c6ccd2f4fa1bf039",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 4,
+            "pytest_node": "tests/contracts/test_physical_evaluator.py::test_environment_force_and_recomputed_mapping"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-006",
+            "P0-REQ-007"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G02-analytic-force-in-native-atm.md: P0-TEST-G02-05",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G02-06",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/contracts/test_physical_evaluator.py#sha256=b741edf13ad4d1c71c10bc2a4a1083b3afb2a1a74caa1b67c6ccd2f4fa1bf039",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 4,
+            "pytest_node": "tests/contracts/test_physical_evaluator.py::test_evaluation_history_independence"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-007"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G02-analytic-force-in-native-atm.md: P0-TEST-G02-06",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G02-07",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/contracts/test_fault_injection.py#sha256=be5c98115e5f4f7f4edd8a8deb1f74a750ae81eb463dcd96618f76a6360c47ba",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 7,
+            "pytest_node": "tests/contracts/test_fault_injection.py::test_known_transfer_errors_are_detected"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-030"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G02-analytic-force-in-native-atm.md: P0-TEST-G02-07",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G02-08",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/integration/test_pythonforce_atm.py#sha256=e3f80f69896c00e1abeafa045091867a67625d1feb6d36f270d222093baf1ab4",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 1,
+            "pytest_node": "tests/integration/test_pythonforce_atm.py::test_independent_harmonic_forces"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-013",
+            "P0-REQ-030"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G02-analytic-force-in-native-atm.md: P0-TEST-G02-08",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G02-09",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/integration/test_pythonforce_atm.py#sha256=e3f80f69896c00e1abeafa045091867a67625d1feb6d36f270d222093baf1ab4",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 20,
+            "pytest_node": "tests/integration/test_pythonforce_atm.py::test_nonlinear_mixing_force_chain_rule"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-013",
+            "P0-REQ-030"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G02-analytic-force-in-native-atm.md: P0-TEST-G02-09",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G03-01",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/workflow/test_atom_force_routing.py#sha256=6e202411be5d2aee839c377ef68bc3f043518f02deb7e451ca976a85963a4261",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 1,
+            "pytest_node": "tests/workflow/test_atom_force_routing.py::test_pythonforce_explicit_group_route"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-011",
+            "P0-REQ-021"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G03-atom-routing-and-integration.md: P0-TEST-G03-01",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G03-02",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/workflow/test_active_force_groups.py#sha256=c702cab61dab3064150effd98aa282536584cde6e895af709d722c608e5d1512",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 6,
+            "pytest_node": "tests/workflow/test_active_force_groups.py::test_all_physical_groups_integrated"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-012"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G03-atom-routing-and-integration.md: P0-TEST-G03-02",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G03-03",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/workflow/test_active_force_groups.py#sha256=c702cab61dab3064150effd98aa282536584cde6e895af709d722c608e5d1512",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 1,
+            "pytest_node": "tests/workflow/test_active_force_groups.py::test_preparation_and_export_copies"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-012"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G03-atom-routing-and-integration.md: P0-TEST-G03-03",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G03-04",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/workflow/test_atom_force_routing.py#sha256=6e202411be5d2aee839c377ef68bc3f043518f02deb7e451ca976a85963a4261",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 8,
+            "pytest_node": "tests/workflow/test_atom_force_routing.py::test_both_protocols_match_native_oracle"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-021",
+            "P0-REQ-022"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G03-atom-routing-and-integration.md: P0-TEST-G03-04",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G03-05",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/workflow/test_atom_force_routing.py#sha256=6e202411be5d2aee839c377ef68bc3f043518f02deb7e451ca976a85963a4261",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 2,
+            "pytest_node": "tests/workflow/test_atom_force_routing.py::test_upstream_unit_and_key_conversion"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-010",
+            "P0-REQ-021"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G03-atom-routing-and-integration.md: P0-TEST-G03-05",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G03-06",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/workflow/test_atom_force_routing.py#sha256=6e202411be5d2aee839c377ef68bc3f043518f02deb7e451ca976a85963a4261",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 5,
+            "pytest_node": "tests/workflow/test_atom_force_routing.py::test_duplicate_and_nested_atm_rejected"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-011",
+            "P0-REQ-023"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G03-atom-routing-and-integration.md: P0-TEST-G03-06",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      },
+      {
+        "data": {
+          "check_id": "P0-TEST-G03-07",
+          "fixture_identities": [
+            "fixtures/analytic/transfer-v1.json#sha256=9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+            "tests/analytic_oracle.py#sha256=51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+            "tests/workflow/test_atom_force_routing.py#sha256=6e202411be5d2aee839c377ef68bc3f043518f02deb7e451ca976a85963a4261",
+            "Worker_Log/Milestone_02/evidence/M02_v2/environment-manifest.json.gz#sha256=f14e746d7fbc9b87a1aafd7b5dee97ab3542e47e997b1597c01dae3393297165"
+          ],
+          "logs": [
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/command-results.json.gz",
+            "Worker_Log/Milestone_02/evidence/M02_v2_independent/independent-numerics.json"
+          ],
+          "measured_values": {
+            "applicable_assertions_passed": true,
+            "passed_cases": 4,
+            "pytest_node": "tests/workflow/test_atom_force_routing.py::test_fixed_map_guard_after_construction"
+          },
+          "profile": "core-analytic-cpu",
+          "requirement_ids": [
+            "P0-REQ-002",
+            "P0-REQ-013",
+            "P0-REQ-021"
+          ],
+          "reviewer_references": [
+            "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+            "Worker_Log/Milestone_02/Gate_03_v2_audit.md"
+          ],
+          "status": "passed",
+          "tested_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+          "thresholds": {
+            "applicable_assertions_passed": true,
+            "assertion_contract": "docs/project-0/gates/G03-atom-routing-and-integration.md: P0-TEST-G03-07",
+            "minimum_passed_cases": 1
+          }
+        },
+        "record_type": "ValidationReport"
+      }
+    ],
+    "required_test_ids": [
+      "P0-TEST-G02-01",
+      "P0-TEST-G02-02",
+      "P0-TEST-G02-03",
+      "P0-TEST-G02-04",
+      "P0-TEST-G02-05",
+      "P0-TEST-G02-06",
+      "P0-TEST-G02-07",
+      "P0-TEST-G02-08",
+      "P0-TEST-G02-09",
+      "P0-TEST-G03-01",
+      "P0-TEST-G03-02",
+      "P0-TEST-G03-03",
+      "P0-TEST-G03-04",
+      "P0-TEST-G03-05",
+      "P0-TEST-G03-06",
+      "P0-TEST-G03-07"
+    ],
+    "requirement_ids": [
+      "P0-REQ-002",
+      "P0-REQ-006",
+      "P0-REQ-007",
+      "P0-REQ-010",
+      "P0-REQ-011",
+      "P0-REQ-012",
+      "P0-REQ-013",
+      "P0-REQ-021",
+      "P0-REQ-022",
+      "P0-REQ-023",
+      "P0-REQ-030"
+    ],
+    "reviewer": "Codex /root/m02_v2_independent_audit; configured gpt-6-astra, high reasoning",
+    "reviewer_decision": "Worker_Log/Milestone_02/Gate_03_v2_audit.md",
+    "scope": "M02/G02-T1,T2,T3/G03-T1,T2,T3",
+    "snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+    "status": "accepted",
+    "verdict": "accepted_for_scope"
+  },
+  "record_type": "AcceptanceRecord",
+  "schema_version": "1.0"
+}

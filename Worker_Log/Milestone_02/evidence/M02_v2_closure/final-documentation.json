@@ -1,0 +1,30 @@
+{
+  "reviewed_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+  "acceptance_schema_valid": true,
+  "checks": [
+    {
+      "command": [
+        "/workspace/.onboarding/atom-mlmm-m02-v2/env/bin/python",
+        "tools/check_docs.py",
+        "--self-test"
+      ],
+      "cwd": "/workspace/AToM_MLMM",
+      "started_utc": "2026-10-02T13:42:54.430472+00:00",
+      "finished_utc": "2026-10-02T13:42:54.620472+00:00",
+      "exit_code": 0,
+      "output": "{\n  \"errors\": [],\n  \"counts\": {\n    \"markdown_files\": 68,\n    \"local_links\": 608,\n    \"external_links_not_fetched\": 46\n  },\n  \"scope\": \"local documentation only; no external-link or scientific qualification\",\n  \"self_tests\": {\n    \"valid_links_and_duplicate_heading\": true,\n    \"broken_file_detected\": true,\n    \"broken_anchor_detected\": true,\n    \"undefined_reference_detected\": true,\n    \"escape_detected\": true,\n    \"unclosed_fence_detected\": true,\n    \"code_examples_are_not_live_links\": true,\n    \"implementation_audits_and_progress_are_allowed\": true\n  }\n}\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "/workspace/AToM_MLMM",
+      "started_utc": "2026-10-02T13:42:54.620501+00:00",
+      "finished_utc": "2026-10-02T13:42:54.628355+00:00",
+      "exit_code": 0,
+      "output": ""
+    }
+  ]
+}

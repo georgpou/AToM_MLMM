@@ -1,0 +1,69 @@
+# G02 analytic native ATM and admission closure — v2 independent audit
+
+**Reviewed workers:** [G02 v2](Gate_02_v2_worker.md) and [G03/M02 v2](Gate_03_v2_worker.md).\
+**Reviewed snapshot:** `m02-analytic-atm`, exact submitted HEAD `6015a652c4a9a9c968ab7933c07ac7bbb4573e12`; repaired source/input commit `33daa6bebd91c49ad87f822d48cfa87e600deb6d`; published handoff base `a8098a43d46df76b981861aa8dec0522d31be966`; development predecessor `87146b4cc7fbd0b58d6688903a5ba081b813ac13`.\
+**Scope/profile:** independent M02-R1/R2/R3 closure and all G02-T1/T2/T3 assertions, reviewed with G03 and combined M02 on this same `core-analytic-cpu` Reference/CPU snapshot.\
+**Reviewer:** Codex `/root/m02_v2_independent_audit`, configured model **gpt-6-astra**, reasoning **high**; deployed backend version **not exposed**. This reviewer authored no implementation or repair.\
+**Finished:** 2026-10-02 13:34:30 UTC.\
+**Verdict:** **accepted_for_scope**. All three v1 findings are closed for this snapshot. [G03's companion audit](Gate_03_v2_audit.md) contains the explicit combined G02/G03/M02 decision.
+
+## Evidence and snapshot
+
+Read AGENTS, README, DEVELOPMENT, STATUS, both M02 scientific/continuation handoffs and their records, both worker/audit attempts, G02/G03, relevant S01–S07 contracts and accepted M01 evidence. Inspected the actual repair source/test diff, the original M02 additions relative to the development predecessor, original gate tests, worker/test and independent numerical oracles, and pinned upstream routing, ABFE/RBFE expression/map construction, integrator and worker parameter methods. The repair changes only `atm.py`, `adapters/atom.py`, `routing.py` and the new admission test file. It changes no scientific definition or tolerance.
+
+[Snapshot verification](evidence/M02_v2_independent/snapshot-check.json) recomputed all **127** input SHA-256 values and compared each with both the submitted manifest and bytes at the repaired source commit. Source/test/fixture/environment trees match that commit. [Final input verification](evidence/M02_v2_independent/final-input-check.json) confirms all **28** milestone files present at the handoff base, including the unexecuted draft and handoff verification, remain byte-identical. The initial snapshot report covered 26 v1-named files; the final check covers all 28. Scientific specs, fixtures, environment locks/archives, models and examples are unchanged from the handoff. AST comparisons confirm unchanged `load_bundle`, `save_bundle` and physical artifact deserialization/ledger verification. Name-preserving ownership hashes remain intact.
+
+HEAD stayed frozen throughout. Initial tracked tree was clean; this reviewer added only the two v2 audits and independent evidence. The local origin/main ref remains `2d7bcc94f901738e39f536f16de84699d4e8d631`; predecessor object/ancestry is verified. Its remote-tracking ref is absent in this checkout, so this review makes no new remote-tip claim and performs no fetch/push. That does not block review of the exact local snapshot.
+
+All commands ran at `/workspace/AToM_MLMM` after `source /workspace/.onboarding/atom-mlmm-m02-v2/activate.sh`, except the separately identified upstream working directory. Direct scripts used `PYTHONPATH=src:.`. [Raw command captures](evidence/M02_v2_independent/command-results.json.gz) retain exact argument vectors, cwd, timestamps, exits and full output. [Strict validation](evidence/M02_v2_independent/strict-validation.json.gz) preserves all nine internal commands/output. The locked Python 3.11.16/main NumPy 2.4.6 and separate Amber NumPy 1.26.4 environment passes; OpenMM 8.6.1 and AToM distribution 8.5.0b0/source `9e26c5a3811038be1c98e3be6af4c78cd0dd57a7` remain the admitted versions. No upstream patch or loader-policy change was made.
+
+| Independently executed check | Observed result, exit 0 unless noted |
+|---|---|
+| `python -m pytest tests/integration/test_pythonforce_atm.py tests/contracts/test_transfer_protocols.py tests/contracts/test_physical_evaluator.py tests/contracts/test_fault_injection.py -v` | **78 passed in 13.51 s**, no skips |
+| Original G03 two-file command, recorded in companion audit | **38 passed in 6.34 s**, no skips |
+| `python -m pytest tests/contracts/test_m02_admission.py -v` | **74 passed in 3.05 s**, no skips |
+| `python -m pytest -q` | **238 passed in 41.83 s** |
+| `python -m pytest -m 'not gpu and not model_assets and not slow' -q` | **237 passed, 1 deselected in 41.46 s** |
+| `python /workspace/.onboarding/atom-mlmm-m02-v2/validate.py --repository /workspace/AToM_MLMM` | **9/9 checks passed** |
+| `python -m pytest -q tests/test_uwham.py`, cwd `/workspace/.onboarding/atom-mlmm-m02-v2/sources/AToM-OpenMM` | **1 passed in 3.00 s**, three datasets |
+| `python tools/check_docs.py --self-test`; `git diff --check` | No errors; all eight documentation self-tests pass |
+| Preserved v1 `probe_admission.py --require-rejection --output .../M02_v2_independent/admission-results.json` | **18 negatives reject; 2 positive restorations pass**; all 13 original failed rejections now reject |
+| Byte-identical copied v1 independent `probe_numerics.py` | **66 comparisons, 8 all-21-coordinate FD sweeps, 8 upstream A-B-A cases**, all pass |
+| Preserved stale artifact, fresh subprocess with initially empty cache and denied connect/DNS | Trusted old artifact loads; expected stale `u1` error **0.5 kJ/mol** is detected |
+| New independently authored `probe_closure.py` | **120 negative cases reject; 9 positive controls pass** |
+
+The three independently run gate/admission selections total **190 passing cases**; they are separate recorded commands, not a claimed extra combined invocation. Existing full-suite tests include valid native/upstream fresh offline reloads, explicit trust/digest rejection and inherited M01 prerequisites. The MACE asset test passes only as its existing integration regression.
+
+## Scientific checks and finding closure
+
+The numerical script was copied unchanged from the v1 independent audit; [copy provenance](evidence/M02_v2_independent/copy-provenance.json) records source/destination and matching SHA-256. This is an independently executed replay of an independently authored oracle, not a newly authored numerical oracle or worker-authored tests relabeled as independent. I inspected its Cartesian spring gradients, hand-declared maps and tanh/logaddexp differentiation. It imports no test/worker oracle. Its perturbed geometry, final permutation `(6,2,4,0,5,1,3)`, selected order `[2,0]`, unequal nonzero ligand contributions and outside energy 1.49355 kJ/mol exercise both protocol shapes, both analytic providers and both platforms.
+
+[Numerical results](evidence/M02_v2_independent/independent-numerics.json) give maximum energy error **5.706546346573305e-14 kJ/mol**, force-component error **2.2737367544323206e-13 kJ/mol/nm**, and final FD error **7.487415132345632e-9 kJ/mol/nm**. Eight sweeps cover every real coordinate at `1e-3`, `1e-4`, `1e-5 nm`. Frozen Reference limits remain `1e-8`/`1e-7`; direct/ATM limits remain `1e-4`/`5e-3`; final FD limit remains `1e-5`. No sample/nonfinite value is removed, clipped or hidden, and no tolerance is relaxed.
+
+| Finding | Independent closure decision and evidence |
+|---|---|
+| **M02-R1 — actual expression/schedule binding** | **Closed.** `validate_atm_schedule` in [atm.py](../../src/atm_mlmm/atm.py) compares executable expression tokens with the validated declared schedule, rejects repeated globals and requires every schedule global on the ATM object itself. Both `seal_alchemical` and reconstructed `AtmEvaluator` admission invoke it before Context creation. Token comparison allows upstream whitespace but cannot join split identifiers. Preserved four wrong-expression probes reject; regression linear/production, whitespace and split-token controls pass. The new independent probe exhausts all ten production names for missing/repeated ownership at sealer/artifact boundaries on both native/upstream origins: **80** rejections before a patched Context sentinel can be reached. Legitimate native/upstream expression numerics and fresh reloads pass. |
+| **M02-R2 — fixed physical global ownership and collisions** | **Closed.** `_Evaluator._open` captures all nonschedule Context globals; `_guard_system` checks them before direct/preparation/ATM evaluation, including externally restored State. Native construction and the adapter reject every physical/schedule collision before constructing ATM/upstream objects. Sealing/reload first prove actual child fingerprints match the sealed physical source, then inspect that source's globals; this correctly handles ATM's base `Force` child wrappers. Preserved direct/preparation mutation and collision probes reject. New constructor sentinels and bypassed artifact/sealer probes verify **40** rejections across all ten names, including fixed `Umax`, `Ubcore`, `Acore`, `UOffset`. Eight new controls put `audit_mobile_k=3.25` on transferred a1 with permuted final indices, both shapes/platforms/routes: hand-derived endpoint energy increments agree within **8.881784197001252e-16 kJ/mol**, raw endpoints stay fixed under requested schedule changes, and stale auxiliary State restores to physical 3.25 plus the requested schedule. Original and new full-real-force positive controls pass. |
+| **M02-R3 — renamed/regrouped exact duplicate content** | **Closed.** `_reject_duplicates` in [routing.py](../../src/atm_mlmm/routing.py) copies each force and removes name/group only for duplicate-content comparison. The ownership/report `force_digest` retains names and normalizes groups exactly as before. All preserved renamed-duplicate probes reject. New regressions independently rerun here cover PythonForce/CustomExternalForce rename, regroup and both in export/native/upstream, and admit same-name distinct parameters with correct numerics. An additional independent control verifies changed names change ownership digests while changed groups do not. Recursive ownership/nesting, default-route failure, outside scope and old trusted stale artifact checks pass. |
+
+[Additional probe source](evidence/M02_v2_independent/probe_closure.py), [results](evidence/M02_v2_independent/closure-results.json) and [command capture](evidence/M02_v2_independent/supplemental-closure-corrected.json.gz) preserve those checks. Fixture construction is explicitly reused from tests; additional admission expectations and `.5*k*r^2` increments were written independently. The initial supplemental run failed because the audit replaced the ATM class with a mock, invalidating `isinstance`; its [source](evidence/M02_v2_independent/probe_closure_initial.py.txt) and [failure](evidence/M02_v2_independent/supplemental-closure.json.gz) are preserved. The corrected probe patches only the constructor method. This was an audit-instrumentation error, not production RED evidence. The initial snapshot reporting failure from the absent remote ref is also preserved.
+
+Inspected worker RED/GREEN evidence independently: the initial native-owner lifetime abort (`-11`) is preserved and not counted as meaningful RED; corrected initial regressions report **45 failed/25 passed**, additional R1 selection **6 failed** (including repeated cases), and first R2 source-guard attempt **4 failed/23 passed** followed by **27 passed**. Those are worker development results, distinct from this review's fresh successful runs.
+
+| Stable G02 check | Assessment on this exact repaired snapshot |
+|---|---|
+| P0-TEST-G02-01 | Direct/raw/native linear 0/.37/1 endpoints and all-real weighted forces, both shapes/platforms, pass. |
+| P0-TEST-G02-02 | `[2,0]` sparse scatter, nm/kJ/mol/kJ/mol/nm and final permutation pass; factor-ten fault is detected. |
+| P0-TEST-G02-03 | Actual `(u1,u0,expression)` API order is explicit; nonzero outside energy appears once in total and never in raw children. |
+| P0-TEST-G02-04 | One shared physical factory/assembler handles complete unequal noncontiguous two-/three-atom ligands, full maps and nonzero second-ligand forces; incomplete membership rejects. |
+| P0-TEST-G02-05 | S04 `.45/+3/-3` and `.80/+4/-4`, MM-only motion and mapped MM derivatives pass; detached MM gradient fault is detected. |
+| P0-TEST-G02-06 | Physical/native/upstream A-B-A pass; preserved stale callback still fails its oracle after fresh offline reload. |
+| P0-TEST-G02-07 | Wrong index/tuple/unit, actual omitted child/coupling, duplicate child, stale callback and missing MM derivative faults are detected; R3 admission closes the renamed-copy gap. |
+| P0-TEST-G02-08 | Independent harmonic endpoint/outside negative gradients and all-real projection through nonidentity maps pass. |
+| P0-TEST-G02-09 | Exact nonlinear soft-core/softplus chain rule, directions, offsets, transitions, linear limits and full-coordinate FD pass; R1 now binds executed semantics to declared identity. |
+
+## Decision and handoff
+
+Accept **G02-T1/T2/T3 and G02 for `core-analytic-cpu`** on the exact reviewed HEAD above. M02-R1/R2/R3 have no remaining blocking finding within this scope. Preserve v1's historical `changes_required` decisions for their own snapshot. Combined acceptance is explicitly recorded in the companion G03 audit, inheriting M01's independently accepted analytic scope.
+
+Acceptance covers nonperiodic seven-real-atom analytic transfer architecture on Reference/CPU, fixed complete ligand groups, float64 callbacks, full-real derivatives and NVT with timestep at most **0.0005 ps**. Caps, chemical/protein accuracy, GPU/full pretrained-model qualification, periodic/actual electrostatic physics, molecular ABFE/RBFE, binding/corrections and full asynchronous preparation/restart/exchange remain deferred. M00 physical-reference choices remain open before G05/G07 chemical comparisons. The parent integrator owns STATUS, acceptance records, commits and publication; none was changed here.

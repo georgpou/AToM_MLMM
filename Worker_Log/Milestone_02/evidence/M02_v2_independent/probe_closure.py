@@ -1,0 +1,116 @@
+"""Additional independently authored admission coverage; fixture reuse is explicit.
+No worker numerical oracle is used. This script is audit evidence, not production.
+"""
+import copy,json
+from dataclasses import replace
+from pathlib import Path
+from unittest.mock import patch
+import numpy as np
+import openmm as mm
+from atm_mlmm.atm import AtmEvaluator,build_atm,physical_system,seal_alchemical,xml_digest,force_digest
+from atm_mlmm.analytic import seal_physical
+from atm_mlmm.adapters.atom import build_atom
+from atm_mlmm.geometry import resolve_protocol
+from atm_mlmm.routing import validate_routing
+from atm_mlmm.schema import IdentityError
+from tests.workflow.test_atom_force_routing import atom_case
+from tests.analytic_oracle import REFERENCE
+
+out=Path(__file__).parent
+rows=[]
+def reject(name,fn,word):
+ try: fn()
+ except IdentityError as e:
+  assert word in str(e), (name,str(e))
+  rows.append(dict(name=name,rejected=True,diagnostic=str(e)))
+ else: raise AssertionError('admitted '+name)
+def admit(bundle,system,method):
+ if method=='seal': return seal_alchemical(system,bundle.physical,bundle.transfer,bundle.schedule,bundle.restraints)
+ xml=mm.XmlSerializer.serialize(system)
+ with AtmEvaluator(replace(bundle,system_xml=xml,system_sha256=xml_digest(xml)),REFERENCE): pass
+
+def with_global(p,t,name,value):
+ source=physical_system(p)
+ f=mm.CustomExternalForce('.5*'+name+'*(x*x+y*y+z*z)')
+ f.addGlobalParameter(name,value);f.addParticle(p.real_to_final['a1'],[]);f.setName('audit:global-on-transferred-atom')
+ source.addForce(f)
+ p=seal_physical(source,p.topology,ml_atom_ids=p.ml_atom_ids,old_to_new=p.old_to_new,manifest=p.manifest)
+ return p,resolve_protocol(p,t.protocol)
+
+# Every required production global, including fixed soft-core names, at both
+# admission boundaries and both origins. No Context may be constructed.
+p,t,s,r,x=atom_case('rbfe',old_to_new=(6,2,4,0,5,1,3))
+for route in ('native','upstream'):
+ if route=='native': bundle=build_atm(p,t,s,r)
+ else:
+  with build_atom(p,t,s,r,REFERENCE) as run: bundle=run.bundle
+ for name in s.parameter_units:
+  for fault in ('missing','duplicate'):
+   system=mm.XmlSerializer.deserialize(bundle.system_xml)
+   f=next(f for f in system.getForces() if isinstance(f,mm.ATMForce))
+   if fault=='missing':
+    index=next(i for i in range(f.getNumGlobalParameters()) if f.getGlobalParameterName(i)==name)
+    f.setGlobalParameterName(index,'audit_missing_'+name)
+   else: f.addGlobalParameter(name,s.states[0].parameters[name])
+   for method in ('seal','artifact'):
+    with patch.object(mm,'Context',side_effect=AssertionError('Context reached')):
+     reject(f'{route}-{name}-{fault}-{method}',lambda:admit(bundle,system,method),'parameter')
+
+# All ten names must reject before native/upstream construction, independently
+# of whether the name varies between states. Then bypass constructors to test
+# sealer/reconstructed admission with valid matching child/routing fingerprints.
+base=build_atm(p,t,s,r)
+for name in s.parameter_units:
+ pg,tg=with_global(p,t,name,s.states[0].parameters[name])
+ with patch.object(mm.ATMForce,'__init__',side_effect=AssertionError('native constructor reached')):
+  reject('native-early-collision-'+name,lambda:build_atm(pg,tg,s,r),'collision')
+ from atom_openmm.ommsystem import OMMSystemABFE,OMMSystemRBFE
+ with patch.object(OMMSystemABFE,'__init__',side_effect=AssertionError('upstream constructor reached')),patch.object(OMMSystemRBFE,'__init__',side_effect=AssertionError('upstream constructor reached')):
+  reject('upstream-early-collision-'+name,lambda:build_atom(pg,tg,s,r,REFERENCE),'collision')
+ system=mm.XmlSerializer.deserialize(base.system_xml)
+ f=next(f for f in system.getForces() if isinstance(f,mm.ATMForce))
+ source=physical_system(pg); f.addForce(copy.copy(source.getForces()[-1]))
+ altered=replace(base,physical=pg,transfer=tg,routing_report=validate_routing(system,pg,r))
+ for method in ('seal','artifact'):
+  with patch.object(mm,'Context',side_effect=AssertionError('Context reached')):
+   reject('bypassed-collision-'+name+'-'+method,lambda:admit(altered,system,method),'collision')
+
+# Name-preserving ownership digests retain their old behavior independently of
+# the new content-only duplicate check.
+source=physical_system(p);original=source.getForce(0);renamed=copy.copy(original);renamed.setName('audit:identity-name');regrouped=copy.copy(original);regrouped.setForceGroup(7)
+assert force_digest(original)!=force_digest(renamed)
+assert force_digest(original)==force_digest(regrouped)
+rows.append(dict(name='ownership-name-preserved-group-normalized',passed=True))
+
+# Physical global on a moved ligand: check raw differences against independently
+# written Cartesian .5*k*r^2 at each hand-declared endpoint, across both shapes,
+# platforms and constructors. Two schedules must not alter either raw endpoint.
+for kind in ('abfe','rbfe'):
+ p,t,s,r,x=atom_case(kind,old_to_new=(6,2,4,0,5,1,3))
+ pg,tg=with_global(p,t,'audit_mobile_k',3.25)
+ a=np.asarray(x.positions_nm)[2];d=np.array((.1,-.2,.3))
+ expected=(.5*3.25*np.dot(a,a),.5*3.25*np.dot(a+d,a+d))
+ for platform in ('Reference','CPU'):
+  runtime=replace(REFERENCE,platform=platform)
+  for route in ('native','upstream'):
+   def make(pp,tt):
+    return AtmEvaluator(build_atm(pp,tt,s,r),runtime) if route=='native' else build_atom(pp,tt,s,r,runtime)
+   with make(p,t) as control,make(pg,tg) as changed:
+    errors=[]
+    for state in s.states:
+     b=control.evaluate(x,state.state_id);g=changed.evaluate(x,state.state_id)
+     delta=(g.raw.u0_raw_kJ_mol-b.raw.u0_raw_kJ_mol,g.raw.u1_raw_kJ_mol-b.raw.u1_raw_kJ_mol)
+     errors.append(float(np.max(np.abs(np.asarray(delta)-expected))))
+     assert errors[-1]<=1e-8, errors
+    evaluator=changed if route=='native' else changed.evaluator
+    good=evaluator.evaluate(x,'second')
+    evaluator.set_state('first');evaluator.context.setParameter('audit_mobile_k',77.)
+    stale=evaluator.context.getState(getPositions=True,getParameters=True)
+    evaluator.context.setParameter('audit_mobile_k',3.25)
+    evaluator.restore_state(stale,'second')
+    assert evaluator.context.getParameter('audit_mobile_k')==3.25
+    assert evaluator.evaluate(x,'second')==good
+    rows.append(dict(name=f'mobile-global-and-stale-State-{kind}-{platform}-{route}',passed=True,max_raw_delta_error=max(errors)))
+report=dict(negative_count=sum(row.get('rejected',False) for row in rows),positive_count=sum(row.get('passed',False) for row in rows),observations=rows)
+(out/'closure-results.json').write_text(json.dumps(report,indent=2,allow_nan=False)+'\n')
+print(json.dumps({k:report[k] for k in ('negative_count','positive_count')}))

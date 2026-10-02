@@ -1,0 +1,14 @@
+{
+  "command": [
+    "/workspace/.onboarding/atom-mlmm-m02-v2/env/bin/python",
+    "Worker_Log/Milestone_02/evidence/M02_v2_closure/record_acceptance.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "head": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+  "activation": "/workspace/.onboarding/atom-mlmm-m02-v2/activate.sh",
+  "pythonpath": "src:.",
+  "started_utc": "2026-10-02T13:39:23.618648+00:00",
+  "finished_utc": "2026-10-02T13:39:24.296566+00:00",
+  "exit_code": 0,
+  "output": "{\n  \"snapshot\": \"6015a652c4a9a9c968ab7933c07ac7bbb4573e12\",\n  \"status\": \"accepted\",\n  \"verdict\": \"accepted_for_scope\",\n  \"stable_checks\": 16,\n  \"requirements\": 11,\n  \"source_input_hashes_verified\": 127,\n  \"schema_round_trip\": true\n}\n"
+}
