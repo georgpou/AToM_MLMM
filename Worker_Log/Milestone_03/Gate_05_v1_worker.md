@@ -1,7 +1,8 @@
 # G05 real MACE candidate — v1 worker
 
 **Scope:** G05-T1/T2/T3 software checks pass; T4 and independent gate review pending.\
-**Outcome:** partial.\
+**Outcome:** software ready for scoped independent audit; full G05 blocked on
+explicit M00 agreement and actual quantum data.\
 **Snapshot:** unused child `m03-reference-g05` at exact accepted G04 handoff
 `bc788aeeedb4dc45026ac1bff44bd4fb533b325a`. Only the child is edited/committed;
 protected remote tips are recorded in [lineage evidence](evidence/G05_v1/setup-and-lineage.json).
@@ -76,3 +77,34 @@ regressions and final independent review are still required. M00's original
 v2 review required a G07 geometry repair; corrected v3 and ten explicit
 rotation-quadrature controls await fresh review and the user's scientific
 choice. No chemical target results were generated.
+
+
+## Review-ready current-source verification
+
+| Capture | Actual result |
+|---|---|
+| final-partial-full | Exit1, **284 passed / 2 failed** in66.72s; both failures are the stable T4 missing-reviewed-quantum-data check before any model score |
+| final-partial-analytic | Exit0, **265 passed / 21 deselected** in35.13s; model/chemical selection is not numerical qualification |
+| inherited-g02 / inherited-g03 / inherited-admission / inherited-g04 | Exit0, **78 / 38 / 74 / 24 passed** |
+| task3-environment | Exit0, **9/9 strict checks**, exact core/Amber versions separate |
+| review-ready-upstream | Exit0, **1 passed** on upstream tests/test_uwham.py |
+| review-ready-documentation | Exit0, **zero errors / eight self-tests**, whitespace clean |
+| quantum-generation-unagreed | Exit1 before output directory/worker creation; actual decision has user_agreed=false |
+| green-reference-metrics / green-force-metric-shape | Exit0, final3 metric/control tests; fixed-composition zeros, maximum localized error, missing data and atom-broadcast rejection; no quantum substitute |
+
+The [tested source/input manifest](evidence/G05_v1/source-input-manifest-partial.json)
+records269 exact current hashes before this frozen submission. These source
+bytes were tested with parent HEADa825f5f and subsequently committed unchanged;
+report-only updates do not alter the source/input identities. T4 generation
+and comparison code is prepared but not runtime-qualified on actual target
+references. The full suite remains red because the two genuine quantum inputs
+are absent, not because an analytic placeholder was accepted. No target
+comparison was inspected, no failed sample discarded, and no threshold changed.
+
+The scoped independent software audit must identify any remaining code issue
+and may accept only G00-T2/G05-T1/T2/T3 checks actually reviewed. Final full G05
+review must follow completed T4. The [fresh-agent continuation](../../docs/project-0/handoffs/M03-G05-continuation.md)
+contains the actual decision dependency, generation command and remaining
+qualification obligations. User agreement remains the only present scientific
+prerequisite to start generating target references; missing reference data
+continues to block full gate acceptance.

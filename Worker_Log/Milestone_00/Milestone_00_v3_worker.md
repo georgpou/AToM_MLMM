@@ -39,8 +39,14 @@ V2 plan, fixtures, audit and all failed evidence remain preserved.
 
 ## Handoff
 
-Obtain a fresh-context gpt-6-astra/high review of the exact v3 commit and user
-agreement before running target comparisons. G00/G05 software work can advance.
+Actual fresh-context gpt-6-astra/high [v3 audit](Milestone_00_v3_audit.md)
+accepts the exact `a825f5f1c2d8cf4146133c2049ef1c4eca550e93` proposal for
+scope, conditional on explicit user agreement. Independent results are
+965 applicable structural/geometry checks and 131 package/basis/provenance
+checks. M00-v2-R1 is closed; no blocking design finding remains. The
+[decision record](evidence/M00_v3_decision/decision-pending.json) honestly
+records user_agreed=false. Obtain that agreement before target calculations
+or comparisons. G00/G05 software work can advance.
 G07 exact prepared GAFF/AM1-BCC XML/charges/ledger freeze is later, as explicitly
 required by the reviewed future matrix. No reference-design approval accepts
 G05 chemistry, G07, protein ABFE/RBFE or M03.

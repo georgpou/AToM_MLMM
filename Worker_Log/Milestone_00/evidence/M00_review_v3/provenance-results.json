@@ -1,0 +1,664 @@
+{
+  "reviewed_sha": "a825f5f1c2d8cf4146133c2049ef1c4eca550e93",
+  "target_calculations_run": 0,
+  "total": 131,
+  "passed": 131,
+  "failed": [],
+  "checks": [
+    {
+      "check": "105 actual locked packages",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:_openmp_mutex",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:annotated-types",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:armadillo",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:arpack",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:bzip2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:c-ares",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:ca-certificates",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:cffi",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:cpp-argparse",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:cpptrace",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:dftd3-python",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:dkh",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:einsums",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:fftw",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:flexcache",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:flexparser",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:fmt",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:gau2grid",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:hdf5",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:icu",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:jonquil",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:keyutils",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:krb5",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:ld_impl_linux-64",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libaec",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libblas",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libcblas",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libcurl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libdwarf",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libecpint",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libedit",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libev",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libexpat",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libffi",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libgcc",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libgfortran",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libgfortran5",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libhwloc",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libiconv",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libint",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:liblapack",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:liblzma",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libnghttp2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libnsl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libopenblas",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libpcm",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libpsl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libpython",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libsqlite",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libssh2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libstdcxx",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libuuid",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libxc-c",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libxcrypt",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libxml2-16",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libxml2",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:libzlib",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:llvm-openmp",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:mctc-lib",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:mkl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:msgpack-python",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:ncurses",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:networkx",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:numpy",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:onemkl-license",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:openorbitaloptimizer",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:openssl",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:optking",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:packaging",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:pcmsolver",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:pint",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:pip",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:platformdirs",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:psi4",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:psutil",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:pugixml",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:py-cpuinfo",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:pybind11-abi",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:pycparser",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:pydantic",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:pydantic-core",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:pydantic-settings",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:python",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:python-dotenv",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:python_abi",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:pyyaml",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:qcelemental",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:qcengine",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:qcmanybody",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:readline",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:scipy",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:setuptools",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:simple-dftd3",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:spdlog",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:superlu",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:tbb",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:tk",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:toml-f",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:typing-extensions",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:typing-inspection",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:typing_extensions",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:tzdata",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:wheel",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:yaml",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "package:zstd",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "basis:def2-tzvppd.gbs",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "basis:def2-universal-jkfit.gbs",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "v2 preserved:fixtures/chemical_reference",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "v2 preserved:tools/prepare_neutral_references.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "v2 preserved:docs/project-0/reference/M00-neutral-reference-plan-v2.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "provenance:mace-off-pinned-readme.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "provenance:psi4-1.10-functionals.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "provenance:spice-readme.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "provenance:sample.dat",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior independent evidence:README.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior independent evidence:commands.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior independent evidence:contact-geometry-results.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior independent evidence:contact_geometry_audit.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior independent evidence:independent-methane.dat",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior independent evidence:independent-methane.log",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior independent evidence:quantum-results.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior independent evidence:quantum-run.txt",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior independent evidence:quantum_audit.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior independent evidence:structural-results.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior independent evidence:structural_audit.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior independent evidence:timer.dat",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior methane exact settings",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "prior methane no VV10",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "resource caps",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "snapshot unchanged",
+      "passed": true,
+      "details": null
+    }
+  ]
+}
