@@ -1,4 +1,5 @@
 """Explicit recursive physical ownership and actual integration-mask checks."""
+import copy
 from dataclasses import dataclass
 
 import numpy as np
@@ -29,7 +30,12 @@ def _reject_duplicates(rows):
     for path, force in rows:
         if isinstance(force, mm.ATMForce):
             continue
-        digest = force_digest(force)
+        # Names and groups are labels. Preserve them in ownership/report hashes,
+        # but exclude both when deciding whether physical content is duplicated.
+        content = copy.copy(force)
+        content.setName('')
+        content.setForceGroup(0)
+        digest = xml_digest(mm.XmlSerializer.serialize(content))
         if digest in seen:
             raise IdentityError(f'duplicate force ownership/content at {seen[digest]} and {path}: {force.getName()}')
         seen[digest] = path

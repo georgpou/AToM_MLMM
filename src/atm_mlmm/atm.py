@@ -8,6 +8,7 @@ import copy
 import hashlib
 import json
 from pathlib import Path
+import re
 
 import numpy as np
 import openmm as mm
@@ -26,7 +27,7 @@ def xml_digest(xml):
 
 
 def force_digest(force):
-    """Physical content fingerprint independent of its routing group."""
+    """Name-preserving ownership fingerprint independent of routing group."""
     force = copy.copy(force)
     force.setForceGroup(0)
     return xml_digest(mm.XmlSerializer.serialize(force))
@@ -64,11 +65,43 @@ def outside_force(physical, restraints):
     return force
 
 
+def validate_atm_schedule(force, schedule):
+    """Bind executed ATM semantics to the declared schedule before admission."""
+    # Ignore whitespace between tokens, including the pinned upstream's extra
+    # space before a comma. Whitespace inside a name/number changes its tokens.
+    token = r'[A-Za-z_]\w*|(?:\d+(?:\.\d*)?|\.\d+)(?:[eE][+-]?\d+)?|[^\s]'
+    if re.findall(token, force.getEnergyFunction()) != re.findall(token, schedule.expression):
+        raise IdentityError('actual ATM expression differs from declared schedule')
+    names = [force.getGlobalParameterName(i) for i in range(force.getNumGlobalParameters())]
+    if len(names) != len(set(names)):
+        raise IdentityError('ATM schedule/global parameter names must be unique')
+    missing = set(schedule.parameter_units) - set(names)
+    if missing:
+        raise IdentityError(f'ATM lacks required schedule global parameters: {sorted(missing)}')
+
+
+def validate_physical_parameter_ownership(system, schedule):
+    """Schedule globals may not also control an admitted physical System."""
+    from .routing import walk_forces
+    for path, force in walk_forces(system):
+        if isinstance(force, mm.ATMForce) or not hasattr(force, 'getNumGlobalParameters'):
+            continue
+        names = {force.getGlobalParameterName(i) for i in range(force.getNumGlobalParameters())}
+        collisions = names & set(schedule.parameter_units)
+        if collisions:
+            raise IdentityError(f'physical/schedule global parameter collision at {path}: {sorted(collisions)}')
+
+
 def seal_alchemical(system, physical, transfer, schedule, restraints, *, construction='native'):
     from .routing import validate_routing
     validate_transfer(physical, transfer)
     validate_schedule(schedule)
     report = validate_routing(system, physical, restraints)
+    force = next(f for f in system.getForces() if isinstance(f, mm.ATMForce))
+    validate_atm_schedule(force, schedule)
+    # Routing already proves the actual children match this physical source.
+    # ATMForce.getForce returns base Force wrappers without parameter accessors.
+    validate_physical_parameter_ownership(physical_system(physical), schedule)
     xml = mm.XmlSerializer.serialize(system)
     return AlchemicalBundle(physical, transfer, schedule, restraints, xml, xml_digest(xml), tuple(report), construction)
 
@@ -77,6 +110,7 @@ def build_atm(bundle, transfer, schedule, restraints):
     validate_transfer(bundle, transfer)
     validate_schedule(schedule)
     system = physical_system(bundle)
+    validate_physical_parameter_ownership(system, schedule)
     force = mm.ATMForce(schedule.expression)
     for name, value in schedule.states[0].parameters.items():
         force.addGlobalParameter(name, value)
@@ -110,7 +144,7 @@ def make_integrator(runtime):
 
 
 class _Evaluator:
-    def _open(self, system, runtime, integrator=None):
+    def _open(self, system, runtime, integrator=None, *, varying_parameters=()):
         validate_runtime(runtime)
         self.system = system
         self.runtime = runtime
@@ -123,6 +157,8 @@ class _Evaluator:
         platform = mm.Platform.getPlatformByName(runtime.platform)
         properties = {'Threads': '2'} if runtime.platform == 'CPU' else {}
         self.context = mm.Context(system, self.integrator, platform, properties)
+        self._fixed_parameters = {name: value for name, value in self.context.getParameters().items()
+                                  if name not in varying_parameters}
         self._system_digest = xml_digest(mm.XmlSerializer.serialize(system))
         self._bundle_identity = self.bundle.content_identity
         self._runtime_identity = runtime.content_identity
@@ -136,6 +172,10 @@ class _Evaluator:
             raise IdentityError('runtime profile identity replacement requires a new context')
         if xml_digest(mm.XmlSerializer.serialize(self.system)) != self._system_digest:
             raise IdentityError('runtime System/force/map mutation invalidates sealed identity')
+        actual = self.context.getParameters()
+        for name, value in self._fixed_parameters.items():
+            if actual[name] != value:
+                raise IdentityError(f'fixed runtime parameter mutation before evaluation: {name}')
         groups = {force.getForceGroup() for force in self.system.getForces()}
         required = sum(1 << group for group in groups)
         if self.integrator.getIntegrationForceGroups() & required != required:
@@ -200,14 +240,15 @@ class AtmEvaluator(_Evaluator):
             raise IdentityError('saved routing report differs from actual recursive ownership')
         self.bundle = bundle
         self.atm_force = next(f for f in system.getForces() if isinstance(f, mm.ATMForce))
+        validate_atm_schedule(self.atm_force, bundle.schedule)
+        validate_physical_parameter_ownership(physical_system(bundle.physical), bundle.schedule)
         self.outside_groups = {r.force_group for r in bundle.routing_report if r.disposition == 'outside'}
         if self.atm_force.getForceGroup() in self.outside_groups:
             raise IdentityError('ATM and outside energies require separate groups')
-        self._open(system, runtime, integrator)
+        self._open(system, runtime, integrator, varying_parameters=bundle.schedule.parameter_units)
         self._state_id = bundle.schedule.states[0].state_id
         self._expected_parameters = dict(bundle.schedule.states[0].parameters)
-        self._auxiliary_parameters = {k: v for k, v in self.context.getParameters().items()
-                                      if k not in self._expected_parameters}
+        self._auxiliary_parameters = self._fixed_parameters
         self._check_maps()
         # Artifact defaults may differ in upstream construction: explicitly
         # restore the complete first schedule state before admitting evaluation.
@@ -232,7 +273,7 @@ class AtmEvaluator(_Evaluator):
         self._guard_system()
         self._check_maps()
         actual = self.context.getParameters()
-        for name, value in {**self._auxiliary_parameters, **self._expected_parameters}.items():
+        for name, value in self._expected_parameters.items():
             if actual[name] != value:
                 raise IdentityError(f'runtime parameter mutation before evaluation: {name}')
 

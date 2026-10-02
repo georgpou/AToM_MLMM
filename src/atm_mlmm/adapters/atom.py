@@ -18,7 +18,8 @@ import numpy as np
 import openmm as mm
 from openmm import app, unit
 
-from ..atm import (AtmEvaluator, outside_force, seal_alchemical, validate_runtime)
+from ..atm import (AtmEvaluator, outside_force, seal_alchemical,
+                   validate_physical_parameter_ownership, validate_runtime)
 from ..geometry import validate_transfer
 from ..routing import export_physical
 from ..schedule import schedule_state, validate_schedule
@@ -153,6 +154,7 @@ def build_atom(physical, transfer, schedule, restraints, runtime, *, reserved_gr
     keywords = atom_keywords(physical, transfer, schedule, runtime, reserved_group=reserved_group)
     export = export_physical(physical, reserved_group=reserved_group)
     export.check()
+    validate_physical_parameter_ownership(export.system, schedule)
     cls = OMMSystemABFE if transfer.protocol.kind == 'abfe' else OMMSystemRBFE
     upstream = cls('analytic', keywords, None, None, logging.getLogger('atm_mlmm.atom'))
     upstream.system = export.system
