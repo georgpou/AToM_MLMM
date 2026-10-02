@@ -1,0 +1,19 @@
+{
+  "actual_dispatch": {
+    "fork_turns": "none",
+    "model": "gpt-6-astra",
+    "reasoning_effort": "high"
+  },
+  "audit_and_verdict_absent": true,
+  "copied_from": "/workspace/AToM_MLMM-m03-g04-v1-review/Worker_Log/Milestone_03/evidence/G04_v1_independent",
+  "interrupted_reviewer": "/root/g04_v1_astra_audit",
+  "interruption": "User 5h usage limit; reviewer no longer live after resumption",
+  "sha256": {
+    "analytic.json.gz": "fd16a141ca98ee16542197556be81d43f2068d019aa12df97d3e9246217ea50d",
+    "full.json.gz": "80fa2341dca41f4b43b998e099429fd14aa28e76b80092be4383302ad825cbf4",
+    "g02.json.gz": "4948f75e2e4150a2361201f949c5c64f1084fe90202ac11936bb00f2c3b0041a",
+    "g04.json.gz": "1484c1a50405d6886e215c86cb614e78d3ef5ae56e8542b1c29bb2407c531b71",
+    "run_check.py": "edd64e54179910d7a5be591c2dc79f3123e0ff8ee1ac6988700f15ff4ee080d5"
+  },
+  "snapshot": "35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a"
+}

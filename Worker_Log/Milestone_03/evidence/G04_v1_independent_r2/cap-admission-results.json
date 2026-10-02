@@ -1,0 +1,84 @@
+{
+  "negative_count": 13,
+  "positive_count": 2,
+  "rows": [
+    {
+      "name": "cap-alias-real",
+      "rejected": true,
+      "error": "IdentityError",
+      "diagnostic": "model map must cover fixed real ML membership"
+    },
+    {
+      "name": "cap-final-overlaps-real",
+      "rejected": true,
+      "error": "IdentityError",
+      "diagnostic": "link/final map overlaps real particles or is out of range"
+    },
+    {
+      "name": "wrong-model-slot",
+      "rejected": true,
+      "error": "IdentityError",
+      "diagnostic": "link/model map mismatch"
+    },
+    {
+      "name": "MM-parent-is-ML",
+      "rejected": true,
+      "error": "IdentityError",
+      "diagnostic": "link parents must be real ML/MM atoms"
+    },
+    {
+      "name": "reversed-parents",
+      "rejected": true,
+      "error": "IdentityError",
+      "diagnostic": "link parents must be real ML/MM atoms"
+    },
+    {
+      "name": "unsupported-site-type",
+      "rejected": true,
+      "error": "UnsupportedCapability",
+      "diagnostic": "only fixed-length LocalCoordinatesSite caps admitted"
+    },
+    {
+      "name": "zero-distance",
+      "rejected": true,
+      "error": "MalformedInput",
+      "diagnostic": "invalid link index/distance"
+    },
+    {
+      "name": "future-builder-version",
+      "rejected": true,
+      "error": "UnsupportedCapability",
+      "diagnostic": "G04 boundary builder version 1 admits one cap"
+    },
+    {
+      "name": "missing-link-record",
+      "rejected": true,
+      "error": "IdentityError",
+      "diagnostic": "model map must cover fixed real ML membership"
+    },
+    {
+      "name": "massive-cap",
+      "rejected": true,
+      "error": "IdentityError",
+      "diagnostic": "cap has independent mass"
+    },
+    {
+      "name": "metadata-distance-vs-executable",
+      "rejected": true,
+      "error": "IdentityError",
+      "diagnostic": "link distance/weights differ from the fixed-length rule"
+    },
+    {
+      "name": "executable-wrong-parent-order",
+      "rejected": true,
+      "error": "IdentityError",
+      "diagnostic": "link parent identities differ from actual virtual site"
+    },
+    {
+      "name": "executable-wrong-origin-weights",
+      "rejected": true,
+      "error": "IdentityError",
+      "diagnostic": "link distance/weights differ from the fixed-length rule"
+    }
+  ]
+}

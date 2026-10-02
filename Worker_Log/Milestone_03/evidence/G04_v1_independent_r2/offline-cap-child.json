@@ -1,0 +1,14 @@
+{
+  "argv": [
+    "/workspace/atom-mlmm-g04-v2/env/bin/python",
+    "/workspace/AToM_MLMM-m03-g04-v1-review-r2/Worker_Log/Milestone_03/evidence/G04_v1_independent_r2/probe_offline_cap.py",
+    "/workspace/AToM_MLMM-m03-g04-v1-review-r2/Worker_Log/Milestone_03/evidence/G04_v1_independent_r2/trusted-cap-artifact.json",
+    "0391e3e50b473bc1c044737cad7d127fee84fc45548036abe2ecc8cda53e1f14"
+  ],
+  "cwd": "/workspace/AToM_MLMM-m03-g04-v1-review-r2",
+  "cache": "/workspace/AToM_MLMM-m03-g04-v1-review-r2/Worker_Log/Milestone_03/evidence/G04_v1_independent_r2/cap-empty-cache",
+  "sha256": "0391e3e50b473bc1c044737cad7d127fee84fc45548036abe2ecc8cda53e1f14",
+  "exit_code": 0,
+  "stdout": "Trusted fresh process: guards, empty cache, denied sockets/DNS, all states, both parents/MM environment FD, complete state restoration and A-B-A pass\nFinal parent/environment FD errors: [1.2335715382505441e-06, 1.2343596154096304e-06, 1.234596993526793e-06]\n",
+  "stderr": ""
+}

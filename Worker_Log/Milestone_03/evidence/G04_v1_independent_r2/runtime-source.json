@@ -1,0 +1,30 @@
+{
+  "numpy": "2.4.6",
+  "openmm": "8.6.1",
+  "modules": [
+    {
+      "module": "openmmml.mlpotential",
+      "installed_path": "/workspace/atom-mlmm-g04-v2/env/lib/python3.11/site-packages/openmmml/mlpotential.py",
+      "installed_sha256": "dc13295b76d06ea2b093db5490c51f085804cb36e509b4998ba013cd29063e31",
+      "archive_member": "openmmml/mlpotential.py",
+      "archive_sha256": "dc13295b76d06ea2b093db5490c51f085804cb36e509b4998ba013cd29063e31",
+      "match": true
+    },
+    {
+      "module": "openmmml.embeddings.mechanicalembedding",
+      "installed_path": "/workspace/atom-mlmm-g04-v2/env/lib/python3.11/site-packages/openmmml/embeddings/mechanicalembedding.py",
+      "installed_sha256": "eecef97cd31e9c15a505459949fa0d8e43973e06aee3e81c900af1b6658c87f4",
+      "archive_member": "openmmml/embeddings/mechanicalembedding.py",
+      "archive_sha256": "eecef97cd31e9c15a505459949fa0d8e43973e06aee3e81c900af1b6658c87f4",
+      "match": true
+    },
+    {
+      "module": "openmmml.embeddings.utilities",
+      "installed_path": "/workspace/atom-mlmm-g04-v2/env/lib/python3.11/site-packages/openmmml/embeddings/utilities.py",
+      "installed_sha256": "8768a70baa8602de6d1afe3acb903ee1da6a992819d3f7645c01883517bda7a2",
+      "archive_member": "openmmml/embeddings/utilities.py",
+      "archive_sha256": "8768a70baa8602de6d1afe3acb903ee1da6a992819d3f7645c01883517bda7a2",
+      "match": true
+    }
+  ]
+}

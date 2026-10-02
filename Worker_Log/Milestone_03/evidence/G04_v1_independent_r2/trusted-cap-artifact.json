@@ -1,0 +1,2881 @@
+{
+  "data": {
+    "construction": "native",
+    "physical": {
+      "data": {
+        "constraints": [],
+        "ledger": [
+          {
+            "data": {
+              "class_name": "HarmonicBondForce",
+              "force_group": 0,
+              "index": 0,
+              "name": "HarmonicBondForce",
+              "parameters": {
+                "force_sha256": "3c86b4712a31b05e68954927f71bc086f7a8fc7d56506b98c50e983212e79d87"
+              },
+              "uses_periodic": false
+            },
+            "record_type": "ForceRecord"
+          },
+          {
+            "data": {
+              "class_name": "PeriodicTorsionForce",
+              "force_group": 0,
+              "index": 1,
+              "name": "PeriodicTorsionForce",
+              "parameters": {
+                "force_sha256": "35e0a7114a7fd1711cedd225d86cab2f0e258dbac1922eecd91bbb28419ee0f0"
+              },
+              "uses_periodic": false
+            },
+            "record_type": "ForceRecord"
+          },
+          {
+            "data": {
+              "class_name": "NonbondedForce",
+              "force_group": 0,
+              "index": 2,
+              "name": "NonbondedForce",
+              "parameters": {
+                "force_sha256": "cf566b8bfd83ef0678364acb632d9ee4a3ebe72dbd258c4e07c6edf27aa9cbec"
+              },
+              "uses_periodic": false
+            },
+            "record_type": "ForceRecord"
+          },
+          {
+            "data": {
+              "class_name": "HarmonicAngleForce",
+              "force_group": 0,
+              "index": 3,
+              "name": "HarmonicAngleForce",
+              "parameters": {
+                "force_sha256": "8795bcf8dfd5c851a0230cc53989827b1cd0caa6b834e80051fd723c865bb23b"
+              },
+              "uses_periodic": false
+            },
+            "record_type": "ForceRecord"
+          },
+          {
+            "data": {
+              "class_name": "PythonForce",
+              "force_group": 2,
+              "index": 4,
+              "name": "analytic:boundary-probe",
+              "parameters": {
+                "force_sha256": "aa63072401bd16151b388e07f942fa17ea6d07d7882de4b5019623606a344eec"
+              },
+              "uses_periodic": false
+            },
+            "record_type": "ForceRecord"
+          }
+        ],
+        "links": [
+          {
+            "data": {
+              "cap_id": "cap:1fdc7c6a6f25090a9f4ec8308be0f5aa895b1479a685c624270dbbade538b315",
+              "distance_nm": 0.117,
+              "final_particle_index": 13,
+              "ml_parent_id": "p0",
+              "mm_parent_id": "p1",
+              "model_input_index": 9,
+              "virtual_site_type": "LocalCoordinatesSite"
+            },
+            "record_type": "LinkRecord"
+          }
+        ],
+        "manifest": {
+          "boundary_builder_version": 1,
+          "boundary_terms": [
+            {
+              "atom_ids": [
+                "p0",
+                "p1"
+              ],
+              "disposition": "retained",
+              "force_index": 0,
+              "kind": "bond",
+              "original_index": 0,
+              "original_parameters": [
+                0.1535,
+                191535.15199999994
+              ],
+              "retained_parameters": [
+                0.1535,
+                191535.15199999994
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p2"
+              ],
+              "disposition": "removed",
+              "force_index": 0,
+              "kind": "bond",
+              "original_index": 1,
+              "original_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p3"
+              ],
+              "disposition": "removed",
+              "force_index": 0,
+              "kind": "bond",
+              "original_index": 2,
+              "original_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p4"
+              ],
+              "disposition": "removed",
+              "force_index": 0,
+              "kind": "bond",
+              "original_index": 3,
+              "original_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "p1",
+                "p5"
+              ],
+              "disposition": "retained",
+              "force_index": 0,
+              "kind": "bond",
+              "original_index": 4,
+              "original_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ],
+              "retained_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ]
+            },
+            {
+              "atom_ids": [
+                "p1",
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 0,
+              "kind": "bond",
+              "original_index": 5,
+              "original_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ],
+              "retained_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ]
+            },
+            {
+              "atom_ids": [
+                "p1",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 0,
+              "kind": "bond",
+              "original_index": 6,
+              "original_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ],
+              "retained_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ]
+            },
+            {
+              "atom_ids": [
+                "l8",
+                "l9"
+              ],
+              "disposition": "removed",
+              "force_index": 0,
+              "kind": "bond",
+              "original_index": 7,
+              "original_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "l8",
+                "l10"
+              ],
+              "disposition": "removed",
+              "force_index": 0,
+              "kind": "bond",
+              "original_index": 8,
+              "original_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "l8",
+                "l11"
+              ],
+              "disposition": "removed",
+              "force_index": 0,
+              "kind": "bond",
+              "original_index": 9,
+              "original_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "l8",
+                "l12"
+              ],
+              "disposition": "removed",
+              "force_index": 0,
+              "kind": "bond",
+              "original_index": 10,
+              "original_parameters": [
+                0.10960000000000002,
+                288905.19999999995
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "p0",
+                "p1",
+                "p5"
+              ],
+              "disposition": "retained",
+              "force_index": 1,
+              "kind": "torsion",
+              "original_index": 0,
+              "original_parameters": [
+                3,
+                0.0,
+                0.50208
+              ],
+              "retained_parameters": [
+                3,
+                0.0,
+                0.50208
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "p0",
+                "p1",
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 1,
+              "kind": "torsion",
+              "original_index": 1,
+              "original_parameters": [
+                3,
+                0.0,
+                0.50208
+              ],
+              "retained_parameters": [
+                3,
+                0.0,
+                0.50208
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "p0",
+                "p1",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 1,
+              "kind": "torsion",
+              "original_index": 2,
+              "original_parameters": [
+                3,
+                0.0,
+                0.50208
+              ],
+              "retained_parameters": [
+                3,
+                0.0,
+                0.50208
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "p0",
+                "p1",
+                "p5"
+              ],
+              "disposition": "retained",
+              "force_index": 1,
+              "kind": "torsion",
+              "original_index": 3,
+              "original_parameters": [
+                3,
+                0.0,
+                0.50208
+              ],
+              "retained_parameters": [
+                3,
+                0.0,
+                0.50208
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "p0",
+                "p1",
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 1,
+              "kind": "torsion",
+              "original_index": 4,
+              "original_parameters": [
+                3,
+                0.0,
+                0.50208
+              ],
+              "retained_parameters": [
+                3,
+                0.0,
+                0.50208
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "p0",
+                "p1",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 1,
+              "kind": "torsion",
+              "original_index": 5,
+              "original_parameters": [
+                3,
+                0.0,
+                0.50208
+              ],
+              "retained_parameters": [
+                3,
+                0.0,
+                0.50208
+              ]
+            },
+            {
+              "atom_ids": [
+                "p4",
+                "p0",
+                "p1",
+                "p5"
+              ],
+              "disposition": "retained",
+              "force_index": 1,
+              "kind": "torsion",
+              "original_index": 6,
+              "original_parameters": [
+                3,
+                0.0,
+                0.50208
+              ],
+              "retained_parameters": [
+                3,
+                0.0,
+                0.50208
+              ]
+            },
+            {
+              "atom_ids": [
+                "p4",
+                "p0",
+                "p1",
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 1,
+              "kind": "torsion",
+              "original_index": 7,
+              "original_parameters": [
+                3,
+                0.0,
+                0.50208
+              ],
+              "retained_parameters": [
+                3,
+                0.0,
+                0.50208
+              ]
+            },
+            {
+              "atom_ids": [
+                "p4",
+                "p0",
+                "p1",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 1,
+              "kind": "torsion",
+              "original_index": 8,
+              "original_parameters": [
+                3,
+                0.0,
+                0.50208
+              ],
+              "retained_parameters": [
+                3,
+                0.0,
+                0.50208
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 0,
+              "original_parameters": [
+                -0.09435,
+                0.3397709531243626,
+                0.4510352
+              ],
+              "retained_parameters": [
+                -0.09435,
+                0.3397709531243626,
+                0.4510352
+              ]
+            },
+            {
+              "atom_ids": [
+                "p1"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 1,
+              "original_parameters": [
+                -0.09435,
+                0.3397709531243626,
+                0.4510352
+              ],
+              "retained_parameters": [
+                -0.09435,
+                0.3397709531243626,
+                0.4510352
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 2,
+              "original_parameters": [
+                0.03145,
+                0.2600176998764394,
+                0.0870272
+              ],
+              "retained_parameters": [
+                0.03145,
+                0.2600176998764394,
+                0.0870272
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 3,
+              "original_parameters": [
+                0.03145,
+                0.2600176998764394,
+                0.0870272
+              ],
+              "retained_parameters": [
+                0.03145,
+                0.2600176998764394,
+                0.0870272
+              ]
+            },
+            {
+              "atom_ids": [
+                "p4"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 4,
+              "original_parameters": [
+                0.03145,
+                0.2600176998764394,
+                0.0870272
+              ],
+              "retained_parameters": [
+                0.03145,
+                0.2600176998764394,
+                0.0870272
+              ]
+            },
+            {
+              "atom_ids": [
+                "p5"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 5,
+              "original_parameters": [
+                0.03145,
+                0.2600176998764394,
+                0.0870272
+              ],
+              "retained_parameters": [
+                0.03145,
+                0.2600176998764394,
+                0.0870272
+              ]
+            },
+            {
+              "atom_ids": [
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 6,
+              "original_parameters": [
+                0.03145,
+                0.2600176998764394,
+                0.0870272
+              ],
+              "retained_parameters": [
+                0.03145,
+                0.2600176998764394,
+                0.0870272
+              ]
+            },
+            {
+              "atom_ids": [
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 7,
+              "original_parameters": [
+                0.03145,
+                0.2600176998764394,
+                0.0870272
+              ],
+              "retained_parameters": [
+                0.03145,
+                0.2600176998764394,
+                0.0870272
+              ]
+            },
+            {
+              "atom_ids": [
+                "l8"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 8,
+              "original_parameters": [
+                -0.1084,
+                0.3397709531243626,
+                0.4510352
+              ],
+              "retained_parameters": [
+                -0.1084,
+                0.3397709531243626,
+                0.4510352
+              ]
+            },
+            {
+              "atom_ids": [
+                "l9"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 9,
+              "original_parameters": [
+                0.0271,
+                0.2600176998764394,
+                0.0870272
+              ],
+              "retained_parameters": [
+                0.0271,
+                0.2600176998764394,
+                0.0870272
+              ]
+            },
+            {
+              "atom_ids": [
+                "l10"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 10,
+              "original_parameters": [
+                0.0271,
+                0.2600176998764394,
+                0.0870272
+              ],
+              "retained_parameters": [
+                0.0271,
+                0.2600176998764394,
+                0.0870272
+              ]
+            },
+            {
+              "atom_ids": [
+                "l11"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 11,
+              "original_parameters": [
+                0.0271,
+                0.2600176998764394,
+                0.0870272
+              ],
+              "retained_parameters": [
+                0.0271,
+                0.2600176998764394,
+                0.0870272
+              ]
+            },
+            {
+              "atom_ids": [
+                "l12"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": 12,
+              "original_parameters": [
+                0.0271,
+                0.2600176998764394,
+                0.0870272
+              ],
+              "retained_parameters": [
+                0.0271,
+                0.2600176998764394,
+                0.0870272
+              ]
+            },
+            {
+              "atom_ids": [],
+              "disposition": "added_inert_cap",
+              "force_index": 2,
+              "kind": "nonbonded_particle",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                0.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p1"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 0,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p2"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 1,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p1",
+                "p2"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 2,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p3"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 3,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p1",
+                "p3"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 4,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "p3"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 5,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p4"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 6,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p1",
+                "p4"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 7,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "p4"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 8,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "p4"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 9,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p5"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 10,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p1",
+                "p5"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 11,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "p5"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 12,
+              "original_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ],
+              "retained_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "p5"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 13,
+              "original_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ],
+              "retained_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ]
+            },
+            {
+              "atom_ids": [
+                "p4",
+                "p5"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 14,
+              "original_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ],
+              "retained_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 15,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p1",
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 16,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 17,
+              "original_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ],
+              "retained_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 18,
+              "original_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ],
+              "retained_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ]
+            },
+            {
+              "atom_ids": [
+                "p4",
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 19,
+              "original_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ],
+              "retained_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ]
+            },
+            {
+              "atom_ids": [
+                "p5",
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 20,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 21,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p1",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 22,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 23,
+              "original_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ],
+              "retained_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 24,
+              "original_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ],
+              "retained_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ]
+            },
+            {
+              "atom_ids": [
+                "p4",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 25,
+              "original_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ],
+              "retained_parameters": [
+                0.0008242520833333333,
+                0.2600176998764394,
+                0.0435136
+              ]
+            },
+            {
+              "atom_ids": [
+                "p5",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 26,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p6",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 27,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "l8",
+                "l9"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 28,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "l8",
+                "l10"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 29,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "l9",
+                "l10"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 30,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "l8",
+                "l11"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 31,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "l9",
+                "l11"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 32,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "l10",
+                "l11"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 33,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "l8",
+                "l12"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 34,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "l9",
+                "l12"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 35,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "l10",
+                "l12"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 36,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "l11",
+                "l12"
+              ],
+              "disposition": "retained",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": 37,
+              "original_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "l8"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "l9"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "l10"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "l11"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "l12"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "l8"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "l9"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "l10"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "l11"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "l12"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "l8"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "l9"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "l10"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "l11"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "l12"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p4",
+                "l8"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p4",
+                "l9"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p4",
+                "l10"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p4",
+                "l11"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p4",
+                "l12"
+              ],
+              "disposition": "added_exclusion",
+              "force_index": 2,
+              "kind": "exception",
+              "original_index": null,
+              "original_parameters": [],
+              "retained_parameters": [
+                0.0,
+                1.0,
+                0.0
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p1",
+                "p5"
+              ],
+              "disposition": "retained",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 0,
+              "original_parameters": [
+                1.9142771235873808,
+                362.08336
+              ],
+              "retained_parameters": [
+                1.9142771235873808,
+                362.08336
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p1",
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 1,
+              "original_parameters": [
+                1.9142771235873808,
+                362.08336
+              ],
+              "retained_parameters": [
+                1.9142771235873808,
+                362.08336
+              ]
+            },
+            {
+              "atom_ids": [
+                "p0",
+                "p1",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 2,
+              "original_parameters": [
+                1.9142771235873808,
+                362.08336
+              ],
+              "retained_parameters": [
+                1.9142771235873808,
+                362.08336
+              ]
+            },
+            {
+              "atom_ids": [
+                "p1",
+                "p0",
+                "p2"
+              ],
+              "disposition": "removed",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 3,
+              "original_parameters": [
+                1.9142771235873808,
+                362.08336
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "p1",
+                "p0",
+                "p3"
+              ],
+              "disposition": "removed",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 4,
+              "original_parameters": [
+                1.9142771235873808,
+                362.08336
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "p1",
+                "p0",
+                "p4"
+              ],
+              "disposition": "removed",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 5,
+              "original_parameters": [
+                1.9142771235873808,
+                362.08336
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "p0",
+                "p3"
+              ],
+              "disposition": "removed",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 6,
+              "original_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "p2",
+                "p0",
+                "p4"
+              ],
+              "disposition": "removed",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 7,
+              "original_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "p3",
+                "p0",
+                "p4"
+              ],
+              "disposition": "removed",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 8,
+              "original_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "p5",
+                "p1",
+                "p6"
+              ],
+              "disposition": "retained",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 9,
+              "original_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ],
+              "retained_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ]
+            },
+            {
+              "atom_ids": [
+                "p5",
+                "p1",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 10,
+              "original_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ],
+              "retained_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ]
+            },
+            {
+              "atom_ids": [
+                "p6",
+                "p1",
+                "p7"
+              ],
+              "disposition": "retained",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 11,
+              "original_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ],
+              "retained_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ]
+            },
+            {
+              "atom_ids": [
+                "l9",
+                "l8",
+                "l10"
+              ],
+              "disposition": "removed",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 12,
+              "original_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "l9",
+                "l8",
+                "l11"
+              ],
+              "disposition": "removed",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 13,
+              "original_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "l9",
+                "l8",
+                "l12"
+              ],
+              "disposition": "removed",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 14,
+              "original_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "l10",
+                "l8",
+                "l11"
+              ],
+              "disposition": "removed",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 15,
+              "original_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "l10",
+                "l8",
+                "l12"
+              ],
+              "disposition": "removed",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 16,
+              "original_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ],
+              "retained_parameters": []
+            },
+            {
+              "atom_ids": [
+                "l11",
+                "l8",
+                "l12"
+              ],
+              "disposition": "removed",
+              "force_index": 3,
+              "kind": "angle",
+              "original_index": 17,
+              "original_parameters": [
+                1.8802432031734913,
+                299.57439999999997
+              ],
+              "retained_parameters": []
+            }
+          ],
+          "contract_version": 1,
+          "derivative_scope": "all_real",
+          "embedding_identity": "365377d60ddf5d66ee3e69a37ab43aec0427bfc803c25f8107f92469523d9315",
+          "fixture_kind": "analytic_substitute",
+          "model_dtype": "float64",
+          "model_spec_identity": "56953c37d3f59ba90353bb14b5ef9a9b9273af8528a447503877dc78c15fa00d",
+          "original_mm_inventory": "290481ebb2f551a7a9efea37d3399cc3c40c9d9bef480470affcac2c9978f27b",
+          "original_mm_sha256": "da8d4194c140b4290507450e42d0b86f0ca8da6ec688138d3884cba394314cb3",
+          "original_mm_xml": "<?xml version=\"1.0\" ?>\n<System openmmVersion=\"8.6.1\" type=\"System\" version=\"1\">\n\t<PeriodicBoxVectors>\n\t\t<A x=\"2\" y=\"0\" z=\"0\"/>\n\t\t<B x=\"0\" y=\"2\" z=\"0\"/>\n\t\t<C x=\"0\" y=\"0\" z=\"2\"/>\n\t</PeriodicBoxVectors>\n\t<Particles>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t</Particles>\n\t<Constraints/>\n\t<Forces>\n\t\t<Force forceGroup=\"0\" name=\"HarmonicBondForce\" type=\"HarmonicBondForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Bonds>\n\t\t\t\t<Bond d=\".1535\" k=\"191535.15199999994\" p1=\"0\" p2=\"1\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"0\" p2=\"2\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"0\" p2=\"3\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"0\" p2=\"4\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"5\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"6\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"7\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"8\" p2=\"9\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"8\" p2=\"10\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"8\" p2=\"11\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"8\" p2=\"12\"/>\n\t\t\t</Bonds>\n\t\t</Force>\n\t\t<Force forceGroup=\"0\" name=\"PeriodicTorsionForce\" type=\"PeriodicTorsionForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Torsions>\n\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t</Torsions>\n\t\t</Force>\n\t\t<Force alpha=\"0\" cutoff=\"1\" dispersionCorrection=\"1\" ewaldTolerance=\".0005\" exceptionsUsePeriodic=\"0\" forceGroup=\"0\" includeDirectSpace=\"1\" ljAlpha=\"0\" ljnx=\"0\" ljny=\"0\" ljnz=\"0\" method=\"0\" name=\"NonbondedForce\" nx=\"0\" ny=\"0\" nz=\"0\" recipForceGroup=\"-1\" rfDielectric=\"78.3\" switchingDistance=\"-1\" type=\"NonbondedForce\" useSwitchingFunction=\"0\" version=\"4\">\n\t\t\t<GlobalParameters/>\n\t\t\t<ParticleOffsets/>\n\t\t\t<ExceptionOffsets/>\n\t\t\t<Particles>\n\t\t\t\t<Particle eps=\".4510352\" q=\"-.09435\" sig=\".3397709531243626\"/>\n\t\t\t\t<Particle eps=\".4510352\" q=\"-.09435\" sig=\".3397709531243626\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".4510352\" q=\"-.1084\" sig=\".3397709531243626\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t</Particles>\n\t\t\t<Exceptions>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"1\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"3\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"3\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"3\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"4\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"4\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"4\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"4\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"5\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"5\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"5\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"5\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"5\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"6\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"6\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"6\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"5\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"7\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"7\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"7\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"5\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"6\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"10\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"10\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"11\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t</Exceptions>\n\t\t</Force>\n\t\t<Force forceGroup=\"0\" name=\"HarmonicAngleForce\" type=\"HarmonicAngleForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Angles>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"5\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"6\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"1\" p2=\"0\" p3=\"2\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"1\" p2=\"0\" p3=\"3\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"1\" p2=\"0\" p3=\"4\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"2\" p2=\"0\" p3=\"3\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"2\" p2=\"0\" p3=\"4\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"3\" p2=\"0\" p3=\"4\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"5\" p2=\"1\" p3=\"6\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"5\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"6\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"9\" p2=\"8\" p3=\"10\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"9\" p2=\"8\" p3=\"11\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"9\" p2=\"8\" p3=\"12\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"10\" p2=\"8\" p3=\"11\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"10\" p2=\"8\" p3=\"12\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"11\" p2=\"8\" p3=\"12\"/>\n\t\t\t</Angles>\n\t\t</Force>\n\t</Forces>\n</System>\n",
+          "partition_identity": "05301b35e163e1d943ad75bdf45028fd60a31b3e759afadda5a471fc92d7e15e",
+          "periodicity": "nonperiodic",
+          "probe": {
+            "cap_center_nm": [
+              0.13,
+              -0.08,
+              0.11
+            ],
+            "cap_k": 7.0,
+            "environment_id": "p5",
+            "environment_k": 10.0,
+            "ligand_center_nm": [
+              0.02,
+              0.3,
+              -0.07
+            ],
+            "ligand_k": 5.0,
+            "pair_k": 4.0,
+            "partner_id": "l8"
+          },
+          "retained_mm_xml": "<?xml version=\"1.0\" ?>\n<System openmmVersion=\"8.6.1\" type=\"System\" version=\"1\">\n\t<PeriodicBoxVectors>\n\t\t<A x=\"2\" y=\"0\" z=\"0\"/>\n\t\t<B x=\"0\" y=\"2\" z=\"0\"/>\n\t\t<C x=\"0\" y=\"0\" z=\"2\"/>\n\t</PeriodicBoxVectors>\n\t<Particles>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"0\">\n\t\t\t<LocalCoordinatesSite p1=\"0\" p2=\"1\" pos1=\".117\" pos2=\"0\" pos3=\"0\" wo1=\"1\" wo2=\"0\" wx1=\"-1\" wx2=\"1\" wy1=\"0\" wy2=\"0\"/>\n\t\t</Particle>\n\t</Particles>\n\t<Constraints/>\n\t<Forces>\n\t\t<Force forceGroup=\"0\" name=\"HarmonicBondForce\" type=\"HarmonicBondForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Bonds>\n\t\t\t\t<Bond d=\".1535\" k=\"191535.15199999994\" p1=\"0\" p2=\"1\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"5\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"6\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"7\"/>\n\t\t\t</Bonds>\n\t\t</Force>\n\t\t<Force forceGroup=\"0\" name=\"PeriodicTorsionForce\" type=\"PeriodicTorsionForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Torsions>\n\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t</Torsions>\n\t\t</Force>\n\t\t<Force alpha=\"0\" cutoff=\"1\" dispersionCorrection=\"1\" ewaldTolerance=\".0005\" exceptionsUsePeriodic=\"0\" forceGroup=\"0\" includeDirectSpace=\"1\" ljAlpha=\"0\" ljnx=\"0\" ljny=\"0\" ljnz=\"0\" method=\"0\" name=\"NonbondedForce\" nx=\"0\" ny=\"0\" nz=\"0\" recipForceGroup=\"-1\" rfDielectric=\"78.3\" switchingDistance=\"-1\" type=\"NonbondedForce\" useSwitchingFunction=\"0\" version=\"4\">\n\t\t\t<GlobalParameters/>\n\t\t\t<ParticleOffsets/>\n\t\t\t<ExceptionOffsets/>\n\t\t\t<Particles>\n\t\t\t\t<Particle eps=\".4510352\" q=\"-.09435\" sig=\".3397709531243626\"/>\n\t\t\t\t<Particle eps=\".4510352\" q=\"-.09435\" sig=\".3397709531243626\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".4510352\" q=\"-.1084\" sig=\".3397709531243626\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\"0\" q=\"0\" sig=\"0\"/>\n\t\t\t</Particles>\n\t\t\t<Exceptions>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"1\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"0\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"0\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"3\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"0\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"4\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"3\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"5\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"5\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"5\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"5\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"5\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"6\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"6\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"6\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"5\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"7\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"7\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"7\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"5\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"6\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"11\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"12\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"12\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t</Exceptions>\n\t\t</Force>\n\t\t<Force forceGroup=\"0\" name=\"HarmonicAngleForce\" type=\"HarmonicAngleForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Angles>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"5\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"6\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"5\" p2=\"1\" p3=\"6\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"5\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"6\" p2=\"1\" p3=\"7\"/>\n\t\t\t</Angles>\n\t\t</Force>\n\t</Forces>\n</System>\n"
+        },
+        "masses_da": [
+          12.01,
+          12.01,
+          1.008,
+          1.008,
+          1.008,
+          1.008,
+          1.008,
+          1.008,
+          12.01,
+          1.008,
+          1.008,
+          1.008,
+          1.008,
+          0.0
+        ],
+        "ml_atom_ids": [
+          "l10",
+          "l11",
+          "l12",
+          "l8",
+          "l9",
+          "p0",
+          "p2",
+          "p3",
+          "p4"
+        ],
+        "model_to_final": {
+          "cap:1fdc7c6a6f25090a9f4ec8308be0f5aa895b1479a685c624270dbbade538b315": 13,
+          "l10": 10,
+          "l11": 11,
+          "l12": 12,
+          "l8": 8,
+          "l9": 9,
+          "p0": 0,
+          "p2": 2,
+          "p3": 3,
+          "p4": 4
+        },
+        "old_to_new": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12
+        ],
+        "real_to_final": {
+          "l10": 10,
+          "l11": 11,
+          "l12": 12,
+          "l8": 8,
+          "l9": 9,
+          "p0": 0,
+          "p1": 1,
+          "p2": 2,
+          "p3": 3,
+          "p4": 4,
+          "p5": 5,
+          "p6": 6,
+          "p7": 7
+        },
+        "system_sha256": "8b3ebea0bece6ccefd8124704bb719e38bd0ff82217dba459e758d87bd72e5ff",
+        "system_xml": "<?xml version=\"1.0\" ?>\n<System openmmVersion=\"8.6.1\" type=\"System\" version=\"1\">\n\t<PeriodicBoxVectors>\n\t\t<A x=\"2\" y=\"0\" z=\"0\"/>\n\t\t<B x=\"0\" y=\"2\" z=\"0\"/>\n\t\t<C x=\"0\" y=\"0\" z=\"2\"/>\n\t</PeriodicBoxVectors>\n\t<Particles>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"0\">\n\t\t\t<LocalCoordinatesSite p1=\"0\" p2=\"1\" pos1=\".117\" pos2=\"0\" pos3=\"0\" wo1=\"1\" wo2=\"0\" wx1=\"-1\" wx2=\"1\" wy1=\"0\" wy2=\"0\"/>\n\t\t</Particle>\n\t</Particles>\n\t<Constraints/>\n\t<Forces>\n\t\t<Force forceGroup=\"0\" name=\"HarmonicBondForce\" type=\"HarmonicBondForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Bonds>\n\t\t\t\t<Bond d=\".1535\" k=\"191535.15199999994\" p1=\"0\" p2=\"1\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"5\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"6\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"7\"/>\n\t\t\t</Bonds>\n\t\t</Force>\n\t\t<Force forceGroup=\"0\" name=\"PeriodicTorsionForce\" type=\"PeriodicTorsionForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Torsions>\n\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t</Torsions>\n\t\t</Force>\n\t\t<Force alpha=\"0\" cutoff=\"1\" dispersionCorrection=\"1\" ewaldTolerance=\".0005\" exceptionsUsePeriodic=\"0\" forceGroup=\"0\" includeDirectSpace=\"1\" ljAlpha=\"0\" ljnx=\"0\" ljny=\"0\" ljnz=\"0\" method=\"0\" name=\"NonbondedForce\" nx=\"0\" ny=\"0\" nz=\"0\" recipForceGroup=\"-1\" rfDielectric=\"78.3\" switchingDistance=\"-1\" type=\"NonbondedForce\" useSwitchingFunction=\"0\" version=\"4\">\n\t\t\t<GlobalParameters/>\n\t\t\t<ParticleOffsets/>\n\t\t\t<ExceptionOffsets/>\n\t\t\t<Particles>\n\t\t\t\t<Particle eps=\".4510352\" q=\"-.09435\" sig=\".3397709531243626\"/>\n\t\t\t\t<Particle eps=\".4510352\" q=\"-.09435\" sig=\".3397709531243626\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".4510352\" q=\"-.1084\" sig=\".3397709531243626\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\"0\" q=\"0\" sig=\"0\"/>\n\t\t\t</Particles>\n\t\t\t<Exceptions>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"1\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"0\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"0\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"3\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"0\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"4\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"3\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"5\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"5\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"5\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"5\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"5\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"6\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"6\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"6\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"5\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"7\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"7\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"7\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"5\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"6\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"11\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"12\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"12\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t</Exceptions>\n\t\t</Force>\n\t\t<Force forceGroup=\"0\" name=\"HarmonicAngleForce\" type=\"HarmonicAngleForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Angles>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"5\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"6\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"5\" p2=\"1\" p3=\"6\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"5\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"6\" p2=\"1\" p3=\"7\"/>\n\t\t\t</Angles>\n\t\t</Force>\n\t\t<Force forceGroup=\"2\" function=\"80049571010000000000008c2161746d5f6d6c6d6d2e6d6f64656c732e616e616c797469635f626f756e64617279948c10426f756e6461727943616c6c6261636b9493942981947d94288c0570726f62659468008c0d426f756e6461727950726f62659493942981947d94288c056361705f6b9447401c0000000000008c0d6361705f63656e7465725f6e6d94473fc0a3d70a3d70a447bfb47ae147ae147b473fbc28f5c28f5c2987948c06706169725f6b944740100000000000008c0a706172746e65725f6964948c026c38948c0d656e7669726f6e6d656e745f6b944740240000000000008c0e656e7669726f6e6d656e745f6964948c027035948c086c6967616e645f6b944740140000000000008c106c6967616e645f63656e7465725f6e6d94473f947ae147ae147b473fd333333333333347bfb1eb851eb851ec879475628c096361705f696e646578944b098c0d706172746e65725f696e646578944b038c11656e7669726f6e6d656e745f696e646578944b0a75622e\" name=\"analytic:boundary-probe\" type=\"PythonForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<GlobalParameters/>\n\t\t\t<Particles>\n\t\t\t\t<Particle index=\"10\"/>\n\t\t\t\t<Particle index=\"11\"/>\n\t\t\t\t<Particle index=\"12\"/>\n\t\t\t\t<Particle index=\"8\"/>\n\t\t\t\t<Particle index=\"9\"/>\n\t\t\t\t<Particle index=\"0\"/>\n\t\t\t\t<Particle index=\"2\"/>\n\t\t\t\t<Particle index=\"3\"/>\n\t\t\t\t<Particle index=\"4\"/>\n\t\t\t\t<Particle index=\"13\"/>\n\t\t\t\t<Particle index=\"5\"/>\n\t\t\t</Particles>\n\t\t</Force>\n\t</Forces>\n</System>\n",
+        "topology": {
+          "data": {
+            "atoms": [
+              {
+                "data": {
+                  "atom_id": "p0",
+                  "atom_name": "C1x",
+                  "chain": "P",
+                  "element": "C",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "p1",
+                  "atom_name": "C2x",
+                  "chain": "P",
+                  "element": "C",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "p2",
+                  "atom_name": "H1x",
+                  "chain": "P",
+                  "element": "H",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "p3",
+                  "atom_name": "H2x",
+                  "chain": "P",
+                  "element": "H",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "p4",
+                  "atom_name": "H3x",
+                  "chain": "P",
+                  "element": "H",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "p5",
+                  "atom_name": "H4x",
+                  "chain": "P",
+                  "element": "H",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "p6",
+                  "atom_name": "H5x",
+                  "chain": "P",
+                  "element": "H",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "p7",
+                  "atom_name": "H6x",
+                  "chain": "P",
+                  "element": "H",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "l8",
+                  "atom_name": "C1x",
+                  "chain": "L",
+                  "element": "C",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "l9",
+                  "atom_name": "H1x",
+                  "chain": "L",
+                  "element": "H",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "l10",
+                  "atom_name": "H2x",
+                  "chain": "L",
+                  "element": "H",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "l11",
+                  "atom_name": "H3x",
+                  "chain": "L",
+                  "element": "H",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "l12",
+                  "atom_name": "H4x",
+                  "chain": "L",
+                  "element": "H",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              }
+            ],
+            "bonds": [
+              {
+                "data": {
+                  "atom1": "p0",
+                  "atom2": "p1",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              },
+              {
+                "data": {
+                  "atom1": "p0",
+                  "atom2": "p2",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              },
+              {
+                "data": {
+                  "atom1": "p0",
+                  "atom2": "p3",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              },
+              {
+                "data": {
+                  "atom1": "p0",
+                  "atom2": "p4",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              },
+              {
+                "data": {
+                  "atom1": "p1",
+                  "atom2": "p5",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              },
+              {
+                "data": {
+                  "atom1": "p1",
+                  "atom2": "p6",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              },
+              {
+                "data": {
+                  "atom1": "p1",
+                  "atom2": "p7",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              },
+              {
+                "data": {
+                  "atom1": "l8",
+                  "atom2": "l9",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              },
+              {
+                "data": {
+                  "atom1": "l8",
+                  "atom2": "l10",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              },
+              {
+                "data": {
+                  "atom1": "l8",
+                  "atom2": "l11",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              },
+              {
+                "data": {
+                  "atom1": "l8",
+                  "atom2": "l12",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              }
+            ],
+            "molecules": [
+              {
+                "data": {
+                  "atom_ids": [
+                    "p0",
+                    "p1",
+                    "p2",
+                    "p3",
+                    "p4",
+                    "p5",
+                    "p6",
+                    "p7"
+                  ],
+                  "formal_charge": 0,
+                  "molecule_id": "protein",
+                  "multiplicity": 1,
+                  "role": "protein"
+                },
+                "record_type": "MoleculeState"
+              },
+              {
+                "data": {
+                  "atom_ids": [
+                    "l8",
+                    "l9",
+                    "l10",
+                    "l11",
+                    "l12"
+                  ],
+                  "formal_charge": 0,
+                  "molecule_id": "ligand",
+                  "multiplicity": 1,
+                  "role": "ligand"
+                },
+                "record_type": "MoleculeState"
+              }
+            ]
+          },
+          "record_type": "TopologyView"
+        },
+        "units": {
+          "data": {
+            "energy": "kJ/mol",
+            "forces": "kJ/mol/nm",
+            "positions": "nm",
+            "temperature": "K",
+            "time": "ps"
+          },
+          "record_type": "Units"
+        }
+      },
+      "record_type": "PhysicalBundle"
+    },
+    "raw_observable_schema": [
+      "u0_raw_kJ_mol",
+      "u1_raw_kJ_mol",
+      "delta_u_raw_kJ_mol",
+      "delta_u_softcore_kJ_mol",
+      "atm_expression_energy_kJ_mol",
+      "outside_energy_kJ_mol",
+      "system_total_energy_kJ_mol"
+    ],
+    "restraints": {
+      "data": {
+        "atom_ids": [
+          "l8"
+        ],
+        "center_nm": [
+          0.2,
+          0.4,
+          0.1
+        ],
+        "correction_obligations": [],
+        "domain": "analytic_unbounded",
+        "orientation_convention": "lab_frame",
+        "ownership": "outside",
+        "restraint_id": "outside",
+        "spring_kj_mol_nm2": 3.0
+      },
+      "record_type": "RestraintSpec"
+    },
+    "routing_report": [
+      {
+        "data": {
+          "class_name": "HarmonicBondForce",
+          "disposition": "physical_child",
+          "force_group": 0,
+          "force_id": "physical:0",
+          "force_sha256": "3c86b4712a31b05e68954927f71bc086f7a8fc7d56506b98c50e983212e79d87",
+          "name": "HarmonicBondForce",
+          "path": [
+            0,
+            0
+          ]
+        },
+        "record_type": "ForceOwnership"
+      },
+      {
+        "data": {
+          "class_name": "PeriodicTorsionForce",
+          "disposition": "physical_child",
+          "force_group": 0,
+          "force_id": "physical:1",
+          "force_sha256": "35e0a7114a7fd1711cedd225d86cab2f0e258dbac1922eecd91bbb28419ee0f0",
+          "name": "PeriodicTorsionForce",
+          "path": [
+            0,
+            1
+          ]
+        },
+        "record_type": "ForceOwnership"
+      },
+      {
+        "data": {
+          "class_name": "NonbondedForce",
+          "disposition": "physical_child",
+          "force_group": 0,
+          "force_id": "physical:2",
+          "force_sha256": "cf566b8bfd83ef0678364acb632d9ee4a3ebe72dbd258c4e07c6edf27aa9cbec",
+          "name": "NonbondedForce",
+          "path": [
+            0,
+            2
+          ]
+        },
+        "record_type": "ForceOwnership"
+      },
+      {
+        "data": {
+          "class_name": "HarmonicAngleForce",
+          "disposition": "physical_child",
+          "force_group": 0,
+          "force_id": "physical:3",
+          "force_sha256": "8795bcf8dfd5c851a0230cc53989827b1cd0caa6b834e80051fd723c865bb23b",
+          "name": "HarmonicAngleForce",
+          "path": [
+            0,
+            3
+          ]
+        },
+        "record_type": "ForceOwnership"
+      },
+      {
+        "data": {
+          "class_name": "PythonForce",
+          "disposition": "physical_child",
+          "force_group": 2,
+          "force_id": "physical:4",
+          "force_sha256": "441a59cec345afca3ea814b957f81b53d22985bf54e78165a65c8760d0348444",
+          "name": "analytic:boundary-probe",
+          "path": [
+            0,
+            4
+          ]
+        },
+        "record_type": "ForceOwnership"
+      },
+      {
+        "data": {
+          "class_name": "CustomExternalForce",
+          "disposition": "outside",
+          "force_group": 0,
+          "force_id": "outside",
+          "force_sha256": "65729c09d9d5d9ad57da86e12404f0393feafbec8ead27010f7a40ee99d174de",
+          "name": "restraint:outside",
+          "path": [
+            1
+          ]
+        },
+        "record_type": "ForceOwnership"
+      }
+    ],
+    "schedule": {
+      "data": {
+        "expression": "u0+Lambda*(u1-u0)",
+        "kind": "linear",
+        "parameter_units": {
+          "Lambda": "dimensionless"
+        },
+        "states": [
+          {
+            "data": {
+              "parameters": {
+                "Lambda": 0.0
+              },
+              "state_id": "initial"
+            },
+            "record_type": "ScheduleState"
+          },
+          {
+            "data": {
+              "parameters": {
+                "Lambda": 0.37
+              },
+              "state_id": "middle"
+            },
+            "record_type": "ScheduleState"
+          },
+          {
+            "data": {
+              "parameters": {
+                "Lambda": 1.0
+              },
+              "state_id": "final"
+            },
+            "record_type": "ScheduleState"
+          }
+        ],
+        "temperature_K": 300.0
+      },
+      "record_type": "ScheduleSpec"
+    },
+    "system_sha256": "8fe01e8b32e3d2c60b6df53a08148ce6194cd577464993537392da23dcc29b9e",
+    "system_xml": "<?xml version=\"1.0\" ?>\n<System openmmVersion=\"8.6.1\" type=\"System\" version=\"1\">\n\t<PeriodicBoxVectors>\n\t\t<A x=\"2\" y=\"0\" z=\"0\"/>\n\t\t<B x=\"0\" y=\"2\" z=\"0\"/>\n\t\t<C x=\"0\" y=\"0\" z=\"2\"/>\n\t</PeriodicBoxVectors>\n\t<Particles>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"0\">\n\t\t\t<LocalCoordinatesSite p1=\"0\" p2=\"1\" pos1=\".117\" pos2=\"0\" pos3=\"0\" wo1=\"1\" wo2=\"0\" wx1=\"-1\" wx2=\"1\" wy1=\"0\" wy2=\"0\"/>\n\t\t</Particle>\n\t</Particles>\n\t<Constraints/>\n\t<Forces>\n\t\t<Force energy=\"u0+Lambda*(u1-u0)\" forceGroup=\"31\" name=\"ATMForce\" type=\"ATMForce\" version=\"0\">\n\t\t\t<GlobalParameters>\n\t\t\t\t<Parameter default=\"0\" name=\"Lambda\"/>\n\t\t\t</GlobalParameters>\n\t\t\t<EnergyParameterDerivatives/>\n\t\t\t<Forces>\n\t\t\t\t<Force>\n\t\t\t\t\t<Force forceGroup=\"0\" name=\"HarmonicBondForce\" type=\"HarmonicBondForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t\t\t\t<Bonds>\n\t\t\t\t\t\t\t<Bond d=\".1535\" k=\"191535.15199999994\" p1=\"0\" p2=\"1\"/>\n\t\t\t\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"5\"/>\n\t\t\t\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"6\"/>\n\t\t\t\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"7\"/>\n\t\t\t\t\t\t</Bonds>\n\t\t\t\t\t</Force>\n\t\t\t\t</Force>\n\t\t\t\t<Force>\n\t\t\t\t\t<Force forceGroup=\"0\" name=\"PeriodicTorsionForce\" type=\"PeriodicTorsionForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t\t\t\t<Torsions>\n\t\t\t\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t\t\t</Torsions>\n\t\t\t\t\t</Force>\n\t\t\t\t</Force>\n\t\t\t\t<Force>\n\t\t\t\t\t<Force alpha=\"0\" cutoff=\"1\" dispersionCorrection=\"1\" ewaldTolerance=\".0005\" exceptionsUsePeriodic=\"0\" forceGroup=\"0\" includeDirectSpace=\"1\" ljAlpha=\"0\" ljnx=\"0\" ljny=\"0\" ljnz=\"0\" method=\"0\" name=\"NonbondedForce\" nx=\"0\" ny=\"0\" nz=\"0\" recipForceGroup=\"-1\" rfDielectric=\"78.3\" switchingDistance=\"-1\" type=\"NonbondedForce\" useSwitchingFunction=\"0\" version=\"4\">\n\t\t\t\t\t\t<GlobalParameters/>\n\t\t\t\t\t\t<ParticleOffsets/>\n\t\t\t\t\t\t<ExceptionOffsets/>\n\t\t\t\t\t\t<Particles>\n\t\t\t\t\t\t\t<Particle eps=\".4510352\" q=\"-.09435\" sig=\".3397709531243626\"/>\n\t\t\t\t\t\t\t<Particle eps=\".4510352\" q=\"-.09435\" sig=\".3397709531243626\"/>\n\t\t\t\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Particle eps=\".0870272\" q=\".03145\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Particle eps=\".4510352\" q=\"-.1084\" sig=\".3397709531243626\"/>\n\t\t\t\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Particle eps=\".0870272\" q=\".0271\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Particle eps=\"0\" q=\"0\" sig=\"0\"/>\n\t\t\t\t\t\t</Particles>\n\t\t\t\t\t\t<Exceptions>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"1\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"0\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"0\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"3\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"0\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"4\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"3\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"5\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"5\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"5\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"5\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"5\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"6\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"6\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"6\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"5\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"7\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"7\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"7\" q=\".0008242520833333333\" sig=\".2600176998764394\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"5\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"6\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"11\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"12\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"12\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"8\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t\t\t\t</Exceptions>\n\t\t\t\t\t</Force>\n\t\t\t\t</Force>\n\t\t\t\t<Force>\n\t\t\t\t\t<Force forceGroup=\"0\" name=\"HarmonicAngleForce\" type=\"HarmonicAngleForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t\t\t\t<Angles>\n\t\t\t\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"5\"/>\n\t\t\t\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"6\"/>\n\t\t\t\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"5\" p2=\"1\" p3=\"6\"/>\n\t\t\t\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"5\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"6\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t\t\t</Angles>\n\t\t\t\t\t</Force>\n\t\t\t\t</Force>\n\t\t\t\t<Force>\n\t\t\t\t\t<Force forceGroup=\"2\" function=\"80049571010000000000008c2161746d5f6d6c6d6d2e6d6f64656c732e616e616c797469635f626f756e64617279948c10426f756e6461727943616c6c6261636b9493942981947d94288c0570726f62659468008c0d426f756e6461727950726f62659493942981947d94288c056361705f6b9447401c0000000000008c0d6361705f63656e7465725f6e6d94473fc0a3d70a3d70a447bfb47ae147ae147b473fbc28f5c28f5c2987948c06706169725f6b944740100000000000008c0a706172746e65725f6964948c026c38948c0d656e7669726f6e6d656e745f6b944740240000000000008c0e656e7669726f6e6d656e745f6964948c027035948c086c6967616e645f6b944740140000000000008c106c6967616e645f63656e7465725f6e6d94473f947ae147ae147b473fd333333333333347bfb1eb851eb851ec879475628c096361705f696e646578944b098c0d706172746e65725f696e646578944b038c11656e7669726f6e6d656e745f696e646578944b0a75622e\" name=\"analytic:boundary-probe\" type=\"PythonForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t\t\t\t<GlobalParameters/>\n\t\t\t\t\t\t<Particles>\n\t\t\t\t\t\t\t<Particle index=\"10\"/>\n\t\t\t\t\t\t\t<Particle index=\"11\"/>\n\t\t\t\t\t\t\t<Particle index=\"12\"/>\n\t\t\t\t\t\t\t<Particle index=\"8\"/>\n\t\t\t\t\t\t\t<Particle index=\"9\"/>\n\t\t\t\t\t\t\t<Particle index=\"0\"/>\n\t\t\t\t\t\t\t<Particle index=\"2\"/>\n\t\t\t\t\t\t\t<Particle index=\"3\"/>\n\t\t\t\t\t\t\t<Particle index=\"4\"/>\n\t\t\t\t\t\t\t<Particle index=\"13\"/>\n\t\t\t\t\t\t\t<Particle index=\"5\"/>\n\t\t\t\t\t\t</Particles>\n\t\t\t\t\t</Force>\n\t\t\t\t</Force>\n\t\t\t</Forces>\n\t\t\t<Particles>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"0\" d1y=\"0\" d1z=\"0\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"0\" d1y=\"0\" d1z=\"0\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"0\" d1y=\"0\" d1z=\"0\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"0\" d1y=\"0\" d1z=\"0\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"0\" d1y=\"0\" d1z=\"0\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"0\" d1y=\"0\" d1z=\"0\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"0\" d1y=\"0\" d1z=\"0\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"0\" d1y=\"0\" d1z=\"0\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\".3\" d1y=\".1\" d1z=\"-.2\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\".3\" d1y=\".1\" d1z=\"-.2\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\".3\" d1y=\".1\" d1z=\"-.2\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\".3\" d1y=\".1\" d1z=\"-.2\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\".3\" d1y=\".1\" d1z=\"-.2\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"0\" d1y=\"0\" d1z=\"0\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t</Particles>\n\t\t</Force>\n\t\t<Force energy=\"0.5*k*((x-x0)^2+(y-y0)^2+(z-z0)^2)\" forceGroup=\"0\" name=\"restraint:outside\" type=\"CustomExternalForce\" version=\"1\">\n\t\t\t<PerParticleParameters>\n\t\t\t\t<Parameter name=\"k\"/>\n\t\t\t\t<Parameter name=\"x0\"/>\n\t\t\t\t<Parameter name=\"y0\"/>\n\t\t\t\t<Parameter name=\"z0\"/>\n\t\t\t</PerParticleParameters>\n\t\t\t<GlobalParameters/>\n\t\t\t<Particles>\n\t\t\t\t<Particle index=\"8\" param1=\"3\" param2=\".2\" param3=\".4\" param4=\".1\"/>\n\t\t\t</Particles>\n\t\t</Force>\n\t</Forces>\n</System>\n",
+    "transfer": {
+      "data": {
+        "convention": "fixed_translation",
+        "displacement0_nm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "displacement1_nm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.3,
+            0.1,
+            -0.2
+          ],
+          [
+            0.3,
+            0.1,
+            -0.2
+          ],
+          [
+            0.3,
+            0.1,
+            -0.2
+          ],
+          [
+            0.3,
+            0.1,
+            -0.2
+          ],
+          [
+            0.3,
+            0.1,
+            -0.2
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "final_particle_count": 14,
+        "physical_identity": "c6980de39e52ffa2ce4300bad5575298ee6b2ffd6e99d787ea7a44ea6af6310a",
+        "protocol": {
+          "data": {
+            "endpoints": [
+              {
+                "data": {
+                  "description": "ligand in bound domain",
+                  "state_id": "bound"
+                },
+                "record_type": "Endpoint"
+              },
+              {
+                "data": {
+                  "description": "ligand in bulk domain",
+                  "state_id": "bulk"
+                },
+                "record_type": "Endpoint"
+              }
+            ],
+            "geometry_requests": {
+              "displacement_nm": [
+                0.3,
+                0.1,
+                -0.2
+              ]
+            },
+            "kind": "abfe",
+            "mobile_groups": [
+              {
+                "data": {
+                  "atom_ids": [
+                    "l8",
+                    "l9",
+                    "l10",
+                    "l11",
+                    "l12"
+                  ],
+                  "group_id": "mobile",
+                  "molecule_id": "ligand",
+                  "roles": [
+                    "ligand"
+                  ]
+                },
+                "record_type": "MobileGroup"
+              }
+            ],
+            "observable": "dG_bind_bound_minus_bulk"
+          },
+          "record_type": "ProtocolSpec"
+        }
+      },
+      "record_type": "TransferDefinition"
+    }
+  },
+  "record_type": "AlchemicalBundle",
+  "schema_version": "1.0"
+}
