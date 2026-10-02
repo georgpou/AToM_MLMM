@@ -1,0 +1,15 @@
+# G04 implementation plan
+
+Goal: qualify G04-T1/T2/T3 and all seven stable checks on the inherited analytic CPU contracts. Spec: `docs/project-0/gates/G04-link-boundary-and-derivatives.md`, S01–S07 version 1 and the fresh-agent handoff. Execute inline; one independent fresh-context Astra/high full-gate audit follows a frozen submission.
+
+Global constraints: fixed complete ligands; protein-only ordinary neutral C–C cut; fixed-length cap; actual retained-MM Hamiltonian; all real derivatives and all final-particle maps; unchanged scientific tolerances, locks and trusted loaders. Reference energy/force limits 1e-8/1e-7; direct/ATM 1e-4/5e-3; FD steps 1e-3, 1e-4, 1e-5 nm.
+
+Review focus: old serialized identities; forged/missing/duplicate cap metadata; nonidentity maps and cap indices; boundary terms beyond wholly-ML predicates; nested virtual-site recomputation/redistribution and stale reload. Each receives a regression in the owning task.
+
+1. Baseline and diagnosis (`tests/link_oracle.py`, evidence diagnostic): run unchanged suite/environment; register an analytic potential through actual OpenMM-ML mechanical construction; compare raw standalone and nested cap forces before deciding any repair.
+2. Builder/records/maps/ledger (`hybrid.py`, `embeddings/mechanical.py`, `models/analytic_boundary.py`, `schema.py`, `geometry.py`, `ledger.py`): write failing geometry/API/ledger/map assertions; add the narrow builder, measured LinkRecord, backward-compatible optional links, original/retained descriptions and exact dispositions. Run T1 and inherited suite.
+3. Derivatives/ATM/reload (`atm.py`, `derivatives.py`, G04 integration tests): write parent and environment component regressions; recompute sites after every evaluation; use native projection once. Repair nested behavior only if measured and justified. Compare independent Jacobian, FD sweeps, invariant force/torque, mapped states and offline trusted fresh-process reload. Deliberately omit/double-project/stale cap and omit environment force; retain detection evidence. Run T2/T3 and inherited suite.
+4. Verification/submission: all G04 checks, G02/G03/admission, inherited independent numerics/admission/offline stale probes, full/analytic, strict environment, upstream UWHAM, docs and whitespace. Preserve old outputs and byte/hash manifests. Commit code/inputs, then immutable v1 worker/evidence with exact code SHA; freeze review SHA.
+5. Review/closure: Astra model/high/fresh context, report-only independent audit; findings require new regressions and unused attempt, then independent full-G04 closure. Record acceptance/STATUS and next G05/G06/G07 and separate G08 dependencies. Push only child; verify protected refs.
+
+Progress: baseline full 238 passed; installation replay v1 failed at standard Conda registry, v2 successful with unchanged locks. No scientific definition or tolerance change authorized or planned. Task dependencies share the PhysicalBundle/LinkRecord and full-map interface; common ATM must retain no model/embedding dispatch.

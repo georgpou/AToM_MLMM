@@ -1,0 +1,134 @@
+{
+  "review_head": "c63634ca7567428e294a73fa432d42026f9fd38a",
+  "observations": [
+    {
+      "name": "wrong-expression-native-sealer",
+      "rejected": true,
+      "diagnostic": "actual ATM expression differs from declared schedule",
+      "expected_rejection": true
+    },
+    {
+      "name": "wrong-expression-native-artifact-admission",
+      "rejected": true,
+      "diagnostic": "actual ATM expression differs from declared schedule",
+      "expected_rejection": true
+    },
+    {
+      "name": "wrong-expression-upstream-sealer",
+      "rejected": true,
+      "diagnostic": "actual ATM expression differs from declared schedule",
+      "expected_rejection": true
+    },
+    {
+      "name": "wrong-expression-upstream-artifact-admission",
+      "rejected": true,
+      "diagnostic": "actual ATM expression differs from declared schedule",
+      "expected_rejection": true
+    },
+    {
+      "name": "global-parameter-mutation-physical",
+      "rejected": true,
+      "diagnostic": "fixed runtime parameter mutation before evaluation: audit_global_k",
+      "expected_rejection": true
+    },
+    {
+      "name": "restored-global-parameter-mutation-physical",
+      "rejected": true,
+      "diagnostic": "fixed runtime parameter mutation before evaluation: audit_global_k",
+      "expected_rejection": true
+    },
+    {
+      "name": "global-parameter-mutation-preparation",
+      "rejected": true,
+      "diagnostic": "fixed runtime parameter mutation before evaluation: audit_global_k",
+      "expected_rejection": true
+    },
+    {
+      "name": "restored-global-parameter-mutation-preparation",
+      "rejected": true,
+      "diagnostic": "fixed runtime parameter mutation before evaluation: audit_global_k",
+      "expected_rejection": true
+    },
+    {
+      "name": "global-parameter-mutation-native",
+      "rejected": true,
+      "diagnostic": "fixed runtime parameter mutation before evaluation: audit_global_k",
+      "expected_rejection": true
+    },
+    {
+      "name": "global-parameter-mutation-upstream",
+      "rejected": true,
+      "diagnostic": "fixed runtime parameter mutation before evaluation: audit_global_k",
+      "expected_rejection": true
+    },
+    {
+      "name": "restored-global-parameter-positive-native",
+      "rejected": false,
+      "observed": {
+        "restored_global": 2.0,
+        "restored_lambda1": 0.3,
+        "total": 10.671390795474247
+      },
+      "expected_rejection": false
+    },
+    {
+      "name": "restored-global-parameter-positive-upstream",
+      "rejected": false,
+      "observed": {
+        "restored_global": 2.0,
+        "restored_lambda1": 0.3,
+        "total": 10.671390795474247
+      },
+      "expected_rejection": false
+    },
+    {
+      "name": "schedule-child-parameter-collision-native",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Lambda1']",
+      "expected_rejection": true
+    },
+    {
+      "name": "schedule-child-parameter-collision-upstream",
+      "rejected": true,
+      "diagnostic": "physical/schedule global parameter collision at (3,): ['Lambda1']",
+      "expected_rejection": true
+    },
+    {
+      "name": "same-name-duplicate-export",
+      "rejected": true,
+      "diagnostic": "duplicate force ownership/content at (0,) and (3,): analytic:selected-harmonic",
+      "expected_rejection": true
+    },
+    {
+      "name": "renamed-duplicate-export",
+      "rejected": true,
+      "diagnostic": "duplicate force ownership/content at (0,) and (3,): independent:renamed-duplicate",
+      "expected_rejection": true
+    },
+    {
+      "name": "same-name-duplicate-native",
+      "rejected": true,
+      "diagnostic": "duplicate force ownership/content at (0, 0) and (0, 3): analytic:selected-harmonic",
+      "expected_rejection": true
+    },
+    {
+      "name": "renamed-duplicate-native",
+      "rejected": true,
+      "diagnostic": "duplicate force ownership/content at (0, 0) and (0, 3): independent:renamed-duplicate",
+      "expected_rejection": true
+    },
+    {
+      "name": "same-name-duplicate-upstream",
+      "rejected": true,
+      "diagnostic": "duplicate force ownership/content at (0,) and (3,): analytic:selected-harmonic",
+      "expected_rejection": true
+    },
+    {
+      "name": "renamed-duplicate-upstream",
+      "rejected": true,
+      "diagnostic": "duplicate force ownership/content at (0,) and (3,): independent:renamed-duplicate",
+      "expected_rejection": true
+    }
+  ],
+  "failed_expected_rejections": []
+}
