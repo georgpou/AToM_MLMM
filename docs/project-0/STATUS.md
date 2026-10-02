@@ -2,7 +2,7 @@
 
 The child `m03-reference-g05` continues exact published G04 handoff
 `bc788aeeedb4dc45026ac1bff44bd4fb533b325a`. G00-T2/G05-T1 loading checks and
-15 independent real-model adapter/locality/domain/reload cases pass; current G05 work
+16 independent real-model adapter/locality/domain/reload cases pass; current G05 work
 remains **partial**, with chemical checks and independent
 gate review pending. The [corrected exact M00 proposal](reference/M00-neutral-reference-plan-v3.md)
 contains 34 hashed neutral structures, reference settings/limits and future
@@ -20,7 +20,7 @@ target model-versus-quantum results have been inspected. New
 [G00 worker](../../Worker_Log/Milestone_01/Gate_00_v2_worker.md),
 [M00 worker](../../Worker_Log/Milestone_00/Milestone_00_v2_worker.md) and
 [G05 worker](../../Worker_Log/Milestone_03/Gate_05_v1_worker.md) record actual scope.
-Latest full current-source result is **284 passed / 2 missing-quantum-data failures**;
+Latest full current-source result is **285 passed / 2 missing-quantum-data failures**;
 analytic **265 passed / 21 deselected**, inherited G02/G03/admission/G04
 **78/38/74/24**, strict **9/9**, upstream **1** and docs zero errors/eight
 self-tests. Quantum generator/comparison code is prepared but target execution

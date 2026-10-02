@@ -15,9 +15,9 @@ isolated unchanged-installer setup; main/Amber remain separate.
 | P0-TEST-G05-01 native/OpenMM | `software-v4/raw-Reference.json`, `raw-CPU.json` | Software numerical checks pass |
 | P0-TEST-G05-02 real cap parents | `software-v4/projected-Reference.json`, `projected-CPU.json`, `finite-differences.json`, `nested-atm.json` | Independent raw autograd, full real cap Jacobian + retained MM, native nested ATM pass |
 | P0-TEST-G05-03 local additivity | `software-v4/locality.json` | Disconnected ML contribution only; actual contact cross edges and deliberate split-graph negative |
-| P0-TEST-G05-04 invariances/maps | `software-v4/transformed.json`; nonidentity case in 15-test capture | Native/adapter joint transforms, atom order and actual final-map checks pass |
+| P0-TEST-G05-04 invariances/maps | `software-v4/transformed.json`; nonidentity case in software capture | Native/adapter joint transforms, atom order and actual final-map checks pass |
 | P0-TEST-G05-05 domain/alternate map | `software-v4/domain-scans.json` | All 36 samples saved; 34 admitted numerical samples, two extreme diagnostics; no chemical adequacy follows |
-| P0-TEST-G05-06 offline reload | `software-v4/offline-serialized-reload.json`; asset-loading captures | Moved source/asset root, original checkout denied, empty caches, DNS/connect denied, exact identity/full forces pass |
+| P0-TEST-G05-06 offline reload | `offline-v2/offline-serialized-reload-physical.json` and `offline-serialized-reload-alchemical.json`; asset-loading captures | Moved source/asset root, original checkout denied, empty caches, DNS/connect denied, exact identity/full forces pass |
 | P0-TEST-G05-07 conformer quantum | `chemical-reference-pending.json.gz` and full-run captures | **Pending actual agreed/reviewed quantum data**, explicit failure before model evaluation |
 | P0-TEST-G05-08 contact quantum | same pending captures | **Pending actual agreed/reviewed quantum data**, explicit failure before model evaluation |
 

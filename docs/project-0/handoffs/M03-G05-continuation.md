@@ -21,7 +21,7 @@ are implemented. Six software stable assertions pass; candidate metadata is
 explicitly unqualified. Definitions, model, locks and inherited MM ledger are
 unchanged; there is no manual cap-force projection in production.
 
-Current recorded full suite: **284 passed, 2 failed**; both failures are
+Current recorded full suite: **285 passed, 2 failed**; both failures are
 G05-T4's missing actual quantum references before any model comparison runs.
 Inherited G02/G03/admission/G04 results are **78/38/74/24**; strict environment
 **9/9**, upstream **1**, analytic **265 passes / 21 deselected**, docs zero errors/eight self-tests. Larger arrays,

@@ -108,3 +108,20 @@ contains the actual decision dependency, generation command and remaining
 qualification obligations. User agreement remains the only present scientific
 prerequisite to start generating target references; missing reference data
 continues to block full gate acceptance.
+
+
+### Offline ATM completeness before scoped audit
+
+The relocated/offline serialization assertion now separately exercises both
+physical and alchemical artifacts, including all three ATM schedule states.
+`offline-physical-and-atm`: exit0, **2 passes in12.09s**. Both child processes
+load only moved source/approved assets, deny the old checkout and connect/DNS,
+use empty caches and reproduce sealed identity plus all real forces. This adds
+one model-marked case; the six software stable nodes now contain16 cases.
+The updated269-hash manifest identifies this exact submitted test/source tree.
+No physics/production implementation changed in this extension.
+
+`audit-submission-full`: exit1, **285 passed / 2 missing-quantum-data failures**
+in71.51s on the extended exact source. Both new offline artifact cases pass.
+The last analytic run265/21 predates the extra model-only case; its selected
+source is unchanged, and the scoped reviewer will verify the frozen selection.

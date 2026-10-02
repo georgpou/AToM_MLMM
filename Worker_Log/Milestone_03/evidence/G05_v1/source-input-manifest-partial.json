@@ -1,6 +1,6 @@
 {
-  "scope": "G00-T2/G05-T1/T2/T3 and unexecuted T4 pipeline; full284pass2missing-Q failures",
-  "tested_parent_HEAD": "a825f5f1c2d8cf4146133c2049ef1c4eca550e93",
+  "scope": "G00-T2/G05-T1/T2/T3 with physical/ATM relocated reload, unexecuted T4 pipeline; chemical data absent",
+  "tested_parent_HEAD": "97f1524505612689bb307ca79e4eb1263a12228c",
   "note": "Current source/input bytes were tested before commit; the frozen submission includes these exact bytes, independently verifiable.",
   "files": {
     "src/atm_mlmm/__init__.py": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
@@ -52,7 +52,7 @@
     "tests/integration/test_link_geometry.py": "2804e87da826497e1f35a8883de565bac7b93d3f2540c9c2cffa58a297235c23",
     "tests/integration/test_locality.py": "9b5c702fdbfa6e37af40f14dafab55530cfbed26d1990a70cb3756bce4d28e4b",
     "tests/integration/test_mace_link_example.py": "f072b8e3e8ff277454bc0e523d73041b736e845e2bd6bb597a2d80f99b241c18",
-    "tests/integration/test_model_adapter.py": "e78d2ab36b79be0940ec6a450ac1fa9aa60cf9b79fb2a72bd522ddf01b54beeb",
+    "tests/integration/test_model_adapter.py": "81340042ff5bc63d19009a9b758da96d883c3640e122fa647631c298d97ac9c9",
     "tests/integration/test_model_domain.py": "4ecb006bf70722960c2a67e2c593704597ddba7ae6772b232ce8c2a25f3ab6fa",
     "tests/integration/test_pythonforce_atm.py": "e3f80f69896c00e1abeafa045091867a67625d1feb6d36f270d222093baf1ab4",
     "tests/link_oracle.py": "8bc02479945b1c685df2f9b7b7ca9456af8ea2b2d62cb7812d5871cdfa162cdb",

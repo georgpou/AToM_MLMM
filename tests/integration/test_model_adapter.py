@@ -240,14 +240,27 @@ def test_mace_nested_atm_real_force_oracle(native, real_fixture):
                            'actual_states':records,'full_particle_maps':len(transfer.displacement1_nm)})
 
 
-def test_local_asset_fresh_process_reload(real_fixture, tmp_path):
+@pytest.mark.parametrize('artifact_kind', ('physical','alchemical'))
+def test_local_asset_fresh_process_reload(real_fixture, tmp_path, artifact_kind):
     import hashlib, json, os, shutil, subprocess, sys
     from pathlib import Path
-    from atm_mlmm.atm import PhysicalEvaluator, save_bundle
+    from atm_mlmm.atm import PhysicalEvaluator, AtmEvaluator, build_atm, save_bundle
     from atm_mlmm.schema import to_json
     bundle,snapshot=real_fixture
-    with PhysicalEvaluator(bundle,REFERENCE) as evaluator:expected=evaluator.evaluate(snapshot)
-    path=tmp_path/'physical.json';digest=save_bundle(path,bundle)
+    if artifact_kind=='physical':
+        artifact=bundle
+        with PhysicalEvaluator(bundle,REFERENCE) as evaluator:expected=[evaluator.evaluate(snapshot)]
+    else:
+        from atm_mlmm.geometry import resolve_protocol
+        from atm_mlmm.protocols.abfe import make_protocol
+        from atm_mlmm.schedule import linear_schedule
+        from atm_mlmm.schema import MobileGroup, RestraintSpec
+        transfer=resolve_protocol(bundle,make_protocol((MobileGroup('mobile',IDS[8:],('ligand',),'ligand'),),(.3,.1,-.2)))
+        artifact=build_atm(bundle,transfer,linear_schedule((('initial',0.),('middle',.37),('final',1.))),
+                           RestraintSpec('outside',('l8',),0.,(.2,.4,.1)))
+        with AtmEvaluator(artifact,REFERENCE) as evaluator:
+            expected=[evaluator.evaluate(snapshot,state).total for state in ('initial','middle','final')]
+    path=tmp_path/'artifact.json';digest=save_bundle(path,artifact)
     (tmp_path/'snapshot.json').write_text(to_json(snapshot))
     # Move source and approved asset together to a fresh installation root.
     # Old absolute asset paths must never become an undeclared cache dependency.
@@ -266,23 +279,30 @@ def guarded_open(file,*args,**kwargs):
     return normal_open(file,*args,**kwargs)
 builtins.open=guarded_open
 io.open=guarded_open
-from atm_mlmm.atm import load_bundle,PhysicalEvaluator
+from atm_mlmm.atm import load_bundle,PhysicalEvaluator,AtmEvaluator
 from atm_mlmm.schema import from_json,RuntimeSpec
 bundle=load_bundle(sys.argv[1],sys.argv[2],trusted=True)
 snapshot=from_json(normal_open(sys.argv[3]).read())
 runtime=RuntimeSpec('Reference','double',(),.0005,300.,'NVT','Verlet')
-with PhysicalEvaluator(bundle,runtime) as evaluator:out=evaluator.evaluate(snapshot)
-print(json.dumps({'energy':out.energy_kj_mol,'forces':out.forces_kj_mol_nm,
- 'physical_identity':bundle.content_identity,'model_input_ids':bundle.model_input_ids,
- 'links':len(bundle.links),'network_denied':True,'old_checkout_denied':True}))
+if sys.argv[5]=='physical':
+    physical=bundle
+    with PhysicalEvaluator(bundle,runtime) as evaluator:outputs=[evaluator.evaluate(snapshot)]
+else:
+    physical=bundle.physical
+    with AtmEvaluator(bundle,runtime) as evaluator:
+        outputs=[evaluator.evaluate(snapshot,state).total for state in ('initial','middle','final')]
+print(json.dumps({'outputs':[{'energy':out.energy_kj_mol,'forces':out.forces_kj_mol_nm} for out in outputs],
+ 'artifact_identity':bundle.content_identity,'model_input_ids':physical.model_input_ids,
+ 'links':len(physical.links),'network_denied':True,'old_checkout_denied':True}))
 '''
     env={**os.environ,'PYTHONPATH':str(relocated/'src'),'XDG_CACHE_HOME':str(tmp_path/'empty-xdg'),
          'TORCH_HOME':str(tmp_path/'empty-torch'),'MACE_CACHE_DIR':str(tmp_path/'empty-mace')}
-    result=subprocess.run([sys.executable,'-c',code,str(path),digest,str(tmp_path/'snapshot.json'),str(repo)],
+    result=subprocess.run([sys.executable,'-c',code,str(path),digest,str(tmp_path/'snapshot.json'),str(repo),artifact_kind],
                           cwd=tmp_path,env=env,text=True,capture_output=True)
     assert result.returncode==0,result.stdout+result.stderr
     data=json.loads(result.stdout.splitlines()[-1])
-    assert data['physical_identity']==bundle.content_identity
+    assert data['artifact_identity']==artifact.content_identity
     assert data['links']==1 and data['network_denied'] and data['old_checkout_denied']
-    assert_agree(data['energy'],data['forces'],expected.energy_kj_mol,expected.forces_kj_mol_nm)
-    capture('offline-serialized-reload',{'bundle_sha256':digest,'result':data,'child_stderr':result.stderr})
+    for actual,reference in zip(data['outputs'],expected,strict=True):
+        assert_agree(actual['energy'],actual['forces'],reference.energy_kj_mol,reference.forces_kj_mol_nm)
+    capture('offline-serialized-reload-'+artifact_kind,{'bundle_sha256':digest,'result':data,'child_stderr':result.stderr})
