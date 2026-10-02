@@ -1,0 +1,20 @@
+2026-10-02:21:47:41,807 INFO     [psi4.driver.task_planner:259] PLANNING Atomic:  keywords={'DFT_RADIAL_POINTS': 99, 'DFT_SPHERICAL_POINTS': 590, 'DF_BASIS_SCF': 'DEF2-UNIVERSAL-JKFIT', 'D_CONVERGENCE': 1e-10, 'E_CONVERGENCE': 1e-10, 'INTS_TOLERANCE': 1e-12, 'MAXITER': 200, 'REFERENCE': 'RHF', 'SCF_TYPE': 'DF', 'WCOMBINE': 0, 'function_kwargs': {}}
+2026-10-02:21:47:41,809 INFO     [psi4.driver.driver:638] Compute gradient(): method=wb97m-d3bj, basis=def2-tzvppd, molecule=default, nre=13.43538924821667
+2026-10-02:21:47:56,188 INFO     [psi4.driver.driver:641] Return gradient(): -40.53664138752393
+2026-10-02:21:47:56,188 INFO     [psi4.driver.driver:642] [[ 0.        -0.         0.       ]
+ [ 0.0012972  0.0012972  0.0012972]
+ [ 0.0012972 -0.0012972 -0.0012972]
+ [-0.0012972  0.0012972 -0.0012972]
+ [-0.0012972 -0.0012972  0.0012972]]
+2026-10-02:21:47:56,203 INFO     [psi4.driver.task_planner:259] PLANNING Atomic:  keywords={'DFT_RADIAL_POINTS': 99, 'DFT_SPHERICAL_POINTS': 590, 'DF_BASIS_SCF': 'DEF2-UNIVERSAL-JKFIT', 'D_CONVERGENCE': 1e-10, 'E_CONVERGENCE': 1e-10, 'INTS_TOLERANCE': 1e-12, 'SCF__INTS_TOLERANCE': 1e-12, 'MAXITER': 200, 'REFERENCE': 'RHF', 'SCF_TYPE': 'DF', 'WCOMBINE': 0, 'function_kwargs': {}}
+2026-10-02:21:47:56,205 INFO     [psi4.driver.driver:525] Compute energy(): method=wb97m-d3bj, basis=def2-tzvppd, molecule=default, nre=13.433610137724298
+2026-10-02:21:48:06,845 INFO     [psi4.driver.driver:528] Return energy(): -40.53663868814151
+2026-10-02:21:48:06,861 INFO     [psi4.driver.task_planner:259] PLANNING Atomic:  keywords={'DFT_RADIAL_POINTS': 99, 'DFT_SPHERICAL_POINTS': 590, 'DF_BASIS_SCF': 'DEF2-UNIVERSAL-JKFIT', 'D_CONVERGENCE': 1e-10, 'E_CONVERGENCE': 1e-10, 'INTS_TOLERANCE': 1e-12, 'SCF__INTS_TOLERANCE': 1e-12, 'MAXITER': 200, 'REFERENCE': 'RHF', 'SCF_TYPE': 'DF', 'WCOMBINE': 0, 'function_kwargs': {}}
+2026-10-02:21:48:06,863 INFO     [psi4.driver.driver:525] Compute energy(): method=wb97m-d3bj, basis=def2-tzvppd, molecule=default, nre=13.437168358707403
+2026-10-02:21:48:22,632 INFO     [psi4.driver.driver:528] Return energy(): -40.536643590050545
+2026-10-02:21:48:22,669 INFO     [psi4.driver.task_planner:259] PLANNING Atomic:  keywords={'DFT_RADIAL_POINTS': 99, 'DFT_SPHERICAL_POINTS': 590, 'DF_BASIS_SCF': 'DEF2-UNIVERSAL-JKFIT', 'D_CONVERGENCE': 1e-10, 'E_CONVERGENCE': 1e-10, 'INTS_TOLERANCE': 1e-12, 'SCF__INTS_TOLERANCE': 1e-12, 'MAXITER': 200, 'REFERENCE': 'RHF', 'SCF_TYPE': 'DF', 'WCOMBINE': 0, 'function_kwargs': {}}
+2026-10-02:21:48:22,671 INFO     [psi4.driver.driver:525] Compute energy(): method=wb97m-d3bj, basis=def2-tzvppd, molecule=default, nre=13.435211337079956
+2026-10-02:21:48:36,359 INFO     [psi4.driver.driver:528] Return energy(): -40.536641148896386
+2026-10-02:21:48:36,375 INFO     [psi4.driver.task_planner:259] PLANNING Atomic:  keywords={'DFT_RADIAL_POINTS': 99, 'DFT_SPHERICAL_POINTS': 590, 'DF_BASIS_SCF': 'DEF2-UNIVERSAL-JKFIT', 'D_CONVERGENCE': 1e-10, 'E_CONVERGENCE': 1e-10, 'INTS_TOLERANCE': 1e-12, 'SCF__INTS_TOLERANCE': 1e-12, 'MAXITER': 200, 'REFERENCE': 'RHF', 'SCF_TYPE': 'DF', 'WCOMBINE': 0, 'function_kwargs': {}}
+2026-10-02:21:48:36,377 INFO     [psi4.driver.driver:525] Compute energy(): method=wb97m-d3bj, basis=def2-tzvppd, molecule=default, nre=13.435567159353376
+2026-10-02:21:48:46,767 INFO     [psi4.driver.driver:528] Return energy(): -40.53664163847202

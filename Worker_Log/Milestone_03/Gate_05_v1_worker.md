@@ -1,6 +1,6 @@
 # G05 real MACE candidate — v1 worker
 
-**Scope:** G05-T1/T2 software qualification in progress; T3/T4 and gate review pending.\
+**Scope:** G05-T1/T2/T3 software checks pass; T4 and independent gate review pending.\
 **Outcome:** partial.\
 **Snapshot:** unused child `m03-reference-g05` at exact accepted G04 handoff
 `bc788aeeedb4dc45026ac1bff44bd4fb533b325a`. Only the child is edited/committed;
@@ -46,3 +46,33 @@ checks and offline serialized reload. The exact M00 proposal awaits user
 agreement and an independent Astra/high design review before T4 comparisons.
 All eight stable assertions and the final exact-snapshot Astra/high audit are
 required for full acceptance. G06/G07 remain later; M03 closes at G07.
+
+
+## T3 continuation before chemical approval
+
+`software-v4`: 15 passes / exit 0 (21.39 s), covering all six software stable
+assertions plus cap/FD/fault cases. Disconnected ML-only additivity and the
+incorrect split-graph negative pass. Domain evidence saves 36 actual raw
+samples across both mappings: approach/compression, cap-parent rotation,
+last actual intercomponent edge crossing, separation and extreme coincidence.
+All admitted samples are finite and independently agree with the adapter;
+coincidence remains an explicit diagnostic, with no physical adequacy claim.
+The nested MACE ATM check compares full real forces with independent native
+cap projection plus retained-MM evaluation at both endpoints and the middle.
+
+Serialization testing found absolute asset paths depended on the previous
+checkout. Initial denial missed pathlib's io.open and misleadingly passed;
+the corrected denial reproduced a failed C++ XML unpickle. The repaired inert
+facade resolves the bundled asset in the current installation, verifies before
+weight loading and keeps deterministic force identities. `green-relocated-and-atm`
+passes both tests (18.17 s); source/assets were moved to a fresh installation
+root with original checkout opens, DNS/connect and caches denied. Numerical
+identity is unchanged. All failed and inadequate attempts are retained.
+
+Metadata candidate admission has a real RED/GREEN check; pinned parameters
+are admitted only as metadata with qualified=false. Analytic admission and
+common ATM/scientific contracts remain unchanged. New complete-source
+regressions and final independent review are still required. M00's original
+v2 review required a G07 geometry repair; corrected v3 and ten explicit
+rotation-quadrature controls await fresh review and the user's scientific
+choice. No chemical target results were generated.

@@ -201,3 +201,88 @@ def test_deliberate_numeric_faults(native, real_fixture, fault):
         assert_agree(0., faulty, 0., projected)
     capture('fault-' + fault, {'expected': projected.tolist(), 'faulty': faulty.tolist(),
                                'max_force_error': float(np.max(np.abs(faulty - projected)))})
+
+
+def test_mace_nested_atm_real_force_oracle(native, real_fixture):
+    from atm_mlmm.atm import AtmEvaluator, build_atm
+    from atm_mlmm.geometry import resolve_protocol
+    from atm_mlmm.protocols.abfe import make_protocol
+    from atm_mlmm.schedule import linear_schedule
+    from atm_mlmm.schema import MobileGroup, RestraintSpec
+    from tests.link_permutation import plain_result
+    import openmm as mm
+    bundle, snapshot = real_fixture
+    protocol = make_protocol((MobileGroup('mobile', IDS[8:], ('ligand',), 'ligand'),), (.3, .1, -.2))
+    transfer = resolve_protocol(bundle, protocol)
+    atm = build_atm(bundle, transfer, linear_schedule((('initial',0.),('middle',.37),('final',1.))),
+                    RestraintSpec('outside', ('l8',), 0., (.2,.4,.1)))
+    endpoints = []
+    for mapping in (0,1):
+        r=np.array(snapshot.positions_nm)
+        if mapping:r[8:] += (.3,.1,-.2)
+        frame=replace(snapshot,positions_nm=r)
+        numbers,x,jac=derived_input(bundle,frame)
+        raw=native.evaluate(numbers,x)
+        mm_e,mm_f=plain_result(mm.XmlSerializer.deserialize(bundle.manifest['retained_mm_xml']),r)
+        endpoints.append((raw['energy_kj_mol']+mm_e,project(raw['forces_kj_mol_nm'],jac)+mm_f))
+    records=[]
+    with AtmEvaluator(atm,REFERENCE) as evaluator:
+        for name,lam in (('initial',0.),('middle',.37),('final',1.)):
+            actual=evaluator.evaluate(snapshot,name)
+            energy=(1-lam)*endpoints[0][0]+lam*endpoints[1][0]
+            forces=(1-lam)*endpoints[0][1]+lam*endpoints[1][1]
+            assert abs(actual.raw.u0_raw_kJ_mol-endpoints[0][0])<=1e-4
+            assert abs(actual.raw.u1_raw_kJ_mol-endpoints[1][0])<=1e-4
+            assert_agree(actual.total.energy_kj_mol,actual.total.forces_kj_mol_nm,energy,forces)
+            records.append({'state':name,'raw0':actual.raw.u0_raw_kJ_mol,'raw1':actual.raw.u1_raw_kJ_mol,
+                            'energy':actual.total.energy_kj_mol,'forces':actual.total.forces_kj_mol_nm})
+    capture('nested-atm', {'endpoint_oracles':[{'energy':e,'forces':f.tolist()} for e,f in endpoints],
+                           'actual_states':records,'full_particle_maps':len(transfer.displacement1_nm)})
+
+
+def test_local_asset_fresh_process_reload(real_fixture, tmp_path):
+    import hashlib, json, os, shutil, subprocess, sys
+    from pathlib import Path
+    from atm_mlmm.atm import PhysicalEvaluator, save_bundle
+    from atm_mlmm.schema import to_json
+    bundle,snapshot=real_fixture
+    with PhysicalEvaluator(bundle,REFERENCE) as evaluator:expected=evaluator.evaluate(snapshot)
+    path=tmp_path/'physical.json';digest=save_bundle(path,bundle)
+    (tmp_path/'snapshot.json').write_text(to_json(snapshot))
+    # Move source and approved asset together to a fresh installation root.
+    # Old absolute asset paths must never become an undeclared cache dependency.
+    repo=Path(__file__).resolve().parents[2];relocated=tmp_path/'relocated'
+    shutil.copytree(repo/'src',relocated/'src',ignore=shutil.ignore_patterns('__pycache__'))
+    shutil.copytree(repo/'models',relocated/'models')
+    code = '''import json,socket,sys,builtins,io
+def denied(*args,**kwargs): raise RuntimeError("offline reload forbids network")
+socket.socket.connect=denied
+socket.create_connection=denied
+socket.getaddrinfo=denied
+old_root=sys.argv[4]
+normal_open=builtins.open
+def guarded_open(file,*args,**kwargs):
+    if str(file).startswith(old_root):raise RuntimeError("old checkout is unavailable")
+    return normal_open(file,*args,**kwargs)
+builtins.open=guarded_open
+io.open=guarded_open
+from atm_mlmm.atm import load_bundle,PhysicalEvaluator
+from atm_mlmm.schema import from_json,RuntimeSpec
+bundle=load_bundle(sys.argv[1],sys.argv[2],trusted=True)
+snapshot=from_json(normal_open(sys.argv[3]).read())
+runtime=RuntimeSpec('Reference','double',(),.0005,300.,'NVT','Verlet')
+with PhysicalEvaluator(bundle,runtime) as evaluator:out=evaluator.evaluate(snapshot)
+print(json.dumps({'energy':out.energy_kj_mol,'forces':out.forces_kj_mol_nm,
+ 'physical_identity':bundle.content_identity,'model_input_ids':bundle.model_input_ids,
+ 'links':len(bundle.links),'network_denied':True,'old_checkout_denied':True}))
+'''
+    env={**os.environ,'PYTHONPATH':str(relocated/'src'),'XDG_CACHE_HOME':str(tmp_path/'empty-xdg'),
+         'TORCH_HOME':str(tmp_path/'empty-torch'),'MACE_CACHE_DIR':str(tmp_path/'empty-mace')}
+    result=subprocess.run([sys.executable,'-c',code,str(path),digest,str(tmp_path/'snapshot.json'),str(repo)],
+                          cwd=tmp_path,env=env,text=True,capture_output=True)
+    assert result.returncode==0,result.stdout+result.stderr
+    data=json.loads(result.stdout.splitlines()[-1])
+    assert data['physical_identity']==bundle.content_identity
+    assert data['links']==1 and data['network_denied'] and data['old_checkout_denied']
+    assert_agree(data['energy'],data['forces'],expected.energy_kj_mol,expected.forces_kj_mol_nm)
+    capture('offline-serialized-reload',{'bundle_sha256':digest,'result':data,'child_stderr':result.stderr})

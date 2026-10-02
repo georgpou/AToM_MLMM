@@ -2,12 +2,14 @@
 
 The child `m03-reference-g05` continues exact published G04 handoff
 `bc788aeeedb4dc45026ac1bff44bd4fb533b325a`. G00-T2/G05-T1 loading checks and
-11 independent real-model adapter/derivative cases pass; current G05 work
-remains **partial**, with locality/domain/reload, chemical checks and independent
-gate review pending. The [exact M00 proposal](reference/M00-neutral-reference-plan-v2.md)
+15 independent real-model adapter/locality/domain/reload cases pass; current G05 work
+remains **partial**, with chemical checks and independent
+gate review pending. The [corrected exact M00 proposal](reference/M00-neutral-reference-plan-v3.md)
 contains 34 hashed neutral structures, reference settings/limits and future
-G07 controls. Quantum-only feasibility succeeded in a separate locked Psi4
-prefix; user agreement and Astra/high design review are still pending. No
+G07 controls plus ten monomer-grid rotation controls. Actual Astra/high v2
+review required repair of one retained-peptide clash; the score-free v3
+repair is ready for a new review. Quantum-only feasibility succeeded in a separate locked Psi4
+prefix; user agreement and v3 Astra/high design review are still pending. No
 target model-versus-quantum results have been inspected. New
 [G00 worker](../../Worker_Log/Milestone_01/Gate_00_v2_worker.md),
 [M00 worker](../../Worker_Log/Milestone_00/Milestone_00_v2_worker.md) and

@@ -1,0 +1,59 @@
+  Threads set to 2 by Python driver.
+
+  Memory set to   5.000 GiB by Python driver.
+{
+  "scope": "independent quantum-only methane; frozen settings including wcombine=false; no target comparisons",
+  "python": "/workspace/atom-mlmm-reference-pilot-v2/env/bin/python",
+  "psi4_version": "1.10.2",
+  "network_denied": true,
+  "wall_seconds": 64.98495106399969,
+  "settings": {
+    "basis": "def2-tzvppd",
+    "df_basis_scf": "def2-universal-jkfit",
+    "reference": "rhf",
+    "scf_type": "df",
+    "e_convergence": 1e-10,
+    "d_convergence": 1e-10,
+    "maxiter": 200,
+    "ints_tolerance": 1e-12,
+    "dft_radial_points": 99,
+    "dft_spherical_points": 590,
+    "wcombine": false
+  },
+  "energy_hartree": -40.53664138752393,
+  "variables": {
+    "CURRENT ENERGY": -40.53664138752393,
+    "CURRENT REFERENCE ENERGY": -40.53664138752393,
+    "DD SOLVATION ENERGY": 0.0,
+    "DFT FUNCTIONAL TOTAL ENERGY": -40.534249373712726,
+    "DFT TOTAL ENERGY": -40.53664138752393,
+    "DFT VV10 ENERGY": 0.0,
+    "DFT XC ENERGY": -4.609617077630841,
+    "DISPERSION CORRECTION ENERGY": -0.0023920138112032713,
+    "NUCLEAR REPULSION ENERGY": 13.43538924821667,
+    "ONE-ELECTRON ENERGY": -79.81588056942928,
+    "PCM POLARIZATION ENERGY": 0.0,
+    "PE ENERGY": 0.0,
+    "SCF ITERATION ENERGY": -40.53664138752393,
+    "SCF TOTAL ENERGY": -40.53664138752393,
+    "TWO-ELECTRON ENERGY": 30.45585902513073,
+    "WB97M-D3BJ DISPERSION CORRECTION ENERGY": -0.0023920138112032713
+  },
+  "finite_differences": [
+    {
+      "h_angstrom": 0.001,
+      "fd_kJ_mol_nm": -64.34980201647808,
+      "analytic_kJ_mol_nm": -64.3601360098441,
+      "absolute_error_kJ_mol_nm": 0.010333993366018035
+    },
+    {
+      "h_angstrom": 0.0001,
+      "fd_kJ_mol_nm": -64.26903241587793,
+      "analytic_kJ_mol_nm": -64.3601360098441,
+      "absolute_error_kJ_mol_nm": 0.0911035939661673
+    }
+  ],
+  "passed": 113,
+  "total": 113,
+  "failed": []
+}

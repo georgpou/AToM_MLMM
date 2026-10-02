@@ -134,10 +134,16 @@ class PinnedASECalculator:
         self._calculator = None
 
     def __getstate__(self):
-        return {'checkpoint': self.checkpoint, 'manifest_path': self.manifest_path}
+        checkpoint = None if self.checkpoint == str(CHECKPOINT.resolve()) and self.manifest_path is None else self.checkpoint
+        return {'checkpoint': checkpoint, 'manifest_path': self.manifest_path}
 
     def __setstate__(self, state):
-        self.__init__(state['checkpoint'], state['manifest_path'])
+        # XML's trusted pickle reconstructs an inert recipe. Asset verification
+        # occurs before weight deserialization in _engine, not inside the C++
+        # XML unpickler. Bundled assets resolve in the current installation.
+        self.checkpoint = str(CHECKPOINT.resolve()) if state['checkpoint'] is None else state['checkpoint']
+        self.manifest_path = state['manifest_path']
+        self._calculator = None
 
     def _engine(self):
         if self._calculator is None:

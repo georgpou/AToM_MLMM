@@ -1,0 +1,4185 @@
+{
+  "reviewed_sha": "321d7e3764a46eb5359a8d96bcab9124dccbc5f5",
+  "python": "/workspace/atom-mlmm-g05-v2/env/bin/python",
+  "rdkit": "2026.03.6",
+  "numpy": "2.4.6",
+  "total_checks": 730,
+  "passed": 730,
+  "failed": [],
+  "contacts": [
+    {
+      "name": "butane-acetamide-d3.4-r0",
+      "capped_min_A": 2.66219948201827,
+      "full_parent_min_A": 2.66219948201827,
+      "full_parent_closest_pair": [
+        "p21",
+        "l:l4"
+      ],
+      "choices": [
+        "baseline",
+        "uncut",
+        "alternative-ethane"
+      ]
+    },
+    {
+      "name": "butane-acetamide-d3.8-r0",
+      "capped_min_A": 3.054385221865483,
+      "full_parent_min_A": 3.054385221865483,
+      "full_parent_closest_pair": [
+        "p21",
+        "l:l4"
+      ],
+      "choices": [
+        "baseline",
+        "uncut",
+        "alternative-ethane"
+      ]
+    },
+    {
+      "name": "butane-acetamide-d3.8-r60",
+      "capped_min_A": 2.8139847959114936,
+      "full_parent_min_A": 2.8139847959114936,
+      "full_parent_closest_pair": [
+        "p20",
+        "l:l6"
+      ],
+      "choices": [
+        "baseline",
+        "uncut",
+        "alternative-ethane"
+      ]
+    },
+    {
+      "name": "butane-acetamide-d4.5-r0",
+      "capped_min_A": 3.744690152223693,
+      "full_parent_min_A": 3.744690152223693,
+      "full_parent_closest_pair": [
+        "p21",
+        "l:l4"
+      ],
+      "choices": [
+        "baseline",
+        "uncut",
+        "alternative-ethane"
+      ]
+    },
+    {
+      "name": "butane-acetamide-separated",
+      "capped_min_A": 22.247783269253777,
+      "full_parent_min_A": 22.247783269253777,
+      "full_parent_closest_pair": [
+        "p21",
+        "l:l4"
+      ],
+      "choices": [
+        "baseline",
+        "uncut",
+        "alternative-ethane"
+      ]
+    },
+    {
+      "name": "butane-methanol-d3.4-r0",
+      "capped_min_A": 2.6440108743126176,
+      "full_parent_min_A": 2.6440108743126176,
+      "full_parent_closest_pair": [
+        "p19",
+        "l:l4"
+      ],
+      "choices": [
+        "baseline",
+        "uncut",
+        "alternative-ethane"
+      ]
+    },
+    {
+      "name": "butane-methanol-d3.8-r0",
+      "capped_min_A": 3.0419516627882954,
+      "full_parent_min_A": 3.0419516627882954,
+      "full_parent_closest_pair": [
+        "p19",
+        "l:l4"
+      ],
+      "choices": [
+        "baseline",
+        "uncut",
+        "alternative-ethane"
+      ]
+    },
+    {
+      "name": "butane-methanol-d3.8-r60",
+      "capped_min_A": 2.470015237717189,
+      "full_parent_min_A": 2.470015237717189,
+      "full_parent_closest_pair": [
+        "p21",
+        "l:l3"
+      ],
+      "choices": [
+        "baseline",
+        "uncut",
+        "alternative-ethane"
+      ]
+    },
+    {
+      "name": "butane-methanol-d4.5-r0",
+      "capped_min_A": 3.7394055203254455,
+      "full_parent_min_A": 3.7394055203254455,
+      "full_parent_closest_pair": [
+        "p19",
+        "l:l4"
+      ],
+      "choices": [
+        "baseline",
+        "uncut",
+        "alternative-ethane"
+      ]
+    },
+    {
+      "name": "butane-methanol-separated",
+      "capped_min_A": 20.859523971980664,
+      "full_parent_min_A": 20.859523971980664,
+      "full_parent_closest_pair": [
+        "p19",
+        "l:l4"
+      ],
+      "choices": [
+        "baseline",
+        "uncut",
+        "alternative-ethane"
+      ]
+    },
+    {
+      "name": "ethanol-acetamide-d2.6-r0",
+      "capped_min_A": 1.6255264925647062,
+      "full_parent_min_A": 1.5826269340292431,
+      "full_parent_closest_pair": [
+        "p24",
+        "l:l5"
+      ],
+      "choices": [
+        "baseline",
+        "uncut"
+      ]
+    },
+    {
+      "name": "ethanol-acetamide-d3-r0",
+      "capped_min_A": 2.025526492564706,
+      "full_parent_min_A": 1.6827690998149205,
+      "full_parent_closest_pair": [
+        "p24",
+        "l:l5"
+      ],
+      "choices": [
+        "baseline",
+        "uncut"
+      ]
+    },
+    {
+      "name": "ethanol-acetamide-d3-r60",
+      "capped_min_A": 2.025526492564706,
+      "full_parent_min_A": 0.9988313638136207,
+      "full_parent_closest_pair": [
+        "p9",
+        "l:l6"
+      ],
+      "choices": [
+        "baseline",
+        "uncut"
+      ]
+    },
+    {
+      "name": "ethanol-acetamide-d3.5-r0",
+      "capped_min_A": 2.525526492564706,
+      "full_parent_min_A": 1.921058726851762,
+      "full_parent_closest_pair": [
+        "p24",
+        "l:l5"
+      ],
+      "choices": [
+        "baseline",
+        "uncut"
+      ]
+    },
+    {
+      "name": "ethanol-acetamide-separated",
+      "capped_min_A": 20.668647384672006,
+      "full_parent_min_A": 17.782370003691796,
+      "full_parent_closest_pair": [
+        "p24",
+        "l:l3"
+      ],
+      "choices": [
+        "baseline",
+        "uncut"
+      ]
+    },
+    {
+      "name": "ethanol-methanol-d2.6-r0",
+      "capped_min_A": 1.6255264925647062,
+      "full_parent_min_A": 1.6255264925647062,
+      "full_parent_closest_pair": [
+        "p18",
+        "l:l1"
+      ],
+      "choices": [
+        "baseline",
+        "uncut"
+      ]
+    },
+    {
+      "name": "ethanol-methanol-d3-r0",
+      "capped_min_A": 1.9724577934448866,
+      "full_parent_min_A": 1.9724577934448866,
+      "full_parent_closest_pair": [
+        "p18",
+        "l:l5"
+      ],
+      "choices": [
+        "baseline",
+        "uncut"
+      ]
+    },
+    {
+      "name": "ethanol-methanol-d3-r60",
+      "capped_min_A": 2.025526492564706,
+      "full_parent_min_A": 1.7868694164058516,
+      "full_parent_closest_pair": [
+        "p9",
+        "l:l2"
+      ],
+      "choices": [
+        "baseline",
+        "uncut"
+      ]
+    },
+    {
+      "name": "ethanol-methanol-d3.5-r0",
+      "capped_min_A": 2.424944414049218,
+      "full_parent_min_A": 2.424944414049218,
+      "full_parent_closest_pair": [
+        "p18",
+        "l:l5"
+      ],
+      "choices": [
+        "baseline",
+        "uncut"
+      ]
+    },
+    {
+      "name": "ethanol-methanol-separated",
+      "capped_min_A": 19.175391807510834,
+      "full_parent_min_A": 16.515997636154445,
+      "full_parent_closest_pair": [
+        "p24",
+        "l:l5"
+      ],
+      "choices": [
+        "baseline",
+        "uncut"
+      ]
+    }
+  ],
+  "checks": [
+    {
+      "check": "hash:structures/acetamide--20.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/acetamide-0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/acetamide-20.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane--60.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-120.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-180.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-60.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-acetamide-d3.4-r0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-acetamide-d3.8-r0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-acetamide-d3.8-r60.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-acetamide-d4.5-r0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-acetamide-separated.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-methanol-d3.4-r0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-methanol-d3.8-r0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-methanol-d3.8-r60.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-methanol-d4.5-r0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/butane-methanol-separated.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol--60.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-120.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-180.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-60.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-acetamide-d2.6-r0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-acetamide-d3-r0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-acetamide-d3-r60.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-acetamide-d3.5-r0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-acetamide-separated.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-methanol-d2.6-r0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-methanol-d3-r0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-methanol-d3-r60.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-methanol-d3.5-r0.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/ethanol-methanol-separated.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/methanol-baseline.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/methanol-oh60.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:structures/methanol-stretch003.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:reference-settings.json",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "hash:reference-explicit.lock",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "preparation script hash",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "34 structures",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide--20:formula",
+      "passed": true,
+      "details": "C2H5NO"
+    },
+    {
+      "check": "acetamide--20:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide--20:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide--20:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide--20:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide--20:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide--20:3D vs declared chirality",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "acetamide-0:formula",
+      "passed": true,
+      "details": "C2H5NO"
+    },
+    {
+      "check": "acetamide-0:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide-0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide-0:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide-0:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide-0:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide-0:3D vs declared chirality",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "acetamide-20:formula",
+      "passed": true,
+      "details": "C2H5NO"
+    },
+    {
+      "check": "acetamide-20:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide-20:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide-20:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide-20:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide-20:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide-20:3D vs declared chirality",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "butane--60:formula",
+      "passed": true,
+      "details": "C4H10"
+    },
+    {
+      "check": "butane--60:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane--60:parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane--60:torsion",
+      "passed": true,
+      "details": -60.00000000000001
+    },
+    {
+      "check": "butane-120:formula",
+      "passed": true,
+      "details": "C4H10"
+    },
+    {
+      "check": "butane-120:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-120:parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-120:torsion",
+      "passed": true,
+      "details": 119.99999999999997
+    },
+    {
+      "check": "butane-180:formula",
+      "passed": true,
+      "details": "C4H10"
+    },
+    {
+      "check": "butane-180:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-180:parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-180:parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-180:torsion",
+      "passed": true,
+      "details": 180.0
+    },
+    {
+      "check": "butane-60:formula",
+      "passed": true,
+      "details": "C4H10"
+    },
+    {
+      "check": "butane-60:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-60:parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-60:torsion",
+      "passed": true,
+      "details": 59.999999999999986
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:g07-parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:alternative:formula",
+      "passed": true,
+      "details": "C2H6"
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:alternative:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:alternative:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:alternative:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:alternative:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:alternative:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:alternative:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:alternative:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:alternative:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:g07-parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:alternative:formula",
+      "passed": true,
+      "details": "C2H6"
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:alternative:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:alternative:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:alternative:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:alternative:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:alternative:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:alternative:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:alternative:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:alternative:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:g07-parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:alternative:formula",
+      "passed": true,
+      "details": "C2H6"
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:alternative:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:alternative:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:alternative:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:alternative:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:alternative:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:alternative:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:alternative:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:alternative:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:g07-parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:alternative:formula",
+      "passed": true,
+      "details": "C2H6"
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:alternative:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:alternative:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:alternative:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:alternative:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:alternative:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:alternative:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:alternative:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:alternative:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:g07-parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-acetamide-separated:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-acetamide-separated:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:alternative:formula",
+      "passed": true,
+      "details": "C2H6"
+    },
+    {
+      "check": "butane-acetamide-separated:alternative:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:alternative:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:alternative:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:alternative:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:alternative:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:alternative:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:alternative:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:alternative:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:15A both full and capped separation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:g07-parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:alternative:formula",
+      "passed": true,
+      "details": "C2H6"
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:alternative:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:alternative:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:alternative:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:alternative:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:alternative:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:alternative:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:alternative:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:alternative:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:g07-parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:alternative:formula",
+      "passed": true,
+      "details": "C2H6"
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:alternative:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:alternative:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:alternative:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:alternative:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:alternative:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:alternative:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:alternative:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:alternative:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:g07-parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:alternative:formula",
+      "passed": true,
+      "details": "C2H6"
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:alternative:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:alternative:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:alternative:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:alternative:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:alternative:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:alternative:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:alternative:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:alternative:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:g07-parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:alternative:formula",
+      "passed": true,
+      "details": "C2H6"
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:alternative:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:alternative:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:alternative:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:alternative:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:alternative:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:alternative:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:alternative:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:alternative:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:g07-parent:formula",
+      "passed": true,
+      "details": "C9H18N2O2"
+    },
+    {
+      "check": "butane-methanol-separated:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "S"
+        ]
+      ]
+    },
+    {
+      "check": "butane-methanol-separated:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:alternative:formula",
+      "passed": true,
+      "details": "C2H6"
+    },
+    {
+      "check": "butane-methanol-separated:alternative:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:alternative:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:alternative:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:alternative:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:alternative:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:alternative:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:alternative:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:alternative:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:15A both full and capped separation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:formula",
+      "passed": true,
+      "details": "C2H6O"
+    },
+    {
+      "check": "ethanol--60:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol--60:parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol--60:torsion",
+      "passed": true,
+      "details": -59.99999999999999
+    },
+    {
+      "check": "ethanol-120:formula",
+      "passed": true,
+      "details": "C2H6O"
+    },
+    {
+      "check": "ethanol-120:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-120:parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-120:torsion",
+      "passed": true,
+      "details": 119.99999999999999
+    },
+    {
+      "check": "ethanol-180:formula",
+      "passed": true,
+      "details": "C2H6O"
+    },
+    {
+      "check": "ethanol-180:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-180:parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-180:torsion",
+      "passed": true,
+      "details": 180.0
+    },
+    {
+      "check": "ethanol-60:formula",
+      "passed": true,
+      "details": "C2H6O"
+    },
+    {
+      "check": "ethanol-60:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:derived cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:retained exact real identity",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:cap convention",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-60:parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-60:torsion",
+      "passed": true,
+      "details": 59.99999999999999
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:g07-parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:g07-parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:g07-parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:g07-parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:g07-parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-acetamide-separated:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-acetamide-separated:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:15A both full and capped separation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:g07-parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:g07-parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:g07-parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:g07-parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:exact fragment rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:proper fragment rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:exact ligand rigid transform",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:proper ligand rotation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:min distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:anchor distance",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:g07-parent:formula",
+      "passed": true,
+      "details": "C7H14N2O3"
+    },
+    {
+      "check": "ethanol-methanol-separated:g07-parent:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:g07-parent:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:g07-parent:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:g07-parent:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:g07-parent:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:g07-parent:3D vs declared chirality",
+      "passed": true,
+      "details": [
+        [
+          4,
+          "S"
+        ],
+        [
+          5,
+          "R"
+        ]
+      ]
+    },
+    {
+      "check": "ethanol-methanol-separated:transformed parent cap",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:same complete g07 ligand",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:all g07 choices",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:uncut identities",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:15A both full and capped separation",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-baseline:formula",
+      "passed": true,
+      "details": "CH4O"
+    },
+    {
+      "check": "methanol-baseline:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-baseline:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-baseline:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-baseline:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-baseline:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-baseline:3D vs declared chirality",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "methanol-oh60:formula",
+      "passed": true,
+      "details": "CH4O"
+    },
+    {
+      "check": "methanol-oh60:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-oh60:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-oh60:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-oh60:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-oh60:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-oh60:3D vs declared chirality",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "methanol-stretch003:formula",
+      "passed": true,
+      "details": "CH4O"
+    },
+    {
+      "check": "methanol-stretch003:explicit saturated valence",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-stretch003:neutral singlet",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-stretch003:unique ids",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-stretch003:atom array order",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-stretch003:finite angstrom",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-stretch003:3D vs declared chirality",
+      "passed": true,
+      "details": []
+    },
+    {
+      "check": "butane-180:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-stretch003:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r60:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-60:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-60:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-separated:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3.5-r0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r60:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-120:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide--20:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.4-r0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r60:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3.5-r0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide-20:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d3.8-r0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-d4.5-r0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d2.6-r0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d4.5-r0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.4-r0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-baseline:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol--60:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-d3-r0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d2.6-r0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "methanol-oh60:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-d3-r60:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane--60:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-methanol-d3.8-r0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "acetamide-0:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-acetamide-separated:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-methanol-separated:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-acetamide-separated:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "butane-120:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "ethanol-180:regeneration exact bytes",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "provenance:mace-off-pinned-readme.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "provenance:psi4-1.10-functionals.py",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "provenance:spice-readme.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "provenance:sample.dat",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "model asset:LICENSE.md",
+      "passed": true,
+      "details": null
+    },
+    {
+      "check": "model asset:MACE-OFF23_small.model",
+      "passed": true,
+      "details": null
+    }
+  ]
+}

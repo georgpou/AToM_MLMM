@@ -5,15 +5,20 @@ from .schema import UnsupportedCapability, ValidationReport
 def validate_request(request, capabilities):
     if request.embedding.kind != 'mechanical':
         raise UnsupportedCapability(f'actual {request.embedding.kind} embedding is unsupported')
-    if request.model.backend not in ('analytic-local', 'analytic-environment'):
+    real_model = request.model.backend == 'mace-off23-small'
+    if real_model:
+        from .models.mace import model_spec
+        if request.model != model_spec():
+            raise UnsupportedCapability('unadmitted pinned MACE candidate metadata')
+    elif request.model.backend not in ('analytic-local', 'analytic-environment'):
         raise UnsupportedCapability(f'backend not admitted to analytic CPU profile: {request.model.backend}')
     if request.embedding.policy_version != '1':
         raise UnsupportedCapability(f'policy_version not reviewed: {request.embedding.policy_version}')
     if request.embedding.boundary_policy != 'protein_c_c':
         raise UnsupportedCapability(f'boundary_policy unsupported: {request.embedding.boundary_policy}')
-    if request.model.output_energy_convention != 'declared_relative_energy':
+    if not real_model and request.model.output_energy_convention != 'declared_relative_energy':
         raise UnsupportedCapability(f'output_energy_convention unsupported for analytic providers: {request.model.output_energy_convention}')
-    expected_locality = {'analytic-local': 'local', 'analytic-environment': 'environment_dependent'}[request.model.backend]
+    expected_locality = 'local' if real_model else {'analytic-local': 'local', 'analytic-environment': 'environment_dependent'}[request.model.backend]
     if request.model.locality != expected_locality:
         raise UnsupportedCapability(f'locality inconsistent with {request.model.backend}: expected {expected_locality}, got {request.model.locality}')
     for feature, value, declared in (
@@ -52,5 +57,6 @@ def validate_request(request, capabilities):
         raise UnsupportedCapability('timestep above initial 0.5 fs requires separate qualification')
     if request.embedding.periodic_convention != 'nonperiodic':
         raise UnsupportedCapability('periodic physical evaluation belongs to a later gate')
-    return ValidationReport('request-admissibility', ('P0-REQ-023', 'P0-REQ-028'), 'core-analytic-cpu', (),
+    profile = 'mace-off23-small-cpu-candidate' if real_model else 'core-analytic-cpu'
+    return ValidationReport('request-admissibility', ('P0-REQ-023', 'P0-REQ-028'), profile, (),
                             {'qualified': False, 'level': 'metadata_only'}, {}, 'passed', (), ())
