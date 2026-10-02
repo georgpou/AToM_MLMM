@@ -111,6 +111,8 @@ def validate_routing(system, physical, restraints):
                         for a, b, d in (system.getConstraintParameters(i) for i in range(system.getNumConstraints())))
     if masses != physical.masses_da or constraints != physical.constraints:
         raise IdentityError('production changes physical masses/constraints')
+    from .geometry import validate_sites
+    validate_sites(system,physical)
     return tuple(report)
 
 

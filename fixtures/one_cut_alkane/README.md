@@ -1,0 +1,7 @@
+# G04 one-cut fixture
+
+`original-mm.xml` is byte-identical to the inherited, hash-pinned GAFF ethane/methane system in `fixtures/mace_link/`. `input.json` retains its high-precision coordinates/connectivity and adds persistent real IDs. The ethane is a protein-boundary surrogate: cut p0–p1, include p0's three hydrogens by connectivity, and cap that methyl group to form methane. The separate methane ligand l8–l12 is transferred whole.
+
+The analytic profile explicitly requests a fixed **0.117 nm** cap to test consumption of constructed parameters instead of assuming the upstream 0.109 nm default. This exercises the existing S04 parameterized fixed-length rule and does not change that rule or claim chemical adequacy for this distance. The cap is massless with no classical charge/LJ term. Coordinates are nonperiodic, Cartesian, in nm; forces are kJ/mol/nm. No constraints are present in this physical fixture. Dedicated artificial bonded graphs in `test_boundary_ledger.py` isolate proper/improper, central-angle, exception and constraint dispositions; they are predicate controls, not admitted molecular chemistry.
+
+The registered model substitute is weight-free and returns raw model/cap forces. `tests/link_oracle.py` independently derives cap coordinates, both real-parent Jacobians, environment derivatives and invariant force/torque expectations. Whole real-force ordering and all-final-particle maps are checked, including an independently permuted final layout with the cap at index 5.

@@ -433,6 +433,24 @@ class EnergyForces(Record):
 
 
 @record
+class LinkRecord(Record):
+    cap_id: str
+    ml_parent_id: str
+    mm_parent_id: str
+    final_particle_index: int
+    model_input_index: int
+    virtual_site_type: str
+    distance_nm: float
+
+    def _validate(self):
+        _ids((self.cap_id, self.ml_parent_id, self.mm_parent_id))
+        if self.final_particle_index < 0 or self.model_input_index < 0 or self.distance_nm <= 0:
+            raise MalformedInput('invalid link index/distance')
+        if self.virtual_site_type != 'LocalCoordinatesSite':
+            raise UnsupportedCapability('only fixed-length LocalCoordinatesSite caps admitted')
+
+
+@record
 class PhysicalBundle(Record):
     """Sealed, trusted physical artifact; XML can contain executable callbacks.
 
@@ -451,6 +469,11 @@ class PhysicalBundle(Record):
     ledger: tuple['ForceRecord', ...]
     manifest: Mapping[str, Any]
     units: Units = Units()
+    links: tuple[LinkRecord, ...] = ()
+
+    @property
+    def model_input_ids(self):
+        return self.ml_atom_ids + tuple(link.cap_id for link in self.links)
 
     def _validate(self):
         if hashlib.sha256(self.system_xml.encode()).hexdigest() != self.system_sha256:
@@ -464,7 +487,7 @@ class PhysicalBundle(Record):
             raise IdentityError('real/final map has duplicate or out-of-range index')
         if indices != self.old_to_new:
             raise IdentityError('real/final map must consume oldToNew explicitly')
-        if not set(self.ml_atom_ids) <= set(ids) or set(self.model_to_final) != set(self.ml_atom_ids):
+        if not set(self.ml_atom_ids) <= set(ids) or set(self.model_to_final) != set(self.model_input_ids):
             raise IdentityError('model map must cover fixed real ML membership')
         if any(self.model_to_final[a] != self.real_to_final[a] for a in self.ml_atom_ids):
             raise IdentityError('model/final index map mismatch')
@@ -472,6 +495,23 @@ class PhysicalBundle(Record):
             raise MalformedInput('invalid final particle masses')
         if any(self.masses_da[i] <= 0 for i in indices):
             raise MalformedInput('real particle mass must be positive')
+        if self.links:
+            if self.manifest.get('boundary_builder_version') != 1 or len(self.links) != 1:
+                raise UnsupportedCapability('G04 boundary builder version 1 admits one cap')
+            _ids(self.model_input_ids)
+            for link in self.links:
+                if link.cap_id in ids:
+                    raise IdentityError('cap identity must not alias a real atom ID')
+                if link.ml_parent_id not in self.ml_atom_ids or link.mm_parent_id not in ids or link.mm_parent_id in self.ml_atom_ids:
+                    raise IdentityError('link parents must be real ML/MM atoms')
+                if link.final_particle_index in indices or not 0 <= link.final_particle_index < len(self.masses_da):
+                    raise IdentityError('link/final map overlaps real particles or is out of range')
+                if self.masses_da[link.final_particle_index] != 0.:
+                    raise IdentityError('cap has independent mass')
+                if link.model_input_index != self.model_input_ids.index(link.cap_id) or self.model_to_final[link.cap_id] != link.final_particle_index:
+                    raise IdentityError('link/model map mismatch')
+        if set(indices) | {l.final_particle_index for l in self.links} != set(range(len(self.masses_da))):
+            raise IdentityError('real/link maps must cover every final particle')
         if not self.ledger or not self.manifest:
             raise MalformedInput('physical ledger and manifest required')
 
@@ -716,7 +756,10 @@ class AcceptanceRecord(Record):
 
 def _encode(value):
     if isinstance(value, Record):
-        return dict(record_type=type(value).__name__, data={f.name: _encode(getattr(value, f.name)) for f in fields(value)})
+        # Additive G04 links are omitted when absent: old real-only artifact
+        # bytes/content identities and their nested transfer IDs stay unchanged.
+        return dict(record_type=type(value).__name__, data={f.name: _encode(getattr(value, f.name)) for f in fields(value)
+                    if not (isinstance(value, PhysicalBundle) and f.name == 'links' and not value.links)})
     if isinstance(value, Mapping):
         return {k: _encode(v) for k, v in value.items()}
     if isinstance(value, tuple):

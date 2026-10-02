@@ -14,7 +14,7 @@ import numpy as np
 import openmm as mm
 from openmm import unit
 
-from .geometry import final_positions, validate_transfer
+from .geometry import final_positions, validate_sites, validate_transfer
 from .persistence import write_json
 from .schedule import schedule_state, softened_perturbation, validate_schedule
 from .schema import (AlchemicalBundle, AtmEvaluation, EnergyForces,
@@ -44,6 +44,7 @@ def physical_system(bundle):
                         for a, b, d in (system.getConstraintParameters(i) for i in range(system.getNumConstraints())))
     if masses != bundle.masses_da or constraints != bundle.constraints:
         raise IdentityError('physical masses/constraints mismatch')
+    validate_sites(system,bundle)
     if system.getNumForces() != len(bundle.ledger):
         raise IdentityError('physical force ledger count mismatch')
     for row, force in zip(bundle.ledger, system.getForces()):
@@ -187,6 +188,7 @@ class _Evaluator:
 
     def _position(self, physical, snapshot):
         self.context.setPositions(final_positions(physical, snapshot)*unit.nanometer)
+        self.context.computeVirtualSites()
 
     def _result(self, physical, snapshot, state):
         forces = state.getForces(asNumpy=True).value_in_unit(unit.kilojoules_per_mole/unit.nanometer)
