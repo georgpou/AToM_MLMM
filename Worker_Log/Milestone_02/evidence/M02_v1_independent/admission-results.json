@@ -1,0 +1,222 @@
+{
+  "review_head": "a13019390f9770a42a5711bbb98025bd571ea40b",
+  "observations": [
+    {
+      "name": "wrong-expression-native-sealer",
+      "rejected": false,
+      "observed": {
+        "declared_expression": "select(step(Direction), u0, u1) + select(Lambda2-Lambda1, ((Lambda2-Lambda1)/Alpha)*log(1+exp(-Alpha*(usc-Uh))) + Lambda2*usc + W0, Lambda2*usc + W0);usc = select(Acore, select(step(u-Ubcore), (Umax-Ubcore)*fsc+Ubcore, u), u);fsc = (z^Acore-1)/(z^Acore+1);z = 1 + 2*(y/Acore) + 2*(y/Acore)^2;y = (u-Ubcore)/(Umax-Ubcore);u = select(step(Direction), 1, -1)*(u1-(u0 + UOffset))",
+        "actual_expression": "u0",
+        "expected_total": 9.683029535204136,
+        "observed_total": 7.1175000000000015,
+        "error": -2.565529535204135
+      },
+      "expected_rejection": true
+    },
+    {
+      "name": "wrong-expression-native-artifact-admission",
+      "rejected": false,
+      "observed": {
+        "declared_expression": "select(step(Direction), u0, u1) + select(Lambda2-Lambda1, ((Lambda2-Lambda1)/Alpha)*log(1+exp(-Alpha*(usc-Uh))) + Lambda2*usc + W0, Lambda2*usc + W0);usc = select(Acore, select(step(u-Ubcore), (Umax-Ubcore)*fsc+Ubcore, u), u);fsc = (z^Acore-1)/(z^Acore+1);z = 1 + 2*(y/Acore) + 2*(y/Acore)^2;y = (u-Ubcore)/(Umax-Ubcore);u = select(step(Direction), 1, -1)*(u1-(u0 + UOffset))",
+        "actual_expression": "u0",
+        "expected_total": 9.683029535204136,
+        "observed_total": 7.1175000000000015,
+        "error": -2.565529535204135
+      },
+      "expected_rejection": true
+    },
+    {
+      "name": "wrong-expression-upstream-sealer",
+      "rejected": false,
+      "observed": {
+        "declared_expression": "select(step(Direction), u0, u1) + select(Lambda2-Lambda1, ((Lambda2-Lambda1)/Alpha)*log(1+exp(-Alpha*(usc-Uh))) + Lambda2*usc + W0, Lambda2*usc + W0);usc = select(Acore, select(step(u-Ubcore), (Umax-Ubcore)*fsc+Ubcore, u), u);fsc = (z^Acore-1)/(z^Acore+1);z = 1 + 2*(y/Acore) + 2*(y/Acore)^2;y = (u-Ubcore)/(Umax-Ubcore);u = select(step(Direction), 1, -1)*(u1-(u0 + UOffset))",
+        "actual_expression": "u0",
+        "expected_total": 9.683029535204136,
+        "observed_total": 7.1175000000000015,
+        "error": -2.565529535204135
+      },
+      "expected_rejection": true
+    },
+    {
+      "name": "wrong-expression-upstream-artifact-admission",
+      "rejected": false,
+      "observed": {
+        "declared_expression": "select(step(Direction), u0, u1) + select(Lambda2-Lambda1, ((Lambda2-Lambda1)/Alpha)*log(1+exp(-Alpha*(usc-Uh))) + Lambda2*usc + W0, Lambda2*usc + W0);usc = select(Acore, select(step(u-Ubcore), (Umax-Ubcore)*fsc+Ubcore, u), u);fsc = (z^Acore-1)/(z^Acore+1);z = 1 + 2*(y/Acore) + 2*(y/Acore)^2;y = (u-Ubcore)/(Umax-Ubcore);u = select(step(Direction), 1, -1)*(u1-(u0 + UOffset))",
+        "actual_expression": "u0",
+        "expected_total": 9.683029535204136,
+        "observed_total": 7.1175000000000015,
+        "error": -2.565529535204135
+      },
+      "expected_rejection": true
+    },
+    {
+      "name": "global-parameter-mutation-physical",
+      "rejected": false,
+      "observed": {
+        "before": 5.482500000000001,
+        "after": 26.272500000000004,
+        "same_physical_identity": true,
+        "same_snapshot_identity": true,
+        "changed_force_component": -19.8
+      },
+      "expected_rejection": true
+    },
+    {
+      "name": "restored-global-parameter-mutation-physical",
+      "rejected": false,
+      "observed": {
+        "before": 5.482500000000001,
+        "after": 26.272500000000004,
+        "same_physical_identity": true,
+        "same_snapshot_identity": true,
+        "changed_force_component": -19.8
+      },
+      "expected_rejection": true
+    },
+    {
+      "name": "global-parameter-mutation-preparation",
+      "rejected": false,
+      "observed": {
+        "before": 5.482500000000001,
+        "after": 26.272500000000004,
+        "same_physical_identity": true,
+        "same_snapshot_identity": true,
+        "changed_force_component": -19.8
+      },
+      "expected_rejection": true
+    },
+    {
+      "name": "restored-global-parameter-mutation-preparation",
+      "rejected": false,
+      "observed": {
+        "before": 5.482500000000001,
+        "after": 26.272500000000004,
+        "same_physical_identity": true,
+        "same_snapshot_identity": true,
+        "changed_force_component": -19.8
+      },
+      "expected_rejection": true
+    },
+    {
+      "name": "global-parameter-mutation-native",
+      "rejected": true,
+      "diagnostic": "runtime parameter mutation before evaluation: audit_global_k",
+      "expected_rejection": true
+    },
+    {
+      "name": "global-parameter-mutation-upstream",
+      "rejected": true,
+      "diagnostic": "runtime parameter mutation before evaluation: audit_global_k",
+      "expected_rejection": true
+    },
+    {
+      "name": "restored-global-parameter-positive-native",
+      "rejected": false,
+      "observed": {
+        "restored_global": 2.0,
+        "restored_lambda1": 0.3,
+        "total": 10.671390795474247
+      },
+      "expected_rejection": false
+    },
+    {
+      "name": "restored-global-parameter-positive-upstream",
+      "rejected": false,
+      "observed": {
+        "restored_global": 2.0,
+        "restored_lambda1": 0.3,
+        "total": 10.671390795474247
+      },
+      "expected_rejection": false
+    },
+    {
+      "name": "schedule-child-parameter-collision-native",
+      "rejected": false,
+      "observed": {
+        "direct_physical": 5.272500000000001,
+        "first_u0": 5.272500000000001,
+        "second_u0": 5.304000000000001,
+        "child_default": 0.0,
+        "shared_runtime_parameter": 0.3,
+        "same_physical_identity": true
+      },
+      "expected_rejection": true
+    },
+    {
+      "name": "schedule-child-parameter-collision-upstream",
+      "rejected": false,
+      "observed": {
+        "direct_physical": 5.272500000000001,
+        "first_u0": 5.272500000000001,
+        "second_u0": 5.304000000000001,
+        "child_default": 0.0,
+        "shared_runtime_parameter": 0.3,
+        "same_physical_identity": true
+      },
+      "expected_rejection": true
+    },
+    {
+      "name": "same-name-duplicate-export",
+      "rejected": true,
+      "diagnostic": "duplicate force ownership/content at (0,) and (3,): analytic:selected-harmonic",
+      "expected_rejection": true
+    },
+    {
+      "name": "renamed-duplicate-export",
+      "rejected": false,
+      "observed": {
+        "export_force_count": 4
+      },
+      "expected_rejection": true
+    },
+    {
+      "name": "same-name-duplicate-native",
+      "rejected": true,
+      "diagnostic": "duplicate force ownership/content at (0, 0) and (0, 3): analytic:selected-harmonic",
+      "expected_rejection": true
+    },
+    {
+      "name": "renamed-duplicate-native",
+      "rejected": false,
+      "observed": {
+        "u0": 7.312500000000002,
+        "u1": 10.867500000000001,
+        "physical_child_count": 4,
+        "total": 12.174708263910356
+      },
+      "expected_rejection": true
+    },
+    {
+      "name": "same-name-duplicate-upstream",
+      "rejected": true,
+      "diagnostic": "duplicate force ownership/content at (0,) and (3,): analytic:selected-harmonic",
+      "expected_rejection": true
+    },
+    {
+      "name": "renamed-duplicate-upstream",
+      "rejected": false,
+      "observed": {
+        "u0": 7.312500000000002,
+        "u1": 10.867500000000001,
+        "physical_child_count": 4,
+        "total": 12.174708263910356
+      },
+      "expected_rejection": true
+    }
+  ],
+  "failed_expected_rejections": [
+    "wrong-expression-native-sealer",
+    "wrong-expression-native-artifact-admission",
+    "wrong-expression-upstream-sealer",
+    "wrong-expression-upstream-artifact-admission",
+    "global-parameter-mutation-physical",
+    "restored-global-parameter-mutation-physical",
+    "global-parameter-mutation-preparation",
+    "restored-global-parameter-mutation-preparation",
+    "schedule-child-parameter-collision-native",
+    "schedule-child-parameter-collision-upstream",
+    "renamed-duplicate-export",
+    "renamed-duplicate-native",
+    "renamed-duplicate-upstream"
+  ]
+}

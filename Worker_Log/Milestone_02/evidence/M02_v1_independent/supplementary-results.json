@@ -1,0 +1,31 @@
+{
+  "review_head": "a13019390f9770a42a5711bbb98025bd571ea40b",
+  "commands": [
+    {
+      "command": "PYTHONPATH=src:. python Worker_Log/Milestone_02/evidence/M02_v1_independent/probe_admission.py --require-rejection",
+      "exit_code": 1,
+      "observed": "20 admission/control observations;13 required rejections failed;5 negative controls rejected;2 restore-positive controls admitted"
+    },
+    {
+      "command": "PYTHONPATH=src:. python Worker_Log/Milestone_02/evidence/M02_v1_independent/probe_numerics.py",
+      "exit_code": 0,
+      "observed": "66 numerical cases;8 all-coordinate FD sweeps;8 upstream A-B-A cases; max energy5.706546346573305e-14;force2.2737367544323206e-13;finalFD7.487415132345632e-09"
+    },
+    {
+      "command": "PYTHONPATH=src:. python Worker_Log/Milestone_02/evidence/M02_v1/reproduce_numerics.py --output Worker_Log/Milestone_02/evidence/M02_v1_independent/worker-numerics-rerun.json",
+      "exit_code": 0,
+      "observed": "16 cases;max energy5.684341886080802e-14;max force1.1368683772161603e-13"
+    },
+    {
+      "command": "XDG_CACHE_HOME=/tmp/m02-independent-empty-cache PYTHONPATH=src:. python Worker_Log/Milestone_02/evidence/M02_v1/reproduce_stale_fault.py",
+      "exit_code": 0,
+      "observed": "Preserved stale descriptor detected after fresh offline reload:u1 energy mismatch7.987500000000001 vs7.487500000000001,error0.5"
+    }
+  ],
+  "admission_counts": {
+    "observations": 20,
+    "required_rejection_failures": 13,
+    "required_rejection_controls_passed": 5,
+    "positive_controls_admitted": 2
+  }
+}

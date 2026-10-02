@@ -33,10 +33,10 @@
 
 **Interfaces:** `resolve_protocol(bundle: PhysicalBundle, protocol: ProtocolSpec) -> TransferDefinition`; explicit consumed `oldToNew`, real/final/model maps. New records use the existing version-1 JSON machinery; runtime contexts are separate.
 
-- [ ] Activate the locked installation in every shell; save strict validation and full/analytic baseline outputs. Resolve any reproducible baseline failure without weakening assertions.
-- [ ] Write and run failing map/record tests, including `test_one_and_two_unequal_mobile_groups`, nonidentity source mapping, round trips, invalid membership and malformed/unsupported map requests.
-- [ ] Implement immutable M02 records and the generic resolver; keep heavy imports out of common records/protocols.
-- [ ] Run affected tests and existing schema/architecture tests; expect complete passes.
+- [x] Activate the locked installation in every shell; save strict validation and full/analytic baseline outputs. Resolve any reproducible baseline failure without weakening assertions.
+- [x] Write and run failing map/record tests, including `test_one_and_two_unequal_mobile_groups`, nonidentity source mapping, round trips, invalid membership and malformed/unsupported map requests.
+- [x] Implement immutable M02 records and the generic resolver; keep heavy imports out of common records/protocols.
+- [x] Run affected tests and existing schema/architecture tests; expect complete passes.
 
 ## Task 2: Complete G02 native oracle
 
@@ -44,11 +44,11 @@
 
 **Interfaces:** `make_analytic_bundle` produces the same PhysicalBundle for both protocol shapes. `build_atm(bundle, transfer, schedule, restraints) -> AlchemicalBundle`; `evaluate_physical(bundle, snapshot, runtime) -> EnergyForces`; `evaluate_atm(bundle, snapshot, state_id, runtime) -> AtmEvaluation`. Persistent evaluators permit explicit A-B-A checks without cached geometry inputs.
 
-- [ ] Write all nine G02 gate nodes; run and retain intended absent-API failures after verifying numerical dependencies.
-- [ ] Implement importable selected harmonic/environment callbacks, the sealed analytic bundle and one shared native assembler/evaluator. Independently hand-transform coordinates and derive all forces in tests.
-- [ ] Test lambda 0/0.37/1, selected order `[2,0]`, nonzero outside energy, explicit `(u1,u0,expression)` tuple and exact nonlinear soft-core/softplus chain rule (both directions, transitions, offsets, finite-difference sweep).
-- [ ] Test environment-only motion and A-B-A, fresh offline reload, wrong indices, omitted environment/child forces, stale geometry, reversed tuple, factor-of-ten forces and double counting. Each deliberate fault must trigger a locating diagnostic.
-- [ ] Run the exact G02 full-gate command and the available CPU suite; record thresholds and measured errors. Commit G02 code only on the child branch.
+- [x] Write all nine G02 gate nodes; run and retain intended absent-API failures after verifying numerical dependencies.
+- [x] Implement importable selected harmonic/environment callbacks, the sealed analytic bundle and one shared native assembler/evaluator. Independently hand-transform coordinates and derive all forces in tests.
+- [x] Test lambda 0/0.37/1, selected order `[2,0]`, nonzero outside energy, explicit `(u1,u0,expression)` tuple and exact nonlinear soft-core/softplus chain rule (both directions, transitions, offsets, finite-difference sweep).
+- [x] Test environment-only motion and A-B-A, fresh offline reload, wrong indices, omitted environment/child forces, stale geometry, reversed tuple, factor-of-ten forces and double counting. Each deliberate fault must trigger a locating diagnostic.
+- [x] Run the exact G02 full-gate command and the available CPU suite; record thresholds and measured errors. Commit G02 code only on the child branch.
 
 ## Task 3: Complete G03 adapter and combined handoff
 
@@ -56,13 +56,17 @@
 
 **Interfaces:** Separate preparation/export copies preserve the physical identity and maps. Routing reports enumerate recursive ownership. The adapter selects pinned upstream protocol classes, keys and units, invokes their actual construction/integrator methods, and hands over/checks State parameters. Shared native evaluation remains protocol/provider-independent.
 
-- [ ] Write/run the seven G03 failing gate nodes before implementation.
-- [ ] Implement reserved-group admission, explicit upstream routing, recursive ownership/removal checks and separate group-0 preparation.
-- [ ] Compare both upstream protocol paths against G02 direct/native observables. Verify 0.5 fs ->0.0005 ps and nm ->Angstrom once; actual LangevinMiddle masks and large markers in preparation/ABFE/RBFE; full maps after construction, changes and reload.
-- [ ] Run G02/G03 commands, analytic selection, full available suite, upstream regression, documentation self-tests and `git diff --check`; save exact outputs, identities and numerical measurements.
-- [ ] Pin the completed snapshot in a commit. Arrange a reviewer who authored none of the changes to independently audit all G02/G03 requirements and combined M02 with the accepted M01 prerequisite. Preserve submitted logs/findings; use new attempts and failing/passing regressions for repairs and independent closure.
+- [x] Write/run the seven G03 failing gate nodes before implementation.
+- [x] Implement reserved-group admission, explicit upstream routing, recursive ownership/removal checks and separate group-0 preparation.
+- [x] Compare both upstream protocol paths against G02 direct/native observables. Verify 0.5 fs ->0.0005 ps and nm ->Angstrom once; actual LangevinMiddle masks and large markers in preparation/ABFE/RBFE; full maps after construction, changes and reload.
+- [x] Run G02/G03 commands, analytic selection, full available suite, upstream regression, documentation self-tests and `git diff --check`; save exact outputs, identities and numerical measurements.
+- [x] Pin the completed snapshot in a commit. Arrange a reviewer who authored none of the changes to independently audit all G02/G03 requirements and combined M02 with the accepted M01 prerequisite. Preserve submitted logs/findings; use new attempts and failing/passing regressions for repairs and independent closure.
 - [ ] Update STATUS and acceptance evidence from the actual audit decision. Commit report-only additions, push only the new branch, verify remote identity and a clean worktree; report exact tests and remaining profile limits.
 
 ## Execution record
 
 The existing clean checkout is suitable; repository instructions expressly prefer it. Implementation is inline, with one separate independent combined reviewer. This is execution of the user's supplied reviewed contracts and handoff, not a change to scientific definitions requiring a new design approval.
+
+## User-requested pause and fresh handoff
+
+Implementation and the completed v1 independent combined audit are recorded. The audit verdict is `changes_required`, with M02-R1/R2/R3; no source repair or new regression execution occurred. The user requested a fresh agent after context compaction. Use [the continuation handoff](../../project-0/handoffs/M02-fresh-agent-continuation.md) and STATUS for the current state. The unexecuted regression draft is a suggestion, not evidence. Independent repair closure and acceptance remain pending; publishing this handoff does not accept M02.

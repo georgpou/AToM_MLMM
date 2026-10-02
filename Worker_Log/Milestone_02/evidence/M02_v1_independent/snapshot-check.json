@@ -1,0 +1,47 @@
+{
+  "review_head": "a13019390f9770a42a5711bbb98025bd571ea40b",
+  "tested_code": "4c952dba5563572cf9e39527e64fe28ee201c385",
+  "base": "87146b4cc7fbd0b58d6688903a5ba081b813ac13",
+  "source_input_hash_count": 126,
+  "source_input_hash_mismatches": [],
+  "code_to_review_source_diff": "",
+  "environment_manifest_sha256": "f37ee393f41e5becd21cc582465aeebdcd111d9807547bbab0d7ce512e2538ec",
+  "strict_results": [
+    [
+      "core_exact_versions",
+      0
+    ],
+    [
+      "amber_exact_versions",
+      0
+    ],
+    [
+      "core_pip_check",
+      0
+    ],
+    [
+      "amber_pip_check",
+      0
+    ],
+    [
+      "openmm_installation",
+      0
+    ],
+    [
+      "cpu_potentials_and_atm",
+      0
+    ],
+    [
+      "separate_ambertools_integration",
+      0
+    ],
+    [
+      "atom_uwham",
+      0
+    ],
+    [
+      "repository_documentation",
+      0
+    ]
+  ]
+}
