@@ -13,19 +13,14 @@ CHECKPOINT_SHA256 = "165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f074997
 
 def load_calculator(checkpoint=CHECKPOINT):
     """Load only the explicitly approved, pinned academic checkpoint."""
-    if hashlib.sha256(Path(checkpoint).read_bytes()).hexdigest() != CHECKPOINT_SHA256:
-        raise ValueError("MACE checkpoint SHA-256 does not match the approved asset")
-    import torch
-    import mace
-
-    os.environ.pop("TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD", None)
-    with torch.serialization.safe_globals([slice]):
-        from mace.calculators import MACECalculator
-    os.environ.pop("TORCH_FORCE_NO_WEIGHTS_ONLY_LOAD", None)
-    # This full-module checkpoint requires pickle. Explicitly load only these
-    # verified bytes; pass models= to avoid the upstream implicit torch.load.
-    model = torch.load(checkpoint, map_location="cpu", weights_only=False)
-    return MACECalculator(models=model, device="cpu", default_dtype="float64")
+    import sys
+    # Direct example execution also works without adding a distribution to the
+    # locked installation; pytest already provides this source path.
+    source = str(ROOT / 'src')
+    if source not in sys.path:
+        sys.path.insert(0, source)
+    from atm_mlmm.models.mace import make_calculator
+    return make_calculator(checkpoint)
 
 
 def run_calculation():

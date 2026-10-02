@@ -115,3 +115,35 @@ def test_atomic_json_rejects_nonfinite_and_preserves_previous_file(tmp_path):
     with pytest.raises(ValueError):
         write_json(target, {'energy': float('nan')})
     assert read_json(target) == {'energy': 1.5}
+
+
+@pytest.mark.model_assets
+def test_model_asset_hash_and_policy(tmp_path):
+    from atm_mlmm.models.mace import CHECKPOINT, verify_asset
+    report = verify_asset()
+    assert report['name'] == 'MACE-OFF23-small'
+    assert report['user_authorization'] == 'I will use it for academic purposes.'
+    assert report['dtype'] == 'float64'
+    corrupt = tmp_path / 'wrong.model'
+    corrupt.write_bytes(b'a replacement is not the approved asset')
+    with pytest.raises(ValueError, match='SHA-256'):
+        verify_asset(corrupt)
+    with pytest.raises(ValueError, match='absent'):
+        verify_asset(tmp_path / 'absent.model')
+    # Malformed manifests cannot choose a replacement physical definition.
+    original = json.loads((CHECKPOINT.parent / 'manifest.json').read_text())
+    for key, value in [('user_authorization', ''), ('dtype', 'float32'),
+                       ('device', 'CUDA'), ('energy_convention', 'interaction_energy'),
+                       ('license', 'package licence'), ('upstream_commit', 'main')]:
+        altered = copy.deepcopy(original)
+        altered[key] = value
+        path = tmp_path / 'manifest.json'
+        path.write_text(json.dumps(altered))
+        with pytest.raises(ValueError, match='authorization|policy'):
+            verify_asset(CHECKPOINT, path)
+    path.write_text(json.dumps(original))
+    with pytest.raises(ValueError, match='licence'):
+        verify_asset(CHECKPOINT, path)
+    (tmp_path / 'LICENSE.md').write_text('not the pinned academic licence')
+    with pytest.raises(ValueError, match='licence'):
+        verify_asset(CHECKPOINT, path)

@@ -1,5 +1,19 @@
 # Current status
 
+The child `m03-reference-g05` continues exact published G04 handoff
+`bc788aeeedb4dc45026ac1bff44bd4fb533b325a`. G00-T2/G05-T1 loading checks and
+11 independent real-model adapter/derivative cases pass; current G05 work
+remains **partial**, with locality/domain/reload, chemical checks and independent
+gate review pending. The [exact M00 proposal](reference/M00-neutral-reference-plan-v2.md)
+contains 34 hashed neutral structures, reference settings/limits and future
+G07 controls. Quantum-only feasibility succeeded in a separate locked Psi4
+prefix; user agreement and Astra/high design review are still pending. No
+target model-versus-quantum results have been inspected. New
+[G00 worker](../../Worker_Log/Milestone_01/Gate_00_v2_worker.md),
+[M00 worker](../../Worker_Log/Milestone_00/Milestone_00_v2_worker.md) and
+[G05 worker](../../Worker_Log/Milestone_03/Gate_05_v1_worker.md) record actual scope.
+Inherited acceptance below is unchanged.
+
 G04 is independently **accepted_for_scope** on child `m03-link-boundary` for `core-analytic-cpu`, nonperiodic Reference/CPU. The actual fresh-context **gpt-6-astra / high** reviewer accepted **G04-T1/T2/T3 and all seven stable assertions** on exact frozen submission `35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a`, carrying tested source/input commit `55df6a7d25e7a4de607a13b7d87c327feddecb34`. The [G04 v1 audit](../../Worker_Log/Milestone_03/Gate_04_v1_audit.md) and [independent evidence](../../Worker_Log/Milestone_03/evidence/G04_v1_independent_r2/README.md) record the complete decision. [Acceptance](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/acceptance.json) covers seven checks/seven requirements; [closure evidence](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/README.md) preserves the exact reviewed source and submitted worker evidence.
 
 Independent results: **24 G04 cases, 262 full-suite passes, 261 analytic passes/1 deselected, G02 78/G03 38/admission 74, strict environment 9/9 and upstream 1**. New reviewer probes pass **37 comparisons, 24 all-coordinate FD sweeps, 13 cap rejections/two positives**, and trusted fresh offline cap reload across all three mapped states. Actual cap geometry, both parents, exact MM dispositions, nonidentity full maps, cap-MM derivatives and invariant force/torque are qualified. Native nested redistribution was measured correct before repairs; production recomputes sites after positioning. The nonblocking FD comment attribution is [corrected by measured force-class decomposition](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/fd-attribution-correction.md). Definitions, tolerances, locks and earlier evidence remain unchanged. The interrupted first Astra process supplies no decision; its captures and [actual reviewer history](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/reviewer-history.md) are preserved. No G04 blocker remains. M03 stays open until G07; [the next-dependency handoff](handoffs/M03-after-G04.md) stops this assignment at G04 acceptance.

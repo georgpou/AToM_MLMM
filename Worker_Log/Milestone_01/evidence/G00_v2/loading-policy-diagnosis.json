@@ -1,0 +1,33 @@
+{
+  "initial_torch_safe_globals": [
+    "torch.nested._internal.nested_tensor.NestedTensor",
+    "torch.nested._internal.nested_tensor._rebuild_njt"
+  ],
+  "after_standard_torch_initialization": [
+    "torch._dynamo.decorators._DimRange",
+    "torch.distributed.device_mesh.DeviceMesh",
+    "torch.distributed.tensor.DTensor",
+    "torch.distributed.tensor._dtensor_spec.DTensorSpec",
+    "torch.distributed.tensor._dtensor_spec.TensorMeta",
+    "torch.distributed.tensor.placement_types.Partial",
+    "torch.distributed.tensor.placement_types.Replicate",
+    "torch.distributed.tensor.placement_types.Shard",
+    "torch.nested._internal.nested_tensor.NestedTensor",
+    "torch.nested._internal.nested_tensor._rebuild_njt"
+  ],
+  "after_trusted_model_loading": [
+    "torch._dynamo.decorators._DimRange",
+    "torch.distributed.device_mesh.DeviceMesh",
+    "torch.distributed.tensor.DTensor",
+    "torch.distributed.tensor._dtensor_spec.DTensorSpec",
+    "torch.distributed.tensor._dtensor_spec.TensorMeta",
+    "torch.distributed.tensor.placement_types.Partial",
+    "torch.distributed.tensor.placement_types.Replicate",
+    "torch.distributed.tensor.placement_types.Shard",
+    "torch.nested._internal.nested_tensor.NestedTensor",
+    "torch.nested._internal.nested_tensor._rebuild_njt"
+  ],
+  "model_loading_changed_initialized_policy": false,
+  "slice_allowed_after": false,
+  "unsafe_override_present": false
+}

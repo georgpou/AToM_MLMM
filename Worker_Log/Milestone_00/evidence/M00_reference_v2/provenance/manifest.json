@@ -1,0 +1,31 @@
+[
+  {
+    "path": "mace-off-pinned-readme.md",
+    "url": "https://raw.githubusercontent.com/ACEsuit/mace-off/91a78c5a9c300d1104700d9352c8bfe449227737/README.md",
+    "sha256": "73f0137765e69e122cb6b5d2e41fb0a142223c7e571ba093308432d00256f884",
+    "bytes": 1035
+  },
+  {
+    "path": "psi4-1.10-functionals.py",
+    "url": "https://raw.githubusercontent.com/psi4/psi4/v1.10/psi4/driver/procrouting/dft/hyb_functionals.py",
+    "sha256": "2dd40667871f21fab4b24b0b4e21e81351cd81c7c46005d2eeadc23015fa0b09",
+    "bytes": 16360
+  },
+  {
+    "path": "spice-readme.md",
+    "url": "https://raw.githubusercontent.com/openmm/spice-dataset/main/README.md",
+    "sha256": "c5d26207f00dee3c05ae67f3f03e74c7383c499148cd0485738cb0ca8b7625d2",
+    "bytes": 5846
+  },
+  {
+    "path": "mace-off-paper.tex",
+    "url": "https://raw.githubusercontent.com/ACEsuit/mace-off/91a78c5a9c300d1104700d9352c8bfe449227737/mace_off23/README.md",
+    "error": "HTTP Error 404: Not Found"
+  },
+  {
+    "path": "sample.dat",
+    "url": "https://raw.githubusercontent.com/openmm/spice-dataset/main/sample.dat",
+    "sha256": "883eafd62624ce455d275983354291d6d56263158368ecba7d05e4344f6114bb",
+    "bytes": 766
+  }
+]

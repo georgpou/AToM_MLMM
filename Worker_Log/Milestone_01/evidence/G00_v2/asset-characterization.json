@@ -1,0 +1,39 @@
+{
+  "architecture": "mace.modules.models.ScaleShiftMACE",
+  "atomic_numbers": [
+    1,
+    6,
+    7,
+    8,
+    9,
+    15,
+    16,
+    17,
+    35,
+    53
+  ],
+  "r_max_angstrom": 4.5,
+  "num_interactions": 2,
+  "node_embedding_irreps_out": "96x0e",
+  "interaction_classes": [
+    "RealAgnosticInteractionBlock",
+    "RealAgnosticResidualInteractionBlock"
+  ],
+  "readout_classes": [
+    "LinearReadoutBlock",
+    "NonLinearReadoutBlock"
+  ],
+  "tensor_dtypes": [
+    "torch.float64",
+    "torch.int64"
+  ],
+  "head": "Default",
+  "energy_units_to_eV": 1.0,
+  "length_units_to_A": 1.0,
+  "radial_embedding": "RadialEmbeddingBlock(\n  (bessel_fn): BesselBasis(r_max=4.5, num_basis=8, trainable=False)\n  (cutoff_fn): PolynomialCutoff(p=5.0, r_max=4.5)\n)",
+  "spherical_harmonics_irreps": "1x0e+1x1o+1x2e+1x3o",
+  "products": [
+    "SymmetricContraction(\n  (contractions): ModuleList(\n    (0): Contraction(\n      (contractions_weighting): ModuleList(\n        (0-1): 2 x GraphModule()\n      )\n      (contractions_features): ModuleList(\n        (0-1): 2 x GraphModule()\n      )\n      (weights): ParameterList(\n          (0): Parameter containing: [torch.float64 of size 10x4x96]\n      ",
+    "SymmetricContraction(\n  (contractions): ModuleList(\n    (0): Contraction(\n      (contractions_weighting): ModuleList(\n        (0-1): 2 x GraphModule()\n      )\n      (contractions_features): ModuleList(\n        (0-1): 2 x GraphModule()\n      )\n      (weights): ParameterList(\n          (0): Parameter containing: [torch.float64 of size 10x4x96]\n      "
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "recorded_utc": "2026-10-02T20:32:45.919208+00:00",
+  "base_commit": "bc788aeeedb4dc45026ac1bff44bd4fb533b325a",
+  "branch": "m03-reference-g05",
+  "worktree": "/workspace/AToM_MLMM-m03-reference-g05",
+  "installation_prefix": "/workspace/atom-mlmm-g05-v2",
+  "installation_v1_exit": 1,
+  "installation_v1_failure": "standard /home/agent/.conda registry was read-only; narrow escalated mkdir succeeded; failed prefix preserved",
+  "installation_v2_exit": 0,
+  "baseline_full_command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "baseline_full_exit": 0,
+  "baseline_full_result": "262 passed in 39.89s",
+  "baseline_scope": "unchanged G04 parent; before production/test changes",
+  "protected_remote_tips": {
+    "main": "2d7bcc94f901738e39f536f16de84699d4e8d631",
+    "m00-audit-m01-development": "87146b4cc7fbd0b58d6688903a5ba081b813ac13",
+    "m02-analytic-atm": "c63634ca7567428e294a73fa432d42026f9fd38a",
+    "m03-link-boundary": "bc788aeeedb4dc45026ac1bff44bd4fb533b325a"
+  }
+}

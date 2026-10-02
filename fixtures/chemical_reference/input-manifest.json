@@ -1,0 +1,56 @@
+{
+  "state": "frozen proposal; user agreement and independent design review pending",
+  "preparation_script_sha256": "7ec02e9221597f0cc531e1dda18eed55d62807d830eea0d891494ec3e0fb420c",
+  "no_model_or_quantum_score_used": true,
+  "g05_structure_count": 34,
+  "g07_rows": 20,
+  "g07_choices": {
+    "threonine": [
+      "baseline",
+      "uncut"
+    ],
+    "isoleucine": [
+      "baseline",
+      "uncut",
+      "alternative-ethane"
+    ]
+  },
+  "files": {
+    "structures/acetamide--20.json": "93d41646774ab4e450aa92a71120d99bf71f3a9c3c822e0e4cb911d5e59e80c0",
+    "structures/acetamide-0.json": "75bb33e07ff90880c00580c2237aafaeb91a5489b44d225d1f0f36f3946414e0",
+    "structures/acetamide-20.json": "461df15534fb7454a947638a3ff46a4695273090049d1fe42440e5dfa407f2e2",
+    "structures/butane--60.json": "aa744d46ff946b97532b32a12963b3e212548303bf623129e1400817756591be",
+    "structures/butane-120.json": "e634a46b9a54ba335fdde9bbccf1f7e948870c058e33e19781970b0e98aa66e0",
+    "structures/butane-180.json": "813753032eccb08715ca656e53194a99501d844d38424548c4e77b45955cade4",
+    "structures/butane-60.json": "b4c13891e1b24d5e45535c48fcd1ed2ff0aa73854e33152913f2cac11706bc2f",
+    "structures/butane-acetamide-d3.4-r0.json": "996c970e11543a9bd4dfb746ab8796990dd859670252b5f560cb1426ba72a64e",
+    "structures/butane-acetamide-d3.8-r0.json": "5c1717557bec9179eca23eaf523687aef5fdef77aeda3c606241f7593a645661",
+    "structures/butane-acetamide-d3.8-r60.json": "62a3cccbe3d5a769e1678d41cae731f5d7196014e6a6ced185b1eb300e65de8f",
+    "structures/butane-acetamide-d4.5-r0.json": "b2e5843e165e716ef4b010250494d282c0457c19028815b5587a2ba227cbec91",
+    "structures/butane-acetamide-separated.json": "97b25420db861d02422dee80dbd2c7e529fedf87844d159a47be972df8f44c74",
+    "structures/butane-methanol-d3.4-r0.json": "6d9f7f028f0d3bb89235eab254ccfc55600924e3a577945746cd57563c9ca168",
+    "structures/butane-methanol-d3.8-r0.json": "b9498c9d25c0464f4c7d2862bffd6cec3f5ba0f432ddbbea18fcfb19e27d39d6",
+    "structures/butane-methanol-d3.8-r60.json": "4d58deb4fa0155941fce6e0a6835aceffa1295cf13580313641dc7ac901a9e02",
+    "structures/butane-methanol-d4.5-r0.json": "505bd806f7e4dfc2fd535e8b24ec132dbb636de92d07c15d9e9c6864ec728b12",
+    "structures/butane-methanol-separated.json": "86a8a47d37fdfc76881ec6aba17ada784f343da7f7861a6be85889485fabd011",
+    "structures/ethanol--60.json": "644dbf7aaa016ed1cc42fe91392effe26a9be08461676a8c8a0a3028b238e851",
+    "structures/ethanol-120.json": "fd04c22f0844fc16b525730249dd3b1e97fefc099d219bacb630cc04c13b77d1",
+    "structures/ethanol-180.json": "d764743b14ae738dd3017651057be20beb581ee04b14b9003c30ae062c7df3c8",
+    "structures/ethanol-60.json": "7d594de8b7b716bc5dced385aabec2b9857cf7138e8d97645affd38d9d301a8a",
+    "structures/ethanol-acetamide-d2.6-r0.json": "a788c4d234cc7b3bbe1ab47e7dbd68a6a137283c1ebb85f3c9f39cf4df08496a",
+    "structures/ethanol-acetamide-d3-r0.json": "bb6991ca1200d77ec317aae69a4443c00548cf97655f28b723eff90711097106",
+    "structures/ethanol-acetamide-d3-r60.json": "bb7078560c9c472584629c50d7018fd27bd89295efc935a778d950ac55c2056e",
+    "structures/ethanol-acetamide-d3.5-r0.json": "2e29d599e210ddefccf4ab797a641bb924f5f4ce25c2d7a5ed06f810c25fe6f2",
+    "structures/ethanol-acetamide-separated.json": "2286215d733702672107a32e5b28bd39c46895df16849110fc31aa92334e9076",
+    "structures/ethanol-methanol-d2.6-r0.json": "9fa608ae7dcc4100c31c7b3bd7ee88403fc70be93b183c1a1a14cffac8860691",
+    "structures/ethanol-methanol-d3-r0.json": "2586e0dcd0c7cad7800e00332f2a68522dac12c1061088ef9ae9f711c1566b73",
+    "structures/ethanol-methanol-d3-r60.json": "54be2d7f0fd26fd2f61bc72951a8ea888aa40f1bfb8f0b3d00d0458e730004b9",
+    "structures/ethanol-methanol-d3.5-r0.json": "63a0cdc4c240a465dd39d3c7546c2c8afa9ffd289e5df9762dc1d4790f962c76",
+    "structures/ethanol-methanol-separated.json": "f0d792a603098435f2237c39d91c91a1756988606d29d6d398ef2b426c7b3ea7",
+    "structures/methanol-baseline.json": "a12c6b92adf3c4947446febc66dcad398ff9f81777c37705c751a745f6d1886e",
+    "structures/methanol-oh60.json": "54bc171bcf64be1b793ba8ed99511dcb160edcf7764a3ca466ee39e2622f2887",
+    "structures/methanol-stretch003.json": "9706b117527f077d477b4e67bc0aef3a9f6fe38f51e96a5a865606b747a73e60",
+    "reference-settings.json": "483461026da33db22fe9e980840185a6fd9193593f4f96352105f02de30c511f",
+    "reference-explicit.lock": "a94f3d0bb9d25900c62f6d5e97aebac0b81bf7acee1f140a95308107c133c91b"
+  }
+}
