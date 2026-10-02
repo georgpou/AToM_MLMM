@@ -124,10 +124,16 @@ class _Evaluator:
         properties = {'Threads': '2'} if runtime.platform == 'CPU' else {}
         self.context = mm.Context(system, self.integrator, platform, properties)
         self._system_digest = xml_digest(mm.XmlSerializer.serialize(system))
+        self._bundle_identity = self.bundle.content_identity
+        self._runtime_identity = runtime.content_identity
 
     def _guard_system(self):
         if self.context is None:
             raise IdentityError('runtime evaluator is closed')
+        if self.bundle.content_identity != self._bundle_identity:
+            raise IdentityError('runtime bundle identity/fixed membership replacement requires a new context')
+        if self.runtime.content_identity != self._runtime_identity:
+            raise IdentityError('runtime profile identity replacement requires a new context')
         if xml_digest(mm.XmlSerializer.serialize(self.system)) != self._system_digest:
             raise IdentityError('runtime System/force/map mutation invalidates sealed identity')
         groups = {force.getForceGroup() for force in self.system.getForces()}

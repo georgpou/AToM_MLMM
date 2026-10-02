@@ -222,6 +222,44 @@ def test_femtosecond_conversion_at_upstream_boundary():
             timestep_fs_to_ps(value)
 
 
+@pytest.mark.parametrize('kind', ('physical', 'native', 'upstream'))
+def test_runtime_bundle_replacement_rejected(kind):
+    from atm_mlmm.atm import AtmEvaluator, PhysicalEvaluator, build_atm
+    from atm_mlmm.adapters.atom import build_atom
+    from atm_mlmm.geometry import resolve_protocol
+    from atm_mlmm.schema import IdentityError
+    physical, transfer, schedule, restraints, snapshot = atom_case()
+    changed_physical = replace(physical, ml_atom_ids=tuple(a for a in physical.ml_atom_ids if a != 'protein'),
+                               model_to_final={a:i for a,i in physical.model_to_final.items() if a != 'protein'})
+    if kind == 'physical':
+        with PhysicalEvaluator(physical, REFERENCE) as evaluator:
+            evaluator.bundle = changed_physical
+            with pytest.raises(IdentityError, match='identity|membership|bundle'):
+                evaluator.evaluate(snapshot)
+        return
+    changed_transfer = resolve_protocol(changed_physical, transfer.protocol)
+    if kind == 'upstream':
+        holder = build_atom(physical, transfer, schedule, restraints, REFERENCE)
+        evaluator = holder.evaluator
+    else:
+        holder = AtmEvaluator(build_atm(physical, transfer, schedule, restraints), REFERENCE)
+        evaluator = holder
+    with holder:
+        evaluator.bundle = replace(evaluator.bundle, physical=changed_physical, transfer=changed_transfer)
+        with pytest.raises(IdentityError, match='identity|membership|bundle'):
+            evaluator.evaluate(snapshot, 'first')
+
+
+def test_runtime_profile_replacement_rejected():
+    from atm_mlmm.atm import AtmEvaluator, build_atm
+    from atm_mlmm.schema import IdentityError
+    physical, transfer, schedule, restraints, snapshot = atom_case()
+    with AtmEvaluator(build_atm(physical, transfer, schedule, restraints), REFERENCE) as evaluator:
+        evaluator.runtime = replace(REFERENCE, platform='CPU')
+        with pytest.raises(IdentityError, match='runtime|profile|identity'):
+            evaluator.evaluate(snapshot, 'first')
+
+
 @pytest.mark.parametrize('kind', ('abfe', 'rbfe'))
 def test_upstream_artifact_fresh_offline_reload(tmp_path, kind):
     from atm_mlmm.adapters.atom import build_atom
