@@ -1,0 +1,616 @@
+{
+  "data": {
+    "construction": "native",
+    "physical": {
+      "data": {
+        "constraints": [],
+        "ledger": [
+          {
+            "data": {
+              "class_name": "PythonForce",
+              "force_group": 0,
+              "index": 0,
+              "name": "analytic:selected-harmonic",
+              "parameters": {
+                "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7"
+              },
+              "uses_periodic": false
+            },
+            "record_type": "ForceRecord"
+          },
+          {
+            "data": {
+              "class_name": "PythonForce",
+              "force_group": 0,
+              "index": 1,
+              "name": "analytic:harmonic:1",
+              "parameters": {
+                "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677"
+              },
+              "uses_periodic": false
+            },
+            "record_type": "ForceRecord"
+          },
+          {
+            "data": {
+              "class_name": "PythonForce",
+              "force_group": 0,
+              "index": 2,
+              "name": "analytic:environment:a1:env",
+              "parameters": {
+                "force_sha256": "e3d6f9686c62a6c1bb7a9a4dd99508667a7e15b9ec86a09c77467b5e3456e2c7"
+              },
+              "uses_periodic": false
+            },
+            "record_type": "ForceRecord"
+          }
+        ],
+        "manifest": {
+          "additional_harmonics": [
+            [
+              [
+                3,
+                6,
+                5
+              ],
+              [
+                3.0,
+                5.0,
+                7.0
+              ],
+              [
+                [
+                  0.05,
+                  -0.15,
+                  0.2
+                ],
+                [
+                  0.2,
+                  0.1,
+                  0.0
+                ],
+                [
+                  -0.2,
+                  0.0,
+                  0.1
+                ]
+              ]
+            ]
+          ],
+          "centers_nm": [
+            [
+              0.1,
+              -0.1,
+              0.2
+            ],
+            [
+              -0.2,
+              0.2,
+              0.0
+            ]
+          ],
+          "contract_version": 1,
+          "derivative_scope": "all_real",
+          "environment_pairs": [
+            [
+              "a1",
+              "env",
+              10
+            ]
+          ],
+          "fixture_kind": "analytic_substitute",
+          "marker_k": 0.0,
+          "model_dtype": "float64",
+          "periodicity": "nonperiodic",
+          "selected_particles": [
+            2,
+            0
+          ],
+          "spring_constants": [
+            6.0,
+            14.0
+          ]
+        },
+        "masses_da": [
+          1.0,
+          16.0,
+          12.0,
+          12.0,
+          12.0,
+          1.0,
+          1.0
+        ],
+        "ml_atom_ids": [
+          "a2",
+          "a1",
+          "b1",
+          "protein",
+          "b3",
+          "b2"
+        ],
+        "model_to_final": {
+          "a1": 2,
+          "a2": 0,
+          "b1": 3,
+          "b2": 6,
+          "b3": 5,
+          "protein": 4
+        },
+        "old_to_new": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6
+        ],
+        "real_to_final": {
+          "a1": 2,
+          "a2": 0,
+          "b1": 3,
+          "b2": 6,
+          "b3": 5,
+          "env": 1,
+          "protein": 4
+        },
+        "system_sha256": "875911e79fc51168c8250a8909ba2a8a4c36dba1dc89906a30a32fa881f9e65d",
+        "system_xml": "<?xml version=\"1.0\" ?>\n<System openmmVersion=\"8.6.1\" type=\"System\" version=\"1\">\n\t<PeriodicBoxVectors>\n\t\t<A x=\"2\" y=\"0\" z=\"0\"/>\n\t\t<B x=\"0\" y=\"2\" z=\"0\"/>\n\t\t<C x=\"0\" y=\"0\" z=\"2\"/>\n\t</PeriodicBoxVectors>\n\t<Particles>\n\t\t<Particle mass=\"1\"/>\n\t\t<Particle mass=\"16\"/>\n\t\t<Particle mass=\"12\"/>\n\t\t<Particle mass=\"12\"/>\n\t\t<Particle mass=\"12\"/>\n\t\t<Particle mass=\"1\"/>\n\t\t<Particle mass=\"1\"/>\n\t</Particles>\n\t<Constraints/>\n\t<Forces>\n\t\t<Force forceGroup=\"0\" function=\"800495a2000000000000008c1161746d5f6d6c6d6d2e616e616c79746963948c1053656c65637465644861726d6f6e69639493942981947d94288c10737072696e675f636f6e7374616e74739447401800000000000047402c00000000000086948c0a63656e746572735f6e6d94473fb999999999999a47bfb999999999999a473fc999999999999a879447bfc999999999999a473fc999999999999a4700000000000000008794869475622e\" name=\"analytic:selected-harmonic\" type=\"PythonForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<GlobalParameters/>\n\t\t\t<Particles>\n\t\t\t\t<Particle index=\"2\"/>\n\t\t\t\t<Particle index=\"0\"/>\n\t\t\t</Particles>\n\t\t</Force>\n\t\t<Force forceGroup=\"0\" function=\"800495c8000000000000008c1161746d5f6d6c6d6d2e616e616c79746963948c1053656c65637465644861726d6f6e69639493942981947d94288c10737072696e675f636f6e7374616e74739447400800000000000047401400000000000047401c00000000000087948c0a63656e746572735f6e6d94473fa999999999999a47bfc3333333333333473fc999999999999a8794473fc999999999999a473fb999999999999a470000000000000000879447bfc999999999999a470000000000000000473fb999999999999a8794879475622e\" name=\"analytic:harmonic:1\" type=\"PythonForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<GlobalParameters/>\n\t\t\t<Particles>\n\t\t\t\t<Particle index=\"3\"/>\n\t\t\t\t<Particle index=\"6\"/>\n\t\t\t\t<Particle index=\"5\"/>\n\t\t\t</Particles>\n\t\t</Force>\n\t\t<Force forceGroup=\"0\" function=\"8004959a000000000000008c1574657374732e616e616c797469635f6f7261636c65948c1742726f6b656e456e7669726f6e6d656e74537072696e679493942981947d94288c046d6f6465948c0b7374616c652d696e707574948c0966726f7a656e5f6e6d94473fd999999999999a473fd3333333333333473fb999999999999a8794473fe000000000000047bfb999999999999a473fc999999999999a8794869475622e\" name=\"analytic:environment:a1:env\" type=\"PythonForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<GlobalParameters/>\n\t\t\t<Particles>\n\t\t\t\t<Particle index=\"2\"/>\n\t\t\t\t<Particle index=\"1\"/>\n\t\t\t</Particles>\n\t\t</Force>\n\t</Forces>\n</System>\n",
+        "topology": {
+          "data": {
+            "atoms": [
+              {
+                "data": {
+                  "atom_id": "a2",
+                  "atom_name": "a2",
+                  "chain": "0",
+                  "element": "C",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "env",
+                  "atom_name": "env",
+                  "chain": "1",
+                  "element": "C",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "a1",
+                  "atom_name": "a1",
+                  "chain": "2",
+                  "element": "C",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "b1",
+                  "atom_name": "b1",
+                  "chain": "3",
+                  "element": "C",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "protein",
+                  "atom_name": "protein",
+                  "chain": "4",
+                  "element": "C",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "b3",
+                  "atom_name": "b3",
+                  "chain": "5",
+                  "element": "C",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              },
+              {
+                "data": {
+                  "atom_id": "b2",
+                  "atom_name": "b2",
+                  "chain": "6",
+                  "element": "C",
+                  "insertion_code": "",
+                  "residue": "1"
+                },
+                "record_type": "AtomIdentity"
+              }
+            ],
+            "bonds": [
+              {
+                "data": {
+                  "atom1": "a1",
+                  "atom2": "a2",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              },
+              {
+                "data": {
+                  "atom1": "b1",
+                  "atom2": "b2",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              },
+              {
+                "data": {
+                  "atom1": "b1",
+                  "atom2": "b3",
+                  "kind": "ordinary",
+                  "order": 1.0
+                },
+                "record_type": "Bond"
+              }
+            ],
+            "molecules": [
+              {
+                "data": {
+                  "atom_ids": [
+                    "a1",
+                    "a2"
+                  ],
+                  "formal_charge": 0,
+                  "molecule_id": "A",
+                  "multiplicity": 1,
+                  "role": "ligand"
+                },
+                "record_type": "MoleculeState"
+              },
+              {
+                "data": {
+                  "atom_ids": [
+                    "b1",
+                    "b2",
+                    "b3"
+                  ],
+                  "formal_charge": 0,
+                  "molecule_id": "B",
+                  "multiplicity": 1,
+                  "role": "ligand"
+                },
+                "record_type": "MoleculeState"
+              },
+              {
+                "data": {
+                  "atom_ids": [
+                    "protein"
+                  ],
+                  "formal_charge": 0,
+                  "molecule_id": "P",
+                  "multiplicity": 1,
+                  "role": "protein"
+                },
+                "record_type": "MoleculeState"
+              },
+              {
+                "data": {
+                  "atom_ids": [
+                    "env"
+                  ],
+                  "formal_charge": 0,
+                  "molecule_id": "E",
+                  "multiplicity": 1,
+                  "role": "environment"
+                },
+                "record_type": "MoleculeState"
+              }
+            ]
+          },
+          "record_type": "TopologyView"
+        },
+        "units": {
+          "data": {
+            "energy": "kJ/mol",
+            "forces": "kJ/mol/nm",
+            "positions": "nm",
+            "temperature": "K",
+            "time": "ps"
+          },
+          "record_type": "Units"
+        }
+      },
+      "record_type": "PhysicalBundle"
+    },
+    "raw_observable_schema": [
+      "u0_raw_kJ_mol",
+      "u1_raw_kJ_mol",
+      "delta_u_raw_kJ_mol",
+      "delta_u_softcore_kJ_mol",
+      "atm_expression_energy_kJ_mol",
+      "outside_energy_kJ_mol",
+      "system_total_energy_kJ_mol"
+    ],
+    "restraints": {
+      "data": {
+        "atom_ids": [
+          "env",
+          "protein"
+        ],
+        "center_nm": [
+          0.1,
+          0.0,
+          0.0
+        ],
+        "correction_obligations": [],
+        "domain": "analytic_unbounded",
+        "orientation_convention": "lab_frame",
+        "ownership": "outside",
+        "restraint_id": "outside-harmonic",
+        "spring_kj_mol_nm2": 9.0
+      },
+      "record_type": "RestraintSpec"
+    },
+    "routing_report": [
+      {
+        "data": {
+          "class_name": "PythonForce",
+          "disposition": "physical_child",
+          "force_group": 0,
+          "force_id": "physical:0",
+          "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+          "name": "analytic:selected-harmonic",
+          "path": [
+            0,
+            0
+          ]
+        },
+        "record_type": "ForceOwnership"
+      },
+      {
+        "data": {
+          "class_name": "PythonForce",
+          "disposition": "physical_child",
+          "force_group": 0,
+          "force_id": "physical:1",
+          "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+          "name": "analytic:harmonic:1",
+          "path": [
+            0,
+            1
+          ]
+        },
+        "record_type": "ForceOwnership"
+      },
+      {
+        "data": {
+          "class_name": "PythonForce",
+          "disposition": "physical_child",
+          "force_group": 0,
+          "force_id": "physical:2",
+          "force_sha256": "e3d6f9686c62a6c1bb7a9a4dd99508667a7e15b9ec86a09c77467b5e3456e2c7",
+          "name": "analytic:environment:a1:env",
+          "path": [
+            0,
+            2
+          ]
+        },
+        "record_type": "ForceOwnership"
+      },
+      {
+        "data": {
+          "class_name": "CustomExternalForce",
+          "disposition": "outside",
+          "force_group": 0,
+          "force_id": "outside-harmonic",
+          "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+          "name": "restraint:outside-harmonic",
+          "path": [
+            1
+          ]
+        },
+        "record_type": "ForceOwnership"
+      }
+    ],
+    "schedule": {
+      "data": {
+        "expression": "u0+Lambda*(u1-u0)",
+        "kind": "linear",
+        "parameter_units": {
+          "Lambda": "dimensionless"
+        },
+        "states": [
+          {
+            "data": {
+              "parameters": {
+                "Lambda": 0.0
+              },
+              "state_id": "initial"
+            },
+            "record_type": "ScheduleState"
+          },
+          {
+            "data": {
+              "parameters": {
+                "Lambda": 0.37
+              },
+              "state_id": "middle"
+            },
+            "record_type": "ScheduleState"
+          },
+          {
+            "data": {
+              "parameters": {
+                "Lambda": 1.0
+              },
+              "state_id": "final"
+            },
+            "record_type": "ScheduleState"
+          }
+        ],
+        "temperature_K": 300.0
+      },
+      "record_type": "ScheduleSpec"
+    },
+    "system_sha256": "e878c19e525e5765b68abf421d9b477d2746293259fb94d5af47668cbc7ea042",
+    "system_xml": "<?xml version=\"1.0\" ?>\n<System openmmVersion=\"8.6.1\" type=\"System\" version=\"1\">\n\t<PeriodicBoxVectors>\n\t\t<A x=\"2\" y=\"0\" z=\"0\"/>\n\t\t<B x=\"0\" y=\"2\" z=\"0\"/>\n\t\t<C x=\"0\" y=\"0\" z=\"2\"/>\n\t</PeriodicBoxVectors>\n\t<Particles>\n\t\t<Particle mass=\"1\"/>\n\t\t<Particle mass=\"16\"/>\n\t\t<Particle mass=\"12\"/>\n\t\t<Particle mass=\"12\"/>\n\t\t<Particle mass=\"12\"/>\n\t\t<Particle mass=\"1\"/>\n\t\t<Particle mass=\"1\"/>\n\t</Particles>\n\t<Constraints/>\n\t<Forces>\n\t\t<Force energy=\"u0+Lambda*(u1-u0)\" forceGroup=\"31\" name=\"ATMForce\" type=\"ATMForce\" version=\"0\">\n\t\t\t<GlobalParameters>\n\t\t\t\t<Parameter default=\"0\" name=\"Lambda\"/>\n\t\t\t</GlobalParameters>\n\t\t\t<EnergyParameterDerivatives/>\n\t\t\t<Forces>\n\t\t\t\t<Force>\n\t\t\t\t\t<Force forceGroup=\"0\" function=\"800495a2000000000000008c1161746d5f6d6c6d6d2e616e616c79746963948c1053656c65637465644861726d6f6e69639493942981947d94288c10737072696e675f636f6e7374616e74739447401800000000000047402c00000000000086948c0a63656e746572735f6e6d94473fb999999999999a47bfb999999999999a473fc999999999999a879447bfc999999999999a473fc999999999999a4700000000000000008794869475622e\" name=\"analytic:selected-harmonic\" type=\"PythonForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t\t\t\t<GlobalParameters/>\n\t\t\t\t\t\t<Particles>\n\t\t\t\t\t\t\t<Particle index=\"2\"/>\n\t\t\t\t\t\t\t<Particle index=\"0\"/>\n\t\t\t\t\t\t</Particles>\n\t\t\t\t\t</Force>\n\t\t\t\t</Force>\n\t\t\t\t<Force>\n\t\t\t\t\t<Force forceGroup=\"0\" function=\"800495c8000000000000008c1161746d5f6d6c6d6d2e616e616c79746963948c1053656c65637465644861726d6f6e69639493942981947d94288c10737072696e675f636f6e7374616e74739447400800000000000047401400000000000047401c00000000000087948c0a63656e746572735f6e6d94473fa999999999999a47bfc3333333333333473fc999999999999a8794473fc999999999999a473fb999999999999a470000000000000000879447bfc999999999999a470000000000000000473fb999999999999a8794879475622e\" name=\"analytic:harmonic:1\" type=\"PythonForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t\t\t\t<GlobalParameters/>\n\t\t\t\t\t\t<Particles>\n\t\t\t\t\t\t\t<Particle index=\"3\"/>\n\t\t\t\t\t\t\t<Particle index=\"6\"/>\n\t\t\t\t\t\t\t<Particle index=\"5\"/>\n\t\t\t\t\t\t</Particles>\n\t\t\t\t\t</Force>\n\t\t\t\t</Force>\n\t\t\t\t<Force>\n\t\t\t\t\t<Force forceGroup=\"0\" function=\"8004959a000000000000008c1574657374732e616e616c797469635f6f7261636c65948c1742726f6b656e456e7669726f6e6d656e74537072696e679493942981947d94288c046d6f6465948c0b7374616c652d696e707574948c0966726f7a656e5f6e6d94473fd999999999999a473fd3333333333333473fb999999999999a8794473fe000000000000047bfb999999999999a473fc999999999999a8794869475622e\" name=\"analytic:environment:a1:env\" type=\"PythonForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t\t\t\t<GlobalParameters/>\n\t\t\t\t\t\t<Particles>\n\t\t\t\t\t\t\t<Particle index=\"2\"/>\n\t\t\t\t\t\t\t<Particle index=\"1\"/>\n\t\t\t\t\t\t</Particles>\n\t\t\t\t\t</Force>\n\t\t\t\t</Force>\n\t\t\t</Forces>\n\t\t\t<Particles>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\".1\" d1y=\"-.2\" d1z=\".3\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"0\" d1y=\"0\" d1z=\"0\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\".1\" d1y=\"-.2\" d1z=\".3\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"-.1\" d1y=\".2\" d1z=\"-.3\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"0\" d1y=\"0\" d1z=\"0\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"-.1\" d1y=\".2\" d1z=\"-.3\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t\t<Particle d0x=\"0\" d0y=\"0\" d0z=\"0\" d1x=\"-.1\" d1y=\".2\" d1z=\"-.3\" pi0=\"-1\" pi1=\"-1\" pj0=\"-1\" pj1=\"-1\" type=\"fixed\"/>\n\t\t\t</Particles>\n\t\t</Force>\n\t\t<Force energy=\"0.5*k*((x-x0)^2+(y-y0)^2+(z-z0)^2)\" forceGroup=\"0\" name=\"restraint:outside-harmonic\" type=\"CustomExternalForce\" version=\"1\">\n\t\t\t<PerParticleParameters>\n\t\t\t\t<Parameter name=\"k\"/>\n\t\t\t\t<Parameter name=\"x0\"/>\n\t\t\t\t<Parameter name=\"y0\"/>\n\t\t\t\t<Parameter name=\"z0\"/>\n\t\t\t</PerParticleParameters>\n\t\t\t<GlobalParameters/>\n\t\t\t<Particles>\n\t\t\t\t<Particle index=\"1\" param1=\"9\" param2=\".1\" param3=\"0\" param4=\"0\"/>\n\t\t\t\t<Particle index=\"4\" param1=\"9\" param2=\".1\" param3=\"0\" param4=\"0\"/>\n\t\t\t</Particles>\n\t\t</Force>\n\t</Forces>\n</System>\n",
+    "transfer": {
+      "data": {
+        "convention": "fixed_translation",
+        "displacement0_nm": [
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ]
+        ],
+        "displacement1_nm": [
+          [
+            0.1,
+            -0.2,
+            0.3
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            0.1,
+            -0.2,
+            0.3
+          ],
+          [
+            -0.1,
+            0.2,
+            -0.3
+          ],
+          [
+            0.0,
+            0.0,
+            0.0
+          ],
+          [
+            -0.1,
+            0.2,
+            -0.3
+          ],
+          [
+            -0.1,
+            0.2,
+            -0.3
+          ]
+        ],
+        "final_particle_count": 7,
+        "physical_identity": "a5677311b3c76adde191e07f7a612da2a1b0db580c9f6d74d78709380eab3a3c",
+        "protocol": {
+          "data": {
+            "endpoints": [
+              {
+                "data": {
+                  "description": "A bound; B bulk",
+                  "state_id": "A-bound"
+                },
+                "record_type": "Endpoint"
+              },
+              {
+                "data": {
+                  "description": "B bound; A bulk",
+                  "state_id": "B-bound"
+                },
+                "record_type": "Endpoint"
+              }
+            ],
+            "geometry_requests": {
+              "displacement_nm": [
+                0.1,
+                -0.2,
+                0.3
+              ]
+            },
+            "kind": "rbfe",
+            "mobile_groups": [
+              {
+                "data": {
+                  "atom_ids": [
+                    "a1",
+                    "a2"
+                  ],
+                  "group_id": "A-mobile",
+                  "molecule_id": "A",
+                  "roles": [
+                    "ligand"
+                  ]
+                },
+                "record_type": "MobileGroup"
+              },
+              {
+                "data": {
+                  "atom_ids": [
+                    "b1",
+                    "b2",
+                    "b3"
+                  ],
+                  "group_id": "B-mobile",
+                  "molecule_id": "B",
+                  "roles": [
+                    "ligand"
+                  ]
+                },
+                "record_type": "MobileGroup"
+              }
+            ],
+            "observable": "ddG_bind_B_minus_A"
+          },
+          "record_type": "ProtocolSpec"
+        }
+      },
+      "record_type": "TransferDefinition"
+    }
+  },
+  "record_type": "AlchemicalBundle",
+  "schema_version": "1.0"
+}

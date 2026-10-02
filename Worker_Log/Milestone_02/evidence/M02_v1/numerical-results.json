@@ -1,0 +1,4708 @@
+{
+  "cases": [
+    {
+      "active_forces": {
+        "full_force_norm": 1002.213364119134,
+        "integrated_force_norm": 1002.213364119134,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": false,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 3.3306690738754696e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      },
+      "native_upstream_max_force_error": 0.0,
+      "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+      "platform": "Reference",
+      "protocol": "abfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": 1.0,
+            "Lambda1": 0.1,
+            "Lambda2": 0.8,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.3
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 256.6231613262333,
+              "delta_u_raw_kJ_mol": 1.3400000000000034,
+              "delta_u_softcore_kJ_mol": 1.1396594941047853,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 258.4681613262333,
+              "u0_raw_kJ_mol": 254.37250000000006,
+              "u1_raw_kJ_mol": 255.71250000000006
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "first",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "double",
+                "platform": "Reference"
+              },
+              "energy_kj_mol": 258.4681613262333,
+              "forces_kj_mol_nm": [
+                [
+                  -6.0833097216225145,
+                  2.3666194432450283,
+                  -0.049929164867541176
+                ],
+                [
+                  -3.6,
+                  0.9,
+                  -1.8
+                ],
+                [
+                  -2.0071327378382207,
+                  -1.9857345243235598,
+                  -0.02139821351466059
+                ],
+                [
+                  0.75,
+                  -0.75,
+                  -0.29999999999999993
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -1.4000000000000004,
+                  -3.5,
+                  2.1000000000000005
+                ],
+                [
+                  0.0,
+                  2.0,
+                  -2.0
+                ]
+              ],
+              "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "ec4ee5738018dcb473f01dd5e095291eca171d3cdfc284fc9be4fdd9f1a3f9d4"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "Reference",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 4.440892098500626e-16,
+      "state_id": "first",
+      "transfer_identity": "ec4ee5738018dcb473f01dd5e095291eca171d3cdfc284fc9be4fdd9f1a3f9d4",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 3.3306690738754696e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2194343814729,
+        "integrated_force_norm": 1002.2194343814729,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": false,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.1368683772161603e-13,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      },
+      "native_upstream_max_force_error": 0.0,
+      "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+      "platform": "Reference",
+      "protocol": "abfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": -1.0,
+            "Lambda1": 0.3,
+            "Lambda2": 0.7,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.9
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 257.1306617145392,
+              "delta_u_raw_kJ_mol": 1.3400000000000034,
+              "delta_u_softcore_kJ_mol": -1.1400000000000035,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 258.9756617145392,
+              "u0_raw_kJ_mol": 254.37250000000006,
+              "u1_raw_kJ_mol": 255.71250000000006
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "second",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "double",
+                "platform": "Reference"
+              },
+              "energy_kj_mol": 258.9756617145392,
+              "forces_kj_mol_nm": [
+                [
+                  -6.524039069182246,
+                  3.248078138364492,
+                  -1.3721172075467367
+                ],
+                [
+                  -3.6,
+                  0.9,
+                  -1.8
+                ],
+                [
+                  -2.1960167439352483,
+                  -1.6079665121295037,
+                  -0.5880502318057444
+                ],
+                [
+                  0.75,
+                  -0.75,
+                  -0.29999999999999993
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -1.4000000000000001,
+                  -3.5,
+                  2.1000000000000005
+                ],
+                [
+                  0.0,
+                  2.0,
+                  -2.0
+                ]
+              ],
+              "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "ec4ee5738018dcb473f01dd5e095291eca171d3cdfc284fc9be4fdd9f1a3f9d4"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "Reference",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 0.0,
+      "state_id": "second",
+      "transfer_identity": "ec4ee5738018dcb473f01dd5e095291eca171d3cdfc284fc9be4fdd9f1a3f9d4",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.1368683772161603e-13,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2153361839362,
+        "integrated_force_norm": 1002.2153361839362,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": false,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 6.994405055138486e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 5.684341886080802e-14
+      },
+      "native_upstream_max_force_error": 0.0,
+      "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+      "platform": "Reference",
+      "protocol": "rbfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": 1.0,
+            "Lambda1": 0.1,
+            "Lambda2": 0.8,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.3
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 257.114749304692,
+              "delta_u_raw_kJ_mol": 2.714999999999975,
+              "delta_u_softcore_kJ_mol": 2.317633827715257,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 258.959749304692,
+              "u0_raw_kJ_mol": 254.37250000000006,
+              "u1_raw_kJ_mol": 257.08750000000003
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "first",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "double",
+                "platform": "Reference"
+              },
+              "energy_kj_mol": 258.959749304692,
+              "forces_kj_mol_nm": [
+                [
+                  -6.082965868367231,
+                  2.365931736734462,
+                  -0.048897605101692054
+                ],
+                [
+                  -3.6,
+                  0.9,
+                  -1.8
+                ],
+                [
+                  -2.0069853721573847,
+                  -1.986029255685231,
+                  -0.020956116472153785
+                ],
+                [
+                  0.8534926860786922,
+                  -0.9569853721573847,
+                  0.010478058236076976
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -1.1585170658163848,
+                  -3.9829658683672307,
+                  2.8244488025508465
+                ],
+                [
+                  0.17248781013115383,
+                  1.6550243797376922,
+                  -1.4825365696065387
+                ]
+              ],
+              "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "6afef9e9816bfe884bcdaebb58facd1db53cb4f2b6487aaaeef299ec0929d597"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "Reference",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 3.9968028886505635e-14,
+      "state_id": "first",
+      "transfer_identity": "6afef9e9816bfe884bcdaebb58facd1db53cb4f2b6487aaaeef299ec0929d597",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 6.994405055138486e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 5.684341886080802e-14
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2252795021986,
+        "integrated_force_norm": 1002.2252795021986,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": false,
+      "native_errors": {
+        "expression_error_kJ_mol": 5.684341886080802e-14,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 5.684341886080802e-14,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 5.684341886080802e-14
+      },
+      "native_upstream_max_force_error": 0.0,
+      "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+      "platform": "Reference",
+      "protocol": "rbfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": -1.0,
+            "Lambda1": 0.3,
+            "Lambda2": 0.7,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.9
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 258.0567314833881,
+              "delta_u_raw_kJ_mol": 2.714999999999975,
+              "delta_u_softcore_kJ_mol": -2.514999999999975,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 259.9017314833881,
+              "u0_raw_kJ_mol": 254.37250000000006,
+              "u1_raw_kJ_mol": 257.08750000000003
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "second",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "double",
+                "platform": "Reference"
+              },
+              "energy_kj_mol": 259.9017314833881,
+              "forces_kj_mol_nm": [
+                [
+                  -6.557219459429173,
+                  3.314438918858347,
+                  -1.4716583782875192
+                ],
+                [
+                  -3.6,
+                  0.9,
+                  -1.8
+                ],
+                [
+                  -2.210236911183932,
+                  -1.5795261776321374,
+                  -0.6307107335517941
+                ],
+                [
+                  0.9551184555919658,
+                  -1.1602369111839315,
+                  0.3153553667758971
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -0.9213902702854135,
+                  -4.457219459429172,
+                  3.5358291891437603
+                ],
+                [
+                  0.3418640926532761,
+                  1.3162718146934478,
+                  -0.9744077220401719
+                ]
+              ],
+              "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "6afef9e9816bfe884bcdaebb58facd1db53cb4f2b6487aaaeef299ec0929d597"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "Reference",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 5.684341886080802e-14,
+      "state_id": "second",
+      "transfer_identity": "6afef9e9816bfe884bcdaebb58facd1db53cb4f2b6487aaaeef299ec0929d597",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 5.684341886080802e-14,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 5.684341886080802e-14,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 5.684341886080802e-14
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2361851872807,
+        "integrated_force_norm": 1002.2361851872807,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": true,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 5.329070518200751e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      },
+      "native_upstream_max_force_error": 8.881784197001252e-16,
+      "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+      "platform": "Reference",
+      "protocol": "abfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": 1.0,
+            "Lambda1": 0.1,
+            "Lambda2": 0.8,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.3
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 257.36289903930464,
+              "delta_u_raw_kJ_mol": 0.8400000000000034,
+              "delta_u_softcore_kJ_mol": 0.6400000000000035,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 259.20789903930466,
+              "u0_raw_kJ_mol": 255.27250000000006,
+              "u1_raw_kJ_mol": 256.11250000000007
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "first",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "double",
+                "platform": "Reference"
+              },
+              "energy_kj_mol": 259.20789903930466,
+              "forces_kj_mol_nm": [
+                [
+                  -6.012913128073594,
+                  2.2258262561471875,
+                  0.16126061577921957
+                ],
+                [
+                  -4.305062051376004,
+                  4.310124102752009,
+                  -1.9151861541280137
+                ],
+                [
+                  -1.271900717798393,
+                  -5.4561985644032145,
+                  0.18429784660482218
+                ],
+                [
+                  0.75,
+                  -0.75,
+                  -0.29999999999999993
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -1.4000000000000001,
+                  -3.5,
+                  2.1000000000000005
+                ],
+                [
+                  0.0,
+                  2.0,
+                  -2.0
+                ]
+              ],
+              "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "c650fdeed69b4f2760633364a2b2bce2ea1a3a8bc091b9dc89c9ff9129bc9ba3"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "5fb1d6177d3f4ef3e67e2c4fd51bde6deb0d4b3946ea44949b7e2ac644e70fe2",
+            "name": "analytic:environment:a1:env",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:3",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              3
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "Reference",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 0.0,
+      "state_id": "first",
+      "transfer_identity": "c650fdeed69b4f2760633364a2b2bce2ea1a3a8bc091b9dc89c9ff9129bc9ba3",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 5.329070518200751e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2335756543333,
+        "integrated_force_norm": 1002.2335756543333,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": true,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      },
+      "native_upstream_max_force_error": 4.440892098500626e-16,
+      "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+      "platform": "Reference",
+      "protocol": "abfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": -1.0,
+            "Lambda1": 0.3,
+            "Lambda2": 0.7,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.9
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 257.7041042238775,
+              "delta_u_raw_kJ_mol": 0.8400000000000034,
+              "delta_u_softcore_kJ_mol": -0.6400000000000035,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 259.5491042238775,
+              "u0_raw_kJ_mol": 255.27250000000006,
+              "u1_raw_kJ_mol": 256.11250000000007
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "second",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "double",
+                "platform": "Reference"
+              },
+              "energy_kj_mol": 259.5491042238775,
+              "forces_kj_mol_nm": [
+                [
+                  -6.50377958105577,
+                  3.207559162111542,
+                  -1.3113387431673114
+                ],
+                [
+                  -3.9544431563887352,
+                  3.6088863127774706,
+                  -0.8633294691662061
+                ],
+                [
+                  -1.8328909497780237,
+                  -4.3342181004439535,
+                  -1.4986728493340702
+                ],
+                [
+                  0.75,
+                  -0.75,
+                  -0.29999999999999993
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -1.4000000000000001,
+                  -3.5,
+                  2.1000000000000005
+                ],
+                [
+                  0.0,
+                  2.0,
+                  -2.0
+                ]
+              ],
+              "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "c650fdeed69b4f2760633364a2b2bce2ea1a3a8bc091b9dc89c9ff9129bc9ba3"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "5fb1d6177d3f4ef3e67e2c4fd51bde6deb0d4b3946ea44949b7e2ac644e70fe2",
+            "name": "analytic:environment:a1:env",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:3",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              3
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "Reference",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 0.0,
+      "state_id": "second",
+      "transfer_identity": "c650fdeed69b4f2760633364a2b2bce2ea1a3a8bc091b9dc89c9ff9129bc9ba3",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2370736881986,
+        "integrated_force_norm": 1002.2370736881986,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": true,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.1368683772161603e-13,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      },
+      "native_upstream_max_force_error": 1.1368683772161603e-13,
+      "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+      "platform": "Reference",
+      "protocol": "rbfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": 1.0,
+            "Lambda1": 0.1,
+            "Lambda2": 0.8,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.3
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 257.8380295352042,
+              "delta_u_raw_kJ_mol": 2.2150000000000034,
+              "delta_u_softcore_kJ_mol": 1.9381060731789312,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 259.68302953520424,
+              "u0_raw_kJ_mol": 255.27250000000006,
+              "u1_raw_kJ_mol": 257.48750000000007
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "first",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "double",
+                "platform": "Reference"
+              },
+              "energy_kj_mol": 259.68302953520424,
+              "forces_kj_mol_nm": [
+                [
+                  -6.104676089119344,
+                  2.409352178238689,
+                  -0.11402826735803229
+                ],
+                [
+                  -4.239517079200469,
+                  4.1790341584009365,
+                  -1.7185512376014058
+                ],
+                [
+                  -1.376772673279251,
+                  -5.2464546534415,
+                  -0.13031801983775138
+                ],
+                [
+                  0.8581448762398596,
+                  -0.9662897524797189,
+                  0.02443462871957844
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -1.147661955440328,
+                  -4.004676089119345,
+                  2.8570141336790167
+                ],
+                [
+                  0.18024146039976577,
+                  1.6395170792004685,
+                  -1.459275618800703
+                ]
+              ],
+              "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "53d0adb1817d50c4ce73a7608c5e9c0bb1f184e3c1cd39607253af8e45c1bf1d"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "5fb1d6177d3f4ef3e67e2c4fd51bde6deb0d4b3946ea44949b7e2ac644e70fe2",
+            "name": "analytic:environment:a1:env",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:3",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              3
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "Reference",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 0.0,
+      "state_id": "first",
+      "transfer_identity": "53d0adb1817d50c4ce73a7608c5e9c0bb1f184e3c1cd39607253af8e45c1bf1d",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2389906437888,
+        "integrated_force_norm": 1002.2389906437888,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": true,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      },
+      "native_upstream_max_force_error": 4.440892098500626e-16,
+      "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+      "platform": "Reference",
+      "protocol": "rbfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": -1.0,
+            "Lambda1": 0.3,
+            "Lambda2": 0.7,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.9
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 258.61639079547433,
+              "delta_u_raw_kJ_mol": 2.2150000000000034,
+              "delta_u_softcore_kJ_mol": -2.0150000000000032,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 260.46139079547436,
+              "u0_raw_kJ_mol": 255.27250000000006,
+              "u1_raw_kJ_mol": 257.48750000000007
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "second",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "double",
+                "platform": "Reference"
+              },
+              "energy_kj_mol": 260.46139079547436,
+              "forces_kj_mol_nm": [
+                [
+                  -6.548214732646948,
+                  3.296429465293898,
+                  -1.444644197940845
+                ],
+                [
+                  -3.9227037623950367,
+                  3.5454075247900736,
+                  -0.7681112871851106
+                ],
+                [
+                  -1.8836739801679414,
+                  -4.232652039664117,
+                  -1.6510219405038233
+                ],
+                [
+                  0.9531888712814889,
+                  -1.156377742562978,
+                  0.30956661384446693
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -0.9258926336765259,
+                  -4.448214732646948,
+                  3.522322098970423
+                ],
+                [
+                  0.3386481188024816,
+                  1.3227037623950366,
+                  -0.9840556435925554
+                ]
+              ],
+              "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "53d0adb1817d50c4ce73a7608c5e9c0bb1f184e3c1cd39607253af8e45c1bf1d"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "5fb1d6177d3f4ef3e67e2c4fd51bde6deb0d4b3946ea44949b7e2ac644e70fe2",
+            "name": "analytic:environment:a1:env",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:3",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              3
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "Reference",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 0.0,
+      "state_id": "second",
+      "transfer_identity": "53d0adb1817d50c4ce73a7608c5e9c0bb1f184e3c1cd39607253af8e45c1bf1d",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.213364119134,
+        "integrated_force_norm": 1002.213364119134,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": false,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 3.3306690738754696e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      },
+      "native_upstream_max_force_error": 0.0,
+      "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+      "platform": "CPU",
+      "protocol": "abfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": 1.0,
+            "Lambda1": 0.1,
+            "Lambda2": 0.8,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.3
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 256.6231613262333,
+              "delta_u_raw_kJ_mol": 1.3400000000000034,
+              "delta_u_softcore_kJ_mol": 1.1396594941047853,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 258.4681613262333,
+              "u0_raw_kJ_mol": 254.37250000000006,
+              "u1_raw_kJ_mol": 255.71250000000006
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "first",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "CPU_default",
+                "platform": "CPU"
+              },
+              "energy_kj_mol": 258.4681613262333,
+              "forces_kj_mol_nm": [
+                [
+                  -6.0833097216225145,
+                  2.3666194432450283,
+                  -0.049929164867541176
+                ],
+                [
+                  -3.6,
+                  0.9,
+                  -1.8
+                ],
+                [
+                  -2.0071327378382207,
+                  -1.9857345243235598,
+                  -0.02139821351466059
+                ],
+                [
+                  0.75,
+                  -0.75,
+                  -0.29999999999999993
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -1.4000000000000004,
+                  -3.5,
+                  2.1000000000000005
+                ],
+                [
+                  0.0,
+                  2.0,
+                  -2.0
+                ]
+              ],
+              "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "ec4ee5738018dcb473f01dd5e095291eca171d3cdfc284fc9be4fdd9f1a3f9d4"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "CPU",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 4.440892098500626e-16,
+      "state_id": "first",
+      "transfer_identity": "ec4ee5738018dcb473f01dd5e095291eca171d3cdfc284fc9be4fdd9f1a3f9d4",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 3.3306690738754696e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2194343814729,
+        "integrated_force_norm": 1002.2194343814729,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": false,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.1368683772161603e-13,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      },
+      "native_upstream_max_force_error": 0.0,
+      "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+      "platform": "CPU",
+      "protocol": "abfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": -1.0,
+            "Lambda1": 0.3,
+            "Lambda2": 0.7,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.9
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 257.1306617145392,
+              "delta_u_raw_kJ_mol": 1.3400000000000034,
+              "delta_u_softcore_kJ_mol": -1.1400000000000035,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 258.9756617145392,
+              "u0_raw_kJ_mol": 254.37250000000006,
+              "u1_raw_kJ_mol": 255.71250000000006
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "second",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "CPU_default",
+                "platform": "CPU"
+              },
+              "energy_kj_mol": 258.9756617145392,
+              "forces_kj_mol_nm": [
+                [
+                  -6.524039069182246,
+                  3.248078138364492,
+                  -1.3721172075467367
+                ],
+                [
+                  -3.6,
+                  0.9,
+                  -1.8
+                ],
+                [
+                  -2.1960167439352483,
+                  -1.6079665121295037,
+                  -0.5880502318057444
+                ],
+                [
+                  0.75,
+                  -0.75,
+                  -0.29999999999999993
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -1.4000000000000001,
+                  -3.5,
+                  2.1000000000000005
+                ],
+                [
+                  0.0,
+                  2.0,
+                  -2.0
+                ]
+              ],
+              "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "ec4ee5738018dcb473f01dd5e095291eca171d3cdfc284fc9be4fdd9f1a3f9d4"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "CPU",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 0.0,
+      "state_id": "second",
+      "transfer_identity": "ec4ee5738018dcb473f01dd5e095291eca171d3cdfc284fc9be4fdd9f1a3f9d4",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.1368683772161603e-13,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2153361839362,
+        "integrated_force_norm": 1002.2153361839362,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": false,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 6.994405055138486e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 5.684341886080802e-14
+      },
+      "native_upstream_max_force_error": 0.0,
+      "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+      "platform": "CPU",
+      "protocol": "rbfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": 1.0,
+            "Lambda1": 0.1,
+            "Lambda2": 0.8,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.3
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 257.114749304692,
+              "delta_u_raw_kJ_mol": 2.714999999999975,
+              "delta_u_softcore_kJ_mol": 2.317633827715257,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 258.959749304692,
+              "u0_raw_kJ_mol": 254.37250000000006,
+              "u1_raw_kJ_mol": 257.08750000000003
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "first",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "CPU_default",
+                "platform": "CPU"
+              },
+              "energy_kj_mol": 258.959749304692,
+              "forces_kj_mol_nm": [
+                [
+                  -6.082965868367231,
+                  2.365931736734462,
+                  -0.048897605101692054
+                ],
+                [
+                  -3.6,
+                  0.9,
+                  -1.8
+                ],
+                [
+                  -2.0069853721573847,
+                  -1.986029255685231,
+                  -0.020956116472153785
+                ],
+                [
+                  0.8534926860786922,
+                  -0.9569853721573847,
+                  0.010478058236076976
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -1.1585170658163848,
+                  -3.9829658683672307,
+                  2.8244488025508465
+                ],
+                [
+                  0.17248781013115383,
+                  1.6550243797376922,
+                  -1.4825365696065387
+                ]
+              ],
+              "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "6afef9e9816bfe884bcdaebb58facd1db53cb4f2b6487aaaeef299ec0929d597"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "CPU",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 3.9968028886505635e-14,
+      "state_id": "first",
+      "transfer_identity": "6afef9e9816bfe884bcdaebb58facd1db53cb4f2b6487aaaeef299ec0929d597",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 6.994405055138486e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 5.684341886080802e-14
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2252795021986,
+        "integrated_force_norm": 1002.2252795021986,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": false,
+      "native_errors": {
+        "expression_error_kJ_mol": 5.684341886080802e-14,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 5.684341886080802e-14,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 5.684341886080802e-14
+      },
+      "native_upstream_max_force_error": 0.0,
+      "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+      "platform": "CPU",
+      "protocol": "rbfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": -1.0,
+            "Lambda1": 0.3,
+            "Lambda2": 0.7,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.9
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 258.0567314833881,
+              "delta_u_raw_kJ_mol": 2.714999999999975,
+              "delta_u_softcore_kJ_mol": -2.514999999999975,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 259.9017314833881,
+              "u0_raw_kJ_mol": 254.37250000000006,
+              "u1_raw_kJ_mol": 257.08750000000003
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "second",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "CPU_default",
+                "platform": "CPU"
+              },
+              "energy_kj_mol": 259.9017314833881,
+              "forces_kj_mol_nm": [
+                [
+                  -6.557219459429173,
+                  3.314438918858347,
+                  -1.4716583782875192
+                ],
+                [
+                  -3.6,
+                  0.9,
+                  -1.8
+                ],
+                [
+                  -2.210236911183932,
+                  -1.5795261776321374,
+                  -0.6307107335517941
+                ],
+                [
+                  0.9551184555919658,
+                  -1.1602369111839315,
+                  0.3153553667758971
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -0.9213902702854135,
+                  -4.457219459429172,
+                  3.5358291891437603
+                ],
+                [
+                  0.3418640926532761,
+                  1.3162718146934478,
+                  -0.9744077220401719
+                ]
+              ],
+              "physical_identity": "48b50ded941c34235876bba4dfe9e8ba565a6cd6b269ead581fae2642a7dca07",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "6afef9e9816bfe884bcdaebb58facd1db53cb4f2b6487aaaeef299ec0929d597"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "CPU",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 5.684341886080802e-14,
+      "state_id": "second",
+      "transfer_identity": "6afef9e9816bfe884bcdaebb58facd1db53cb4f2b6487aaaeef299ec0929d597",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 5.684341886080802e-14,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 5.684341886080802e-14,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 5.684341886080802e-14
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2361851872807,
+        "integrated_force_norm": 1002.2361851872807,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": true,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 5.329070518200751e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      },
+      "native_upstream_max_force_error": 8.881784197001252e-16,
+      "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+      "platform": "CPU",
+      "protocol": "abfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": 1.0,
+            "Lambda1": 0.1,
+            "Lambda2": 0.8,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.3
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 257.36289903930464,
+              "delta_u_raw_kJ_mol": 0.8400000000000034,
+              "delta_u_softcore_kJ_mol": 0.6400000000000035,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 259.20789903930466,
+              "u0_raw_kJ_mol": 255.27250000000006,
+              "u1_raw_kJ_mol": 256.11250000000007
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "first",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "CPU_default",
+                "platform": "CPU"
+              },
+              "energy_kj_mol": 259.20789903930466,
+              "forces_kj_mol_nm": [
+                [
+                  -6.012913128073594,
+                  2.2258262561471875,
+                  0.16126061577921957
+                ],
+                [
+                  -4.305062051376004,
+                  4.310124102752009,
+                  -1.9151861541280137
+                ],
+                [
+                  -1.271900717798393,
+                  -5.4561985644032145,
+                  0.18429784660482218
+                ],
+                [
+                  0.75,
+                  -0.75,
+                  -0.29999999999999993
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -1.4000000000000001,
+                  -3.5,
+                  2.1000000000000005
+                ],
+                [
+                  0.0,
+                  2.0,
+                  -2.0
+                ]
+              ],
+              "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "c650fdeed69b4f2760633364a2b2bce2ea1a3a8bc091b9dc89c9ff9129bc9ba3"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "5fb1d6177d3f4ef3e67e2c4fd51bde6deb0d4b3946ea44949b7e2ac644e70fe2",
+            "name": "analytic:environment:a1:env",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:3",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              3
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "CPU",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 0.0,
+      "state_id": "first",
+      "transfer_identity": "c650fdeed69b4f2760633364a2b2bce2ea1a3a8bc091b9dc89c9ff9129bc9ba3",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 5.329070518200751e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2335756543333,
+        "integrated_force_norm": 1002.2335756543333,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": true,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      },
+      "native_upstream_max_force_error": 4.440892098500626e-16,
+      "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+      "platform": "CPU",
+      "protocol": "abfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": -1.0,
+            "Lambda1": 0.3,
+            "Lambda2": 0.7,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.9
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 257.7041042238775,
+              "delta_u_raw_kJ_mol": 0.8400000000000034,
+              "delta_u_softcore_kJ_mol": -0.6400000000000035,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 259.5491042238775,
+              "u0_raw_kJ_mol": 255.27250000000006,
+              "u1_raw_kJ_mol": 256.11250000000007
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "second",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "CPU_default",
+                "platform": "CPU"
+              },
+              "energy_kj_mol": 259.5491042238775,
+              "forces_kj_mol_nm": [
+                [
+                  -6.50377958105577,
+                  3.207559162111542,
+                  -1.3113387431673114
+                ],
+                [
+                  -3.9544431563887352,
+                  3.6088863127774706,
+                  -0.8633294691662061
+                ],
+                [
+                  -1.8328909497780237,
+                  -4.3342181004439535,
+                  -1.4986728493340702
+                ],
+                [
+                  0.75,
+                  -0.75,
+                  -0.29999999999999993
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -1.4000000000000001,
+                  -3.5,
+                  2.1000000000000005
+                ],
+                [
+                  0.0,
+                  2.0,
+                  -2.0
+                ]
+              ],
+              "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "c650fdeed69b4f2760633364a2b2bce2ea1a3a8bc091b9dc89c9ff9129bc9ba3"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "5fb1d6177d3f4ef3e67e2c4fd51bde6deb0d4b3946ea44949b7e2ac644e70fe2",
+            "name": "analytic:environment:a1:env",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:3",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              3
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "CPU",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 0.0,
+      "state_id": "second",
+      "transfer_identity": "c650fdeed69b4f2760633364a2b2bce2ea1a3a8bc091b9dc89c9ff9129bc9ba3",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2370736881986,
+        "integrated_force_norm": 1002.2370736881986,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": true,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.1368683772161603e-13,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      },
+      "native_upstream_max_force_error": 1.1368683772161603e-13,
+      "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+      "platform": "CPU",
+      "protocol": "rbfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": 1.0,
+            "Lambda1": 0.1,
+            "Lambda2": 0.8,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.3
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 257.8380295352042,
+              "delta_u_raw_kJ_mol": 2.2150000000000034,
+              "delta_u_softcore_kJ_mol": 1.9381060731789312,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 259.68302953520424,
+              "u0_raw_kJ_mol": 255.27250000000006,
+              "u1_raw_kJ_mol": 257.48750000000007
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "first",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "CPU_default",
+                "platform": "CPU"
+              },
+              "energy_kj_mol": 259.68302953520424,
+              "forces_kj_mol_nm": [
+                [
+                  -6.104676089119344,
+                  2.409352178238689,
+                  -0.11402826735803229
+                ],
+                [
+                  -4.239517079200469,
+                  4.1790341584009365,
+                  -1.7185512376014058
+                ],
+                [
+                  -1.376772673279251,
+                  -5.2464546534415,
+                  -0.13031801983775138
+                ],
+                [
+                  0.8581448762398596,
+                  -0.9662897524797189,
+                  0.02443462871957844
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -1.147661955440328,
+                  -4.004676089119345,
+                  2.8570141336790167
+                ],
+                [
+                  0.18024146039976577,
+                  1.6395170792004685,
+                  -1.459275618800703
+                ]
+              ],
+              "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "53d0adb1817d50c4ce73a7608c5e9c0bb1f184e3c1cd39607253af8e45c1bf1d"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "5fb1d6177d3f4ef3e67e2c4fd51bde6deb0d4b3946ea44949b7e2ac644e70fe2",
+            "name": "analytic:environment:a1:env",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:3",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              3
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "CPU",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 0.0,
+      "state_id": "first",
+      "transfer_identity": "53d0adb1817d50c4ce73a7608c5e9c0bb1f184e3c1cd39607253af8e45c1bf1d",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      }
+    },
+    {
+      "active_forces": {
+        "full_force_norm": 1002.2389906437888,
+        "integrated_force_norm": 1002.2389906437888,
+        "integration_mask": -2147483647,
+        "max_force_error_kJ_mol_nm": 0.0,
+        "required_groups": [
+          0,
+          31
+        ]
+      },
+      "environment": true,
+      "native_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      },
+      "native_upstream_max_force_error": 4.440892098500626e-16,
+      "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+      "platform": "CPU",
+      "protocol": "rbfe",
+      "raw_and_forces": {
+        "data": {
+          "parameters": {
+            "Acore": 0.25,
+            "Alpha": 0.7,
+            "Direction": -1.0,
+            "Lambda1": 0.3,
+            "Lambda2": 0.7,
+            "UOffset": 0.2,
+            "Ubcore": 1.0,
+            "Uh": 2.0,
+            "Umax": 10.0,
+            "W0": 0.9
+          },
+          "raw": {
+            "data": {
+              "atm_expression_energy_kJ_mol": 258.61639079547433,
+              "delta_u_raw_kJ_mol": 2.2150000000000034,
+              "delta_u_softcore_kJ_mol": -2.0150000000000032,
+              "outside_energy_kJ_mol": 1.8450000000000002,
+              "system_total_energy_kJ_mol": 260.46139079547436,
+              "u0_raw_kJ_mol": 255.27250000000006,
+              "u1_raw_kJ_mol": 257.48750000000007
+            },
+            "record_type": "RawAtmEnergies"
+          },
+          "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+          "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+          "state_id": "second",
+          "total": {
+            "data": {
+              "diagnostics": {
+                "model_dtype": "float64",
+                "openmm_precision": "CPU_default",
+                "platform": "CPU"
+              },
+              "energy_kj_mol": 260.46139079547436,
+              "forces_kj_mol_nm": [
+                [
+                  -6.548214732646948,
+                  3.296429465293898,
+                  -1.444644197940845
+                ],
+                [
+                  -3.9227037623950367,
+                  3.5454075247900736,
+                  -0.7681112871851106
+                ],
+                [
+                  -1.8836739801679414,
+                  -4.232652039664117,
+                  -1.6510219405038233
+                ],
+                [
+                  0.9531888712814889,
+                  -1.156377742562978,
+                  0.30956661384446693
+                ],
+                [
+                  -800.0,
+                  -1.8,
+                  -603.6000000000001
+                ],
+                [
+                  -0.9258926336765259,
+                  -4.448214732646948,
+                  3.522322098970423
+                ],
+                [
+                  0.3386481188024816,
+                  1.3227037623950366,
+                  -0.9840556435925554
+                ]
+              ],
+              "physical_identity": "c58376e5e625eff2bc300986de1f804391a4c95874a55bfbb62a04d558f6846f",
+              "real_atom_ids": [
+                "a2",
+                "env",
+                "a1",
+                "b1",
+                "protein",
+                "b3",
+                "b2"
+              ],
+              "snapshot_identity": "0a65b210388f528e1d97348edced48d8ff245f2e4945ffd94294c7431f8a3d37",
+              "units": {
+                "data": {
+                  "energy": "kJ/mol",
+                  "forces": "kJ/mol/nm",
+                  "positions": "nm",
+                  "temperature": "K",
+                  "time": "ps"
+                },
+                "record_type": "Units"
+              }
+            },
+            "record_type": "EnergyForces"
+          },
+          "transfer_identity": "53d0adb1817d50c4ce73a7608c5e9c0bb1f184e3c1cd39607253af8e45c1bf1d"
+        },
+        "record_type": "AtmEvaluation",
+        "schema_version": "1.0"
+      },
+      "restraint_identity": "7a95be8f1151f275dbe0ad0b04895a43d122f7482bde56c706447fe12e917f21",
+      "routing_report": [
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "outside",
+            "force_group": 0,
+            "force_id": "outside-harmonic",
+            "force_sha256": "81fc60c419653038ebe5caadbf0c36ca58e73493c92d85cf2b2e8637787c4857",
+            "name": "restraint:outside-harmonic",
+            "path": [
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:0",
+            "force_sha256": "7cd3cee5402cb3c6599a631aee0aab2f2f774d7cc261aff52939e3971b1557e7",
+            "name": "analytic:selected-harmonic",
+            "path": [
+              1,
+              0
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:1",
+            "force_sha256": "ce78a24569ee781b4a256e5633de6317c773b656736736267d02c5161ff9f677",
+            "name": "analytic:harmonic:1",
+            "path": [
+              1,
+              1
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "PythonForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:2",
+            "force_sha256": "5fb1d6177d3f4ef3e67e2c4fd51bde6deb0d4b3946ea44949b7e2ac644e70fe2",
+            "name": "analytic:environment:a1:env",
+            "path": [
+              1,
+              2
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        },
+        {
+          "data": {
+            "class_name": "CustomExternalForce",
+            "disposition": "physical_child",
+            "force_group": 1,
+            "force_id": "physical:3",
+            "force_sha256": "c8bfba512011d020c918a030d6b45fc3093cce6d235fefd264a51fbed63b7fdc",
+            "name": "analytic:large-marker",
+            "path": [
+              1,
+              3
+            ]
+          },
+          "record_type": "ForceOwnership",
+          "schema_version": "1.0"
+        }
+      ],
+      "runtime": {
+        "data": {
+          "device_allocation": [],
+          "ensemble": "NVT",
+          "integrator": "LangevinMiddle",
+          "platform": "CPU",
+          "precision": "double",
+          "temperature_K": 300.0,
+          "timestep_ps": 0.0005
+        },
+        "record_type": "RuntimeSpec",
+        "schema_version": "1.0"
+      },
+      "schedule_identity": "eae76972abfd81d78a7ce1d6ae6a63cdb1fef2d5bbac026ef1d10ffe6bf1ee03",
+      "snapshot": {
+        "data": {
+          "box_nm": null,
+          "positions_nm": [
+            [
+              0.2,
+              0.1,
+              -0.1
+            ],
+            [
+              0.5,
+              -0.1,
+              0.2
+            ],
+            [
+              0.4,
+              0.3,
+              0.1
+            ],
+            [
+              -0.2,
+              0.1,
+              0.3
+            ],
+            [
+              0.1,
+              0.2,
+              0.4
+            ],
+            [
+              0.0,
+              0.5,
+              -0.2
+            ],
+            [
+              0.2,
+              -0.3,
+              0.4
+            ]
+          ],
+          "real_atom_ids": [
+            "a2",
+            "env",
+            "a1",
+            "b1",
+            "protein",
+            "b3",
+            "b2"
+          ],
+          "units": {
+            "data": {
+              "energy": "kJ/mol",
+              "forces": "kJ/mol/nm",
+              "positions": "nm",
+              "temperature": "K",
+              "time": "ps"
+            },
+            "record_type": "Units"
+          },
+          "velocities_nm_ps": null
+        },
+        "record_type": "Snapshot",
+        "schema_version": "1.0"
+      },
+      "softcore_error": 0.0,
+      "state_id": "second",
+      "transfer_identity": "53d0adb1817d50c4ce73a7608c5e9c0bb1f184e3c1cd39607253af8e45c1bf1d",
+      "upstream_errors": {
+        "expression_error_kJ_mol": 0.0,
+        "max_force_error_kJ_mol_nm": 1.7763568394002505e-15,
+        "outside_error_kJ_mol": 4.440892098500626e-16,
+        "total_error_kJ_mol": 0.0,
+        "u0_error_kJ_mol": 0.0,
+        "u1_error_kJ_mol": 0.0
+      }
+    }
+  ],
+  "code_snapshot": "4c952dba5563572cf9e39527e64fe28ee201c385",
+  "deferred": [
+    "G00-T2 full loader/model qualification",
+    "G00-T3/GPU",
+    "M00 physical-reference decisions",
+    "caps/chemical/protein accuracy",
+    "periodic physics",
+    "actual electrostatic embedding",
+    "molecular binding/sampling/restart/exchange"
+  ],
+  "fixture_sha256": "9773850c45455288979585703af9b1618ddb0d1515e8987b0c1bbc0446d77467",
+  "integrator": {
+    "ensemble": "NVT",
+    "friction_per_ps": 1.0,
+    "kind": "LangevinMiddle",
+    "temperature_K": 300.0,
+    "timestep_ps": 0.0005
+  },
+  "maximum_energy_error_kJ_mol": 5.684341886080802e-14,
+  "maximum_force_component_error_kJ_mol_nm": 1.1368683772161603e-13,
+  "precision": {
+    "CPU": "OpenMM CPU platform defaults / NumPy float64; only these analytic terms are qualified",
+    "Reference": "OpenMM Reference double / NumPy float64"
+  },
+  "preparation": {
+    "full_force_norm": 1000.0626355383947,
+    "integrated_force_norm": 1000.0626355383947,
+    "integration_mask": 1,
+    "max_force_error_kJ_mol_nm": 0.0,
+    "required_groups": [
+      0
+    ]
+  },
+  "profile": "core-analytic-cpu",
+  "schema_version": "1.0",
+  "scope": "seven-real-atom analytic local/environment substitutes; ABFE/RBFE transfer shapes; nonperiodic NVT; no binding claim",
+  "thresholds": {
+    "energy_abs_kJ_mol": 1e-08,
+    "final_fd_max_component_error_kJ_mol_nm": 1e-05,
+    "finite_difference_steps_nm": [
+      0.001,
+      0.0001,
+      1e-05
+    ],
+    "force_component_abs_kJ_mol_nm": 1e-07,
+    "starting_direct_atm_energy_kJ_mol": 0.0001,
+    "starting_direct_atm_force_kJ_mol_nm": 0.005
+  }
+}
