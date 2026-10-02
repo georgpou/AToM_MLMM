@@ -36,3 +36,18 @@ assert not forbidden.intersection(sys.modules)
             assert not any('protocols' in n for n in names), relative
         if relative in ('schema.py', 'identity.py'):
             assert not any(n.split('.')[0] in {'openmm', 'mace', 'torch'} for n in names), relative
+
+
+def test_new_transfer_modules_keep_upstream_knowledge_in_adapter():
+    for path in (ROOT/'src/atm_mlmm').rglob('*.py'):
+        relative = str(path.relative_to(ROOT/'src/atm_mlmm'))
+        tree = ast.parse(path.read_text())
+        imports = [node.module or '' for node in ast.walk(tree) if isinstance(node, ast.ImportFrom)]
+        imports += [alias.name for node in ast.walk(tree) if isinstance(node, ast.Import) for alias in node.names]
+        if any(name.startswith('atom_openmm') for name in imports):
+            assert relative == 'adapters/atom.py', relative
+        if relative != 'adapters/atom.py':
+            literals = {n.value for n in ast.walk(tree) if isinstance(n, ast.Constant) and isinstance(n.value, str)}
+            assert not literals.intersection({'VARIABLE_FORCE_GROUP', 'LIGAND_ATOMS', 'LIGAND1_ATOMS', 'LIGAND2_ATOMS'}), relative
+        if relative == 'atm.py':
+            assert not any(name.startswith(('mace', 'torch', 'atm_mlmm.models', 'atm_mlmm.embeddings')) for name in imports)

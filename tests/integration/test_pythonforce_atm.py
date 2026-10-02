@@ -15,17 +15,19 @@ from tests.analytic_oracle import (REFERENCE, case, check, expected_linear, mapp
 
 @pytest.mark.parametrize('kind', ('abfe', 'rbfe'))
 @pytest.mark.parametrize('state_id,lam', (('initial', 0.), ('middle', .37), ('final', 1.)))
-def test_linear_endpoint_and_force_identity(kind, state_id, lam):
+@pytest.mark.parametrize('platform', ('Reference', 'CPU'))
+def test_linear_endpoint_and_force_identity(kind, state_id, lam, platform):
     from atm_mlmm.atm import build_atm, evaluate_atm, evaluate_physical
     physical, transfer, schedule, restraints, snapshot = case(kind)
+    runtime = replace(REFERENCE, platform=platform)
     expected = expected_linear(snapshot, kind, lam)
     for endpoint in (0, 1):
         direct_snapshot = replace(snapshot, positions_nm=mapped_positions(snapshot.positions_nm, kind, endpoint))
-        direct = evaluate_physical(physical, direct_snapshot, REFERENCE)
+        direct = evaluate_physical(physical, direct_snapshot, runtime)
         energy, forces = physical_answer(direct_snapshot.positions_nm)
         assert direct.energy_kj_mol == pytest.approx(energy, abs=1e-8, rel=0)
         np.testing.assert_allclose(direct.forces_kj_mol_nm, forces, atol=1e-7, rtol=0)
-    check(evaluate_atm(build_atm(physical, transfer, schedule, restraints), snapshot, state_id, REFERENCE), expected)
+    check(evaluate_atm(build_atm(physical, transfer, schedule, restraints), snapshot, state_id, runtime), expected)
 
 
 def test_permuted_subset_and_units():
@@ -68,7 +70,8 @@ def test_independent_harmonic_forces():
 
 @pytest.mark.parametrize('direction', (1., -1.))
 @pytest.mark.parametrize('target', (.99, 1., 1.01, 2., 8.))
-def test_nonlinear_mixing_force_chain_rule(direction, target):
+@pytest.mark.parametrize('platform', ('Reference', 'CPU'))
+def test_nonlinear_mixing_force_chain_rule(direction, target, platform):
     from atm_mlmm.atm import AtmEvaluator, build_atm
     from atm_mlmm.derivatives import finite_difference_forces
     from atm_mlmm.schedule import production_schedule
@@ -80,7 +83,7 @@ def test_nonlinear_mixing_force_chain_rule(direction, target):
     outside, fk = outside_answer(snapshot.positions_nm)
     expected_force = weights[0]*f0+weights[1]*f1+fk
     schedule = production_schedule((('transition', p),))
-    with AtmEvaluator(build_atm(physical, transfer, schedule, restraints), REFERENCE) as evaluator:
+    with AtmEvaluator(build_atm(physical, transfer, schedule, restraints), replace(REFERENCE, platform=platform)) as evaluator:
         result = evaluator.evaluate(snapshot, 'transition')
         check(result, (u0, u1, expression, outside, expected_force))
         assert result.raw.delta_u_softcore_kJ_mol == pytest.approx(soft, abs=1e-8, rel=0)

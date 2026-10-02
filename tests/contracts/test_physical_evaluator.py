@@ -6,42 +6,46 @@ from tests.analytic_oracle import REFERENCE, case, check, expected_linear, physi
 
 
 @pytest.mark.parametrize('kind', ('abfe', 'rbfe'))
-def test_environment_force_and_recomputed_mapping(kind):
+@pytest.mark.parametrize('platform', ('Reference', 'CPU'))
+def test_environment_force_and_recomputed_mapping(kind, platform):
     from atm_mlmm.atm import build_atm, evaluate_atm, evaluate_physical
     physical, transfer, schedule, restraints, snapshot = case(kind)
+    runtime = replace(REFERENCE, platform=platform)
     # Isolate the numerical S04 example by subtracting the independently
     # derived local spring contribution, never by calling its callback.
     positions = np.array(snapshot.positions_nm)
     positions[2] = (.2, 0., 0.)
     positions[1] = (.5, 0., 0.)
     a = replace(snapshot, positions_nm=positions)
-    result = evaluate_physical(physical, a, REFERENCE)
+    result = evaluate_physical(physical, a, runtime)
     local_energy, local_force = physical_answer(positions, environment=False)
     assert result.energy_kj_mol-local_energy == pytest.approx(.45, abs=1e-8, rel=0)
     np.testing.assert_allclose(np.asarray(result.forces_kj_mol_nm)-local_force,
                                [[0,0,0],[-3,0,0],[3,0,0],[0,0,0],[0,0,0],[0,0,0],[0,0,0]], atol=1e-7, rtol=0)
     positions[1,0] = .6
     b = replace(snapshot, positions_nm=positions)
-    moved = evaluate_physical(physical, b, REFERENCE)
+    moved = evaluate_physical(physical, b, runtime)
     local_energy, local_force = physical_answer(positions, environment=False)
     assert moved.energy_kj_mol-local_energy == pytest.approx(.80, abs=1e-8, rel=0)
     assert moved.forces_kj_mol_nm[1][0] == pytest.approx(-4., abs=1e-7, rel=0)
     alchemical = build_atm(physical, transfer, schedule, restraints)
-    result = evaluate_atm(alchemical, a, 'middle', REFERENCE)
+    result = evaluate_atm(alchemical, a, 'middle', runtime)
     check(result, expected_linear(a, kind, .37))
     assert not np.allclose(result.total.forces_kj_mol_nm[1],
-                           evaluate_atm(alchemical, a, 'initial', REFERENCE).total.forces_kj_mol_nm[1], atol=1e-7, rtol=0)
+                           evaluate_atm(alchemical, a, 'initial', runtime).total.forces_kj_mol_nm[1], atol=1e-7, rtol=0)
 
 
 @pytest.mark.parametrize('kind', ('abfe', 'rbfe'))
-def test_evaluation_history_independence(kind):
+@pytest.mark.parametrize('platform', ('Reference', 'CPU'))
+def test_evaluation_history_independence(kind, platform):
     from atm_mlmm.atm import AtmEvaluator, PhysicalEvaluator, build_atm
     physical, transfer, schedule, restraints, a = case(kind)
+    runtime = replace(REFERENCE, platform=platform)
     positions = np.array(a.positions_nm)
     positions[1] += (.17, -.11, .09)
     b = replace(a, positions_nm=positions)
-    for evaluator in (PhysicalEvaluator(physical, REFERENCE),
-                      AtmEvaluator(build_atm(physical, transfer, schedule, restraints), REFERENCE)):
+    for evaluator in (PhysicalEvaluator(physical, runtime),
+                      AtmEvaluator(build_atm(physical, transfer, schedule, restraints), runtime)):
         with evaluator:
             evaluate = (lambda s: evaluator.evaluate(s, 'middle')) if isinstance(evaluator, AtmEvaluator) else evaluator.evaluate
             first, middle, last = evaluate(a), evaluate(b), evaluate(a)

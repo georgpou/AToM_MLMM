@@ -16,7 +16,7 @@ from openmm import unit
 from .geometry import final_positions, validate_transfer
 from .persistence import write_json
 from .schedule import schedule_state, softened_perturbation, validate_schedule
-from .schema import (AlchemicalBundle, AtmEvaluation, EnergyForces, ForceOwnership,
+from .schema import (AlchemicalBundle, AtmEvaluation, EnergyForces,
                      IdentityError, PhysicalBundle, RawAtmEnergies,
                      UnsupportedCapability, from_json, to_json)
 
@@ -65,30 +65,10 @@ def outside_force(physical, restraints):
 
 
 def seal_alchemical(system, physical, transfer, schedule, restraints, *, construction='native'):
+    from .routing import validate_routing
     validate_transfer(physical, transfer)
     validate_schedule(schedule)
-    atm_indices = [i for i, force in enumerate(system.getForces()) if isinstance(force, mm.ATMForce)]
-    if len(atm_indices) != 1:
-        raise IdentityError('exactly one ATM container required')
-    parent_index = atm_indices[0]
-    parent = system.getForce(parent_index)
-    expected = physical_system(physical)
-    if parent.getNumForces() != expected.getNumForces():
-        raise IdentityError('ATM physical child force count mismatch')
-    report = []
-    for i, original in enumerate(expected.getForces()):
-        child = parent.getForce(i)
-        if force_digest(child) != force_digest(original):
-            raise IdentityError(f'ATM physical child differs: {i}')
-        report.append(ForceOwnership(f'physical:{i}', type(child).__name__, child.getName(), 'physical_child',
-                                     child.getForceGroup(), (parent_index, i), force_digest(child)))
-    expected_outside = outside_force(physical, restraints)
-    roots = [(i, f) for i, f in enumerate(system.getForces()) if i != parent_index]
-    if len(roots) != 1 or force_digest(roots[0][1]) != force_digest(expected_outside):
-        raise IdentityError('declared outside restraint must occur exactly once')
-    index, force = roots[0]
-    report.append(ForceOwnership(restraints.restraint_id, type(force).__name__, force.getName(), 'outside',
-                                 force.getForceGroup(), (index,), force_digest(force)))
+    report = validate_routing(system, physical, restraints)
     xml = mm.XmlSerializer.serialize(system)
     return AlchemicalBundle(physical, transfer, schedule, restraints, xml, xml_digest(xml), tuple(report), construction)
 
@@ -150,6 +130,14 @@ class _Evaluator:
             raise IdentityError('runtime evaluator is closed')
         if xml_digest(mm.XmlSerializer.serialize(self.system)) != self._system_digest:
             raise IdentityError('runtime System/force/map mutation invalidates sealed identity')
+        groups = {force.getForceGroup() for force in self.system.getForces()}
+        required = sum(1 << group for group in groups)
+        if self.integrator.getIntegrationForceGroups() & required != required:
+            raise IdentityError('actual integrator mask omits a physical/outside force group')
+        if self.integrator.getStepSize().value_in_unit(unit.picosecond) != self.runtime.timestep_ps:
+            raise IdentityError('actual integrator timestep mutation')
+        if self.runtime.integrator == 'LangevinMiddle' and self.integrator.getTemperature().value_in_unit(unit.kelvin) != self.runtime.temperature_K:
+            raise IdentityError('actual integrator temperature mutation')
 
     def _position(self, physical, snapshot):
         self.context.setPositions(final_positions(physical, snapshot)*unit.nanometer)
@@ -189,6 +177,7 @@ class PhysicalEvaluator(_Evaluator):
 
 class AtmEvaluator(_Evaluator):
     def __init__(self, bundle, runtime, *, system=None, integrator=None):
+        from .routing import validate_routing
         validate_runtime(runtime)
         validate_schedule(bundle.schedule)
         validate_transfer(bundle.physical, bundle.transfer)
@@ -201,6 +190,8 @@ class AtmEvaluator(_Evaluator):
             system = declared
         elif mm.XmlSerializer.serialize(system) != mm.XmlSerializer.serialize(declared):
             raise IdentityError('provided runtime System differs from sealed ATM artifact')
+        if validate_routing(system, bundle.physical, bundle.restraints) != bundle.routing_report:
+            raise IdentityError('saved routing report differs from actual recursive ownership')
         self.bundle = bundle
         self.atm_force = next(f for f in system.getForces() if isinstance(f, mm.ATMForce))
         self.outside_groups = {r.force_group for r in bundle.routing_report if r.disposition == 'outside'}
@@ -209,6 +200,8 @@ class AtmEvaluator(_Evaluator):
         self._open(system, runtime, integrator)
         self._state_id = bundle.schedule.states[0].state_id
         self._expected_parameters = dict(bundle.schedule.states[0].parameters)
+        self._auxiliary_parameters = {k: v for k, v in self.context.getParameters().items()
+                                      if k not in self._expected_parameters}
         self._check_maps()
         # Artifact defaults may differ in upstream construction: explicitly
         # restore the complete first schedule state before admitting evaluation.
@@ -233,15 +226,18 @@ class AtmEvaluator(_Evaluator):
         self._guard_system()
         self._check_maps()
         actual = self.context.getParameters()
-        for name, value in self._expected_parameters.items():
+        for name, value in {**self._auxiliary_parameters, **self._expected_parameters}.items():
             if actual[name] != value:
                 raise IdentityError(f'runtime parameter mutation before evaluation: {name}')
 
-    def set_state(self, state_id):
+    def set_state(self, state_id, *, setter=None):
         self._guard()
         state = schedule_state(self.bundle.schedule, state_id)
-        for name, value in state.parameters.items():
-            self.context.setParameter(name, value)
+        if setter is None:
+            for name, value in state.parameters.items():
+                self.context.setParameter(name, value)
+        else:
+            setter(state.parameters)
         self._expected_parameters = dict(state.parameters)
         self._state_id = state_id
         self._guard()
@@ -251,7 +247,7 @@ class AtmEvaluator(_Evaluator):
         requested = schedule_state(self.bundle.schedule, state_id)
         self.context.setState(state)
         # A portable State overwrites parameters; reinstate every declared one.
-        for name, value in requested.parameters.items():
+        for name, value in {**self._auxiliary_parameters, **requested.parameters}.items():
             self.context.setParameter(name, value)
         self._state_id = state_id
         self._expected_parameters = dict(requested.parameters)
