@@ -1,0 +1,297 @@
+{
+  "code_snapshot": "33daa6bebd91c49ad87f822d48cfa87e600deb6d",
+  "checks": {
+    "r2-g03.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/workflow/test_atom_force_routing.py",
+        "tests/workflow/test_active_force_groups.py",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:07:15.291635+00:00",
+      "summary": [
+        "38 passed in 5.93s"
+      ]
+    },
+    "r1-g02.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/integration/test_pythonforce_atm.py",
+        "tests/contracts/test_transfer_protocols.py",
+        "tests/contracts/test_physical_evaluator.py",
+        "tests/contracts/test_fault_injection.py",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:06:18.108951+00:00",
+      "summary": [
+        "78 passed in 12.23s"
+      ]
+    },
+    "repaired-upstream.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "tests/test_uwham.py"
+      ],
+      "finished_utc": "2026-10-02T13:11:06.230765+00:00",
+      "summary": [
+        "1 passed in 8.62s"
+      ]
+    },
+    "repaired-numerics.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "Worker_Log/Milestone_02/evidence/M02_v2/probe_numerics_v1_replay.py"
+      ],
+      "finished_utc": "2026-10-02T13:10:29.807960+00:00",
+      "summary": [
+        "cases 66 full-coordinate FD sweeps 8 upstream A-B-A 8"
+      ]
+    },
+    "regressions-green.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/contracts/test_m02_admission.py",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:08:37.098066+00:00",
+      "summary": [
+        "74 passed in 2.81s"
+      ]
+    },
+    "repaired-strict.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "/workspace/.onboarding/atom-mlmm-m02-v2/validate.py",
+        "--repository",
+        "/workspace/AToM_MLMM"
+      ],
+      "finished_utc": "2026-10-02T13:09:49.666286+00:00",
+      "summary": [
+        "Full results: /workspace/.onboarding/atom-mlmm-m02-v2/logs/validation-20261002T130927Z-6964/results.json"
+      ]
+    },
+    "r1-additional-red.json": {
+      "exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/contracts/test_m02_admission.py",
+        "-k",
+        "linear_schedule_expression or ambiguous_duplicate",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:05:34.824751+00:00",
+      "summary": [
+        "6 failed, 68 deselected in 0.54s"
+      ]
+    },
+    "r2-green-source-guard.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/contracts/test_m02_admission.py",
+        "-k",
+        "physical_globals or physical_child or constructors_are_bypassed or parameter_collision or fixed_global_positive or state_restoration",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:08:07.259435+00:00",
+      "summary": [
+        "27 passed, 47 deselected in 1.30s"
+      ]
+    },
+    "repaired-gates.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/integration/test_pythonforce_atm.py",
+        "tests/contracts/test_transfer_protocols.py",
+        "tests/contracts/test_physical_evaluator.py",
+        "tests/contracts/test_fault_injection.py",
+        "tests/workflow/test_atom_force_routing.py",
+        "tests/workflow/test_active_force_groups.py",
+        "tests/contracts/test_m02_admission.py",
+        "-v"
+      ],
+      "finished_utc": "2026-10-02T13:11:20.733608+00:00",
+      "summary": [
+        "============================= 190 passed in 25.15s ============================="
+      ]
+    },
+    "regressions-red.json": {
+      "exit_code": -11,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/contracts/test_m02_admission.py",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:04:09.322985+00:00",
+      "summary": [
+        "Extension modules: numpy._core._multiarray_umath, numpy.linalg._umath_linalg, openmm._openmm, openmm.app.internal.xtc_utils, openmm.app.internal.compiled, rdkit.rdBase, rdkit.DataStructs.cDataStructs, rdkit.Chem.rdchem, rdkit.Geometry.rdGeometry, rdkit.Chem.rdinchi, rdkit.Chem.rdCIPLabeler, rdkit.Chem.rdmolfiles, rdkit.Chem.rdmolops, rdkit.Chem.rdMolInterchange, rdkit.Chem.rdCoordGen, _cyutility, scipy._cyutility, scipy._lib._ccallback_c, numpy.random._common, numpy.random.bit_generator, numpy.random._bounded_integers, numpy.random._pcg64, numpy.random._generator, numpy.random._mt19937, numpy.random._philox, numpy.random._sfc64, numpy.random.mtrand, charset_normalizer.md, charset_normalizer.cd, scipy.sparse._sparsetools, _csparsetools, scipy.sparse._csparsetools, scipy.spatial._ckdtree, scipy._lib.messagestream, scipy.linalg._fblas, scipy.linalg._flapack, scipy.linalg.cython_lapack, scipy.linalg._cythonized_array_utils, scipy.linalg._solve_toeplitz, scipy.linalg._batched_linalg, scipy.linalg._decomp_lu_cython, scipy.linalg._matfuncs_schur_sqrtm, scipy.linalg._matfuncs_expm, scipy.linalg._linalg_pythran, scipy.linalg.cython_blas, scipy.linalg._decomp_update, scipy.spatial._qhull, scipy.spatial._voronoi, scipy.special._ufuncs_cxx, scipy.special._ellip_harm_2, scipy.special._special_ufuncs, scipy.special._gufuncs, scipy.special._ufuncs, scipy.special._specfun, scipy.special._comb, scipy.spatial._hausdorff, scipy.spatial._distance_wrap, scipy.spatial.transform._rotation_cy, scipy.spatial.transform._rigid_transform_cy (total: 59)"
+      ]
+    },
+    "r3-green.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/contracts/test_m02_admission.py",
+        "-k",
+        "duplicate_physical_content or distinct_physical_parameters",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:08:33.879451+00:00",
+      "summary": [
+        "21 passed, 53 deselected in 0.92s"
+      ]
+    },
+    "r1-green.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/contracts/test_m02_admission.py",
+        "-k",
+        "expression or required_schedule_globals or ambiguous_duplicate",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:06:05.497967+00:00",
+      "summary": [
+        "26 passed, 48 deselected in 1.91s"
+      ]
+    },
+    "baseline-admission.json": {
+      "exit_code": 1,
+      "command": [
+        "python",
+        "Worker_Log/Milestone_02/evidence/M02_v1_independent/probe_admission.py",
+        "--require-rejection",
+        "--output",
+        "Worker_Log/Milestone_02/evidence/M02_v2/baseline-admission-results.json"
+      ],
+      "finished_utc": "2026-10-02T13:00:02.790055+00:00",
+      "summary": [
+        "AssertionError: ['wrong-expression-native-sealer', 'wrong-expression-native-artifact-admission', 'wrong-expression-upstream-sealer', 'wrong-expression-upstream-artifact-admission', 'global-parameter-mutation-physical', 'restored-global-parameter-mutation-physical', 'global-parameter-mutation-preparation', 'restored-global-parameter-mutation-preparation', 'schedule-child-parameter-collision-native', 'schedule-child-parameter-collision-upstream', 'renamed-duplicate-export', 'renamed-duplicate-native', 'renamed-duplicate-upstream']"
+      ]
+    },
+    "baseline-full.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:00:38.058999+00:00",
+      "summary": [
+        "164 passed in 37.69s"
+      ]
+    },
+    "regressions-red-corrected.json": {
+      "exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/contracts/test_m02_admission.py",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:04:55.793603+00:00",
+      "summary": [
+        "45 failed, 25 passed in 4.80s"
+      ]
+    },
+    "repaired-analytic.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-m",
+        "not gpu and not model_assets and not slow",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:10:44.650436+00:00",
+      "summary": [
+        "237 passed, 1 deselected in 34.01s"
+      ]
+    },
+    "repaired-full.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:10:10.201660+00:00",
+      "summary": [
+        "238 passed in 43.75s"
+      ]
+    },
+    "r2-green.json": {
+      "exit_code": 1,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "tests/contracts/test_m02_admission.py",
+        "-k",
+        "physical_globals or physical_child or constructors_are_bypassed or parameter_collision or fixed_global_positive or state_restoration",
+        "-q"
+      ],
+      "finished_utc": "2026-10-02T13:07:08.793366+00:00",
+      "summary": [
+        "4 failed, 23 passed, 47 deselected in 2.23s"
+      ]
+    },
+    "repaired-admission.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "Worker_Log/Milestone_02/evidence/M02_v1_independent/probe_admission.py",
+        "--require-rejection",
+        "--output",
+        "Worker_Log/Milestone_02/evidence/M02_v2/repaired-admission-results.json"
+      ],
+      "finished_utc": "2026-10-02T13:10:21.082428+00:00",
+      "summary": [
+        "{\"name\": \"renamed-duplicate-upstream\", \"rejected\": true, \"diagnostic\": \"duplicate force ownership/content at (0,) and (3,): independent:renamed-duplicate\", \"expected_rejection\": true}"
+      ]
+    },
+    "repaired-stale-reload.json": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "Worker_Log/Milestone_02/evidence/M02_v1/reproduce_stale_fault.py"
+      ],
+      "finished_utc": "2026-10-02T13:10:30.160343+00:00",
+      "summary": [
+        "Preserved stale descriptor detected after fresh offline reload: u1 energy mismatch: 7.987500000000001 vs 7.487500000000001, error 0.5"
+      ]
+    }
+  }
+}

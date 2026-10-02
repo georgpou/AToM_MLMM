@@ -1,0 +1,1264 @@
+{
+  "review_head": "a8098a43d46df76b981861aa8dec0522d31be966",
+  "fixture": "transfer-v1; independent perturbed geometry and nonidentity final map",
+  "oracle": "Cartesian negative gradients plus tanh/logaddexp soft-core/softplus differentiation; no test-oracle imports",
+  "cases": [
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "linear",
+      "state": "zero",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "linear",
+      "state": "middle",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "linear",
+      "state": "one",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.6653345369377348e-14,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 5.773159728050814e-15,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.6653345369377348e-14,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.8830519093383,
+        "integrated_force_norm": 1072.8830519093383
+      }
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 5.773159728050814e-15,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.891319320594,
+        "integrated_force_norm": 1072.891319320594
+      }
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "linear",
+      "state": "zero",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "linear",
+      "state": "middle",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "linear",
+      "state": "one",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 2.2737367544323206e-13,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.7763568394002505e-15,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 2.2737367544323206e-13,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.8859266478967,
+        "integrated_force_norm": 1072.8859266478967
+      }
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.7763568394002505e-15,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.898884044368,
+        "integrated_force_norm": 1072.898884044368
+      }
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "linear",
+      "state": "zero",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "linear",
+      "state": "middle",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "linear",
+      "state": "one",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 2.020605904817785e-14,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 8.43769498715119e-15,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.1368683772161603e-13,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.8998665807376,
+        "integrated_force_norm": 1072.8998665807376
+      }
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 8.43769498715119e-15,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.9021120277202,
+        "integrated_force_norm": 1072.9021120277202
+      }
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "linear",
+      "state": "zero",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "linear",
+      "state": "middle",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "linear",
+      "state": "one",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.4210854715202004e-14,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.4210854715202004e-14,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.4210854715202004e-14,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.9020461632047,
+        "integrated_force_norm": 1072.9020461632047
+      }
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 3.1086244689504383e-15,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.9096320227202,
+        "integrated_force_norm": 1072.9096320227202
+      }
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "linear",
+      "state": "zero",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "linear",
+      "state": "middle",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "linear",
+      "state": "one",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.6653345369377348e-14,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 5.773159728050814e-15,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.6653345369377348e-14,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.8830519093383,
+        "integrated_force_norm": 1072.8830519093383
+      }
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "abfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 5.773159728050814e-15,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 292.67809550000004,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.891319320594,
+        "integrated_force_norm": 1072.891319320594
+      }
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "linear",
+      "state": "zero",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "linear",
+      "state": "middle",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "linear",
+      "state": "one",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 2.2737367544323206e-13,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.7763568394002505e-15,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 2.2737367544323206e-13,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.8859266478967,
+        "integrated_force_norm": 1072.8859266478967
+      }
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "rbfe",
+      "physical_identity": "ce392729efceeec7fd2cd28a3ce38abcd75ef137e5c5fb096920d0d09b1c6c96",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.7763568394002505e-15,
+      "outside": 1.49355,
+      "u0": 291.2604955,
+      "u1": 294.0748955,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.898884044368,
+        "integrated_force_norm": 1072.898884044368
+      }
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "linear",
+      "state": "zero",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "linear",
+      "state": "middle",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "linear",
+      "state": "one",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 2.020605904817785e-14,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 8.43769498715119e-15,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.1368683772161603e-13,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.8998665807376,
+        "integrated_force_norm": 1072.8998665807376
+      }
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "abfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 8.43769498715119e-15,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 293.12987050000004,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.9021120277202,
+        "integrated_force_norm": 1072.9021120277202
+      }
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "linear",
+      "state": "zero",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "linear",
+      "state": "middle",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "linear",
+      "state": "one",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 0.0,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.4210854715202004e-14,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.4210854715202004e-14,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "forward",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.4210854715202004e-14,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.9020461632047,
+        "integrated_force_norm": 1072.9020461632047
+      }
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "physical_identity": "b20d13f88b1782b36b50393c1c0c6680f5c2321d8a45f245f72ce6b861d18f93",
+      "schedule": "softplus",
+      "state": "reverse",
+      "route": "upstream",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 3.1086244689504383e-15,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705,
+      "mask": {
+        "integration_mask": -2147483647,
+        "required_groups": [
+          0,
+          31
+        ],
+        "max_force_error_kJ_mol_nm": 0.0,
+        "full_force_norm": 1072.9096320227202,
+        "integrated_force_norm": 1072.9096320227202
+      }
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "schedule": "transition",
+      "state": "(1.0, 0.999)",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 5.762057497804562e-14,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "schedule": "transition",
+      "state": "(1.0, 1.0)",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 4.0523140398818214e-14,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "schedule": "transition",
+      "state": "(1.0, 1.001)",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.1368683772161603e-13,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "schedule": "transition",
+      "state": "(1.0, 1.7)",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 2.220446049250313e-15,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "schedule": "transition",
+      "state": "(1.0, 6.0)",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.1368683772161603e-13,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "schedule": "transition",
+      "state": "(-1.0, 0.999)",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 2.353672812205332e-14,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "schedule": "transition",
+      "state": "(-1.0, 1.0)",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 4.0523140398818214e-14,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "schedule": "transition",
+      "state": "(-1.0, 1.001)",
+      "route": "native",
+      "max_energy_error": 5.706546346573305e-14,
+      "max_force_component_error": 1.1368683772161603e-13,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "schedule": "transition",
+      "state": "(-1.0, 1.7)",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.1368683772161603e-13,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "schedule": "transition",
+      "state": "(-1.0, 6.0)",
+      "route": "native",
+      "max_energy_error": 5.684341886080802e-14,
+      "max_force_component_error": 1.1368683772161603e-13,
+      "outside": 1.49355,
+      "u0": 292.0822705,
+      "u1": 294.5266705
+    }
+  ],
+  "fd": [
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "abfe",
+      "steps_nm": [
+        0.001,
+        0.0001,
+        1e-05
+      ],
+      "max_component_errors": [
+        2.90878466735478e-06,
+        2.918233299453732e-08,
+        4.645244189305231e-09
+      ]
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "rbfe",
+      "steps_nm": [
+        0.001,
+        0.0001,
+        1e-05
+      ],
+      "max_component_errors": [
+        4.8019878140515e-07,
+        5.101486566516655e-09,
+        4.645357876142953e-09
+      ]
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "abfe",
+      "steps_nm": [
+        0.001,
+        0.0001,
+        1e-05
+      ],
+      "max_component_errors": [
+        8.553260177901478e-07,
+        8.756980696134065e-09,
+        7.487415132345632e-09
+      ]
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "rbfe",
+      "steps_nm": [
+        0.001,
+        0.0001,
+        1e-05
+      ],
+      "max_component_errors": [
+        1.2854697079012212e-06,
+        1.283082473602093e-08,
+        4.645244189305231e-09
+      ]
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "abfe",
+      "steps_nm": [
+        0.001,
+        0.0001,
+        1e-05
+      ],
+      "max_component_errors": [
+        2.90878466735478e-06,
+        2.918233299453732e-08,
+        4.645244189305231e-09
+      ]
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "rbfe",
+      "steps_nm": [
+        0.001,
+        0.0001,
+        1e-05
+      ],
+      "max_component_errors": [
+        4.8019878140515e-07,
+        5.101486566516655e-09,
+        4.645357876142953e-09
+      ]
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "abfe",
+      "steps_nm": [
+        0.001,
+        0.0001,
+        1e-05
+      ],
+      "max_component_errors": [
+        8.553260177901478e-07,
+        8.756980696134065e-09,
+        7.487415132345632e-09
+      ]
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "steps_nm": [
+        0.001,
+        0.0001,
+        1e-05
+      ],
+      "max_component_errors": [
+        1.2854697079012212e-06,
+        1.283082473602093e-08,
+        4.645244189305231e-09
+      ]
+    }
+  ],
+  "upstream_history": [
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "abfe",
+      "aba": true,
+      "mm_energy_change": 0.3311054999999783
+    },
+    {
+      "platform": "Reference",
+      "environment": false,
+      "kind": "rbfe",
+      "aba": true,
+      "mm_energy_change": 0.3311054999999783
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "abfe",
+      "aba": true,
+      "mm_energy_change": 0.5040855363289438
+    },
+    {
+      "platform": "Reference",
+      "environment": true,
+      "kind": "rbfe",
+      "aba": true,
+      "mm_energy_change": 0.4759828440353431
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "abfe",
+      "aba": true,
+      "mm_energy_change": 0.3311054999999783
+    },
+    {
+      "platform": "CPU",
+      "environment": false,
+      "kind": "rbfe",
+      "aba": true,
+      "mm_energy_change": 0.3311054999999783
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "abfe",
+      "aba": true,
+      "mm_energy_change": 0.5040855363289438
+    },
+    {
+      "platform": "CPU",
+      "environment": true,
+      "kind": "rbfe",
+      "aba": true,
+      "mm_energy_change": 0.4759828440353431
+    }
+  ],
+  "maximum_energy_error": 5.706546346573305e-14,
+  "maximum_force_error": 2.2737367544323206e-13,
+  "maximum_final_fd_error": 7.487415132345632e-09
+}
