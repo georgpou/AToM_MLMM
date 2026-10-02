@@ -1,0 +1,20 @@
+{
+  "fixture_id": "m02-seven-real-atoms-v1",
+  "description": "Abstract neutral connectivity and analytic springs; not a chemical reference.",
+  "real_ids": ["a2", "env", "a1", "b1", "protein", "b3", "b2"],
+  "positions_nm": [[0.2,0.1,-0.1],[0.5,-0.1,0.2],[0.4,0.3,0.1],[-0.2,0.1,0.3],[0.1,0.2,0.4],[0.0,0.5,-0.2],[0.2,-0.3,0.4]],
+  "masses_da": [1,16,12,12,12,1,1],
+  "displacement_nm": [0.1,-0.2,0.3],
+  "selected_particles": [2,0],
+  "spring_constants_kj_mol_nm2": [6,14],
+  "centers_nm": [[0.1,-0.1,0.2],[-0.2,0.2,0.0]],
+  "additional_harmonic_particles": [3,6,5],
+  "additional_spring_constants_kj_mol_nm2": [3,5,7],
+  "additional_centers_nm": [[0.05,-0.15,0.2],[0.2,0.1,0.0],[-0.2,0.0,0.1]],
+  "environment_pair": ["a1","env",10],
+  "outside_particles": [1,4],
+  "outside_spring_kj_mol_nm2": 9,
+  "outside_center_nm": [0.1,0.0,0.0],
+  "abfe_map1_nm": [[0.1,-0.2,0.3],[0,0,0],[0.1,-0.2,0.3],[0,0,0],[0,0,0],[0,0,0],[0,0,0]],
+  "rbfe_map1_nm": [[0.1,-0.2,0.3],[0,0,0],[0.1,-0.2,0.3],[-0.1,0.2,-0.3],[0,0,0],[-0.1,0.2,-0.3],[-0.1,0.2,-0.3]]
+}

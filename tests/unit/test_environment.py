@@ -3,11 +3,14 @@ import copy
 import functools
 import json
 from pathlib import Path
+import sys
 
 import pytest
 
 ROOT = Path(__file__).resolve().parents[2]
-SETUP = Path('/workspace/.onboarding/atom-mlmm')
+# The maintained installer supports a custom prefix. Keep all exact inventory
+# and source checks, but inspect the installation running this interpreter.
+SETUP = Path(sys.prefix).resolve().parent
 
 
 def test_required_apis_and_versions():

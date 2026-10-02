@@ -433,6 +433,192 @@ class EnergyForces(Record):
 
 
 @record
+class PhysicalBundle(Record):
+    """Sealed, trusted physical artifact; XML can contain executable callbacks.
+
+    JSON decoding is inert. Use the explicit trusted/hash-checked loader for
+    external artifacts. Runtime Systems/Contexts are separate mutable copies.
+    """
+    system_xml: str
+    system_sha256: str
+    topology: TopologyView
+    real_to_final: Mapping[str, int]
+    model_to_final: Mapping[str, int]
+    old_to_new: tuple[int, ...]
+    ml_atom_ids: tuple[str, ...]
+    masses_da: tuple[float, ...]
+    constraints: tuple[tuple[int, int, float], ...]
+    ledger: tuple['ForceRecord', ...]
+    manifest: Mapping[str, Any]
+    units: Units = Units()
+
+    def _validate(self):
+        if hashlib.sha256(self.system_xml.encode()).hexdigest() != self.system_sha256:
+            raise IdentityError('physical System digest mismatch')
+        ids = tuple(a.atom_id for a in self.topology.atoms)
+        _ids(self.ml_atom_ids)
+        if set(self.real_to_final) != set(ids):
+            raise IdentityError('real/final map must cover all real IDs')
+        indices = tuple(self.real_to_final[a] for a in ids)
+        if len(set(indices)) != len(indices) or any(i < 0 or i >= len(self.masses_da) for i in indices):
+            raise IdentityError('real/final map has duplicate or out-of-range index')
+        if indices != self.old_to_new:
+            raise IdentityError('real/final map must consume oldToNew explicitly')
+        if not set(self.ml_atom_ids) <= set(ids) or set(self.model_to_final) != set(self.ml_atom_ids):
+            raise IdentityError('model map must cover fixed real ML membership')
+        if any(self.model_to_final[a] != self.real_to_final[a] for a in self.ml_atom_ids):
+            raise IdentityError('model/final index map mismatch')
+        if not self.masses_da or any(m < 0 for m in self.masses_da):
+            raise MalformedInput('invalid final particle masses')
+        if any(self.masses_da[i] <= 0 for i in indices):
+            raise MalformedInput('real particle mass must be positive')
+        if not self.ledger or not self.manifest:
+            raise MalformedInput('physical ledger and manifest required')
+
+
+@record
+class TransferDefinition(Record):
+    physical_identity: str
+    protocol: ProtocolSpec
+    displacement0_nm: tuple[tuple[float, float, float], ...]
+    displacement1_nm: tuple[tuple[float, float, float], ...]
+    final_particle_count: int
+    convention: str = 'fixed_translation'
+
+    def _validate(self):
+        _required(self.physical_identity)
+        if self.convention != 'fixed_translation':
+            raise UnsupportedCapability('only fixed translation maps admitted')
+        if self.final_particle_count <= 0 or len(self.displacement0_nm) != self.final_particle_count or len(self.displacement1_nm) != self.final_particle_count:
+            raise IdentityError('both maps must cover every final particle')
+
+
+@record
+class ScheduleState(Record):
+    state_id: str
+    parameters: Mapping[str, float]
+
+    def _validate(self):
+        _required(self.state_id)
+        if not self.parameters:
+            raise MalformedInput('complete schedule parameters required')
+
+
+@record
+class ScheduleSpec(Record):
+    kind: str
+    expression: str
+    states: tuple[ScheduleState, ...]
+    parameter_units: Mapping[str, str]
+    temperature_K: float
+
+    def _validate(self):
+        _required(self.kind, self.expression)
+        _ids(tuple(s.state_id for s in self.states))
+        if self.temperature_K <= 0:
+            raise MalformedInput('schedule temperature must be positive')
+        if any(set(s.parameters) != set(self.parameter_units) for s in self.states):
+            raise MalformedInput('schedule parameters/units must be complete')
+
+
+@record
+class RestraintSpec(Record):
+    restraint_id: str
+    atom_ids: tuple[str, ...]
+    spring_kj_mol_nm2: float
+    center_nm: tuple[float, float, float]
+    ownership: str = 'outside'
+    domain: str = 'analytic_unbounded'
+    orientation_convention: str = 'lab_frame'
+    correction_obligations: tuple[str, ...] = ()
+
+    def _validate(self):
+        _required(self.restraint_id, self.domain, self.orientation_convention)
+        _ids(self.atom_ids)
+        if self.ownership != 'outside' or self.domain != 'analytic_unbounded' or self.orientation_convention != 'lab_frame':
+            raise UnsupportedCapability('only declared outside analytic harmonic restraints admitted')
+        if self.spring_kj_mol_nm2 < 0 or self.correction_obligations:
+            raise UnsupportedCapability('analytic restraint is not a binding/correction definition')
+
+
+@record
+class ForceOwnership(Record):
+    force_id: str
+    class_name: str
+    name: str
+    disposition: str
+    force_group: int
+    path: tuple[int, ...]
+    force_sha256: str
+
+    def _validate(self):
+        _required(self.force_id, self.class_name, self.name)
+        if self.disposition not in ('physical_child', 'outside') or not 0 <= self.force_group <= 31 or not self.path:
+            raise MalformedInput('invalid force ownership/disposition/path')
+
+
+RAW_ATM_FIELDS = ('u0_raw_kJ_mol', 'u1_raw_kJ_mol', 'delta_u_raw_kJ_mol',
+                  'delta_u_softcore_kJ_mol', 'atm_expression_energy_kJ_mol',
+                  'outside_energy_kJ_mol', 'system_total_energy_kJ_mol')
+
+
+@record
+class AlchemicalBundle(Record):
+    physical: PhysicalBundle
+    transfer: TransferDefinition
+    schedule: ScheduleSpec
+    restraints: RestraintSpec
+    system_xml: str
+    system_sha256: str
+    routing_report: tuple[ForceOwnership, ...]
+    construction: str = 'native'
+    raw_observable_schema: tuple[str, ...] = RAW_ATM_FIELDS
+
+    def _validate(self):
+        if hashlib.sha256(self.system_xml.encode()).hexdigest() != self.system_sha256:
+            raise IdentityError('ATM System digest mismatch')
+        if self.transfer.physical_identity != self.physical.content_identity:
+            raise IdentityError('transfer belongs to a different physical identity')
+        if self.transfer.final_particle_count != len(self.physical.masses_da):
+            raise IdentityError('transfer/final particle count mismatch')
+        if not self.routing_report or self.raw_observable_schema != RAW_ATM_FIELDS:
+            raise MalformedInput('complete routing/raw-observable schema required')
+
+
+@record
+class RawAtmEnergies(Record):
+    u0_raw_kJ_mol: float
+    u1_raw_kJ_mol: float
+    delta_u_raw_kJ_mol: float
+    delta_u_softcore_kJ_mol: float
+    atm_expression_energy_kJ_mol: float
+    outside_energy_kJ_mol: float
+    system_total_energy_kJ_mol: float
+
+    def _validate(self):
+        if not math.isclose(self.delta_u_raw_kJ_mol, self.u1_raw_kJ_mol-self.u0_raw_kJ_mol, rel_tol=0, abs_tol=1e-8):
+            raise IdentityError('raw perturbation is u1-u0')
+        if not math.isclose(self.system_total_energy_kJ_mol, self.atm_expression_energy_kJ_mol+self.outside_energy_kJ_mol, rel_tol=0, abs_tol=1e-8):
+            raise IdentityError('total must include the outside energy exactly once')
+
+
+@record
+class AtmEvaluation(Record):
+    total: EnergyForces
+    raw: RawAtmEnergies
+    state_id: str
+    transfer_identity: str
+    schedule_identity: str
+    restraint_identity: str
+    parameters: Mapping[str, float]
+
+    def _validate(self):
+        _required(self.state_id, self.transfer_identity, self.schedule_identity, self.restraint_identity)
+        if self.total.energy_kj_mol != self.raw.system_total_energy_kJ_mol:
+            raise IdentityError('ATM total/raw result mismatch')
+
+
+@record
 class ValidationReport(Record):
     check_id: str
     requirement_ids: tuple[str, ...]
