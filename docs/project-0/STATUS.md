@@ -1,8 +1,11 @@
 # Current status
 
-G05 on the same child `m03-reference-g05` is **ready_for_review** for closure of
-the three recovery findings from the user-selected **GPT-6.1 Sol / MAX reasoning**
-[v4 audit](../../Worker_Log/Milestone_03/Gate_05_v4_audit.md). The user explicitly
+G05 on the same child `m03-reference-g05` is **changes_required** after the
+focused [v5 closure audit](../../Worker_Log/Milestone_03/Gate_05_v5_audit.md).
+**R1 and R3 are closed**; R2 remains open for unexpected supervisor loss while
+the coordinator survives. A synthetic reference child remains live during later
+scheduling. Whole-group cleanup must precede receipt/promotion/scratch cleanup
+and any later launch. The user explicitly
 approved their repair and publication of this branch. Repair source is
 `64bba6e54c0bea4e7c48925913d7b06f242d58af`, recorded in the
 [v5 worker](../../Worker_Log/Milestone_03/Gate_05_v5_worker.md).

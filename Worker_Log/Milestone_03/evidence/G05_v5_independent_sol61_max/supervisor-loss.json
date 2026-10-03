@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "Worker_Log/Milestone_03/evidence/G05_v5_independent_sol61_max/test_supervisor_loss.py",
+    "-v",
+    "--tb=short"
+  ],
+  "cwd": "/workspace/AToM_MLMM-m03-reference-g05",
+  "started_utc": "2026-10-03T21:01:06.946325+00:00",
+  "finished_utc": "2026-10-03T21:01:10.400946+00:00",
+  "elapsed_seconds": 3.4546218830000726,
+  "exit_code": 1
+}

@@ -1,0 +1,39 @@
+{
+  "started_utc": "2026-10-03T20:57:46.915624+00:00",
+  "reviewer_model": "gpt-6.1-sol",
+  "reasoning_effort": "max",
+  "fresh_context_v4_audit": true,
+  "closure_continues_same_independent_reviewer": true,
+  "head": "1e71fd6d281f5dfa144e7e7718b97170ce2d6d3f",
+  "source_commit": "64bba6e54c0bea4e7c48925913d7b06f242d58af",
+  "base_commit": "439314ba2b306651de2947f914f4cdda44e6dbae",
+  "scientific_data_commit": "a99a4448f14386e79c1546dd32fd83a33b9ac424",
+  "initial_clean": true,
+  "source_hashes": {
+    "tools/generate_neutral_quantum.py": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff",
+    "tools/resume_neutral_quantum.py": "fdcfe7b8dd4f576b555dc26db3ab1c1c274d9407d0ee327eaeffae9690f7c6ff",
+    "tools/quantum_worker_guard.py": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030",
+    "tests/unit/test_quantum_recovery.py": "d64e9b5a67725f03989656f149b47348c7bec60b8bdd53443584208203c43037",
+    "tests/unit/test_quantum_interruptions.py": "517a88ed32db57221d300e81ad219749e01b38b4542629fcb6b338aa5b8ed8a1"
+  },
+  "head_documentation_only_paths": [
+    "Worker_Log/Milestone_03/Gate_05_v5_worker.md",
+    "Worker_Log/Milestone_03/evidence/G05_v5/R1-green.log",
+    "Worker_Log/Milestone_03/evidence/G05_v5/R1-red.log",
+    "Worker_Log/Milestone_03/evidence/G05_v5/R2-R3-red.log",
+    "Worker_Log/Milestone_03/evidence/G05_v5/R2-green.log",
+    "Worker_Log/Milestone_03/evidence/G05_v5/R2-red-v2.log",
+    "Worker_Log/Milestone_03/evidence/G05_v5/R3-green.log",
+    "Worker_Log/Milestone_03/evidence/G05_v5/R3-legacy-red.log",
+    "Worker_Log/Milestone_03/evidence/G05_v5/check_preservation.py",
+    "Worker_Log/Milestone_03/evidence/G05_v5/docs-final.log",
+    "Worker_Log/Milestone_03/evidence/G05_v5/full-source.log",
+    "Worker_Log/Milestone_03/evidence/G05_v5/recovery-all-green.log",
+    "Worker_Log/Milestone_03/evidence/G05_v5/reference-preservation.json",
+    "Worker_Log/Milestone_03/evidence/G05_v5/snapshot.json",
+    "Worker_Log/Milestone_03/evidence/G05_v5/strict-environment.log",
+    "docs/project-0/STATUS.md"
+  ],
+  "no_qm_calculations": true,
+  "no_implementation_commit_publication": true
+}

@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/unit/test_quantum_recovery.py",
+    "tests/unit/test_quantum_interruptions.py",
+    "-v"
+  ],
+  "cwd": "/workspace/AToM_MLMM-m03-reference-g05",
+  "started_utc": "2026-10-03T20:57:46.953128+00:00",
+  "finished_utc": "2026-10-03T20:59:19.842704+00:00",
+  "elapsed_seconds": 92.88957475200004,
+  "exit_code": 0
+}

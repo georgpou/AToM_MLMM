@@ -1,0 +1,19 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/atom-mlmm-g05-v2/env/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/AToM_MLMM-m03-reference-g05
+configfile: pytest.ini
+plugins: cov-7.1.0, platformdirs-4.12.2, anyio-4.15.1
+collecting ... collected 1 item
+
+Worker_Log/Milestone_03/evidence/G05_v5_independent_sol61_max/test_supervisor_loss.py::test_coordinator_cleans_remaining_group_when_supervisor_is_killed FAILED [100%]
+
+=================================== FAILURES ===================================
+______ test_coordinator_cleans_remaining_group_when_supervisor_is_killed _______
+Worker_Log/Milestone_03/evidence/G05_v5_independent_sol61_max/test_supervisor_loss.py:63: in test_coordinator_cleans_remaining_group_when_supervisor_is_killed
+    assert not subsequent['old_reference_child_live_at_next_launch'], 'Coordinator scheduled another job while the previous reference child remained live'
+E   AssertionError: Coordinator scheduled another job while the previous reference child remained live
+E   assert not True
+=========================== short test summary info ============================
+FAILED Worker_Log/Milestone_03/evidence/G05_v5_independent_sol61_max/test_supervisor_loss.py::test_coordinator_cleans_remaining_group_when_supervisor_is_killed
+============================== 1 failed in 3.17s ===============================
