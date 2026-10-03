@@ -1,0 +1,29 @@
+{
+  "recorded_utc": "2026-10-03T21:33:37.972121+00:00",
+  "remote_url": "https://github.com/georgpou/AToM_MLMM.git",
+  "remote_ref": "refs/heads/m03-reference-g05",
+  "published_acceptance_commit": "bb2987f20e31c14543f452b56b7108d1190d0ea3",
+  "previous_remote_commit": "4bb2547684cb9a40de1d65819dfe0cbcae145249",
+  "push_argv": [
+    "git",
+    "push",
+    "origin",
+    "HEAD:refs/heads/m03-reference-g05"
+  ],
+  "push_exit_code": 0,
+  "push_result": "4bb2547..bb2987f HEAD -> m03-reference-g05",
+  "verification_argv": [
+    "git",
+    "ls-remote",
+    "origin",
+    "refs/heads/m03-reference-g05"
+  ],
+  "verification_exit_code": 0,
+  "verified_remote_commit": "bb2987f20e31c14543f452b56b7108d1190d0ea3",
+  "publication": "normal fast-forward; only the authorized working branch",
+  "main_commit_unchanged": "2d7bcc94f901738e39f536f16de84699d4e8d631",
+  "repair_source_commit": "ac414dcb4a5f401312616f08faa17ece5ea35e9e",
+  "independently_reviewed_snapshot": "ca12e023f6a6e67321fafd4af642c0975041d7f6",
+  "subsequent_reporting_commit": "This receipt and the publication STATUS update are committed after the verified acceptance push; final remote HEAD is verified after publishing that metadata-only commit.",
+  "qm_reexecuted": false
+}
