@@ -1,0 +1,130 @@
+........................................................................ [ 24%]
+................................................................FF...... [ 48%]
+........................................................................ [ 73%]
+........................................................................ [ 97%]
+......                                                                   [100%]
+=================================== FAILURES ===================================
+____________________ test_exact_capped_conformer_reference _____________________
+
+root = PosixPath('/workspace/AToM_MLMM-m03-reference-g05/fixtures/chemical_reference_v3')
+
+    def load_references(root):
+        """Missing/failed data raise before a learned-model comparison can run."""
+        root=Path(root)
+        try:
+            inputs=json.loads((root/'input-manifest.json').read_text())
+>           manifest=json.loads((root/'quantum/manifest.json').read_text())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src/atm_mlmm/chemical_reference.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../atom-mlmm-g05-v2/env/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/workspace/AToM_MLMM-m03-reference-g05/fixtures/chemical_reference_v3/quantum/manifest.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/workspace/AToM_MLMM-m03-reference-g05/fixtures/chemical_reference_v3/quantum/manifest.json'
+
+../atom-mlmm-g05-v2/env/lib/python3.11/pathlib.py:1044: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    def test_exact_capped_conformer_reference():
+        # This check must fail closed before evaluating any model if data/decisions
+        # are missing. A toy or native/adapter agreement cannot satisfy it.
+>       settings,references=load_references(ROOT)
+                            ^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_chemical_reference.py:81: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/workspace/AToM_MLMM-m03-reference-g05/fixtures/chemical_reference_v3')
+
+    def load_references(root):
+        """Missing/failed data raise before a learned-model comparison can run."""
+        root=Path(root)
+        try:
+            inputs=json.loads((root/'input-manifest.json').read_text())
+            manifest=json.loads((root/'quantum/manifest.json').read_text())
+            settings=json.loads((root/'reference-settings.json').read_text())
+        except (OSError,ValueError) as exc:
+>           raise IdentityError('reviewed quantum reference data are absent or malformed; G05-T4 pending') from exc
+E           atm_mlmm.schema.IdentityError: reviewed quantum reference data are absent or malformed; G05-T4 pending
+
+src/atm_mlmm/chemical_reference.py:36: IdentityError
+________________________ test_frozen_contact_reference _________________________
+
+root = PosixPath('/workspace/AToM_MLMM-m03-reference-g05/fixtures/chemical_reference_v3')
+
+    def load_references(root):
+        """Missing/failed data raise before a learned-model comparison can run."""
+        root=Path(root)
+        try:
+            inputs=json.loads((root/'input-manifest.json').read_text())
+>           manifest=json.loads((root/'quantum/manifest.json').read_text())
+                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+src/atm_mlmm/chemical_reference.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../atom-mlmm-g05-v2/env/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/workspace/AToM_MLMM-m03-reference-g05/fixtures/chemical_reference_v3/quantum/manifest.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/workspace/AToM_MLMM-m03-reference-g05/fixtures/chemical_reference_v3/quantum/manifest.json'
+
+../atom-mlmm-g05-v2/env/lib/python3.11/pathlib.py:1044: FileNotFoundError
+
+The above exception was the direct cause of the following exception:
+
+    def test_frozen_contact_reference():
+>       settings,references=load_references(ROOT)
+                            ^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_chemical_reference.py:105: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+root = PosixPath('/workspace/AToM_MLMM-m03-reference-g05/fixtures/chemical_reference_v3')
+
+    def load_references(root):
+        """Missing/failed data raise before a learned-model comparison can run."""
+        root=Path(root)
+        try:
+            inputs=json.loads((root/'input-manifest.json').read_text())
+            manifest=json.loads((root/'quantum/manifest.json').read_text())
+            settings=json.loads((root/'reference-settings.json').read_text())
+        except (OSError,ValueError) as exc:
+>           raise IdentityError('reviewed quantum reference data are absent or malformed; G05-T4 pending') from exc
+E           atm_mlmm.schema.IdentityError: reviewed quantum reference data are absent or malformed; G05-T4 pending
+
+src/atm_mlmm/chemical_reference.py:36: IdentityError
+=========================== short test summary info ============================
+FAILED tests/integration/test_chemical_reference.py::test_exact_capped_conformer_reference
+FAILED tests/integration/test_chemical_reference.py::test_frozen_contact_reference
+2 failed, 292 passed in 158.03s (0:02:38)

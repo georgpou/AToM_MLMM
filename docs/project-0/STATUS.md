@@ -1,5 +1,17 @@
 # Current status
 
+The resumed assignment recovered published `4bb2547` on the same
+`m03-reference-g05` child in a fresh machine. The locked environments are
+rebuilt, the eight saved references and 46 frozen input hashes match, and the
+new recovery runner passes 18 focused software checks. It preserves original
+attempts, checkpoints progress, tracks RSS/cgroup/scratch and charges prior
+launch-to-stop time (2350.09535 s) against the approved 12-hour limit. A 3 GiB
+runtime allocation stays under the unchanged 5 GiB cap. Final prelaunch source
+checks passed 310 cases; only the two absent-quantum chemical checks failed.
+Strict environment validation passed 9/9; 38 actual QM jobs remain. The user explicitly deferred
+independent audit and requested no Astra/high reviewer. See
+[continuation worker](../../Worker_Log/Milestone_03/Gate_05_v4_worker.md).
+
 The child `m03-reference-g05` continues exact published G04 handoff
 `bc788aeeedb4dc45026ac1bff44bd4fb533b325a`. G00-T2/G05-T1 loading checks and
 16 independent real-model adapter/locality/domain/reload cases pass; current G05 work

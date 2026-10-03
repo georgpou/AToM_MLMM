@@ -1,0 +1,88 @@
+FFFF...FF                                                                [100%]
+=================================== FAILURES ===================================
+______ test_frozen_partial_check_schedules_only_38_and_preserves_history _______
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_frozen_partial_check_sche0')
+
+    def test_frozen_partial_check_schedules_only_38_and_preserves_history(tmp_path):
+        originals = {p: sha(p) for p in (HISTORY / 'quantum-attempt-v1').rglob('*') if p.is_file()}
+        result = subprocess.run(command(output=tmp_path / 'output',
+                               extra=historic_args() + ['--check-resume']), capture_output=True, text=True)
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: /workspace/atom-mlmm-g05-v2/env/bin/python: can't open file '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py': [Errno 2] No such file or directory
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/workspace/atom-mlmm-g05-v2/env/bin/python', '/workspace/AToM_MLMM-m03-reference-g05/tools/res... file '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py': [Errno 2] No such file or directory\n").returncode
+
+tests/unit/test_quantum_recovery.py:42: AssertionError
+_ test_completed_bundle_has_exact_names_runtime_allocation_and_durable_receipts _
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-2/test_completed_bundle_has_exac0/plan'), PosixPath('/tmp/pytest-of-agent/pyte...le_has_exac0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-2/test_completed_bundle_has_exac0/output'))
+
+    def test_completed_bundle_has_exact_names_runtime_allocation_and_durable_receipts(synthetic):
+        result = run_synthetic(synthetic)
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: /workspace/atom-mlmm-g05-v2/env/bin/python: can't open file '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py': [Errno 2] No such file or directory
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/workspace/atom-mlmm-g05-v2/env/bin/python', '/workspace/AToM_MLMM-m03-reference-g05/tools/res... file '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py': [Errno 2] No such file or directory\n").returncode
+
+tests/unit/test_quantum_recovery.py:116: AssertionError
+__ test_retry_reuses_successes_keeps_failed_attempt_and_debits_previous_time ___
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-2/test_retry_reuses_successes_ke0/plan'), PosixPath('/tmp/pytest-of-agent/pyte...uccesses_ke0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-2/test_retry_reuses_successes_ke0/output'))
+
+    def test_retry_reuses_successes_keeps_failed_attempt_and_debits_previous_time(synthetic):
+        failed = run_synthetic(synthetic, mode='fail')
+>       assert failed.returncode == 1, failed.stderr
+E       AssertionError: /workspace/atom-mlmm-g05-v2/env/bin/python: can't open file '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py': [Errno 2] No such file or directory
+E         
+E       assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['/workspace/atom-mlmm-g05-v2/env/bin/python', '/workspace/AToM_MLMM-m03-reference-g05/tools/res... file '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py': [Errno 2] No such file or directory\n").returncode
+
+tests/unit/test_quantum_recovery.py:134: AssertionError
+_______________ test_tampered_reused_record_blocks_before_launch _______________
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-2/test_tampered_reused_record_bl0/plan'), PosixPath('/tmp/pytest-of-agent/pyte...d_record_bl0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-2/test_tampered_reused_record_bl0/output'))
+
+    def test_tampered_reused_record_blocks_before_launch(synthetic):
+>       assert run_synthetic(synthetic).returncode == 0
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/workspace/atom-mlmm-g05-v2/env/bin/python', '/workspace/AToM_MLMM-m03-reference-g05/tools/res... file '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py': [Errno 2] No such file or directory\n").returncode
+E        +    where CompletedProcess(args=['/workspace/atom-mlmm-g05-v2/env/bin/python', '/workspace/AToM_MLMM-m03-reference-g05/tools/res... file '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py': [Errno 2] No such file or directory\n") = run_synthetic((PosixPath('/tmp/pytest-of-agent/pytest-2/test_tampered_reused_record_bl0/plan'), PosixPath('/tmp/pytest-of-agent/pyte...d_record_bl0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-2/test_tampered_reused_record_bl0/output')))
+
+tests/unit/test_quantum_recovery.py:148: AssertionError
+________ test_exhausted_budget_does_not_create_ready_manifest_or_launch ________
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-2/test_exhausted_budget_does_not0/plan'), PosixPath('/tmp/pytest-of-agent/pyte...et_does_not0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-2/test_exhausted_budget_does_not0/output'))
+
+    def test_exhausted_budget_does_not_create_ready_manifest_or_launch(synthetic):
+        result = run_synthetic(synthetic, ['--wall-limit-seconds', '0.01'])
+>       assert result.returncode == 1, result.stderr
+E       AssertionError: /workspace/atom-mlmm-g05-v2/env/bin/python: can't open file '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py': [Errno 2] No such file or directory
+E         
+E       assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['/workspace/atom-mlmm-g05-v2/env/bin/python', '/workspace/AToM_MLMM-m03-reference-g05/tools/res... file '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py': [Errno 2] No such file or directory\n").returncode
+
+tests/unit/test_quantum_recovery.py:166: AssertionError
+______ test_timeout_terminates_worker_process_group_and_preserves_receipt ______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-2/test_timeout_terminates_worker0/plan'), PosixPath('/tmp/pytest-of-agent/pyte...ates_worker0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-2/test_timeout_terminates_worker0/output'))
+
+    def test_timeout_terminates_worker_process_group_and_preserves_receipt(synthetic):
+        result = run_synthetic(synthetic, ['--wall-limit-seconds', '0.3'], mode='timeout')
+>       assert result.returncode == 1, result.stderr
+E       AssertionError: /workspace/atom-mlmm-g05-v2/env/bin/python: can't open file '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py': [Errno 2] No such file or directory
+E         
+E       assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['/workspace/atom-mlmm-g05-v2/env/bin/python', '/workspace/AToM_MLMM-m03-reference-g05/tools/res... file '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py': [Errno 2] No such file or directory\n").returncode
+
+tests/unit/test_quantum_recovery.py:174: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_quantum_recovery.py::test_frozen_partial_check_schedules_only_38_and_preserves_history
+FAILED tests/unit/test_quantum_recovery.py::test_completed_bundle_has_exact_names_runtime_allocation_and_durable_receipts
+FAILED tests/unit/test_quantum_recovery.py::test_retry_reuses_successes_keeps_failed_attempt_and_debits_previous_time
+FAILED tests/unit/test_quantum_recovery.py::test_tampered_reused_record_blocks_before_launch
+FAILED tests/unit/test_quantum_recovery.py::test_exhausted_budget_does_not_create_ready_manifest_or_launch
+FAILED tests/unit/test_quantum_recovery.py::test_timeout_terminates_worker_process_group_and_preserves_receipt
+6 failed, 3 passed in 0.64s

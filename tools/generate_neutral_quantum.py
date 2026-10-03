@@ -9,6 +9,7 @@ import datetime
 import hashlib
 import json
 from pathlib import Path
+import resource
 import subprocess
 import sys
 import time
@@ -50,8 +51,12 @@ def worker(order_path):
         import psi4
         data=order['structure'];settings=order['settings']
         if psi4.__version__!='1.10.2':raise ValueError('unexpected Psi4 reference version')
-        psi4.set_num_threads(2);psi4.set_memory('5 GiB')
-        psi4.core.IOManager.shared_object().set_default_path(str(output.parent))
+        runtime_memory=order.get('runtime_memory','5 GiB')
+        memory_value,memory_unit=runtime_memory.split()
+        if memory_unit!='GiB' or not np.isfinite(float(memory_value)) or not 0<float(memory_value)<=5:
+            raise ValueError('runtime memory exceeds the approved 5 GiB cap')
+        psi4.set_num_threads(2);psi4.set_memory(runtime_memory)
+        psi4.core.IOManager.shared_object().set_default_path(order.get('scratch_directory',str(output.parent)))
         psi4.set_output_file(str(output.with_suffix('.psi4.txt')),False)
         psi4.set_options(settings)
         lines=['0 1']+[e+' '+' '.join(format(float(v),'.17g') for v in xyz)
@@ -72,13 +77,15 @@ def worker(order_path):
             value=digest(Path(psi4.core.get_datadir())/'basis'/name)
             if value!=expected:raise ValueError('reference basis digest mismatch: '+name)
             basis[name]=value
-        record={'status':'computed','name':data['name'],'source_input_sha256':order['source_input_sha256'],
+        record={'status':'computed','name':order.get('job_name',data['name']),'source_input_sha256':order['source_input_sha256'],
                 'method':'wb97m-d3bj/def2-tzvppd','psi4_version':psi4.__version__,
                 'formal_charge':0,'multiplicity':1,'positions_angstrom':data['positions_angstrom'],
                 'atomic_numbers':data['atomic_numbers'],'energy_hartree':e,
                 'gradient_hartree_bohr':g.tolist(),'quantum_energy_variables':variables,
                 'basis_file_sha256':basis,'settings':settings,'network_denied':True,
-                'wall_seconds':time.monotonic()-started,'threads':2,'memory':'5 GiB'}
+                'wall_seconds':time.monotonic()-started,'threads':2,'memory':runtime_memory,
+                'peak_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,
+                'completed_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()}
         dump(output,record);print(json.dumps({'name':data['name'],'status':'computed','wall_seconds':record['wall_seconds']}))
         return 0
     except Exception as error:
