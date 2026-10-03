@@ -1,0 +1,27 @@
+{
+  "recorded_utc": "2026-10-03T11:14:53.108788+00:00",
+  "full_staged_check_exit": 2,
+  "full_check_diagnostic_count": 1076,
+  "affected_files": [
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1/records/acetamide--20.psi4.txt",
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1/records/acetamide-0.psi4.txt",
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1/records/acetamide-20.psi4.txt",
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1/records/butane--60.psi4.txt",
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1/records/butane-120.psi4.txt",
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1/records/butane-180.psi4.txt",
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1/records/butane-60.psi4.txt",
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1/records/butane-acetamide-d3.4-r0.psi4.txt"
+  ],
+  "interpretation": "Only byte-preserved raw quantum outputs have formatting diagnostics; raw evidence was not edited.",
+  "authored_files_check_command": [
+    "git",
+    "diff",
+    "--cached",
+    "--check",
+    "--",
+    ".",
+    ":(exclude)Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1/**"
+  ],
+  "authored_files_check_exit": 0,
+  "authored_files_check_output": ""
+}

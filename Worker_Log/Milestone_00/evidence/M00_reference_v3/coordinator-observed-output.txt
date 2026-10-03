@@ -1,0 +1,7 @@
+acetamide--20 exit 0
+acetamide-0 exit 0
+acetamide-20 exit 0
+butane--60 exit 0
+butane-120 exit 0
+butane-180 exit 0
+butane-60 exit 0

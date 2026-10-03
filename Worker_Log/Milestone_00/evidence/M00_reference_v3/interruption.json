@@ -1,0 +1,22 @@
+{
+  "scope": "User-requested pause and fresh-session handoff; no recovery attempt launched",
+  "user_instruction": "You can stop here and make a handout for the next agent to continue from where you left at this branch. Also let me know which calculations have finished, which ones are left, what is the possible reason for the last calculation to lowe connedtion and whether we are good on storage and RAM for these calculations to take place in the cloud",
+  "execution_session_id": 34246,
+  "observed_transport_error": "write_stdin failed: Unified exec process failed: exec-server transport disconnected; failed to resume exec-server session: recovery timed out after 25s",
+  "coordinator_output": "coordinator-observed-output.txt",
+  "observed_coordinator_exit_zero_receipts": 7,
+  "saved_computed_records": 8,
+  "last_saved_record": "butane-acetamide-d3.4-r0",
+  "last_worker_launcher_computed_receipt_present": true,
+  "last_worker_coordinator_exit_receipt_observed": false,
+  "last_worker_psi4_log_finished_utc": "2026-10-03T10:50:02+00:00",
+  "coordinator_manifest_saved": false,
+  "full_batch_ready_for_comparison": false,
+  "model_versus_quantum_comparison_performed": false,
+  "cause_established": false,
+  "possible_causes": [
+    "Execution transport/infrastructure interruption",
+    "Memory pressure: container-lifetime high-water reached its 8 GiB cap; timing and responsible process were not captured"
+  ],
+  "evidence_limits": "No cgroup OOM or OOM-kill event recorded. Memory high-water is not job-specific. The final worker wrote a complete computed record and launcher receipt. This does not prove the transport failure was caused by RAM or a failed SCF."
+}

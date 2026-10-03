@@ -30,15 +30,27 @@ verdict. A fresh-context Astra/high reviewer completed the exact software
 snapshot `a7768e375476667139db374dc0091999263a37de`, accepting G00-T2 and the
 six G05 software assertions; the [G05 v1 audit](../../Worker_Log/Milestone_03/Gate_05_v1_audit.md)
 leaves T4 readiness changes_required for approval-plan binding. Quantum-only
-target generation is running from committed `3124c6d275bf19a32ce364dfdb83b11115828ac5`;
-model-versus-quantum comparison has not started. Its prepared-reference importer finding is repaired with a
+target generation from committed `3124c6d275bf19a32ce364dfdb83b11115828ac5`
+is **paused at the user's request after execution transport loss**. Eight
+energy/gradient targets are saved and verified (three acetamides, four butanes,
+one butane/acetamide contact); **38 jobs remain**: seven isolated targets,
+19 contacts, ten rotations and two finer-grid checks. No coordinator manifest
+was saved and no active quantum process was visible at checkpoint. The last
+contact saved a complete record despite the missing coordinator receipt;
+the cause of disconnection is unknown. Disk has about 14.28 GiB free;
+the 8-GiB container RAM high-water reached its cap without a recorded OOM kill,
+so resume needs measured memory headroom and durable progress/reuse support.
+Model-versus-quantum comparison has not started. Its prepared-reference importer finding is repaired with a
 six-case RED/GREEN rejection regression; [v2 worker](../../Worker_Log/Milestone_03/Gate_05_v2_worker.md)
 records the repair. The [v2 Astra/high audit](../../Worker_Log/Milestone_03/Gate_05_v2_audit.md)
 closes G05-v1-R1 and accepts prepared-loading readiness on exact `3124c6d`:
 ten focused passes, one independent synthetic positive and 29 rejections,
 270 matched source/input hashes. This is not chemical or full-G05 acceptance.
-[Continuation](handoffs/M03-G05-continuation.md) records the
-remaining reference and qualification steps. Inherited acceptance below is unchanged.
+[Fresh-session handoff](handoffs/M03-G05-fresh-session.md),
+[pause worker](../../Worker_Log/Milestone_03/Gate_05_v3_worker.md) and
+[checkpoint evidence](../../Worker_Log/Milestone_00/evidence/M00_reference_v3/README.md)
+record remaining work. Reuse this same branch; do not rerun the non-resumable
+generator blindly. Inherited acceptance below is unchanged.
 
 G04 is independently **accepted_for_scope** on child `m03-link-boundary` for `core-analytic-cpu`, nonperiodic Reference/CPU. The actual fresh-context **gpt-6-astra / high** reviewer accepted **G04-T1/T2/T3 and all seven stable assertions** on exact frozen submission `35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a`, carrying tested source/input commit `55df6a7d25e7a4de607a13b7d87c327feddecb34`. The [G04 v1 audit](../../Worker_Log/Milestone_03/Gate_04_v1_audit.md) and [independent evidence](../../Worker_Log/Milestone_03/evidence/G04_v1_independent_r2/README.md) record the complete decision. [Acceptance](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/acceptance.json) covers seven checks/seven requirements; [closure evidence](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/README.md) preserves the exact reviewed source and submitted worker evidence.
 
@@ -60,7 +72,16 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-Analytic G04 continuation is complete. [G05](gates/G05-local-model-adapter.md) follows with its approved model-asset/loading prerequisites and checkpoint-specific native/adapter qualification; M00 must predeclare and independently review exact physical-reference choices before G05/G07 chemical comparisons. [G06](gates/G06-periodicity-and-interaction-ledger.md) then qualifies periodic geometry/interaction accounting under its actual prerequisites, and [G07](gates/G07-joint-cavity-ligand-atm.md) supplies combined M03 closure. [G08](gates/G08-thermodynamics-and-estimators.md) is a separate M04 analysis path under accepted G02/G03 prerequisites. Follow the [post-G04 handoff](handoffs/M03-after-G04.md). Molecular, chemical/protein, GPU/full-model, periodic/actual electrostatic and full workflow qualification remain deferred. The [original M02 handoff](handoffs/M02-implementation-and-audit.md) remains historical provenance.
+Resume [G05](gates/G05-local-model-adapter.md) using the
+[same-branch fresh-session handoff](handoffs/M03-G05-fresh-session.md).
+Its approved M00 choices and software reviews persist; validated recovery,
+38 remaining references, numerical controls, actual chemical comparisons and
+full independent G05 review are still required. [G06](gates/G06-periodicity-and-interaction-ledger.md)
+then qualifies periodic geometry/interaction accounting under its actual
+prerequisites, and [G07](gates/G07-joint-cavity-ligand-atm.md) supplies combined
+M03 closure. [G08](gates/G08-thermodynamics-and-estimators.md) is a separate M04
+analysis path. Molecular/protein, GPU, periodic/electrostatic and full-workflow
+qualification remain deferred.
 
 | Scientific scope | Status | Next condition |
 |---|---|---|

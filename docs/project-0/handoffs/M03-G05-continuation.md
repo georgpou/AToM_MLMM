@@ -1,4 +1,9 @@
-# M03 G05 continuation: approved plan, quantum generation and pending full audit
+# M03 G05 continuation: paused references and pending full audit
+
+The user requested a stop and fresh-session handoff on 2026-10-03.
+[Fresh-session handoff](M03-G05-fresh-session.md) is now the starting point.
+Reuse this same branch. Eight exact energy/gradient records are saved;
+38 calculations remain. No old quantum process was visible at checkpoint.
 
 Start from child `m03-reference-g05`, descended from exact accepted published
 G04 handoff `bc788aeeedb4dc45026ac1bff44bd4fb533b325a`. Preserve main,
@@ -33,7 +38,7 @@ The first software reviewer was interrupted for the user's quota pause after
 saving full/analytic/environment captures; it supplied no verdict. On 2026-10-03
 the user resumed the assignment. All 269 source/input hashes and all 105 separate
 reference-package lock entries were reverified without scientific reruns.
-A new actual Astra/high/fresh-context reviewer examines that same immutable
+A new actual Astra/high/fresh-context reviewer examined that same immutable
 software snapshot and accepts G00-T2 plus six G05 software assertions in the
 [v1 audit](../../../Worker_Log/Milestone_03/Gate_05_v1_audit.md). Its prepared-T4 importer finding
 has been repaired in the child after six intended RED rejection failures and
@@ -74,28 +79,32 @@ plan, limits and resource cap were presented. The new
 records the actual statement and exact reviewed manifest/audit digests. The
 historical pending record remains false and unchanged. No target Q calculation
 or comparison preceded agreement. The user requests a fresh-session handoff
-after completion, using this same child branch directly; do not create another
-branch merely to restart context.
+using this same child branch directly and has now explicitly requested a stop
+before chemical completion. Do not create another branch merely to restart
+context.
 
 ## Remaining authorized steps
 
 1. Explicit agreement is recorded; preserve both actual approved and historical
    pending records, the exact reviewed commit and manifest/audit digests. The
-   approved quantum-only batch is running in
+   approved quantum-only batch is paused in
    `Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1/`
-   with launch metadata in `launch-v1.json`. Do not launch a duplicate batch.
+   with launch metadata in `launch-v1.json`. Preserve eight saved records and
+   all logs. Transport recovery failed; no coordinator manifest was written.
+   The cause is unknown. Do not restart completed work blindly.
    Revise/re-review any scientific changes before comparisons.
 2. Use the separate reference environment. The current working prefix is
    `/workspace/atom-mlmm-reference-pilot-v2/env`; reproduce it from the SHA lock
    if unavailable. Main environment is `/workspace/atom-mlmm-g05-v2/activate.sh`;
    unchanged installer is available for fresh environments. Amber stays separate.
-3. Run `tools/generate_neutral_quantum.py` with `--plan-root
-   fixtures/chemical_reference_v3`, actual `--approval` record, explicit
-   `--reference-python`, and a **new** `--output` directory. It verifies the
-   frozen input/package hashes, runs 46 isolated offline quantum gradients,
-   saves all outputs/failures, and enforces the total 12 h timeout. Freeze the
-   records/manifest under `fixtures/chemical_reference_v3/quantum/` only with
-   complete provenance; no quantum runtime enters the core package.
+3. The current `tools/generate_neutral_quantum.py` has no resume mode and writes
+   progress only at completion. Add/test/review validated reuse and durable
+   progress before launching the remaining 38 jobs. Check the 8-GiB container
+   RAM headroom: its lifetime peak reached the cap without an OOM-kill event.
+   Storage currently has about 14.28 GiB free. Preserve frozen settings and the
+   approved total budget, including time already spent. Freeze records/manifest
+   under `fixtures/chemical_reference_v3/quantum/` only with complete provenance
+   and all controls; no quantum runtime enters the core package.
 4. Run both `tests/integration/test_chemical_reference.py` stable checks. They
    enforce fine-grid/rotation controls before scoring, same-composition zeros,
    interaction/contact-minus-separated errors, raw/projected parent and ligand

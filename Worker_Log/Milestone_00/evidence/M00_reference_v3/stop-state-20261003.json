@@ -1,0 +1,130 @@
+{
+  "recorded_utc": "2026-10-03T10:58:48.029337+00:00",
+  "scope": "user-requested stop/checkpoint; no recovery launched",
+  "attempt_directory": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1",
+  "completed": [
+    {
+      "file": "acetamide--20.json",
+      "name": "acetamide--20",
+      "status": "computed",
+      "wall_seconds": 109.27954778700223,
+      "sha256": "c4bbc12e66c98e63d7736762162b0845d1c8092575159edbd26fea44175b9758"
+    },
+    {
+      "file": "acetamide-0.json",
+      "name": "acetamide-0",
+      "status": "computed",
+      "wall_seconds": 101.48503201800486,
+      "sha256": "39b4ca855c763906e7719ada576897f49c9761af9a4b281f5338fc36f1e49804"
+    },
+    {
+      "file": "acetamide-20.json",
+      "name": "acetamide-20",
+      "status": "computed",
+      "wall_seconds": 101.15577743599715,
+      "sha256": "cd8ba6da7f4523cf6bfd2ebbd92b27e3c11eae18024979fb7da36fec5a8487fb"
+    },
+    {
+      "file": "butane--60.json",
+      "name": "butane--60",
+      "status": "computed",
+      "wall_seconds": 242.72435092499654,
+      "sha256": "a2fd934b5449b02a79da7dcdb1d1e839f6fe034d5cff466143f9a1c764cf9052"
+    },
+    {
+      "file": "butane-120.json",
+      "name": "butane-120",
+      "status": "computed",
+      "wall_seconds": 231.7612752979985,
+      "sha256": "c767441b2f64cf0a3fcd866e366b0babca57cb2b0ae5e0926cf9eb73c495e91a"
+    },
+    {
+      "file": "butane-180.json",
+      "name": "butane-180",
+      "status": "computed",
+      "wall_seconds": 231.8499852140012,
+      "sha256": "b5145fbe5a4f3f5181ba6baa41a8ffc24926cd957ad11875440e23497aa2403b"
+    },
+    {
+      "file": "butane-60.json",
+      "name": "butane-60",
+      "status": "computed",
+      "wall_seconds": 218.25502393199713,
+      "sha256": "f502f4e81fc4ab286d9bcbeb318670f87e3b016e7762f70f99ac787347a44fc4"
+    },
+    {
+      "file": "butane-acetamide-d3.4-r0.json",
+      "name": "butane-acetamide-d3.4-r0",
+      "status": "computed",
+      "wall_seconds": 695.4815089879994,
+      "sha256": "4eb702e194785a2ff5dfc5a7cac2cd26ddcfe13531f0a9b7e61016d8138a91e9"
+    }
+  ],
+  "expected_count": 46,
+  "remaining_count": 38,
+  "remaining": [
+    "acetamide-0-fine-grid",
+    "acetamide-0-rotation-0",
+    "acetamide-0-rotation-1",
+    "acetamide-0-rotation-2",
+    "acetamide-0-rotation-3",
+    "butane-180-rotation-0",
+    "butane-acetamide-d3.8-r0",
+    "butane-acetamide-d3.8-r60",
+    "butane-acetamide-d4.5-r0",
+    "butane-acetamide-separated",
+    "butane-methanol-d3.4-r0",
+    "butane-methanol-d3.8-r0",
+    "butane-methanol-d3.8-r60",
+    "butane-methanol-d4.5-r0",
+    "butane-methanol-separated",
+    "ethanol--60",
+    "ethanol-120",
+    "ethanol-180",
+    "ethanol-180-rotation-0",
+    "ethanol-60",
+    "ethanol-acetamide-d2.6-r0",
+    "ethanol-acetamide-d3-r0",
+    "ethanol-acetamide-d3-r0-fine-grid",
+    "ethanol-acetamide-d3-r60",
+    "ethanol-acetamide-d3.5-r0",
+    "ethanol-acetamide-separated",
+    "ethanol-methanol-d2.6-r0",
+    "ethanol-methanol-d3-r0",
+    "ethanol-methanol-d3-r60",
+    "ethanol-methanol-d3.5-r0",
+    "ethanol-methanol-separated",
+    "methanol-baseline",
+    "methanol-baseline-rotation-0",
+    "methanol-baseline-rotation-1",
+    "methanol-baseline-rotation-2",
+    "methanol-baseline-rotation-3",
+    "methanol-oh60",
+    "methanol-stretch003"
+  ],
+  "started_without_completed_record": [],
+  "coordinator_manifest_exists": false,
+  "visible_quantum_processes": [],
+  "container_memory": {
+    "memory.events": "low 0\nhigh 0\nmax 127917\noom 0\noom_kill 0\noom_group_kill 0",
+    "memory.current": "989261824",
+    "memory.peak": "8594710528",
+    "memory.max": "8589934592",
+    "memory.stat": "anon 52129792\nfile 469282816\nkernel 467394560\nkernel_stack 507904\npagetables 1798144\nsec_pagetables 0\npercpu 11780\nsock 0\nvmalloc 4096\nshmem 25784320\nfile_mapped 8425472\nfile_dirty 45056\nfile_writeback 0\nswapcached 0\nanon_thp 0\nfile_thp 37748736\nshmem_thp 0\ninactive_anon 53436416\nactive_anon 24395776\ninactive_file 262115328\nactive_file 181374976\nunevictable 0\nslab_reclaimable 462122888\nslab_unreclaimable 2927912\nslab 465050800\nworkingset_refault_anon 0\nworkingset_refault_file 1128504\nworkingset_activate_anon 0\nworkingset_activate_file 875820\nworkingset_restore_anon 0\nworkingset_restore_file 91060\nworkingset_nodereclaim 0\npgdemote_kswapd 0\npgdemote_direct 0\npgdemote_khugepaged 0\npgdemote_proactive 0\npgscan 5712229\npgsteal 5677494\npswpin 0\npswpout 0\npgscan_kswapd 16329\npgscan_direct 5695900\npgscan_khugepaged 0\npgscan_proactive 0\npgsteal_kswapd 16327\npgsteal_direct 5661167\npgsteal_khugepaged 0\npgsteal_proactive 0\npgfault 55391143\npgmajfault 1337\npgrefill 2400358\npgactivate 1592254\npgdeactivate 2362232\npglazyfree 2\npglazyfreed 0\nswpin_zero 0\nswpout_zero 0\nthp_fault_alloc 0\nthp_collapse_alloc 0\nthp_swpout 0\nthp_swpout_fallback 0"
+  },
+  "physical_memory": {
+    "MemTotal": "10207516 kB",
+    "MemAvailable": "9387436 kB",
+    "SwapTotal": "0 kB",
+    "SwapFree": "0 kB"
+  },
+  "workspace_disk": {
+    "total_bytes": 33770192896,
+    "used_bytes": 16701935616,
+    "free_bytes": 15333494784
+  },
+  "attempt_files": 41,
+  "attempt_bytes": 419511,
+  "last_transport_error": "write_stdin: exec-server transport disconnected; failed to resume session; recovery timed out after25s",
+  "cause": "not established; no cgroupOOMkill recorded; high-water memory reached container limit but its time/culprit was not captured"
+}

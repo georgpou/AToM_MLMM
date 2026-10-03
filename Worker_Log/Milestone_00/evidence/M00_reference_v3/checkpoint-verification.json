@@ -1,0 +1,121 @@
+{
+  "recorded_utc": "2026-10-03T11:12:12.731798+00:00",
+  "scope": "read-only checkpoint verification; no quantum/model execution or chemical acceptance",
+  "HEAD_before_checkpoint_commit": "0935fd1213813e388a5dcc7e689998e907111e13",
+  "source_input_hashes_matched": 270,
+  "frozen_plan_hashes_matched": 46,
+  "reference_lock_packages_matched": 105,
+  "completed": [
+    {
+      "name": "acetamide--20",
+      "sha256": "c4bbc12e66c98e63d7736762162b0845d1c8092575159edbd26fea44175b9758",
+      "wall_seconds": 109.27954778700223,
+      "atom_count": 9,
+      "record_provenance_verified": true
+    },
+    {
+      "name": "acetamide-0",
+      "sha256": "39b4ca855c763906e7719ada576897f49c9761af9a4b281f5338fc36f1e49804",
+      "wall_seconds": 101.48503201800486,
+      "atom_count": 9,
+      "record_provenance_verified": true
+    },
+    {
+      "name": "acetamide-20",
+      "sha256": "cd8ba6da7f4523cf6bfd2ebbd92b27e3c11eae18024979fb7da36fec5a8487fb",
+      "wall_seconds": 101.15577743599715,
+      "atom_count": 9,
+      "record_provenance_verified": true
+    },
+    {
+      "name": "butane--60",
+      "sha256": "a2fd934b5449b02a79da7dcdb1d1e839f6fe034d5cff466143f9a1c764cf9052",
+      "wall_seconds": 242.72435092499654,
+      "atom_count": 14,
+      "record_provenance_verified": true
+    },
+    {
+      "name": "butane-120",
+      "sha256": "c767441b2f64cf0a3fcd866e366b0babca57cb2b0ae5e0926cf9eb73c495e91a",
+      "wall_seconds": 231.7612752979985,
+      "atom_count": 14,
+      "record_provenance_verified": true
+    },
+    {
+      "name": "butane-180",
+      "sha256": "b5145fbe5a4f3f5181ba6baa41a8ffc24926cd957ad11875440e23497aa2403b",
+      "wall_seconds": 231.8499852140012,
+      "atom_count": 14,
+      "record_provenance_verified": true
+    },
+    {
+      "name": "butane-60",
+      "sha256": "f502f4e81fc4ab286d9bcbeb318670f87e3b016e7762f70f99ac787347a44fc4",
+      "wall_seconds": 218.25502393199713,
+      "atom_count": 14,
+      "record_provenance_verified": true
+    },
+    {
+      "name": "butane-acetamide-d3.4-r0",
+      "sha256": "4eb702e194785a2ff5dfc5a7cac2cd26ddcfe13531f0a9b7e61016d8138a91e9",
+      "wall_seconds": 695.4815089879994,
+      "atom_count": 23,
+      "record_provenance_verified": true
+    }
+  ],
+  "remaining": [
+    "acetamide-0-fine-grid",
+    "acetamide-0-rotation-0",
+    "acetamide-0-rotation-1",
+    "acetamide-0-rotation-2",
+    "acetamide-0-rotation-3",
+    "butane-180-rotation-0",
+    "butane-acetamide-d3.8-r0",
+    "butane-acetamide-d3.8-r60",
+    "butane-acetamide-d4.5-r0",
+    "butane-acetamide-separated",
+    "butane-methanol-d3.4-r0",
+    "butane-methanol-d3.8-r0",
+    "butane-methanol-d3.8-r60",
+    "butane-methanol-d4.5-r0",
+    "butane-methanol-separated",
+    "ethanol--60",
+    "ethanol-120",
+    "ethanol-180",
+    "ethanol-180-rotation-0",
+    "ethanol-60",
+    "ethanol-acetamide-d2.6-r0",
+    "ethanol-acetamide-d3-r0",
+    "ethanol-acetamide-d3-r0-fine-grid",
+    "ethanol-acetamide-d3-r60",
+    "ethanol-acetamide-d3.5-r0",
+    "ethanol-acetamide-separated",
+    "ethanol-methanol-d2.6-r0",
+    "ethanol-methanol-d3-r0",
+    "ethanol-methanol-d3-r60",
+    "ethanol-methanol-d3.5-r0",
+    "ethanol-methanol-separated",
+    "methanol-baseline",
+    "methanol-baseline-rotation-0",
+    "methanol-baseline-rotation-1",
+    "methanol-baseline-rotation-2",
+    "methanol-baseline-rotation-3",
+    "methanol-oh60",
+    "methanol-stretch003"
+  ],
+  "saved_worker_wall_seconds_sum": 1931.992501597997,
+  "coordinator_manifest_exists": false,
+  "visible_quantum_processes": [],
+  "workspace_disk_bytes": {
+    "total": 33770192896,
+    "used": 16701988864,
+    "free": 15333441536
+  },
+  "container_memory": {
+    "memory.max": "8589934592",
+    "memory.current": "1400311808",
+    "memory.peak": "8594710528",
+    "memory.events": "low 0\nhigh 0\nmax 127917\noom 0\noom_kill 0\noom_group_kill 0"
+  },
+  "interpretation": "Eight valid saved target records; full 46-row batch and chemical comparison remain pending."
+}
