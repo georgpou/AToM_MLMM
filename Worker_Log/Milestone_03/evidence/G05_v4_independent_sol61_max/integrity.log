@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/integrity_check.py", line 27, in <module>
+    assert qmanifest['numerical_control_report_sha256']==sha(base/'quantum-numerical-controls-prebundle.json')
+                                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/integrity_check.py", line 4, in <lambda>
+    sha=lambda p:hashlib.sha256(Path(p).read_bytes()).hexdigest()
+                                ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/atom-mlmm-g05-v2/env/lib/python3.11/pathlib.py", line 1050, in read_bytes
+    with self.open(mode='rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/atom-mlmm-g05-v2/env/lib/python3.11/pathlib.py", line 1044, in open
+    return io.open(self, mode, buffering, encoding, errors, newline)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4/quantum-numerical-controls-prebundle.json'

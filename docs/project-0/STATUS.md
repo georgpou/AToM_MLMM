@@ -1,12 +1,27 @@
 # Current status
 
-G05 on the same child `m03-reference-g05` is **ready_for_review**, with
-independent full-gate audit and acceptance pending. The user explicitly
-requested implementation, calculations and reports here, deferred the audit
-and prohibited an Astra/high reviewer for this assignment. No reviewer was
-dispatched. Calculation source is `419b64f7bd79199a0bf999e456f1564fc184cf75`,
-continuing published checkpoint `4bb2547` and accepted G04 predecessor
-`bc788aeeedb4dc45026ac1bff44bd4fb533b325a`.
+G05 on the same child `m03-reference-g05` is **changes_required** after the
+user-selected fresh-context **GPT-6.1 Sol / MAX reasoning** independent audit
+of source/data snapshot `a99a4448f14386e79c1546dd32fd83a33b9ac424` (review HEAD
+`ac644eb033d6da80636e89437c0e6b93b3fbce66`). The
+[v4 audit](../../Worker_Log/Milestone_03/Gate_05_v4_audit.md) reproduces three
+recovery defects: **R1/P1**, known failed-exit records admitted as unknown/ready;
+**R2/P1**, a crash between launch and identity checkpoint permits live duplicate
+workers; **R3/P2**, durable progress can precede referenced record data and
+directory entries. No repairs or QM reruns occurred during audit. The completed
+scientific data remain valid for the recorded neutral CPU scope; full G05
+acceptance requires recovery repair and independent closure. Calculation source
+is `419b64f7bd79199a0bf999e456f1564fc184cf75`, continuing published checkpoint
+`4bb2547` and accepted G04 predecessor `bc788aeeedb4dc45026ac1bff44bd4fb533b325a`.
+
+The [independent evidence](../../Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/README.md)
+records **312 full-suite passes**, **18 focused G05 passes**, **9/9** environment
+checks and **0 documentation errors / 8 self-tests**. Independent arithmetic
+verified all 34 chemical rows, 28 cap/full-parent projections, 12 numerical
+controls and required signs. All 1,439 submitted hashes and the frozen source,
+inputs, reference locks and model identity were verified before this status
+update. Three new synthetic recovery probes fail at their intended assertions
+and document the defects; their closure requires no new QM calculations.
 
 All **46 actual QM records** are complete: 34 frozen neutral-singlet chemical
 targets, ten mandatory rotations and two finer-grid controls. Eight historical
@@ -49,9 +64,9 @@ Inherited software decisions remain the [v1](../../Worker_Log/Milestone_03/Gate_
 and [v2](../../Worker_Log/Milestone_03/Gate_05_v2_audit.md) scoped audits on
 `a7768e3`/`3124c6d`; the importer approval-binding finding is closed.
 The [M00 v3 design audit](../../Worker_Log/Milestone_00/Milestone_00_v3_audit.md)
-and explicit user scientific/budget agreement persist. None of these decisions
-supplies the still-pending independent full-G05 audit. Model metadata remains
-unqualified until acceptance. Protein binding, periodic/GPU/electrostatic
+and explicit user scientific/budget agreement persist. The full-G05 v4 audit
+now requires recovery changes; inherited decisions do not close its findings.
+Model metadata remains unqualified until acceptance. Protein binding, periodic/GPU/electrostatic
 physics and complete ABFE/RBFE remain outside this demonstrated scope.
 
 Automatic approval review rejected publication of this continuation because
@@ -70,7 +85,7 @@ The [acceptance record](../../Worker_Log/Milestone_02/evidence/M02_v2_closure/ac
 
 M01's analytic CPU implementation is independently accepted for `core-analytic-cpu` on `m00-audit-m01-development`. The [combined v2 audit](../../Worker_Log/Milestone_01/Gate_01_v2_audit.md) reviewed snapshot `04944c67fc04c1667723f5292a07f8401cb94184`, carrying tested code `141c7fbcf2c5407e7880512d5481639bdc81bf57`. [G00 worker](../../Worker_Log/Milestone_01/Gate_00_v1_worker.md) records exact CPU APIs/provenance; [G01/M01 repair worker](../../Worker_Log/Milestone_01/Gate_01_v2_worker.md) records identities, fixed partitions, immutable versioned records, capability rejection, MM inventory and evidence validation. The full available suite passed 47 tests; the analytic selection passed 46 with one model test deselected. Strict environment validation passed all nine checks. [Repair validation evidence](../../Worker_Log/Milestone_01/evidence/M01_v2/validation.json.gz) and [complete environment identity](../../Worker_Log/Milestone_01/evidence/M01_v1/environment-manifest.json.gz) identify the tested profile. The saved [original-MM inventory](../../Worker_Log/Milestone_01/evidence/M01_v2/original-mm-inventory.json) and [acceptance record](../../Worker_Log/Milestone_01/evidence/M01_v2/acceptance.json) carry the scoped handoff. These results do not accept a molecular gate.
 
-The [independent M00 audit](../../Worker_Log/Milestone_00/Milestone_00_v1_audit.md) accepts scientific contract version 1 for G00-T1/G01-T1/T2/T3 on `core-analytic-cpu`. The subsequent exact M00 v3 physical-reference design was separately reviewed and explicitly approved before these calculations and comparisons; full G05 qualification still awaits its independent audit. The prior [repository preparation record](../../Worker_Log/Documentation/Repository_Ready_v1_worker.md) remains setup/example provenance.
+The [independent M00 audit](../../Worker_Log/Milestone_00/Milestone_00_v1_audit.md) accepts scientific contract version 1 for G00-T1/G01-T1/T2/T3 on `core-analytic-cpu`. The subsequent exact M00 v3 physical-reference design was separately reviewed and explicitly approved before these calculations and comparisons; full G05 qualification awaits recovery repair and independent closure of the v4 findings. The prior [repository preparation record](../../Worker_Log/Documentation/Repository_Ready_v1_worker.md) remains setup/example provenance.
 
 ## Available calculation
 
@@ -78,10 +93,12 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-The user will choose the independent full-[G05](gates/G05-local-model-adapter.md)
-audit procedure. All assigned programming, reference calculations, numerical
-controls, chemical comparisons and reports are complete; audit/publication
-instructions remain. [G06](gates/G06-periodicity-and-interaction-ledger.md) and
+The requested full-[G05](gates/G05-local-model-adapter.md) audit is complete.
+Next work is closure of recovery findings **R1/R2/R3**, with retained synthetic
+regressions and independent review of a new source snapshot. Preserve the
+completed 46-reference batch, fixed scientific settings and model; the findings
+do not require QM reruns. This audit/report assignment performed no repairs or
+publication. [G06](gates/G06-periodicity-and-interaction-ledger.md) and
 [G07](gates/G07-joint-cavity-ligand-atm.md) are subsequent assignments, supplying
 periodic qualification and combined M03 closure. [G08](gates/G08-thermodynamics-and-estimators.md)
 is a separate M04 analysis path. Broader physical profiles remain deferred.
@@ -89,14 +106,14 @@ is a separate M04 analysis path. Broader physical profiles remain deferred.
 | Scientific scope | Status | Next condition |
 |---|---|---|
 | M00 / analytic CPU design | accepted_for_scope | [Independent version 1 design review](../../Worker_Log/Milestone_00/Milestone_00_v1_audit.md) |
-| M00 / physical-reference design | accepted_for_scope | Exact v3 design independently accepted and explicitly approved; reference convergence and G05 comparisons now pass, with full-G05 audit pending |
+| M00 / physical-reference design | accepted_for_scope | Exact v3 design independently accepted and explicitly approved; reference convergence and G05 comparisons independently verified; G05 recovery closure remains |
 | M01 / G00-T1, G01-T1/T2/T3 | accepted_for_scope | [Independent combined v2 review](../../Worker_Log/Milestone_01/Gate_01_v2_audit.md); 47-test result on the recorded CPU profile |
 | M02 / G02-T1/T2/T3, G03-T1/T2/T3 | accepted_for_scope | [G02 v2 audit](../../Worker_Log/Milestone_02/Gate_02_v2_audit.md) / [G03-M02 v2 audit](../../Worker_Log/Milestone_02/Gate_03_v2_audit.md); R1/R2/R3 closed on exact reviewed snapshot; [acceptance record](../../Worker_Log/Milestone_02/evidence/M02_v2_closure/acceptance.json) |
 | G04 / analytic CPU | accepted | [Astra high full-G04 audit](../../Worker_Log/Milestone_03/Gate_04_v1_audit.md) and [acceptance](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/acceptance.json); no blocking findings |
 | M03 / G04-G07 | in_progress | G04 accepted; applicable G05/G06 and G07 combined review still required |
 | M04-M08 / G08-G13 | not_started | Follow [roadmap](../../README.md#roadmap) and gate prerequisites |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
-| Real-model small-system chemical / protein qualification | ready_for_review / not_run | G05 actual checks pass; independent full-G05 audit pending. Protein qualification remains G07/later work. |
+| Real-model small-system chemical / protein qualification | changes_required / not_run | G05 saved scientific results independently verified; v4 recovery R1/R2/R3 block full-gate acceptance. Protein qualification remains G07/later work. |
 
 ## Retired audit distractions
 

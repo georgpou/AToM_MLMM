@@ -1,0 +1,125 @@
+{
+  "fsync_events": [
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/progress.json.tmp",
+      "sequence": 0
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output",
+      "sequence": 1
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/progress.json.tmp",
+      "sequence": 2
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output",
+      "sequence": 3
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/jobs/one/attempt-0001/order.json",
+      "sequence": 4
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/progress.json.tmp",
+      "sequence": 5
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output",
+      "sequence": 6
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/jobs/one/attempt-0001/receipt.json",
+      "sequence": 7
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/progress.json.tmp",
+      "sequence": 8
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output",
+      "sequence": 9
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/progress.json.tmp",
+      "sequence": 10
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output",
+      "sequence": 11
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/jobs/two/attempt-0001/order.json",
+      "sequence": 12
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/progress.json.tmp",
+      "sequence": 13
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output",
+      "sequence": 14
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/jobs/two/attempt-0001/receipt.json",
+      "sequence": 15
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/progress.json.tmp",
+      "sequence": 16
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output",
+      "sequence": 17
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/progress.json.tmp",
+      "sequence": 18
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output",
+      "sequence": 19
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/jobs/one-fine-grid/attempt-0001/order.json",
+      "sequence": 20
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/progress.json.tmp",
+      "sequence": 21
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output",
+      "sequence": 22
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/jobs/one-fine-grid/attempt-0001/receipt.json",
+      "sequence": 23
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/progress.json.tmp",
+      "sequence": 24
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output",
+      "sequence": 25
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/progress.json.tmp",
+      "sequence": 26
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output",
+      "sequence": 27
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output/manifest.json.tmp",
+      "sequence": 28
+    },
+    {
+      "target": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/record-fsync-order/output",
+      "sequence": 29
+    }
+  ],
+  "requirement": "fsync record files and containing directories before a durable checkpoint references them"
+}

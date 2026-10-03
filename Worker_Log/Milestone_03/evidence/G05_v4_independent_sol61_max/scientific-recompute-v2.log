@@ -1,0 +1,75 @@
+{
+  "finished_utc": "2026-10-03T19:59:12.931119+00:00",
+  "scope": "independent arithmetic only; no quantum generation, no model reevaluation in this script",
+  "chemical_rows": 34,
+  "cap_parent_projections": 28,
+  "conformer_families": [
+    {
+      "family": "acetamide",
+      "rms_kcal_mol": 0.10395456423310385,
+      "max_kcal_mol": 0.13363900647612634
+    },
+    {
+      "family": "butane",
+      "rms_kcal_mol": 0.17596383469570362,
+      "max_kcal_mol": 0.2862252841618341
+    },
+    {
+      "family": "ethanol",
+      "rms_kcal_mol": 0.07554014045581918,
+      "max_kcal_mol": 0.09299864811977696
+    },
+    {
+      "family": "methanol",
+      "rms_kcal_mol": 0.02591951759873994,
+      "max_kcal_mol": 0.044811182139204535
+    }
+  ],
+  "contact_families": [
+    {
+      "family": "butane-acetamide",
+      "interaction_rms": 0.3387247621373663,
+      "interaction_max": 0.45560396520819785,
+      "contact_minus_separated_rms": 0.3390182893104059,
+      "contact_minus_separated_max": 0.45594022813854984
+    },
+    {
+      "family": "butane-methanol",
+      "interaction_rms": 0.2924851199133066,
+      "interaction_max": 0.3963335238497955,
+      "contact_minus_separated_rms": 0.2915845802230314,
+      "contact_minus_separated_max": 0.39530991340442473
+    },
+    {
+      "family": "ethanol-acetamide",
+      "interaction_rms": 0.2443197158232229,
+      "interaction_max": 0.3251429074813377,
+      "contact_minus_separated_rms": 0.2504558442507315,
+      "contact_minus_separated_max": 0.3367076476214071
+    },
+    {
+      "family": "ethanol-methanol",
+      "interaction_rms": 0.23961036244700698,
+      "interaction_max": 0.4134392759382739,
+      "contact_minus_separated_rms": 0.23481166431115083,
+      "contact_minus_separated_max": 0.40706727015126987
+    }
+  ],
+  "maxima": {
+    "force_rms_eV_angstrom": 0.02132607514964788,
+    "force_atom_max_eV_angstrom": 0.08661313947506097,
+    "projected_rms_eV_angstrom": 0.014514474163719775,
+    "projected_atom_max_eV_angstrom": 0.08661313947506097,
+    "net_ligand_force_error_eV_angstrom": 0.03976289531932924
+  },
+  "numerical_control_maxima": {
+    "energy_error_kcal_mol": 5.805688927121475e-05,
+    "force_rms_eV_angstrom": 4.6777492913751695e-05,
+    "force_max_eV_angstrom": 0.00022341431176649322
+  },
+  "attraction_signs_required": 7,
+  "compressed_repulsion_signs_required": 4,
+  "fresh_model_captures_match": true,
+  "domain_samples": 36,
+  "admitted_domain_samples": 34
+}

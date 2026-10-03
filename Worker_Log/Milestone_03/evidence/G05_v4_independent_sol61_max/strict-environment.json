@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python",
+    "/workspace/atom-mlmm-g05-v2/validate.py",
+    "--repository",
+    "/workspace/AToM_MLMM-m03-reference-g05"
+  ],
+  "cwd": "/workspace/AToM_MLMM-m03-reference-g05",
+  "started_utc": "2026-10-03T19:46:14.505216+00:00",
+  "finished_utc": "2026-10-03T19:46:37.725415+00:00",
+  "elapsed_seconds": 23.220198319999326,
+  "exit_code": 0
+}

@@ -1,0 +1,22 @@
+{
+  "reviewer_model": "gpt-6.1-sol",
+  "reasoning_effort": "max",
+  "fresh_context": true,
+  "started_utc": "2026-10-03T19:46:02.253022+00:00",
+  "root": "/workspace/AToM_MLMM-m03-reference-g05",
+  "branch": "m03-reference-g05",
+  "commits": {
+    "head": "ac644eb033d6da80636e89437c0e6b93b3fbce66",
+    "source_data": "a99a4448f14386e79c1546dd32fd83a33b9ac424",
+    "calculation": "419b64f7bd79199a0bf999e456f1564fc184cf75",
+    "baseline": "4bb2547684cb9a40de1d65819dfe0cbcae145249"
+  },
+  "initial_status_porcelain": "",
+  "head_only_metadata_paths": [
+    "Worker_Log/Milestone_03/evidence/G05_v4/audit-snapshot.json"
+  ],
+  "tracked_file_count": 1441,
+  "no_qm_rerun": true,
+  "no_repairs_no_publish_no_commit": true,
+  "python": "/workspace/atom-mlmm-g05-v2/env/bin/python"
+}

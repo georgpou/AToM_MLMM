@@ -1,0 +1,11 @@
+{
+  "command": [
+    "python",
+    "Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/scientific_recompute_v2.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM-m03-reference-g05",
+  "started_utc": "2026-10-03T19:59:12.763870+00:00",
+  "finished_utc": "2026-10-03T19:59:12.967959+00:00",
+  "elapsed_seconds": 0.20409036699857097,
+  "exit_code": 0
+}

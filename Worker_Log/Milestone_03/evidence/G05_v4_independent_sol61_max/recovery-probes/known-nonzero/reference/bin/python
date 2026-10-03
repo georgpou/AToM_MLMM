@@ -1,0 +1,25 @@
+#!/workspace/atom-mlmm-g05-v2/env/bin/python
+
+import json, os, resource, sys, time
+from pathlib import Path
+order=json.loads(Path(sys.argv[-1]).read_text())
+data=order['structure']; name=order['job_name']; output=Path(order['output'])
+mode=os.environ.get('QUANTUM_RECOVERY_TEST_MODE', '')
+if mode=='timeout':
+    child=os.fork()
+    if child==0:
+        Path(os.environ['QUANTUM_RECOVERY_TEST_CHILD']).write_text(str(os.getpid()))
+    time.sleep(10)
+if mode=='fail' and name=='two':
+    output.write_text(json.dumps(dict(status='failed',name=name,exception='synthetic failure')))
+    sys.exit(1)
+record=dict(status='computed', name=name, source_input_sha256=order['source_input_sha256'],
+            method='wb97m-d3bj/def2-tzvppd', psi4_version='1.10.2', formal_charge=0, multiplicity=1,
+            atomic_numbers=data['atomic_numbers'], positions_angstrom=data['positions_angstrom'],
+            energy_hartree=-1., gradient_hartree_bohr=[[0.,0.,0.]],
+            quantum_energy_variables={'DISPERSION CORRECTION ENERGY':-.001,'DFT VV10 ENERGY':0.},
+            basis_file_sha256=order['basis_file_sha256'], settings=order['settings'], network_denied=True,
+            wall_seconds=.001, threads=2, memory=order['runtime_memory'],
+            peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024)
+output.write_text(json.dumps(record))
+print(json.dumps(dict(name=name,status='computed')))

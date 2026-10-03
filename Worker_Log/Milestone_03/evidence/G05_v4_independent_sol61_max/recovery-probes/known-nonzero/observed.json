@@ -1,0 +1,14 @@
+{
+  "first_exit": 1,
+  "authoritative_worker_exit": 23,
+  "resume_exit": 0,
+  "resume_stdout": "",
+  "two_provenance_after_resume": {
+    "source": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/known-nonzero/output/jobs/two/attempt-0001/record.json",
+    "recovered": true,
+    "coordinator_exit": null
+  },
+  "ready_for_comparison": true,
+  "two_attempt_count": 1,
+  "requirement": "known failed exits must remain failed; unknown is only for genuinely missing receipts"
+}

@@ -1,0 +1,26 @@
+{
+  "snapshot_files": {
+    "count": 1439,
+    "mismatches": []
+  },
+  "calculation_source_inputs": {
+    "count": 116,
+    "mismatches": []
+  },
+  "frozen_inputs": {
+    "count": 46,
+    "mismatches": []
+  },
+  "approved_input_files_match_reviewed_commit": "a825f5f1c2d8cf4146133c2049ef1c4eca550e93",
+  "unchanged_v1_files": 41,
+  "reference_locked_packages": 105,
+  "quantum_records": 46,
+  "reused_records": 8,
+  "new_zero_exit_workers": 38,
+  "all_logs_converged": true,
+  "prior_debit_seconds": 2350.09535,
+  "cumulative_debit_hours": 4.400612052481389,
+  "peak_worker_rss_gib": 4.67095947265625,
+  "private_scratch_count": 0,
+  "active_qm_processes": []
+}

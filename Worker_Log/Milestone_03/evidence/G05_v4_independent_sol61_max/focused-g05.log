@@ -1,0 +1,28 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/atom-mlmm-g05-v2/env/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/AToM_MLMM-m03-reference-g05
+configfile: pytest.ini
+plugins: cov-7.1.0, platformdirs-4.12.2, anyio-4.15.1
+collecting ... collected 18 items
+
+tests/integration/test_model_adapter.py::test_native_and_openmm_energy_forces[Reference] PASSED [  5%]
+tests/integration/test_model_adapter.py::test_native_and_openmm_energy_forces[CPU] PASSED [ 11%]
+tests/integration/test_model_adapter.py::test_real_parent_forces_with_model_caps[Reference] PASSED [ 16%]
+tests/integration/test_model_adapter.py::test_real_parent_forces_with_model_caps[CPU] PASSED [ 22%]
+tests/integration/test_model_adapter.py::test_consistent_translation_rotation_and_permutation PASSED [ 27%]
+tests/integration/test_model_adapter.py::test_nonidentity_final_map PASSED [ 33%]
+tests/integration/test_model_adapter.py::test_component_finite_difference_sweep PASSED [ 38%]
+tests/integration/test_model_adapter.py::test_deliberate_numeric_faults[omit-parent] PASSED [ 44%]
+tests/integration/test_model_adapter.py::test_deliberate_numeric_faults[force-times-ten] PASSED [ 50%]
+tests/integration/test_model_adapter.py::test_deliberate_numeric_faults[wrong-order] PASSED [ 55%]
+tests/integration/test_model_adapter.py::test_deliberate_numeric_faults[stale-cap] PASSED [ 61%]
+tests/integration/test_model_adapter.py::test_mace_nested_atm_real_force_oracle PASSED [ 66%]
+tests/integration/test_model_adapter.py::test_local_asset_fresh_process_reload[physical] PASSED [ 72%]
+tests/integration/test_model_adapter.py::test_local_asset_fresh_process_reload[alchemical] PASSED [ 77%]
+tests/integration/test_locality.py::test_declared_local_component_additivity PASSED [ 83%]
+tests/integration/test_model_domain.py::test_contact_cutoff_and_counterfactual_scans PASSED [ 88%]
+tests/integration/test_chemical_reference.py::test_exact_capped_conformer_reference PASSED [ 94%]
+tests/integration/test_chemical_reference.py::test_frozen_contact_reference PASSED [100%]
+
+============================= 18 passed in 35.03s ==============================

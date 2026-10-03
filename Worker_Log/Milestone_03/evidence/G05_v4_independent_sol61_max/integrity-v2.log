@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/integrity_check_v2.py", line 37, in <module>
+    if scf is not None:assert abs(record['energy_hartree']-scf-v['DISPERSION CORRECTION ENERGY'])<1e-10
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

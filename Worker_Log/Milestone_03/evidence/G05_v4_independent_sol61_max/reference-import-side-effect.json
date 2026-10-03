@@ -1,0 +1,11 @@
+{
+  "origin_command_receipt": "reference-runtime.json",
+  "origin": "Psi4 import/exit in version-and-basis-hash query; no gradient/energy calculation was called",
+  "original_path": "timer.dat",
+  "preserved_path": "Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/reference-import-timer.dat",
+  "sha256": "ab932a870bb90c29254c1600f547b84197795cc42fe2c92f4a3e704bf8707322",
+  "bytes": 461,
+  "mtime_utc": "2026-10-03T19:55:51.551774+00:00",
+  "contains_module_calls": false,
+  "timers_match_reference_command": true
+}

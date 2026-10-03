@@ -1,0 +1,17 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/integration/test_model_adapter.py",
+    "tests/integration/test_locality.py",
+    "tests/integration/test_model_domain.py",
+    "tests/integration/test_chemical_reference.py",
+    "-v"
+  ],
+  "cwd": "/workspace/AToM_MLMM-m03-reference-g05",
+  "started_utc": "2026-10-03T19:48:43.988184+00:00",
+  "finished_utc": "2026-10-03T19:49:20.605437+00:00",
+  "elapsed_seconds": 36.61725401000149,
+  "exit_code": 0
+}

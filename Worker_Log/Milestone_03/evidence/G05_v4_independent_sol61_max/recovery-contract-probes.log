@@ -1,0 +1,38 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/atom-mlmm-g05-v2/env/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/AToM_MLMM-m03-reference-g05
+configfile: pytest.ini
+plugins: cov-7.1.0, platformdirs-4.12.2, anyio-4.15.1
+collecting ... collected 3 items
+
+Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/test_recovery_audit.py::test_resume_must_not_promote_a_known_nonzero_computed_record FAILED [ 33%]
+Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/test_recovery_audit.py::test_recovery_must_refuse_worker_spawned_before_first_identity_checkpoint FAILED [ 66%]
+Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/test_recovery_audit.py::test_recovery_must_not_make_progress_durable_before_record_data FAILED [100%]
+
+=================================== FAILURES ===================================
+_________ test_resume_must_not_promote_a_known_nonzero_computed_record _________
+Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/test_recovery_audit.py:65: in test_resume_must_not_promote_a_known_nonzero_computed_record
+    assert not state['ready_for_comparison'], 'Known exit 23 was changed to unknown and admitted without retry'
+E   AssertionError: Known exit 23 was changed to unknown and admitted without retry
+E   assert not True
+__ test_recovery_must_refuse_worker_spawned_before_first_identity_checkpoint ___
+Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/test_recovery_audit.py:117: in test_recovery_must_refuse_worker_spawned_before_first_identity_checkpoint
+    assert second.returncode==2, 'Recovery launched duplicate work while the original worker was live'
+E   AssertionError: Recovery launched duplicate work while the original worker was live
+E   assert 0 == 2
+E    +  where 0 = CompletedProcess(args=['/workspace/atom-mlmm-g05-v2/env/bin/python', '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py', '--plan-root', '/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/spawn-checkpoint-gap/plan', '--approval', '/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/spawn-checkpoint-gap/approval.json', '--output', '/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/spawn-checkpoint-gap/output', '--reference-python', '/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/recovery-probes/spawn-checkpoint-gap/reference/bin/audit-worker'], returncode=0, stdout='one exit 0 verified True total 1 / 3\ntwo exit 0 verified True total 2 / 3\none-fine-grid exit 0 verified True total 3 / 3\n', stderr='').returncode
+_______ test_recovery_must_not_make_progress_durable_before_record_data ________
+Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/test_recovery_audit.py:141: in test_recovery_must_not_make_progress_durable_before_record_data
+    assert record_sync, 'Record bytes were not fsynced before atomic progress checkpoint'
+E   AssertionError: Record bytes were not fsynced before atomic progress checkpoint
+E   assert []
+----------------------------- Captured stdout call -----------------------------
+one exit 0 verified True total 1 / 3
+two exit 0 verified True total 2 / 3
+one-fine-grid exit 0 verified True total 3 / 3
+=========================== short test summary info ============================
+FAILED Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/test_recovery_audit.py::test_resume_must_not_promote_a_known_nonzero_computed_record
+FAILED Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/test_recovery_audit.py::test_recovery_must_refuse_worker_spawned_before_first_identity_checkpoint
+FAILED Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/test_recovery_audit.py::test_recovery_must_not_make_progress_durable_before_record_data
+============================== 3 failed in 9.44s ===============================
