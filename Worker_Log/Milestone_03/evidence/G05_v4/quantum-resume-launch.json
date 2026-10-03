@@ -1,0 +1,33 @@
+{
+  "recorded_utc": "2026-10-03T15:30:49.307637+00:00",
+  "commit": "419b64f7bd79199a0bf999e456f1564fc184cf75",
+  "command": [
+    "python",
+    "-u",
+    "tools/resume_neutral_quantum.py",
+    "--plan-root",
+    "fixtures/chemical_reference_v3",
+    "--approval",
+    "Worker_Log/Milestone_00/evidence/M00_v3_decision/decision-approved-20261003.json",
+    "--reference-python",
+    "/workspace/atom-mlmm-reference-pilot-v2/env/bin/python",
+    "--output",
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v2",
+    "--resume-from",
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1",
+    "--stop-state",
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/stop-state-20261003.json",
+    "--prior-launch",
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/launch-v1.json",
+    "--memory-gib",
+    "3"
+  ],
+  "source_sha256": {
+    "tools/generate_neutral_quantum.py": "4781458c77405a5a86438ffcd4f0f12b4d3f1452fe81fe213acc0dfe3c19f5a1",
+    "tools/resume_neutral_quantum.py": "ae467370a0c629f0b5d163ea9819c9c930df916265c1c47bbfd0f78ae2638260"
+  },
+  "scope": "quantum only; no model comparison or independent audit",
+  "prior_wall_seconds": 2350.09535,
+  "runtime_memory": "3 GiB",
+  "cpu_threads": 2
+}

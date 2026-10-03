@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/atom-mlmm-g05-v2/env/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/AToM_MLMM-m03-reference-g05
+configfile: pytest.ini
+plugins: cov-7.1.0, platformdirs-4.12.2, anyio-4.15.1
+collecting ... collected 2 items
+
+tests/integration/test_chemical_reference.py::test_exact_capped_conformer_reference PASSED [ 50%]
+tests/integration/test_chemical_reference.py::test_frozen_contact_reference PASSED [100%]
+
+============================== 2 passed in 9.74s ===============================

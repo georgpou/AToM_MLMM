@@ -1,0 +1,134 @@
+{
+  "structure": {
+    "name": "ethanol-180-rotation-0",
+    "kind": "rotation-quadrature-control",
+    "baseline": "ethanol-180",
+    "formal_charge": 0,
+    "multiplicity": 1,
+    "units": "angstrom",
+    "atom_ids": [
+      "f:p5",
+      "f:p6",
+      "f:p7",
+      "f:p17",
+      "f:p18",
+      "f:p19",
+      "f:p20",
+      "f:p21",
+      "f:cap"
+    ],
+    "atomic_numbers": [
+      6,
+      8,
+      6,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "elements": [
+      "C",
+      "O",
+      "C",
+      "H",
+      "H",
+      "H",
+      "H",
+      "H",
+      "H"
+    ],
+    "positions_angstrom": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        0.41090181465364134,
+        -0.8527699268672472,
+        1.0842372857236957
+      ],
+      [
+        -1.5254782228297676,
+        0.01273138411344632,
+        -0.016187063966220494
+      ],
+      [
+        0.35631098921527615,
+        1.0151857589542779,
+        0.20639866786658945
+      ],
+      [
+        1.3853753220889353,
+        -0.8527699268672472,
+        1.0842372857236957
+      ],
+      [
+        -1.929407679425187,
+        -0.9965223995223786,
+        -0.1515619975647946
+      ],
+      [
+        -1.912908670854247,
+        0.3781672437337168,
+        0.9411252984638685
+      ],
+      [
+        -1.9089725546394352,
+        0.6559103050503553,
+        -0.8139432010578502
+      ],
+      [
+        0.40589360959060644,
+        -0.3804474105538641,
+        -0.9373420642947634
+      ]
+    ],
+    "rotation": [
+      [
+        -0.3572138671220983,
+        0.8709886468772177,
+        0.33730850885601676
+      ],
+      [
+        -0.8709886468772177,
+        -0.18020782370099409,
+        -0.45706008061079356
+      ],
+      [
+        -0.33730850885601676,
+        -0.45706008061079356,
+        0.822993956578896
+      ]
+    ],
+    "source_contact": "ethanol-acetamide-d2.6-r0",
+    "energy_difference_max_kcal_mol": 0.02,
+    "force_component_rms_difference_max_eV_angstrom": 0.002,
+    "force_atom_vector_difference_max_eV_angstrom": 0.005
+  },
+  "source_input_sha256": "69dfac478572829060bab49549f386efe1c80c30f87c9acf388efb56a42c18c0",
+  "settings": {
+    "basis": "def2-tzvppd",
+    "df_basis_scf": "def2-universal-jkfit",
+    "reference": "rhf",
+    "scf_type": "df",
+    "e_convergence": 1e-10,
+    "d_convergence": 1e-10,
+    "maxiter": 200,
+    "ints_tolerance": 1e-12,
+    "dft_radial_points": 99,
+    "dft_spherical_points": 590,
+    "wcombine": false
+  },
+  "basis_file_sha256": {
+    "def2-tzvppd.gbs": "0b3c5f3a8bfe9a158dabff8b6437dd3706c65757f42a56a70918fc2d78291d13",
+    "def2-universal-jkfit.gbs": "230e6dfd1efecae0530e9cf4508d251bd7321ab38b105185224b90eff6ce1927"
+  },
+  "job_name": "ethanol-180-rotation-0",
+  "output": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v2/jobs/ethanol-180-rotation-0/attempt-0001/record.json",
+  "scratch_directory": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v2/jobs/ethanol-180-rotation-0/attempt-0001/scratch",
+  "runtime_memory": "3 GiB",
+  "runtime_memory_bytes": 3221225472
+}

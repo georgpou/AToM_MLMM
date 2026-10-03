@@ -1,0 +1,4 @@
+  Threads set to 2 by Python driver.
+
+  Memory set to   3.000 GiB by Python driver.
+{"name": "butane-methanol-separated", "status": "computed", "wall_seconds": 394.2245211790005}

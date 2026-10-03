@@ -1,68 +1,62 @@
 # Current status
 
-The resumed assignment recovered published `4bb2547` on the same
-`m03-reference-g05` child in a fresh machine. The locked environments are
-rebuilt, the eight saved references and 46 frozen input hashes match, and the
-new recovery runner passes 18 focused software checks. It preserves original
-attempts, checkpoints progress, tracks RSS/cgroup/scratch and charges prior
-launch-to-stop time (2350.09535 s) against the approved 12-hour limit. A 3 GiB
-runtime allocation stays under the unchanged 5 GiB cap. Final prelaunch source
-checks passed 310 cases; only the two absent-quantum chemical checks failed.
-Strict environment validation passed 9/9; 38 actual QM jobs remain. The user explicitly deferred
-independent audit and requested no Astra/high reviewer. See
-[continuation worker](../../Worker_Log/Milestone_03/Gate_05_v4_worker.md).
+G05 on the same child `m03-reference-g05` is **ready_for_review**, with
+independent full-gate audit and acceptance pending. The user explicitly
+requested implementation, calculations and reports here, deferred the audit
+and prohibited an Astra/high reviewer for this assignment. No reviewer was
+dispatched. Calculation source is `419b64f7bd79199a0bf999e456f1564fc184cf75`,
+continuing published checkpoint `4bb2547` and accepted G04 predecessor
+`bc788aeeedb4dc45026ac1bff44bd4fb533b325a`.
 
-The child `m03-reference-g05` continues exact published G04 handoff
-`bc788aeeedb4dc45026ac1bff44bd4fb533b325a`. G00-T2/G05-T1 loading checks and
-16 independent real-model adapter/locality/domain/reload cases pass; current G05 work
-remains **partial**, with chemical checks and complete independent
-gate review pending. The [corrected exact M00 proposal](reference/M00-neutral-reference-plan-v3.md)
-contains 34 hashed neutral structures, reference settings/limits and future
-G07 controls plus ten monomer-grid rotation controls. Actual Astra/high v2
-review required repair of one retained-peptide clash; the score-free v3
-repair is independently accepted for design by actual fresh-context
-gpt-6-astra/high on `a825f5f1c2d8cf4146133c2049ef1c4eca550e93`:
-965 applicable structural/geometry and 131 package/basis/provenance checks.
-See the [v3 audit](../../Worker_Log/Milestone_00/Milestone_00_v3_audit.md).
-Quantum-only feasibility succeeded in a separate locked Psi4
-prefix; the user explicitly approved the exact plan, limits and 12-hour/two-thread/
-5-GiB budget on 2026-10-03. Both chemical test nodes
-now exist and fail closed for absent quantum data; no skip or analytic
-substitute is counted as a chemical pass. No
-target model-versus-quantum results have been inspected. New
-[G00 worker](../../Worker_Log/Milestone_01/Gate_00_v2_worker.md),
-[M00 worker](../../Worker_Log/Milestone_00/Milestone_00_v2_worker.md) and
-[G05 worker](../../Worker_Log/Milestone_03/Gate_05_v1_worker.md) record actual scope.
-Latest full current-source result is **292 passed / 2 missing-quantum-data failures**;
-analytic **272 passed / 22 deselected**, inherited G02/G03/admission/G04
-**78/38/74/24**, strict **9/9**, upstream **1** and docs zero errors/eight
-self-tests. The first G05 software reviewer was interrupted for the user's quota
-pause after saving independent full/analytic/environment runs; it supplied no
-verdict. A fresh-context Astra/high reviewer completed the exact software
-snapshot `a7768e375476667139db374dc0091999263a37de`, accepting G00-T2 and the
-six G05 software assertions; the [G05 v1 audit](../../Worker_Log/Milestone_03/Gate_05_v1_audit.md)
-leaves T4 readiness changes_required for approval-plan binding. Quantum-only
-target generation from committed `3124c6d275bf19a32ce364dfdb83b11115828ac5`
-is **paused at the user's request after execution transport loss**. Eight
-energy/gradient targets are saved and verified (three acetamides, four butanes,
-one butane/acetamide contact); **38 jobs remain**: seven isolated targets,
-19 contacts, ten rotations and two finer-grid checks. No coordinator manifest
-was saved and no active quantum process was visible at checkpoint. The last
-contact saved a complete record despite the missing coordinator receipt;
-the cause of disconnection is unknown. Disk has about 14.28 GiB free;
-the 8-GiB container RAM high-water reached its cap without a recorded OOM kill,
-so resume needs measured memory headroom and durable progress/reuse support.
-Model-versus-quantum comparison has not started. Its prepared-reference importer finding is repaired with a
-six-case RED/GREEN rejection regression; [v2 worker](../../Worker_Log/Milestone_03/Gate_05_v2_worker.md)
-records the repair. The [v2 Astra/high audit](../../Worker_Log/Milestone_03/Gate_05_v2_audit.md)
-closes G05-v1-R1 and accepts prepared-loading readiness on exact `3124c6d`:
-ten focused passes, one independent synthetic positive and 29 rejections,
-270 matched source/input hashes. This is not chemical or full-G05 acceptance.
-[Fresh-session handoff](handoffs/M03-G05-fresh-session.md),
-[pause worker](../../Worker_Log/Milestone_03/Gate_05_v3_worker.md) and
-[checkpoint evidence](../../Worker_Log/Milestone_00/evidence/M00_reference_v3/README.md)
-record remaining work. Reuse this same branch; do not rerun the non-resumable
-generator blindly. Inherited acceptance below is unchanged.
+All **46 actual QM records** are complete: 34 frozen neutral-singlet chemical
+targets, ten mandatory rotations and two finer-grid controls. Eight historical
+records were reused by exact SHA-256; 38 new workers exited zero with complete
+finite gradients and explicit SCF convergence in every saved Psi4 log. The
+[approved exact M00 v3 plan](reference/M00-neutral-reference-plan-v3.md), basis,
+settings, model identity and numerical/chemical limits are unchanged. The
+maintained importer validated every reference, and **all 12 numerical controls
+passed before the hashed quantum fixture bundle was created**.
+
+Both G05-T4 actual model-versus-quantum checks passed. Largest per-family
+conformer RMS/maximum errors are **0.176/0.286 kcal/mol** (limits 1/2);
+contact-minus-separated RMS/maximum are **0.339/0.456 kcal/mol** (limits 0.5/1).
+Largest raw force component RMS/atom-vector errors are **0.02133/0.08661
+eV/angstrom** (limits 0.05/0.15); largest projected full-parent errors are
+**0.01451/0.08661 eV/angstrom**. Largest net ligand force-vector error is
+**0.03976 eV/angstrom** (limit 0.05). All seven required attraction and four
+compressed-repulsion sign checks passed; every weak/separated row is retained.
+[Actual results, tables and exportable figures](../../Worker_Log/Milestone_03/evidence/G05_v4/RESULTS.md)
+retain all cases, raw outputs, cap forces and both real-parent projections.
+
+Final full source suite: **312 passed**. Recovery software: **18 focused
+passes**, with meaningful missing-feature, cache-headroom and live-worker
+RED/GREEN evidence preserved. Strict environment checks passed **9/9** before
+launch; final documentation/packaging verification is recorded in the
+[continuation worker](../../Worker_Log/Milestone_03/Gate_05_v4_worker.md).
+The fresh machine's absent main/Amber/reference prefixes were rebuilt under
+the unchanged locks, including all 105 exact reference packages.
+
+Cumulative charged quantum wall time is **4.400612 h**, including a conservative
+**2350.09535 s** debit for the prior launch-to-stop interval; the resumed session
+used **3.747808 h**. Runtime allocation was two threads and **3 GiB Psi4 memory**
+under the approved 5 GiB upper cap. Maximum measured new-worker RSS was
+**4.670959 GiB**. Total cgroup memory includes cache and reached the 8 GiB cap;
+zero OOM/OOM-kill events were recorded. All private quantum scratch is cleaned.
+The original stopped attempt is unchanged; new orders/logs/receipts, one-second
+resource samples and durable progress remain in the separate resumed attempt.
+
+Inherited software decisions remain the [v1](../../Worker_Log/Milestone_03/Gate_05_v1_audit.md)
+and [v2](../../Worker_Log/Milestone_03/Gate_05_v2_audit.md) scoped audits on
+`a7768e3`/`3124c6d`; the importer approval-binding finding is closed.
+The [M00 v3 design audit](../../Worker_Log/Milestone_00/Milestone_00_v3_audit.md)
+and explicit user scientific/budget agreement persist. None of these decisions
+supplies the still-pending independent full-G05 audit. Model metadata remains
+unqualified until acceptance. Protein binding, periodic/GPU/electrostatic
+physics and complete ABFE/RBFE remain outside this demonstrated scope.
+
+Automatic approval review rejected publication of this continuation because
+explicit source/history export authorization to the GitHub destination was
+required. The completed continuation is local; no new push is claimed.
 
 G04 is independently **accepted_for_scope** on child `m03-link-boundary` for `core-analytic-cpu`, nonperiodic Reference/CPU. The actual fresh-context **gpt-6-astra / high** reviewer accepted **G04-T1/T2/T3 and all seven stable assertions** on exact frozen submission `35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a`, carrying tested source/input commit `55df6a7d25e7a4de607a13b7d87c327feddecb34`. The [G04 v1 audit](../../Worker_Log/Milestone_03/Gate_04_v1_audit.md) and [independent evidence](../../Worker_Log/Milestone_03/evidence/G04_v1_independent_r2/README.md) record the complete decision. [Acceptance](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/acceptance.json) covers seven checks/seven requirements; [closure evidence](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/README.md) preserves the exact reviewed source and submitted worker evidence.
 
@@ -76,7 +70,7 @@ The [acceptance record](../../Worker_Log/Milestone_02/evidence/M02_v2_closure/ac
 
 M01's analytic CPU implementation is independently accepted for `core-analytic-cpu` on `m00-audit-m01-development`. The [combined v2 audit](../../Worker_Log/Milestone_01/Gate_01_v2_audit.md) reviewed snapshot `04944c67fc04c1667723f5292a07f8401cb94184`, carrying tested code `141c7fbcf2c5407e7880512d5481639bdc81bf57`. [G00 worker](../../Worker_Log/Milestone_01/Gate_00_v1_worker.md) records exact CPU APIs/provenance; [G01/M01 repair worker](../../Worker_Log/Milestone_01/Gate_01_v2_worker.md) records identities, fixed partitions, immutable versioned records, capability rejection, MM inventory and evidence validation. The full available suite passed 47 tests; the analytic selection passed 46 with one model test deselected. Strict environment validation passed all nine checks. [Repair validation evidence](../../Worker_Log/Milestone_01/evidence/M01_v2/validation.json.gz) and [complete environment identity](../../Worker_Log/Milestone_01/evidence/M01_v1/environment-manifest.json.gz) identify the tested profile. The saved [original-MM inventory](../../Worker_Log/Milestone_01/evidence/M01_v2/original-mm-inventory.json) and [acceptance record](../../Worker_Log/Milestone_01/evidence/M01_v2/acceptance.json) carry the scoped handoff. These results do not accept a molecular gate.
 
-The [independent M00 audit](../../Worker_Log/Milestone_00/Milestone_00_v1_audit.md) accepts scientific contract version 1 for G00-T1/G01-T1/T2/T3 on `core-analytic-cpu`. Full M00 physical-reference closure remains open: exact G05/G07 references, quantum method/settings and profile limits need a separate reviewed decision before comparison results are inspected. The prior [repository preparation record](../../Worker_Log/Documentation/Repository_Ready_v1_worker.md) remains setup/example provenance.
+The [independent M00 audit](../../Worker_Log/Milestone_00/Milestone_00_v1_audit.md) accepts scientific contract version 1 for G00-T1/G01-T1/T2/T3 on `core-analytic-cpu`. The subsequent exact M00 v3 physical-reference design was separately reviewed and explicitly approved before these calculations and comparisons; full G05 qualification still awaits its independent audit. The prior [repository preparation record](../../Worker_Log/Documentation/Repository_Ready_v1_worker.md) remains setup/example provenance.
 
 ## Available calculation
 
@@ -84,28 +78,25 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-Resume [G05](gates/G05-local-model-adapter.md) using the
-[same-branch fresh-session handoff](handoffs/M03-G05-fresh-session.md).
-Its approved M00 choices and software reviews persist; validated recovery,
-38 remaining references, numerical controls, actual chemical comparisons and
-full independent G05 review are still required. [G06](gates/G06-periodicity-and-interaction-ledger.md)
-then qualifies periodic geometry/interaction accounting under its actual
-prerequisites, and [G07](gates/G07-joint-cavity-ligand-atm.md) supplies combined
-M03 closure. [G08](gates/G08-thermodynamics-and-estimators.md) is a separate M04
-analysis path. Molecular/protein, GPU, periodic/electrostatic and full-workflow
-qualification remain deferred.
+The user will choose the independent full-[G05](gates/G05-local-model-adapter.md)
+audit procedure. All assigned programming, reference calculations, numerical
+controls, chemical comparisons and reports are complete; audit/publication
+instructions remain. [G06](gates/G06-periodicity-and-interaction-ledger.md) and
+[G07](gates/G07-joint-cavity-ligand-atm.md) are subsequent assignments, supplying
+periodic qualification and combined M03 closure. [G08](gates/G08-thermodynamics-and-estimators.md)
+is a separate M04 analysis path. Broader physical profiles remain deferred.
 
 | Scientific scope | Status | Next condition |
 |---|---|---|
 | M00 / analytic CPU design | accepted_for_scope | [Independent version 1 design review](../../Worker_Log/Milestone_00/Milestone_00_v1_audit.md) |
-| M00 / physical-reference design | accepted_for_scope | Exact v3 design independently accepted and explicitly approved by user; target reference convergence/comparison still pending |
+| M00 / physical-reference design | accepted_for_scope | Exact v3 design independently accepted and explicitly approved; reference convergence and G05 comparisons now pass, with full-G05 audit pending |
 | M01 / G00-T1, G01-T1/T2/T3 | accepted_for_scope | [Independent combined v2 review](../../Worker_Log/Milestone_01/Gate_01_v2_audit.md); 47-test result on the recorded CPU profile |
 | M02 / G02-T1/T2/T3, G03-T1/T2/T3 | accepted_for_scope | [G02 v2 audit](../../Worker_Log/Milestone_02/Gate_02_v2_audit.md) / [G03-M02 v2 audit](../../Worker_Log/Milestone_02/Gate_03_v2_audit.md); R1/R2/R3 closed on exact reviewed snapshot; [acceptance record](../../Worker_Log/Milestone_02/evidence/M02_v2_closure/acceptance.json) |
 | G04 / analytic CPU | accepted | [Astra high full-G04 audit](../../Worker_Log/Milestone_03/Gate_04_v1_audit.md) and [acceptance](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/acceptance.json); no blocking findings |
 | M03 / G04-G07 | in_progress | G04 accepted; applicable G05/G06 and G07 combined review still required |
 | M04-M08 / G08-G13 | not_started | Follow [roadmap](../../README.md#roadmap) and gate prerequisites |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
-| Real-model chemical/protein qualification | not_run | G00/G05/G07 evidence and predeclared physical-reference limits |
+| Real-model small-system chemical / protein qualification | ready_for_review / not_run | G05 actual checks pass; independent full-G05 audit pending. Protein qualification remains G07/later work. |
 
 ## Retired audit distractions
 

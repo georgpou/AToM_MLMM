@@ -1,0 +1,134 @@
+{
+  "structure": {
+    "name": "acetamide-0-rotation-0",
+    "kind": "rotation-quadrature-control",
+    "baseline": "acetamide-0",
+    "formal_charge": 0,
+    "multiplicity": 1,
+    "units": "angstrom",
+    "atom_ids": [
+      "l:l0",
+      "l:l1",
+      "l:l2",
+      "l:l3",
+      "l:l4",
+      "l:l5",
+      "l:l6",
+      "l:l7",
+      "l:l8"
+    ],
+    "atomic_numbers": [
+      6,
+      6,
+      7,
+      8,
+      1,
+      1,
+      1,
+      1,
+      1
+    ],
+    "elements": [
+      "C",
+      "C",
+      "N",
+      "O",
+      "H",
+      "H",
+      "H",
+      "H",
+      "H"
+    ],
+    "positions_angstrom": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        1.5020292628487426,
+        9.71445146547012e-17,
+        -1.1102230246251565e-16
+      ],
+      [
+        2.0888565239013883,
+        0.6700919736956512,
+        -1.0293200853996056
+      ],
+      [
+        2.172993893004478,
+        -0.5584662064820846,
+        0.8595207168352816
+      ],
+      [
+        -0.4040543907832559,
+        0.5440669415631313,
+        -0.8580604965434342
+      ],
+      [
+        -0.3568502766323651,
+        -1.0326624762889007,
+        -0.0398363413688001
+      ],
+      [
+        -0.3567517484295366,
+        0.47609233449217525,
+        0.9172568689813232
+      ],
+      [
+        1.5704315265903257,
+        1.1426336391239746,
+        -1.7555108897272842
+      ],
+      [
+        3.099940027914004,
+        0.690053304938812,
+        -1.0593740837045036
+      ]
+    ],
+    "rotation": [
+      [
+        0.8789205891718033,
+        -0.13794318479997952,
+        0.4565854527874589
+      ],
+      [
+        0.13794318479997952,
+        0.9898727373884658,
+        0.03352076285384927
+      ],
+      [
+        -0.4565854527874589,
+        0.03352076285384927,
+        0.8890478517833375
+      ]
+    ],
+    "source_contact": "butane-acetamide-d3.4-r0",
+    "energy_difference_max_kcal_mol": 0.02,
+    "force_component_rms_difference_max_eV_angstrom": 0.002,
+    "force_atom_vector_difference_max_eV_angstrom": 0.005
+  },
+  "source_input_sha256": "2b2c6f48b2eeb07c1fb4dd01dfa76fde33e8e8661c2341b745b73fa390b81989",
+  "settings": {
+    "basis": "def2-tzvppd",
+    "df_basis_scf": "def2-universal-jkfit",
+    "reference": "rhf",
+    "scf_type": "df",
+    "e_convergence": 1e-10,
+    "d_convergence": 1e-10,
+    "maxiter": 200,
+    "ints_tolerance": 1e-12,
+    "dft_radial_points": 99,
+    "dft_spherical_points": 590,
+    "wcombine": false
+  },
+  "basis_file_sha256": {
+    "def2-tzvppd.gbs": "0b3c5f3a8bfe9a158dabff8b6437dd3706c65757f42a56a70918fc2d78291d13",
+    "def2-universal-jkfit.gbs": "230e6dfd1efecae0530e9cf4508d251bd7321ab38b105185224b90eff6ce1927"
+  },
+  "job_name": "acetamide-0-rotation-0",
+  "output": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v2/jobs/acetamide-0-rotation-0/attempt-0001/record.json",
+  "scratch_directory": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v2/jobs/acetamide-0-rotation-0/attempt-0001/scratch",
+  "runtime_memory": "3 GiB",
+  "runtime_memory_bytes": 3221225472
+}

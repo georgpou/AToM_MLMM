@@ -1,0 +1,123 @@
+{
+  "status": "computed",
+  "name": "methanol-baseline-rotation-1",
+  "source_input_sha256": "022f91550f2711e75c39f31c33cacecf34383b24a54c343bc98da00f127784ac",
+  "method": "wb97m-d3bj/def2-tzvppd",
+  "psi4_version": "1.10.2",
+  "formal_charge": 0,
+  "multiplicity": 1,
+  "positions_angstrom": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.707866964207982,
+      1.2260615470077647,
+      1.6653345369377348e-16
+    ],
+    [
+      0.13396428780440228,
+      -0.48767980942220757,
+      0.9684226146385951
+    ],
+    [
+      -1.0630544400013067,
+      0.1919804185662865,
+      -0.16486273283498337
+    ],
+    [
+      0.3909162007203255,
+      -0.6474689849230846,
+      -0.7887259510766267
+    ],
+    [
+      0.5703882675594834,
+      1.6354030917624471,
+      -0.8712080916129962
+    ]
+  ],
+  "atomic_numbers": [
+    6,
+    8,
+    1,
+    1,
+    1,
+    1
+  ],
+  "energy_hartree": -115.7961233732245,
+  "gradient_hartree_bohr": [
+    [
+      0.0013702014372352434,
+      -0.0004275977553659774,
+      0.003768331428763152
+    ],
+    [
+      -0.0016725140710224934,
+      -0.009841288630933495,
+      0.009344139968123858
+    ],
+    [
+      -0.0005387667501995858,
+      -0.003565112418965137,
+      0.003541531430042147
+    ],
+    [
+      0.0006025636724570207,
+      0.005413626908425487,
+      -0.0009080438582521864
+    ],
+    [
+      0.0034143366745645184,
+      0.003790424309444467,
+      -0.002114417726541196
+    ],
+    [
+      -0.0031757425230882104,
+      0.004629922662028176,
+      -0.013631324827424884
+    ]
+  ],
+  "quantum_energy_variables": {
+    "CURRENT ENERGY": -115.7961233732245,
+    "CURRENT REFERENCE ENERGY": -115.7961233732245,
+    "DD SOLVATION ENERGY": 0.0,
+    "DFT FUNCTIONAL TOTAL ENERGY": -115.7925295609887,
+    "DFT TOTAL ENERGY": -115.7961233732245,
+    "DFT VV10 ENERGY": 0.0,
+    "DFT XC ENERGY": -10.904141229509698,
+    "DISPERSION CORRECTION ENERGY": -0.003593812235812519,
+    "NUCLEAR REPULSION ENERGY": 40.36745115687929,
+    "ONE-ELECTRON ENERGY": -237.03348961675394,
+    "PCM POLARIZATION ENERGY": 0.0,
+    "PE ENERGY": 0.0,
+    "SCF ITERATION ENERGY": -115.7961233732245,
+    "SCF TOTAL ENERGY": -115.7961233732245,
+    "TWO-ELECTRON ENERGY": 91.77765012839565,
+    "WB97M-D3BJ DISPERSION CORRECTION ENERGY": -0.003593812235812519
+  },
+  "basis_file_sha256": {
+    "def2-tzvppd.gbs": "0b3c5f3a8bfe9a158dabff8b6437dd3706c65757f42a56a70918fc2d78291d13",
+    "def2-universal-jkfit.gbs": "230e6dfd1efecae0530e9cf4508d251bd7321ab38b105185224b90eff6ce1927"
+  },
+  "settings": {
+    "basis": "def2-tzvppd",
+    "df_basis_scf": "def2-universal-jkfit",
+    "reference": "rhf",
+    "scf_type": "df",
+    "e_convergence": 1e-10,
+    "d_convergence": 1e-10,
+    "maxiter": 200,
+    "ints_tolerance": 1e-12,
+    "dft_radial_points": 99,
+    "dft_spherical_points": 590,
+    "wcombine": false
+  },
+  "network_denied": true,
+  "wall_seconds": 48.01917864399911,
+  "threads": 2,
+  "memory": "3 GiB",
+  "peak_rss_bytes": 2152415232,
+  "completed_utc": "2026-10-03T18:38:45.350469+00:00"
+}

@@ -1,0 +1,4 @@
+  Threads set to 2 by Python driver.
+
+  Memory set to   3.000 GiB by Python driver.
+{"name": "methanol-stretch003", "status": "computed", "wall_seconds": 45.25228754999989}

@@ -1,0 +1,4 @@
+  Threads set to 2 by Python driver.
+
+  Memory set to   3.000 GiB by Python driver.
+{"name": "methanol-oh60", "status": "computed", "wall_seconds": 48.942446842998834}

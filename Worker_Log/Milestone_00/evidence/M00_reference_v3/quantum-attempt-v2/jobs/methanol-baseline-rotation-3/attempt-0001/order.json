@@ -1,0 +1,110 @@
+{
+  "structure": {
+    "name": "methanol-baseline-rotation-3",
+    "kind": "rotation-quadrature-control",
+    "baseline": "methanol-baseline",
+    "formal_charge": 0,
+    "multiplicity": 1,
+    "units": "angstrom",
+    "atom_ids": [
+      "l:l0",
+      "l:l1",
+      "l:l2",
+      "l:l3",
+      "l:l4",
+      "l:l5"
+    ],
+    "atomic_numbers": [
+      6,
+      8,
+      1,
+      1,
+      1,
+      1
+    ],
+    "elements": [
+      "C",
+      "O",
+      "H",
+      "H",
+      "H",
+      "H"
+    ],
+    "positions_angstrom": [
+      [
+        0.0,
+        0.0,
+        0.0
+      ],
+      [
+        -0.707866964207982,
+        -1.2260615470077647,
+        -1.6653345369377348e-16
+      ],
+      [
+        -0.12732034295160322,
+        0.4838439260729632,
+        -0.9712388856205569
+      ],
+      [
+        -0.39630131957108894,
+        0.650579022066267,
+        0.7834622801071607
+      ],
+      [
+        1.0618969721362541,
+        -0.19131309150789577,
+        0.17289971055562764
+      ],
+      [
+        -0.5763628246865475,
+        -1.631953679596848,
+        0.8737406189352144
+      ]
+    ],
+    "rotation": [
+      [
+        -0.38622630897746985,
+        -0.6130092838615329,
+        -0.6892378806719863
+      ],
+      [
+        -0.8775580256704798,
+        0.4743531284260942,
+        0.06986430514724448
+      ],
+      [
+        0.28411467726073153,
+        0.6318296664861098,
+        -0.7211588748071271
+      ]
+    ],
+    "source_contact": "ethanol-methanol-d3-r60",
+    "energy_difference_max_kcal_mol": 0.02,
+    "force_component_rms_difference_max_eV_angstrom": 0.002,
+    "force_atom_vector_difference_max_eV_angstrom": 0.005
+  },
+  "source_input_sha256": "f301a62cde94e7d67391ba678c5739d2e8c77f10799e72034d39693f4b2b474e",
+  "settings": {
+    "basis": "def2-tzvppd",
+    "df_basis_scf": "def2-universal-jkfit",
+    "reference": "rhf",
+    "scf_type": "df",
+    "e_convergence": 1e-10,
+    "d_convergence": 1e-10,
+    "maxiter": 200,
+    "ints_tolerance": 1e-12,
+    "dft_radial_points": 99,
+    "dft_spherical_points": 590,
+    "wcombine": false
+  },
+  "basis_file_sha256": {
+    "def2-tzvppd.gbs": "0b3c5f3a8bfe9a158dabff8b6437dd3706c65757f42a56a70918fc2d78291d13",
+    "def2-universal-jkfit.gbs": "230e6dfd1efecae0530e9cf4508d251bd7321ab38b105185224b90eff6ce1927"
+  },
+  "job_name": "methanol-baseline-rotation-3",
+  "output": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v2/jobs/methanol-baseline-rotation-3/attempt-0001/record.json",
+  "scratch_directory": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v2/jobs/methanol-baseline-rotation-3/attempt-0001/scratch",
+  "runtime_memory": "3 GiB",
+  "runtime_memory_bytes": 3221225472
+}
