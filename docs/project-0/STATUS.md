@@ -1,17 +1,20 @@
 # Current status
 
-G05 on the same child `m03-reference-g05` is **changes_required** after the
-user-selected fresh-context **GPT-6.1 Sol / MAX reasoning** independent audit
-of source/data snapshot `a99a4448f14386e79c1546dd32fd83a33b9ac424` (review HEAD
-`ac644eb033d6da80636e89437c0e6b93b3fbce66`). The
-[v4 audit](../../Worker_Log/Milestone_03/Gate_05_v4_audit.md) reproduces three
-recovery defects: **R1/P1**, known failed-exit records admitted as unknown/ready;
-**R2/P1**, a crash between launch and identity checkpoint permits live duplicate
-workers; **R3/P2**, durable progress can precede referenced record data and
-directory entries. No repairs or QM reruns occurred during audit. The completed
-scientific data remain valid for the recorded neutral CPU scope; full G05
-acceptance requires recovery repair and independent closure. Calculation source
-is `419b64f7bd79199a0bf999e456f1564fc184cf75`, continuing published checkpoint
+G05 on the same child `m03-reference-g05` is **ready_for_review** for closure of
+the three recovery findings from the user-selected **GPT-6.1 Sol / MAX reasoning**
+[v4 audit](../../Worker_Log/Milestone_03/Gate_05_v4_audit.md). The user explicitly
+approved their repair and publication of this branch. Repair source is
+`64bba6e54c0bea4e7c48925913d7b06f242d58af`, recorded in the
+[v5 worker](../../Worker_Log/Milestone_03/Gate_05_v5_worker.md).
+R1 preserves known completion failures and receipts; R2 holds the queue lease
+through a supervised, checkpointed launch and kills the group on coordinator
+loss; R3 makes record/receipt bytes and directory entries durable before progress.
+**41 recovery tests and 335 full-suite tests pass; strict environment is 9/9.**
+No QM calculations were rerun. All 46 references and the frozen scientific
+inputs, results, logs, histories, model and limits are unchanged. Independent
+repair closure remains pending. Actual calculation source remains
+`419b64f7bd79199a0bf999e456f1564fc184cf75`; reviewed source/data remains
+`a99a4448f14386e79c1546dd32fd83a33b9ac424`, continuing published checkpoint
 `4bb2547` and accepted G04 predecessor `bc788aeeedb4dc45026ac1bff44bd4fb533b325a`.
 
 The [independent evidence](../../Worker_Log/Milestone_03/evidence/G05_v4_independent_sol61_max/README.md)
@@ -64,14 +67,16 @@ Inherited software decisions remain the [v1](../../Worker_Log/Milestone_03/Gate_
 and [v2](../../Worker_Log/Milestone_03/Gate_05_v2_audit.md) scoped audits on
 `a7768e3`/`3124c6d`; the importer approval-binding finding is closed.
 The [M00 v3 design audit](../../Worker_Log/Milestone_00/Milestone_00_v3_audit.md)
-and explicit user scientific/budget agreement persist. The full-G05 v4 audit
-now requires recovery changes; inherited decisions do not close its findings.
+and explicit user scientific/budget agreement persist. The full-G05 v4 recovery
+findings are repaired in v5 and await independent closure; inherited decisions
+do not close its findings.
 Model metadata remains unqualified until acceptance. Protein binding, periodic/GPU/electrostatic
 physics and complete ABFE/RBFE remain outside this demonstrated scope.
 
-Automatic approval review rejected publication of this continuation because
-explicit source/history export authorization to the GitHub destination was
-required. The completed continuation is local; no new push is claimed.
+The earlier automatic publication rejection required explicit source/history
+export authorization. The user has now authorized fixes and publication to the
+existing GitHub branch. Remote publication will follow repair closure; no new
+push is claimed yet.
 
 G04 is independently **accepted_for_scope** on child `m03-link-boundary` for `core-analytic-cpu`, nonperiodic Reference/CPU. The actual fresh-context **gpt-6-astra / high** reviewer accepted **G04-T1/T2/T3 and all seven stable assertions** on exact frozen submission `35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a`, carrying tested source/input commit `55df6a7d25e7a4de607a13b7d87c327feddecb34`. The [G04 v1 audit](../../Worker_Log/Milestone_03/Gate_04_v1_audit.md) and [independent evidence](../../Worker_Log/Milestone_03/evidence/G04_v1_independent_r2/README.md) record the complete decision. [Acceptance](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/acceptance.json) covers seven checks/seven requirements; [closure evidence](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/README.md) preserves the exact reviewed source and submitted worker evidence.
 
@@ -93,12 +98,11 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-The requested full-[G05](gates/G05-local-model-adapter.md) audit is complete.
-Next work is closure of recovery findings **R1/R2/R3**, with retained synthetic
-regressions and independent review of a new source snapshot. Preserve the
-completed 46-reference batch, fixed scientific settings and model; the findings
-do not require QM reruns. This audit/report assignment performed no repairs or
-publication. [G06](gates/G06-periodicity-and-interaction-ledger.md) and
+The requested full-[G05](gates/G05-local-model-adapter.md) v4 audit is complete,
+and **R1/R2/R3** are repaired in v5. Next is focused independent closure on the
+new snapshot and user-authorized branch publication. Preserve the completed
+46-reference batch, fixed scientific settings and model; no QM rerun is needed.
+[G06](gates/G06-periodicity-and-interaction-ledger.md) and
 [G07](gates/G07-joint-cavity-ligand-atm.md) are subsequent assignments, supplying
 periodic qualification and combined M03 closure. [G08](gates/G08-thermodynamics-and-estimators.md)
 is a separate M04 analysis path. Broader physical profiles remain deferred.
@@ -113,7 +117,7 @@ is a separate M04 analysis path. Broader physical profiles remain deferred.
 | M03 / G04-G07 | in_progress | G04 accepted; applicable G05/G06 and G07 combined review still required |
 | M04-M08 / G08-G13 | not_started | Follow [roadmap](../../README.md#roadmap) and gate prerequisites |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
-| Real-model small-system chemical / protein qualification | changes_required / not_run | G05 saved scientific results independently verified; v4 recovery R1/R2/R3 block full-gate acceptance. Protein qualification remains G07/later work. |
+| Real-model small-system chemical / protein qualification | ready_for_review / not_run | G05 saved scientific results independently verified; v5 recovery repairs pass and await independent closure. Protein qualification remains G07/later work. |
 
 ## Retired audit distractions
 

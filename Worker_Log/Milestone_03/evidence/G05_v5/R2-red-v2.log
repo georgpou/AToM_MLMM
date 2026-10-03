@@ -1,0 +1,205 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/atom-mlmm-g05-v2/env/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/AToM_MLMM-m03-reference-g05
+configfile: pytest.ini
+plugins: cov-7.1.0, platformdirs-4.12.2, anyio-4.15.1
+collecting ... collected 7 items / 3 deselected / 4 selected
+
+tests/unit/test_quantum_interruptions.py::test_coordinator_crash_cannot_leave_live_or_duplicate_work[before_spawn] PASSED [ 25%]
+tests/unit/test_quantum_interruptions.py::test_coordinator_crash_cannot_leave_live_or_duplicate_work[after_spawn] FAILED [ 50%]
+tests/unit/test_quantum_interruptions.py::test_coordinator_crash_cannot_leave_live_or_duplicate_work[after_identity] FAILED [ 75%]
+tests/unit/test_quantum_interruptions.py::test_coordinator_crash_cannot_leave_live_or_duplicate_work[after_authorize] FAILED [100%]
+
+=================================== FAILURES ===================================
+___ test_coordinator_crash_cannot_leave_live_or_duplicate_work[after_spawn] ____
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-20/test_coordinator_crash_cannot_1/plan'), PosixPath('/tmp/pytest-of-agent/pyt...sh_cannot_1/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-20/test_coordinator_crash_cannot_1/output'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f7106a6d290>
+boundary = 'after_spawn'
+
+    @pytest.mark.parametrize('boundary', ['before_spawn', 'after_spawn', 'after_identity', 'after_authorize'])
+    def test_coordinator_crash_cannot_leave_live_or_duplicate_work(synthetic, monkeypatch, boundary):
+        functions = load_recovery(monkeypatch)
+        output = synthetic[-1]
+        guard_pid = output.parent / 'guard.pid'
+        child_pid = output.parent / 'child.pid'
+        script = output.parent / 'crash.py'
+        script.write_text(f'''
+    import os, runpy, subprocess, sys, time
+    from argparse import Namespace
+    from pathlib import Path
+    sys.path.insert(0, {str(REPO / 'tools')!r})
+    functions = runpy.run_path({str(REPO / 'tools/resume_neutral_quantum.py')!r})
+    real_popen = subprocess.Popen
+    def spawn(*args, **kwargs):
+        if {boundary!r} == 'before_spawn': os._exit(99)
+        process = real_popen(*args, **kwargs)
+        Path({str(guard_pid)!r}).write_text(str(process.pid))
+        if {boundary!r} == 'after_spawn': os._exit(99)
+        return process
+    subprocess.Popen = spawn
+    real_dump = functions['atomic_dump']
+    def checkpoint(path, data):
+        real_dump(path, data)
+        if {boundary!r} == 'after_identity' and Path(path).name == 'progress.json' and data['sessions'][-1].get('active_worker'):
+            os._exit(99)
+        active = data.get('sessions', [{{}}])[-1].get('active_worker')
+        if {boundary!r} == 'after_authorize' and active and not active.get('guarded'):
+            deadline = time.monotonic() + 5
+            while not Path({str(child_pid)!r}).exists() and time.monotonic() < deadline: time.sleep(.01)
+            os._exit(99)
+    functions['run'].__globals__['atomic_dump'] = checkpoint
+    real_write = os.write
+    def authorize(fd, data):
+        result = real_write(fd, data)
+        if {boundary!r} == 'after_authorize' and data == b'G':
+            deadline = time.monotonic() + 5
+            while not Path({str(child_pid)!r}).exists() and time.monotonic() < deadline: time.sleep(.01)
+            os._exit(99)
+        return result
+    os.write = authorize
+    functions['run'](Namespace(**{arguments(synthetic)!r}))
+    ''')
+        env = {**os.environ, 'QUANTUM_RECOVERY_TEST_MODE': 'timeout',
+               'QUANTUM_RECOVERY_TEST_CHILD': str(child_pid)}
+        try:
+            first = subprocess.run([sys.executable, str(script)], env=env, capture_output=True, text=True, timeout=15)
+            assert first.returncode == 99, first.stderr
+            if guard_pid.exists():
+                pid = int(guard_pid.read_text())
+>               assert wait_for(lambda: functions['process_identity'](pid) is None), 'Orphan launch group survived coordinator death'
+E               AssertionError: Orphan launch group survived coordinator death
+E               assert False
+E                +  where False = wait_for(<function test_coordinator_crash_cannot_leave_live_or_duplicate_work.<locals>.<lambda> at 0x7f7104db8c20>)
+
+tests/unit/test_quantum_interruptions.py:92: AssertionError
+__ test_coordinator_crash_cannot_leave_live_or_duplicate_work[after_identity] __
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-20/test_coordinator_crash_cannot_2/plan'), PosixPath('/tmp/pytest-of-agent/pyt...sh_cannot_2/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-20/test_coordinator_crash_cannot_2/output'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f7104d25f50>
+boundary = 'after_identity'
+
+    @pytest.mark.parametrize('boundary', ['before_spawn', 'after_spawn', 'after_identity', 'after_authorize'])
+    def test_coordinator_crash_cannot_leave_live_or_duplicate_work(synthetic, monkeypatch, boundary):
+        functions = load_recovery(monkeypatch)
+        output = synthetic[-1]
+        guard_pid = output.parent / 'guard.pid'
+        child_pid = output.parent / 'child.pid'
+        script = output.parent / 'crash.py'
+        script.write_text(f'''
+    import os, runpy, subprocess, sys, time
+    from argparse import Namespace
+    from pathlib import Path
+    sys.path.insert(0, {str(REPO / 'tools')!r})
+    functions = runpy.run_path({str(REPO / 'tools/resume_neutral_quantum.py')!r})
+    real_popen = subprocess.Popen
+    def spawn(*args, **kwargs):
+        if {boundary!r} == 'before_spawn': os._exit(99)
+        process = real_popen(*args, **kwargs)
+        Path({str(guard_pid)!r}).write_text(str(process.pid))
+        if {boundary!r} == 'after_spawn': os._exit(99)
+        return process
+    subprocess.Popen = spawn
+    real_dump = functions['atomic_dump']
+    def checkpoint(path, data):
+        real_dump(path, data)
+        if {boundary!r} == 'after_identity' and Path(path).name == 'progress.json' and data['sessions'][-1].get('active_worker'):
+            os._exit(99)
+        active = data.get('sessions', [{{}}])[-1].get('active_worker')
+        if {boundary!r} == 'after_authorize' and active and not active.get('guarded'):
+            deadline = time.monotonic() + 5
+            while not Path({str(child_pid)!r}).exists() and time.monotonic() < deadline: time.sleep(.01)
+            os._exit(99)
+    functions['run'].__globals__['atomic_dump'] = checkpoint
+    real_write = os.write
+    def authorize(fd, data):
+        result = real_write(fd, data)
+        if {boundary!r} == 'after_authorize' and data == b'G':
+            deadline = time.monotonic() + 5
+            while not Path({str(child_pid)!r}).exists() and time.monotonic() < deadline: time.sleep(.01)
+            os._exit(99)
+        return result
+    os.write = authorize
+    functions['run'](Namespace(**{arguments(synthetic)!r}))
+    ''')
+        env = {**os.environ, 'QUANTUM_RECOVERY_TEST_MODE': 'timeout',
+               'QUANTUM_RECOVERY_TEST_CHILD': str(child_pid)}
+        try:
+            first = subprocess.run([sys.executable, str(script)], env=env, capture_output=True, text=True, timeout=15)
+            assert first.returncode == 99, first.stderr
+            if guard_pid.exists():
+                pid = int(guard_pid.read_text())
+>               assert wait_for(lambda: functions['process_identity'](pid) is None), 'Orphan launch group survived coordinator death'
+E               AssertionError: Orphan launch group survived coordinator death
+E               assert False
+E                +  where False = wait_for(<function test_coordinator_crash_cannot_leave_live_or_duplicate_work.<locals>.<lambda> at 0x7f7104db8860>)
+
+tests/unit/test_quantum_interruptions.py:92: AssertionError
+_ test_coordinator_crash_cannot_leave_live_or_duplicate_work[after_authorize] __
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-20/test_coordinator_crash_cannot_3/plan'), PosixPath('/tmp/pytest-of-agent/pyt...sh_cannot_3/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-20/test_coordinator_crash_cannot_3/output'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f7104d60210>
+boundary = 'after_authorize'
+
+    @pytest.mark.parametrize('boundary', ['before_spawn', 'after_spawn', 'after_identity', 'after_authorize'])
+    def test_coordinator_crash_cannot_leave_live_or_duplicate_work(synthetic, monkeypatch, boundary):
+        functions = load_recovery(monkeypatch)
+        output = synthetic[-1]
+        guard_pid = output.parent / 'guard.pid'
+        child_pid = output.parent / 'child.pid'
+        script = output.parent / 'crash.py'
+        script.write_text(f'''
+    import os, runpy, subprocess, sys, time
+    from argparse import Namespace
+    from pathlib import Path
+    sys.path.insert(0, {str(REPO / 'tools')!r})
+    functions = runpy.run_path({str(REPO / 'tools/resume_neutral_quantum.py')!r})
+    real_popen = subprocess.Popen
+    def spawn(*args, **kwargs):
+        if {boundary!r} == 'before_spawn': os._exit(99)
+        process = real_popen(*args, **kwargs)
+        Path({str(guard_pid)!r}).write_text(str(process.pid))
+        if {boundary!r} == 'after_spawn': os._exit(99)
+        return process
+    subprocess.Popen = spawn
+    real_dump = functions['atomic_dump']
+    def checkpoint(path, data):
+        real_dump(path, data)
+        if {boundary!r} == 'after_identity' and Path(path).name == 'progress.json' and data['sessions'][-1].get('active_worker'):
+            os._exit(99)
+        active = data.get('sessions', [{{}}])[-1].get('active_worker')
+        if {boundary!r} == 'after_authorize' and active and not active.get('guarded'):
+            deadline = time.monotonic() + 5
+            while not Path({str(child_pid)!r}).exists() and time.monotonic() < deadline: time.sleep(.01)
+            os._exit(99)
+    functions['run'].__globals__['atomic_dump'] = checkpoint
+    real_write = os.write
+    def authorize(fd, data):
+        result = real_write(fd, data)
+        if {boundary!r} == 'after_authorize' and data == b'G':
+            deadline = time.monotonic() + 5
+            while not Path({str(child_pid)!r}).exists() and time.monotonic() < deadline: time.sleep(.01)
+            os._exit(99)
+        return result
+    os.write = authorize
+    functions['run'](Namespace(**{arguments(synthetic)!r}))
+    ''')
+        env = {**os.environ, 'QUANTUM_RECOVERY_TEST_MODE': 'timeout',
+               'QUANTUM_RECOVERY_TEST_CHILD': str(child_pid)}
+        try:
+            first = subprocess.run([sys.executable, str(script)], env=env, capture_output=True, text=True, timeout=15)
+            assert first.returncode == 99, first.stderr
+            if guard_pid.exists():
+                pid = int(guard_pid.read_text())
+>               assert wait_for(lambda: functions['process_identity'](pid) is None), 'Orphan launch group survived coordinator death'
+E               AssertionError: Orphan launch group survived coordinator death
+E               assert False
+E                +  where False = wait_for(<function test_coordinator_crash_cannot_leave_live_or_duplicate_work.<locals>.<lambda> at 0x7f7104db94e0>)
+
+tests/unit/test_quantum_interruptions.py:92: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_quantum_interruptions.py::test_coordinator_crash_cannot_leave_live_or_duplicate_work[after_spawn]
+FAILED tests/unit/test_quantum_interruptions.py::test_coordinator_crash_cannot_leave_live_or_duplicate_work[after_identity]
+FAILED tests/unit/test_quantum_interruptions.py::test_coordinator_crash_cannot_leave_live_or_duplicate_work[after_authorize]
+================== 3 failed, 1 passed, 3 deselected in 18.43s ==================

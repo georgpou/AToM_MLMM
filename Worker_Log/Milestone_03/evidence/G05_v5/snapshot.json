@@ -1,0 +1,21 @@
+{
+  "source_commit": "64bba6e54c0bea4e7c48925913d7b06f242d58af",
+  "base_commit": "439314ba2b306651de2947f914f4cdda44e6dbae",
+  "scientific_data_commit": "a99a4448f14386e79c1546dd32fd83a33b9ac424",
+  "calculation_source_commit": "419b64f7bd79199a0bf999e456f1564fc184cf75",
+  "changed_source_files": {
+    "tools/generate_neutral_quantum.py": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff",
+    "tools/resume_neutral_quantum.py": "fdcfe7b8dd4f576b555dc26db3ab1c1c274d9407d0ee327eaeffae9690f7c6ff",
+    "tools/quantum_worker_guard.py": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030",
+    "tests/unit/test_quantum_recovery.py": "d64e9b5a67725f03989656f149b47348c7bec60b8bdd53443584208203c43037",
+    "tests/unit/test_quantum_interruptions.py": "517a88ed32db57221d300e81ad219749e01b38b4542629fcb6b338aa5b8ed8a1"
+  },
+  "full_source_passed": 335,
+  "recovery_passed": 41,
+  "strict_environment_passed": 9,
+  "quantum_records_unchanged": 46,
+  "qm_reexecuted": false,
+  "independent_closure_pending": true,
+  "user_authorized_github_publication": true,
+  "remote_branch_before_publication": "4bb2547684cb9a40de1d65819dfe0cbcae145249"
+}

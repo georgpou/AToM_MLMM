@@ -1,0 +1,132 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/atom-mlmm-g05-v2/env/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/AToM_MLMM-m03-reference-g05
+configfile: pytest.ini
+plugins: cov-7.1.0, platformdirs-4.12.2, anyio-4.15.1
+collecting ... collected 16 items / 14 deselected / 2 selected
+
+tests/unit/test_quantum_interruptions.py::test_legacy_and_salvaged_data_are_synced_before_new_progress[False] FAILED [ 50%]
+tests/unit/test_quantum_interruptions.py::test_legacy_and_salvaged_data_are_synced_before_new_progress[True] FAILED [100%]
+
+=================================== FAILURES ===================================
+_____ test_legacy_and_salvaged_data_are_synced_before_new_progress[False] ______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_0/plan'), PosixPath('/tmp/pytest-of-agent/pyt...aged_data_0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_0/output'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fab0580c550>
+unknown_exit = False
+
+    @pytest.mark.parametrize('unknown_exit', [False, True])
+    def test_legacy_and_salvaged_data_are_synced_before_new_progress(synthetic, monkeypatch, unknown_exit):
+        assert UNIT['run_synthetic'](synthetic).returncode == 0
+        output = synthetic[-1]
+        state = json.loads((output / 'progress.json').read_text())
+        state['record_hashes'].pop('two')
+        state['provenance'].pop('two')
+        UNIT['write'](output / 'progress.json', state)
+        (output / 'records/two.json').unlink()
+        (output / 'manifest.json').unlink()
+        if unknown_exit:
+            (output / 'jobs/two/attempt-0001/receipt.json').unlink()
+>       assert_durable_run(synthetic, monkeypatch)
+
+tests/unit/test_quantum_interruptions.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_quantum_interruptions.py:139: in assert_durable_run
+    assert functions['run'](Namespace(**arguments(synthetic))) == 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tools/resume_neutral_quantum.py:399: in run
+    checkpoint()
+tools/resume_neutral_quantum.py:397: in checkpoint
+    atomic_dump(progress_path, state)
+tools/resume_neutral_quantum.py:35: in atomic_dump
+    os.fsync(stream.fileno())
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fd = 12
+
+    def trace(fd):
+        nonlocal sequence
+        path = Path(os.readlink(f'/proc/self/fd/{fd}'))
+        sequence += 1
+        if path.is_dir():
+            directory_syncs[path] = sequence
+        else:
+            file_syncs[path] = sequence
+            if path.name == 'progress.json.tmp':
+                state = json.loads(path.read_text())
+                for name in state['record_hashes']:
+                    target = output / 'records' / (name + '.json')
+>                   assert file_syncs.get(target, 0) or file_syncs.get(target.with_suffix('.json.tmp'), 0), 'Unsynced promoted record'
+E                   AssertionError: Unsynced promoted record
+E                   assert (0 or 0)
+E                    +  where 0 = <built-in method get of dict object at 0x7fab05513cc0>(PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_0/output/records/one.json'), 0)
+E                    +    where <built-in method get of dict object at 0x7fab05513cc0> = {PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_0/output/jobs/two/attempt-0001/record.json'): 3, PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_0/output/records/two.json.tmp'): 5, PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_0/output/progress.json.tmp'): 7}.get
+E                    +  and   0 = <built-in method get of dict object at 0x7fab05513cc0>(PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_0/output/records/one.json.tmp'), 0)
+E                    +    where <built-in method get of dict object at 0x7fab05513cc0> = {PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_0/output/jobs/two/attempt-0001/record.json'): 3, PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_0/output/records/two.json.tmp'): 5, PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_0/output/progress.json.tmp'): 7}.get
+E                    +    and   PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_0/output/records/one.json.tmp') = with_suffix('.json.tmp')
+E                    +      where with_suffix = PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_0/output/records/one.json').with_suffix
+
+tests/unit/test_quantum_interruptions.py:129: AssertionError
+______ test_legacy_and_salvaged_data_are_synced_before_new_progress[True] ______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_1/plan'), PosixPath('/tmp/pytest-of-agent/pyt...aged_data_1/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_1/output'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fab0553e090>
+unknown_exit = True
+
+    @pytest.mark.parametrize('unknown_exit', [False, True])
+    def test_legacy_and_salvaged_data_are_synced_before_new_progress(synthetic, monkeypatch, unknown_exit):
+        assert UNIT['run_synthetic'](synthetic).returncode == 0
+        output = synthetic[-1]
+        state = json.loads((output / 'progress.json').read_text())
+        state['record_hashes'].pop('two')
+        state['provenance'].pop('two')
+        UNIT['write'](output / 'progress.json', state)
+        (output / 'records/two.json').unlink()
+        (output / 'manifest.json').unlink()
+        if unknown_exit:
+            (output / 'jobs/two/attempt-0001/receipt.json').unlink()
+>       assert_durable_run(synthetic, monkeypatch)
+
+tests/unit/test_quantum_interruptions.py:159: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_quantum_interruptions.py:139: in assert_durable_run
+    assert functions['run'](Namespace(**arguments(synthetic))) == 0
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tools/resume_neutral_quantum.py:399: in run
+    checkpoint()
+tools/resume_neutral_quantum.py:397: in checkpoint
+    atomic_dump(progress_path, state)
+tools/resume_neutral_quantum.py:35: in atomic_dump
+    os.fsync(stream.fileno())
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+fd = 12
+
+    def trace(fd):
+        nonlocal sequence
+        path = Path(os.readlink(f'/proc/self/fd/{fd}'))
+        sequence += 1
+        if path.is_dir():
+            directory_syncs[path] = sequence
+        else:
+            file_syncs[path] = sequence
+            if path.name == 'progress.json.tmp':
+                state = json.loads(path.read_text())
+                for name in state['record_hashes']:
+                    target = output / 'records' / (name + '.json')
+>                   assert file_syncs.get(target, 0) or file_syncs.get(target.with_suffix('.json.tmp'), 0), 'Unsynced promoted record'
+E                   AssertionError: Unsynced promoted record
+E                   assert (0 or 0)
+E                    +  where 0 = <built-in method get of dict object at 0x7fab056397c0>(PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_1/output/records/one.json'), 0)
+E                    +    where <built-in method get of dict object at 0x7fab056397c0> = {PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_1/output/jobs/two/attempt-0001/record.json'): 3, PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_1/output/records/two.json.tmp'): 5, PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_1/output/progress.json.tmp'): 7}.get
+E                    +  and   0 = <built-in method get of dict object at 0x7fab056397c0>(PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_1/output/records/one.json.tmp'), 0)
+E                    +    where <built-in method get of dict object at 0x7fab056397c0> = {PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_1/output/jobs/two/attempt-0001/record.json'): 3, PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_1/output/records/two.json.tmp'): 5, PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_1/output/progress.json.tmp'): 7}.get
+E                    +    and   PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_1/output/records/one.json.tmp') = with_suffix('.json.tmp')
+E                    +      where with_suffix = PosixPath('/tmp/pytest-of-agent/pytest-23/test_legacy_and_salvaged_data_1/output/records/one.json').with_suffix
+
+tests/unit/test_quantum_interruptions.py:129: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_quantum_interruptions.py::test_legacy_and_salvaged_data_are_synced_before_new_progress[False]
+FAILED tests/unit/test_quantum_interruptions.py::test_legacy_and_salvaged_data_are_synced_before_new_progress[True]
+======================= 2 failed, 14 deselected in 6.30s =======================

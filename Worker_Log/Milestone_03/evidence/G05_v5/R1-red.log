@@ -1,0 +1,193 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/atom-mlmm-g05-v2/env/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/AToM_MLMM-m03-reference-g05
+configfile: pytest.ini
+plugins: cov-7.1.0, platformdirs-4.12.2, anyio-4.15.1
+collecting ... collected 24 items / 17 deselected / 7 selected
+
+tests/unit/test_quantum_recovery.py::test_record_saved_before_progress_survives_lost_worker_identity FAILED [ 14%]
+tests/unit/test_quantum_recovery.py::test_resume_preserves_known_failed_exit_and_retries_computed_record FAILED [ 28%]
+tests/unit/test_quantum_recovery.py::test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[reason-timeout] FAILED [ 42%]
+tests/unit/test_quantum_recovery.py::test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[reason-memory_headroom_exhausted] FAILED [ 57%]
+tests/unit/test_quantum_recovery.py::test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[reason-scratch_disk_headroom_exhausted] FAILED [ 71%]
+tests/unit/test_quantum_recovery.py::test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[validation_error-invalid original completion] FAILED [ 85%]
+tests/unit/test_quantum_recovery.py::test_resume_keeps_genuinely_missing_exit_receipt_unknown PASSED [100%]
+
+=================================== FAILURES ===================================
+_______ test_record_saved_before_progress_survives_lost_worker_identity ________
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-17/test_record_saved_before_progr0/plan'), PosixPath('/tmp/pytest-of-agent/pyt...fore_progr0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-17/test_record_saved_before_progr0/output'))
+
+    def test_record_saved_before_progress_survives_lost_worker_identity(synthetic):
+        assert run_synthetic(synthetic).returncode == 0
+        output = synthetic[-1]
+        progress = json.loads((output / 'progress.json').read_text())
+        progress['record_hashes'].pop('two')
+        progress['sessions'][-1].update(status='running', active_worker=dict(pid=99999999, start_ticks=None))
+        write(output / 'progress.json', progress)
+        (output / 'records/two.json').unlink()
+        (output / 'manifest.json').unlink()
+        result = run_synthetic(synthetic)
+        assert result.returncode == 0, result.stderr
+        final = json.loads((output / 'progress.json').read_text())
+        assert final['provenance']['two']['recovered'] is True
+>       assert final['provenance']['two']['coordinator_exit'] == 0
+E       assert None == 0
+
+tests/unit/test_quantum_recovery.py:243: AssertionError
+_____ test_resume_preserves_known_failed_exit_and_retries_computed_record ______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_preserves_known_fa0/plan'), PosixPath('/tmp/pytest-of-agent/pyt...s_known_fa0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_preserves_known_fa0/output'))
+
+    def test_resume_preserves_known_failed_exit_and_retries_computed_record(synthetic):
+        first = run_synthetic(synthetic, mode='computed_fail')
+        assert first.returncode == 1, first.stderr
+        output = synthetic[-1]
+        receipt = output / 'jobs/two/attempt-0001/receipt.json'
+        assert json.loads(receipt.read_text())['exit'] == 23
+        assert json.loads(receipt.with_name('record.json').read_text())['status'] == 'computed'
+        original = sha(receipt)
+        second = run_synthetic(synthetic, mode='computed_fail')
+>       assert second.returncode == 1, second.stderr
+E       AssertionError: 
+E       assert 0 == 1
+E        +  where 0 = CompletedProcess(args=['/workspace/atom-mlmm-g05-v2/env/bin/python', '/workspace/AToM_MLMM-m03-reference-g05/tools/resume_neutral_quantum.py', '--plan-root', '/tmp/pytest-of-agent/pytest-17/test_resume_preserves_known_fa0/plan', '--approval', '/tmp/pytest-of-agent/pytest-17/test_resume_preserves_known_fa0/approval.json', '--output', '/tmp/pytest-of-agent/pytest-17/test_resume_preserves_known_fa0/output', '--reference-python', '/tmp/pytest-of-agent/pytest-17/test_resume_preserves_known_fa0/reference/bin/python'], returncode=0, stdout='', stderr='').returncode
+
+tests/unit/test_quantum_recovery.py:257: AssertionError
+_ test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[reason-timeout] _
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a0/plan'), PosixPath('/tmp/pytest-of-agent/pyt..._salvage_a0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a0/output'))
+field = 'reason', value = 'timeout'
+
+    @pytest.mark.parametrize('field,value', [('reason', 'timeout'),
+        ('reason', 'memory_headroom_exhausted'), ('reason', 'scratch_disk_headroom_exhausted'),
+        ('validation_error', 'invalid original completion')])
+    def test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure(synthetic, field, value):
+        assert run_synthetic(synthetic).returncode == 0
+        output = synthetic[-1]
+        state = json.loads((output / 'progress.json').read_text())
+        state['record_hashes'].pop('two')
+        state['provenance'].pop('two')
+        write(output / 'progress.json', state)
+        (output / 'records/two.json').unlink()
+        (output / 'manifest.json').unlink()
+        receipt = output / 'jobs/two/attempt-0001/receipt.json'
+        data = json.loads(receipt.read_text())
+        data[field] = value
+        write(receipt, data)
+        original = sha(receipt)
+        assert run_synthetic(synthetic).returncode == 0
+        final = json.loads((output / 'progress.json').read_text())
+>       assert len(list(output.glob('jobs/two/attempt-*'))) == 2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = len([PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a0/output/jobs/two/attempt-0001')])
+E        +    where [PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a0/output/jobs/two/attempt-0001')] = list(<generator object Path.glob at 0x7fa58c894150>)
+E        +      where <generator object Path.glob at 0x7fa58c894150> = glob('jobs/two/attempt-*')
+E        +        where glob = PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a0/output').glob
+
+tests/unit/test_quantum_recovery.py:284: AssertionError
+_ test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[reason-memory_headroom_exhausted] _
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a1/plan'), PosixPath('/tmp/pytest-of-agent/pyt..._salvage_a1/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a1/output'))
+field = 'reason', value = 'memory_headroom_exhausted'
+
+    @pytest.mark.parametrize('field,value', [('reason', 'timeout'),
+        ('reason', 'memory_headroom_exhausted'), ('reason', 'scratch_disk_headroom_exhausted'),
+        ('validation_error', 'invalid original completion')])
+    def test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure(synthetic, field, value):
+        assert run_synthetic(synthetic).returncode == 0
+        output = synthetic[-1]
+        state = json.loads((output / 'progress.json').read_text())
+        state['record_hashes'].pop('two')
+        state['provenance'].pop('two')
+        write(output / 'progress.json', state)
+        (output / 'records/two.json').unlink()
+        (output / 'manifest.json').unlink()
+        receipt = output / 'jobs/two/attempt-0001/receipt.json'
+        data = json.loads(receipt.read_text())
+        data[field] = value
+        write(receipt, data)
+        original = sha(receipt)
+        assert run_synthetic(synthetic).returncode == 0
+        final = json.loads((output / 'progress.json').read_text())
+>       assert len(list(output.glob('jobs/two/attempt-*'))) == 2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = len([PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a1/output/jobs/two/attempt-0001')])
+E        +    where [PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a1/output/jobs/two/attempt-0001')] = list(<generator object Path.glob at 0x7fa58c8949d0>)
+E        +      where <generator object Path.glob at 0x7fa58c8949d0> = glob('jobs/two/attempt-*')
+E        +        where glob = PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a1/output').glob
+
+tests/unit/test_quantum_recovery.py:284: AssertionError
+_ test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[reason-scratch_disk_headroom_exhausted] _
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a2/plan'), PosixPath('/tmp/pytest-of-agent/pyt..._salvage_a2/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a2/output'))
+field = 'reason', value = 'scratch_disk_headroom_exhausted'
+
+    @pytest.mark.parametrize('field,value', [('reason', 'timeout'),
+        ('reason', 'memory_headroom_exhausted'), ('reason', 'scratch_disk_headroom_exhausted'),
+        ('validation_error', 'invalid original completion')])
+    def test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure(synthetic, field, value):
+        assert run_synthetic(synthetic).returncode == 0
+        output = synthetic[-1]
+        state = json.loads((output / 'progress.json').read_text())
+        state['record_hashes'].pop('two')
+        state['provenance'].pop('two')
+        write(output / 'progress.json', state)
+        (output / 'records/two.json').unlink()
+        (output / 'manifest.json').unlink()
+        receipt = output / 'jobs/two/attempt-0001/receipt.json'
+        data = json.loads(receipt.read_text())
+        data[field] = value
+        write(receipt, data)
+        original = sha(receipt)
+        assert run_synthetic(synthetic).returncode == 0
+        final = json.loads((output / 'progress.json').read_text())
+>       assert len(list(output.glob('jobs/two/attempt-*'))) == 2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = len([PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a2/output/jobs/two/attempt-0001')])
+E        +    where [PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a2/output/jobs/two/attempt-0001')] = list(<generator object Path.glob at 0x7fa58c894bf0>)
+E        +      where <generator object Path.glob at 0x7fa58c894bf0> = glob('jobs/two/attempt-*')
+E        +        where glob = PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a2/output').glob
+
+tests/unit/test_quantum_recovery.py:284: AssertionError
+_ test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[validation_error-invalid original completion] _
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a3/plan'), PosixPath('/tmp/pytest-of-agent/pyt..._salvage_a3/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a3/output'))
+field = 'validation_error', value = 'invalid original completion'
+
+    @pytest.mark.parametrize('field,value', [('reason', 'timeout'),
+        ('reason', 'memory_headroom_exhausted'), ('reason', 'scratch_disk_headroom_exhausted'),
+        ('validation_error', 'invalid original completion')])
+    def test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure(synthetic, field, value):
+        assert run_synthetic(synthetic).returncode == 0
+        output = synthetic[-1]
+        state = json.loads((output / 'progress.json').read_text())
+        state['record_hashes'].pop('two')
+        state['provenance'].pop('two')
+        write(output / 'progress.json', state)
+        (output / 'records/two.json').unlink()
+        (output / 'manifest.json').unlink()
+        receipt = output / 'jobs/two/attempt-0001/receipt.json'
+        data = json.loads(receipt.read_text())
+        data[field] = value
+        write(receipt, data)
+        original = sha(receipt)
+        assert run_synthetic(synthetic).returncode == 0
+        final = json.loads((output / 'progress.json').read_text())
+>       assert len(list(output.glob('jobs/two/attempt-*'))) == 2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = len([PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a3/output/jobs/two/attempt-0001')])
+E        +    where [PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a3/output/jobs/two/attempt-0001')] = list(<generator object Path.glob at 0x7fa58c8949d0>)
+E        +      where <generator object Path.glob at 0x7fa58c8949d0> = glob('jobs/two/attempt-*')
+E        +        where glob = PosixPath('/tmp/pytest-of-agent/pytest-17/test_resume_does_not_salvage_a3/output').glob
+
+tests/unit/test_quantum_recovery.py:284: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_quantum_recovery.py::test_record_saved_before_progress_survives_lost_worker_identity
+FAILED tests/unit/test_quantum_recovery.py::test_resume_preserves_known_failed_exit_and_retries_computed_record
+FAILED tests/unit/test_quantum_recovery.py::test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[reason-timeout]
+FAILED tests/unit/test_quantum_recovery.py::test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[reason-memory_headroom_exhausted]
+FAILED tests/unit/test_quantum_recovery.py::test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[reason-scratch_disk_headroom_exhausted]
+FAILED tests/unit/test_quantum_recovery.py::test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[validation_error-invalid original completion]
+================= 6 failed, 1 passed, 17 deselected in 22.02s ==================

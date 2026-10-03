@@ -1,0 +1,17 @@
+{
+  "snapshot_files": 1439,
+  "unchanged_snapshot_files": 1435,
+  "expected_changed_files": [
+    "docs/project-0/STATUS.md",
+    "tests/unit/test_quantum_recovery.py",
+    "tools/generate_neutral_quantum.py",
+    "tools/resume_neutral_quantum.py"
+  ],
+  "quantum_records_verified": 46,
+  "numerical_controls_prebundle_passed": true,
+  "input_manifest_sha256": "96d1afb9f7966d2b854f1ddbf6e68b7662be4a00819e7dd72846838c06939f13",
+  "quantum_manifest_sha256": "48565f02f39afae45132ea4048ea8302f170b3e0efef0702228fa6ff3c809ad0",
+  "quantum_and_history_bytes_unchanged": true,
+  "reference_lock_matches": true,
+  "qm_reexecuted": false
+}

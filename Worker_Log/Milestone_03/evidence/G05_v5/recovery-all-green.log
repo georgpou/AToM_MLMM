@@ -1,0 +1,51 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/atom-mlmm-g05-v2/env/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/AToM_MLMM-m03-reference-g05
+configfile: pytest.ini
+plugins: cov-7.1.0, platformdirs-4.12.2, anyio-4.15.1
+collecting ... collected 41 items
+
+tests/unit/test_quantum_recovery.py::test_frozen_partial_check_schedules_only_38_and_preserves_history PASSED [  2%]
+tests/unit/test_quantum_recovery.py::test_completed_bundle_has_exact_names_runtime_allocation_and_durable_receipts PASSED [  4%]
+tests/unit/test_quantum_recovery.py::test_retry_reuses_successes_keeps_failed_attempt_and_debits_previous_time PASSED [  7%]
+tests/unit/test_quantum_recovery.py::test_tampered_reused_record_blocks_before_launch PASSED [  9%]
+tests/unit/test_quantum_recovery.py::test_invalid_runtime_memory_is_rejected[0] PASSED [ 12%]
+tests/unit/test_quantum_recovery.py::test_invalid_runtime_memory_is_rejected[6] PASSED [ 14%]
+tests/unit/test_quantum_recovery.py::test_invalid_runtime_memory_is_rejected[nan] PASSED [ 17%]
+tests/unit/test_quantum_recovery.py::test_exhausted_budget_does_not_create_ready_manifest_or_launch PASSED [ 19%]
+tests/unit/test_quantum_recovery.py::test_historical_content_is_validated_even_if_checkpoint_hash_is_updated[gradient] PASSED [ 21%]
+tests/unit/test_quantum_recovery.py::test_historical_content_is_validated_even_if_checkpoint_hash_is_updated[settings] PASSED [ 24%]
+tests/unit/test_quantum_recovery.py::test_historical_content_is_validated_even_if_checkpoint_hash_is_updated[dispersion] PASSED [ 26%]
+tests/unit/test_quantum_recovery.py::test_historical_content_is_validated_even_if_checkpoint_hash_is_updated[status] PASSED [ 29%]
+tests/unit/test_quantum_recovery.py::test_second_coordinator_is_rejected_by_lock PASSED [ 31%]
+tests/unit/test_quantum_recovery.py::test_recovery_refuses_a_live_old_worker[False] PASSED [ 34%]
+tests/unit/test_quantum_recovery.py::test_recovery_refuses_a_live_old_worker[True] PASSED [ 36%]
+tests/unit/test_quantum_recovery.py::test_record_saved_before_progress_survives_lost_worker_identity PASSED [ 39%]
+tests/unit/test_quantum_recovery.py::test_resume_preserves_known_failed_exit_and_retries_computed_record PASSED [ 41%]
+tests/unit/test_quantum_recovery.py::test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[reason-timeout] PASSED [ 43%]
+tests/unit/test_quantum_recovery.py::test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[reason-memory_headroom_exhausted] PASSED [ 46%]
+tests/unit/test_quantum_recovery.py::test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[reason-scratch_disk_headroom_exhausted] PASSED [ 48%]
+tests/unit/test_quantum_recovery.py::test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure[validation_error-invalid original completion] PASSED [ 51%]
+tests/unit/test_quantum_recovery.py::test_resume_keeps_genuinely_missing_exit_receipt_unknown PASSED [ 53%]
+tests/unit/test_quantum_recovery.py::test_clean_file_cache_does_not_consume_unreclaimable_memory_headroom PASSED [ 56%]
+tests/unit/test_quantum_recovery.py::test_timeout_terminates_worker_process_group_and_preserves_receipt PASSED [ 58%]
+tests/unit/test_quantum_interruptions.py::test_coordinator_crash_cannot_leave_live_or_duplicate_work[before_spawn] PASSED [ 60%]
+tests/unit/test_quantum_interruptions.py::test_coordinator_crash_cannot_leave_live_or_duplicate_work[after_spawn] PASSED [ 63%]
+tests/unit/test_quantum_interruptions.py::test_coordinator_crash_cannot_leave_live_or_duplicate_work[after_identity] PASSED [ 65%]
+tests/unit/test_quantum_interruptions.py::test_coordinator_crash_cannot_leave_live_or_duplicate_work[after_authorize] PASSED [ 68%]
+tests/unit/test_quantum_interruptions.py::test_progress_never_references_unsynced_record_or_receipt PASSED [ 70%]
+tests/unit/test_quantum_interruptions.py::test_legacy_and_salvaged_data_are_synced_before_new_progress[False] PASSED [ 73%]
+tests/unit/test_quantum_interruptions.py::test_legacy_and_salvaged_data_are_synced_before_new_progress[True] PASSED [ 75%]
+tests/unit/test_quantum_interruptions.py::test_completion_boundary_crash_reuses_the_durable_record[receipt] PASSED [ 78%]
+tests/unit/test_quantum_interruptions.py::test_completion_boundary_crash_reuses_the_durable_record[promotion] PASSED [ 80%]
+tests/unit/test_quantum_interruptions.py::test_completion_boundary_crash_reuses_the_durable_record[progress] PASSED [ 82%]
+tests/unit/test_quantum_interruptions.py::test_legacy_live_worker_without_saved_identity_blocks_recovery PASSED [ 85%]
+tests/unit/test_quantum_interruptions.py::test_reused_pid_does_not_identify_an_unrelated_process_as_the_old_worker PASSED [ 87%]
+tests/unit/test_quantum_interruptions.py::test_known_failure_in_an_old_ready_checkpoint_is_rejected PASSED [ 90%]
+tests/unit/test_quantum_interruptions.py::test_resource_samples_include_reference_children_not_only_supervisor PASSED [ 92%]
+tests/unit/test_quantum_interruptions.py::test_uncheckpointed_supervisor_inherits_the_queue_lock PASSED [ 95%]
+tests/unit/test_quantum_interruptions.py::test_worker_completion_is_atomic_and_durable_before_replace PASSED [ 97%]
+tests/unit/test_quantum_interruptions.py::test_missing_promoted_copy_is_restored_from_validated_attempt PASSED [100%]
+
+======================== 41 passed in 92.52s (0:01:32) =========================
