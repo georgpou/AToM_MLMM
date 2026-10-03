@@ -1,5 +1,14 @@
 # Current status
 
+**Next independent development scope: M04/G08.** The user considers cut/region
+sensitivity investigation a lower priority and has deferred the independent
+audit. G08 explicitly permits development alongside G04-G07 after accepted
+G02/G03; its analytic thermodynamic checks do not need new G07 QM. See the
+[continuation and interpretation note](handoffs/M04-after-M03-numerical-handoff-v1.md).
+The recorded sensitivity exceedances and physical-reference requirements remain;
+they do not establish an unresolved numerical engine defect. No scientific limit
+or gate acceptance has changed.
+
 The current child `m03-g06-g07` continues the published G05 base
 `08ccee74d0da900ffb1bd98d076e6e87e9df1b0c`. G06-T1/T2/T3 and G07-T1/T2/T3
 implementation and small-system numerical checks are complete on source
@@ -136,14 +145,15 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-Review the submitted [G06](gates/G06-periodicity-and-interaction-ledger.md)
-periodic evidence and [G07](gates/G07-joint-cavity-ligand-atm.md) sensitivity
-finding on the exact snapshot with GPT-6.1-sol/MAX. Decide a scientifically
-supported response to the force failures before approving any new-reference
-budget. G07-08/09 and combined M03 physical acceptance remain pending; the
-missing references cannot be replaced by software agreement. Preserve the
-completed G05 batch and limits. [G08](gates/G08-thermodynamics-and-estimators.md)
-and broader protein/GPU/physical profiles remain deferred.
+Proceed with independent [M04/G08](gates/G08-thermodynamics-and-estimators.md)
+analytic thermodynamic validation using its accepted G02/G03 prerequisites.
+Preserve the completed G05 batch, M03 numerical evidence and all scientific
+limits. G06/G07 independent review, G07-08/09 references and physical acceptance
+remain deferred/pending; the seven cut-sensitivity exceedances are differences
+between MACE-based descriptions, not errors measured against full QM. Review
+that physical scope before protein accuracy claims or acceptance of dependent
+molecular milestones. The chosen future reviewer is GPT-6.1-sol/MAX; no audit
+or new QM is launched by this continuation decision.
 
 | Scientific scope | Status | Next condition |
 |---|---|---|
@@ -156,7 +166,8 @@ and broader protein/GPU/physical profiles remain deferred.
 | G07 / T1/T2/T3 small-system CPU | ready_for_audit | Seven numerical stable assertions pass, including periodic and unequal two-ligand composition; independent review pending |
 | G07 / T4 physical-reference sensitivity | blocked | Seven force-sensitivity failures; 30 new references absent and new compute budget unapproved |
 | M03 / G04-G07 | blocked | G04 and neutral CPU G05 accepted; resolve G07-T4 and obtain applicable G06/G07 combined review |
-| M04-M08 / G08-G13 | not_started | Follow [roadmap](../../README.md#roadmap) and gate prerequisites |
+| M04 / G08 analytic thermodynamic accounting | next / not_started | Accepted M02 prerequisites; explicitly independent of G04-G07 physical qualification |
+| M05-M08 / G09-G13 | not_started | Retain molecular gate prerequisites and physical-qualification limits |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |
 
