@@ -1,0 +1,27 @@
+{
+  "argv": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/unit/test_reference_provenance.py",
+    "tests/unit/test_reference_metrics.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM-g05-review-v3",
+  "head": "3124c6d275bf19a32ce364dfdb83b11115828ac5",
+  "status_before": "",
+  "status_after": "",
+  "started_utc": "2026-10-03T10:20:20.069726+00:00",
+  "finished_utc": "2026-10-03T10:20:20.576407+00:00",
+  "elapsed_seconds": 0.5066860480001196,
+  "exit_code": 0,
+  "activation": "/workspace/atom-mlmm-g05-v2/activate.sh",
+  "python_executable": "/workspace/atom-mlmm-g05-v2/env/bin/python",
+  "environment": {
+    "PYTHONPATH": "src",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "output": "..........                                                               [100%]\n10 passed in 0.17s\n"
+}

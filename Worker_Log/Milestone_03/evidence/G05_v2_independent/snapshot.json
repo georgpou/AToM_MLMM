@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "python",
+    "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v2_independent/verify_snapshot.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM-g05-review-v3",
+  "head": "3124c6d275bf19a32ce364dfdb83b11115828ac5",
+  "status_before": "",
+  "status_after": "",
+  "started_utc": "2026-10-03T10:21:19.134449+00:00",
+  "finished_utc": "2026-10-03T10:21:21.098324+00:00",
+  "elapsed_seconds": 1.9638781090034172,
+  "exit_code": 0,
+  "activation": "/workspace/atom-mlmm-g05-v2/activate.sh",
+  "python_executable": "/workspace/atom-mlmm-g05-v2/env/bin/python",
+  "environment": {
+    "PYTHONPATH": "src",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "output": "{\n  \"source_input_hashes\": 270,\n  \"protected_files_unchanged\": 192,\n  \"inherited_source_tests_unchanged\": 61,\n  \"exact_M00_v3_unchanged\": 48,\n  \"actual_approval_bindings\": true,\n  \"retained_worker_capture_summaries\": {\n    \"red-reference-approval-binding\": {\n      \"sha256\": \"4ebba815875d45e5008e6e5ee549e6a9c753578dab62b4d49a53ac90583b676a\",\n      \"command\": [\n        \"python\",\n        \"-m\",\n        \"pytest\",\n        \"-q\",\n        \"tests/unit/test_reference_provenance.py\"\n      ],\n      \"cwd\": \"/workspace/AToM_MLMM-m03-reference-g05\",\n      \"head\": \"a7768e375476667139db374dc0091999263a37de\",\n      \"exit_code\": 1,\n      \"summary\": \"6 failed, 1 passed in 0.11s\"\n    },\n    \"green-reference-approval-binding\": {\n      \"sha256\": \"1154bfbac5c5e4a8fb8c39b43163560e74d3ced14ce6f28f9d8e563474c4e4f7\",\n      \"command\": [\n        \"python\",\n        \"-m\",\n        \"pytest\",\n        \"-q\",\n        \"tests/unit/test_reference_provenance.py\",\n        \"tests/unit/test_reference_metrics.py\"\n      ],\n      \"cwd\": \"/workspace/AToM_MLMM-m03-reference-g05\",\n      \"head\": \"a7768e375476667139db374dc0091999263a37de\",\n      \"exit_code\": 0,\n      \"summary\": \"10 passed in 0.09s\"\n    },\n    \"full-after-provenance-repair\": {\n      \"sha256\": \"b69da0950bd617ecc5a1e68b055cc63825c85f402effc6f7cac48c8834874b91\",\n      \"command\": [\n        \"python\",\n        \"-m\",\n        \"pytest\",\n        \"-q\"\n      ],\n      \"cwd\": \"/workspace/AToM_MLMM-m03-reference-g05\",\n      \"head\": \"a7768e375476667139db374dc0091999263a37de\",\n      \"exit_code\": 1,\n      \"summary\": \"2 failed, 292 passed in 72.05s (0:01:12)\"\n    },\n    \"analytic-after-provenance-repair\": {\n      \"sha256\": \"754dc1b76b52f94534bb1f527f5959cfd950a3b01ebfe52584f9e007f96a5435\",\n      \"command\": [\n        \"python\",\n        \"-m\",\n        \"pytest\",\n        \"-q\",\n        \"-m\",\n        \"not gpu and not model_assets and not slow\"\n      ],\n      \"cwd\": \"/workspace/AToM_MLMM-m03-reference-g05\",\n      \"head\": \"a7768e375476667139db374dc0091999263a37de\",\n      \"exit_code\": 0,\n      \"summary\": \"272 passed, 22 deselected in 34.98s\"\n    }\n  },\n  \"status\": \"\"\n}\n"
+}

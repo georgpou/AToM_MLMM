@@ -3,7 +3,7 @@
 The child `m03-reference-g05` continues exact published G04 handoff
 `bc788aeeedb4dc45026ac1bff44bd4fb533b325a`. G00-T2/G05-T1 loading checks and
 16 independent real-model adapter/locality/domain/reload cases pass; current G05 work
-remains **partial**, with chemical checks and independent
+remains **partial**, with chemical checks and complete independent
 gate review pending. The [corrected exact M00 proposal](reference/M00-neutral-reference-plan-v3.md)
 contains 34 hashed neutral structures, reference settings/limits and future
 G07 controls plus ten monomer-grid rotation controls. Actual Astra/high v2
@@ -26,15 +26,19 @@ analytic **272 passed / 22 deselected**, inherited G02/G03/admission/G04
 **78/38/74/24**, strict **9/9**, upstream **1** and docs zero errors/eight
 self-tests. The first G05 software reviewer was interrupted for the user's quota
 pause after saving independent full/analytic/environment runs; it supplied no
-verdict. A fresh-context Astra/high reviewer is now reviewing exact software
+verdict. A fresh-context Astra/high reviewer completed the exact software
 snapshot `a7768e375476667139db374dc0091999263a37de`, accepting G00-T2 and the
 six G05 software assertions; the [G05 v1 audit](../../Worker_Log/Milestone_03/Gate_05_v1_audit.md)
-leaves T4 readiness changes_required for approval-plan binding. Quantum generator/comparison code is prepared but target execution
-has not started. Its prepared-reference importer finding is repaired with a
+leaves T4 readiness changes_required for approval-plan binding. Quantum-only
+target generation is running from committed `3124c6d275bf19a32ce364dfdb83b11115828ac5`;
+model-versus-quantum comparison has not started. Its prepared-reference importer finding is repaired with a
 six-case RED/GREEN rejection regression; [v2 worker](../../Worker_Log/Milestone_03/Gate_05_v2_worker.md)
-records the repair, whose independent exact-snapshot closure remains pending.
+records the repair. The [v2 Astra/high audit](../../Worker_Log/Milestone_03/Gate_05_v2_audit.md)
+closes G05-v1-R1 and accepts prepared-loading readiness on exact `3124c6d`:
+ten focused passes, one independent synthetic positive and 29 rejections,
+270 matched source/input hashes. This is not chemical or full-G05 acceptance.
 [Continuation](handoffs/M03-G05-continuation.md) records the
-remaining decision and qualification steps. Inherited acceptance below is unchanged.
+remaining reference and qualification steps. Inherited acceptance below is unchanged.
 
 G04 is independently **accepted_for_scope** on child `m03-link-boundary` for `core-analytic-cpu`, nonperiodic Reference/CPU. The actual fresh-context **gpt-6-astra / high** reviewer accepted **G04-T1/T2/T3 and all seven stable assertions** on exact frozen submission `35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a`, carrying tested source/input commit `55df6a7d25e7a4de607a13b7d87c327feddecb34`. The [G04 v1 audit](../../Worker_Log/Milestone_03/Gate_04_v1_audit.md) and [independent evidence](../../Worker_Log/Milestone_03/evidence/G04_v1_independent_r2/README.md) record the complete decision. [Acceptance](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/acceptance.json) covers seven checks/seven requirements; [closure evidence](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/README.md) preserves the exact reviewed source and submitted worker evidence.
 

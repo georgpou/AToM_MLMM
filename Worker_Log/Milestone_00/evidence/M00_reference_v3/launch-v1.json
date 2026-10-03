@@ -1,0 +1,30 @@
+{
+  "recorded_utc": "2026-10-03T10:19:37.933987+00:00",
+  "HEAD": "3124c6d275bf19a32ce364dfdb83b11115828ac5",
+  "cwd": "/workspace/AToM_MLMM-m03-reference-g05",
+  "command": [
+    "python",
+    "-u",
+    "tools/generate_neutral_quantum.py",
+    "--plan-root",
+    "fixtures/chemical_reference_v3",
+    "--approval",
+    "Worker_Log/Milestone_00/evidence/M00_v3_decision/decision-approved-20261003.json",
+    "--reference-python",
+    "/workspace/atom-mlmm-reference-pilot-v2/env/bin/python",
+    "--output",
+    "Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1"
+  ],
+  "execution_session_id": 34246,
+  "scope": "quantum references only; model not imported/evaluated",
+  "program_sha256": "5e2f0746073e4ebe8da503dbfd0317d1c1c8cc2993a582bc65f7dc51281971ed",
+  "approval_sha256": "fd5a6943b8640d2a3a9d883031f2b5bdbdbc7e64efe8446f33811b6188272b79",
+  "input_manifest_sha256": "96d1afb9f7966d2b854f1ddbf6e68b7662be4a00819e7dd72846838c06939f13",
+  "wall_cap_hours": 12,
+  "threads": 2,
+  "psi4_memory": "5 GiB",
+  "reference_prefix": "/workspace/atom-mlmm-reference-pilot-v2/env",
+  "expected_jobs": 46,
+  "human_agreement_before_start": true,
+  "design_review_before_start": "a825f5f1c2d8cf4146133c2049ef1c4eca550e93"
+}

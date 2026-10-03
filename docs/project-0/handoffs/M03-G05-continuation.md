@@ -1,4 +1,4 @@
-# M03 G05 continuation: reviewed plan, pending user decision and quantum data
+# M03 G05 continuation: approved plan, quantum generation and pending full audit
 
 Start from child `m03-reference-g05`, descended from exact accepted published
 G04 handoff `bc788aeeedb4dc45026ac1bff44bd4fb533b325a`. Preserve main,
@@ -28,7 +28,7 @@ Inherited G02/G03/admission/G04 results are **78/38/74/24**; strict environment
 including diagnostic extreme inputs and every failed attempt, are under
 [G05 evidence](../../../Worker_Log/Milestone_03/evidence/G05_v1/README.md).
 
-The published source snapshot is `a7768e375476667139db374dc0091999263a37de`.
+The software-reviewed snapshot is `a7768e375476667139db374dc0091999263a37de`.
 The first software reviewer was interrupted for the user's quota pause after
 saving full/analytic/environment captures; it supplied no verdict. On 2026-10-03
 the user resumed the assignment. All 269 source/input hashes and all 105 separate
@@ -40,7 +40,10 @@ has been repaired in the child after six intended RED rejection failures and
 ten GREEN integrity/metric checks. The original proposal and all chemical
 inputs/settings/limits remain unchanged. The [v2 worker](../../../Worker_Log/Milestone_03/Gate_05_v2_worker.md)
 and [270-file repair manifest](../../../Worker_Log/Milestone_03/evidence/G05_v2/source-input-manifest.json)
-identify this code-only repair, whose independent closure remains pending. See
+identify this code-only repair. The [v2 audit](../../../Worker_Log/Milestone_03/Gate_05_v2_audit.md)
+independently closes R1 and accepts prepared-loading readiness on exact
+`3124c6d275bf19a32ce364dfdb83b11115828ac5`; full chemical/G05 acceptance
+remains pending. See
 [resume state](../../../Worker_Log/Milestone_03/evidence/G05_resume_20261003/resume-state.json).
 
 ## Frozen M00 decision
@@ -74,11 +77,14 @@ or comparison preceded agreement. The user requests a fresh-session handoff
 after completion, using this same child branch directly; do not create another
 branch merely to restart context.
 
-## Next authorized steps after that decision
+## Remaining authorized steps
 
-1. Record the user's actual agreement with provenance, preserving the pending
-   record, exact reviewed commit and manifest/audit digests. Revise/re-review
-   any scientific changes before comparisons.
+1. Explicit agreement is recorded; preserve both actual approved and historical
+   pending records, the exact reviewed commit and manifest/audit digests. The
+   approved quantum-only batch is running in
+   `Worker_Log/Milestone_00/evidence/M00_reference_v3/quantum-attempt-v1/`
+   with launch metadata in `launch-v1.json`. Do not launch a duplicate batch.
+   Revise/re-review any scientific changes before comparisons.
 2. Use the separate reference environment. The current working prefix is
    `/workspace/atom-mlmm-reference-pilot-v2/env`; reproduce it from the SHA lock
    if unavailable. Main environment is `/workspace/atom-mlmm-g05-v2/activate.sh`;

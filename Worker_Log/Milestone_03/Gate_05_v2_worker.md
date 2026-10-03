@@ -5,7 +5,7 @@ finding. No quantum target or model-versus-quantum comparison is run.
 **Base source:** exact published `a7768e375476667139db374dc0091999263a37de`
 on child `m03-reference-g05`; only that child is changed.
 **Outcome:** code repair and focused regressions pass; exact-snapshot independent
-closure and full G05 acceptance remain pending.
+closure is accepted for scope; full G05 acceptance remains pending.
 
 The reviewer reproduced acceptance of a reference bundle with the wrong or
 missing approval plan hash, or a missing reviewed commit. The generator already
@@ -41,3 +41,10 @@ the actual statement and reviewed manifest/audit digests; historical
 reviewed references after this recorded agreement, check numerical controls,
 preserve every chemical result, then obtain complete fresh-context Astra/high
 G05 review on the final frozen source/data snapshot. G06/G07 remain later.
+
+The actual fresh-context gpt-6-astra/high reviewer
+`/root/g05_provenance_repair_v2` closes R1 and accepts prepared-loading readiness
+on exact committed `3124c6d275bf19a32ce364dfdb83b11115828ac5` in the
+[v2 audit](Gate_05_v2_audit.md): ten focused tests, one independent positive/29
+rejections before record access, 270 source/input hash matches and protected
+scientific/model/lock preservation. It reviews no ongoing mutable quantum data.
