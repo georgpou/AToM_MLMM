@@ -270,9 +270,25 @@ def measurements(pid=None):
     return data
 
 
+def group_members(group):
+    members = []
+    for path in Path('/proc').iterdir():
+        if not path.name.isdigit():
+            continue
+        try:
+            fields = (path / 'stat').read_text().rsplit(')', 1)[1].split()
+            if fields[0] != 'Z' and int(fields[2]) == group:
+                members.append(int(path.name))
+        except (OSError, IndexError, ValueError):
+            continue
+    return members
+
+
 def terminate_group(process):
     # A worker may have spawned a dispersion subprocess; terminate the group
     # even if its group leader has just exited.
+    if process.returncode is not None and not group_members(process.pid):
+        return
     try:
         os.killpg(process.pid, signal.SIGTERM)
     except ProcessLookupError:
@@ -281,11 +297,17 @@ def terminate_group(process):
         process.wait(timeout=5)
     except subprocess.TimeoutExpired:
         pass
-    try:
-        os.killpg(process.pid, signal.SIGKILL)
-    except ProcessLookupError:
-        pass
+    if group_members(process.pid):
+        try:
+            os.killpg(process.pid, signal.SIGKILL)
+        except ProcessLookupError:
+            pass
     process.wait()
+    deadline = time.monotonic() + 5
+    while group_members(process.pid) and time.monotonic() < deadline:
+        time.sleep(.01)
+    if group_members(process.pid):
+        raise ValueError('worker process group remains active; refuse further scheduling')
 
 
 def run(args):
@@ -473,7 +495,13 @@ def run(args):
                                 terminate_group(process)
                                 break
                             time.sleep(min(1., max(.001, state['remaining_wall_seconds'])))
-                    receipt.update(exit=process.wait(), reason=reason,
+                    exit_code = process.wait()
+                    receipt['remaining_group_at_supervisor_exit'] = group_members(process.pid)
+                    # Supervisor loss does not imply reference-child exit.
+                    # Reconcile while identity is retained, before scratch,
+                    # receipt/promotion, or another authorized worker launch.
+                    terminate_group(process)
+                    receipt.update(exit=exit_code, reason=reason, group_cleanup_verified=True,
                                    sampled_rss_peak_bytes=rss_peak, sampled_cgroup_peak_bytes=cgroup_peak)
             except BaseException:
                 if process is not None:

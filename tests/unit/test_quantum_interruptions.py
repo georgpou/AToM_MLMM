@@ -277,6 +277,52 @@ def test_uncheckpointed_supervisor_inherits_the_queue_lock(synthetic):
     assert process.returncode == 125
 
 
+def test_supervisor_loss_cleans_reference_group_before_next_launch(synthetic, monkeypatch):
+    functions = load_recovery(monkeypatch)
+    output = synthetic[-1]
+    marker = output.parent / 'orphan.json'
+    later = output.parent / 'later-job.json'
+    original = synthetic[2]
+    executable = original.with_name('supervisor-loss-worker')
+    header, body = original.read_text().split('\n', 1)
+    injection = f'''
+import signal
+marker=Path({str(marker)!r});later=Path({str(later)!r})
+if name=='one':
+    marker.write_text(json.dumps({{'pid':os.getpid(),'group':os.getpgrp(),'supervisor':os.getppid()}}))
+    os.kill(os.getppid(),signal.SIGKILL)
+    time.sleep(30)
+elif not later.exists():
+    info=json.loads(marker.read_text())
+    try:
+        fields=(Path('/proc')/str(info['pid'])/'stat').read_text().rsplit(')',1)[1].split()
+        live=fields[0]!='Z'
+    except OSError:live=False
+    later.write_text(json.dumps({{'old_reference_child_live':live}}))
+'''
+    needle = "mode=os.environ.get('QUANTUM_RECOVERY_TEST_MODE', '')\n"
+    assert needle in body
+    executable.write_text(header + '\n' + body.replace(needle, needle + injection))
+    executable.chmod(0o755)
+    try:
+        result = UNIT['run_synthetic']((*synthetic[:2], executable, output))
+        assert result.returncode == 1, result.stderr
+        assert marker.exists() and later.exists(), 'Fault did not reach the intended scheduling boundary'
+        child = json.loads(marker.read_text())
+        assert not json.loads(later.read_text())['old_reference_child_live'], 'Overlapping reference workers after supervisor loss'
+        assert functions['process_identity'](child['pid']) is None
+        receipt = json.loads((output / 'jobs/one/attempt-0001/receipt.json').read_text())
+        assert receipt['exit'] == -signal.SIGKILL
+        assert not json.loads((output / 'progress.json').read_text())['ready_for_comparison']
+        assert not (output / 'manifest.json').exists()
+    finally:
+        if marker.exists():
+            try:
+                os.killpg(json.loads(marker.read_text())['group'], signal.SIGKILL)
+            except ProcessLookupError:
+                pass
+
+
 def test_worker_completion_is_atomic_and_durable_before_replace(tmp_path, monkeypatch):
     monkeypatch.syspath_prepend(str(REPO / 'tools'))
     worker = runpy.run_path(str(REPO / 'tools/generate_neutral_quantum.py'))
