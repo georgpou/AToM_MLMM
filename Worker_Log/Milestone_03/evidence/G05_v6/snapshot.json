@@ -1,0 +1,22 @@
+{
+  "source_commit": "ac414dcb4a5f401312616f08faa17ece5ea35e9e",
+  "base_commit": "8738d16f8d3813f03c6f05a5c89a4be107159c19",
+  "previous_review_head": "1e71fd6d281f5dfa144e7e7718b97170ce2d6d3f",
+  "scientific_data_commit": "a99a4448f14386e79c1546dd32fd83a33b9ac424",
+  "changed_source_files": {
+    "tools/generate_neutral_quantum.py": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff",
+    "tools/resume_neutral_quantum.py": "440039dc367bcb222a2e87f7f6bb591cbd450ff85b4520b02fb07c50593d000d",
+    "tools/quantum_worker_guard.py": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030",
+    "tests/unit/test_quantum_recovery.py": "d64e9b5a67725f03989656f149b47348c7bec60b8bdd53443584208203c43037",
+    "tests/unit/test_quantum_interruptions.py": "e116e6a65363d8f1fb53da80bac79b8d4a3ed4aa5114abc98993b28c0eca013f"
+  },
+  "full_source_passed": 336,
+  "recovery_cases_in_full_suite": 42,
+  "targeted_lifecycle_passed": 11,
+  "strict_environment_passed": 9,
+  "quantum_records_unchanged": 46,
+  "qm_reexecuted": false,
+  "R1_R3_independently_closed_in_v5": true,
+  "R2_final_closure_pending": true,
+  "user_authorized_github_publication": true
+}

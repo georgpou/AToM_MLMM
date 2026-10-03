@@ -1,18 +1,17 @@
 # Current status
 
-G05 on the same child `m03-reference-g05` is **changes_required** after the
-focused [v5 closure audit](../../Worker_Log/Milestone_03/Gate_05_v5_audit.md).
-**R1 and R3 are closed**; R2 remains open for unexpected supervisor loss while
-the coordinator survives. A synthetic reference child remains live during later
-scheduling. Whole-group cleanup must precede receipt/promotion/scratch cleanup
-and any later launch. The user explicitly
+G05 on the same child `m03-reference-g05` is **ready_for_review** for final R2
+closure. The [v5 audit](../../Worker_Log/Milestone_03/Gate_05_v5_audit.md)
+independently closed **R1 and R3** and reproduced a supervisor-loss R2 case.
+The [v6 worker](../../Worker_Log/Milestone_03/Gate_05_v6_worker.md) repairs it:
+the coordinator verifies whole-group cleanup after every supervisor exit before
+receipt/promotion/scratch cleanup or any next launch. The user explicitly
 approved their repair and publication of this branch. Repair source is
-`64bba6e54c0bea4e7c48925913d7b06f242d58af`, recorded in the
-[v5 worker](../../Worker_Log/Milestone_03/Gate_05_v5_worker.md).
+`ac414dcb4a5f401312616f08faa17ece5ea35e9e`, recorded in the v6 worker.
 R1 preserves known completion failures and receipts; R2 holds the queue lease
 through a supervised, checkpointed launch and kills the group on coordinator
 loss; R3 makes record/receipt bytes and directory entries durable before progress.
-**41 recovery tests and 335 full-suite tests pass; strict environment is 9/9.**
+**42 recovery cases and 336 full-suite tests pass; strict environment is 9/9.**
 No QM calculations were rerun. All 46 references and the frozen scientific
 inputs, results, logs, histories, model and limits are unchanged. Independent
 repair closure remains pending. Actual calculation source remains
@@ -71,8 +70,8 @@ and [v2](../../Worker_Log/Milestone_03/Gate_05_v2_audit.md) scoped audits on
 `a7768e3`/`3124c6d`; the importer approval-binding finding is closed.
 The [M00 v3 design audit](../../Worker_Log/Milestone_00/Milestone_00_v3_audit.md)
 and explicit user scientific/budget agreement persist. The full-G05 v4 recovery
-findings are repaired in v5 and await independent closure; inherited decisions
-do not close its findings.
+R1/R3 findings are independently closed in v5; the v6 final R2 repair awaits
+closure. Inherited decisions do not close that remaining finding.
 Model metadata remains unqualified until acceptance. Protein binding, periodic/GPU/electrostatic
 physics and complete ABFE/RBFE remain outside this demonstrated scope.
 
@@ -102,8 +101,8 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 ## Next work
 
 The requested full-[G05](gates/G05-local-model-adapter.md) v4 audit is complete,
-and **R1/R2/R3** are repaired in v5. Next is focused independent closure on the
-new snapshot and user-authorized branch publication. Preserve the completed
+and **R1/R3** are closed. The final R2 repair is ready in v6. Next is focused
+independent closure and user-authorized branch publication. Preserve the completed
 46-reference batch, fixed scientific settings and model; no QM rerun is needed.
 [G06](gates/G06-periodicity-and-interaction-ledger.md) and
 [G07](gates/G07-joint-cavity-ligand-atm.md) are subsequent assignments, supplying
@@ -120,7 +119,7 @@ is a separate M04 analysis path. Broader physical profiles remain deferred.
 | M03 / G04-G07 | in_progress | G04 accepted; applicable G05/G06 and G07 combined review still required |
 | M04-M08 / G08-G13 | not_started | Follow [roadmap](../../README.md#roadmap) and gate prerequisites |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
-| Real-model small-system chemical / protein qualification | ready_for_review / not_run | G05 saved scientific results independently verified; v5 recovery repairs pass and await independent closure. Protein qualification remains G07/later work. |
+| Real-model small-system chemical / protein qualification | ready_for_review / not_run | G05 saved scientific results independently verified; R1/R3 closed; v6 R2 repair passes and awaits closure. Protein qualification remains G07/later work. |
 
 ## Retired audit distractions
 
