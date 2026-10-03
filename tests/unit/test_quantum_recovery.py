@@ -100,6 +100,8 @@ record=dict(status='computed', name=name, source_input_sha256=order['source_inpu
             peak_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024)
 output.write_text(json.dumps(record))
 print(json.dumps(dict(name=name,status='computed')))
+if mode=='computed_fail' and name=='two':
+    sys.exit(23)
 ''')
     executable.chmod(0o755)
     return root, approval, executable, tmp_path / 'output'
@@ -238,8 +240,66 @@ def test_record_saved_before_progress_survives_lost_worker_identity(synthetic):
     assert result.returncode == 0, result.stderr
     final = json.loads((output / 'progress.json').read_text())
     assert final['provenance']['two']['recovered'] is True
-    assert final['provenance']['two']['coordinator_exit'] is None
+    assert final['provenance']['two']['coordinator_exit'] == 0
     assert final['sessions'][-2]['status'] == 'interrupted'
+    assert len(list(output.glob('jobs/two/attempt-*'))) == 1
+
+
+def test_resume_preserves_known_failed_exit_and_retries_computed_record(synthetic):
+    first = run_synthetic(synthetic, mode='computed_fail')
+    assert first.returncode == 1, first.stderr
+    output = synthetic[-1]
+    receipt = output / 'jobs/two/attempt-0001/receipt.json'
+    assert json.loads(receipt.read_text())['exit'] == 23
+    assert json.loads(receipt.with_name('record.json').read_text())['status'] == 'computed'
+    original = sha(receipt)
+    second = run_synthetic(synthetic, mode='computed_fail')
+    assert second.returncode == 1, second.stderr
+    state = json.loads((output / 'progress.json').read_text())
+    assert not state['ready_for_comparison']
+    assert 'two' not in state['record_hashes']
+    assert len(list(output.glob('jobs/two/attempt-*'))) == 2
+    assert sha(receipt) == original
+
+
+@pytest.mark.parametrize('field,value', [('reason', 'timeout'),
+    ('reason', 'memory_headroom_exhausted'), ('reason', 'scratch_disk_headroom_exhausted'),
+    ('validation_error', 'invalid original completion')])
+def test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure(synthetic, field, value):
+    assert run_synthetic(synthetic).returncode == 0
+    output = synthetic[-1]
+    state = json.loads((output / 'progress.json').read_text())
+    state['record_hashes'].pop('two')
+    state['provenance'].pop('two')
+    write(output / 'progress.json', state)
+    (output / 'records/two.json').unlink()
+    (output / 'manifest.json').unlink()
+    receipt = output / 'jobs/two/attempt-0001/receipt.json'
+    data = json.loads(receipt.read_text())
+    data[field] = value
+    write(receipt, data)
+    original = sha(receipt)
+    assert run_synthetic(synthetic).returncode == 0
+    final = json.loads((output / 'progress.json').read_text())
+    assert len(list(output.glob('jobs/two/attempt-*'))) == 2
+    assert final['provenance']['two']['coordinator_exit'] == 0
+    assert final['provenance']['two']['source'].endswith('attempt-0002/record.json')
+    assert sha(receipt) == original
+
+
+def test_resume_keeps_genuinely_missing_exit_receipt_unknown(synthetic):
+    assert run_synthetic(synthetic).returncode == 0
+    output = synthetic[-1]
+    state = json.loads((output / 'progress.json').read_text())
+    state['record_hashes'].pop('two')
+    state['provenance'].pop('two')
+    write(output / 'progress.json', state)
+    (output / 'records/two.json').unlink()
+    (output / 'manifest.json').unlink()
+    (output / 'jobs/two/attempt-0001/receipt.json').unlink()
+    assert run_synthetic(synthetic).returncode == 0
+    final = json.loads((output / 'progress.json').read_text())
+    assert final['provenance']['two']['coordinator_exit'] is None
     assert len(list(output.glob('jobs/two/attempt-*'))) == 1
 
 

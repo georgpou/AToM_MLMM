@@ -8,6 +8,7 @@ import argparse
 import datetime
 import hashlib
 import json
+import os
 from pathlib import Path
 import resource
 import subprocess
@@ -21,7 +22,24 @@ def digest(path):
 
 
 def dump(path, data):
-    Path(path).write_text(json.dumps(data, indent=2, allow_nan=False) + '\n')
+    """Publish a complete, durable JSON record; partial writes are never final."""
+    path = Path(path)
+    temporary = path.with_suffix(path.suffix + '.tmp')
+    with temporary.open('w') as stream:
+        json.dump(data, stream, indent=2, allow_nan=False)
+        stream.write('\n')
+        stream.flush()
+        os.fsync(stream.fileno())
+    os.replace(temporary, path)
+    sync_directory(path.parent)
+
+
+def sync_directory(path):
+    descriptor = os.open(path, os.O_DIRECTORY)
+    try:
+        os.fsync(descriptor)
+    finally:
+        os.close(descriptor)
 
 
 def validate_plan(root, approval_path):

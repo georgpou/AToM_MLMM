@@ -18,7 +18,7 @@ import subprocess
 import sys
 import time
 
-from generate_neutral_quantum import digest, validate_plan
+from generate_neutral_quantum import digest, sync_directory, validate_plan
 
 
 def utc():
@@ -34,11 +34,7 @@ def atomic_dump(path, data):
         stream.flush()
         os.fsync(stream.fileno())
     os.replace(temporary, path)
-    descriptor = os.open(path.parent, os.O_DIRECTORY)
-    try:
-        os.fsync(descriptor)
-    finally:
-        os.close(descriptor)
+    sync_directory(path.parent)
 
 
 def exclusive_dump(path, data):
@@ -47,6 +43,40 @@ def exclusive_dump(path, data):
         stream.write('\n')
         stream.flush()
         os.fsync(stream.fileno())
+    sync_directory(Path(path).parent)
+
+
+def durable_mkdir(path, parents=False, exist_ok=False):
+    path = Path(path)
+    if parents and not path.parent.exists():
+        durable_mkdir(path.parent, parents=True, exist_ok=True)
+    path.mkdir(exist_ok=exist_ok)
+    sync_directory(path)
+    sync_directory(path.parent)
+
+
+def sync_file(path):
+    with Path(path).open('rb') as stream:
+        os.fsync(stream.fileno())
+    sync_directory(Path(path).parent)
+
+
+def publish_record(source, target):
+    """Install durable bytes before progress can reference their digest."""
+    source, target = Path(source), Path(target)
+    sync_file(source)
+    if target.exists():
+        if digest(target) != digest(source):
+            raise ValueError('uncommitted recovered record digest differs')
+        sync_file(target)
+        return
+    temporary = target.with_suffix(target.suffix + '.tmp')
+    with temporary.open('wb') as stream:
+        stream.write(source.read_bytes())
+        stream.flush()
+        os.fsync(stream.fileno())
+    os.replace(temporary, target)
+    sync_directory(target.parent)
 
 
 def queue(root, settings):
@@ -104,6 +134,24 @@ def validate_record(path, order, expected_sha=None):
         raise ValueError('invalid worker wall time')
     memory_bytes(data['memory'])
     return data
+
+
+def completion_receipt(record, name):
+    """Unknown means absent, never a known failure with discarded provenance."""
+    path = Path(record).with_name('receipt.json')
+    if not path.exists():
+        return None
+    receipt = json.loads(path.read_text())
+    if receipt.get('name') != name or type(receipt.get('exit')) is not int:
+        raise ValueError('invalid completion receipt: ' + str(path))
+    if 'record_sha256' in receipt and receipt['record_sha256'] != digest(record):
+        raise ValueError('completion receipt record digest differs: ' + str(path))
+    return receipt
+
+
+def admitted(receipt):
+    return receipt is None or (receipt['exit'] == 0 and receipt.get('reason') is None
+                               and not receipt.get('validation_error'))
 
 
 def history(args, approval, orders):
@@ -169,6 +217,21 @@ def process_identity(pid):
         return None
 
 
+def attempt_processes(output):
+    """Conservatively reconcile legacy workers lacking a saved PID identity."""
+    jobs = Path(output) / 'jobs'
+    live = []
+    for path in Path('/proc').iterdir():
+        if not path.name.isdigit():
+            continue
+        try:
+            if (path / 'cwd').resolve().is_relative_to(jobs) and process_identity(int(path.name)):
+                live.append(int(path.name))
+        except OSError:
+            continue
+    return live
+
+
 def measurements(pid=None):
     data = {}
     for name in ('memory.current', 'memory.peak', 'memory.max', 'memory.events'):
@@ -187,12 +250,22 @@ def measurements(pid=None):
             + max(0, stats.get('kernel', 0) - stats.get('slab_reclaimable', 0))
             + stats.get('file_dirty', 0) + stats.get('file_writeback', 0))
     if pid is not None:
-        try:
-            for line in (Path('/proc') / str(pid) / 'status').read_text().splitlines():
-                if line.startswith(('VmRSS:', 'VmHWM:')):
-                    data[line.split(':')[0]] = int(line.split()[1]) * 1024
-        except FileNotFoundError:
-            pass
+        # Include the supervisor and all current same-group worker processes.
+        # Sampling the small supervisor alone would conceal reference RAM.
+        for path in Path('/proc').iterdir():
+            if not path.name.isdigit():
+                continue
+            try:
+                fields = (path / 'stat').read_text().rsplit(')', 1)[1].split()
+                if fields[0] == 'Z' or int(fields[2]) != pid:
+                    continue
+                for line in (path / 'status').read_text().splitlines():
+                    if line.startswith(('VmRSS:', 'VmHWM:')):
+                        key = line.split(':')[0]
+                        data[key] = data.get(key, 0) + int(line.split()[1]) * 1024
+            except (OSError, IndexError, ValueError):
+                continue
+        data['rss_scope'] = 'supervisor and same-process-group workers'
     data['disk_free_bytes'] = shutil.disk_usage('/workspace').free
     return data
 
@@ -244,12 +317,14 @@ def run(args):
     if not args.reference_python:
         raise ValueError('execution requires --reference-python')
     validate_environment(args.reference_python, root)
-    output.mkdir(parents=True, exist_ok=True)
+    durable_mkdir(output, parents=True, exist_ok=True)
     with (output / 'coordinator.lock').open('a') as lock:
         try:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
             raise ValueError('another coordinator holds this attempt lock')
+        if attempt_processes(output):
+            raise ValueError('old quantum worker remains active; refuse concurrent recovery')
         progress_path = output / 'progress.json'
         if progress_path.exists():
             state = json.loads(progress_path.read_text())
@@ -266,19 +341,33 @@ def run(args):
                     session.update(status='interrupted', ended_utc=utc(),
                                    note='conservatively debited until recovery; no coordinator exit invented')
             for name, sha in state['record_hashes'].items():
-                validate_record(output / 'records' / (name + '.json'), orders[name], sha)
+                source = Path(state['provenance'][name]['source'])
+                receipt = completion_receipt(source, name)
+                if not admitted(receipt):
+                    raise ValueError('checkpoint admitted a known failed completion: ' + name)
+                validate_record(source, orders[name], sha)
+                target = output / 'records' / (name + '.json')
+                if not target.exists():
+                    validate_record(source, orders[name], sha)
+                    publish_record(source, target)
+                validate_record(target, orders[name], sha)
+                # Upgrade legacy checkpoints whose old writer did not fsync
+                # referenced bytes/entries before declaring them durable.
+                sync_file(source)
+                sync_file(target)
+                if receipt is not None:
+                    sync_file(source.with_name('receipt.json'))
         else:
             if any(p.name != 'coordinator.lock' for p in output.iterdir()):
                 raise ValueError('unrecognized nonempty attempt directory')
-            (output / 'records').mkdir()
-            (output / 'jobs').mkdir()
+            durable_mkdir(output / 'records')
+            durable_mkdir(output / 'jobs')
             state = dict(identity=identity, expected_names=list(orders), record_hashes={},
                          provenance={}, sessions=[], prior_wall_seconds=prior_wall,
                          ready_for_comparison=False)
             for name, path in saved.items():
                 target = output / 'records' / (name + '.json')
-                with target.open('xb') as stream:
-                    stream.write(path.read_bytes())
+                publish_record(path, target)
                 state['record_hashes'][name] = digest(target)
                 state['provenance'][name] = dict(source=str(path), recovered=True, coordinator_exit=None,
                                                 note='verified completed worker record; exit receipt not inferred')
@@ -290,15 +379,19 @@ def run(args):
                 data = json.loads(record.read_text())
                 if data.get('status') != 'computed':
                     continue
+                receipt = completion_receipt(record, name)
+                if not admitted(receipt):
+                    continue
+                if receipt is not None:
+                    sync_file(record.with_name('receipt.json'))
                 validate_record(record, orders[name])
                 target = output / 'records' / (name + '.json')
-                if target.exists():
-                    if digest(target) != digest(record):
-                        raise ValueError('uncommitted recovered record digest differs')
-                else:
-                    shutil.copyfile(record, target)
+                publish_record(record, target)
                 state['record_hashes'][name] = digest(target)
-                state['provenance'][name] = dict(source=str(record), recovered=True, coordinator_exit=None)
+                state['provenance'][name] = dict(source=str(record), recovered=True,
+                    coordinator_exit=receipt['exit'] if receipt is not None else None)
+                if receipt is not None:
+                    state['provenance'][name]['receipt'] = str(record.with_name('receipt.json'))
                 break
         session = dict(started_utc=utc(), status='running', wall_seconds=0., runtime_memory=allocation,
                        wall_cap_seconds=wall_cap, resources_at_start=measurements())
@@ -323,11 +416,11 @@ def run(args):
                 session['stop_reason'] = 'budget_exhausted'
                 break
             parent = output / 'jobs' / name
-            parent.mkdir(exist_ok=True)
+            durable_mkdir(parent, exist_ok=True)
             attempt = parent / f'attempt-{len(list(parent.glob("attempt-*"))) + 1:04d}'
-            attempt.mkdir()
+            durable_mkdir(attempt)
             scratch = attempt / 'scratch'
-            scratch.mkdir()
+            durable_mkdir(scratch)
             record = attempt / 'record.json'
             order = dict(original_order, output=str(record), scratch_directory=str(scratch),
                          runtime_memory=allocation, runtime_memory_bytes=allocated_bytes)
@@ -337,15 +430,29 @@ def run(args):
                        '--worker', str(attempt / 'order.json')]
             receipt = dict(name=name, command=command, started_utc=utc(),
                            resources_before=measurements(), runtime_memory=allocation)
+            launch_path = attempt / 'launch.json'
+            exclusive_dump(launch_path, dict(command=command, coordinator_pid=os.getpid(),
+                                           coordinator_start_ticks=process_identity(os.getpid())))
+            control_read, control_write = os.pipe()
+            guarded_command = [sys.executable, str(Path(__file__).with_name('quantum_worker_guard.py').resolve()),
+                               '--launch', str(launch_path), '--lease-fd', str(lock.fileno()),
+                               '--control-fd', str(control_read)]
+            receipt['launch_command'] = guarded_command
             worker_started = time.monotonic()
             reason = None
             process = None
             try:
                 with (attempt / 'launcher.txt').open('x') as log:
-                    process = subprocess.Popen(command, cwd=attempt, stdout=log, stderr=subprocess.STDOUT,
-                                               start_new_session=True)
+                    process = subprocess.Popen(guarded_command, cwd=attempt, stdout=log, stderr=subprocess.STDOUT,
+                                               start_new_session=True, pass_fds=(lock.fileno(), control_read))
+                    os.close(control_read)
+                    control_read = None
                     session['active_worker'] = dict(pid=process.pid, start_ticks=process_identity(process.pid),
-                                                    name=name, attempt=str(attempt))
+                                                    name=name, attempt=str(attempt), guarded=True)
+                    # The pipe blocks execution until identity is durable. The
+                    # inherited flock closes the spawn-before-checkpoint gap.
+                    checkpoint()
+                    os.write(control_write, b'G')
                     rss_peak = cgroup_peak = 0
                     with (attempt / 'resources.jsonl').open('x') as samples:
                         while process.poll() is None:
@@ -375,6 +482,9 @@ def run(args):
                 checkpoint()
                 raise
             finally:
+                os.close(control_write)
+                if control_read is not None:
+                    os.close(control_read)
                 session.pop('active_worker', None)
             receipt.update(ended_utc=utc(), wall_seconds=time.monotonic() - worker_started,
                            resources_after=measurements())
@@ -383,14 +493,16 @@ def run(args):
                     validate_record(record, order)
                 except (ValueError, KeyError, OSError, TypeError) as error:
                     receipt['validation_error'] = repr(error)
-                else:
-                    target = output / 'records' / (name + '.json')
-                    with target.open('xb') as stream:
-                        stream.write(record.read_bytes())
-                    state['record_hashes'][name] = digest(target)
-                    state['provenance'][name] = dict(source=str(record), recovered=False,
-                                                    coordinator_exit=receipt['exit'], receipt=str(attempt / 'receipt.json'))
+            if record.exists():
+                sync_file(record)
+                receipt['record_sha256'] = digest(record)
             exclusive_dump(attempt / 'receipt.json', receipt)
+            if admitted(receipt):
+                target = output / 'records' / (name + '.json')
+                publish_record(record, target)
+                state['record_hashes'][name] = digest(target)
+                state['provenance'][name] = dict(source=str(record), recovered=False,
+                                                coordinator_exit=receipt['exit'], receipt=str(attempt / 'receipt.json'))
             shutil.rmtree(scratch)
             checkpoint()
             print(name, 'exit', receipt['exit'], 'verified', name in state['record_hashes'],
