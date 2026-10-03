@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/unit/test_quantum_interruptions.py::test_supervisor_loss_cleans_reference_group_before_next_launch",
+    "-v",
+    "--tb=short"
+  ],
+  "cwd": "/workspace/AToM_MLMM-m03-reference-g05",
+  "started_utc": "2026-10-03T21:21:24.931125+00:00",
+  "finished_utc": "2026-10-03T21:21:28.382239+00:00",
+  "elapsed_seconds": 3.4511133179985336,
+  "exit_code": 0
+}

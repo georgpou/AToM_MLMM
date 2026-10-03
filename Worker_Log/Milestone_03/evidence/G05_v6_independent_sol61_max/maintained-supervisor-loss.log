@@ -1,0 +1,11 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/atom-mlmm-g05-v2/env/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/AToM_MLMM-m03-reference-g05
+configfile: pytest.ini
+plugins: cov-7.1.0, platformdirs-4.12.2, anyio-4.15.1
+collecting ... collected 1 item
+
+tests/unit/test_quantum_interruptions.py::test_supervisor_loss_cleans_reference_group_before_next_launch PASSED [100%]
+
+============================== 1 passed in 3.14s ===============================
