@@ -29,8 +29,15 @@ def original_system(original):
     system = mm.XmlSerializer.deserialize(original.prepared_mm_artifact)
     if system.getNumParticles() != len(original.topology.atoms) or any(system.isVirtualSite(i) for i in range(system.getNumParticles())):
         raise UnsupportedCapability('G04 original MM must contain real particles only')
-    if original.box_nm is not None or system.usesPeriodicBoundaryConditions():
-        raise UnsupportedCapability('G04 builder admits nonperiodic coordinates only')
+    periodic = original.box_nm is not None
+    if periodic:
+        from ..ledger import validate_pme_system
+        validate_pme_system(system, original.box_nm)
+        box = tuple(tuple(v.value_in_unit(unit.nanometer)) for v in system.getDefaultPeriodicBoxVectors())
+        if box != original.box_nm:
+            raise IdentityError('prepared MM box differs from declared input')
+    elif system.usesPeriodicBoundaryConditions():
+        raise UnsupportedCapability('periodic MM requires a declared box')
     masses = tuple(system.getParticleMass(i).value_in_unit(unit.dalton) for i in range(system.getNumParticles()))
     ids = tuple(a.atom_id for a in original.topology.atoms)
     constraints = tuple((ids[a], ids[b], d.value_in_unit(unit.nanometer))
@@ -41,7 +48,7 @@ def original_system(original):
     for f in system.getForces():
         if type(f) not in supported:
             raise UnsupportedCapability(f'G04 MM force unsupported: {type(f).__name__}')
-        if isinstance(f, mm.NonbondedForce) and (f.getNonbondedMethod() != mm.NonbondedForce.NoCutoff or f.getNumParticleParameterOffsets() or f.getNumExceptionParameterOffsets() or f.getNumGlobalParameters()):
+        if not periodic and isinstance(f, mm.NonbondedForce) and (f.getNonbondedMethod() != mm.NonbondedForce.NoCutoff or f.getNumParticleParameterOffsets() or f.getNumExceptionParameterOffsets() or f.getNumGlobalParameters()):
             raise UnsupportedCapability('G04 requires NoCutoff MM without parameter offsets/globals')
     return system
 
@@ -52,10 +59,13 @@ def seal_boundary_result(original, partition, info, *, manifest):
     old_to_new = tuple(info['oldToNew'])
     ids = tuple(a.atom_id for a in original.topology.atoms)
     count = system.getNumParticles()
-    if len(partition.boundary_edges) != 1 or len(old_to_new) != len(ids) or len(set(old_to_new)) != len(ids) or any(isinstance(i,bool) or not isinstance(i,int) or i<0 or i>=count for i in old_to_new):
-        raise IdentityError('G04 requires one boundary and a complete injective oldToNew')
-    if count != len(ids)+1 or final_topology.getNumAtoms() != count:
-        raise IdentityError('final System/topology must contain every real atom and one cap')
+    cap_count = len(partition.boundary_edges)
+    if cap_count > 1 or len(old_to_new) != len(ids) or len(set(old_to_new)) != len(ids) or any(isinstance(i,bool) or not isinstance(i,int) or i<0 or i>=count for i in old_to_new):
+        raise IdentityError('builder requires zero/one boundary and a complete injective oldToNew')
+    if count != len(ids)+cap_count or final_topology.getNumAtoms() != count:
+        raise IdentityError('final System/topology must contain every real atom and declared cap')
+    if not cap_count and set(partition.ml_ids) != set(ids):
+        raise UnsupportedCapability('uncut reference must contain the complete all-ML system')
     actual_atoms = list(final_topology.atoms())
     for a, new in zip(original.topology.atoms, old_to_new):
         if actual_atoms[new].element != app.Element.getBySymbol(a.element) or system.isVirtualSite(new):
@@ -65,20 +75,22 @@ def seal_boundary_result(original, partition, info, *, manifest):
     if actual_bonds != expected_bonds:
         raise IdentityError('final topology changes original connectivity')
     real_to_final = dict(zip(ids,old_to_new))
-    extra, = set(range(count))-set(old_to_new)
-    if not system.isVirtualSite(extra) or actual_atoms[extra].element != app.element.hydrogen:
-        raise IdentityError('derived cap must be an actual hydrogen virtual site')
-    site = system.getVirtualSite(extra)
-    a,b = partition.boundary_edges[0]
-    if not isinstance(site,mm.LocalCoordinatesSite) or site.getNumParticles()!=2 or tuple(site.getParticle(i) for i in range(2)) != (real_to_final[a],real_to_final[b]):
-        raise IdentityError('actual cap parents/type differ from the reviewed boundary')
-    distance,y,z = site.getLocalPosition().value_in_unit(unit.nanometer)
-    if tuple(site.getOriginWeights())!=(1.,0.) or tuple(site.getXWeights())!=(-1.,1.) or tuple(site.getYWeights())!=(0.,0.) or y!=0 or z!=0 or distance<=0:
-        raise IdentityError('actual virtual site differs from the fixed-length cap rule')
-    cap_id = 'cap:'+hashlib.sha256((a+'\0'+b).encode()).hexdigest()
-    link = LinkRecord(cap_id,a,b,extra,len(partition.ml_ids),type(site).__name__,float(distance))
     model_map = {i:real_to_final[i] for i in partition.ml_ids}
-    model_map[cap_id] = extra
+    links = ()
+    if cap_count:
+        extra, = set(range(count))-set(old_to_new)
+        if not system.isVirtualSite(extra) or actual_atoms[extra].element != app.element.hydrogen:
+            raise IdentityError('derived cap must be an actual hydrogen virtual site')
+        site = system.getVirtualSite(extra)
+        a,b = partition.boundary_edges[0]
+        if not isinstance(site,mm.LocalCoordinatesSite) or site.getNumParticles()!=2 or tuple(site.getParticle(i) for i in range(2)) != (real_to_final[a],real_to_final[b]):
+            raise IdentityError('actual cap parents/type differ from the reviewed boundary')
+        distance,y,z = site.getLocalPosition().value_in_unit(unit.nanometer)
+        if tuple(site.getOriginWeights())!=(1.,0.) or tuple(site.getXWeights())!=(-1.,1.) or tuple(site.getYWeights())!=(0.,0.) or y!=0 or z!=0 or distance<=0:
+            raise IdentityError('actual virtual site differs from the fixed-length cap rule')
+        cap_id = 'cap:'+hashlib.sha256((a+'\0'+b).encode()).hexdigest()
+        links = (LinkRecord(cap_id,a,b,extra,len(partition.ml_ids),type(site).__name__,float(distance)),)
+        model_map[cap_id] = extra
     # OpenMM-ML preserves the original MM force order and appends model forces.
     retained = copy.deepcopy(system)
     for i in reversed(range(source.getNumForces(),retained.getNumForces())):
@@ -93,10 +105,16 @@ def seal_boundary_result(original, partition, info, *, manifest):
                     retained_mm_xml=mm.XmlSerializer.serialize(retained),
                     boundary_terms=boundary_dispositions(source,retained,old_to_new,ids),
                     original_mm_inventory=inventory_system(source).content_identity,
-                    periodicity='nonperiodic',derivative_scope='all_real',model_dtype='float64')
+                    periodicity='orthorhombic-pme-v1' if original.box_nm is not None else 'nonperiodic',
+                    derivative_scope='all_real',model_dtype='float64')
+    if original.box_nm is not None:
+        manifest.update(box_nm=original.box_nm, periodic_geometry='bonded-molecule-unwrapping-before-native-sites',
+                        electrostatic_background='openmm-uniform-neutralizing-background',
+                        model_pbc=True, model_long_range=False,
+                        periodic_scope='small fixed-volume CPU single points; no dynamics qualification')
     xml = mm.XmlSerializer.serialize(system)
     masses = tuple(system.getParticleMass(i).value_in_unit(unit.dalton) for i in range(count))
     constraints = tuple((int(a),int(b),d.value_in_unit(unit.nanometer)) for a,b,d in
                         (system.getConstraintParameters(i) for i in range(system.getNumConstraints())))
     return PhysicalBundle(xml,hashlib.sha256(xml.encode()).hexdigest(),original.topology,real_to_final,
-                          model_map,old_to_new,partition.ml_ids,masses,constraints,ledger,manifest,links=(link,))
+                          model_map,old_to_new,partition.ml_ids,masses,constraints,ledger,manifest,links=links)

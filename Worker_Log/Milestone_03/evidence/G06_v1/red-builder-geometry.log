@@ -1,0 +1,39 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+__________________ test_periodic_builder_admits_standard_pme ___________________
+
+    def test_periodic_builder_admits_standard_pme():
+>       bundle, snapshot = periodic_case()
+                           ^^^^^^^^^^^^^^^
+
+tests/integration/test_mechanical_pme.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/periodic_oracle.py:59: in periodic_case
+    bundle = build_physical(original, resolve_partition(original.topology, spec), model,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+original = SystemInput(prepared_mm_artifact='<?xml version="1.0" ?>\n<System openmmVersion="8.6.1" type="System" version="1">\n\t...source': 'gaff-2.2.20'}), units=Units(positions='nm', energy='kJ/mol', forces='kJ/mol/nm', time='ps', temperature='K'))
+partition = ResolvedPartition(ml_ids=('l10', 'l11', 'l12', 'l8', 'l9', 'p0', 'p2', 'p3', 'p4'), protein_ml_ids=('p0', 'p2', 'p3', ... 0, 'p1': 1, 'p2': 2, 'p3': 3, 'p4': 4, 'p5': 5, 'p6': 6, 'p7': 7, 'l8': 8, 'l9': 9, 'l10': 10, 'l11': 11, 'l12': 12}))
+model = ModelSpec(backend='analytic-local', asset_digest=None, output_energy_convention='declared_relative_energy', elements=('H', 'C'), chemical_state_support='neutral_singlet', locality='local', dtype='float64')
+embedding = EmbeddingSpec(kind='mechanical', policy_version='1', boundary_policy='protein_c_c', periodic_convention='orthorhombic-pme-v1')
+probe = BoundaryProbe(cap_k=0.0, cap_center_nm=(0.13, -0.08, 0.11), pair_k=0.0, partner_id='l8', environment_k=0.0, environment_id='p5', ligand_k=0.0, ligand_center_nm=(0.02, 0.3, -0.07))
+cap_distance_nm = 0.117, checkpoint = None
+
+    def build_physical(original, partition, model, embedding, *, probe=None, cap_distance_nm, checkpoint=None):
+        """Nonperiodic mechanical construction, one admitted C-C cut and provider."""
+        if (embedding.kind,embedding.policy_version,embedding.boundary_policy,embedding.periodic_convention) != ('mechanical','1','protein_c_c','nonperiodic'):
+>           raise UnsupportedCapability('unadmitted G04 embedding policy')
+E           atm_mlmm.schema.UnsupportedCapability: unadmitted G04 embedding policy
+
+src/atm_mlmm/hybrid.py:14: UnsupportedCapability
+_____________________ test_images_caps_and_bulk_separation _____________________
+
+    def test_images_caps_and_bulk_separation():
+>       from atm_mlmm.geometry import minimum_image, validate_bulk_clearance
+E       ImportError: cannot import name 'minimum_image' from 'atm_mlmm.geometry' (/workspace/AToM_MLMM-m03-g06-g07/src/atm_mlmm/geometry.py)
+
+tests/integration/test_periodic_geometry.py:10: ImportError
+=========================== short test summary info ============================
+FAILED tests/integration/test_mechanical_pme.py::test_periodic_builder_admits_standard_pme
+FAILED tests/integration/test_periodic_geometry.py::test_images_caps_and_bulk_separation
+2 failed in 0.20s

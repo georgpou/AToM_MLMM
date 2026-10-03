@@ -1,0 +1,142 @@
+....FFFFFF                                                               [100%]
+=================================== FAILURES ===================================
+____ test_joint_checker_detects_cap_and_environment_faults[False-omit-cap] _____
+
+mode = 'omit-cap', two_ligands = False
+
+    @pytest.mark.parametrize('mode',('omit-cap','omit-environment','double-parent'))
+    @pytest.mark.parametrize('two_ligands',(False,True))
+    def test_joint_checker_detects_cap_and_environment_faults(mode,two_ligands):
+        from atm_mlmm.atm import physical_system,AtmEvaluator,build_atm
+        from atm_mlmm.endpoints import check_reference
+        from atm_mlmm.schema import QualificationError
+        from tests.workflow.test_atom_force_routing import replace_system
+        from tests.analytic_oracle import nonlinear_answer
+        bundle,snapshot = joint_case(two_ligands=two_ligands,environment=True,real_model=False)
+        system = physical_system(bundle)
+        index = next(i for i,f in enumerate(system.getForces()) if isinstance(f,mm.PythonForce))
+        original = system.getForce(index)
+        # This is our own ledger-verified trusted callback, never an external pickle.
+>       normal = pickle.loads(bytes(original.getPickledFunction()))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: cannot convert 'swig_runtime_data5.SwigPyObject' object to bytes
+
+tests/contracts/test_embedding_extension.py:80: TypeError
+_ test_joint_checker_detects_cap_and_environment_faults[False-omit-environment] _
+
+mode = 'omit-environment', two_ligands = False
+
+    @pytest.mark.parametrize('mode',('omit-cap','omit-environment','double-parent'))
+    @pytest.mark.parametrize('two_ligands',(False,True))
+    def test_joint_checker_detects_cap_and_environment_faults(mode,two_ligands):
+        from atm_mlmm.atm import physical_system,AtmEvaluator,build_atm
+        from atm_mlmm.endpoints import check_reference
+        from atm_mlmm.schema import QualificationError
+        from tests.workflow.test_atom_force_routing import replace_system
+        from tests.analytic_oracle import nonlinear_answer
+        bundle,snapshot = joint_case(two_ligands=two_ligands,environment=True,real_model=False)
+        system = physical_system(bundle)
+        index = next(i for i,f in enumerate(system.getForces()) if isinstance(f,mm.PythonForce))
+        original = system.getForce(index)
+        # This is our own ledger-verified trusted callback, never an external pickle.
+>       normal = pickle.loads(bytes(original.getPickledFunction()))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: cannot convert 'swig_runtime_data5.SwigPyObject' object to bytes
+
+tests/contracts/test_embedding_extension.py:80: TypeError
+__ test_joint_checker_detects_cap_and_environment_faults[False-double-parent] __
+
+mode = 'double-parent', two_ligands = False
+
+    @pytest.mark.parametrize('mode',('omit-cap','omit-environment','double-parent'))
+    @pytest.mark.parametrize('two_ligands',(False,True))
+    def test_joint_checker_detects_cap_and_environment_faults(mode,two_ligands):
+        from atm_mlmm.atm import physical_system,AtmEvaluator,build_atm
+        from atm_mlmm.endpoints import check_reference
+        from atm_mlmm.schema import QualificationError
+        from tests.workflow.test_atom_force_routing import replace_system
+        from tests.analytic_oracle import nonlinear_answer
+        bundle,snapshot = joint_case(two_ligands=two_ligands,environment=True,real_model=False)
+        system = physical_system(bundle)
+        index = next(i for i,f in enumerate(system.getForces()) if isinstance(f,mm.PythonForce))
+        original = system.getForce(index)
+        # This is our own ledger-verified trusted callback, never an external pickle.
+>       normal = pickle.loads(bytes(original.getPickledFunction()))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: cannot convert 'swig_runtime_data5.SwigPyObject' object to bytes
+
+tests/contracts/test_embedding_extension.py:80: TypeError
+_____ test_joint_checker_detects_cap_and_environment_faults[True-omit-cap] _____
+
+mode = 'omit-cap', two_ligands = True
+
+    @pytest.mark.parametrize('mode',('omit-cap','omit-environment','double-parent'))
+    @pytest.mark.parametrize('two_ligands',(False,True))
+    def test_joint_checker_detects_cap_and_environment_faults(mode,two_ligands):
+        from atm_mlmm.atm import physical_system,AtmEvaluator,build_atm
+        from atm_mlmm.endpoints import check_reference
+        from atm_mlmm.schema import QualificationError
+        from tests.workflow.test_atom_force_routing import replace_system
+        from tests.analytic_oracle import nonlinear_answer
+        bundle,snapshot = joint_case(two_ligands=two_ligands,environment=True,real_model=False)
+        system = physical_system(bundle)
+        index = next(i for i,f in enumerate(system.getForces()) if isinstance(f,mm.PythonForce))
+        original = system.getForce(index)
+        # This is our own ledger-verified trusted callback, never an external pickle.
+>       normal = pickle.loads(bytes(original.getPickledFunction()))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: cannot convert 'swig_runtime_data5.SwigPyObject' object to bytes
+
+tests/contracts/test_embedding_extension.py:80: TypeError
+_ test_joint_checker_detects_cap_and_environment_faults[True-omit-environment] _
+
+mode = 'omit-environment', two_ligands = True
+
+    @pytest.mark.parametrize('mode',('omit-cap','omit-environment','double-parent'))
+    @pytest.mark.parametrize('two_ligands',(False,True))
+    def test_joint_checker_detects_cap_and_environment_faults(mode,two_ligands):
+        from atm_mlmm.atm import physical_system,AtmEvaluator,build_atm
+        from atm_mlmm.endpoints import check_reference
+        from atm_mlmm.schema import QualificationError
+        from tests.workflow.test_atom_force_routing import replace_system
+        from tests.analytic_oracle import nonlinear_answer
+        bundle,snapshot = joint_case(two_ligands=two_ligands,environment=True,real_model=False)
+        system = physical_system(bundle)
+        index = next(i for i,f in enumerate(system.getForces()) if isinstance(f,mm.PythonForce))
+        original = system.getForce(index)
+        # This is our own ledger-verified trusted callback, never an external pickle.
+>       normal = pickle.loads(bytes(original.getPickledFunction()))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: cannot convert 'swig_runtime_data5.SwigPyObject' object to bytes
+
+tests/contracts/test_embedding_extension.py:80: TypeError
+__ test_joint_checker_detects_cap_and_environment_faults[True-double-parent] ___
+
+mode = 'double-parent', two_ligands = True
+
+    @pytest.mark.parametrize('mode',('omit-cap','omit-environment','double-parent'))
+    @pytest.mark.parametrize('two_ligands',(False,True))
+    def test_joint_checker_detects_cap_and_environment_faults(mode,two_ligands):
+        from atm_mlmm.atm import physical_system,AtmEvaluator,build_atm
+        from atm_mlmm.endpoints import check_reference
+        from atm_mlmm.schema import QualificationError
+        from tests.workflow.test_atom_force_routing import replace_system
+        from tests.analytic_oracle import nonlinear_answer
+        bundle,snapshot = joint_case(two_ligands=two_ligands,environment=True,real_model=False)
+        system = physical_system(bundle)
+        index = next(i for i,f in enumerate(system.getForces()) if isinstance(f,mm.PythonForce))
+        original = system.getForce(index)
+        # This is our own ledger-verified trusted callback, never an external pickle.
+>       normal = pickle.loads(bytes(original.getPickledFunction()))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: cannot convert 'swig_runtime_data5.SwigPyObject' object to bytes
+
+tests/contracts/test_embedding_extension.py:80: TypeError
+=========================== short test summary info ============================
+FAILED tests/contracts/test_embedding_extension.py::test_joint_checker_detects_cap_and_environment_faults[False-omit-cap]
+FAILED tests/contracts/test_embedding_extension.py::test_joint_checker_detects_cap_and_environment_faults[False-omit-environment]
+FAILED tests/contracts/test_embedding_extension.py::test_joint_checker_detects_cap_and_environment_faults[False-double-parent]
+FAILED tests/contracts/test_embedding_extension.py::test_joint_checker_detects_cap_and_environment_faults[True-omit-cap]
+FAILED tests/contracts/test_embedding_extension.py::test_joint_checker_detects_cap_and_environment_faults[True-omit-environment]
+FAILED tests/contracts/test_embedding_extension.py::test_joint_checker_detects_cap_and_environment_faults[True-double-parent]
+6 failed, 4 passed in 3.33s

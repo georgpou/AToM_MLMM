@@ -1,0 +1,50 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______________ test_uncut_reference_description_uses_same_builder ______________
+
+    def test_uncut_reference_description_uses_same_builder():
+>       bundle,snapshot = joint_case(choice='uncut')
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_joint_hybrid_atm.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/joint_oracle.py:86: in joint_case
+    bundle = build_physical(original,resolve_partition(original.topology,spec),model,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+original = SystemInput(prepared_mm_artifact='<?xml version="1.0" ?>\n<System openmmVersion="8.6.1" type="System" version="1">\n\t...479177ba535d153b81c08'}), units=Units(positions='nm', energy='kJ/mol', forces='kJ/mol/nm', time='ps', temperature='K'))
+partition = ResolvedPartition(ml_ids=('a:l0', 'a:l1', 'a:l2', 'a:l3', 'a:l4', 'a:l5', 'p0', 'p1', 'p10', 'p11', 'p12', 'p13', 'p14..., 'p22': 22, 'p23': 23, 'p24': 24, 'p25': 25, 'a:l0': 26, 'a:l1': 27, 'a:l2': 28, 'a:l3': 29, 'a:l4': 30, 'a:l5': 31}))
+model = ModelSpec(backend='mace-off23-small', asset_digest='165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f',...n='energy', elements=('H', 'C', 'N', 'O'), chemical_state_support='neutral_singlet', locality='local', dtype='float64')
+embedding = EmbeddingSpec(kind='mechanical', policy_version='1', boundary_policy='protein_c_c', periodic_convention='nonperiodic')
+probe = None, cap_distance_nm = 0.109, checkpoint = None
+
+    def build_physical(original, partition, model, embedding, *, probe=None, cap_distance_nm, checkpoint=None):
+        """Mechanical construction, one admitted C-C cut and provider."""
+        if (embedding.kind,embedding.policy_version,embedding.boundary_policy) != ('mechanical','1','protein_c_c') or embedding.periodic_convention not in ('nonperiodic','orthorhombic-pme-v1'):
+            raise UnsupportedCapability('unadmitted G04 embedding policy')
+        periodic = embedding.periodic_convention == 'orthorhombic-pme-v1'
+        if periodic != (original.box_nm is not None):
+            raise UnsupportedCapability('embedding convention and input box disagree')
+        real_model = model.backend == 'mace-off23-small'
+        if real_model:
+            from .models.mace import model_spec
+            if model != model_spec() or probe is not None:
+                raise UnsupportedCapability('unadmitted pinned MACE semantics or analytic probe')
+        else:
+            if probe is None or checkpoint is not None:
+                raise UnsupportedCapability('analytic provider requires its probe and no checkpoint')
+            locality = 'environment_dependent' if probe.environment_k else 'local'
+            backend = 'analytic-environment' if probe.environment_k else 'analytic-local'
+            if (model.backend,model.locality,model.dtype,model.output_energy_convention,model.chemical_state_support,model.asset_digest) != (backend,locality,'float64','declared_relative_energy','neutral_singlet',None):
+                raise UnsupportedCapability('unadmitted G04 analytic model semantics')
+        if not {a.element for a in original.topology.atoms if a.atom_id in partition.ml_ids} <= set(model.elements) or 'H' not in model.elements:
+            raise UnsupportedCapability('G04 model elements do not cover real atoms and cap')
+        ids = tuple(a.atom_id for a in original.topology.atoms)
+        if dict(partition.source_map) != {a:i for i,a in enumerate(ids)} or len(partition.boundary_edges)!=1 or partition.rejected_conditions:
+>           raise IdentityError('G04 needs a resolved original partition with one admitted cut')
+E           atm_mlmm.schema.IdentityError: G04 needs a resolved original partition with one admitted cut
+
+src/atm_mlmm/hybrid.py:34: IdentityError
+=========================== short test summary info ============================
+FAILED tests/integration/test_joint_hybrid_atm.py::test_uncut_reference_description_uses_same_builder
+1 failed in 0.19s

@@ -1,0 +1,409 @@
+{
+  "data": {
+    "box_nm": [
+      [
+        3.2,
+        0.0,
+        0.0
+      ],
+      [
+        0.0,
+        3.4,
+        0.0
+      ],
+      [
+        0.0,
+        0.0,
+        3.6
+      ]
+    ],
+    "constraints": [],
+    "force_field_provenance": {
+      "source": "gaff-2.2.20"
+    },
+    "masses_da": [
+      12.01,
+      12.01,
+      1.008,
+      1.008,
+      1.008,
+      1.008,
+      1.008,
+      1.008,
+      12.01,
+      1.008,
+      1.008,
+      1.008,
+      1.008
+    ],
+    "positions_nm": [
+      [
+        -0.0747636682702161,
+        0.004183756987532164,
+        0.0010686704904145315
+      ],
+      [
+        0.0750956127888317,
+        9.690460113991228e-05,
+        8.526644596997686e-05
+      ],
+      [
+        -0.11297565115075811,
+        -0.06360191277357641,
+        0.08138988586935651
+      ],
+      [
+        -0.11884767165848263,
+        0.10249559857573291,
+        0.01995987696101134
+      ],
+      [
+        -0.11998609043691727,
+        -0.03334918429893493,
+        -0.0937948616775402
+      ],
+      [
+        0.1084153327774484,
+        -0.07365202837071094,
+        -0.07731932606837714
+      ],
+      [
+        0.12265441762320711,
+        0.09578272607871832,
+        -0.026435417752725728
+      ],
+      [
+        0.12040771832688707,
+        -0.031955860799900995,
+        0.09504590573189073
+      ],
+      [
+        -0.0747636682702161,
+        0.4041837569875322,
+        0.0010686704904145315
+      ],
+      [
+        -0.02030874357122711,
+        0.48078964822292825,
+        -0.059230876963413226
+      ],
+      [
+        -0.00029912918510652253,
+        0.34645141728373274,
+        0.058995705249041235
+      ],
+      [
+        -0.1339507956168076,
+        0.3400322252796518,
+        -0.06714191967299693
+      ],
+      [
+        -0.1470553610137581,
+        0.45477198649576084,
+        0.06864463260560526
+      ]
+    ],
+    "prepared_mm_artifact": "<?xml version=\"1.0\" ?>\n<System openmmVersion=\"8.6.1\" type=\"System\" version=\"1\">\n\t<PeriodicBoxVectors>\n\t\t<A x=\"3.2\" y=\"0\" z=\"0\"/>\n\t\t<B x=\"0\" y=\"3.4\" z=\"0\"/>\n\t\t<C x=\"0\" y=\"0\" z=\"3.6\"/>\n\t</PeriodicBoxVectors>\n\t<Particles>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"12.01\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t\t<Particle mass=\"1.008\"/>\n\t</Particles>\n\t<Constraints/>\n\t<Forces>\n\t\t<Force forceGroup=\"0\" name=\"HarmonicBondForce\" type=\"HarmonicBondForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Bonds>\n\t\t\t\t<Bond d=\".1535\" k=\"191535.15199999994\" p1=\"0\" p2=\"1\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"0\" p2=\"2\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"0\" p2=\"3\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"0\" p2=\"4\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"5\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"6\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"1\" p2=\"7\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"8\" p2=\"9\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"8\" p2=\"10\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"8\" p2=\"11\"/>\n\t\t\t\t<Bond d=\".10960000000000002\" k=\"288905.19999999995\" p1=\"8\" p2=\"12\"/>\n\t\t\t</Bonds>\n\t\t</Force>\n\t\t<Force forceGroup=\"0\" name=\"PeriodicTorsionForce\" type=\"PeriodicTorsionForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Torsions>\n\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"2\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"3\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"5\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"6\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t\t<Torsion k=\".50208\" p1=\"4\" p2=\"0\" p3=\"1\" p4=\"7\" periodicity=\"3\" phase=\"0\"/>\n\t\t\t</Torsions>\n\t\t</Force>\n\t\t<Force alpha=\"4.4\" cutoff=\".9\" dispersionCorrection=\"0\" ewaldTolerance=\"1e-07\" exceptionsUsePeriodic=\"0\" forceGroup=\"0\" includeDirectSpace=\"1\" ljAlpha=\"0\" ljnx=\"0\" ljny=\"0\" ljnz=\"0\" method=\"4\" name=\"NonbondedForce\" nx=\"64\" ny=\"64\" nz=\"64\" recipForceGroup=\"-1\" rfDielectric=\"78.3\" switchingDistance=\".75\" type=\"NonbondedForce\" useSwitchingFunction=\"1\" version=\"4\">\n\t\t\t<GlobalParameters/>\n\t\t\t<ParticleOffsets/>\n\t\t\t<ExceptionOffsets/>\n\t\t\t<Particles>\n\t\t\t\t<Particle eps=\".4510352\" q=\".007\" sig=\".3397709531243626\"/>\n\t\t\t\t<Particle eps=\".4510352\" q=\".014\" sig=\".3397709531243626\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".021\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".028\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".035\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".042\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".049\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".056\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".4510352\" q=\".063\" sig=\".3397709531243626\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".07\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".077\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".084\" sig=\".2600176998764394\"/>\n\t\t\t\t<Particle eps=\".0870272\" q=\".091\" sig=\".2600176998764394\"/>\n\t\t\t</Particles>\n\t\t\t<Exceptions>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"1\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"3\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"3\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".025\" p1=\"2\" p2=\"3\" q=\".0004\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"4\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"4\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"2\" p2=\"4\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"4\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"5\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"5\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"5\" q=\".00044100000000000004\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"5\" q=\".0005880000000000001\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"5\" q=\".0007350000000000001\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"6\" q=\".0005145000000000001\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"6\" q=\".0006860000000000001\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"6\" q=\".0008575000000000001\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"5\" p2=\"6\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"2\" p2=\"7\" q=\".0005880000000000001\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"3\" p2=\"7\" q=\".0007840000000000001\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\".0435136\" p1=\"4\" p2=\"7\" q=\".0009800000000000002\" sig=\".2600176998764394\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"5\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"6\" p2=\"7\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"9\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"10\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"10\" p2=\"11\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"8\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"9\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"10\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"11\" p2=\"12\" q=\"0\" sig=\"1\"/>\n\t\t\t</Exceptions>\n\t\t</Force>\n\t\t<Force forceGroup=\"0\" name=\"HarmonicAngleForce\" type=\"HarmonicAngleForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Angles>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"5\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"6\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"0\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"1\" p2=\"0\" p3=\"2\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"1\" p2=\"0\" p3=\"3\"/>\n\t\t\t\t<Angle a=\"1.9142771235873808\" k=\"362.08336\" p1=\"1\" p2=\"0\" p3=\"4\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"2\" p2=\"0\" p3=\"3\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"2\" p2=\"0\" p3=\"4\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"3\" p2=\"0\" p3=\"4\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"5\" p2=\"1\" p3=\"6\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"5\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"6\" p2=\"1\" p3=\"7\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"9\" p2=\"8\" p3=\"10\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"9\" p2=\"8\" p3=\"11\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"9\" p2=\"8\" p3=\"12\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"10\" p2=\"8\" p3=\"11\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"10\" p2=\"8\" p3=\"12\"/>\n\t\t\t\t<Angle a=\"1.8802432031734913\" k=\"299.57439999999997\" p1=\"11\" p2=\"8\" p3=\"12\"/>\n\t\t\t</Angles>\n\t\t</Force>\n\t</Forces>\n</System>\n",
+    "prepared_mm_sha256": "24d20b06bc48fde4b14ccfc539a7a15857d6a1eaa862780d5bdc75fc1c52e161",
+    "topology": {
+      "data": {
+        "atoms": [
+          {
+            "data": {
+              "atom_id": "p0",
+              "atom_name": "C1x",
+              "chain": "P",
+              "element": "C",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          },
+          {
+            "data": {
+              "atom_id": "p1",
+              "atom_name": "C2x",
+              "chain": "P",
+              "element": "C",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          },
+          {
+            "data": {
+              "atom_id": "p2",
+              "atom_name": "H1x",
+              "chain": "P",
+              "element": "H",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          },
+          {
+            "data": {
+              "atom_id": "p3",
+              "atom_name": "H2x",
+              "chain": "P",
+              "element": "H",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          },
+          {
+            "data": {
+              "atom_id": "p4",
+              "atom_name": "H3x",
+              "chain": "P",
+              "element": "H",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          },
+          {
+            "data": {
+              "atom_id": "p5",
+              "atom_name": "H4x",
+              "chain": "P",
+              "element": "H",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          },
+          {
+            "data": {
+              "atom_id": "p6",
+              "atom_name": "H5x",
+              "chain": "P",
+              "element": "H",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          },
+          {
+            "data": {
+              "atom_id": "p7",
+              "atom_name": "H6x",
+              "chain": "P",
+              "element": "H",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          },
+          {
+            "data": {
+              "atom_id": "l8",
+              "atom_name": "C1x",
+              "chain": "L",
+              "element": "C",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          },
+          {
+            "data": {
+              "atom_id": "l9",
+              "atom_name": "H1x",
+              "chain": "L",
+              "element": "H",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          },
+          {
+            "data": {
+              "atom_id": "l10",
+              "atom_name": "H2x",
+              "chain": "L",
+              "element": "H",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          },
+          {
+            "data": {
+              "atom_id": "l11",
+              "atom_name": "H3x",
+              "chain": "L",
+              "element": "H",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          },
+          {
+            "data": {
+              "atom_id": "l12",
+              "atom_name": "H4x",
+              "chain": "L",
+              "element": "H",
+              "insertion_code": "",
+              "residue": "1"
+            },
+            "record_type": "AtomIdentity"
+          }
+        ],
+        "bonds": [
+          {
+            "data": {
+              "atom1": "p0",
+              "atom2": "p1",
+              "kind": "ordinary",
+              "order": 1.0
+            },
+            "record_type": "Bond"
+          },
+          {
+            "data": {
+              "atom1": "p0",
+              "atom2": "p2",
+              "kind": "ordinary",
+              "order": 1.0
+            },
+            "record_type": "Bond"
+          },
+          {
+            "data": {
+              "atom1": "p0",
+              "atom2": "p3",
+              "kind": "ordinary",
+              "order": 1.0
+            },
+            "record_type": "Bond"
+          },
+          {
+            "data": {
+              "atom1": "p0",
+              "atom2": "p4",
+              "kind": "ordinary",
+              "order": 1.0
+            },
+            "record_type": "Bond"
+          },
+          {
+            "data": {
+              "atom1": "p1",
+              "atom2": "p5",
+              "kind": "ordinary",
+              "order": 1.0
+            },
+            "record_type": "Bond"
+          },
+          {
+            "data": {
+              "atom1": "p1",
+              "atom2": "p6",
+              "kind": "ordinary",
+              "order": 1.0
+            },
+            "record_type": "Bond"
+          },
+          {
+            "data": {
+              "atom1": "p1",
+              "atom2": "p7",
+              "kind": "ordinary",
+              "order": 1.0
+            },
+            "record_type": "Bond"
+          },
+          {
+            "data": {
+              "atom1": "l8",
+              "atom2": "l9",
+              "kind": "ordinary",
+              "order": 1.0
+            },
+            "record_type": "Bond"
+          },
+          {
+            "data": {
+              "atom1": "l8",
+              "atom2": "l10",
+              "kind": "ordinary",
+              "order": 1.0
+            },
+            "record_type": "Bond"
+          },
+          {
+            "data": {
+              "atom1": "l8",
+              "atom2": "l11",
+              "kind": "ordinary",
+              "order": 1.0
+            },
+            "record_type": "Bond"
+          },
+          {
+            "data": {
+              "atom1": "l8",
+              "atom2": "l12",
+              "kind": "ordinary",
+              "order": 1.0
+            },
+            "record_type": "Bond"
+          }
+        ],
+        "molecules": [
+          {
+            "data": {
+              "atom_ids": [
+                "p0",
+                "p1",
+                "p2",
+                "p3",
+                "p4",
+                "p5",
+                "p6",
+                "p7"
+              ],
+              "formal_charge": 0,
+              "molecule_id": "protein",
+              "multiplicity": 1,
+              "role": "protein"
+            },
+            "record_type": "MoleculeState"
+          },
+          {
+            "data": {
+              "atom_ids": [
+                "l8",
+                "l9",
+                "l10",
+                "l11",
+                "l12"
+              ],
+              "formal_charge": 0,
+              "molecule_id": "ligand",
+              "multiplicity": 1,
+              "role": "ligand"
+            },
+            "record_type": "MoleculeState"
+          }
+        ]
+      },
+      "record_type": "TopologyView"
+    },
+    "units": {
+      "data": {
+        "energy": "kJ/mol",
+        "forces": "kJ/mol/nm",
+        "positions": "nm",
+        "temperature": "K",
+        "time": "ps"
+      },
+      "record_type": "Units"
+    }
+  },
+  "record_type": "SystemInput",
+  "schema_version": "1.0"
+}

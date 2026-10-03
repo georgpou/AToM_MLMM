@@ -1,0 +1,21 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+____________________ test_ml_mm_cross_interactions_retained ____________________
+
+    def test_ml_mm_cross_interactions_retained():
+        from atm_mlmm.atm import PhysicalEvaluator
+>       from atm_mlmm.ledger import charge_mask_diagnostic, lj_mask_diagnostic
+E       ImportError: cannot import name 'charge_mask_diagnostic' from 'atm_mlmm.ledger' (/workspace/AToM_MLMM-m03-g06-g07/src/atm_mlmm/ledger.py)
+
+tests/integration/test_mechanical_pme.py:14: ImportError
+_____________________ test_pme_charge_mask_cross_identity ______________________
+
+    def test_pme_charge_mask_cross_identity():
+>       from atm_mlmm.ledger import charge_mask_diagnostic
+E       ImportError: cannot import name 'charge_mask_diagnostic' from 'atm_mlmm.ledger' (/workspace/AToM_MLMM-m03-g06-g07/src/atm_mlmm/ledger.py)
+
+tests/integration/test_masked_interactions.py:22: ImportError
+=========================== short test summary info ============================
+FAILED tests/integration/test_mechanical_pme.py::test_ml_mm_cross_interactions_retained
+FAILED tests/integration/test_masked_interactions.py::test_pme_charge_mask_cross_identity
+2 failed in 0.17s

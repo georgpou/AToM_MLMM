@@ -1,0 +1,20 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+____ test_frozen_joint_matrix_preserves_twenty_rows_and_fifty_descriptions _____
+
+    def test_frozen_joint_matrix_preserves_twenty_rows_and_fifty_descriptions():
+>       from atm_mlmm.joint_reference import quantum_job_matrix
+E       ModuleNotFoundError: No module named 'atm_mlmm.joint_reference'
+
+tests/unit/test_joint_reference_plan.py:10: ModuleNotFoundError
+______ test_cap_reference_rejects_changed_geometry_before_reusing_quantum ______
+
+    def test_cap_reference_rejects_changed_geometry_before_reusing_quantum():
+>       from atm_mlmm.joint_reference import validate_capped_geometry
+E       ModuleNotFoundError: No module named 'atm_mlmm.joint_reference'
+
+tests/unit/test_joint_reference_plan.py:29: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/unit/test_joint_reference_plan.py::test_frozen_joint_matrix_preserves_twenty_rows_and_fifty_descriptions
+FAILED tests/unit/test_joint_reference_plan.py::test_cap_reference_rejects_changed_geometry_before_reusing_quantum
+2 failed in 0.09s

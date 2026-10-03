@@ -1,0 +1,302 @@
+{
+  "rows": 50,
+  "max_energy_error_kj_mol": 4.656612873077393e-10,
+  "max_force_error_kj_mol_nm": 2.7853275241795927e-12,
+  "descriptions_manifest_sha256": "274990a53795cf25e9aede12014eabcc90d267aa8d5e9fdb59924a88a0063a95",
+  "physical_reference_qualified": false,
+  "new_dft_jobs_launched": 0,
+  "geometry_differences": [
+    {
+      "row": "butane-acetamide-d3.4-r0",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -3.7995131814386696,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-acetamide-d3.4-r0",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -2.6602088543586433,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-acetamide-d3.4-r0",
+      "description": "alternative-ethane",
+      "hybrid_contact_minus_separated_kj_mol": -2.9374149726936594,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-acetamide-d3.8-r0",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -2.8545886271167547,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-acetamide-d3.8-r0",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -1.8077428773976862,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-acetamide-d3.8-r0",
+      "description": "alternative-ethane",
+      "hybrid_contact_minus_separated_kj_mol": -2.9965835622278973,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-acetamide-d3.8-r60",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -4.11134709068574,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-acetamide-d3.8-r60",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -2.152623849455267,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-acetamide-d3.8-r60",
+      "description": "alternative-ethane",
+      "hybrid_contact_minus_separated_kj_mol": -3.8611600548028946,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-acetamide-d4.5-r0",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -0.8344811253482476,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-acetamide-d4.5-r0",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -0.10802451055496931,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-acetamide-d4.5-r0",
+      "description": "alternative-ethane",
+      "hybrid_contact_minus_separated_kj_mol": -1.5346632794244215,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-methanol-d3.4-r0",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -3.395991191500798,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-methanol-d3.4-r0",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -2.8616612521000206,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-methanol-d3.4-r0",
+      "description": "alternative-ethane",
+      "hybrid_contact_minus_separated_kj_mol": -2.654574293643236,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-methanol-d3.8-r0",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -2.350825093802996,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-methanol-d3.8-r0",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -1.8158957669511437,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-methanol-d3.8-r0",
+      "description": "alternative-ethane",
+      "hybrid_contact_minus_separated_kj_mol": -2.632328881067224,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-methanol-d3.8-r60",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -2.928555505233817,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-methanol-d3.8-r60",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -1.5013574620243162,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-methanol-d3.8-r60",
+      "description": "alternative-ethane",
+      "hybrid_contact_minus_separated_kj_mol": -2.40348835272016,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-methanol-d4.5-r0",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -0.7034655667375773,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-methanol-d4.5-r0",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -0.1342096442822367,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "butane-methanol-d4.5-r0",
+      "description": "alternative-ethane",
+      "hybrid_contact_minus_separated_kj_mol": -1.3382447923650034,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-acetamide-d2.6-r0",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -15.272493685944937,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-acetamide-d2.6-r0",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -18.452845733612776,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-acetamide-d3-r0",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -22.326649231719784,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-acetamide-d3-r0",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -22.39945977041498,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-acetamide-d3-r60",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -20.37127114739269,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-acetamide-d3-r60",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -24.44842386385426,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-acetamide-d3.5-r0",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -13.14826641662512,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-acetamide-d3.5-r0",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -13.217102074064314,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-methanol-d2.6-r0",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": 0.3632442880189046,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-methanol-d2.6-r0",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": 1.4254633362870663,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-methanol-d3-r0",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -14.69524782919325,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-methanol-d3-r0",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -11.626530371140689,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-methanol-d3-r60",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -22.66889542818535,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-methanol-d3-r60",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -20.572603286011145,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-methanol-d3.5-r0",
+      "description": "baseline",
+      "hybrid_contact_minus_separated_kj_mol": -10.646438500029035,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    },
+    {
+      "row": "ethanol-methanol-d3.5-r0",
+      "description": "uncut",
+      "hybrid_contact_minus_separated_kj_mol": -7.582265262492001,
+      "scope": "within-description diagnostic; no quantum partition-approximation acceptance"
+    }
+  ],
+  "files": {
+    "butane-methanol-separated--baseline.json": "5cd10abaab5cd87f1cb45d84c4effdb5dcc68adde59918693ae556f0b8c03b40",
+    "butane-acetamide-d3.4-r0--baseline.json": "25df96a3d2d272a6abcaaf675380c0a9d7a8063471c74e5700495f3ea3501d0e",
+    "butane-acetamide-d3.8-r60--baseline.json": "3ea052285bc2b61e8a9599bc15826fd6809af17a0ab5cf539130a6b21e2fd541",
+    "butane-methanol-d3.8-r0--alternative-ethane.json": "5b71e7e760b833552e6bc6784d9fb046782f3876da5c1c1a308606d83a6c2406",
+    "butane-methanol-separated--alternative-ethane.json": "a488e2e2e4d33afaa7de3da1297229ea9a8a1a627459061e905dc68747cf9121",
+    "ethanol-acetamide-d3-r60--baseline.json": "065cfc0ccbfb18f6c0b62f7d720d2e93e0f0139c3ead31bd0ba01a3f340d5d9b",
+    "butane-acetamide-d3.8-r0--alternative-ethane.json": "03d2c943630824f7aa42d3af573921f88c672708e026b1502a4aba802cf3e660",
+    "butane-methanol-d3.8-r0--uncut.json": "f7873920524a5ad83ed54929b34375e90820dfa809898618d69022dba0b5953d",
+    "butane-acetamide-separated--alternative-ethane.json": "47dedee362b23b6193e6a25386dfdaa43c96074f75b826f8880fd6e8fc01b867",
+    "butane-acetamide-separated--uncut.json": "b13dffe673bca6f3ef2128d39ceb6558685bdd3af8cfed98384d4c26db27f3f2",
+    "butane-acetamide-d4.5-r0--uncut.json": "4139707a5c825838d7c952a620d24973263e510bdcb38301411c2069b6a0a837",
+    "ethanol-methanol-d3.5-r0--uncut.json": "ed9d203931e894d8b99d553b3bc803b63481c2b03990c711dc9d4e2b168d63ac",
+    "ethanol-acetamide-separated--baseline.json": "fd5b952a56ac25380236df3da5ba6a0df71775c27c5fa6d2902141f4fa05e815",
+    "butane-methanol-d3.8-r60--uncut.json": "70d28eb38e6d2ce56f3aa4404c76afed1339551354bced1aa9b56c7a2a4ed811",
+    "butane-methanol-d3.8-r60--baseline.json": "6e08797667ee40ae0a62dc4481dfd141a6ac7e864b65162a8c3c6d5a602f6384",
+    "ethanol-acetamide-d3-r0--uncut.json": "ff5ee89d020be6bf6d895bedfbb187e6b0220a726e474ce55893c8471babe66e",
+    "butane-methanol-d3.4-r0--alternative-ethane.json": "61bd6f734d488775dd0bb197daf3b6e39210dcc002b4c28a6e6cb232730da953",
+    "ethanol-acetamide-d3-r0--baseline.json": "08b707d123093c61fcbc4190e43855ae76c14cd7f7c72c5c6a7ff80d8c64dc1d",
+    "ethanol-acetamide-separated--uncut.json": "1137c273b7a8407e2a8e27a7c1f557155cfb24474a4c26600c62d8cee6cd2c55",
+    "ethanol-acetamide-d3-r60--uncut.json": "bf22b1fb433eaccf6baaf4496f31c44d90f8938840dbcb80d30182262e2f16a5",
+    "butane-methanol-d4.5-r0--baseline.json": "78e4ccef553d0263626e673d96fdece2d120da0a72bc171727a3bcb7409ac59f",
+    "ethanol-methanol-d3-r60--baseline.json": "9eb8a27d43bd865ef68ffb277f90d7e16166eb7f547ab8aae07def4b6c92cdd6",
+    "butane-methanol-d4.5-r0--alternative-ethane.json": "ef2c5a75e62ee626e5b28ec112eae54e54278d3c9f610e9b3157cec00229a314",
+    "butane-acetamide-d4.5-r0--alternative-ethane.json": "a604bbe12e25f5c1c731f04cb42f3e64837c2960c653e855fa49464d26d06197",
+    "butane-methanol-d3.4-r0--baseline.json": "9da94d0138c886b6b29065c621302998a3f483f4d479192e39eb353f947da977",
+    "butane-acetamide-d3.8-r60--alternative-ethane.json": "afecfa12492d67da42e2ef1e70ecb905209ab69e3617005ac035370d0bee3b11",
+    "butane-acetamide-d3.8-r0--uncut.json": "91da64410494e7bde4bd945fc4f9b7f1bcf326622a56e69ce36d9aa74ea9f5ed",
+    "ethanol-methanol-d2.6-r0--baseline.json": "05eb8f3dfb752064efd2ef7dcbcd8c9d616d859fb870a398ede70f0aefd7fa34",
+    "ethanol-methanol-d2.6-r0--uncut.json": "e222ce4cc3b21ff796783ac0331d2deb96a820b398b29e759305cbe31ba9c133",
+    "butane-methanol-d3.8-r0--baseline.json": "bd696fb6e516fb8818af9a66b8b0ee0822015ba71f33e71a0e17771be6a9ae6d",
+    "ethanol-methanol-d3.5-r0--baseline.json": "e089e7d1df70e1606308d132cc179032b5c6616ddb9ef0462afd54e2224f584f",
+    "butane-acetamide-d3.8-r60--uncut.json": "2c6eaf2d5c18bf3c2166aa73d8a2c8e93f4b6e921f3f03dee4de867f1e322307",
+    "butane-methanol-separated--uncut.json": "64dba5d7bc2556d5d15ed40493c234b59615d7fd567061fbe88347b698aadb61",
+    "butane-methanol-d4.5-r0--uncut.json": "ec1a10725c074243e11e8a582bcf8c4e512a1ec0e504d4afe273760139f387f6",
+    "butane-acetamide-d3.8-r0--baseline.json": "035da6903656464cf96bcb518a1f76805c57212803d5dbb172e101a4c387c11a",
+    "butane-acetamide-d3.4-r0--alternative-ethane.json": "691ebba4f4326489ab84cc95bbc4fb7f421d7a78cbf3107049b921e6954993b9",
+    "butane-acetamide-d3.4-r0--uncut.json": "e91655f90ee9b7fc87486213d1046d8f7c1a26d6e85732a9e893e198cac9b4ee",
+    "ethanol-acetamide-d2.6-r0--uncut.json": "2a7987e3b356d42d02854850a4a9b06cfc88e9bd7b81dac9dac9b6767183b358",
+    "ethanol-methanol-d3-r0--uncut.json": "d40aa5ea7d3b4f243375be525124b44bc8c90c1385d9dbb6d884b055c7aaa019",
+    "ethanol-acetamide-d2.6-r0--baseline.json": "5ca4ad1d2ac303c5a77682987bf6c6705f09a08231ebb5c0dca5f4672b26cfb4",
+    "butane-methanol-d3.4-r0--uncut.json": "664dea0d0e0678719eb7657abe416868070b539bef52c1ca8f984f84ecfc6a42",
+    "butane-acetamide-d4.5-r0--baseline.json": "3457184b83f2943a220f89efb05f5a6901cd2ed52e4defff931beda7d1b9f200",
+    "ethanol-methanol-separated--uncut.json": "697794def562df274b6ec8dee672fcd1b3fea217e936823808eefe5699edd79a",
+    "ethanol-acetamide-d3.5-r0--baseline.json": "7b813dc5002d02835164abeb00e28418cbcef1528c7fc91defa354a64964a684",
+    "ethanol-acetamide-d3.5-r0--uncut.json": "73b053aa24fb76a5a91fad2c5e85dcc9a0fa6bc4d6d571f78f85be889b41892a",
+    "butane-methanol-d3.8-r60--alternative-ethane.json": "c80fccf9d1fbaea67a2e640937296cdc98ecbda32928f4c346001b1f3e20facb",
+    "ethanol-methanol-d3-r0--baseline.json": "778b4b10fbb2a448939d4f4faf7aab34f95a2436d9a1e95129903d7056c70b1a",
+    "ethanol-methanol-separated--baseline.json": "33ab08525b517a2f860aea488bc271932681b447b0f683475c53e60888f5bd53",
+    "ethanol-methanol-d3-r60--uncut.json": "12867320e6a9eac9fefbb5dd1777fc847dfd706cafcd1ef9074eeee1646412e1",
+    "butane-acetamide-separated--baseline.json": "6b6dd8d362fe096c329a03c7cee64898658d9e4b74611490b8e677ada018d97c"
+  }
+}

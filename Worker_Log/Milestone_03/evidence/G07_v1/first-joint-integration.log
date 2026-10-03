@@ -1,0 +1,182 @@
+.FF....FF                                                                [100%]
+=================================== FAILURES ===================================
+___________________ test_direct_native_and_atom_agree[False] ___________________
+
+two_ligands = False
+
+    @pytest.mark.model_assets
+    @pytest.mark.parametrize('two_ligands',(False,True))
+    def test_direct_native_and_atom_agree(two_ligands):
+        from atm_mlmm.adapters.atom import build_atom
+        from atm_mlmm.atm import PhysicalEvaluator,AtmEvaluator,build_atm
+        from atm_mlmm.endpoints import check_reference
+        from atm_mlmm.model_reference import NativeMACE
+        from tests.analytic_oracle import nonlinear_answer
+        bundle,snapshot = joint_case(two_ligands=two_ligands)
+        transfer,schedule,restraints = protocol_case(bundle,two_ligands)
+        native = NativeMACE()
+        answers = [independent_answer(bundle,mapped_snapshot(bundle,snapshot,i),native) for i in (0,1)]
+        runtime = RUNTIME
+        with PhysicalEvaluator(bundle,runtime) as direct:
+            for i in (0,1):
+                actual = direct.evaluate(mapped_snapshot(bundle,snapshot,i))
+                assert abs(actual.energy_kj_mol-answers[i][0]) <= 1e-4
+                np.testing.assert_allclose(actual.forces_kj_mol_nm,answers[i][1],atol=5e-3,rtol=0)
+        atm = build_atm(bundle,transfer,schedule,restraints)
+>       with AtmEvaluator(atm,runtime) as evaluator,build_atom(bundle,transfer,schedule,restraints,runtime) as atom:
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_joint_hybrid_atm.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/adapters/atom.py:166: in build_atom
+    _check_and_normalize_conversion(upstream.atmforce, transfer)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+atm_force = <openmm.openmm.ATMForce; proxy of <Swig Object of type 'OpenMM::ATMForce *' at 0x7f1de0747670> >
+transfer = TransferDefinition(physical_identity='ea8403adc44acc0045757ac229e14ac3682598a614711d644c59bbae8b60ddc9', protocol=Prot...0.0, 0.0), (2.4, 0.0, 0.0), (2.4, 0.0, 0.0), (0.0, 0.0, 0.0)), final_particle_count=33, convention='fixed_translation')
+
+    def _check_and_normalize_conversion(atm_force, transfer):
+        if atm_force.getNumParticles() != transfer.final_particle_count:
+>           raise IdentityError('upstream full-particle map count mismatch')
+E           atm_mlmm.schema.IdentityError: upstream full-particle map count mismatch
+
+src/atm_mlmm/adapters/atom.py:76: IdentityError
+----------------------------- Captured stdout call -----------------------------
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+___________________ test_direct_native_and_atom_agree[True] ____________________
+
+two_ligands = True
+
+    @pytest.mark.model_assets
+    @pytest.mark.parametrize('two_ligands',(False,True))
+    def test_direct_native_and_atom_agree(two_ligands):
+        from atm_mlmm.adapters.atom import build_atom
+        from atm_mlmm.atm import PhysicalEvaluator,AtmEvaluator,build_atm
+        from atm_mlmm.endpoints import check_reference
+        from atm_mlmm.model_reference import NativeMACE
+        from tests.analytic_oracle import nonlinear_answer
+        bundle,snapshot = joint_case(two_ligands=two_ligands)
+        transfer,schedule,restraints = protocol_case(bundle,two_ligands)
+        native = NativeMACE()
+        answers = [independent_answer(bundle,mapped_snapshot(bundle,snapshot,i),native) for i in (0,1)]
+        runtime = RUNTIME
+        with PhysicalEvaluator(bundle,runtime) as direct:
+            for i in (0,1):
+                actual = direct.evaluate(mapped_snapshot(bundle,snapshot,i))
+                assert abs(actual.energy_kj_mol-answers[i][0]) <= 1e-4
+                np.testing.assert_allclose(actual.forces_kj_mol_nm,answers[i][1],atol=5e-3,rtol=0)
+        atm = build_atm(bundle,transfer,schedule,restraints)
+>       with AtmEvaluator(atm,runtime) as evaluator,build_atom(bundle,transfer,schedule,restraints,runtime) as atom:
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_joint_hybrid_atm.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/adapters/atom.py:166: in build_atom
+    _check_and_normalize_conversion(upstream.atmforce, transfer)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+atm_force = <openmm.openmm.ATMForce; proxy of <Swig Object of type 'OpenMM::ATMForce *' at 0x7f1de0577730> >
+transfer = TransferDefinition(physical_identity='de91a4e9d7a9292a75ecc60e99308ca74ec68f327dd355a4bfc62278b9bd219f', protocol=Prot....0), (-2.4, -0.0, -0.0), (-2.4, -0.0, -0.0), (0.0, 0.0, 0.0)), final_particle_count=42, convention='fixed_translation')
+
+    def _check_and_normalize_conversion(atm_force, transfer):
+        if atm_force.getNumParticles() != transfer.final_particle_count:
+>           raise IdentityError('upstream full-particle map count mismatch')
+E           atm_mlmm.schema.IdentityError: upstream full-particle map count mismatch
+
+src/atm_mlmm/adapters/atom.py:76: IdentityError
+________________ test_joint_periodic_geometry_and_forces[False] ________________
+
+two_ligands = False
+
+    @pytest.mark.model_assets
+    @pytest.mark.parametrize('two_ligands',(False,True))
+    def test_joint_periodic_geometry_and_forces(two_ligands):
+        from atm_mlmm.model_reference import NativeMACE
+        from atm_mlmm.atm import AtmEvaluator,PhysicalEvaluator,build_atm
+        from atm_mlmm.adapters.atom import build_atom
+        from atm_mlmm.endpoints import check_reference
+        from tests.analytic_oracle import nonlinear_answer
+        bundle,snapshot = joint_case(two_ligands=two_ligands,periodic=True)
+        transfer,schedule,restraints = protocol_case(bundle,two_ligands)
+        native = NativeMACE()
+        answers = [independent_answer(bundle,mapped_snapshot(bundle,snapshot,i),native) for i in (0,1)]
+        with PhysicalEvaluator(bundle,RUNTIME) as direct:
+            for i in (0,1):
+                frame = mapped_snapshot(bundle,snapshot,i)
+                a = direct.evaluate(frame)
+                assert abs(a.energy_kj_mol-answers[i][0]) <= 1e-4
+                np.testing.assert_allclose(a.forces_kj_mol_nm,answers[i][1],atol=5e-3,rtol=0)
+                wrapped = replace(frame,positions_nm=np.mod(frame.positions_nm,np.diag(frame.box_nm)))
+                b = direct.evaluate(wrapped)
+                assert abs(a.energy_kj_mol-b.energy_kj_mol) <= 1e-4
+                np.testing.assert_allclose(a.forces_kj_mol_nm,b.forces_kj_mol_nm,atol=5e-3,rtol=0)
+        atm = build_atm(bundle,transfer,schedule,restraints)
+>       with AtmEvaluator(atm,RUNTIME) as evaluator,build_atom(bundle,transfer,schedule,restraints,RUNTIME) as atom:
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_joint_hybrid_atm.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/adapters/atom.py:166: in build_atom
+    _check_and_normalize_conversion(upstream.atmforce, transfer)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+atm_force = <openmm.openmm.ATMForce; proxy of <Swig Object of type 'OpenMM::ATMForce *' at 0x7f1dd9e00970> >
+transfer = TransferDefinition(physical_identity='5a49a77df0063641ccd4a1bd81de162ee2d3428e09541c1e6651ee8c2add76d4', protocol=Prot...0.0, 0.0), (2.4, 0.0, 0.0), (2.4, 0.0, 0.0), (0.0, 0.0, 0.0)), final_particle_count=33, convention='fixed_translation')
+
+    def _check_and_normalize_conversion(atm_force, transfer):
+        if atm_force.getNumParticles() != transfer.final_particle_count:
+>           raise IdentityError('upstream full-particle map count mismatch')
+E           atm_mlmm.schema.IdentityError: upstream full-particle map count mismatch
+
+src/atm_mlmm/adapters/atom.py:76: IdentityError
+________________ test_joint_periodic_geometry_and_forces[True] _________________
+
+two_ligands = True
+
+    @pytest.mark.model_assets
+    @pytest.mark.parametrize('two_ligands',(False,True))
+    def test_joint_periodic_geometry_and_forces(two_ligands):
+        from atm_mlmm.model_reference import NativeMACE
+        from atm_mlmm.atm import AtmEvaluator,PhysicalEvaluator,build_atm
+        from atm_mlmm.adapters.atom import build_atom
+        from atm_mlmm.endpoints import check_reference
+        from tests.analytic_oracle import nonlinear_answer
+        bundle,snapshot = joint_case(two_ligands=two_ligands,periodic=True)
+        transfer,schedule,restraints = protocol_case(bundle,two_ligands)
+        native = NativeMACE()
+        answers = [independent_answer(bundle,mapped_snapshot(bundle,snapshot,i),native) for i in (0,1)]
+        with PhysicalEvaluator(bundle,RUNTIME) as direct:
+            for i in (0,1):
+                frame = mapped_snapshot(bundle,snapshot,i)
+                a = direct.evaluate(frame)
+                assert abs(a.energy_kj_mol-answers[i][0]) <= 1e-4
+                np.testing.assert_allclose(a.forces_kj_mol_nm,answers[i][1],atol=5e-3,rtol=0)
+                wrapped = replace(frame,positions_nm=np.mod(frame.positions_nm,np.diag(frame.box_nm)))
+                b = direct.evaluate(wrapped)
+                assert abs(a.energy_kj_mol-b.energy_kj_mol) <= 1e-4
+                np.testing.assert_allclose(a.forces_kj_mol_nm,b.forces_kj_mol_nm,atol=5e-3,rtol=0)
+        atm = build_atm(bundle,transfer,schedule,restraints)
+>       with AtmEvaluator(atm,RUNTIME) as evaluator,build_atom(bundle,transfer,schedule,restraints,RUNTIME) as atom:
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_joint_hybrid_atm.py:136: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/adapters/atom.py:166: in build_atom
+    _check_and_normalize_conversion(upstream.atmforce, transfer)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+atm_force = <openmm.openmm.ATMForce; proxy of <Swig Object of type 'OpenMM::ATMForce *' at 0x7f1dd9f98ab0> >
+transfer = TransferDefinition(physical_identity='c0babcdf75a0d57e44dee02c528b272271c6c53bd5afdbf167903726117d1b20', protocol=Prot....0), (-2.4, -0.0, -0.0), (-2.4, -0.0, -0.0), (0.0, 0.0, 0.0)), final_particle_count=42, convention='fixed_translation')
+
+    def _check_and_normalize_conversion(atm_force, transfer):
+        if atm_force.getNumParticles() != transfer.final_particle_count:
+>           raise IdentityError('upstream full-particle map count mismatch')
+E           atm_mlmm.schema.IdentityError: upstream full-particle map count mismatch
+
+src/atm_mlmm/adapters/atom.py:76: IdentityError
+=========================== short test summary info ============================
+FAILED tests/integration/test_joint_hybrid_atm.py::test_direct_native_and_atom_agree[False]
+FAILED tests/integration/test_joint_hybrid_atm.py::test_direct_native_and_atom_agree[True]
+FAILED tests/integration/test_joint_hybrid_atm.py::test_joint_periodic_geometry_and_forces[False]
+FAILED tests/integration/test_joint_hybrid_atm.py::test_joint_periodic_geometry_and_forces[True]
+4 failed, 5 passed in 12.06s

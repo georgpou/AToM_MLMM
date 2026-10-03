@@ -1,0 +1,47 @@
+................F...                                                     [100%]
+=================================== FAILURES ===================================
+_________________ test_cap_wrapping_and_image_seam_continuity __________________
+
+    def test_cap_wrapping_and_image_seam_continuity():
+        from atm_mlmm.atm import PhysicalEvaluator
+        from atm_mlmm.geometry import unwrap_molecules
+        from tests.link_oracle import REFERENCE
+        bundle, snapshot = periodic_case(real_model=True)
+        x = np.array(snapshot.positions_nm)
+        x[:8] += (3.15, -.06, .03)
+        original = replace(snapshot, positions_nm=x)
+        wrapped = replace(snapshot, positions_nm=np.mod(x, np.diag(BOX)))
+        unwrapped = unwrap_molecules(bundle.topology, wrapped.positions_nm, BOX)
+        np.testing.assert_allclose(np.diff(unwrapped[:8], axis=0), np.diff(x[:8], axis=0), atol=1e-12)
+        with PhysicalEvaluator(bundle, REFERENCE) as evaluator:
+            a, b = evaluator.evaluate(original), evaluator.evaluate(wrapped)
+            assert abs(a.energy_kj_mol-b.energy_kj_mol) <= 1e-4
+            np.testing.assert_allclose(a.forces_kj_mol_nm, b.forces_kj_mol_nm, atol=5e-3, rtol=0)
+            # A complete ligand crosses a primary-box face; canonical wrapping must
+            # preserve its geometry and actual forces on both cap parents.
+            for shift in (-1e-6, 0., 1e-6):
+                r = x.copy(); r[8:] += (3.2-x[8, 0]+shift, 0., 0.)
+                direct = evaluator.evaluate(replace(snapshot, positions_nm=r))
+                image = evaluator.evaluate(replace(snapshot, positions_nm=np.mod(r, np.diag(BOX))))
+                assert abs(direct.energy_kj_mol-image.energy_kj_mol) <= 1e-4
+                np.testing.assert_allclose(direct.forces_kj_mol_nm, image.forces_kj_mol_nm, atol=5e-3, rtol=0)
+            enlarged = replace(snapshot, box_nm=tuple(tuple(v*1.1 for v in row) for row in BOX))
+            assert np.isfinite(evaluator.evaluate(enlarged).energy_kj_mol)
+>           assert evaluator.evaluate(original) == a
+E           AssertionError: assert EnergyForces(...perature='K')) == EnergyForces(...perature='K'))
+E             
+E             Omitting 6 identical items, use -vv to show
+E             Differing attributes:
+E             ['forces_kj_mol_nm']
+E             
+E             Drill down into differing attribute forces_kj_mol_nm:
+E               forces_kj_mol_nm: ((-2394.7476939212656, -689.2583450045286, 262.8994621326817), (1627.9602644745544, -478.36977857141784, -798.4044359806285), (460.31977804976015, 469.93501089429026, -586.9364824506575), (521.0722085688127, -50.098844262269914, 20.1181433160363), (662.9772842698195, 306.7741510490495, 560.874000285202), (-192.53888893891957, 401.0388469624759, 507.22622516737476), (-343.98332754787435, -2.1230193028132924, -24.6669...
+E             
+E             ...Full output truncated (3 lines hidden), use '-vv' to show
+
+tests/integration/test_periodic_geometry.py:50: AssertionError
+----------------------------- Captured stdout call -----------------------------
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+=========================== short test summary info ============================
+FAILED tests/integration/test_periodic_geometry.py::test_cap_wrapping_and_image_seam_continuity
+1 failed, 19 passed in 6.45s

@@ -1,0 +1,12 @@
+{
+  "files": {
+    "retained-mm.xml": "9475fe36710ef3b4a6a198434d06d92869b7080d3f09b830fc913967bbae51fc",
+    "ledger.json": "c28be861f2139b6a43a21089b7b122c82f7590de404aa0b71021a2373c8c84b9",
+    "original-mm.xml": "24d20b06bc48fde4b14ccfc539a7a15857d6a1eaa862780d5bdc75fc1c52e161",
+    "manifest.json": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "snapshot.json": "6e08c291edacb2b5e28ba7e37145cc22ed63dfa03206657d15d472a3c9ee95d0",
+    "partition.json": "5b28eec265cd50eaf0a827c0a12f1b7ad7e378f2619d50b62867ba2102a1296a",
+    "diagnostics.json": "843c9eb8fb4261a7178dc838a3d3f2c63272d63c43f4e442642759d772f74676",
+    "input.json": "6c03553800cff6b2e8ff0c123d12cbfb68515f17dc941021c97842a6ef9c1325"
+  }
+}

@@ -1,0 +1,31 @@
+{
+  "state": "prepared; G07 quantum launch budget/review pending",
+  "source_input_manifest_sha256": "96d1afb9f7966d2b854f1ddbf6e68b7662be4a00819e7dd72846838c06939f13",
+  "files": {
+    "acetamide-molecule.json": "1afac5169065f9e272c5a842e129826cb88dbeb4e5b4f97352ba1fb135cf58dd",
+    "butane-acetamide-parameters.json": "6e642526b4411b378956da2847804b84ddc2d9e67330123fcce0012d92aeb4b8",
+    "butane-acetamide.xml": "a3dda9bcb0820b27861e99233c69032a916b8116a32b6d781db8454e742b5a3f",
+    "butane-methanol-acetamide-parameters.json": "ac2a5175328c5b0cf314a4aa37cfc563d68594e14b7ed06d418660255b116419",
+    "butane-methanol-acetamide.xml": "777823cfb285afa0a83846ac06de7fb46c0703df3605779157815b446c712f75",
+    "butane-methanol-parameters.json": "a9e837e6147ce25197b79266b34dd251f98484f0700cbd2c63f5023fce5774a3",
+    "butane-methanol.xml": "65fee0acc46e75c16c2e4833cc69ac5724195cd474a45388c4b23d74548ccd8e",
+    "butane-molecule.json": "4f0cdbfd23b79ba700fbac981cf31b0e128411e85ad5a0985ebba4b311e1aff3",
+    "ethanol-acetamide-parameters.json": "bb751a6ae025929e09cfac34626027dcc42445d24cec14a192bdafc1dd1b2a21",
+    "ethanol-acetamide.xml": "182527199dc0a81ced8dc32fd054848729171f13f40efdf89f719ea6dde1a251",
+    "ethanol-methanol-acetamide-parameters.json": "e8975c2bbcb6d517303ea82128c38ef53c6c2881a33a7ef88181aafc8483ac33",
+    "ethanol-methanol-acetamide.xml": "01a8e7c5822160737f747fd96539b6305c4e74b392bb5cdbb9c6b4b263d7bc3e",
+    "ethanol-methanol-parameters.json": "f379c85841de5d0bd1c52d1fd8b241a27dbd1e90301ba1fcfa23dba337fbb61a",
+    "ethanol-methanol.xml": "1eadaaa19f07e5e3bc68bb20a7f51c207fa50b80ac16197043cce11a712e7a06",
+    "ethanol-molecule.json": "05be9bc2237ca878cf6a80d76988f6ed947f6490c80b77379ed16a81d43fe91a",
+    "gaff-cache.json": "6208ed7e55f7f3a4930b4e81c0cb3c9df859a7541abec6d39c5cc32a830ce15b",
+    "methanol-molecule.json": "a3ff09ae50af61fcc945e4b0964d0e46deec7181ce054a64874b90f1c941abb4",
+    "quantum-job-matrix.json": "4e8e9eac08cd9676022c122298e53f16041db7989c757e320a6b8dc065bf776a"
+  },
+  "software": {
+    "gaff": "2.2.20",
+    "ambertools": "26.0",
+    "openmm": "8.6.1",
+    "openff_toolkit": "0.18.0"
+  },
+  "geometry": "unchanged approved M00 v3, corrected score-free threonine orientation"
+}

@@ -4,6 +4,7 @@ Parameter tuples use OpenMM's public API ordering in its common nm/kJ/mol
 units. This captures the original system; it does not decide retained terms.
 """
 import hashlib
+import copy
 from collections import Counter
 from .schema import ForceInventory, ForceRecord, UnsupportedCapability
 
@@ -116,6 +117,14 @@ def boundary_dispositions(original, retained, old_to_new, real_ids):
             if +terms:
                 raise IdentityError('retained MM contains unrecognized added/modified bonded terms')
         elif source.class_name=='NonbondedForce':
+            settings_before = {k:v for k,v in source.parameters.items() if k not in ('particles','exceptions')}
+            settings_after = {k:v for k,v in target.parameters.items() if k not in ('particles','exceptions')}
+            changes = {k for k in settings_before if settings_before[k] != settings_after[k]}
+            if changes:
+                if changes != {'exceptions_periodic'} or not settings_after['exceptions_periodic']:
+                    raise IdentityError('mechanical boundary changed unrecognized nonbonded settings')
+                row('nonbonded_settings',source.index,None,(),tuple(sorted(settings_before.items())),
+                    tuple(sorted(settings_after.items())),'changed_periodic_exception_convention')
             for old,parameters in enumerate(source.parameters['particles']):
                 actual=target.parameters['particles'][old_to_new[old]]
                 if actual != parameters:
@@ -152,3 +161,99 @@ def boundary_dispositions(original, retained, old_to_new, real_ids):
         row('constraint',None,index,(a,b),(d,),(d,) if found else (), 'retained' if found else 'removed')
     if +constraints:raise IdentityError('boundary added/modified constraints')
     return tuple(rows)
+
+
+def validate_pme_system(system, box_nm):
+    """Narrow G06 mechanical PME admission; never approximate other forces."""
+    import openmm as mm
+    from openmm import unit
+    from .geometry import orthorhombic_lengths
+    lengths = orthorhombic_lengths(box_nm)
+    allowed = (mm.HarmonicBondForce,mm.HarmonicAngleForce,mm.PeriodicTorsionForce,
+               mm.RBTorsionForce,mm.NonbondedForce)
+    if any(type(f) not in allowed for f in system.getForces()):
+        raise UnsupportedCapability('unqualified custom/nonstandard PME force or mixing')
+    forces = [f for f in system.getForces() if isinstance(f,mm.NonbondedForce)]
+    if len(forces) != 1:
+        raise UnsupportedCapability('exactly one standard PME NonbondedForce required')
+    force = forces[0]
+    if force.getNonbondedMethod() != mm.NonbondedForce.PME:
+        raise UnsupportedCapability('only PME, not LJPME or alternative methods, admitted')
+    if force.getNumParticleParameterOffsets() or force.getNumExceptionParameterOffsets() or force.getNumGlobalParameters():
+        raise UnsupportedCapability('charge/LJ offsets and globals are unsupported')
+    if force.getUseDispersionCorrection():
+        raise UnsupportedCapability('analytical dispersion correction requires a separate review')
+    cutoff = force.getCutoffDistance().value_in_unit(unit.nanometer)
+    if cutoff <= 0 or min(lengths) <= 2*cutoff:
+        raise UnsupportedCapability('PME cutoff requires a box larger than twice the cutoff')
+    if force.getUseSwitchingFunction() and not 0 < force.getSwitchingDistance().value_in_unit(unit.nanometer) < cutoff:
+        raise UnsupportedCapability('switch distance must be positive and below cutoff')
+    return force
+
+
+def _mask_diagnostic(system, positions_nm, box_nm, cavity, ligand, *, kind, scale=1.):
+    import numpy as np
+    import openmm as mm
+    from openmm import unit
+    from .schema import IdentityError
+    validate_pme_system(system,box_nm)
+    n = system.getNumParticles()
+    first, second = tuple(cavity),tuple(ligand)
+    if (len(set(first)) != len(first) or len(set(second)) != len(second) or set(first)&set(second)
+            or any(isinstance(i,bool) or not isinstance(i,(int,np.integer)) or i<0 or i>=n for i in first+second)):
+        raise IdentityError('mask sets must be disjoint unique valid particle indices')
+    x = np.asarray(positions_nm,dtype=float)
+    if x.shape != (n,3) or not np.isfinite(x).all() or not np.isfinite(scale):
+        raise IdentityError('mask needs every finite particle coordinate and finite charge scale')
+    # Copy the actual sites/masses but isolate the standard nonbonded force.
+    isolated = copy.deepcopy(system)
+    for i in reversed(range(isolated.getNumForces())):
+        if not isinstance(isolated.getForce(i),mm.NonbondedForce): isolated.removeForce(i)
+    force = isolated.getForce(0)
+    particles = [force.getParticleParameters(i) for i in range(n)]
+    exceptions = [force.getExceptionParameters(i) for i in range(force.getNumExceptions())]
+    isolated.setDefaultPeriodicBoxVectors(*(mm.Vec3(*v) for v in box_nm))
+    integrator = mm.VerletIntegrator(.0005)
+    context = mm.Context(isolated,integrator,mm.Platform.getPlatformByName('Reference'))
+    try:
+        realized = force.getPMEParametersInContext(context)
+    finally:
+        del context,integrator
+    # Resolve once, then bind every mask to identical realized alpha and mesh.
+    force.setPMEParameters(*realized)
+    energies = {}
+    charges = {}
+    for name, selected in (('union',set(first)|set(second)),('cavity',set(first)),('ligand',set(second)),('empty',set())):
+        for i,(q,s,e) in enumerate(particles):
+            force.setParticleParameters(i,q*scale if kind=='charge' and i in selected else 0.,s,
+                                        e if kind=='lj' and i in selected else 0.)
+        for i,(a,b,q,s,e) in enumerate(exceptions):
+            active = a in selected and b in selected
+            force.setExceptionParameters(i,a,b,q*scale**2 if kind=='charge' and active else 0.,s,
+                                         e if kind=='lj' and active else 0.)
+        integrator = mm.VerletIntegrator(.0005)
+        context = mm.Context(isolated,integrator,mm.Platform.getPlatformByName('Reference'))
+        try:
+            context.setPositions(x);context.computeVirtualSites()
+            energies[name] = float(context.getState(getEnergy=True).getPotentialEnergy().value_in_unit(unit.kilojoule_per_mole))
+            charges[name] = float(sum(particles[i][0].value_in_unit(unit.elementary_charge)*scale for i in selected)) if kind=='charge' else 0.
+        finally:
+            del context,integrator
+    if not np.isfinite(list(energies.values())).all():
+        from .schema import NumericalDomainError
+        raise NumericalDomainError('nonfinite masked interaction energy')
+    alpha = realized[0]
+    if unit.is_quantity(alpha): alpha = alpha.value_in_unit(unit.nanometer**-1)
+    return {'kind':kind,'energies_kj_mol':energies,
+            'cross_kj_mol':energies['union']-energies['cavity']-energies['ligand']+energies['empty'],
+            'realized_pme':(float(alpha),*map(int,realized[1:])), 'mask_net_charges_e':charges,
+            'background_convention':'openmm-uniform-neutralizing-background',
+            'lj_mixing':'Lorentz-Berthelot', 'scope':'energy diagnostic, not a free-energy correction'}
+
+
+def charge_mask_diagnostic(system, positions_nm, box_nm, cavity, ligand, *, scale=1.):
+    return _mask_diagnostic(system,positions_nm,box_nm,cavity,ligand,kind='charge',scale=scale)
+
+
+def lj_mask_diagnostic(system, positions_nm, box_nm, cavity, ligand):
+    return _mask_diagnostic(system,positions_nm,box_nm,cavity,ligand,kind='lj')

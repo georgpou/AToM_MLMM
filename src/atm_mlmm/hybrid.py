@@ -9,9 +9,12 @@ from .schema import IdentityError, UnsupportedCapability
 
 
 def build_physical(original, partition, model, embedding, *, probe=None, cap_distance_nm, checkpoint=None):
-    """Nonperiodic mechanical construction, one admitted C-C cut and provider."""
-    if (embedding.kind,embedding.policy_version,embedding.boundary_policy,embedding.periodic_convention) != ('mechanical','1','protein_c_c','nonperiodic'):
+    """Mechanical construction, one admitted C-C cut and provider."""
+    if (embedding.kind,embedding.policy_version,embedding.boundary_policy) != ('mechanical','1','protein_c_c') or embedding.periodic_convention not in ('nonperiodic','orthorhombic-pme-v1'):
         raise UnsupportedCapability('unadmitted G04 embedding policy')
+    periodic = embedding.periodic_convention == 'orthorhombic-pme-v1'
+    if periodic != (original.box_nm is not None):
+        raise UnsupportedCapability('embedding convention and input box disagree')
     real_model = model.backend == 'mace-off23-small'
     if real_model:
         from .models.mace import model_spec
@@ -27,8 +30,10 @@ def build_physical(original, partition, model, embedding, *, probe=None, cap_dis
     if not {a.element for a in original.topology.atoms if a.atom_id in partition.ml_ids} <= set(model.elements) or 'H' not in model.elements:
         raise UnsupportedCapability('G04 model elements do not cover real atoms and cap')
     ids = tuple(a.atom_id for a in original.topology.atoms)
-    if dict(partition.source_map) != {a:i for i,a in enumerate(ids)} or len(partition.boundary_edges)!=1 or partition.rejected_conditions:
-        raise IdentityError('G04 needs a resolved original partition with one admitted cut')
+    if dict(partition.source_map) != {a:i for i,a in enumerate(ids)} or len(partition.boundary_edges)>1 or partition.rejected_conditions:
+        raise IdentityError('builder needs a resolved original partition with zero or one admitted cut')
+    if not partition.boundary_edges and (not real_model or set(partition.ml_ids) != set(ids)):
+        raise UnsupportedCapability('uncut reference requires the complete all-ML real-model description')
     # Re-run inherited connectivity/whole-ligand chemistry admission, rejecting
     # forged/stale resolved selections rather than trusting their type alone.
     from .partition import resolve_partition, _components
@@ -50,6 +55,7 @@ def build_physical(original, partition, model, embedding, *, probe=None, cap_dis
         calculator = PinnedASECalculator(CHECKPOINT if checkpoint is None else checkpoint)
         potential = MLPotential('ase')
         adapter_args = {'calculator': calculator}
+        if periodic: adapter_args['mlLongRange'] = False
     else:
         partner = index.get(probe.partner_id)
         environment = index.get(probe.environment_id)
@@ -59,10 +65,16 @@ def build_physical(original, partition, model, embedding, *, probe=None, cap_dis
             raise IdentityError('analytic environment must be a real MM atom')
         potential = registered_potential(probe,partner_particle=partner,environment_particle=environment)
         adapter_args = {}
-    a,b = partition.boundary_edges[0]
-    info = potential.createMixedSystem(openmm_topology(original.topology),system,
+        # The periodic ledger substitute is inert. Nonzero coordinate springs
+        # are qualified only by their nonperiodic extension-contract probes.
+        if periodic and any((probe.cap_k,probe.pair_k,probe.environment_k,probe.ligand_k)):
+            raise UnsupportedCapability('periodic analytic ledger substitute must be inert')
+    distances = [(index[a],index[b],cap_distance_nm*unit.nanometer) for a,b in partition.boundary_edges]
+    topology = openmm_topology(original.topology)
+    if periodic: topology.setPeriodicBoxVectors(original.box_nm)
+    info = potential.createMixedSystem(topology,system,
                 [index[i] for i in partition.ml_ids],embedding='mechanical',returnInfo=True,
-                forceGroup=2,linkAtomDistances=[(index[a],index[b],cap_distance_nm*unit.nanometer)], **adapter_args)
+                forceGroup=2,linkAtomDistances=distances, **adapter_args)
     return seal_boundary_result(original,partition,info,manifest={
         'fixture_kind':'pinned_mace_candidate' if real_model else 'analytic_substitute','contract_version':1,
         'model_spec_identity':model.content_identity,'embedding_identity':embedding.content_identity,

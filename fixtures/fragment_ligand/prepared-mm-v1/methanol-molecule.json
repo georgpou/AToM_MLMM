@@ -1,0 +1,109 @@
+{
+  "source": {
+    "smiles": "CO",
+    "formal_charge": 0,
+    "multiplicity": 1,
+    "atom_ids": [
+      "l0",
+      "l1",
+      "l2",
+      "l3",
+      "l4",
+      "l5"
+    ],
+    "elements": [
+      "C",
+      "O",
+      "H",
+      "H",
+      "H",
+      "H"
+    ],
+    "atomic_numbers": [
+      6,
+      8,
+      1,
+      1,
+      1,
+      1
+    ],
+    "bonds": [
+      [
+        0,
+        1,
+        1.0
+      ],
+      [
+        0,
+        2,
+        1.0
+      ],
+      [
+        0,
+        3,
+        1.0
+      ],
+      [
+        0,
+        4,
+        1.0
+      ],
+      [
+        1,
+        5,
+        1.0
+      ]
+    ],
+    "stereocenters": [],
+    "name": "methanol-baseline",
+    "family": "methanol",
+    "baseline": "methanol-baseline",
+    "positions_angstrom": [
+      [
+        -0.3687606017943742,
+        -0.015265208088044194,
+        0.039836774252459406
+      ],
+      [
+        0.9805763935813893,
+        -0.16292231775574156,
+        0.44206756241142875
+      ],
+      [
+        -1.020130478706831,
+        -0.32136131701158055,
+        0.8618117392127042
+      ],
+      [
+        -0.5640263151820338,
+        1.0312900855656861,
+        -0.2065658691947245
+      ],
+      [
+        -0.5618814655253397,
+        -0.6477247075217497,
+        -0.8301169612372761
+      ],
+      [
+        1.534222467627194,
+        0.11598346481142999,
+        -0.30703324544458954
+      ]
+    ],
+    "units": "angstrom",
+    "protonation": "neutral closed-shell explicit hydrogens",
+    "cap": null,
+    "provenance": "classical preparation and prescribed distortion; no model score"
+  },
+  "partial_charges_e": [
+    0.11669999999999998,
+    -0.5988,
+    0.02869999999999999,
+    0.02869999999999999,
+    0.02869999999999999,
+    0.396
+  ],
+  "charge_method": "AM1-BCC via locked AmberTools26; exact frozen conformer; normalized formal charge 0",
+  "formal_charge": 0,
+  "multiplicity": 1
+}

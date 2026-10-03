@@ -1,0 +1,1586 @@
+{
+  "scope": "hybrid description sensitivity; Qfull/alternative references absent",
+  "physical_acceptance": "blocked",
+  "physical_reference_qualified": false,
+  "reference_settings_sha256": "483461026da33db22fe9e980840185a6fd9193593f4f96352105f02de30c511f",
+  "descriptions_manifest_sha256": "274990a53795cf25e9aede12014eabcc90d267aa8d5e9fdb59924a88a0063a95",
+  "numerical_summary_sha256": "e7f2602bb39ae863ffa373ad1a9464e75254c66bf48678e4e94918d1346f9169",
+  "unit_conversion_kj_mol_nm_per_eV_angstrom": 964.8533288249877,
+  "energy_limit_kcal_mol": 1.0,
+  "net_force_limit_eV_angstrom": 0.05,
+  "geometries": 20,
+  "descriptions": 50,
+  "pair_comparisons": 40,
+  "failure_count": 7,
+  "max_energy_difference_kcal_mol": 0.9744628863435872,
+  "max_net_force_difference_eV_angstrom": 0.12165016265111903,
+  "failures": [
+    {
+      "row": "butane-acetamide-d3.4-r0",
+      "left": "baseline",
+      "right": "alternative-ethane",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": -0.20604641700406554,
+      "model_contact_energy_difference_kcal_mol": -0.5906287429755888,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.3845823259715232,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.04985304374477312,
+        -0.0016969438087176755,
+        0.0045754124086587345
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.05009131648916323,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.01022328933964301,
+        0.0006747459390849585,
+        0.0011821577642290321
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.06007633308441613,
+        -0.002371689747802634,
+        0.003393254644429702
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.010313506871277928,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.06021880840909664,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "ethanol-acetamide-d2.6-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.7601223823297893,
+      "model_contact_energy_difference_kcal_mol": 0.25028927746072166,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.5098331048690676,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.009339586224725083,
+        0.07987696328083442,
+        -0.02077168724436871
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.08306034026414,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.0009717107735195407,
+        -0.002354424311434091,
+        0.03280347975852922
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.008367875451205542,
+        0.08223138759226852,
+        -0.05357516700289794
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.03290221603378536,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.09850036022424073,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "ethanol-acetamide-d3-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.017402136399424912,
+      "model_contact_energy_difference_kcal_mol": -0.5093152024843294,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.5267173388837543,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.07193045013215546,
+        0.062235956937465274,
+        0.011461890219092954
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.09580542218231218,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.07985901932694489,
+        0.0010851113646438357,
+        0.06356643202060316
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.007928569194789431,
+        0.06115084557282144,
+        -0.0521045418015102
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.10207512779499715,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.08072899974663965,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "ethanol-acetamide-d3-r60",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.9744628863435872,
+      "model_contact_energy_difference_kcal_mol": -0.12489207148824392,
+      "retained_mm_contact_energy_difference_kcal_mol": 1.0993549578318311,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.09923887103228635,
+        0.06803197888188361,
+        0.01794598558719731
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.12165016265111903,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.07446903475449894,
+        0.008651193465599179,
+        0.057849680421890946
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.024769836277787408,
+        0.05938078541628443,
+        -0.03990369483469364
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.09469459229840377,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.07570949298036256,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "ethanol-methanol-d2.6-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.2538764455707843,
+      "model_contact_energy_difference_kcal_mol": 0.9777216737086921,
+      "retained_mm_contact_energy_difference_kcal_mol": -1.2315981192794765,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.04424736978124688,
+        0.06862899658513251,
+        0.018099201568919754
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.0836382089853251,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.0341278914523413,
+        0.032502674672946236,
+        0.08684610248164698
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.010119478328905585,
+        0.036126321912186274,
+        -0.06874690091272723
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.09880982922832578,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.07831763123113744,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "ethanol-methanol-d3-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.7334410750603634,
+      "model_contact_energy_difference_kcal_mol": 0.29020859195114457,
+      "retained_mm_contact_energy_difference_kcal_mol": -1.023649667011508,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.06727227503611646,
+        0.04198697092675935,
+        0.016117949864752693
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.08092127670756384,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.09708191653064463,
+        0.01884929044551266,
+        0.07997985349351168
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.029809641494528152,
+        0.023137680481246686,
+        -0.06386190362875899
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.1271887228979281,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.07417755535991637,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "ethanol-methanol-d3-r60",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.5010258465999538,
+      "model_contact_energy_difference_kcal_mol": -0.1436341191380664,
+      "retained_mm_contact_energy_difference_kcal_mol": -0.35739172746188735,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.03236476361941243,
+        0.04361962292771765,
+        0.004702204881767645
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.05451843870881514,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.04762351458953906,
+        0.010006217936810948,
+        0.06351292666547119
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.015258750970126633,
+        0.033613404990906696,
+        -0.05881072178370355
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0800125952139569,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.06943624034300269,
+      "energy_pass": true,
+      "force_pass": false
+    }
+  ],
+  "comparisons": [
+    {
+      "row": "butane-acetamide-d3.4-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": -0.27230026937859136,
+      "model_contact_energy_difference_kcal_mol": 0.04517643254033929,
+      "retained_mm_contact_energy_difference_kcal_mol": -0.3174767019189306,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.0007578140163059365,
+        -0.005798696880107467,
+        0.001063064578189181
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.005943843359988413,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.006127854552977076,
+        0.0015791057686412738,
+        0.001856964437531459
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.006885668569283012,
+        -0.007377802648748741,
+        -0.0007938998593422779
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.006594883878678574,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.01012297785024543,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-d3.4-r0",
+      "left": "baseline",
+      "right": "alternative-ethane",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": -0.20604641700406554,
+      "model_contact_energy_difference_kcal_mol": -0.5906287429755888,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.3845823259715232,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.04985304374477312,
+        -0.0016969438087176755,
+        0.0045754124086587345
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.05009131648916323,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.01022328933964301,
+        0.0006747459390849585,
+        0.0011821577642290321
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.06007633308441613,
+        -0.002371689747802634,
+        0.003393254644429702
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.010313506871277928,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.06021880840909664,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "butane-acetamide-d3.4-r0",
+      "left": "uncut",
+      "right": "alternative-ethane",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.06625385237452583,
+      "model_contact_energy_difference_kcal_mol": -0.6358051755159281,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.7020590278904539,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.04909522972846718,
+        0.004101753071389791,
+        0.0035123478304695532
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.04939132056983117,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.004095434786665934,
+        -0.0009043598295563154,
+        -0.0006748066733024269
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.053190664515133115,
+        0.005006112900946107,
+        0.00418715450377198
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.004248036821813349,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.053589553280251535,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-d3.8-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": -0.25020213903419414,
+      "model_contact_energy_difference_kcal_mol": 0.012818512677733231,
+      "retained_mm_contact_energy_difference_kcal_mol": -0.26302065171192734,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.005138619722203849,
+        -0.005385639959181017,
+        0.0015523398314246364
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.007603965371539848,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -9.443624722937916e-05,
+        0.0004915933265872718,
+        0.0016129397114825056
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.00504418347497447,
+        -0.005877233285768288,
+        -6.0599880057869183e-05
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0016888329450875765,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.007745277940139479,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-d3.8-r0",
+      "left": "baseline",
+      "right": "alternative-ethane",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.03393760399405896,
+      "model_contact_energy_difference_kcal_mol": -0.4192424044823256,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.4531800084763845,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.012730240732623674,
+        -0.00426182333309824,
+        0.005919222681487826
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.014671719885075894,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.029801869310231318,
+        -0.002554748494208973,
+        0.0036120163579974078
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.017071628577607644,
+        -0.0017070748388892665,
+        0.0023072063234904185
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.03012847185675389,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.017311204689925915,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-d3.8-r0",
+      "left": "uncut",
+      "right": "alternative-ethane",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.2841397430282531,
+      "model_contact_energy_difference_kcal_mol": -0.43206091716005884,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.716200660188312,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.0075916210104198245,
+        0.001123816626082777,
+        0.00436688285006319
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.008829798366955148,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.02970743306300194,
+        -0.003046341820796245,
+        0.001999076646514902
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.022115812052582114,
+        0.004170158446879022,
+        0.0023678062035482877
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.029930053209450098,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.02262975630524497,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-d3.8-r60",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": -0.46814609016024683,
+      "model_contact_energy_difference_kcal_mol": 0.02732330994537175,
+      "retained_mm_contact_energy_difference_kcal_mol": -0.4954694001056186,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.009879220568756189,
+        -0.006862026208707575,
+        -0.000559858944698061
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.012041588133343684,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.0028835090280488716,
+        0.00026595747144954936,
+        0.0007412678358678019
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.006995711540707317,
+        -0.007127983680157124,
+        -0.001301126780565863
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.002989119551966987,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.01007179538138447,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-d3.8-r60",
+      "left": "baseline",
+      "right": "alternative-ethane",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": -0.059796136683280474,
+      "model_contact_energy_difference_kcal_mol": -0.4871661378211835,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.427370001137903,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.021641936344104686,
+        0.0006155830200878631,
+        0.0008738680192414651
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.021668317804849384,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.0317196849983524,
+        -0.0011883506613495686,
+        -0.003151125177534897
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.010077748654247716,
+        0.0018039336814374323,
+        0.004024993196776362
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.031897965194876095,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.01100071656299316,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-d3.8-r60",
+      "left": "uncut",
+      "right": "alternative-ethane",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.4083499534769664,
+      "model_contact_energy_difference_kcal_mol": -0.5144894477665553,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.9228394012435217,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.011762715775348497,
+        0.007477609228795438,
+        0.001433726963939526
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.01401184124936214,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.02883617597030353,
+        -0.001454308132799118,
+        -0.0038923930134026987
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.017073460194955033,
+        0.008931917361594556,
+        0.005326119977342224
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.02913401414337239,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.0199912417022083,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-d4.5-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": -0.17362729799074528,
+      "model_contact_energy_difference_kcal_mol": 0.025080760449427492,
+      "retained_mm_contact_energy_difference_kcal_mol": -0.19870805844017278,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.0030138653391604516,
+        -0.0031807680419313677,
+        0.0007920694670256608
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.004452869149184486,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.00011865939093435099,
+        0.0008976585240633972,
+        0.00026154545079167804
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.0031325247300948026,
+        -0.0040784265659947645,
+        0.0005305240162339828
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0009424844294259773,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.005169886862463085,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-d4.5-r0",
+      "left": "baseline",
+      "right": "alternative-ethane",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.16734755116543354,
+      "model_contact_energy_difference_kcal_mol": -0.0007377172166741601,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.1680852683821077,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.007431359001618445,
+        -0.0008507658881645079,
+        0.0019180220252259569
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.007721897933581596,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.005714415782681228,
+        0.00039595838378649414,
+        0.00025131935681044985
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.013145774784299673,
+        -0.001246724271951002,
+        0.0016667026684155071
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.005733628187993597,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.013309530941197899,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-d4.5-r0",
+      "left": "uncut",
+      "right": "alternative-ethane",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.3409748491561788,
+      "model_contact_energy_difference_kcal_mol": -0.025818477666101652,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.3667933268222805,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.010445224340778898,
+        0.0023300021537668598,
+        0.001125952558200296
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.010761012532706945,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.005833075173615579,
+        -0.0005017001402769032,
+        -1.0226093981228151e-05
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.016278299514394474,
+        0.0028317022940437626,
+        0.0011361786521815243
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.005854619849725718,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.016561777528155033,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-separated",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.0,
+      "model_contact_energy_difference_kcal_mol": 0.0,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.0,
+      "net_ligand_force_difference_eV_angstrom": [
+        -5.7978412072890336e-05,
+        -4.7876413795021685e-05,
+        4.618723303574396e-05
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 8.8243457320439e-05,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -5.7978412072890336e-05,
+        -4.7876413795021685e-05,
+        4.618723303574396e-05
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 8.8243457320439e-05,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-separated",
+      "left": "baseline",
+      "right": "alternative-ethane",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.0,
+      "model_contact_energy_difference_kcal_mol": 0.0,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.0,
+      "net_ligand_force_difference_eV_angstrom": [
+        -3.347529759507672e-05,
+        -2.15522784572547e-05,
+        3.0729550976002e-05
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 5.029315618416387e-05,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -3.347529759507672e-05,
+        -2.1552278457254697e-05,
+        3.0729550976002e-05
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 5.029315618416386e-05,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-acetamide-separated",
+      "left": "uncut",
+      "right": "alternative-ethane",
+      "separated_control": "butane-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.0,
+      "model_contact_energy_difference_kcal_mol": 0.0,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.0,
+      "net_ligand_force_difference_eV_angstrom": [
+        2.4503114477813617e-05,
+        2.6324135337766985e-05,
+        -1.5457682059741956e-05
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 3.914463762833908e-05,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        2.4503114477813617e-05,
+        2.6324135337766985e-05,
+        -1.545768205974196e-05
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 3.914463762833909e-05,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-d3.4-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.1277079205068779,
+      "model_contact_energy_difference_kcal_mol": 0.12344168816304928,
+      "retained_mm_contact_energy_difference_kcal_mol": -0.2511496086699272,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.0006779271482613668,
+        -0.0040065196813753555,
+        0.0021121345186212465
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.004579617604161867,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.004952502769818772,
+        0.0018457777243870309,
+        0.0030720554115592318
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.005630429918080139,
+        -0.005852297405762387,
+        -0.0009599208929379857
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.006113240020201754,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.00817756529222506,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-d3.4-r0",
+      "left": "baseline",
+      "right": "alternative-ethane",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.1772028914573522,
+      "model_contact_energy_difference_kcal_mol": -0.5605117659717549,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.38330887451440265,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.02432963419374984,
+        -0.00127041245495759,
+        0.0025183638544166347
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.02449259488724347,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.024218318274180004,
+        3.375585403928919e-05,
+        0.0005317744445670092
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.04854795246792984,
+        -0.0013041683089968798,
+        0.0019865894098496256
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.024224179316275248,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.048606080702828666,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-d3.4-r0",
+      "left": "uncut",
+      "right": "alternative-ethane",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.0494949709504743,
+      "model_contact_energy_difference_kcal_mol": -0.6839534541348041,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.6344584831843298,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.02365170704548847,
+        0.002736107226417766,
+        0.0004062293357953886
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.02381290723942218,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.019265815504361232,
+        -0.0018120218703477418,
+        -0.0025402809669922226
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.0429175225498497,
+        0.004548129096765507,
+        0.0029465103027876112
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.019516867005182136,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.04325830721447773,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-d3.8-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.1278511775458538,
+      "model_contact_energy_difference_kcal_mol": 0.0786587443631445,
+      "retained_mm_contact_energy_difference_kcal_mol": -0.2065099219089983,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.0009194347044425635,
+        -0.004006413671214087,
+        0.0012704648965052192
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.004302416964204718,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.005065894514745546,
+        0.0005278617271507774,
+        0.0016554464651428254
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.004146459810302983,
+        -0.0045342753983648645,
+        -0.00038498156863760625
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.005355597841182018,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.0061563782498206985,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-d3.8-r0",
+      "left": "baseline",
+      "right": "alternative-ethane",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": 0.06728101990062807,
+      "model_contact_energy_difference_kcal_mol": -0.3553507601662875,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.4226317800669156,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.02336273935391169,
+        -0.0007852993675972874,
+        0.0026722705512135297
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.0235281812963613,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.03937388958427571,
+        7.703822912525913e-05,
+        0.0010900704385040335
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.016011150230364025,
+        -0.0008623375967225463,
+        0.0015822001127094962
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.03938905139051184,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.016112228741755906,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-d3.8-r0",
+      "left": "uncut",
+      "right": "alternative-ethane",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": 0.19513219744648186,
+      "model_contact_energy_difference_kcal_mol": -0.43400950452943204,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.6291417019759139,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.024282174058354252,
+        0.0032211143036168,
+        0.0014018056547083105
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.02453496715813472,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.04443978409902126,
+        -0.0004508234980255183,
+        -0.0005653760266387919
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.020157610040667007,
+        0.003671937801642318,
+        0.0019671816813471026
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.044445666860173136,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.020583541326461702,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-d3.8-r60",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.341108518931525,
+      "model_contact_energy_difference_kcal_mol": 0.007076233412391981,
+      "retained_mm_contact_energy_difference_kcal_mol": -0.348184752343917,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.00922387314764799,
+        -0.007231174733540278,
+        0.0009839093552785696
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.011761709122839999,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.002555829515209773,
+        -0.0026929433665164298,
+        0.0022970998082040023
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.006668043632438217,
+        -0.004538231367023847,
+        -0.0013131904529254325
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.004365876316953233,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.00817207556196059,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-d3.8-r60",
+      "left": "baseline",
+      "right": "alternative-ethane",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.12549406130823537,
+      "model_contact_energy_difference_kcal_mol": -0.3517545299692681,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.22626046866103272,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.032035014440694655,
+        -0.002914908424747482,
+        0.006343192012890775
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.03278681024821689,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.019759581138378186,
+        -0.0022647525747737604,
+        0.0017086775580081267
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.051794595579072844,
+        -0.0006501558499737211,
+        0.004634514454882648
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.01996220754291308,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.05200559160380241,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-d3.8-r60",
+      "left": "uncut",
+      "right": "alternative-ethane",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": 0.21561445762328962,
+      "model_contact_energy_difference_kcal_mol": -0.3588307633816601,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.5744452210049498,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.022811141293046667,
+        0.004316266308792796,
+        0.005359282657612205
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.023826460764115626,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.02231541065358796,
+        0.0004281907917426694,
+        -0.0005884222501958755
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.045126551946634626,
+        0.003888075517050126,
+        0.00594770490780808
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.022327273472973044,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.04568257890584727,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-d4.5-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.13605543079716553,
+      "model_contact_energy_difference_kcal_mol": 0.017383556636486622,
+      "retained_mm_contact_energy_difference_kcal_mol": -0.15343898743365214,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.0012977850849494538,
+        -0.002354146316520206,
+        0.0005710560785439714
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.002748155026767037,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.0012969978663180896,
+        0.0006383652263433736,
+        0.0004608274207978821
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.0025947829512675434,
+        -0.0029925115428635794,
+        0.00011022865774608929
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0015172592195130442,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.003962344540212141,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-d4.5-r0",
+      "left": "baseline",
+      "right": "alternative-ethane",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": 0.15171587610598136,
+      "model_contact_energy_difference_kcal_mol": -0.014693318191963829,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.16640919429794518,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.005478724914992834,
+        -0.000715638409225487,
+        0.001273262786887002
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.005670076115132254,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.006139915290121015,
+        -0.00012240444832161326,
+        0.00015435612595788407
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.011618640205113849,
+        -0.0005932339609038737,
+        0.001118906660929118
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.006143074835328923,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.011687458186625919,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-d4.5-r0",
+      "left": "uncut",
+      "right": "alternative-ethane",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": 0.2877713069031469,
+      "model_contact_energy_difference_kcal_mol": -0.03207687482845045,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.31984818173159735,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.006776509999942288,
+        0.001638507907294719,
+        0.0007022067083430307
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.007007060025633225,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.007436913156439105,
+        -0.0007607696746649869,
+        -0.000306471294839998
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.014213423156381393,
+        0.0023992775819597057,
+        0.0010086780031830288
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.007482003237694289,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.014449753010060708,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-separated",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": 0.0,
+      "model_contact_energy_difference_kcal_mol": 0.0,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.0,
+      "net_ligand_force_difference_eV_angstrom": [
+        -4.250284373589878e-05,
+        -2.3482347606107794e-05,
+        2.9010805052302022e-05
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 5.656446927634856e-05,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -4.250284373589878e-05,
+        -2.3482347606107794e-05,
+        2.9010805052302025e-05
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 5.656446927634856e-05,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-separated",
+      "left": "baseline",
+      "right": "alternative-ethane",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": 0.0,
+      "model_contact_energy_difference_kcal_mol": 0.0,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.0,
+      "net_ligand_force_difference_eV_angstrom": [
+        -2.2590780393971374e-05,
+        -8.670449974001385e-06,
+        1.9472904812503712e-05
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 3.105984680253803e-05,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -2.2590780393971374e-05,
+        -8.670449974001385e-06,
+        1.9472904812503716e-05
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 3.105984680253804e-05,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "butane-methanol-separated",
+      "left": "uncut",
+      "right": "alternative-ethane",
+      "separated_control": "butane-methanol-separated",
+      "contact_energy_difference_kcal_mol": 0.0,
+      "model_contact_energy_difference_kcal_mol": 0.0,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.0,
+      "net_ligand_force_difference_eV_angstrom": [
+        1.9912063341927408e-05,
+        1.4811897632106409e-05,
+        -9.537900239798311e-06
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 2.6586728248907825e-05,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        1.9912063341927405e-05,
+        1.4811897632106409e-05,
+        -9.53790023979831e-06
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 2.6586728248907822e-05,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "ethanol-acetamide-d2.6-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.7601223823297893,
+      "model_contact_energy_difference_kcal_mol": 0.25028927746072166,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.5098331048690676,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.009339586224725083,
+        0.07987696328083442,
+        -0.02077168724436871
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.08306034026414,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.0009717107735195407,
+        -0.002354424311434091,
+        0.03280347975852922
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.008367875451205542,
+        0.08223138759226852,
+        -0.05357516700289794
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.03290221603378536,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.09850036022424073,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "ethanol-acetamide-d3-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.017402136399424912,
+      "model_contact_energy_difference_kcal_mol": -0.5093152024843294,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.5267173388837543,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.07193045013215546,
+        0.062235956937465274,
+        0.011461890219092954
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.09580542218231218,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.07985901932694489,
+        0.0010851113646438357,
+        0.06356643202060316
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.007928569194789431,
+        0.06115084557282144,
+        -0.0521045418015102
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.10207512779499715,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.08072899974663965,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "ethanol-acetamide-d3-r60",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.9744628863435872,
+      "model_contact_energy_difference_kcal_mol": -0.12489207148824392,
+      "retained_mm_contact_energy_difference_kcal_mol": 1.0993549578318311,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.09923887103228635,
+        0.06803197888188361,
+        0.01794598558719731
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.12165016265111903,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.07446903475449894,
+        0.008651193465599179,
+        0.057849680421890946
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.024769836277787408,
+        0.05938078541628443,
+        -0.03990369483469364
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.09469459229840377,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.07570949298036256,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "ethanol-acetamide-d3.5-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.016452116978775005,
+      "model_contact_energy_difference_kcal_mol": -0.6154060452138331,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.6318581621926082,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.041162646880800596,
+        0.014355510952889144,
+        -0.019565090337035483
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.04778322878216124,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.032583975183406694,
+        -0.028832735861588854,
+        0.016322938256418187
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.008578671697393903,
+        0.043188246814478,
+        -0.03588802859345367
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.04647020991280172,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.05680465533144695,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "ethanol-acetamide-separated",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-acetamide-separated",
+      "contact_energy_difference_kcal_mol": 0.0,
+      "model_contact_energy_difference_kcal_mol": 0.0,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.0,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.00034210737092583537,
+        7.434278499788541e-05,
+        -6.436055270951318e-06
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.00035015100418316617,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        0.00034210737092583537,
+        7.434278499788541e-05,
+        -6.436055270951317e-06
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.00035015100418316617,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "ethanol-methanol-d2.6-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.2538764455707843,
+      "model_contact_energy_difference_kcal_mol": 0.9777216737086921,
+      "retained_mm_contact_energy_difference_kcal_mol": -1.2315981192794765,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.04424736978124688,
+        0.06862899658513251,
+        0.018099201568919754
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.0836382089853251,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        -0.0341278914523413,
+        0.032502674672946236,
+        0.08684610248164698
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.010119478328905585,
+        0.036126321912186274,
+        -0.06874690091272723
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.09880982922832578,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.07831763123113744,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "ethanol-methanol-d3-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.7334410750603634,
+      "model_contact_energy_difference_kcal_mol": 0.29020859195114457,
+      "retained_mm_contact_energy_difference_kcal_mol": -1.023649667011508,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.06727227503611646,
+        0.04198697092675935,
+        0.016117949864752693
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.08092127670756384,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.09708191653064463,
+        0.01884929044551266,
+        0.07997985349351168
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.029809641494528152,
+        0.023137680481246686,
+        -0.06386190362875899
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.1271887228979281,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.07417755535991637,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "ethanol-methanol-d3-r60",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.5010258465999538,
+      "model_contact_energy_difference_kcal_mol": -0.1436341191380664,
+      "retained_mm_contact_energy_difference_kcal_mol": -0.35739172746188735,
+      "net_ligand_force_difference_eV_angstrom": [
+        0.03236476361941243,
+        0.04361962292771765,
+        0.004702204881767645
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.05451843870881514,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.04762351458953906,
+        0.010006217936810948,
+        0.06351292666547119
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.015258750970126633,
+        0.033613404990906696,
+        -0.05881072178370355
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0800125952139569,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.06943624034300269,
+      "energy_pass": true,
+      "force_pass": false
+    },
+    {
+      "row": "ethanol-methanol-d3.5-r0",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-methanol-separated",
+      "contact_energy_difference_kcal_mol": -0.7323549802908781,
+      "model_contact_energy_difference_kcal_mol": -0.060154298103608575,
+      "retained_mm_contact_energy_difference_kcal_mol": -0.6722006821872695,
+      "net_ligand_force_difference_eV_angstrom": [
+        -0.019752841870003063,
+        0.00014261047371268588,
+        -0.004432649055545516
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.020244591310722655,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.009032619312625847,
+        -0.014391520474025286,
+        0.0388648085155683
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        -0.02878546118262891,
+        0.01453413094773797,
+        -0.04329745757111382
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.042416711496212206,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.0539862350050921,
+      "energy_pass": true,
+      "force_pass": true
+    },
+    {
+      "row": "ethanol-methanol-separated",
+      "left": "baseline",
+      "right": "uncut",
+      "separated_control": "ethanol-methanol-separated",
+      "contact_energy_difference_kcal_mol": 0.0,
+      "model_contact_energy_difference_kcal_mol": 0.0,
+      "retained_mm_contact_energy_difference_kcal_mol": 0.0,
+      "net_ligand_force_difference_eV_angstrom": [
+        8.800424251824024e-05,
+        4.985375225666018e-05,
+        -8.434770519120462e-05
+      ],
+      "net_ligand_force_difference_norm_eV_angstrom": 0.0001316991977435704,
+      "model_net_ligand_force_difference_eV_angstrom": [
+        0.0,
+        0.0,
+        0.0
+      ],
+      "retained_mm_net_ligand_force_difference_eV_angstrom": [
+        8.800424251824025e-05,
+        4.985375225666018e-05,
+        -8.434770519120464e-05
+      ],
+      "model_net_force_difference_norm_eV_angstrom": 0.0,
+      "retained_mm_net_force_difference_norm_eV_angstrom": 0.00013169919774357042,
+      "energy_pass": true,
+      "force_pass": true
+    }
+  ],
+  "sources": {
+    "butane-acetamide-d3.4-r0--baseline.json": {
+      "physical_sha256": "f495076b4a9659e83b59f18d2d1043a58b1cfdae874517ee95cd75bbcd7add78",
+      "numerical_sha256": "25df96a3d2d272a6abcaaf675380c0a9d7a8063471c74e5700495f3ea3501d0e"
+    },
+    "butane-acetamide-d3.4-r0--uncut.json": {
+      "physical_sha256": "c79d398dd7e390ed94e39dbed285ae91a2880ba93ae3f81bea7cb072caaaec7c",
+      "numerical_sha256": "e91655f90ee9b7fc87486213d1046d8f7c1a26d6e85732a9e893e198cac9b4ee"
+    },
+    "butane-acetamide-d3.4-r0--alternative-ethane.json": {
+      "physical_sha256": "9aaf22c9da4561b2e14db006c26240221954aa09dc09840d7091ce2292f37041",
+      "numerical_sha256": "691ebba4f4326489ab84cc95bbc4fb7f421d7a78cbf3107049b921e6954993b9"
+    },
+    "butane-acetamide-d3.8-r0--baseline.json": {
+      "physical_sha256": "f495076b4a9659e83b59f18d2d1043a58b1cfdae874517ee95cd75bbcd7add78",
+      "numerical_sha256": "035da6903656464cf96bcb518a1f76805c57212803d5dbb172e101a4c387c11a"
+    },
+    "butane-acetamide-d3.8-r0--uncut.json": {
+      "physical_sha256": "c79d398dd7e390ed94e39dbed285ae91a2880ba93ae3f81bea7cb072caaaec7c",
+      "numerical_sha256": "91da64410494e7bde4bd945fc4f9b7f1bcf326622a56e69ce36d9aa74ea9f5ed"
+    },
+    "butane-acetamide-d3.8-r0--alternative-ethane.json": {
+      "physical_sha256": "9aaf22c9da4561b2e14db006c26240221954aa09dc09840d7091ce2292f37041",
+      "numerical_sha256": "03d2c943630824f7aa42d3af573921f88c672708e026b1502a4aba802cf3e660"
+    },
+    "butane-acetamide-d3.8-r60--baseline.json": {
+      "physical_sha256": "f495076b4a9659e83b59f18d2d1043a58b1cfdae874517ee95cd75bbcd7add78",
+      "numerical_sha256": "3ea052285bc2b61e8a9599bc15826fd6809af17a0ab5cf539130a6b21e2fd541"
+    },
+    "butane-acetamide-d3.8-r60--uncut.json": {
+      "physical_sha256": "c79d398dd7e390ed94e39dbed285ae91a2880ba93ae3f81bea7cb072caaaec7c",
+      "numerical_sha256": "2c6eaf2d5c18bf3c2166aa73d8a2c8e93f4b6e921f3f03dee4de867f1e322307"
+    },
+    "butane-acetamide-d3.8-r60--alternative-ethane.json": {
+      "physical_sha256": "9aaf22c9da4561b2e14db006c26240221954aa09dc09840d7091ce2292f37041",
+      "numerical_sha256": "afecfa12492d67da42e2ef1e70ecb905209ab69e3617005ac035370d0bee3b11"
+    },
+    "butane-acetamide-d4.5-r0--baseline.json": {
+      "physical_sha256": "f495076b4a9659e83b59f18d2d1043a58b1cfdae874517ee95cd75bbcd7add78",
+      "numerical_sha256": "3457184b83f2943a220f89efb05f5a6901cd2ed52e4defff931beda7d1b9f200"
+    },
+    "butane-acetamide-d4.5-r0--uncut.json": {
+      "physical_sha256": "c79d398dd7e390ed94e39dbed285ae91a2880ba93ae3f81bea7cb072caaaec7c",
+      "numerical_sha256": "4139707a5c825838d7c952a620d24973263e510bdcb38301411c2069b6a0a837"
+    },
+    "butane-acetamide-d4.5-r0--alternative-ethane.json": {
+      "physical_sha256": "9aaf22c9da4561b2e14db006c26240221954aa09dc09840d7091ce2292f37041",
+      "numerical_sha256": "a604bbe12e25f5c1c731f04cb42f3e64837c2960c653e855fa49464d26d06197"
+    },
+    "butane-acetamide-separated--baseline.json": {
+      "physical_sha256": "f495076b4a9659e83b59f18d2d1043a58b1cfdae874517ee95cd75bbcd7add78",
+      "numerical_sha256": "6b6dd8d362fe096c329a03c7cee64898658d9e4b74611490b8e677ada018d97c"
+    },
+    "butane-acetamide-separated--uncut.json": {
+      "physical_sha256": "c79d398dd7e390ed94e39dbed285ae91a2880ba93ae3f81bea7cb072caaaec7c",
+      "numerical_sha256": "b13dffe673bca6f3ef2128d39ceb6558685bdd3af8cfed98384d4c26db27f3f2"
+    },
+    "butane-acetamide-separated--alternative-ethane.json": {
+      "physical_sha256": "9aaf22c9da4561b2e14db006c26240221954aa09dc09840d7091ce2292f37041",
+      "numerical_sha256": "47dedee362b23b6193e6a25386dfdaa43c96074f75b826f8880fd6e8fc01b867"
+    },
+    "butane-methanol-d3.4-r0--baseline.json": {
+      "physical_sha256": "fb8d830db6274da26d871d0bda3564cb24168f830750ff06ecba4d2cae929a27",
+      "numerical_sha256": "9da94d0138c886b6b29065c621302998a3f483f4d479192e39eb353f947da977"
+    },
+    "butane-methanol-d3.4-r0--uncut.json": {
+      "physical_sha256": "a7c8a03923c10e6bea8087bece573b371d594b36fd139620231d3f45470a81a8",
+      "numerical_sha256": "664dea0d0e0678719eb7657abe416868070b539bef52c1ca8f984f84ecfc6a42"
+    },
+    "butane-methanol-d3.4-r0--alternative-ethane.json": {
+      "physical_sha256": "f82f19b9ec9b0eff63be9c4bc51c75ce1c7b4a0ab2760a55f94adef414657590",
+      "numerical_sha256": "61bd6f734d488775dd0bb197daf3b6e39210dcc002b4c28a6e6cb232730da953"
+    },
+    "butane-methanol-d3.8-r0--baseline.json": {
+      "physical_sha256": "fb8d830db6274da26d871d0bda3564cb24168f830750ff06ecba4d2cae929a27",
+      "numerical_sha256": "bd696fb6e516fb8818af9a66b8b0ee0822015ba71f33e71a0e17771be6a9ae6d"
+    },
+    "butane-methanol-d3.8-r0--uncut.json": {
+      "physical_sha256": "a7c8a03923c10e6bea8087bece573b371d594b36fd139620231d3f45470a81a8",
+      "numerical_sha256": "f7873920524a5ad83ed54929b34375e90820dfa809898618d69022dba0b5953d"
+    },
+    "butane-methanol-d3.8-r0--alternative-ethane.json": {
+      "physical_sha256": "f82f19b9ec9b0eff63be9c4bc51c75ce1c7b4a0ab2760a55f94adef414657590",
+      "numerical_sha256": "5b71e7e760b833552e6bc6784d9fb046782f3876da5c1c1a308606d83a6c2406"
+    },
+    "butane-methanol-d3.8-r60--baseline.json": {
+      "physical_sha256": "fb8d830db6274da26d871d0bda3564cb24168f830750ff06ecba4d2cae929a27",
+      "numerical_sha256": "6e08797667ee40ae0a62dc4481dfd141a6ac7e864b65162a8c3c6d5a602f6384"
+    },
+    "butane-methanol-d3.8-r60--uncut.json": {
+      "physical_sha256": "a7c8a03923c10e6bea8087bece573b371d594b36fd139620231d3f45470a81a8",
+      "numerical_sha256": "70d28eb38e6d2ce56f3aa4404c76afed1339551354bced1aa9b56c7a2a4ed811"
+    },
+    "butane-methanol-d3.8-r60--alternative-ethane.json": {
+      "physical_sha256": "f82f19b9ec9b0eff63be9c4bc51c75ce1c7b4a0ab2760a55f94adef414657590",
+      "numerical_sha256": "c80fccf9d1fbaea67a2e640937296cdc98ecbda32928f4c346001b1f3e20facb"
+    },
+    "butane-methanol-d4.5-r0--baseline.json": {
+      "physical_sha256": "fb8d830db6274da26d871d0bda3564cb24168f830750ff06ecba4d2cae929a27",
+      "numerical_sha256": "78e4ccef553d0263626e673d96fdece2d120da0a72bc171727a3bcb7409ac59f"
+    },
+    "butane-methanol-d4.5-r0--uncut.json": {
+      "physical_sha256": "a7c8a03923c10e6bea8087bece573b371d594b36fd139620231d3f45470a81a8",
+      "numerical_sha256": "ec1a10725c074243e11e8a582bcf8c4e512a1ec0e504d4afe273760139f387f6"
+    },
+    "butane-methanol-d4.5-r0--alternative-ethane.json": {
+      "physical_sha256": "f82f19b9ec9b0eff63be9c4bc51c75ce1c7b4a0ab2760a55f94adef414657590",
+      "numerical_sha256": "ef2c5a75e62ee626e5b28ec112eae54e54278d3c9f610e9b3157cec00229a314"
+    },
+    "butane-methanol-separated--baseline.json": {
+      "physical_sha256": "fb8d830db6274da26d871d0bda3564cb24168f830750ff06ecba4d2cae929a27",
+      "numerical_sha256": "5cd10abaab5cd87f1cb45d84c4effdb5dcc68adde59918693ae556f0b8c03b40"
+    },
+    "butane-methanol-separated--uncut.json": {
+      "physical_sha256": "a7c8a03923c10e6bea8087bece573b371d594b36fd139620231d3f45470a81a8",
+      "numerical_sha256": "64dba5d7bc2556d5d15ed40493c234b59615d7fd567061fbe88347b698aadb61"
+    },
+    "butane-methanol-separated--alternative-ethane.json": {
+      "physical_sha256": "f82f19b9ec9b0eff63be9c4bc51c75ce1c7b4a0ab2760a55f94adef414657590",
+      "numerical_sha256": "a488e2e2e4d33afaa7de3da1297229ea9a8a1a627459061e905dc68747cf9121"
+    },
+    "ethanol-acetamide-d2.6-r0--baseline.json": {
+      "physical_sha256": "e27f91f68a61b379dd74c9ee13acf35df888fe56111df4bd7322a9cf3af1c09b",
+      "numerical_sha256": "5ca4ad1d2ac303c5a77682987bf6c6705f09a08231ebb5c0dca5f4672b26cfb4"
+    },
+    "ethanol-acetamide-d2.6-r0--uncut.json": {
+      "physical_sha256": "5ade3e434b41daf5208f791eeacd97c392725f8544c98c94976f67a19ec2db16",
+      "numerical_sha256": "2a7987e3b356d42d02854850a4a9b06cfc88e9bd7b81dac9dac9b6767183b358"
+    },
+    "ethanol-acetamide-d3-r0--baseline.json": {
+      "physical_sha256": "e27f91f68a61b379dd74c9ee13acf35df888fe56111df4bd7322a9cf3af1c09b",
+      "numerical_sha256": "08b707d123093c61fcbc4190e43855ae76c14cd7f7c72c5c6a7ff80d8c64dc1d"
+    },
+    "ethanol-acetamide-d3-r0--uncut.json": {
+      "physical_sha256": "5ade3e434b41daf5208f791eeacd97c392725f8544c98c94976f67a19ec2db16",
+      "numerical_sha256": "ff5ee89d020be6bf6d895bedfbb187e6b0220a726e474ce55893c8471babe66e"
+    },
+    "ethanol-acetamide-d3-r60--baseline.json": {
+      "physical_sha256": "e27f91f68a61b379dd74c9ee13acf35df888fe56111df4bd7322a9cf3af1c09b",
+      "numerical_sha256": "065cfc0ccbfb18f6c0b62f7d720d2e93e0f0139c3ead31bd0ba01a3f340d5d9b"
+    },
+    "ethanol-acetamide-d3-r60--uncut.json": {
+      "physical_sha256": "5ade3e434b41daf5208f791eeacd97c392725f8544c98c94976f67a19ec2db16",
+      "numerical_sha256": "bf22b1fb433eaccf6baaf4496f31c44d90f8938840dbcb80d30182262e2f16a5"
+    },
+    "ethanol-acetamide-d3.5-r0--baseline.json": {
+      "physical_sha256": "e27f91f68a61b379dd74c9ee13acf35df888fe56111df4bd7322a9cf3af1c09b",
+      "numerical_sha256": "7b813dc5002d02835164abeb00e28418cbcef1528c7fc91defa354a64964a684"
+    },
+    "ethanol-acetamide-d3.5-r0--uncut.json": {
+      "physical_sha256": "5ade3e434b41daf5208f791eeacd97c392725f8544c98c94976f67a19ec2db16",
+      "numerical_sha256": "73b053aa24fb76a5a91fad2c5e85dcc9a0fa6bc4d6d571f78f85be889b41892a"
+    },
+    "ethanol-acetamide-separated--baseline.json": {
+      "physical_sha256": "e27f91f68a61b379dd74c9ee13acf35df888fe56111df4bd7322a9cf3af1c09b",
+      "numerical_sha256": "fd5b952a56ac25380236df3da5ba6a0df71775c27c5fa6d2902141f4fa05e815"
+    },
+    "ethanol-acetamide-separated--uncut.json": {
+      "physical_sha256": "5ade3e434b41daf5208f791eeacd97c392725f8544c98c94976f67a19ec2db16",
+      "numerical_sha256": "1137c273b7a8407e2a8e27a7c1f557155cfb24474a4c26600c62d8cee6cd2c55"
+    },
+    "ethanol-methanol-d2.6-r0--baseline.json": {
+      "physical_sha256": "fa2070023763c56bd89438221e6e5f35d6161acd5710fe4cc0e356379a5aec22",
+      "numerical_sha256": "05eb8f3dfb752064efd2ef7dcbcd8c9d616d859fb870a398ede70f0aefd7fa34"
+    },
+    "ethanol-methanol-d2.6-r0--uncut.json": {
+      "physical_sha256": "7e8cfa6c2980c3d6b79aedf6f072ed651e90d0097b2259e7b1e4ee1be49bc720",
+      "numerical_sha256": "e222ce4cc3b21ff796783ac0331d2deb96a820b398b29e759305cbe31ba9c133"
+    },
+    "ethanol-methanol-d3-r0--baseline.json": {
+      "physical_sha256": "fa2070023763c56bd89438221e6e5f35d6161acd5710fe4cc0e356379a5aec22",
+      "numerical_sha256": "778b4b10fbb2a448939d4f4faf7aab34f95a2436d9a1e95129903d7056c70b1a"
+    },
+    "ethanol-methanol-d3-r0--uncut.json": {
+      "physical_sha256": "7e8cfa6c2980c3d6b79aedf6f072ed651e90d0097b2259e7b1e4ee1be49bc720",
+      "numerical_sha256": "d40aa5ea7d3b4f243375be525124b44bc8c90c1385d9dbb6d884b055c7aaa019"
+    },
+    "ethanol-methanol-d3-r60--baseline.json": {
+      "physical_sha256": "fa2070023763c56bd89438221e6e5f35d6161acd5710fe4cc0e356379a5aec22",
+      "numerical_sha256": "9eb8a27d43bd865ef68ffb277f90d7e16166eb7f547ab8aae07def4b6c92cdd6"
+    },
+    "ethanol-methanol-d3-r60--uncut.json": {
+      "physical_sha256": "7e8cfa6c2980c3d6b79aedf6f072ed651e90d0097b2259e7b1e4ee1be49bc720",
+      "numerical_sha256": "12867320e6a9eac9fefbb5dd1777fc847dfd706cafcd1ef9074eeee1646412e1"
+    },
+    "ethanol-methanol-d3.5-r0--baseline.json": {
+      "physical_sha256": "fa2070023763c56bd89438221e6e5f35d6161acd5710fe4cc0e356379a5aec22",
+      "numerical_sha256": "e089e7d1df70e1606308d132cc179032b5c6616ddb9ef0462afd54e2224f584f"
+    },
+    "ethanol-methanol-d3.5-r0--uncut.json": {
+      "physical_sha256": "7e8cfa6c2980c3d6b79aedf6f072ed651e90d0097b2259e7b1e4ee1be49bc720",
+      "numerical_sha256": "ed9d203931e894d8b99d553b3bc803b63481c2b03990c711dc9d4e2b168d63ac"
+    },
+    "ethanol-methanol-separated--baseline.json": {
+      "physical_sha256": "fa2070023763c56bd89438221e6e5f35d6161acd5710fe4cc0e356379a5aec22",
+      "numerical_sha256": "33ab08525b517a2f860aea488bc271932681b447b0f683475c53e60888f5bd53"
+    },
+    "ethanol-methanol-separated--uncut.json": {
+      "physical_sha256": "7e8cfa6c2980c3d6b79aedf6f072ed651e90d0097b2259e7b1e4ee1be49bc720",
+      "numerical_sha256": "697794def562df274b6ec8dee672fcd1b3fea217e936823808eefe5699edd79a"
+    }
+  }
+}

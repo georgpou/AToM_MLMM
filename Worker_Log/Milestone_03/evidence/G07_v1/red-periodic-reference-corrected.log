@@ -1,0 +1,126 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+________________ test_joint_periodic_geometry_and_forces[False] ________________
+
+two_ligands = False
+
+    @pytest.mark.model_assets
+    @pytest.mark.parametrize('two_ligands',(False,True))
+    def test_joint_periodic_geometry_and_forces(two_ligands):
+        from atm_mlmm.model_reference import NativeMACE
+        from atm_mlmm.atm import AtmEvaluator,PhysicalEvaluator,build_atm
+        from atm_mlmm.adapters.atom import build_atom
+        from atm_mlmm.endpoints import check_reference
+        from tests.analytic_oracle import nonlinear_answer
+        bundle,snapshot = joint_case(two_ligands=two_ligands,periodic=True)
+        transfer,schedule,restraints = protocol_case(bundle,two_ligands)
+        native = NativeMACE()
+>       answers = [independent_answer(bundle,mapped_snapshot(bundle,snapshot,i),native) for i in (0,1)]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_joint_hybrid_atm.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_joint_hybrid_atm.py:124: in <listcomp>
+    answers = [independent_answer(bundle,mapped_snapshot(bundle,snapshot,i),native) for i in (0,1)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+bundle = PhysicalBundle(system_xml='<?xml version="1.0" ?>\n<System openmmVersion="8.6.1" type="System" version="1">\n\t<Period...id='p4', final_particle_index=32, model_input_index=14, virtual_site_type='LocalCoordinatesSite', distance_nm=0.109),))
+snapshot = Snapshot(real_atom_ids=('p0', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'p11', 'p12', 'p13', 'p14',...), velocities_nm_ps=None, units=Units(positions='nm', energy='kJ/mol', forces='kJ/mol/nm', time='ps', temperature='K'))
+native = <atm_mlmm.model_reference.NativeMACE object at 0x7f712d093f10>
+probe = None
+
+    def independent_answer(bundle,snapshot,native=None,probe=None):
+        from tests.model_oracle import derived_input,project
+        from tests.periodic_oracle import plain_periodic
+        from tests.link_permutation import plain_result
+        if snapshot.box_nm is not None:
+            # Independent bonded-image search, anchored on the same molecules.
+            from tests.periodic_oracle import enumerated_displacement
+            x = np.array(snapshot.positions_nm)
+            indices = {a:i for i,a in enumerate(snapshot.real_atom_ids)}
+            graph = {a:[] for a in indices}
+            for bond in bundle.topology.bonds:
+                graph[bond.atom1].append(bond.atom2);graph[bond.atom2].append(bond.atom1)
+            raw = x.copy()
+            for molecule in bundle.topology.molecules:
+                anchor = molecule.atom_ids[0];raw[indices[anchor]] = np.mod(x[indices[anchor]],np.diag(snapshot.box_nm))
+                seen,queue={anchor},[anchor]
+                for a in queue:
+                    for b in graph[a]:
+                        if b not in seen:
+                            raw[indices[b]]=raw[indices[a]]+enumerated_displacement(x[indices[b]]-x[indices[a]],snapshot.box_nm)[0]
+                            seen.add(b);queue.append(b)
+            snapshot = replace(snapshot,positions_nm=raw)
+        numbers,x,jac = derived_input(bundle,snapshot)
+        if native is not None:
+>           output = native.evaluate(numbers,x,box_nm=snapshot.box_nm)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           TypeError: NativeMACE.evaluate() got an unexpected keyword argument 'box_nm'
+
+tests/joint_oracle.py:141: TypeError
+----------------------------- Captured stdout call -----------------------------
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+________________ test_joint_periodic_geometry_and_forces[True] _________________
+
+two_ligands = True
+
+    @pytest.mark.model_assets
+    @pytest.mark.parametrize('two_ligands',(False,True))
+    def test_joint_periodic_geometry_and_forces(two_ligands):
+        from atm_mlmm.model_reference import NativeMACE
+        from atm_mlmm.atm import AtmEvaluator,PhysicalEvaluator,build_atm
+        from atm_mlmm.adapters.atom import build_atom
+        from atm_mlmm.endpoints import check_reference
+        from tests.analytic_oracle import nonlinear_answer
+        bundle,snapshot = joint_case(two_ligands=two_ligands,periodic=True)
+        transfer,schedule,restraints = protocol_case(bundle,two_ligands)
+        native = NativeMACE()
+>       answers = [independent_answer(bundle,mapped_snapshot(bundle,snapshot,i),native) for i in (0,1)]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_joint_hybrid_atm.py:124: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_joint_hybrid_atm.py:124: in <listcomp>
+    answers = [independent_answer(bundle,mapped_snapshot(bundle,snapshot,i),native) for i in (0,1)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+bundle = PhysicalBundle(system_xml='<?xml version="1.0" ?>\n<System openmmVersion="8.6.1" type="System" version="1">\n\t<Period...id='p4', final_particle_index=41, model_input_index=23, virtual_site_type='LocalCoordinatesSite', distance_nm=0.109),))
+snapshot = Snapshot(real_atom_ids=('p0', 'p1', 'p2', 'p3', 'p4', 'p5', 'p6', 'p7', 'p8', 'p9', 'p10', 'p11', 'p12', 'p13', 'p14',...), velocities_nm_ps=None, units=Units(positions='nm', energy='kJ/mol', forces='kJ/mol/nm', time='ps', temperature='K'))
+native = <atm_mlmm.model_reference.NativeMACE object at 0x7f7101678ad0>
+probe = None
+
+    def independent_answer(bundle,snapshot,native=None,probe=None):
+        from tests.model_oracle import derived_input,project
+        from tests.periodic_oracle import plain_periodic
+        from tests.link_permutation import plain_result
+        if snapshot.box_nm is not None:
+            # Independent bonded-image search, anchored on the same molecules.
+            from tests.periodic_oracle import enumerated_displacement
+            x = np.array(snapshot.positions_nm)
+            indices = {a:i for i,a in enumerate(snapshot.real_atom_ids)}
+            graph = {a:[] for a in indices}
+            for bond in bundle.topology.bonds:
+                graph[bond.atom1].append(bond.atom2);graph[bond.atom2].append(bond.atom1)
+            raw = x.copy()
+            for molecule in bundle.topology.molecules:
+                anchor = molecule.atom_ids[0];raw[indices[anchor]] = np.mod(x[indices[anchor]],np.diag(snapshot.box_nm))
+                seen,queue={anchor},[anchor]
+                for a in queue:
+                    for b in graph[a]:
+                        if b not in seen:
+                            raw[indices[b]]=raw[indices[a]]+enumerated_displacement(x[indices[b]]-x[indices[a]],snapshot.box_nm)[0]
+                            seen.add(b);queue.append(b)
+            snapshot = replace(snapshot,positions_nm=raw)
+        numbers,x,jac = derived_input(bundle,snapshot)
+        if native is not None:
+>           output = native.evaluate(numbers,x,box_nm=snapshot.box_nm)
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           TypeError: NativeMACE.evaluate() got an unexpected keyword argument 'box_nm'
+
+tests/joint_oracle.py:141: TypeError
+=========================== short test summary info ============================
+FAILED tests/integration/test_joint_hybrid_atm.py::test_joint_periodic_geometry_and_forces[False]
+FAILED tests/integration/test_joint_hybrid_atm.py::test_joint_periodic_geometry_and_forces[True]
+2 failed in 3.77s

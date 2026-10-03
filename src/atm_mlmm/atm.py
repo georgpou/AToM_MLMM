@@ -187,7 +187,10 @@ class _Evaluator:
             raise IdentityError('actual integrator temperature mutation')
 
     def _position(self, physical, snapshot):
-        self.context.setPositions(final_positions(physical, snapshot)*unit.nanometer)
+        positions = final_positions(physical, snapshot)
+        if snapshot.box_nm is not None:
+            self.context.setPeriodicBoxVectors(*(mm.Vec3(*v)*unit.nanometer for v in snapshot.box_nm))
+        self.context.setPositions(positions*unit.nanometer)
         self.context.computeVirtualSites()
 
     def _result(self, physical, snapshot, state):

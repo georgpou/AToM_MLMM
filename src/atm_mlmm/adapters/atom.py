@@ -57,9 +57,16 @@ def atom_keywords(physical, transfer, schedule, runtime, *, reserved_group=1):
 
 def _topology(physical):
     topology = app.Topology()
-    atoms = sorted(physical.topology.atoms, key=lambda a: physical.real_to_final[a.atom_id])
+    atoms = [(physical.real_to_final[a.atom_id],a) for a in physical.topology.atoms]
+    atoms += [(link.final_particle_index,link) for link in physical.links]
     lookup, chains, residues = {}, {}, {}
-    for atom in atoms:
+    cap_residue = None
+    for _,atom in sorted(atoms,key=lambda item:item[0]):
+        if not hasattr(atom,'atom_id'):
+            if cap_residue is None:
+                cap_residue = topology.addResidue('CAP',topology.addChain('CAP'))
+            topology.addAtom('Hcap',app.element.hydrogen,cap_residue,atom.cap_id)
+            continue
         if atom.chain not in chains:
             chains[atom.chain] = topology.addChain(atom.chain)
         key = atom.chain, atom.residue, atom.insertion_code
