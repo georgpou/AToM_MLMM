@@ -1,0 +1,5 @@
+{
+  "rejected": true,
+  "exception": "recorded user agreement and independent design acceptance are required",
+  "scope": "validate_plan only; coordinator, worker, quantum runtime and model not called"
+}

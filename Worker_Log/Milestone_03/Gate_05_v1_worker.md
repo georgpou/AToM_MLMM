@@ -125,3 +125,20 @@ No physics/production implementation changed in this extension.
 in71.51s on the extended exact source. Both new offline artifact cases pass.
 The last analytic run265/21 predates the extra model-only case; its selected
 source is unchanged, and the scoped reviewer will verify the frozen selection.
+
+## Resumption after user quota pause, 2026-10-03
+
+Remote child and immutable reviewed source are
+`a7768e375476667139db374dc0091999263a37de`; all 269 frozen source/input
+hashes still match, all 105 reference packages match their separate frozen lock,
+and protected remote branch tips remain unchanged. The interrupted first
+independent software reviewer left full **285 passes / 2 missing-Q failures**,
+analytic **265 passes / 22 deselected**, and strict **9/9** captures in
+`evidence/G05_v1_independent/`, but supplied no audit or verdict. Those are prior
+independent runs, not runs by the resumed reviewer. A new actual
+gpt-6-astra/high/fresh-context reviewer `/root/g05_software_audit_v1_r2`
+examines the same immutable snapshot for G00-T2 and G05-T1/T2/T3 and assesses
+unexecuted T4 readiness. Full G05 acceptance remains pending. The user has been
+shown the exact scientific proposal and decisions; explicit agreement and target
+quantum calculation/comparison are still pending. Repeated setup, prior design
+reviews and unchanged numerical baselines were not required for resumption.

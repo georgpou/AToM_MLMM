@@ -1,0 +1,21 @@
+{
+  "command": [
+    "python",
+    "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v1_independent_r2/probe_pending_guard.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM-g05-review-v2",
+  "reviewed_commit": "a7768e375476667139db374dc0091999263a37de",
+  "start_utc": "2026-10-03T10:06:39.194461+00:00",
+  "elapsed_seconds": 0.03331162499671336,
+  "exit_code": 0,
+  "python": "/workspace/atom-mlmm-g05-v2/env/bin/python",
+  "environment": {
+    "PYTHONPATH": "src",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "ATOM_G05_CAPTURE_DIR": null
+  },
+  "stdout": "{\"rejected\": true, \"exception\": \"recorded user agreement and independent design acceptance are required\", \"scope\": \"validate_plan only; coordinator, worker, quantum runtime and model not called\"}\n",
+  "stderr": ""
+}

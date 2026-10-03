@@ -13,18 +13,27 @@ gpt-6-astra/high on `a825f5f1c2d8cf4146133c2049ef1c4eca550e93`:
 965 applicable structural/geometry and 131 package/basis/provenance checks.
 See the [v3 audit](../../Worker_Log/Milestone_00/Milestone_00_v3_audit.md).
 Quantum-only feasibility succeeded in a separate locked Psi4
-prefix; explicit user agreement is still pending. Both chemical test nodes
+prefix; the user explicitly approved the exact plan, limits and 12-hour/two-thread/
+5-GiB budget on 2026-10-03. Both chemical test nodes
 now exist and fail closed for absent quantum data; no skip or analytic
 substitute is counted as a chemical pass. No
 target model-versus-quantum results have been inspected. New
 [G00 worker](../../Worker_Log/Milestone_01/Gate_00_v2_worker.md),
 [M00 worker](../../Worker_Log/Milestone_00/Milestone_00_v2_worker.md) and
 [G05 worker](../../Worker_Log/Milestone_03/Gate_05_v1_worker.md) record actual scope.
-Latest full current-source result is **285 passed / 2 missing-quantum-data failures**;
-analytic **265 passed / 21 deselected**, inherited G02/G03/admission/G04
+Latest full current-source result is **292 passed / 2 missing-quantum-data failures**;
+analytic **272 passed / 22 deselected**, inherited G02/G03/admission/G04
 **78/38/74/24**, strict **9/9**, upstream **1** and docs zero errors/eight
-self-tests. Quantum generator/comparison code is prepared but target execution
-has not started. [Continuation](handoffs/M03-G05-continuation.md) records the
+self-tests. The first G05 software reviewer was interrupted for the user's quota
+pause after saving independent full/analytic/environment runs; it supplied no
+verdict. A fresh-context Astra/high reviewer is now reviewing exact software
+snapshot `a7768e375476667139db374dc0091999263a37de`, accepting G00-T2 and the
+six G05 software assertions; the [G05 v1 audit](../../Worker_Log/Milestone_03/Gate_05_v1_audit.md)
+leaves T4 readiness changes_required for approval-plan binding. Quantum generator/comparison code is prepared but target execution
+has not started. Its prepared-reference importer finding is repaired with a
+six-case RED/GREEN rejection regression; [v2 worker](../../Worker_Log/Milestone_03/Gate_05_v2_worker.md)
+records the repair, whose independent exact-snapshot closure remains pending.
+[Continuation](handoffs/M03-G05-continuation.md) records the
 remaining decision and qualification steps. Inherited acceptance below is unchanged.
 
 G04 is independently **accepted_for_scope** on child `m03-link-boundary` for `core-analytic-cpu`, nonperiodic Reference/CPU. The actual fresh-context **gpt-6-astra / high** reviewer accepted **G04-T1/T2/T3 and all seven stable assertions** on exact frozen submission `35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a`, carrying tested source/input commit `55df6a7d25e7a4de607a13b7d87c327feddecb34`. The [G04 v1 audit](../../Worker_Log/Milestone_03/Gate_04_v1_audit.md) and [independent evidence](../../Worker_Log/Milestone_03/evidence/G04_v1_independent_r2/README.md) record the complete decision. [Acceptance](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/acceptance.json) covers seven checks/seven requirements; [closure evidence](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/README.md) preserves the exact reviewed source and submitted worker evidence.
@@ -52,7 +61,7 @@ Analytic G04 continuation is complete. [G05](gates/G05-local-model-adapter.md) f
 | Scientific scope | Status | Next condition |
 |---|---|---|
 | M00 / analytic CPU design | accepted_for_scope | [Independent version 1 design review](../../Worker_Log/Milestone_00/Milestone_00_v1_audit.md) |
-| M00 / physical-reference closure | pending_user_agreement | Exact v3 design independently accepted conditional on user agreement; no target comparisons started |
+| M00 / physical-reference design | accepted_for_scope | Exact v3 design independently accepted and explicitly approved by user; target reference convergence/comparison still pending |
 | M01 / G00-T1, G01-T1/T2/T3 | accepted_for_scope | [Independent combined v2 review](../../Worker_Log/Milestone_01/Gate_01_v2_audit.md); 47-test result on the recorded CPU profile |
 | M02 / G02-T1/T2/T3, G03-T1/T2/T3 | accepted_for_scope | [G02 v2 audit](../../Worker_Log/Milestone_02/Gate_02_v2_audit.md) / [G03-M02 v2 audit](../../Worker_Log/Milestone_02/Gate_03_v2_audit.md); R1/R2/R3 closed on exact reviewed snapshot; [acceptance record](../../Worker_Log/Milestone_02/evidence/M02_v2_closure/acceptance.json) |
 | G04 / analytic CPU | accepted | [Astra high full-G04 audit](../../Worker_Log/Milestone_03/Gate_04_v1_audit.md) and [acceptance](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/acceptance.json); no blocking findings |

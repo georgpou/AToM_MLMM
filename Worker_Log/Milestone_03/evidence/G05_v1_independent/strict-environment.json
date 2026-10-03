@@ -1,0 +1,21 @@
+{
+  "command": [
+    "python",
+    "/workspace/atom-mlmm-g05-v2/validate.py",
+    "--repository",
+    "/workspace/AToM_MLMM-g05-review-v2"
+  ],
+  "cwd": "/workspace/AToM_MLMM-g05-review-v2",
+  "reviewed_commit": "a7768e375476667139db374dc0091999263a37de",
+  "start_utc": "2026-10-02T22:22:18.938783+00:00",
+  "elapsed_seconds": 14.135570049285889,
+  "exit_code": 0,
+  "python": "/workspace/atom-mlmm-g05-v2/env/bin/python",
+  "profile": {
+    "OMP_NUM_THREADS": "2",
+    "PYTHONPATH": "src",
+    "ATOM_G05_CAPTURE_DIR": null
+  },
+  "stdout": "core_exact_versions: exit 0\namber_exact_versions: exit 0\ncore_pip_check: exit 0\namber_pip_check: exit 0\nopenmm_installation: exit 0\ncpu_potentials_and_atm: exit 0\nseparate_ambertools_integration: exit 0\natom_uwham: exit 0\nrepository_documentation: exit 0\nEnvironment checks: PASS; documentation: PASS\nFull results: /workspace/atom-mlmm-g05-v2/logs/validation-20261002T222218Z-131202/results.json\n",
+  "stderr": ""
+}

@@ -1,0 +1,32 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "tests/integration/test_model_adapter.py",
+    "tests/integration/test_locality.py",
+    "tests/integration/test_model_domain.py",
+    "tests/integration/test_checkpoint_loading.py",
+    "tests/unit/test_environment.py",
+    "tests/contracts/test_mace_candidate_admission.py",
+    "tests/unit/test_reference_metrics.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM-g05-review-v2",
+  "reviewed_commit": "a7768e375476667139db374dc0091999263a37de",
+  "start_utc": "2026-10-03T09:57:18.750671+00:00",
+  "elapsed_seconds": 38.521846676994755,
+  "exit_code": 0,
+  "python": "/workspace/atom-mlmm-g05-v2/env/bin/python",
+  "environment": {
+    "PYTHONPATH": "src",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "ATOM_G05_CAPTURE_DIR": "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v1_independent_r2/software-numerics"
+  },
+  "stdout": ".............................                                            [100%]\n29 passed in 36.50s\n",
+  "stderr": ""
+}

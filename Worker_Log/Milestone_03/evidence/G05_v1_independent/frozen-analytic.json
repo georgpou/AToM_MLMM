@@ -1,0 +1,26 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "-p",
+    "no:cacheprovider",
+    "-m",
+    "not model_assets and not gpu and not sampling",
+    "--basetemp=/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v1_independent/tmp-analytic"
+  ],
+  "cwd": "/workspace/AToM_MLMM-g05-review-v2",
+  "reviewed_commit": "a7768e375476667139db374dc0091999263a37de",
+  "start_utc": "2026-10-02T22:22:54.819249+00:00",
+  "elapsed_seconds": 36.70791435241699,
+  "exit_code": 0,
+  "python": "/workspace/atom-mlmm-g05-v2/env/bin/python",
+  "profile": {
+    "OMP_NUM_THREADS": "2",
+    "PYTHONPATH": "src",
+    "ATOM_G05_CAPTURE_DIR": null
+  },
+  "stdout": "........................................................................ [ 27%]\n........................................................................ [ 54%]\n........................................................................ [ 81%]\n.................................................                        [100%]\n265 passed, 22 deselected in 36.18s\n",
+  "stderr": ""
+}

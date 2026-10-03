@@ -1,0 +1,21 @@
+{
+  "command": [
+    "python",
+    "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v1_independent_r2/probe_coordinates.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM-g05-review-v2",
+  "reviewed_commit": "a7768e375476667139db374dc0091999263a37de",
+  "start_utc": "2026-10-03T10:00:34.147723+00:00",
+  "elapsed_seconds": 4.407805009002914,
+  "exit_code": 1,
+  "python": "/workspace/atom-mlmm-g05-v2/env/bin/python",
+  "environment": {
+    "PYTHONPATH": "src",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "ATOM_G05_CAPTURE_DIR": null
+  },
+  "stdout": "cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.\n",
+  "stderr": "Traceback (most recent call last):\n  File \"/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v1_independent_r2/probe_coordinates.py\", line 57, in <module>\n    permuted=evaluator.evaluate(replace(s,real_atom_ids=tuple(ids[i] for i in order),positions_nm=positions[order]))\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/AToM_MLMM-g05-review-v2/src/atm_mlmm/atm.py\", line 222, in evaluate\n    self._position(self.bundle, snapshot)\n  File \"/workspace/AToM_MLMM-g05-review-v2/src/atm_mlmm/atm.py\", line 190, in _position\n    self.context.setPositions(final_positions(physical, snapshot)*unit.nanometer)\n                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/workspace/AToM_MLMM-g05-review-v2/src/atm_mlmm/geometry.py\", line 32, in final_positions\n    raise IdentityError('snapshot real-atom order/coverage differs from physical topology')\natm_mlmm.schema.IdentityError: snapshot real-atom order/coverage differs from physical topology\n"
+}

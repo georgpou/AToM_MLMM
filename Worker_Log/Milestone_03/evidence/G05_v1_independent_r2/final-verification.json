@@ -1,0 +1,174 @@
+{
+  "timestamp_utc": "2026-10-03T10:12:40.040972+00:00",
+  "command": [
+    "/workspace/atom-mlmm-g05-v2/env/bin/python",
+    "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v1_independent_r2/final_verify.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM-g05-review-v2",
+  "reviewed_commit": "a7768e375476667139db374dc0091999263a37de",
+  "git_status": "",
+  "exit_code": 0,
+  "verified_source_input_hashes": 269,
+  "successful_captures": {
+    "software": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/integration/test_model_adapter.py",
+        "tests/integration/test_locality.py",
+        "tests/integration/test_model_domain.py",
+        "tests/integration/test_checkpoint_loading.py",
+        "tests/unit/test_environment.py",
+        "tests/contracts/test_mace_candidate_admission.py",
+        "tests/unit/test_reference_metrics.py"
+      ],
+      "sha256": "a903cad4dc5bef5c0c47789b5af424425cb11ac3db067b40b085b557e0e25d53"
+    },
+    "inherited": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "tests/integration/test_pythonforce_atm.py",
+        "tests/contracts/test_transfer_protocols.py",
+        "tests/contracts/test_physical_evaluator.py",
+        "tests/contracts/test_fault_injection.py",
+        "tests/workflow/test_atom_force_routing.py",
+        "tests/workflow/test_active_force_groups.py",
+        "tests/contracts/test_m02_admission.py",
+        "tests/integration/test_link_geometry.py",
+        "tests/integration/test_boundary_ledger.py"
+      ],
+      "sha256": "888d36e68f7339a4a4645909d6b9915eec5c0476ad0ea9a7bc725ce0f6180bc5"
+    },
+    "coordinates-v2": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v1_independent_r2/probe_coordinates_v2.py"
+      ],
+      "sha256": "28c4c9a8c8dd36cacd59a709ea91e224df6662496ae1043ef0c27d1d3568bfc7"
+    },
+    "domain-total": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v1_independent_r2/probe_domain_total.py"
+      ],
+      "sha256": "6e617ca66031dfdaa6356f29bb90e93bbe94a8a26ad63c4d600ad50282348df6"
+    },
+    "upstream": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "-m",
+        "pytest",
+        "-q",
+        "-p",
+        "no:cacheprovider",
+        "/workspace/atom-mlmm-g05-v2/sources/AToM-OpenMM/tests/test_uwham.py"
+      ],
+      "sha256": "670dd449e416e7e2027dfc8936fbce35dd4c28f7cc3475d6e0aa24775f040a11"
+    },
+    "documentation": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "tools/check_docs.py",
+        "--self-test"
+      ],
+      "sha256": "30cd9bfbb864da9b843dc797665ba74e3ee302cecc1a93740e922af3e54583ba"
+    },
+    "snapshot": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v1_independent_r2/verify_snapshot.py"
+      ],
+      "sha256": "7731eaf483ca1a53dedffc900c9b5f7dabe7dc6fd4b04adfd9cfb2e9b38d88be"
+    },
+    "reference-provenance": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v1_independent_r2/probe_reference_provenance.py"
+      ],
+      "sha256": "e6cba7cf2cd03be80971be65de38036812454a13dceb43b788bfb73490f0d26b"
+    },
+    "pending-guard": {
+      "exit_code": 0,
+      "command": [
+        "python",
+        "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/evidence/G05_v1_independent_r2/probe_pending_guard.py"
+      ],
+      "sha256": "118c0611f41ba443f96750f63bb558fc8cd9e698f5947994f1216688de852a89"
+    }
+  },
+  "coordinate_checks": 138,
+  "all_real_fd_sweeps": 117,
+  "domain_rows": 36,
+  "admitted_finite_rows": 34,
+  "T4_R1_reproduced": true,
+  "actual_user_agreed": false,
+  "reports": {
+    "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_03/Gate_05_v1_audit.md": "f44b3031419f41be14bcdf354cd4050d5d168a7809291c361982deb94714ac67",
+    "/workspace/AToM_MLMM-m03-reference-g05/Worker_Log/Milestone_01/Gate_00_v2_audit.md": "2cec449eb4f7e1ff58ccb5f6c232dd17d1e42f98f6e60a6c7e40a4276fbe2f6c"
+  },
+  "evidence_files": {
+    "README.md": "39e640753a363b69efd043c0c8162400cf3b907df9dcd20d224db47a6ebecd97",
+    "capture.py": "7d2de85b93ffcc180523ab42eda3ca6e5bed9fa45cc94bc93b98c3c75e10ac03",
+    "coordinate-results.json": "8117a2835a950ced01f92dfbcf52581d01eeed11dceee6c6313ad1b0f2b363f4",
+    "coordinates-v2.json": "28c4c9a8c8dd36cacd59a709ea91e224df6662496ae1043ef0c27d1d3568bfc7",
+    "coordinates.json": "da5da46e579a323774a09301bdcd0f7070b4e9b00699450a7a3ac5694712105e",
+    "documentation.json": "30cd9bfbb864da9b843dc797665ba74e3ee302cecc1a93740e922af3e54583ba",
+    "domain-total-results.json": "aba1782f461b9961df18f56f86e389af1e57c1606f3bdc10ae98c7bf88c5c3fe",
+    "domain-total.json": "6e617ca66031dfdaa6356f29bb90e93bbe94a8a26ad63c4d600ad50282348df6",
+    "final_verify.py": "f7dca03d6948ef5ff1c2ae24ceedbd5a1b0d0ff5a4c6dc5971d7b46dd6e8a48e",
+    "inherited.json": "888d36e68f7339a4a4645909d6b9915eec5c0476ad0ea9a7bc725ce0f6180bc5",
+    "pending-guard-results.json": "89cb90da27e8ac2bc7250bf20af33500fa1424606de272dbca032c3d12c12ed1",
+    "pending-guard.json": "118c0611f41ba443f96750f63bb558fc8cd9e698f5947994f1216688de852a89",
+    "probe_coordinates.py": "83b443b0a104a53a8a5ac865fa70598a7a2609057b8cc4607c15bf21237f71de",
+    "probe_coordinates_v2.py": "a543d2124b919e3412b52e8beb272e42594254fc53d188f06a8feb86049ec93c",
+    "probe_domain_total.py": "17c0b81e90ce757710ca49d387ce11848d9aa30f0699278f0b1c1aa99f1a3dc2",
+    "probe_pending_guard.py": "a89e0cfa4e36a683380d79072d604d2cb114eabab8060cec885d4345f2d3272d",
+    "probe_reference_provenance.py": "240612fa02cc1bc29057fc7400725950e52aae06c0fb747bea1d528c2d70fad0",
+    "reference-provenance-results.json": "d00cafcabe8e1578c379dcb5995e3140a49f5fe495e0aaf78442f7e07a814e67",
+    "reference-provenance.json": "e6cba7cf2cd03be80971be65de38036812454a13dceb43b788bfb73490f0d26b",
+    "report-documentation.json": "b0193071eac5d2cd117ac8035aa50cc9f5400a4284ff3a7e80c1f7f4e437f755",
+    "snapshot-results.json": "ba3b025ae221b2715bf0f237d923579b9f83ad03c250770687805e33fedcaa33",
+    "snapshot.json": "7731eaf483ca1a53dedffc900c9b5f7dabe7dc6fd4b04adfd9cfb2e9b38d88be",
+    "software-numerics/domain-scans.json": "1dfe56bdd86b7816ba91b5f0f456c908bf7266149768a74593732a5d0f9b5870",
+    "software-numerics/fault-force-times-ten.json": "7e1568ea44372b8250131fbb7c83cb277efc9a6d646229133f4eb8b7c89e76de",
+    "software-numerics/fault-omit-parent.json": "d4dbea191fcba65cf463ff767eeba9c19edf1e999dfbb116096127a9f8fd2457",
+    "software-numerics/fault-stale-cap.json": "c8d44c7c7ffc4085f8e2fe639317d1438a97fd558d01530ef4f390bc1814d7a5",
+    "software-numerics/fault-wrong-order.json": "054d713b059717f47c0f29d1c8dffb8a69aa4216853467b9e022c095c22d9f77",
+    "software-numerics/finite-differences.json": "d107f5003cddb8fe7c46b59fdd830705ff431364fc6dc1c5c1ef7e2ef4008700",
+    "software-numerics/locality.json": "f766cb3e68d5d55e0417119308d539bda01f7ca6482969e1be3b9e6c793ee2f8",
+    "software-numerics/nested-atm.json": "95d48089bd5b5d5287d80d807fc7675f1727e20f775c36a67376abe3f2fafd63",
+    "software-numerics/offline-serialized-reload-alchemical.json": "52b0e095f44da7b45b15c93818f3762387fb78cab5e61299101d8bd3018886ca",
+    "software-numerics/offline-serialized-reload-physical.json": "7268c04e9b028556c34ed82debadeb7c80216513392a5332063de3b9421c9ace",
+    "software-numerics/projected-CPU.json": "2a5db820c539d6afdfeee6d9e33b21a9221c063493e09e28ef79940909dc924f",
+    "software-numerics/projected-Reference.json": "d28c4f8c3194037b35cd07cf270f362fcfcaaf61ad047ad76f50efe7cdae5a05",
+    "software-numerics/raw-CPU.json": "29565c186d3d6e2a1d3b6507139a065042665ea30551437c8647b76f2b698d9a",
+    "software-numerics/raw-Reference.json": "e615b1962a3b8cd6c9d00fb5892d87bd5862065e7ddda7b6af073e4f455ca6df",
+    "software-numerics/transformed.json": "8767996a174a88b6cce7f768f9ae92829df8722fa5efe6352c654af824932b27",
+    "software.json": "a903cad4dc5bef5c0c47789b5af424425cb11ac3db067b40b085b557e0e25d53",
+    "synthetic-loader-fixture/input-manifest.json": "f21ac11bfb815ef4b27223ec8d6cbb0077d40e56430b0f199525cf40dfe31103",
+    "synthetic-loader-fixture/quantum/manifest.json": "259d9a21f0308a9fefb86d9f42cfb97821ad8330221b516d889647f670a8276b",
+    "synthetic-loader-fixture/quantum/records/synthetic-h2.json": "77fa644e6b3083503b6a98036021337ecb625df38e527a88b47cd02df095b83e",
+    "synthetic-loader-fixture/reference-settings.json": "7aaa6ea30ed04b44b1279a0c594b05550ab30c9ab0eb4d71673bf307484ba54d",
+    "synthetic-loader-fixture/structures/synthetic-h2.json": "0b4cca195e4fb60d94d6d228b5337a8104e8c41bbd678325b40a8098c889ec0b",
+    "upstream.json": "670dd449e416e7e2027dfc8936fbce35dd4c28f7cc3475d6e0aa24775f040a11",
+    "verify_snapshot.py": "483bc9e7134b6c8d938191a4866c51e9034f2b8d0b672d6fa8217bf6ff42d7af"
+  },
+  "notes": "No production implementation or target quantum/model-reference calculations. Source is exact a7768; original reviewer-script and report-link failures preserved. Final report-link verification follows in a separate capture."
+}

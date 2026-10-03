@@ -1,0 +1,24 @@
+{
+  "command": [
+    "python",
+    "tools/check_docs.py",
+    "--root",
+    "/workspace/AToM_MLMM-m03-reference-g05",
+    "--self-test"
+  ],
+  "cwd": "/workspace/AToM_MLMM-g05-review-v2",
+  "reviewed_commit": "a7768e375476667139db374dc0091999263a37de",
+  "start_utc": "2026-10-03T10:12:51.114796+00:00",
+  "elapsed_seconds": 0.11098162599955685,
+  "exit_code": 0,
+  "python": "/workspace/atom-mlmm-g05-v2/env/bin/python",
+  "environment": {
+    "PYTHONPATH": "src",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "ATOM_G05_CAPTURE_DIR": null
+  },
+  "stdout": "{\n  \"errors\": [],\n  \"counts\": {\n    \"markdown_files\": 104,\n    \"local_links\": 772,\n    \"external_links_not_fetched\": 55\n  },\n  \"scope\": \"local documentation only; no external-link or scientific qualification\",\n  \"self_tests\": {\n    \"valid_links_and_duplicate_heading\": true,\n    \"broken_file_detected\": true,\n    \"broken_anchor_detected\": true,\n    \"undefined_reference_detected\": true,\n    \"escape_detected\": true,\n    \"unclosed_fence_detected\": true,\n    \"code_examples_are_not_live_links\": true,\n    \"implementation_audits_and_progress_are_allowed\": true\n  }\n}\n",
+  "stderr": ""
+}

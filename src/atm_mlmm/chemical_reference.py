@@ -1,6 +1,7 @@
 """Frozen quantum data integrity and explicit chemical metrics; no quantum runtime."""
 import hashlib
 import json
+import re
 from pathlib import Path
 import numpy as np
 
@@ -39,7 +40,13 @@ def load_references(root):
             or approval.get('reasoning_effort')!='high' or approval.get('fresh_context') is not True):
         raise IdentityError('quantum references lack complete reviewed/agreed generation provenance')
     sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
-    if (sha(root/'input-manifest.json')!=manifest.get('input_manifest_sha256')
+    plan_sha=sha(root/'input-manifest.json')
+    reviewed_commit=approval.get('reviewed_commit')
+    if (approval.get('input_manifest_sha256')!=plan_sha
+            or not isinstance(reviewed_commit,str)
+            or re.fullmatch(r'[0-9a-f]{40}',reviewed_commit) is None):
+        raise IdentityError('quantum reference approval is not bound to an exact reviewed plan/commit')
+    if (plan_sha!=manifest.get('input_manifest_sha256')
             or sha(root/'reference-settings.json')!=manifest.get('reference_settings_sha256')):
         raise IdentityError('quantum reference plan/settings identity differs')
     for name,expected in inputs['files'].items():

@@ -1,0 +1,40 @@
+{
+  "verdict": "accepted_for_scope",
+  "scope": "G00-T2 asset/loading and G05-T1/T2/T3 software only",
+  "full_G05_accepted": false,
+  "chemical_profile_accepted": false,
+  "reviewed_commit": "a7768e375476667139db374dc0091999263a37de",
+  "accepted_G04_base": "bc788aeeedb4dc45026ac1bff44bd4fb533b325a",
+  "reviewer_agent": "/root/g05_software_audit_v1_r2",
+  "reviewer_model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "fresh_context": true,
+  "recorded_utc": "2026-10-03T10:14:13.801624+00:00",
+  "audit_sha256": {
+    "Worker_Log/Milestone_01/Gate_00_v2_audit.md": "2cec449eb4f7e1ff58ccb5f6c232dd17d1e42f98f6e60a6c7e40a4276fbe2f6c",
+    "Worker_Log/Milestone_03/Gate_05_v1_audit.md": "f44b3031419f41be14bcdf354cd4050d5d168a7809291c361982deb94714ac67"
+  },
+  "accepted_G00_checks": [
+    "P0-TEST-G00-03",
+    "P0-TEST-G00-04"
+  ],
+  "accepted_G05_checks": [
+    "P0-TEST-G05-01",
+    "P0-TEST-G05-02",
+    "P0-TEST-G05-03",
+    "P0-TEST-G05-04",
+    "P0-TEST-G05-05",
+    "P0-TEST-G05-06"
+  ],
+  "pending_G05_checks": [
+    "P0-TEST-G05-07",
+    "P0-TEST-G05-08"
+  ],
+  "open_on_reviewed_snapshot": [
+    "G05-v1-R1: approval-plan binding before T4 loading"
+  ],
+  "repair_status": "subsequent code repair tested; independent new-snapshot closure pending",
+  "user_agreed": false,
+  "target_quantum_started": false,
+  "target_model_versus_quantum_compared": false
+}

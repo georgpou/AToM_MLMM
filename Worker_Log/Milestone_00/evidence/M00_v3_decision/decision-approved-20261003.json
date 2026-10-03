@@ -1,0 +1,23 @@
+{
+  "user_agreed": true,
+  "agreement_status": "explicit user approval of the presented exact M00 v3 scientific plan, limits and compute budget",
+  "design_verdict": "accepted_for_scope",
+  "design_conditions": "user agreement before target calculations/comparisons",
+  "reviewer_model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "fresh_context": true,
+  "reviewed_commit": "a825f5f1c2d8cf4146133c2049ef1c4eca550e93",
+  "input_manifest_sha256": "96d1afb9f7966d2b854f1ddbf6e68b7662be4a00819e7dd72846838c06939f13",
+  "design_audit_path": "Worker_Log/Milestone_00/Milestone_00_v3_audit.md",
+  "design_audit_sha256": "57d7f6deedcc9a8fe9a66ccafe7540162efc74b765f6bd411ecc17c903910b32",
+  "agreement_statement": "I approve of the plan. When the audit is done and everything is wrapped up I want you to create a handout for a new agent to work on this branch. The new agent does not have to copy your branch, they can just work on the branch yoy already built. I just want a fresh session to avoid context bloating.",
+  "agreement_recorded_utc": "2026-10-03T10:16:30.856339+00:00",
+  "agreement_provenance": "user message in the current conversation, after the full plan and three required decisions were presented",
+  "target_quantum_started_at_decision": false,
+  "target_model_vs_quantum_compared_at_decision": false,
+  "approved_resource_cap": {
+    "wall_hours": 12,
+    "cpu_threads": 2,
+    "psi4_memory": "5 GiB"
+  }
+}

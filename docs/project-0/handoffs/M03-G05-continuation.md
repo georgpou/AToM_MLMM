@@ -21,12 +21,27 @@ are implemented. Six software stable assertions pass; candidate metadata is
 explicitly unqualified. Definitions, model, locks and inherited MM ledger are
 unchanged; there is no manual cap-force projection in production.
 
-Current recorded full suite: **285 passed, 2 failed**; both failures are
+Current recorded full suite: **292 passed, 2 failed**; both failures are
 G05-T4's missing actual quantum references before any model comparison runs.
 Inherited G02/G03/admission/G04 results are **78/38/74/24**; strict environment
-**9/9**, upstream **1**, analytic **265 passes / 21 deselected**, docs zero errors/eight self-tests. Larger arrays,
+**9/9**, upstream **1**, analytic **272 passes / 22 deselected**, docs zero errors/eight self-tests. Larger arrays,
 including diagnostic extreme inputs and every failed attempt, are under
 [G05 evidence](../../../Worker_Log/Milestone_03/evidence/G05_v1/README.md).
+
+The published source snapshot is `a7768e375476667139db374dc0091999263a37de`.
+The first software reviewer was interrupted for the user's quota pause after
+saving full/analytic/environment captures; it supplied no verdict. On 2026-10-03
+the user resumed the assignment. All 269 source/input hashes and all 105 separate
+reference-package lock entries were reverified without scientific reruns.
+A new actual Astra/high/fresh-context reviewer examines that same immutable
+software snapshot and accepts G00-T2 plus six G05 software assertions in the
+[v1 audit](../../../Worker_Log/Milestone_03/Gate_05_v1_audit.md). Its prepared-T4 importer finding
+has been repaired in the child after six intended RED rejection failures and
+ten GREEN integrity/metric checks. The original proposal and all chemical
+inputs/settings/limits remain unchanged. The [v2 worker](../../../Worker_Log/Milestone_03/Gate_05_v2_worker.md)
+and [270-file repair manifest](../../../Worker_Log/Milestone_03/evidence/G05_v2/source-input-manifest.json)
+identify this code-only repair, whose independent closure remains pending. See
+[resume state](../../../Worker_Log/Milestone_03/evidence/G05_resume_20261003/resume-state.json).
 
 ## Frozen M00 decision
 
@@ -50,12 +65,14 @@ All 20 future G07 joint rows/50 cut descriptions are frozen; prepared actual
 GAFF 2.2.20 / AM1-BCC charges/XML/retained ledger must be frozen before G07-T4,
 which remains later work.
 
-**Explicit user agreement is still pending.** The async question presents the
-scientific choices/limits and budget. The actual
-[decision record](../../../Worker_Log/Milestone_00/evidence/M00_v3_decision/decision-pending.json)
-has user_agreed=false; do not flip it based on elapsed time, a review decision
-or a generic continuation instruction predating this exact proposal. No target
-Q calculations/model comparisons have been generated or inspected.
+**Explicit user agreement was received on 2026-10-03** after the full scientific
+plan, limits and resource cap were presented. The new
+[approved decision](../../../Worker_Log/Milestone_00/evidence/M00_v3_decision/decision-approved-20261003.json)
+records the actual statement and exact reviewed manifest/audit digests. The
+historical pending record remains false and unchanged. No target Q calculation
+or comparison preceded agreement. The user requests a fresh-session handoff
+after completion, using this same child branch directly; do not create another
+branch merely to restart context.
 
 ## Next authorized steps after that decision
 

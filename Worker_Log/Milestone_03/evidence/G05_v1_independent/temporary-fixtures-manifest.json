@@ -1,0 +1,1772 @@
+{
+  "purpose": "preserve all temporary fixtures of interrupted review without loose copied model/source trees in repository",
+  "source_reviewed_commit": "a7768e375476667139db374dc0091999263a37de",
+  "archive": "temporary-fixtures.tar.gz",
+  "archive_sha256": "443e9450543341d85fbe2f304214a7d2bf5a9d5fdf5a8cb5cab1c3440ace124b",
+  "archive_bytes": 16742782,
+  "external_preserved_root": "/workspace/atom-mlmm-g05-review-interrupted-temp-20261003",
+  "checked_regular_files": 440,
+  "files": {
+    "tmp-analytic/test_atomic_json_rejects_nonfi0/manifest.json": {
+      "sha256": "4bf74cd933363df6966726ae4859612a3f89a7f3c080cce47dc3657dfb684ace",
+      "bytes": 20
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/FETCH_HEAD": {
+      "sha256": "eccb7d824236b9cfb75c40f482a9088ef3de633d3b2d224c3cf7b94a251de7d3",
+      "bytes": 224
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/HEAD": {
+      "sha256": "bfba7a418777e8660a646f4061869dd491e14f2d0c5f71f4a1e857e7a3304a94",
+      "bytes": 29
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/config": {
+      "sha256": "5c9f83b6ea3d8b7c9ef2a9956d4d5ad600d8279e3fc4419baeb4a60cbab47c05",
+      "bytes": 377
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/description": {
+      "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
+      "bytes": 73
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/applypatch-msg.sample": {
+      "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7",
+      "bytes": 478
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/commit-msg.sample": {
+      "sha256": "efc1401b0e99d1ff51494d154d98b46c1e99059bcd8bf9f73cecde19fd3eb23b",
+      "bytes": 1972
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/fsmonitor-watchman.sample": {
+      "sha256": "9159720099ad5595b8e66645cbfd47763c1e920f46e0b50ae75e642bbec57ef0",
+      "bytes": 4611
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/post-update.sample": {
+      "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5",
+      "bytes": 189
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/pre-applypatch.sample": {
+      "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475",
+      "bytes": 424
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/pre-commit.sample": {
+      "sha256": "57185b7b9f05239d7ab52db045f5b89eb31348d7b2177eab214f5eb872e1971b",
+      "bytes": 1649
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/pre-merge-commit.sample": {
+      "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53",
+      "bytes": 416
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/pre-push.sample": {
+      "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a",
+      "bytes": 1374
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/pre-rebase.sample": {
+      "sha256": "b3ac47178b4a43105f7d88a07b7bb907c42878552ef5a676e4ec74fca60cd631",
+      "bytes": 4925
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/pre-receive.sample": {
+      "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989",
+      "bytes": 544
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/prepare-commit-msg.sample": {
+      "sha256": "08b49195a23b09440a51156047d0bc72e2f65fd4943fe6e4816d1631d5c25dc2",
+      "bytes": 1573
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/push-to-checkout.sample": {
+      "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f",
+      "bytes": 2783
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/sendemail-validate.sample": {
+      "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92",
+      "bytes": 2308
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/hooks/update.sample": {
+      "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106",
+      "bytes": 3650
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/index": {
+      "sha256": "8ad8964dc1a7857e7d9387316f622f9646477c83e08bcbf9633a14edf4f7a1fe",
+      "bytes": 137
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/info/exclude": {
+      "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+      "bytes": 240
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/logs/HEAD": {
+      "sha256": "a2de5954dfb6fd31d8901eaf299472ff049bd4289595b7822abf1e2c05f4b13c",
+      "bytes": 289
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/logs/refs/heads/fixture-base": {
+      "sha256": "a2de5954dfb6fd31d8901eaf299472ff049bd4289595b7822abf1e2c05f4b13c",
+      "bytes": 289
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/logs/refs/remotes/origin/HEAD": {
+      "sha256": "a2de5954dfb6fd31d8901eaf299472ff049bd4289595b7822abf1e2c05f4b13c",
+      "bytes": 289
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/00/1a2cb41b282d0f5f87c705260af8931f730f5b": {
+      "sha256": "fd476b18d46bfda0712a5eb77e73533fcee6919ac698c7eacbd8dade8607bb38",
+      "bytes": 117
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/04/544abf7613c4ca6ebf64a7fdd7d491798da691": {
+      "sha256": "b38918f587b124446f373a4f54da129e17d596eae97ca2a73aefdd58d847fcc5",
+      "bytes": 159
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/0f/fb6b442fa053b838f21bad54accf3c9bd404a0": {
+      "sha256": "905f132f7b4ed35a1eadb8f0979dd7859b5989fa95cf4824c155ead23d83bc24",
+      "bytes": 51
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/15/892e7e5ca82d5b42ef2fc9fb4e1d8494d0a9a7": {
+      "sha256": "1a29264df4312dab9ac0debf84282520b30922a7b0183cfaf7e237b30ac1f251",
+      "bytes": 54
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/1a/2c4320d81bb37f7d5a6d2feea83c028d5a4439": {
+      "sha256": "2fbc00fb200cad7022efabd760a43f0d9c0a443209ab006b4623536b6626dbb0",
+      "bytes": 51
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/52/7c1e76ca325b42b73c585501f2a58284188ec0": {
+      "sha256": "7d49ccdeb6a02d0bc1ebe0c60a6a7fe3282e199f44ea1251bdae8a984a43f33f",
+      "bytes": 121
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/6d/af52e23d9d74ed918a722fa661c06f72d46529": {
+      "sha256": "e6138399c971e4f78c310cb09e5738b5afd22ef856984c2c99fa40805548515d",
+      "bytes": 54
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/71/36e8c24aa3c515f975af6cbfed13051f1a64c8": {
+      "sha256": "3a2f16fb01263305b12d355cc6a19db3b3a5424c28c3d06eda826765b255c39d",
+      "bytes": 91
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/7f/d09e2956a2c18ea077183f21d0d859e4c9f105": {
+      "sha256": "577a518481dad23f4818a28eab5c8a3738fad495866ed7e42c831f8248155a3f",
+      "bytes": 55
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/cd/784bd98d323ad94d0f6d4c1938eb9765c9e649": {
+      "sha256": "b7bc6e43439906be2657f44a12ddb55158530324ac153f912da8da44b1c4fb5e",
+      "bytes": 121
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/ee/8c1ee49b4799bbd170233915a897c19e3b55e1": {
+      "sha256": "9c295da59a15a7123840b2a1ab7d3d9161ecf33b02a6ae669f5840508dcf7ce8",
+      "bytes": 23
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/f7/34a9e1839784879cb38eb851a81802c78426f0": {
+      "sha256": "a056e0a2d463060b8b80c6d7e9ebfce74e88e45a11dd047aa8277cdd49ad4e72",
+      "bytes": 92
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/objects/fc/6410a648a7bc3738c490360363bd3627437f9a": {
+      "sha256": "24f3026c92827c94bb5063adf44c5b91c7e862202ce67a38b17ada645740aac5",
+      "bytes": 162
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/packed-refs": {
+      "sha256": "1713ca02ddb75db5addda75981acc7cbeb51ed035ef2d4186c55f235be9b949e",
+      "bytes": 303
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/refs/heads/fixture-base": {
+      "sha256": "52d91bd0603fa281b8b5d50a432d94467e8965da393a8d2569c06912633afb6d",
+      "bytes": 41
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/.git/refs/remotes/origin/HEAD": {
+      "sha256": "523311cdeefb306b0df771adb115573742217f89bbce9633bed15fe04d9fb699",
+      "bytes": 38
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/checkout/README.md": {
+      "sha256": "e80b71cd14d3cbd65f4173abcbfcf01a545dbca32a72d575108b553a648cc96f",
+      "bytes": 8
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/receipt": {
+      "sha256": "1af6048704bd0b98e65deff39bfdf20e2cf3192687621b5328803cba4079c8c0",
+      "bytes": 20
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/COMMIT_EDITMSG": {
+      "sha256": "1af6048704bd0b98e65deff39bfdf20e2cf3192687621b5328803cba4079c8c0",
+      "bytes": 20
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/HEAD": {
+      "sha256": "bfba7a418777e8660a646f4061869dd491e14f2d0c5f71f4a1e857e7a3304a94",
+      "bytes": 29
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/config": {
+      "sha256": "cfe7ba1238c9a78be7535d7c63bcaf5a4d5011d46b07c9b45d3bbf7d6c312dfe",
+      "bytes": 92
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/description": {
+      "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
+      "bytes": 73
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/applypatch-msg.sample": {
+      "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7",
+      "bytes": 478
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/commit-msg.sample": {
+      "sha256": "efc1401b0e99d1ff51494d154d98b46c1e99059bcd8bf9f73cecde19fd3eb23b",
+      "bytes": 1972
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/fsmonitor-watchman.sample": {
+      "sha256": "9159720099ad5595b8e66645cbfd47763c1e920f46e0b50ae75e642bbec57ef0",
+      "bytes": 4611
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/post-update.sample": {
+      "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5",
+      "bytes": 189
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/pre-applypatch.sample": {
+      "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475",
+      "bytes": 424
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/pre-commit.sample": {
+      "sha256": "57185b7b9f05239d7ab52db045f5b89eb31348d7b2177eab214f5eb872e1971b",
+      "bytes": 1649
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/pre-merge-commit.sample": {
+      "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53",
+      "bytes": 416
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/pre-push.sample": {
+      "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a",
+      "bytes": 1374
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/pre-rebase.sample": {
+      "sha256": "b3ac47178b4a43105f7d88a07b7bb907c42878552ef5a676e4ec74fca60cd631",
+      "bytes": 4925
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/pre-receive.sample": {
+      "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989",
+      "bytes": 544
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/prepare-commit-msg.sample": {
+      "sha256": "08b49195a23b09440a51156047d0bc72e2f65fd4943fe6e4816d1631d5c25dc2",
+      "bytes": 1573
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/push-to-checkout.sample": {
+      "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f",
+      "bytes": 2783
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/sendemail-validate.sample": {
+      "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92",
+      "bytes": 2308
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/hooks/update.sample": {
+      "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106",
+      "bytes": 3650
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/index": {
+      "sha256": "e5b7abb7e251fd67394f64bbf9b723b49d4a869a0227d9feb2ed148932914909",
+      "bytes": 137
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/info/exclude": {
+      "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+      "bytes": 240
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/logs/HEAD": {
+      "sha256": "68f4577e62e33ce05511a8b3598dec4bf69fd4a14e345cd428d99b18f084e152",
+      "bytes": 1086
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/logs/refs/heads/fixture-base": {
+      "sha256": "2ed29cd8fe972a00e04c86ce047501b2061c5accb78a0afffed75aa9bbbf4cfa",
+      "bytes": 150
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/logs/refs/heads/m01-g00-cloud-environment-setup": {
+      "sha256": "8d57d9d83942918fe033be4b70c7570dd156340cef103e3df0687541ca856f8d",
+      "bytes": 320
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/logs/refs/heads/m01-g00-environment-audit-v1": {
+      "sha256": "c3bd020f4deb2e71d1ec9a82a4c1b42c883a91a352a9fbbca1ec16232dfd3e1f",
+      "bytes": 325
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/00/1a2cb41b282d0f5f87c705260af8931f730f5b": {
+      "sha256": "fd476b18d46bfda0712a5eb77e73533fcee6919ac698c7eacbd8dade8607bb38",
+      "bytes": 117
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/04/544abf7613c4ca6ebf64a7fdd7d491798da691": {
+      "sha256": "b38918f587b124446f373a4f54da129e17d596eae97ca2a73aefdd58d847fcc5",
+      "bytes": 159
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/0f/fb6b442fa053b838f21bad54accf3c9bd404a0": {
+      "sha256": "905f132f7b4ed35a1eadb8f0979dd7859b5989fa95cf4824c155ead23d83bc24",
+      "bytes": 51
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/15/892e7e5ca82d5b42ef2fc9fb4e1d8494d0a9a7": {
+      "sha256": "1a29264df4312dab9ac0debf84282520b30922a7b0183cfaf7e237b30ac1f251",
+      "bytes": 54
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/1a/2c4320d81bb37f7d5a6d2feea83c028d5a4439": {
+      "sha256": "2fbc00fb200cad7022efabd760a43f0d9c0a443209ab006b4623536b6626dbb0",
+      "bytes": 51
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/52/7c1e76ca325b42b73c585501f2a58284188ec0": {
+      "sha256": "7d49ccdeb6a02d0bc1ebe0c60a6a7fe3282e199f44ea1251bdae8a984a43f33f",
+      "bytes": 121
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/6d/af52e23d9d74ed918a722fa661c06f72d46529": {
+      "sha256": "e6138399c971e4f78c310cb09e5738b5afd22ef856984c2c99fa40805548515d",
+      "bytes": 54
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/71/36e8c24aa3c515f975af6cbfed13051f1a64c8": {
+      "sha256": "3a2f16fb01263305b12d355cc6a19db3b3a5424c28c3d06eda826765b255c39d",
+      "bytes": 91
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/7f/d09e2956a2c18ea077183f21d0d859e4c9f105": {
+      "sha256": "577a518481dad23f4818a28eab5c8a3738fad495866ed7e42c831f8248155a3f",
+      "bytes": 55
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/cd/784bd98d323ad94d0f6d4c1938eb9765c9e649": {
+      "sha256": "b7bc6e43439906be2657f44a12ddb55158530324ac153f912da8da44b1c4fb5e",
+      "bytes": 121
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/ee/8c1ee49b4799bbd170233915a897c19e3b55e1": {
+      "sha256": "9c295da59a15a7123840b2a1ab7d3d9161ecf33b02a6ae669f5840508dcf7ce8",
+      "bytes": 23
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/f7/34a9e1839784879cb38eb851a81802c78426f0": {
+      "sha256": "a056e0a2d463060b8b80c6d7e9ebfce74e88e45a11dd047aa8277cdd49ad4e72",
+      "bytes": 92
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/objects/fc/6410a648a7bc3738c490360363bd3627437f9a": {
+      "sha256": "24f3026c92827c94bb5063adf44c5b91c7e862202ce67a38b17ada645740aac5",
+      "bytes": 162
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/refs/heads/fixture-base": {
+      "sha256": "52d91bd0603fa281b8b5d50a432d94467e8965da393a8d2569c06912633afb6d",
+      "bytes": 41
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/refs/heads/m01-g00-cloud-environment-setup": {
+      "sha256": "e4f443b9d1db8c534ab2b8160b982d467176b0dd2b8617b92f198eaabb169413",
+      "bytes": 41
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/.git/refs/heads/m01-g00-environment-audit-v1": {
+      "sha256": "f377507e76a014193463bf618e632bba7d1a713f1a815fefba05469d7d68b88a",
+      "bytes": 41
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre0/seed/README.md": {
+      "sha256": "e80b71cd14d3cbd65f4173abcbfcf01a545dbca32a72d575108b553a648cc96f",
+      "bytes": 8
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/FETCH_HEAD": {
+      "sha256": "18bab8e4cb3b495ae390398932168022b9119ec996c5483cd759297e2564a605",
+      "bytes": 224
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/HEAD": {
+      "sha256": "bfba7a418777e8660a646f4061869dd491e14f2d0c5f71f4a1e857e7a3304a94",
+      "bytes": 29
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/config": {
+      "sha256": "529fe1889fc8c36e4dec722d5b2497020a79db764919ca6e17cdfd2710e11d90",
+      "bytes": 377
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/description": {
+      "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
+      "bytes": 73
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/applypatch-msg.sample": {
+      "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7",
+      "bytes": 478
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/commit-msg.sample": {
+      "sha256": "efc1401b0e99d1ff51494d154d98b46c1e99059bcd8bf9f73cecde19fd3eb23b",
+      "bytes": 1972
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/fsmonitor-watchman.sample": {
+      "sha256": "9159720099ad5595b8e66645cbfd47763c1e920f46e0b50ae75e642bbec57ef0",
+      "bytes": 4611
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/post-update.sample": {
+      "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5",
+      "bytes": 189
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/pre-applypatch.sample": {
+      "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475",
+      "bytes": 424
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/pre-commit.sample": {
+      "sha256": "57185b7b9f05239d7ab52db045f5b89eb31348d7b2177eab214f5eb872e1971b",
+      "bytes": 1649
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/pre-merge-commit.sample": {
+      "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53",
+      "bytes": 416
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/pre-push.sample": {
+      "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a",
+      "bytes": 1374
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/pre-rebase.sample": {
+      "sha256": "b3ac47178b4a43105f7d88a07b7bb907c42878552ef5a676e4ec74fca60cd631",
+      "bytes": 4925
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/pre-receive.sample": {
+      "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989",
+      "bytes": 544
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/prepare-commit-msg.sample": {
+      "sha256": "08b49195a23b09440a51156047d0bc72e2f65fd4943fe6e4816d1631d5c25dc2",
+      "bytes": 1573
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/push-to-checkout.sample": {
+      "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f",
+      "bytes": 2783
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/sendemail-validate.sample": {
+      "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92",
+      "bytes": 2308
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/hooks/update.sample": {
+      "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106",
+      "bytes": 3650
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/index": {
+      "sha256": "fdd7e09e8107acfa0735ad4ea85143a479429b2aae55e5098d928b74f6242f8d",
+      "bytes": 137
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/info/exclude": {
+      "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+      "bytes": 240
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/logs/HEAD": {
+      "sha256": "b884808683ca4c716de2dac0b82ee0b7714cfb487d5e0827a3060c4f2b25ef03",
+      "bytes": 289
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/logs/refs/heads/fixture-base": {
+      "sha256": "b884808683ca4c716de2dac0b82ee0b7714cfb487d5e0827a3060c4f2b25ef03",
+      "bytes": 289
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/logs/refs/remotes/origin/HEAD": {
+      "sha256": "b884808683ca4c716de2dac0b82ee0b7714cfb487d5e0827a3060c4f2b25ef03",
+      "bytes": 289
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/00/1a2cb41b282d0f5f87c705260af8931f730f5b": {
+      "sha256": "fd476b18d46bfda0712a5eb77e73533fcee6919ac698c7eacbd8dade8607bb38",
+      "bytes": 117
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/04/544abf7613c4ca6ebf64a7fdd7d491798da691": {
+      "sha256": "b38918f587b124446f373a4f54da129e17d596eae97ca2a73aefdd58d847fcc5",
+      "bytes": 159
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/0f/fb6b442fa053b838f21bad54accf3c9bd404a0": {
+      "sha256": "905f132f7b4ed35a1eadb8f0979dd7859b5989fa95cf4824c155ead23d83bc24",
+      "bytes": 51
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/15/892e7e5ca82d5b42ef2fc9fb4e1d8494d0a9a7": {
+      "sha256": "1a29264df4312dab9ac0debf84282520b30922a7b0183cfaf7e237b30ac1f251",
+      "bytes": 54
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/1a/2c4320d81bb37f7d5a6d2feea83c028d5a4439": {
+      "sha256": "2fbc00fb200cad7022efabd760a43f0d9c0a443209ab006b4623536b6626dbb0",
+      "bytes": 51
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/52/7c1e76ca325b42b73c585501f2a58284188ec0": {
+      "sha256": "7d49ccdeb6a02d0bc1ebe0c60a6a7fe3282e199f44ea1251bdae8a984a43f33f",
+      "bytes": 121
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/6d/af52e23d9d74ed918a722fa661c06f72d46529": {
+      "sha256": "e6138399c971e4f78c310cb09e5738b5afd22ef856984c2c99fa40805548515d",
+      "bytes": 54
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/71/36e8c24aa3c515f975af6cbfed13051f1a64c8": {
+      "sha256": "3a2f16fb01263305b12d355cc6a19db3b3a5424c28c3d06eda826765b255c39d",
+      "bytes": 91
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/7f/d09e2956a2c18ea077183f21d0d859e4c9f105": {
+      "sha256": "577a518481dad23f4818a28eab5c8a3738fad495866ed7e42c831f8248155a3f",
+      "bytes": 55
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/cd/784bd98d323ad94d0f6d4c1938eb9765c9e649": {
+      "sha256": "b7bc6e43439906be2657f44a12ddb55158530324ac153f912da8da44b1c4fb5e",
+      "bytes": 121
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/ee/8c1ee49b4799bbd170233915a897c19e3b55e1": {
+      "sha256": "9c295da59a15a7123840b2a1ab7d3d9161ecf33b02a6ae669f5840508dcf7ce8",
+      "bytes": 23
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/f7/34a9e1839784879cb38eb851a81802c78426f0": {
+      "sha256": "a056e0a2d463060b8b80c6d7e9ebfce74e88e45a11dd047aa8277cdd49ad4e72",
+      "bytes": 92
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/objects/fc/6410a648a7bc3738c490360363bd3627437f9a": {
+      "sha256": "24f3026c92827c94bb5063adf44c5b91c7e862202ce67a38b17ada645740aac5",
+      "bytes": 162
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/packed-refs": {
+      "sha256": "1713ca02ddb75db5addda75981acc7cbeb51ed035ef2d4186c55f235be9b949e",
+      "bytes": 303
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/refs/heads/fixture-base": {
+      "sha256": "52d91bd0603fa281b8b5d50a432d94467e8965da393a8d2569c06912633afb6d",
+      "bytes": 41
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/.git/refs/remotes/origin/HEAD": {
+      "sha256": "523311cdeefb306b0df771adb115573742217f89bbce9633bed15fe04d9fb699",
+      "bytes": 38
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/checkout/README.md": {
+      "sha256": "e80b71cd14d3cbd65f4173abcbfcf01a545dbca32a72d575108b553a648cc96f",
+      "bytes": 8
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/receipt": {
+      "sha256": "1af6048704bd0b98e65deff39bfdf20e2cf3192687621b5328803cba4079c8c0",
+      "bytes": 20
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/COMMIT_EDITMSG": {
+      "sha256": "1af6048704bd0b98e65deff39bfdf20e2cf3192687621b5328803cba4079c8c0",
+      "bytes": 20
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/HEAD": {
+      "sha256": "bfba7a418777e8660a646f4061869dd491e14f2d0c5f71f4a1e857e7a3304a94",
+      "bytes": 29
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/config": {
+      "sha256": "cfe7ba1238c9a78be7535d7c63bcaf5a4d5011d46b07c9b45d3bbf7d6c312dfe",
+      "bytes": 92
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/description": {
+      "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
+      "bytes": 73
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/applypatch-msg.sample": {
+      "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7",
+      "bytes": 478
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/commit-msg.sample": {
+      "sha256": "efc1401b0e99d1ff51494d154d98b46c1e99059bcd8bf9f73cecde19fd3eb23b",
+      "bytes": 1972
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/fsmonitor-watchman.sample": {
+      "sha256": "9159720099ad5595b8e66645cbfd47763c1e920f46e0b50ae75e642bbec57ef0",
+      "bytes": 4611
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/post-update.sample": {
+      "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5",
+      "bytes": 189
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/pre-applypatch.sample": {
+      "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475",
+      "bytes": 424
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/pre-commit.sample": {
+      "sha256": "57185b7b9f05239d7ab52db045f5b89eb31348d7b2177eab214f5eb872e1971b",
+      "bytes": 1649
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/pre-merge-commit.sample": {
+      "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53",
+      "bytes": 416
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/pre-push.sample": {
+      "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a",
+      "bytes": 1374
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/pre-rebase.sample": {
+      "sha256": "b3ac47178b4a43105f7d88a07b7bb907c42878552ef5a676e4ec74fca60cd631",
+      "bytes": 4925
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/pre-receive.sample": {
+      "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989",
+      "bytes": 544
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/prepare-commit-msg.sample": {
+      "sha256": "08b49195a23b09440a51156047d0bc72e2f65fd4943fe6e4816d1631d5c25dc2",
+      "bytes": 1573
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/push-to-checkout.sample": {
+      "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f",
+      "bytes": 2783
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/sendemail-validate.sample": {
+      "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92",
+      "bytes": 2308
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/hooks/update.sample": {
+      "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106",
+      "bytes": 3650
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/index": {
+      "sha256": "41801ee6a57aa59dfd7f51c07ea15330c815bffb65300694b298313b1c298fff",
+      "bytes": 137
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/info/exclude": {
+      "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+      "bytes": 240
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/logs/HEAD": {
+      "sha256": "68f4577e62e33ce05511a8b3598dec4bf69fd4a14e345cd428d99b18f084e152",
+      "bytes": 1086
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/logs/refs/heads/fixture-base": {
+      "sha256": "2ed29cd8fe972a00e04c86ce047501b2061c5accb78a0afffed75aa9bbbf4cfa",
+      "bytes": 150
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/logs/refs/heads/m01-g00-cloud-environment-setup": {
+      "sha256": "8d57d9d83942918fe033be4b70c7570dd156340cef103e3df0687541ca856f8d",
+      "bytes": 320
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/logs/refs/heads/m01-g00-environment-audit-v1": {
+      "sha256": "c3bd020f4deb2e71d1ec9a82a4c1b42c883a91a352a9fbbca1ec16232dfd3e1f",
+      "bytes": 325
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/00/1a2cb41b282d0f5f87c705260af8931f730f5b": {
+      "sha256": "fd476b18d46bfda0712a5eb77e73533fcee6919ac698c7eacbd8dade8607bb38",
+      "bytes": 117
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/04/544abf7613c4ca6ebf64a7fdd7d491798da691": {
+      "sha256": "b38918f587b124446f373a4f54da129e17d596eae97ca2a73aefdd58d847fcc5",
+      "bytes": 159
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/0f/fb6b442fa053b838f21bad54accf3c9bd404a0": {
+      "sha256": "905f132f7b4ed35a1eadb8f0979dd7859b5989fa95cf4824c155ead23d83bc24",
+      "bytes": 51
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/15/892e7e5ca82d5b42ef2fc9fb4e1d8494d0a9a7": {
+      "sha256": "1a29264df4312dab9ac0debf84282520b30922a7b0183cfaf7e237b30ac1f251",
+      "bytes": 54
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/1a/2c4320d81bb37f7d5a6d2feea83c028d5a4439": {
+      "sha256": "2fbc00fb200cad7022efabd760a43f0d9c0a443209ab006b4623536b6626dbb0",
+      "bytes": 51
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/52/7c1e76ca325b42b73c585501f2a58284188ec0": {
+      "sha256": "7d49ccdeb6a02d0bc1ebe0c60a6a7fe3282e199f44ea1251bdae8a984a43f33f",
+      "bytes": 121
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/6d/af52e23d9d74ed918a722fa661c06f72d46529": {
+      "sha256": "e6138399c971e4f78c310cb09e5738b5afd22ef856984c2c99fa40805548515d",
+      "bytes": 54
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/71/36e8c24aa3c515f975af6cbfed13051f1a64c8": {
+      "sha256": "3a2f16fb01263305b12d355cc6a19db3b3a5424c28c3d06eda826765b255c39d",
+      "bytes": 91
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/7f/d09e2956a2c18ea077183f21d0d859e4c9f105": {
+      "sha256": "577a518481dad23f4818a28eab5c8a3738fad495866ed7e42c831f8248155a3f",
+      "bytes": 55
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/cd/784bd98d323ad94d0f6d4c1938eb9765c9e649": {
+      "sha256": "b7bc6e43439906be2657f44a12ddb55158530324ac153f912da8da44b1c4fb5e",
+      "bytes": 121
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/ee/8c1ee49b4799bbd170233915a897c19e3b55e1": {
+      "sha256": "9c295da59a15a7123840b2a1ab7d3d9161ecf33b02a6ae669f5840508dcf7ce8",
+      "bytes": 23
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/f7/34a9e1839784879cb38eb851a81802c78426f0": {
+      "sha256": "a056e0a2d463060b8b80c6d7e9ebfce74e88e45a11dd047aa8277cdd49ad4e72",
+      "bytes": 92
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/objects/fc/6410a648a7bc3738c490360363bd3627437f9a": {
+      "sha256": "24f3026c92827c94bb5063adf44c5b91c7e862202ce67a38b17ada645740aac5",
+      "bytes": 162
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/refs/heads/fixture-base": {
+      "sha256": "52d91bd0603fa281b8b5d50a432d94467e8965da393a8d2569c06912633afb6d",
+      "bytes": 41
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/refs/heads/m01-g00-cloud-environment-setup": {
+      "sha256": "e4f443b9d1db8c534ab2b8160b982d467176b0dd2b8617b92f198eaabb169413",
+      "bytes": 41
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/.git/refs/heads/m01-g00-environment-audit-v1": {
+      "sha256": "f377507e76a014193463bf618e632bba7d1a713f1a815fefba05469d7d68b88a",
+      "bytes": 41
+    },
+    "tmp-analytic/test_cloud_fallback_uses_curre1/seed/README.md": {
+      "sha256": "e80b71cd14d3cbd65f4173abcbfcf01a545dbca32a72d575108b553a648cc96f",
+      "bytes": 8
+    },
+    "tmp-analytic/test_corrupt_checkpoint_is_rej0/corrupt.model": {
+      "sha256": "cb6ed1c8f4d715b311c0fc7cf73963645e7a7eccab09523d1279306f4fcc1e21",
+      "bytes": 32
+    },
+    "tmp-analytic/test_fixed_map_guard_after_con0/analytic_0.xml": {
+      "sha256": "c0c93a1c10aa344a95acf9b00210937d81c57208aac3c07e2b3f52b294564450",
+      "bytes": 906
+    },
+    "tmp-analytic/test_fixed_map_guard_after_con0/upstream.json": {
+      "sha256": "5e26ec78ad82e9a706c08ec802bec7068ecbc2670eb6c963ef5636b5ee6498f8",
+      "bytes": 23720
+    },
+    "tmp-analytic/test_fixed_map_guard_after_con1/analytic_0.xml": {
+      "sha256": "c0c93a1c10aa344a95acf9b00210937d81c57208aac3c07e2b3f52b294564450",
+      "bytes": 906
+    },
+    "tmp-analytic/test_fixed_map_guard_after_con1/upstream.json": {
+      "sha256": "ffd25ee1be8e05505a4d210e9dd88e86364b341214ca72ad5aafc289f89dbcd2",
+      "bytes": 24138
+    },
+    "tmp-analytic/test_fixed_map_guard_after_con2/analytic_0.xml": {
+      "sha256": "c0c93a1c10aa344a95acf9b00210937d81c57208aac3c07e2b3f52b294564450",
+      "bytes": 906
+    },
+    "tmp-analytic/test_fixed_map_guard_after_con2/upstream.json": {
+      "sha256": "5e26ec78ad82e9a706c08ec802bec7068ecbc2670eb6c963ef5636b5ee6498f8",
+      "bytes": 23720
+    },
+    "tmp-analytic/test_fixed_map_guard_after_con3/analytic_0.xml": {
+      "sha256": "c0c93a1c10aa344a95acf9b00210937d81c57208aac3c07e2b3f52b294564450",
+      "bytes": 906
+    },
+    "tmp-analytic/test_fixed_map_guard_after_con3/upstream.json": {
+      "sha256": "ffd25ee1be8e05505a4d210e9dd88e86364b341214ca72ad5aafc289f89dbcd2",
+      "bytes": 24138
+    },
+    "tmp-analytic/test_fresh_process_serializati0/trusted.json": {
+      "sha256": "fae06a490de36a2834762be039151442abdce3b2be89a82f6a6e2de034bb28eb",
+      "bytes": 21834
+    },
+    "tmp-analytic/test_fresh_process_serializati1/trusted.json": {
+      "sha256": "3e204ded252e372944d933c175d537a5e5d4f3ad4f38962bcb0550e097416c60",
+      "bytes": 22252
+    },
+    "tmp-analytic/test_smallest_stale_callback_r0/stale-reproducer.json": {
+      "sha256": "62b3c0c57b21945d98f729da812c8126d9f37a9fd9ff5476ca52924d537257a2",
+      "bytes": 22616
+    },
+    "tmp-analytic/test_trusted_fresh_process_rel0/trusted.json": {
+      "sha256": "0391e3e50b473bc1c044737cad7d127fee84fc45548036abe2ecc8cda53e1f14",
+      "bytes": 119286
+    },
+    "tmp-analytic/test_upstream_artifact_fresh_o0/upstream.json": {
+      "sha256": "5e26ec78ad82e9a706c08ec802bec7068ecbc2670eb6c963ef5636b5ee6498f8",
+      "bytes": 23720
+    },
+    "tmp-analytic/test_upstream_artifact_fresh_o1/upstream.json": {
+      "sha256": "ffd25ee1be8e05505a4d210e9dd88e86364b341214ca72ad5aafc289f89dbcd2",
+      "bytes": 24138
+    },
+    "tmp-analytic/test_upstream_state_updates_re0/analytic_0.xml": {
+      "sha256": "c8a9290a47020ca341fb97cc18e50bd108ac253f349254db94211b340bdbc372",
+      "bytes": 907
+    },
+    "tmp-full/test_atomic_json_rejects_nonfi0/manifest.json": {
+      "sha256": "4bf74cd933363df6966726ae4859612a3f89a7f3c080cce47dc3657dfb684ace",
+      "bytes": 20
+    },
+    "tmp-full/test_authorization_is_checked_0/LICENSE.md": {
+      "sha256": "6a77e88bfed86fe9476ed36e453e2ea1e154ff1ec464b0fdeb3e079b6112d71e",
+      "bytes": 16366
+    },
+    "tmp-full/test_authorization_is_checked_0/MACE-OFF23_small.model": {
+      "sha256": "165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f",
+      "bytes": 7347350
+    },
+    "tmp-full/test_authorization_is_checked_0/manifest.json": {
+      "sha256": "a030c7410ec8343c9c4193dbc0b0bdf61629866bbdf96e2cd4da2f65ecb65c33",
+      "bytes": 1228
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/FETCH_HEAD": {
+      "sha256": "d74d3507703f4480a7f6ec3a31e85a18be9c6ddc7e77aad12f197b7faaeb959d",
+      "bytes": 220
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/HEAD": {
+      "sha256": "bfba7a418777e8660a646f4061869dd491e14f2d0c5f71f4a1e857e7a3304a94",
+      "bytes": 29
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/config": {
+      "sha256": "5a8279e5a72af566cf6ac5c43126ea0b51ee39efdb6af32ad871adc1087638a6",
+      "bytes": 373
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/description": {
+      "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
+      "bytes": 73
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/applypatch-msg.sample": {
+      "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7",
+      "bytes": 478
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/commit-msg.sample": {
+      "sha256": "efc1401b0e99d1ff51494d154d98b46c1e99059bcd8bf9f73cecde19fd3eb23b",
+      "bytes": 1972
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/fsmonitor-watchman.sample": {
+      "sha256": "9159720099ad5595b8e66645cbfd47763c1e920f46e0b50ae75e642bbec57ef0",
+      "bytes": 4611
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/post-update.sample": {
+      "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5",
+      "bytes": 189
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/pre-applypatch.sample": {
+      "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475",
+      "bytes": 424
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/pre-commit.sample": {
+      "sha256": "57185b7b9f05239d7ab52db045f5b89eb31348d7b2177eab214f5eb872e1971b",
+      "bytes": 1649
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/pre-merge-commit.sample": {
+      "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53",
+      "bytes": 416
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/pre-push.sample": {
+      "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a",
+      "bytes": 1374
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/pre-rebase.sample": {
+      "sha256": "b3ac47178b4a43105f7d88a07b7bb907c42878552ef5a676e4ec74fca60cd631",
+      "bytes": 4925
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/pre-receive.sample": {
+      "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989",
+      "bytes": 544
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/prepare-commit-msg.sample": {
+      "sha256": "08b49195a23b09440a51156047d0bc72e2f65fd4943fe6e4816d1631d5c25dc2",
+      "bytes": 1573
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/push-to-checkout.sample": {
+      "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f",
+      "bytes": 2783
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/sendemail-validate.sample": {
+      "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92",
+      "bytes": 2308
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/hooks/update.sample": {
+      "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106",
+      "bytes": 3650
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/index": {
+      "sha256": "653f0aceda6db58e5899c67eb58319ef26493dccb37d2485e05d350d6eb18bca",
+      "bytes": 137
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/info/exclude": {
+      "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+      "bytes": 240
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/logs/HEAD": {
+      "sha256": "6e81cec00e1973b0fe8e6105dbdd79ae5611a3b6c578e7b0f3d68dd157ddbf79",
+      "bytes": 285
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/logs/refs/heads/fixture-base": {
+      "sha256": "6e81cec00e1973b0fe8e6105dbdd79ae5611a3b6c578e7b0f3d68dd157ddbf79",
+      "bytes": 285
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/logs/refs/remotes/origin/HEAD": {
+      "sha256": "6e81cec00e1973b0fe8e6105dbdd79ae5611a3b6c578e7b0f3d68dd157ddbf79",
+      "bytes": 285
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/00/1a2cb41b282d0f5f87c705260af8931f730f5b": {
+      "sha256": "fd476b18d46bfda0712a5eb77e73533fcee6919ac698c7eacbd8dade8607bb38",
+      "bytes": 117
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/0f/fb6b442fa053b838f21bad54accf3c9bd404a0": {
+      "sha256": "905f132f7b4ed35a1eadb8f0979dd7859b5989fa95cf4824c155ead23d83bc24",
+      "bytes": 51
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/15/892e7e5ca82d5b42ef2fc9fb4e1d8494d0a9a7": {
+      "sha256": "1a29264df4312dab9ac0debf84282520b30922a7b0183cfaf7e237b30ac1f251",
+      "bytes": 54
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/1a/2c4320d81bb37f7d5a6d2feea83c028d5a4439": {
+      "sha256": "2fbc00fb200cad7022efabd760a43f0d9c0a443209ab006b4623536b6626dbb0",
+      "bytes": 51
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/1b/93e1bd12b66b0b8f5443dc008f33f6d0cc7856": {
+      "sha256": "e66d2d88c7523f64c5785c5278e096d5ce1fd1aa20d04ed6360985ab7843dce8",
+      "bytes": 158
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/6d/af52e23d9d74ed918a722fa661c06f72d46529": {
+      "sha256": "e6138399c971e4f78c310cb09e5738b5afd22ef856984c2c99fa40805548515d",
+      "bytes": 54
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/71/36e8c24aa3c515f975af6cbfed13051f1a64c8": {
+      "sha256": "3a2f16fb01263305b12d355cc6a19db3b3a5424c28c3d06eda826765b255c39d",
+      "bytes": 91
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/7f/d09e2956a2c18ea077183f21d0d859e4c9f105": {
+      "sha256": "577a518481dad23f4818a28eab5c8a3738fad495866ed7e42c831f8248155a3f",
+      "bytes": 55
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/ae/e92d4f18411029976ddbe4ae8017fec52ef903": {
+      "sha256": "f5dc8c1e1555050915bd6197a110d9f6034b630881f0d326559f4329b35abc67",
+      "bytes": 120
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/cd/784bd98d323ad94d0f6d4c1938eb9765c9e649": {
+      "sha256": "b7bc6e43439906be2657f44a12ddb55158530324ac153f912da8da44b1c4fb5e",
+      "bytes": 121
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/ee/8c1ee49b4799bbd170233915a897c19e3b55e1": {
+      "sha256": "9c295da59a15a7123840b2a1ab7d3d9161ecf33b02a6ae669f5840508dcf7ce8",
+      "bytes": 23
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/f7/34a9e1839784879cb38eb851a81802c78426f0": {
+      "sha256": "a056e0a2d463060b8b80c6d7e9ebfce74e88e45a11dd047aa8277cdd49ad4e72",
+      "bytes": 92
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/objects/f9/799b0a704012a874d7aa648916b8d0a7f3c594": {
+      "sha256": "76c95d5f96df412c9ffad77bf98cf402b9a45aa10fc62e972d720b7741e151ce",
+      "bytes": 161
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/packed-refs": {
+      "sha256": "479bc09725290bea40656ecc453ddec5070d7ae300aba17dc9b06e8ab7ae4227",
+      "bytes": 303
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/refs/heads/fixture-base": {
+      "sha256": "7a6f065151246fadb386d38450c277d97eebbc747c7b9a88af318741cbbd63a9",
+      "bytes": 41
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/.git/refs/remotes/origin/HEAD": {
+      "sha256": "523311cdeefb306b0df771adb115573742217f89bbce9633bed15fe04d9fb699",
+      "bytes": 38
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/checkout/README.md": {
+      "sha256": "e80b71cd14d3cbd65f4173abcbfcf01a545dbca32a72d575108b553a648cc96f",
+      "bytes": 8
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/receipt": {
+      "sha256": "1af6048704bd0b98e65deff39bfdf20e2cf3192687621b5328803cba4079c8c0",
+      "bytes": 20
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/COMMIT_EDITMSG": {
+      "sha256": "1af6048704bd0b98e65deff39bfdf20e2cf3192687621b5328803cba4079c8c0",
+      "bytes": 20
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/HEAD": {
+      "sha256": "bfba7a418777e8660a646f4061869dd491e14f2d0c5f71f4a1e857e7a3304a94",
+      "bytes": 29
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/config": {
+      "sha256": "cfe7ba1238c9a78be7535d7c63bcaf5a4d5011d46b07c9b45d3bbf7d6c312dfe",
+      "bytes": 92
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/description": {
+      "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
+      "bytes": 73
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/applypatch-msg.sample": {
+      "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7",
+      "bytes": 478
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/commit-msg.sample": {
+      "sha256": "efc1401b0e99d1ff51494d154d98b46c1e99059bcd8bf9f73cecde19fd3eb23b",
+      "bytes": 1972
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/fsmonitor-watchman.sample": {
+      "sha256": "9159720099ad5595b8e66645cbfd47763c1e920f46e0b50ae75e642bbec57ef0",
+      "bytes": 4611
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/post-update.sample": {
+      "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5",
+      "bytes": 189
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/pre-applypatch.sample": {
+      "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475",
+      "bytes": 424
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/pre-commit.sample": {
+      "sha256": "57185b7b9f05239d7ab52db045f5b89eb31348d7b2177eab214f5eb872e1971b",
+      "bytes": 1649
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/pre-merge-commit.sample": {
+      "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53",
+      "bytes": 416
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/pre-push.sample": {
+      "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a",
+      "bytes": 1374
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/pre-rebase.sample": {
+      "sha256": "b3ac47178b4a43105f7d88a07b7bb907c42878552ef5a676e4ec74fca60cd631",
+      "bytes": 4925
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/pre-receive.sample": {
+      "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989",
+      "bytes": 544
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/prepare-commit-msg.sample": {
+      "sha256": "08b49195a23b09440a51156047d0bc72e2f65fd4943fe6e4816d1631d5c25dc2",
+      "bytes": 1573
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/push-to-checkout.sample": {
+      "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f",
+      "bytes": 2783
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/sendemail-validate.sample": {
+      "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92",
+      "bytes": 2308
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/hooks/update.sample": {
+      "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106",
+      "bytes": 3650
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/index": {
+      "sha256": "3f5808c528fbb14e72d303e1c8daa09efbb732ad1b3ebf0916fa2458a1adc5bf",
+      "bytes": 137
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/info/exclude": {
+      "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+      "bytes": 240
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/logs/HEAD": {
+      "sha256": "69f7267cf4579185b236efb94c1e9e900e3ff30d1ecee0cb21c54e9078733430",
+      "bytes": 1086
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/logs/refs/heads/fixture-base": {
+      "sha256": "b993512c2e34806622317bae5e0a366ad73e9b75e90c6b1e6a14936c67167ad6",
+      "bytes": 150
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/logs/refs/heads/m01-g00-cloud-environment-setup": {
+      "sha256": "2738c65c1c746223fbc37186647d1c65137a52e2979abd659af14ffe36d91203",
+      "bytes": 320
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/logs/refs/heads/m01-g00-environment-audit-v1": {
+      "sha256": "cbcc7b0f95e062467174667723c11387e5af0acf75fe76f24873bb904857270d",
+      "bytes": 325
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/00/1a2cb41b282d0f5f87c705260af8931f730f5b": {
+      "sha256": "fd476b18d46bfda0712a5eb77e73533fcee6919ac698c7eacbd8dade8607bb38",
+      "bytes": 117
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/0f/fb6b442fa053b838f21bad54accf3c9bd404a0": {
+      "sha256": "905f132f7b4ed35a1eadb8f0979dd7859b5989fa95cf4824c155ead23d83bc24",
+      "bytes": 51
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/15/892e7e5ca82d5b42ef2fc9fb4e1d8494d0a9a7": {
+      "sha256": "1a29264df4312dab9ac0debf84282520b30922a7b0183cfaf7e237b30ac1f251",
+      "bytes": 54
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/1a/2c4320d81bb37f7d5a6d2feea83c028d5a4439": {
+      "sha256": "2fbc00fb200cad7022efabd760a43f0d9c0a443209ab006b4623536b6626dbb0",
+      "bytes": 51
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/1b/93e1bd12b66b0b8f5443dc008f33f6d0cc7856": {
+      "sha256": "e66d2d88c7523f64c5785c5278e096d5ce1fd1aa20d04ed6360985ab7843dce8",
+      "bytes": 158
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/6d/af52e23d9d74ed918a722fa661c06f72d46529": {
+      "sha256": "e6138399c971e4f78c310cb09e5738b5afd22ef856984c2c99fa40805548515d",
+      "bytes": 54
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/71/36e8c24aa3c515f975af6cbfed13051f1a64c8": {
+      "sha256": "3a2f16fb01263305b12d355cc6a19db3b3a5424c28c3d06eda826765b255c39d",
+      "bytes": 91
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/7f/d09e2956a2c18ea077183f21d0d859e4c9f105": {
+      "sha256": "577a518481dad23f4818a28eab5c8a3738fad495866ed7e42c831f8248155a3f",
+      "bytes": 55
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/ae/e92d4f18411029976ddbe4ae8017fec52ef903": {
+      "sha256": "f5dc8c1e1555050915bd6197a110d9f6034b630881f0d326559f4329b35abc67",
+      "bytes": 120
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/cd/784bd98d323ad94d0f6d4c1938eb9765c9e649": {
+      "sha256": "b7bc6e43439906be2657f44a12ddb55158530324ac153f912da8da44b1c4fb5e",
+      "bytes": 121
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/ee/8c1ee49b4799bbd170233915a897c19e3b55e1": {
+      "sha256": "9c295da59a15a7123840b2a1ab7d3d9161ecf33b02a6ae669f5840508dcf7ce8",
+      "bytes": 23
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/f7/34a9e1839784879cb38eb851a81802c78426f0": {
+      "sha256": "a056e0a2d463060b8b80c6d7e9ebfce74e88e45a11dd047aa8277cdd49ad4e72",
+      "bytes": 92
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/objects/f9/799b0a704012a874d7aa648916b8d0a7f3c594": {
+      "sha256": "76c95d5f96df412c9ffad77bf98cf402b9a45aa10fc62e972d720b7741e151ce",
+      "bytes": 161
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/refs/heads/fixture-base": {
+      "sha256": "7a6f065151246fadb386d38450c277d97eebbc747c7b9a88af318741cbbd63a9",
+      "bytes": 41
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/refs/heads/m01-g00-cloud-environment-setup": {
+      "sha256": "6072b97ca5529d5d7b51359872895d21439c26c49ac6661ce0373f1d75d7e1c5",
+      "bytes": 41
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/.git/refs/heads/m01-g00-environment-audit-v1": {
+      "sha256": "ffc2750e8d91077f72e845973c816ba8602c4ed8744463e11fac4d261fd3a6be",
+      "bytes": 41
+    },
+    "tmp-full/test_cloud_fallback_uses_curre0/seed/README.md": {
+      "sha256": "e80b71cd14d3cbd65f4173abcbfcf01a545dbca32a72d575108b553a648cc96f",
+      "bytes": 8
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/FETCH_HEAD": {
+      "sha256": "68708c0699c6b1156b9bfe98e407148d44d93673e9ffa5ea266adacdb702f290",
+      "bytes": 220
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/HEAD": {
+      "sha256": "bfba7a418777e8660a646f4061869dd491e14f2d0c5f71f4a1e857e7a3304a94",
+      "bytes": 29
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/config": {
+      "sha256": "1635abc197aa9437591ac1ae6a64a929ff713af43e41f8ef2cc66af2a2c9f8ed",
+      "bytes": 373
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/description": {
+      "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
+      "bytes": 73
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/applypatch-msg.sample": {
+      "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7",
+      "bytes": 478
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/commit-msg.sample": {
+      "sha256": "efc1401b0e99d1ff51494d154d98b46c1e99059bcd8bf9f73cecde19fd3eb23b",
+      "bytes": 1972
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/fsmonitor-watchman.sample": {
+      "sha256": "9159720099ad5595b8e66645cbfd47763c1e920f46e0b50ae75e642bbec57ef0",
+      "bytes": 4611
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/post-update.sample": {
+      "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5",
+      "bytes": 189
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/pre-applypatch.sample": {
+      "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475",
+      "bytes": 424
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/pre-commit.sample": {
+      "sha256": "57185b7b9f05239d7ab52db045f5b89eb31348d7b2177eab214f5eb872e1971b",
+      "bytes": 1649
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/pre-merge-commit.sample": {
+      "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53",
+      "bytes": 416
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/pre-push.sample": {
+      "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a",
+      "bytes": 1374
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/pre-rebase.sample": {
+      "sha256": "b3ac47178b4a43105f7d88a07b7bb907c42878552ef5a676e4ec74fca60cd631",
+      "bytes": 4925
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/pre-receive.sample": {
+      "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989",
+      "bytes": 544
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/prepare-commit-msg.sample": {
+      "sha256": "08b49195a23b09440a51156047d0bc72e2f65fd4943fe6e4816d1631d5c25dc2",
+      "bytes": 1573
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/push-to-checkout.sample": {
+      "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f",
+      "bytes": 2783
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/sendemail-validate.sample": {
+      "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92",
+      "bytes": 2308
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/hooks/update.sample": {
+      "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106",
+      "bytes": 3650
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/index": {
+      "sha256": "20f46fc6a67ed8b5253b56a504e0491dbff5245739f64922c639ecb2f8457bc5",
+      "bytes": 137
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/info/exclude": {
+      "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+      "bytes": 240
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/logs/HEAD": {
+      "sha256": "adf5c147878a9413cd1950997ad52aa27ffff9c1fa76543e37b6148b1d04e8ad",
+      "bytes": 285
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/logs/refs/heads/fixture-base": {
+      "sha256": "adf5c147878a9413cd1950997ad52aa27ffff9c1fa76543e37b6148b1d04e8ad",
+      "bytes": 285
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/logs/refs/remotes/origin/HEAD": {
+      "sha256": "adf5c147878a9413cd1950997ad52aa27ffff9c1fa76543e37b6148b1d04e8ad",
+      "bytes": 285
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/00/1a2cb41b282d0f5f87c705260af8931f730f5b": {
+      "sha256": "fd476b18d46bfda0712a5eb77e73533fcee6919ac698c7eacbd8dade8607bb38",
+      "bytes": 117
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/0f/fb6b442fa053b838f21bad54accf3c9bd404a0": {
+      "sha256": "905f132f7b4ed35a1eadb8f0979dd7859b5989fa95cf4824c155ead23d83bc24",
+      "bytes": 51
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/15/892e7e5ca82d5b42ef2fc9fb4e1d8494d0a9a7": {
+      "sha256": "1a29264df4312dab9ac0debf84282520b30922a7b0183cfaf7e237b30ac1f251",
+      "bytes": 54
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/1a/2c4320d81bb37f7d5a6d2feea83c028d5a4439": {
+      "sha256": "2fbc00fb200cad7022efabd760a43f0d9c0a443209ab006b4623536b6626dbb0",
+      "bytes": 51
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/52/7cda511fa071bc560a9da22ff5e0cb1e9b4fe8": {
+      "sha256": "5de2a93b319f6231a144a3af37cecff4f46e2e2ceb5ce7ea2c20610ae5f25fab",
+      "bytes": 121
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/6d/af52e23d9d74ed918a722fa661c06f72d46529": {
+      "sha256": "e6138399c971e4f78c310cb09e5738b5afd22ef856984c2c99fa40805548515d",
+      "bytes": 54
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/71/36e8c24aa3c515f975af6cbfed13051f1a64c8": {
+      "sha256": "3a2f16fb01263305b12d355cc6a19db3b3a5424c28c3d06eda826765b255c39d",
+      "bytes": 91
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/7f/d09e2956a2c18ea077183f21d0d859e4c9f105": {
+      "sha256": "577a518481dad23f4818a28eab5c8a3738fad495866ed7e42c831f8248155a3f",
+      "bytes": 55
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/a6/ffcd27a6361c569dc861fa2c14dcd99339cbfb": {
+      "sha256": "e7ac5ae5acfa6acfa56744618091f1d8bb2dfc43ec938a18d93bd2dfed976ad4",
+      "bytes": 161
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/cd/784bd98d323ad94d0f6d4c1938eb9765c9e649": {
+      "sha256": "b7bc6e43439906be2657f44a12ddb55158530324ac153f912da8da44b1c4fb5e",
+      "bytes": 121
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/ea/63631a4f1905237c47cc75c283acc1582ab35d": {
+      "sha256": "d78b5c08f3918d7e510f991c9604588996741d025221f3f19fc9e6c253477e53",
+      "bytes": 159
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/ee/8c1ee49b4799bbd170233915a897c19e3b55e1": {
+      "sha256": "9c295da59a15a7123840b2a1ab7d3d9161ecf33b02a6ae669f5840508dcf7ce8",
+      "bytes": 23
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/objects/f7/34a9e1839784879cb38eb851a81802c78426f0": {
+      "sha256": "a056e0a2d463060b8b80c6d7e9ebfce74e88e45a11dd047aa8277cdd49ad4e72",
+      "bytes": 92
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/packed-refs": {
+      "sha256": "3918e5fa05ae55f32109730a5935f4568bf30d4235b2aa7ace12a9112cb5a1b2",
+      "bytes": 303
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/refs/heads/fixture-base": {
+      "sha256": "fba7a22d66e22b61020585f222d15753338d3cf6ae14ed3b14b70a17efe1841b",
+      "bytes": 41
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/.git/refs/remotes/origin/HEAD": {
+      "sha256": "523311cdeefb306b0df771adb115573742217f89bbce9633bed15fe04d9fb699",
+      "bytes": 38
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/checkout/README.md": {
+      "sha256": "e80b71cd14d3cbd65f4173abcbfcf01a545dbca32a72d575108b553a648cc96f",
+      "bytes": 8
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/receipt": {
+      "sha256": "1af6048704bd0b98e65deff39bfdf20e2cf3192687621b5328803cba4079c8c0",
+      "bytes": 20
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/COMMIT_EDITMSG": {
+      "sha256": "1af6048704bd0b98e65deff39bfdf20e2cf3192687621b5328803cba4079c8c0",
+      "bytes": 20
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/HEAD": {
+      "sha256": "bfba7a418777e8660a646f4061869dd491e14f2d0c5f71f4a1e857e7a3304a94",
+      "bytes": 29
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/config": {
+      "sha256": "cfe7ba1238c9a78be7535d7c63bcaf5a4d5011d46b07c9b45d3bbf7d6c312dfe",
+      "bytes": 92
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/description": {
+      "sha256": "85ab6c163d43a17ea9cf7788308bca1466f1b0a8d1cc92e26e9bf63da4062aee",
+      "bytes": 73
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/applypatch-msg.sample": {
+      "sha256": "0223497a0b8b033aa58a3a521b8629869386cf7ab0e2f101963d328aa62193f7",
+      "bytes": 478
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/commit-msg.sample": {
+      "sha256": "efc1401b0e99d1ff51494d154d98b46c1e99059bcd8bf9f73cecde19fd3eb23b",
+      "bytes": 1972
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/fsmonitor-watchman.sample": {
+      "sha256": "9159720099ad5595b8e66645cbfd47763c1e920f46e0b50ae75e642bbec57ef0",
+      "bytes": 4611
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/post-update.sample": {
+      "sha256": "81765af2daef323061dcbc5e61fc16481cb74b3bac9ad8a174b186523586f6c5",
+      "bytes": 189
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/pre-applypatch.sample": {
+      "sha256": "e15c5b469ea3e0a695bea6f2c82bcf8e62821074939ddd85b77e0007ff165475",
+      "bytes": 424
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/pre-commit.sample": {
+      "sha256": "57185b7b9f05239d7ab52db045f5b89eb31348d7b2177eab214f5eb872e1971b",
+      "bytes": 1649
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/pre-merge-commit.sample": {
+      "sha256": "d3825a70337940ebbd0a5c072984e13245920cdf8898bd225c8d27a6dfc9cb53",
+      "bytes": 416
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/pre-push.sample": {
+      "sha256": "ecce9c7e04d3f5dd9d8ada81753dd1d549a9634b26770042b58dda00217d086a",
+      "bytes": 1374
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/pre-rebase.sample": {
+      "sha256": "b3ac47178b4a43105f7d88a07b7bb907c42878552ef5a676e4ec74fca60cd631",
+      "bytes": 4925
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/pre-receive.sample": {
+      "sha256": "a4c3d2b9c7bb3fd8d1441c31bd4ee71a595d66b44fcf49ddb310252320169989",
+      "bytes": 544
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/prepare-commit-msg.sample": {
+      "sha256": "08b49195a23b09440a51156047d0bc72e2f65fd4943fe6e4816d1631d5c25dc2",
+      "bytes": 1573
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/push-to-checkout.sample": {
+      "sha256": "a53d0741798b287c6dd7afa64aee473f305e65d3f49463bb9d7408ec3b12bf5f",
+      "bytes": 2783
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/sendemail-validate.sample": {
+      "sha256": "44ebfc923dc5466bc009602f0ecf067b9c65459abfe8868ddc49b78e6ced7a92",
+      "bytes": 2308
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/hooks/update.sample": {
+      "sha256": "8d5f2fa83e103cf08b57eaa67521df9194f45cbdbcb37da52ad586097a14d106",
+      "bytes": 3650
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/index": {
+      "sha256": "eccf11fa374cb2fcb0dd6737fce46fd1dac71c70394d6de6bc144a338c630418",
+      "bytes": 137
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/info/exclude": {
+      "sha256": "6671fe83b7a07c8932ee89164d1f2793b2318058eb8b98dc5c06ee0a5a3b0ec1",
+      "bytes": 240
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/logs/HEAD": {
+      "sha256": "414958b347493bda3dba7e2675f97753d35f868af46550c5d0749d5c394bd53e",
+      "bytes": 1086
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/logs/refs/heads/fixture-base": {
+      "sha256": "60729f398e6ab703e73b113f1594f0c3f9357b1e5df46bbd9101ef96dfb2e76d",
+      "bytes": 150
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/logs/refs/heads/m01-g00-cloud-environment-setup": {
+      "sha256": "88ec6b94f51986f0fc0e9db658f21f4e031f0216f60880f007416114aa189242",
+      "bytes": 320
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/logs/refs/heads/m01-g00-environment-audit-v1": {
+      "sha256": "43e40e19895c758f27550d2f90590d4630013749f20f26c1b5f54020ccb91c72",
+      "bytes": 325
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/00/1a2cb41b282d0f5f87c705260af8931f730f5b": {
+      "sha256": "fd476b18d46bfda0712a5eb77e73533fcee6919ac698c7eacbd8dade8607bb38",
+      "bytes": 117
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/0f/fb6b442fa053b838f21bad54accf3c9bd404a0": {
+      "sha256": "905f132f7b4ed35a1eadb8f0979dd7859b5989fa95cf4824c155ead23d83bc24",
+      "bytes": 51
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/15/892e7e5ca82d5b42ef2fc9fb4e1d8494d0a9a7": {
+      "sha256": "1a29264df4312dab9ac0debf84282520b30922a7b0183cfaf7e237b30ac1f251",
+      "bytes": 54
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/1a/2c4320d81bb37f7d5a6d2feea83c028d5a4439": {
+      "sha256": "2fbc00fb200cad7022efabd760a43f0d9c0a443209ab006b4623536b6626dbb0",
+      "bytes": 51
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/52/7cda511fa071bc560a9da22ff5e0cb1e9b4fe8": {
+      "sha256": "5de2a93b319f6231a144a3af37cecff4f46e2e2ceb5ce7ea2c20610ae5f25fab",
+      "bytes": 121
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/6d/af52e23d9d74ed918a722fa661c06f72d46529": {
+      "sha256": "e6138399c971e4f78c310cb09e5738b5afd22ef856984c2c99fa40805548515d",
+      "bytes": 54
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/71/36e8c24aa3c515f975af6cbfed13051f1a64c8": {
+      "sha256": "3a2f16fb01263305b12d355cc6a19db3b3a5424c28c3d06eda826765b255c39d",
+      "bytes": 91
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/7f/d09e2956a2c18ea077183f21d0d859e4c9f105": {
+      "sha256": "577a518481dad23f4818a28eab5c8a3738fad495866ed7e42c831f8248155a3f",
+      "bytes": 55
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/a6/ffcd27a6361c569dc861fa2c14dcd99339cbfb": {
+      "sha256": "e7ac5ae5acfa6acfa56744618091f1d8bb2dfc43ec938a18d93bd2dfed976ad4",
+      "bytes": 161
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/cd/784bd98d323ad94d0f6d4c1938eb9765c9e649": {
+      "sha256": "b7bc6e43439906be2657f44a12ddb55158530324ac153f912da8da44b1c4fb5e",
+      "bytes": 121
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/ea/63631a4f1905237c47cc75c283acc1582ab35d": {
+      "sha256": "d78b5c08f3918d7e510f991c9604588996741d025221f3f19fc9e6c253477e53",
+      "bytes": 159
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/ee/8c1ee49b4799bbd170233915a897c19e3b55e1": {
+      "sha256": "9c295da59a15a7123840b2a1ab7d3d9161ecf33b02a6ae669f5840508dcf7ce8",
+      "bytes": 23
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/objects/f7/34a9e1839784879cb38eb851a81802c78426f0": {
+      "sha256": "a056e0a2d463060b8b80c6d7e9ebfce74e88e45a11dd047aa8277cdd49ad4e72",
+      "bytes": 92
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/refs/heads/fixture-base": {
+      "sha256": "fba7a22d66e22b61020585f222d15753338d3cf6ae14ed3b14b70a17efe1841b",
+      "bytes": 41
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/refs/heads/m01-g00-cloud-environment-setup": {
+      "sha256": "b28b67bf7c8c637bffdedda7d1bf4dda77969d4a92f19a0a01b22fcd5ac1dba6",
+      "bytes": 41
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/.git/refs/heads/m01-g00-environment-audit-v1": {
+      "sha256": "2f994bb8f188a6a3046898b44829c3eba41e135067c2b3b7fa1f2be382ca7f0c",
+      "bytes": 41
+    },
+    "tmp-full/test_cloud_fallback_uses_curre1/seed/README.md": {
+      "sha256": "e80b71cd14d3cbd65f4173abcbfcf01a545dbca32a72d575108b553a648cc96f",
+      "bytes": 8
+    },
+    "tmp-full/test_corrupt_checkpoint_is_rej0/corrupt.model": {
+      "sha256": "cb6ed1c8f4d715b311c0fc7cf73963645e7a7eccab09523d1279306f4fcc1e21",
+      "bytes": 32
+    },
+    "tmp-full/test_fixed_map_guard_after_con0/analytic_0.xml": {
+      "sha256": "c0c93a1c10aa344a95acf9b00210937d81c57208aac3c07e2b3f52b294564450",
+      "bytes": 906
+    },
+    "tmp-full/test_fixed_map_guard_after_con0/upstream.json": {
+      "sha256": "5e26ec78ad82e9a706c08ec802bec7068ecbc2670eb6c963ef5636b5ee6498f8",
+      "bytes": 23720
+    },
+    "tmp-full/test_fixed_map_guard_after_con1/analytic_0.xml": {
+      "sha256": "c0c93a1c10aa344a95acf9b00210937d81c57208aac3c07e2b3f52b294564450",
+      "bytes": 906
+    },
+    "tmp-full/test_fixed_map_guard_after_con1/upstream.json": {
+      "sha256": "ffd25ee1be8e05505a4d210e9dd88e86364b341214ca72ad5aafc289f89dbcd2",
+      "bytes": 24138
+    },
+    "tmp-full/test_fixed_map_guard_after_con2/analytic_0.xml": {
+      "sha256": "c0c93a1c10aa344a95acf9b00210937d81c57208aac3c07e2b3f52b294564450",
+      "bytes": 906
+    },
+    "tmp-full/test_fixed_map_guard_after_con2/upstream.json": {
+      "sha256": "5e26ec78ad82e9a706c08ec802bec7068ecbc2670eb6c963ef5636b5ee6498f8",
+      "bytes": 23720
+    },
+    "tmp-full/test_fixed_map_guard_after_con3/analytic_0.xml": {
+      "sha256": "c0c93a1c10aa344a95acf9b00210937d81c57208aac3c07e2b3f52b294564450",
+      "bytes": 906
+    },
+    "tmp-full/test_fixed_map_guard_after_con3/upstream.json": {
+      "sha256": "ffd25ee1be8e05505a4d210e9dd88e86364b341214ca72ad5aafc289f89dbcd2",
+      "bytes": 24138
+    },
+    "tmp-full/test_fresh_process_serializati0/trusted.json": {
+      "sha256": "fae06a490de36a2834762be039151442abdce3b2be89a82f6a6e2de034bb28eb",
+      "bytes": 21834
+    },
+    "tmp-full/test_fresh_process_serializati1/trusted.json": {
+      "sha256": "3e204ded252e372944d933c175d537a5e5d4f3ad4f38962bcb0550e097416c60",
+      "bytes": 22252
+    },
+    "tmp-full/test_local_asset_fresh_process0/artifact.json": {
+      "sha256": "76cd637ec5e873c35271229b4301e05dc7bcdef16bde5bf269d92db3e81be6c0",
+      "bytes": 87784
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/models/mace-off23-small/LICENSE.md": {
+      "sha256": "6a77e88bfed86fe9476ed36e453e2ea1e154ff1ec464b0fdeb3e079b6112d71e",
+      "bytes": 16366
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/models/mace-off23-small/MACE-OFF23_small.model": {
+      "sha256": "165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f",
+      "bytes": 7347350
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/models/mace-off23-small/manifest.json": {
+      "sha256": "6d78f71f779798b67d73da573c67e2ce65ba6c2bfe1d1d3b8fa6c72d603a0926",
+      "bytes": 1369
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/models/mace-off23-small/qualification-card.json": {
+      "sha256": "bf9f2ea46cb4ae66d513fb24285f1869c30cfed6d2b0bc50ba01f0016b577a5e",
+      "bytes": 2145
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/__init__.py": {
+      "sha256": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+      "bytes": 83
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/adapters/__init__.py": {
+      "sha256": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+      "bytes": 77
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/adapters/atom.py": {
+      "sha256": "e4593c6e1917c6c103fd710f15a4c8345b8d769a6a0892d9a7403be0fddc7b72",
+      "bytes": 8930
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/analytic.py": {
+      "sha256": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+      "bytes": 7995
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/atm.py": {
+      "sha256": "d31c55b68d8a35a2e2f906136d66209ce77000d4ef8fc57bbc84496151de3d09",
+      "bytes": 18302
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/capabilities.py": {
+      "sha256": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+      "bytes": 4617
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/chemical_reference.py": {
+      "sha256": "cdff886185f088260f7f8abb05177003d36371a32e132fb402eaf7ed950fe7f9",
+      "bytes": 4969
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/derivatives.py": {
+      "sha256": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+      "bytes": 1170
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/embeddings/__init__.py": {
+      "sha256": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+      "bytes": 65
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/embeddings/mechanical.py": {
+      "sha256": "68dc7aa1f1e0f0a1ed2eff7f00b8895fd94b8f7992594715fe846da50dfe4b40",
+      "bytes": 7102
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/endpoints.py": {
+      "sha256": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+      "bytes": 1609
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/environment.py": {
+      "sha256": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+      "bytes": 12160
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/geometry.py": {
+      "sha256": "113c02449a9c5bcb1c20058fa72f516e2dfc8deb5e4f81515dc6774cb213068e",
+      "bytes": 4546
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/hybrid.py": {
+      "sha256": "83d20b7f10df286af2e04e5f25beb1f6bd899d192887274233c1485a30170196",
+      "bytes": 4817
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/identity.py": {
+      "sha256": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+      "bytes": 1653
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/ledger.py": {
+      "sha256": "0eec7937eeb70df0350a199bf02bbf3b3d99105b2623da45d4b8bdc6d82eb8f7",
+      "bytes": 9683
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/model_reference.py": {
+      "sha256": "8f0d69cbc19451cedef633af8655aa14c240c810dffca7a65f60f40b7a6dc7c1",
+      "bytes": 3211
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/models/__init__.py": {
+      "sha256": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+      "bytes": 36
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/models/analytic_boundary.py": {
+      "sha256": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+      "bytes": 4223
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/models/mace.py": {
+      "sha256": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+      "bytes": 7976
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/partition.py": {
+      "sha256": "b7fb0dfe94771470d1849ca414df961099cd59fe0d3ba843a866551ef72c58f2",
+      "bytes": 5330
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/persistence.py": {
+      "sha256": "8918751bd21041230980da0186191b3a1d98bb6af2c48de70a6f13eb39eb2c36",
+      "bytes": 899
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/prepare.py": {
+      "sha256": "7353423f9e4b55d722ac3c20756fd36399f461577c384047261db9dff6a85765",
+      "bytes": 970
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/protocols/__init__.py": {
+      "sha256": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+      "bytes": 79
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/protocols/abfe.py": {
+      "sha256": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+      "bytes": 560
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/protocols/rbfe.py": {
+      "sha256": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+      "bytes": 555
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/routing.py": {
+      "sha256": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+      "bytes": 6599
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/schedule.py": {
+      "sha256": "ae8525613c15c6f18a2585bbd33e73705f73cfa3669e5578f32cb477430f0ba6",
+      "bytes": 3896
+    },
+    "tmp-full/test_local_asset_fresh_process0/relocated/src/atm_mlmm/schema.py": {
+      "sha256": "b4aea47efefd80bf96ae37f6f6ab7e4c444feee21638885c9b03dff97486c162",
+      "bytes": 30523
+    },
+    "tmp-full/test_local_asset_fresh_process0/snapshot.json": {
+      "sha256": "0a12b982fb67f5cbd9c046db037f78e629be1ccee09a47d8fe622b7d9b98278f",
+      "bytes": 1233
+    },
+    "tmp-full/test_local_asset_fresh_process1/artifact.json": {
+      "sha256": "72d157ce3ca88883893163382de2e75477320fe17453f470da1f205b04cf4986",
+      "bytes": 121669
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/models/mace-off23-small/LICENSE.md": {
+      "sha256": "6a77e88bfed86fe9476ed36e453e2ea1e154ff1ec464b0fdeb3e079b6112d71e",
+      "bytes": 16366
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/models/mace-off23-small/MACE-OFF23_small.model": {
+      "sha256": "165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f",
+      "bytes": 7347350
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/models/mace-off23-small/manifest.json": {
+      "sha256": "6d78f71f779798b67d73da573c67e2ce65ba6c2bfe1d1d3b8fa6c72d603a0926",
+      "bytes": 1369
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/models/mace-off23-small/qualification-card.json": {
+      "sha256": "bf9f2ea46cb4ae66d513fb24285f1869c30cfed6d2b0bc50ba01f0016b577a5e",
+      "bytes": 2145
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/__init__.py": {
+      "sha256": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+      "bytes": 83
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/adapters/__init__.py": {
+      "sha256": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+      "bytes": 77
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/adapters/atom.py": {
+      "sha256": "e4593c6e1917c6c103fd710f15a4c8345b8d769a6a0892d9a7403be0fddc7b72",
+      "bytes": 8930
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/analytic.py": {
+      "sha256": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+      "bytes": 7995
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/atm.py": {
+      "sha256": "d31c55b68d8a35a2e2f906136d66209ce77000d4ef8fc57bbc84496151de3d09",
+      "bytes": 18302
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/capabilities.py": {
+      "sha256": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+      "bytes": 4617
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/chemical_reference.py": {
+      "sha256": "cdff886185f088260f7f8abb05177003d36371a32e132fb402eaf7ed950fe7f9",
+      "bytes": 4969
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/derivatives.py": {
+      "sha256": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+      "bytes": 1170
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/embeddings/__init__.py": {
+      "sha256": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+      "bytes": 65
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/embeddings/mechanical.py": {
+      "sha256": "68dc7aa1f1e0f0a1ed2eff7f00b8895fd94b8f7992594715fe846da50dfe4b40",
+      "bytes": 7102
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/endpoints.py": {
+      "sha256": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+      "bytes": 1609
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/environment.py": {
+      "sha256": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+      "bytes": 12160
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/geometry.py": {
+      "sha256": "113c02449a9c5bcb1c20058fa72f516e2dfc8deb5e4f81515dc6774cb213068e",
+      "bytes": 4546
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/hybrid.py": {
+      "sha256": "83d20b7f10df286af2e04e5f25beb1f6bd899d192887274233c1485a30170196",
+      "bytes": 4817
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/identity.py": {
+      "sha256": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+      "bytes": 1653
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/ledger.py": {
+      "sha256": "0eec7937eeb70df0350a199bf02bbf3b3d99105b2623da45d4b8bdc6d82eb8f7",
+      "bytes": 9683
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/model_reference.py": {
+      "sha256": "8f0d69cbc19451cedef633af8655aa14c240c810dffca7a65f60f40b7a6dc7c1",
+      "bytes": 3211
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/models/__init__.py": {
+      "sha256": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+      "bytes": 36
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/models/analytic_boundary.py": {
+      "sha256": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+      "bytes": 4223
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/models/mace.py": {
+      "sha256": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+      "bytes": 7976
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/partition.py": {
+      "sha256": "b7fb0dfe94771470d1849ca414df961099cd59fe0d3ba843a866551ef72c58f2",
+      "bytes": 5330
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/persistence.py": {
+      "sha256": "8918751bd21041230980da0186191b3a1d98bb6af2c48de70a6f13eb39eb2c36",
+      "bytes": 899
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/prepare.py": {
+      "sha256": "7353423f9e4b55d722ac3c20756fd36399f461577c384047261db9dff6a85765",
+      "bytes": 970
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/protocols/__init__.py": {
+      "sha256": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+      "bytes": 79
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/protocols/abfe.py": {
+      "sha256": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+      "bytes": 560
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/protocols/rbfe.py": {
+      "sha256": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+      "bytes": 555
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/routing.py": {
+      "sha256": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+      "bytes": 6599
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/schedule.py": {
+      "sha256": "ae8525613c15c6f18a2585bbd33e73705f73cfa3669e5578f32cb477430f0ba6",
+      "bytes": 3896
+    },
+    "tmp-full/test_local_asset_fresh_process1/relocated/src/atm_mlmm/schema.py": {
+      "sha256": "b4aea47efefd80bf96ae37f6f6ab7e4c444feee21638885c9b03dff97486c162",
+      "bytes": 30523
+    },
+    "tmp-full/test_local_asset_fresh_process1/snapshot.json": {
+      "sha256": "0a12b982fb67f5cbd9c046db037f78e629be1ccee09a47d8fe622b7d9b98278f",
+      "bytes": 1233
+    },
+    "tmp-full/test_local_mace_link_calculati0/result.json": {
+      "sha256": "7eb0dcd8bfa3f6496a4b9be16b419a30f3fb03307da03581ad47e2ae5f6db0a7",
+      "bytes": 2706
+    },
+    "tmp-full/test_model_asset_hash_and_poli0/LICENSE.md": {
+      "sha256": "e68e0920845bbe250977f3314865dfca480fa51e1d9efd5bd14836afa1202c10",
+      "bytes": 31
+    },
+    "tmp-full/test_model_asset_hash_and_poli0/manifest.json": {
+      "sha256": "7698278edad95b552da94dee5413259674c66e54468327c558e09989afafdcb4",
+      "bytes": 1290
+    },
+    "tmp-full/test_model_asset_hash_and_poli0/wrong.model": {
+      "sha256": "fd6f9f113bc20117e9230c2c7ca7756795c6b835a351b1df76c433d5ecf5e2ed",
+      "bytes": 39
+    },
+    "tmp-full/test_smallest_stale_callback_r0/stale-reproducer.json": {
+      "sha256": "62b3c0c57b21945d98f729da812c8126d9f37a9fd9ff5476ca52924d537257a2",
+      "bytes": 22616
+    },
+    "tmp-full/test_trusted_checkpoint_loads_0/empty-cache/untrusted.pt": {
+      "sha256": "753d41af85d8cada60e28b4786c0ba1fee5263bdacfe2fdacd673143075065d7",
+      "bytes": 1273
+    },
+    "tmp-full/test_trusted_fresh_process_rel0/trusted.json": {
+      "sha256": "0391e3e50b473bc1c044737cad7d127fee84fc45548036abe2ecc8cda53e1f14",
+      "bytes": 119286
+    },
+    "tmp-full/test_upstream_artifact_fresh_o0/upstream.json": {
+      "sha256": "5e26ec78ad82e9a706c08ec802bec7068ecbc2670eb6c963ef5636b5ee6498f8",
+      "bytes": 23720
+    },
+    "tmp-full/test_upstream_artifact_fresh_o1/upstream.json": {
+      "sha256": "ffd25ee1be8e05505a4d210e9dd88e86364b341214ca72ad5aafc289f89dbcd2",
+      "bytes": 24138
+    },
+    "tmp-full/test_upstream_state_updates_re0/analytic_0.xml": {
+      "sha256": "c8a9290a47020ca341fb97cc18e50bd108ac253f349254db94211b340bdbc372",
+      "bytes": 907
+    }
+  },
+  "archive_payload_hashes_verified": true
+}

@@ -1,0 +1,38 @@
+{
+  "scope": "synthetic loader software negatives only",
+  "results": [
+    {
+      "case": "matched-synthetic-control",
+      "accepted": true,
+      "rows": [
+        "synthetic-h2"
+      ]
+    },
+    {
+      "case": "wrong-approval-plan-hash",
+      "accepted": true,
+      "rows": [
+        "synthetic-h2"
+      ]
+    },
+    {
+      "case": "missing-reviewed-commit",
+      "accepted": true,
+      "rows": [
+        "synthetic-h2"
+      ]
+    },
+    {
+      "case": "missing-approval-plan-hash",
+      "accepted": true,
+      "rows": [
+        "synthetic-h2"
+      ]
+    },
+    {
+      "case": "unagreed-negative-control",
+      "accepted": false,
+      "exception": "IdentityError('quantum references lack complete reviewed/agreed generation provenance')"
+    }
+  ]
+}
