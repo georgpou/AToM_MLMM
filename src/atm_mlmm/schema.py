@@ -705,15 +705,44 @@ class BindingResult(Record):
     final_standard_error_kj_mol: float | None
     thermodynamic_identity: str
     diagnostics: Mapping[str, Any] = field(default_factory=dict)
+    thermodynamics: ThermodynamicSpec | None = None
 
     def _validate(self):
         _required(self.thermodynamic_identity)
+        _ids(tuple(c.correction_id for c in self.corrections), empty=True)
+        _ids(self.unresolved_corrections, empty=True)
+        by_id = {c.correction_id: c for c in self.corrections}
+        unresolved = set(self.unresolved_corrections)
+        uncomputed = {c.correction_id for c in self.corrections if c.status == 'required_uncomputed'}
+        if not uncomputed <= unresolved:
+            raise MalformedInput('uncomputed ledger status must remain unresolved')
+        if self.thermodynamics is not None:
+            spec = self.thermodynamics
+            if spec.content_identity != self.thermodynamic_identity:
+                raise IdentityError('binding result thermodynamic identity mismatch')
+            if self.corrections != spec.corrections:
+                raise IdentityError('binding result correction ledger differs from its definition')
+            missing = set(spec.correction_obligations)-set(by_id)
+            expected = missing | uncomputed
+            if not expected <= unresolved or unresolved-expected-{'correction_covariance'}:
+                raise MalformedInput('binding result unresolved entries differ from declared obligations')
+            if 'correction_covariance' in unresolved and not any(
+                    c.standard_error_kj_mol for c in self.corrections):
+                raise MalformedInput('unresolved correction covariance needs an uncertain correction')
         if self.restrained_standard_error_kj_mol < 0:
             raise MalformedInput('negative restrained error')
         if (self.final_kj_mol is None) != (self.final_standard_error_kj_mol is None):
             raise MalformedInput('final value and covariance-aware error must coexist')
         if self.final_kj_mol is not None and (self.unresolved_corrections or self.final_standard_error_kj_mol < 0):
             raise MalformedInput('unresolved correction prevents a final binding result')
+        if self.final_kj_mol is not None:
+            if self.thermodynamics is None or self.thermodynamics.observable != 'standard_binding_free_energy':
+                raise MalformedInput('final binding result requires its standard thermodynamic definition')
+            if not set(self.thermodynamics.correction_obligations) <= set(by_id) or uncomputed:
+                raise MalformedInput('final binding result requires a complete resolved correction ledger')
+            corrected = self.restrained_kj_mol+sum(c.value_kj_mol for c in self.corrections)
+            if not math.isclose(self.final_kj_mol, corrected, rel_tol=1.e-12, abs_tol=1.e-12):
+                raise MalformedInput('final binding value differs from restrained value plus corrections')
 
 
 @record
@@ -894,7 +923,9 @@ def _encode(value):
         # Additive G04 links are omitted when absent: old real-only artifact
         # bytes/content identities and their nested transfer IDs stay unchanged.
         return dict(record_type=type(value).__name__, data={f.name: _encode(getattr(value, f.name)) for f in fields(value)
-                    if not (isinstance(value, PhysicalBundle) and f.name == 'links' and not value.links)})
+                    if not ((isinstance(value, PhysicalBundle) and f.name == 'links' and not value.links)
+                            or (isinstance(value, BindingResult) and f.name == 'thermodynamics'
+                                and value.thermodynamics is None))})
     if isinstance(value, Mapping):
         return {k: _encode(v) for k, v in value.items()}
     if isinstance(value, tuple):

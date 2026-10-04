@@ -197,4 +197,4 @@ def combine_free_energies(state_ids, free_energies_kj_mol, covariance_kj2_mol2, 
                 combined_weights = np.r_[weights, np.ones(len(resolved))]
                 final_error = math.sqrt(max(0., float(combined_weights@joint@combined_weights)))
     return BindingResult(raw, error, corrections, tuple(unresolved), final, final_error,
-                         thermodynamics.content_identity, diagnostics or {})
+                         thermodynamics.content_identity, diagnostics or {}, thermodynamics=thermodynamics)
