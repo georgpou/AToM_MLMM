@@ -36,6 +36,16 @@ checkpoint. V1 is frozen; v2 will repair the boundary. Solvent, exchange, GPU,
 molecular accuracy and full G09/G10/M05 remain
 open. No binding estimate or QM continuation ran.
 
+The [v2 worker](../../Worker_Log/Milestone_05/Gate_09_v2_worker.md) submits source
+`3246f0cbd6f66702e4b196bace593efba776a25e`: guard/integration/final-State failure
+retention and explicit advanced/attempted provenance. Five affected checks pass,
+the full CPU suite passes **461 tests in 399.38 s**, and a fresh CLI smoke saves
+nine frames/all 48 forces with the same physical/alchemical identities as v1.
+The strict restart oracle now uses one identical prepared bundle; independent
+minimization roundoff is not conflated with checkpoint continuity. R1 closure
+awaits the actual same Sol 6.1/MAX auditor. User requests a graceful stop after
+this reviewed repair because the session limit is nearly used.
+
 **G08 and combined M04 are accepted for the analytic CPU scope; G08-R1 is closed.**
 Source `966a8d61347f65a69f8ba7e6750c4379d4e0503f` implements explicit thermodynamic
 records/correction obligations, finite-wall translation, full reduced-potential

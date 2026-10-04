@@ -1,0 +1,100 @@
+REMARK   1 CREATED WITH OPENMM 8.6.1, 2026-10-04
+HETATM    1 h000 ANA A   1       3.142  -0.021  -0.483  1.00  0.00           O  
+HETATM    2 h001 ANA A   1       2.679   0.279   0.828  1.00  0.00           C  
+HETATM    3 h002 ANA A   1       2.526   1.766   1.001  1.00  0.00           C  
+HETATM    4 h003 ANA A   1       1.417   2.223   0.287  1.00  0.00           O  
+HETATM    5 h004 ANA A   1       1.037   3.548   0.597  1.00  0.00           C  
+HETATM    6 h005 ANA A   1      -0.164   3.968  -0.194  1.00  0.00           C  
+HETATM    7 h006 ANA A   1      -1.336   3.283   0.191  1.00  0.00           O  
+HETATM    8 h007 ANA A   1      -1.570   2.094  -0.559  1.00  0.00           C  
+HETATM    9 h008 ANA A   1      -2.559   1.267   0.209  1.00  0.00           C  
+HETATM   10 h009 ANA A   1      -2.651   0.012  -0.461  1.00  0.00           O  
+HETATM   11 h010 ANA A   1      -3.454  -0.915   0.214  1.00  0.00           C  
+HETATM   12 h011 ANA A   1      -3.233  -2.332  -0.373  1.00  0.00           C  
+HETATM   13 h012 ANA A   1      -2.088  -2.966   0.157  1.00  0.00           O  
+HETATM   14 h013 ANA A   1      -0.880  -2.292  -0.089  1.00  0.00           C  
+HETATM   15 h014 ANA A   1       0.268  -3.237   0.225  1.00  0.00           C  
+HETATM   16 h015 ANA A   1       1.490  -2.543   0.327  1.00  0.00           O  
+HETATM   17 h016 ANA A   1       2.008  -2.162  -0.922  1.00  0.00           C  
+HETATM   18 h017 ANA A   1       3.295  -1.409  -0.747  1.00  0.00           C  
+HETATM   19 h018 ANA A   1       1.733  -0.217   0.996  1.00  0.00           H  
+HETATM   20 h019 ANA A   1       3.403  -0.093   1.511  1.00  0.00           H  
+HETATM   21 h020 ANA A   1       2.391   1.987   2.129  1.00  0.00           H  
+HETATM   22 h021 ANA A   1       3.417   2.243   0.621  1.00  0.00           H  
+HETATM   23 h022 ANA A   1       1.855   4.269   0.392  1.00  0.00           H  
+HETATM   24 h023 ANA A   1       0.827   3.646   1.662  1.00  0.00           H  
+HETATM   25 h024 ANA A   1      -0.270   5.018  -0.005  1.00  0.00           H  
+HETATM   26 h025 ANA A   1       0.001   3.798  -1.255  1.00  0.00           H  
+HETATM   27 h026 ANA A   1      -0.609   1.514  -0.667  1.00  0.00           H  
+HETATM   28 h027 ANA A   1      -1.979   2.368  -1.546  1.00  0.00           H  
+HETATM   29 h028 ANA A   1      -2.252   1.149   1.244  1.00  0.00           H  
+HETATM   30 h029 ANA A   1      -3.549   1.726   0.214  1.00  0.00           H  
+HETATM   31 h030 ANA A   1      -4.483  -0.686   0.022  1.00  0.00           H  
+HETATM   32 h031 ANA A   1      -3.270  -0.951   1.278  1.00  0.00           H  
+HETATM   33 h032 ANA A   1      -3.131  -2.196  -1.430  1.00  0.00           H  
+HETATM   34 h033 ANA A   1      -4.048  -2.944  -0.059  1.00  0.00           H  
+HETATM   35 h034 ANA A   1      -0.757  -1.416   0.542  1.00  0.00           H  
+HETATM   36 h035 ANA A   1      -0.802  -2.005  -1.128  1.00  0.00           H  
+HETATM   37 h036 ANA A   1       0.110  -3.710   1.221  1.00  0.00           H  
+HETATM   38 h037 ANA A   1       0.336  -4.059  -0.506  1.00  0.00           H  
+HETATM   39 h038 ANA A   1       1.289  -1.500  -1.499  1.00  0.00           H  
+HETATM   40 h039 ANA A   1       2.261  -3.060  -1.489  1.00  0.00           H  
+HETATM   41 h040 ANA A   1       3.931  -1.872   0.063  1.00  0.00           H  
+HETATM   42 h041 ANA A   1       3.864  -1.435  -1.655  1.00  0.00           H  
+TER      43      ANA A   1
+HETATM   44 g000 ANA B   1       6.555  -1.328  -1.050  1.00  0.00           C  
+HETATM   45 g001 ANA B   1       6.184   0.024  -0.922  1.00  0.00           O  
+HETATM   46 g002 ANA B   1       7.633  -1.386  -1.197  1.00  0.00           H  
+HETATM   47 g003 ANA B   1       6.330  -1.910  -0.158  1.00  0.00           H  
+HETATM   48 g004 ANA B   1       6.050  -1.867  -1.913  1.00  0.00           H  
+HETATM   49 g005 ANA B   1       5.253   0.108  -0.780  1.00  0.00           H  
+TER      50      ANA B   1
+CONECT    1    2   18
+CONECT    2    1    3   19   20
+CONECT    3    2    4   21   22
+CONECT    4    3    5
+CONECT    5    4    6   23   24
+CONECT    6    5    7   25   26
+CONECT    7    6    8
+CONECT    8    7    9   27   28
+CONECT    9    8   10   29   30
+CONECT   10    9   11
+CONECT   11   10   12   31   32
+CONECT   12   11   13   33   34
+CONECT   13   12   14
+CONECT   14   13   15   35   36
+CONECT   15   14   16   37   38
+CONECT   16   15   17
+CONECT   17   16   18   39   40
+CONECT   18   17    1   41   42
+CONECT   19    2
+CONECT   20    2
+CONECT   21    3
+CONECT   22    3
+CONECT   23    5
+CONECT   24    5
+CONECT   25    6
+CONECT   26    6
+CONECT   27    8
+CONECT   28    8
+CONECT   29    9
+CONECT   30    9
+CONECT   31   11
+CONECT   32   11
+CONECT   33   12
+CONECT   34   12
+CONECT   35   14
+CONECT   36   14
+CONECT   37   15
+CONECT   38   15
+CONECT   39   17
+CONECT   40   17
+CONECT   41   18
+CONECT   42   18
+CONECT   44   45   46   47   48
+CONECT   45   44   49
+CONECT   46   44
+CONECT   47   44
+CONECT   48   44
+CONECT   49   45
+END
