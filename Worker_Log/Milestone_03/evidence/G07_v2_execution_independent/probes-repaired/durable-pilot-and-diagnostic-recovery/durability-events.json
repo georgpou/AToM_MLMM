@@ -1,0 +1,25 @@
+{
+  "checkpointed_names": [
+    "ethanol-methanol-d3-r0--full-parent",
+    "ethanol-methanol-d3-r0--full-parent"
+  ],
+  "synced_paths": [
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/launch.json",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/launcher.txt",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/order.json",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/receipt.json",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/record.json",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/record.psi4.txt",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/resources.jsonl",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/scratch",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/progress.json.tmp",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/records",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/records/ethanol-methanol-d3-r0--full-parent.json.tmp",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/records/ethanol-methanol-d3-r0--full-parent.psi4.txt.tmp"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "admitted": 1,
+  "remaining": 29,
+  "mm_max_difference": 1.4988010832439613e-15,
+  "identity_residual": 2.7755575615628914e-17,
+  "metrics": {
+    "projected_mace_minus_same_cap_qm": {
+      "component_rms_eV_angstrom": 0.012715052477122821,
+      "maximum_atom_vector_eV_angstrom": 0.0759817207836679,
+      "net_ligand_vector_eV_angstrom": 0.03418273562712539,
+      "within_each_existing_force_limit": {
+        "component_rms_eV_angstrom": true,
+        "maximum_atom_vector_eV_angstrom": true,
+        "net_ligand_vector_eV_angstrom": true
+      }
+    },
+    "capped_qm_plus_all_retained_mm_minus_full_qm": {
+      "component_rms_eV_angstrom": 0.39420922811516973,
+      "maximum_atom_vector_eV_angstrom": 2.054387704164463,
+      "net_ligand_vector_eV_angstrom": 0.017460852025955483,
+      "within_each_existing_force_limit": {
+        "component_rms_eV_angstrom": false,
+        "maximum_atom_vector_eV_angstrom": false,
+        "net_ligand_vector_eV_angstrom": true
+      }
+    },
+    "baseline_hybrid_minus_full_qm": {
+      "component_rms_eV_angstrom": 0.39512538711220185,
+      "maximum_atom_vector_eV_angstrom": 2.054387704164463,
+      "net_ligand_vector_eV_angstrom": 0.04619796516010624,
+      "within_each_existing_force_limit": {
+        "component_rms_eV_angstrom": false,
+        "maximum_atom_vector_eV_angstrom": false,
+        "net_ligand_vector_eV_angstrom": true
+      }
+    },
+    "full_mace_minus_full_qm": {
+      "component_rms_eV_angstrom": 0.04001272845802726,
+      "maximum_atom_vector_eV_angstrom": 0.17165675472372494,
+      "net_ligand_vector_eV_angstrom": 0.11473112247719594,
+      "within_each_existing_force_limit": {
+        "component_rms_eV_angstrom": true,
+        "maximum_atom_vector_eV_angstrom": false,
+        "net_ligand_vector_eV_angstrom": false
+      }
+    }
+  },
+  "energy": {
+    "mace": -2.488598858074634,
+    "qm": -2.7537783700434604,
+    "error": 0.2651795119688263
+  },
+  "maximum_error_atoms": {
+    "projected_mace_minus_same_cap_qm": "p6",
+    "capped_qm_plus_all_retained_mm_minus_full_qm": "p9",
+    "baseline_hybrid_minus_full_qm": "p9",
+    "full_mace_minus_full_qm": "p4"
+  },
+  "runtime_hours": 34.164590162227334,
+  "remaining_hours": 23.35398759720778,
+  "scratch_plus_reserve_gib": 21.761510003358126,
+  "free_disk_gib": 18.370361328125,
+  "false_flag_rejected": true
+}

@@ -1,0 +1,24 @@
+{
+  "status": "prepared; wait for exact independent execution repair acceptance",
+  "cwd": "/workspace/AToM_MLMM",
+  "activation": "source /workspace/atom-mlmm-g07/activate-reference.sh",
+  "PYTHONPATH": "/workspace/AToM_MLMM/src",
+  "command": [
+    "python",
+    "tools/resume_joint_quantum.py",
+    "--plan-root",
+    "fixtures/chemical_reference_v3",
+    "--approval",
+    "Worker_Log/Milestone_03/evidence/G07_v2/authorization.json",
+    "--matrix",
+    "fixtures/fragment_ligand/prepared-mm-v1/quantum-job-matrix.json",
+    "--reference-python",
+    "/workspace/atom-mlmm-g07/reference-env/bin/python",
+    "--output",
+    "Worker_Log/Milestone_03/evidence/G07_v2/quantum-attempt-v1",
+    "--revalidate-pilot"
+  ],
+  "source_commit": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+  "original_receipt_sha256": "b42dd4aff42a8e5e52f3ab00a0e857dd58d8de6bdcc1a819becbce5f885a5f1f",
+  "notice": "Validation-only recovery, no new QM worker."
+}

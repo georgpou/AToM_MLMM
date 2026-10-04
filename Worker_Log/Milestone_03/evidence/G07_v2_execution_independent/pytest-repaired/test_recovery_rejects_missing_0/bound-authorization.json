@@ -1,0 +1,30 @@
+{
+  "scope": "G07 frozen 30-new-job batch only",
+  "user_agreed": true,
+  "agreement_provenance": "2026-10-04 user request in this cloud session",
+  "agreement_statement": "This request authorizes the new G07 calculations within the resource and time limits below.",
+  "starting_commit": "34388d2b70d8fc032238cbf0dfa28e3290cc14e8",
+  "branch": "m03-g06-g07",
+  "matrix_path": "fixtures/fragment_ligand/prepared-mm-v1/quantum-job-matrix.json",
+  "matrix_sha256": "4e8e9eac08cd9676022c122298e53f16041db7989c757e320a6b8dc065bf776a",
+  "input_manifest_sha256": "96d1afb9f7966d2b854f1ddbf6e68b7662be4a00819e7dd72846838c06939f13",
+  "reference_settings_sha256": "483461026da33db22fe9e980840185a6fd9193593f4f96352105f02de30c511f",
+  "reference_lock_sha256": "a94f3d0bb9d25900c62f6d5e97aebac0b81bf7acee1f140a95308107c133c91b",
+  "scientific_decision_path": "Worker_Log/Milestone_00/evidence/M00_v3_decision/decision-approved-20261003.json",
+  "scientific_decision_sha256": "fd5a6943b8640d2a3a9d883031f2b5bdbdbc7e64efe8446f33811b6188272b79",
+  "numerical_audit_path": "Worker_Log/Milestone_03/Gate_07_v1_audit.md",
+  "numerical_audit_sha256": "ffcfd570f41a23f090173233c191004f32d86a46e4b9cc680ba1a8c7f7b71769",
+  "approved_resource_cap": {
+    "wall_hours": 24,
+    "pilot_wall_seconds": 3600,
+    "cpu_threads": 2,
+    "psi4_memory": "3 GiB",
+    "process_group_rss_max_bytes": 6442450944,
+    "disk_free_min_bytes": 5368709120
+  },
+  "pilot_job": "ethanol-methanol-d3-r0--full-parent",
+  "recorded_utc": "2026-10-04T09:54:48.434024+00:00",
+  "sensitivity_exceedances_preserved": 7,
+  "frozen_historical_authorization_unchanged": true,
+  "attempt_path": "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/pytest-repaired/test_recovery_rejects_missing_0/output"
+}

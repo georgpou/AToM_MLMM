@@ -1,0 +1,15 @@
+{
+  "user_agreed": true,
+  "design_verdict": "accepted_for_scope",
+  "reviewer_model": "gpt-6-astra",
+  "reasoning_effort": "high",
+  "fresh_context": true,
+  "reviewed_commit": "cccccccccccccccccccccccccccccccccccccccc",
+  "input_manifest_sha256": "07584b8262947979993f4f90d7d8ecb0f91cdcff450891098b4c3ddea6092d71",
+  "approved_resource_cap": {
+    "wall_hours": 12,
+    "cpu_threads": 2,
+    "psi4_memory": "5 GiB"
+  },
+  "notice": "SYNTHETIC SOFTWARE TEST ONLY"
+}

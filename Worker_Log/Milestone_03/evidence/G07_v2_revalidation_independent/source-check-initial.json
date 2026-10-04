@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-04T12:01:30.132140+00:00",
+  "head": "4e2cb06b0e5e0b3b081e379969428ec93a807866",
+  "pause_hash": "e018398fd90621f4cb3f169ee9c9bc651f07323c0d222dc01e8769a77e51d5e9",
+  "files": {
+    "tools/resume_joint_quantum.py": {
+      "expected": "feab0c473f301432969c1ec4cd3c06ed93f57bb52bec7f5cd314c614a644acc6",
+      "observed": "feab0c473f301432969c1ec4cd3c06ed93f57bb52bec7f5cd314c614a644acc6",
+      "matches": true
+    },
+    "tests/unit/test_joint_quantum_execution.py": {
+      "expected": "a2e6da87409d5a4889763e0fc86ae21c510bc0757bb2f19f4762df9ae2a483a4",
+      "observed": "a2e6da87409d5a4889763e0fc86ae21c510bc0757bb2f19f4762df9ae2a483a4",
+      "matches": true
+    },
+    "tools/resume_neutral_quantum.py": {
+      "expected": "d7fd518d9663c60399e101c94c518f8f13b03625cff41e34546b96bfeae1e63d",
+      "observed": "d7fd518d9663c60399e101c94c518f8f13b03625cff41e34546b96bfeae1e63d",
+      "matches": true
+    },
+    "tools/quantum_worker_guard.py": {
+      "expected": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030",
+      "observed": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030",
+      "matches": true
+    },
+    "tools/generate_neutral_quantum.py": {
+      "expected": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff",
+      "observed": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff",
+      "matches": true
+    },
+    "Worker_Log/Milestone_03/evidence/G07_v2/authorization.json": {
+      "expected": "fb20e06a6179df03ef6ced63cc09a4d1bdc74e024fc08cb5c5e301bd1079d216",
+      "observed": "fb20e06a6179df03ef6ced63cc09a4d1bdc74e024fc08cb5c5e301bd1079d216",
+      "matches": true
+    }
+  },
+  "actual_attempt_hashes": {
+    "launch.json": "55ab4249e63c24fad96df8e681ffeb78b2a69aeb1d8c5cd863be6399928f4fc3",
+    "reference-worker-identity.json": "a3accbfc515e51977a2394a37e392105ea52004db8f90985001e0a924c77198d",
+    "record.psi4.txt": "1e4f9b09d35a052b13bb5943f18fdccb33f3c6116ff2d58a4b7cf6ea271c5c41",
+    "record.psi4.log": "656b0aca840bc4616d32421af22e7fb8d796e9c64d18515b7374e1296978cde7",
+    "receipt.json": "b42dd4aff42a8e5e52f3ab00a0e857dd58d8de6bdcc1a819becbce5f885a5f1f",
+    "launcher.txt": "8ab71d4de332a55a4b60d2b02994d06a18a5f7ececb228619bb4905191006d14",
+    "resources.jsonl": "69b475a5a59b351b6d66161b34f6e8f5e567d4554563a3b1957659fca9b7b41b",
+    "record.json": "c1e34ea209bf4949c0f200859a75a35072ee5cf6e1750f8d7a9044a7259f0eed",
+    "worker-identity.json": "24937b93f7acd6d5849703bf4128ad57fce8a2db0c6d363c37b28b5fc25e02c9",
+    "timer.dat": "b7069579d5a97c00a419ce7450da8e6692ccced00830218aa11038c81b962bc2",
+    "order.json": "b9378703244d26ad5865759cf162bb6f907984a03857a5e41df4566f4a06dcc0"
+  },
+  "actual_progress_sha256": "f3eef83265251548f494d08e4928e01d5ed58e933278d2c8b720e309300a6576",
+  "all_sources_match": true
+}

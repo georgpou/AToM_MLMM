@@ -1,0 +1,155 @@
+{
+  "structure": {
+    "formal_charge": 0,
+    "multiplicity": 1,
+    "units": "angstrom",
+    "source_input": "structures/butane-methanol-separated.json",
+    "source_input_sha256": "86a8a47d37fdfc76881ec6aba17ada784f343da7f7861a6be85889485fabd011",
+    "method": "wb97m-d3bj/def2-tzvppd",
+    "name": "butane-methanol-separated--alternative-ethane",
+    "kind": "alternative-ethane",
+    "atom_ids": [
+      "p7",
+      "p8",
+      "p22",
+      "p23",
+      "p24",
+      "p25",
+      "p26",
+      "cap",
+      "l0",
+      "l1",
+      "l2",
+      "l3",
+      "l4",
+      "l5"
+    ],
+    "atomic_numbers": [
+      6,
+      6,
+      1,
+      1,
+      1,
+      1,
+      1,
+      1,
+      6,
+      8,
+      1,
+      1,
+      1,
+      1
+    ],
+    "positions_angstrom": [
+      [
+        -2.082599565066431,
+        1.233989729453118,
+        0.7572243456409256
+      ],
+      [
+        -3.6033054853689563,
+        1.3082183325600667,
+        0.8027739187645276
+      ],
+      [
+        -1.7265720694791091,
+        2.1511748004136133,
+        0.2738713980266997
+      ],
+      [
+        -1.6924893421567981,
+        1.2465124533768421,
+        1.7823789822768519
+      ],
+      [
+        -3.9179220624463347,
+        2.2640269715455266,
+        1.2345212859670267
+      ],
+      [
+        -4.031184484115862,
+        1.2335944932261644,
+        -0.2017863780265713
+      ],
+      [
+        -4.02789736436595,
+        0.5145212746384458,
+        1.4239858263454568
+      ],
+      [
+        -1.6979196800509846,
+        0.36473802029511837,
+        0.2238175101106712
+      ],
+      [
+        21.629198607737393,
+        0.0,
+        0.0
+      ],
+      [
+        23.044932536153357,
+        -6.071532165918825e-18,
+        1.6653345369377348e-16
+      ],
+      [
+        21.27383764776721,
+        -0.3598563811496059,
+        0.9684226146385951
+      ],
+      [
+        21.263931307244313,
+        1.0166223599301152,
+        -0.16486273283498337
+      ],
+      [
+        21.26393211899164,
+        -0.6622778530362405,
+        -0.7887259510766267
+      ],
+      [
+        23.330693364411026,
+        0.3237308161541155,
+        -0.8712080916129962
+      ]
+    ],
+    "elements": [
+      "C",
+      "C",
+      "H",
+      "H",
+      "H",
+      "H",
+      "H",
+      "H",
+      "C",
+      "O",
+      "H",
+      "H",
+      "H",
+      "H"
+    ]
+  },
+  "source_input_sha256": "86a8a47d37fdfc76881ec6aba17ada784f343da7f7861a6be85889485fabd011",
+  "settings": {
+    "basis": "def2-tzvppd",
+    "df_basis_scf": "def2-universal-jkfit",
+    "reference": "rhf",
+    "scf_type": "df",
+    "e_convergence": 1e-10,
+    "d_convergence": 1e-10,
+    "maxiter": 200,
+    "ints_tolerance": 1e-12,
+    "dft_radial_points": 99,
+    "dft_spherical_points": 590,
+    "wcombine": false
+  },
+  "basis_file_sha256": {
+    "def2-tzvppd.gbs": "0b3c5f3a8bfe9a158dabff8b6437dd3706c65757f42a56a70918fc2d78291d13",
+    "def2-universal-jkfit.gbs": "230e6dfd1efecae0530e9cf4508d251bd7321ab38b105185224b90eff6ce1927"
+  },
+  "job_name": "butane-methanol-separated--alternative-ethane",
+  "output": "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/butane-methanol-separated--alternative-ethane/attempt-0001/record.json",
+  "scratch_directory": "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/butane-methanol-separated--alternative-ethane/attempt-0001/scratch",
+  "runtime_memory": "3 GiB",
+  "runtime_memory_bytes": 3221225472
+}

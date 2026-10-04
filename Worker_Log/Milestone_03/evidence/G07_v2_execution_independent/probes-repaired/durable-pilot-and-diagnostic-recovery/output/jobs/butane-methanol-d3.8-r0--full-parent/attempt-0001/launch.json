@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/synthetic-reference/bin/python",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/reviewed-source-repaired/tools/generate_neutral_quantum.py",
+    "--worker",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/butane-methanol-d3.8-r0--full-parent/attempt-0001/order.json"
+  ],
+  "coordinator_pid": 23113,
+  "coordinator_start_ticks": "191348"
+}

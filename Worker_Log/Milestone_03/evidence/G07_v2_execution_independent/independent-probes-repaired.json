@@ -1,0 +1,187 @@
+{
+  "utc": "2026-10-04T10:21:24.009458+00:00",
+  "source_hashes": {
+    "tools/generate_neutral_quantum.py": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff",
+    "tools/resume_joint_quantum.py": "26440a94b4d8c27c541ad8a82cd3e7766bbff277c2919fe2d4b3b2a70dcfaaf8",
+    "tools/resume_neutral_quantum.py": "d7fd518d9663c60399e101c94c518f8f13b03625cff41e34546b96bfeae1e63d",
+    "tools/quantum_worker_guard.py": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030"
+  },
+  "notice": "SYNTHETIC EXECUTION SOFTWARE EVIDENCE ONLY",
+  "checks": {
+    "production_read_only": {
+      "command": [
+        "/workspace/atom-mlmm-g07/env/bin/python",
+        "/workspace/AToM_MLMM/tools/resume_joint_quantum.py",
+        "--plan-root",
+        "/workspace/AToM_MLMM/fixtures/chemical_reference_v3",
+        "--matrix",
+        "/workspace/AToM_MLMM/fixtures/fragment_ligand/prepared-mm-v1/quantum-job-matrix.json",
+        "--approval",
+        "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2/authorization.json",
+        "--output",
+        "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2/quantum-attempt-v1",
+        "--check-resume"
+      ],
+      "exit": 0,
+      "reported": {
+        "expected_count": 30,
+        "reused_count": 0,
+        "remaining": [
+          "ethanol-methanol-d3-r0--full-parent",
+          "butane-acetamide-d3.4-r0--alternative-ethane",
+          "butane-acetamide-d3.4-r0--full-parent",
+          "butane-acetamide-d3.8-r0--alternative-ethane",
+          "butane-acetamide-d3.8-r0--full-parent",
+          "butane-acetamide-d3.8-r60--alternative-ethane",
+          "butane-acetamide-d3.8-r60--full-parent",
+          "butane-acetamide-d4.5-r0--alternative-ethane",
+          "butane-acetamide-d4.5-r0--full-parent",
+          "butane-acetamide-separated--alternative-ethane",
+          "butane-acetamide-separated--full-parent",
+          "butane-methanol-d3.4-r0--alternative-ethane",
+          "butane-methanol-d3.4-r0--full-parent",
+          "butane-methanol-d3.8-r0--alternative-ethane",
+          "butane-methanol-d3.8-r0--full-parent",
+          "butane-methanol-d3.8-r60--alternative-ethane",
+          "butane-methanol-d3.8-r60--full-parent",
+          "butane-methanol-d4.5-r0--alternative-ethane",
+          "butane-methanol-d4.5-r0--full-parent",
+          "butane-methanol-separated--alternative-ethane",
+          "butane-methanol-separated--full-parent",
+          "ethanol-acetamide-d2.6-r0--full-parent",
+          "ethanol-acetamide-d3-r0--full-parent",
+          "ethanol-acetamide-d3-r60--full-parent",
+          "ethanol-acetamide-d3.5-r0--full-parent",
+          "ethanol-acetamide-separated--full-parent",
+          "ethanol-methanol-d2.6-r0--full-parent",
+          "ethanol-methanol-d3-r60--full-parent",
+          "ethanol-methanol-d3.5-r0--full-parent",
+          "ethanol-methanol-separated--full-parent"
+        ],
+        "prior_wall_seconds": 0.0,
+        "remaining_wall_seconds": 86400.0
+      },
+      "stderr": ""
+    },
+    "copied_authorization": {
+      "exit": 2,
+      "stderr": "G07 execution rejected: G07 execution requires the exact recorded authorization; copied or altered approval rejected\n",
+      "output_exists": false
+    },
+    "wrong_output_canonical_authorization": {
+      "exit": 2,
+      "stderr": "G07 execution rejected: attempt path differs from the separately bound G07 budget ledger\n",
+      "output_exists": false
+    },
+    "durable_pilot_pause": {
+      "exit": 1,
+      "records": 1,
+      "stop_reason": "pilot_assessment_pending",
+      "trace_assertions_passed": true,
+      "receipt_diagnostic_files": [
+        "launcher.txt",
+        "record.psi4.txt",
+        "resources.jsonl"
+      ]
+    },
+    "reused_diagnostic_mutations_rejected": {
+      "missing_source_log": {
+        "exit": 2,
+        "stderr": "Synthetic fixture rejected: FileNotFoundError(2, 'No such file or directory')\n"
+      },
+      "changed_source_log": {
+        "exit": 2,
+        "stderr": "Synthetic fixture rejected: ValueError('completion receipt diagnostic digest differs: /workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/receipt.json')\n"
+      },
+      "changed_published_log": {
+        "exit": 2,
+        "stderr": "Synthetic fixture rejected: ValueError('uncommitted recovered record digest differs')\n"
+      },
+      "changed_receipt": {
+        "exit": 2,
+        "stderr": "Synthetic fixture rejected: ValueError('checkpoint completion receipt digest differs: ethanol-methanol-d3-r0--full-parent')\n"
+      },
+      "changed_resources": {
+        "exit": 2,
+        "stderr": "Synthetic fixture rejected: ValueError('completion receipt diagnostic digest differs: /workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/receipt.json')\n"
+      },
+      "changed_order": {
+        "exit": 2,
+        "stderr": "Synthetic fixture rejected: ValueError('completion receipt launch/order digest differs: /workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/receipt.json')\n"
+      },
+      "changed_launch": {
+        "exit": 2,
+        "stderr": "Synthetic fixture rejected: ValueError('completion receipt launch/order digest differs: /workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/receipt.json')\n"
+      }
+    },
+    "lost_promoted_record_restored": {
+      "exit": 1,
+      "record_hash_matches": true,
+      "log_hash_matches": true,
+      "pilot_attempt_count": 1
+    },
+    "measured_assessment_mutations": {
+      "pilot_resources_sha256": {
+        "rejected": true,
+        "error": "ValueError('measured pilot assessment identities or values differ')"
+      },
+      "pilot_receipt_sha256": {
+        "rejected": true,
+        "error": "ValueError('measured pilot assessment identities or values differ')"
+      },
+      "pilot_record_sha256": {
+        "rejected": true,
+        "error": "ValueError('measured pilot assessment identities or values differ')"
+      },
+      "matrix_sha256": {
+        "rejected": true,
+        "error": "ValueError('measured pilot assessment identities or values differ')"
+      },
+      "pilot_wall_seconds": {
+        "rejected": true,
+        "error": "ValueError('measured pilot assessment identities or values differ')"
+      },
+      "projected_remaining_worker_seconds": {
+        "rejected": true,
+        "error": "ValueError('measured pilot projections are below the screening envelope')"
+      },
+      "projected_max_rss_bytes": {
+        "rejected": true,
+        "error": "ValueError('pilot projections exceed the remaining resource/budget envelope')"
+      },
+      "projected_scratch_bytes": {
+        "rejected": true,
+        "error": "ValueError('pilot projections exceed the remaining resource/budget envelope')"
+      },
+      "projected_remaining_worker_seconds-nonfinite": {
+        "rejected": true,
+        "error": "ValueError('invalid measured pilot projections')"
+      }
+    },
+    "exact_matrix_continuation_and_reuse": {
+      "exit": 0,
+      "repeat_exit": 0,
+      "record_count": 30,
+      "ready_for_comparison": true,
+      "attempts_before_repeat": 30,
+      "attempts_after_repeat": 30,
+      "debit_before_repeat": 30.670110569999906,
+      "debit_after_repeat": 30.67228675399997
+    },
+    "pilot_and_batch_cumulative_ceilings": {
+      "no_extra_launch": true,
+      "pilot_stop": "pilot_budget_exhausted",
+      "batch_stop": "budget_exhausted",
+      "batch_debit": 86400.505496708
+    },
+    "coordinator_loss_retained_lease": {
+      "coordinator_exit": -9,
+      "lease_retained": true,
+      "remaining_group": [],
+      "recovery_exit": 1,
+      "interrupted_status": "interrupted",
+      "interrupted_seconds": 5.196346,
+      "total_debit": 6.214856746999937
+    }
+  }
+}

@@ -1,0 +1,16 @@
+#!/workspace/atom-mlmm-g07/env/bin/python
+
+import json,os,sys,time
+from pathlib import Path
+order=json.loads(Path(sys.argv[-1]).read_text());d=order['structure'];out=Path(order['output'])
+mode=os.environ.get('JOINT_QUANTUM_TEST_MODE','')
+if mode=='wait':time.sleep(20)
+r=dict(status='computed',name=order['job_name'],source_input_sha256=order['source_input_sha256'],
+method='wb97m-d3bj/def2-tzvppd',psi4_version='1.10.2',formal_charge=0,multiplicity=1,
+positions_angstrom=d['positions_angstrom'],atomic_numbers=d['atomic_numbers'],
+energy_hartree=-1.,gradient_hartree_bohr=[[0.,0.,0.] for _ in d['atomic_numbers']],
+quantum_energy_variables={'DISPERSION CORRECTION ENERGY':-.001,'DFT VV10 ENERGY':0.},
+basis_file_sha256=order['basis_file_sha256'],settings=order['settings'],network_denied=True,
+wall_seconds=.001,threads=2,memory=order['runtime_memory'])
+out.write_text(json.dumps(r));out.with_suffix('.psi4.txt').write_text('SCF has converged.\n')
+if mode=='computed_fail':sys.exit(23)

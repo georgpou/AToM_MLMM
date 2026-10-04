@@ -18,10 +18,12 @@ and five intermediate force sweeps. All 1,924 initially frozen tracked files and
 project-specific force-sensitivity exceedances and 30 missing quantum references
 remain physical qualification blockers; no limit or scientific input changed.
 
-**Next independent development scope: M04/G08.** G08 explicitly permits
-development alongside G04-G07 after accepted G02/G03; its analytic thermodynamic
-checks do not need new G07 QM. The reviewer confirms it may proceed. See the
-[published-branch continuation instructions](handoffs/M04-G08-fresh-agent-handoff-v1.md).
+**Current assignment: complete and assess the frozen G07 references on the
+existing `m03-g06-g07` branch.** The user superseded the earlier M04/G08 handoff
+and authorized a 24-hour cumulative quantum-worker budget with a one-hour pilot.
+The published starting HEAD is `34388d2b70d8fc032238cbf0dfa28e3290cc14e8`;
+reviewed execution source `4e2cb06b0e5e0b3b081e379969428ec93a807866` is its direct
+child. No separate branch/worktree or M04/G08 work was started.
 
 The current child `m03-g06-g07` continues the published G05 base
 `08ccee74d0da900ffb1bd98d076e6e87e9df1b0c`. G06-T1/T2/T3 and G07-T1/T2/T3
@@ -44,14 +46,55 @@ Maximum contact-energy sensitivity is **0.9744628863435872 kcal/mol**, below its
 retains every pair and separated control. No input or limit was tuned.
 
 The exact new-reference matrix has **30 jobs** (20 full-parent and ten alternative
-caps), with **20 exact G05 records reused**. Qfull/alternative references are
-absent, so quantum partition-error attribution remains unmeasured. No new
-reference DFT was launched; AM1-BCC preparation did run. All **46** accepted G05
-records, earlier evidence, model, scientific inputs and locks remain unchanged.
-The [conditional execution proposal](reference/G07-reference-execution-proposal-v1.md)
-requires review of the sensitivity finding and a new applicable budget before
-any pilot/batch. Independent review of the finding is now recorded above;
-no new budget has been selected and no new reference calculation was launched.
+caps), with **20 exact G05 baseline records reused**. A separate
+[authorization](../../Worker_Log/Milestone_03/evidence/G07_v2/authorization.json)
+binds the frozen matrix and budget without changing its historical preparation
+status. Main/Amber/reference environments were rebuilt under their unchanged
+locks; reference packages are exactly **Psi4 1.10.2 / LibXC 7.0.0**. The
+[execution audit](../../Worker_Log/Milestone_03/Gate_07_v2_audit.md) independently
+accepts the original adapter mechanism at `4e2cb06`, following **403 CPU-suite
+passes** and **64 independent affected/recovery passes**.
+
+The full-parent ethanol/methanol pilot computed an energy and 32-row gradient,
+exited zero and explicitly converged in **38.76 minutes**. Its initial admission
+parser required a different affirmative log phrase. The independently accepted
+[v3 recovery repair](../../Worker_Log/Milestone_03/Gate_07_v3_audit.md), source
+`fcc1de9619f58934ff0c5835e01ecf3848a8a48c`, passed **416 CPU-suite tests**, **35
+independent focused tests** and all independent fault/recovery probes. A durable
+validation-only correction then admitted the original result without rerunning
+QM or overwriting the original rejection receipt. **One of 30 new references is
+complete; 19 full-parent and ten alternative-cap jobs remain incomplete.** The
+[worker report](../../Worker_Log/Milestone_03/Gate_07_v2_worker.md) preserves all
+failures, exact commands and recovery evidence. The user's session-quota pause
+was resumed; the quantum budget was not reset.
+
+Charged quantum wall time is **2,325.644650052 s**, leaving **23.3540 h**. Measured
+group RSS peaked at **3.190 GiB**, scratch at **9.015 GiB**, free disk stayed above
+**9.921 GiB**, and OOM/OOM-kill deltas were zero. All private scratch and live
+actual worker processes are gone. The reviewed remaining-job runtime screen is
+**34.1646 h**, which exceeds the remaining allowance; no batch continuation was
+launched. Projected largest-job scratch is **16.7615 GiB** against **18.3704 GiB**
+free disk at assessment, which also fails the mandatory 5 GiB reserve. These are
+screening estimates, not measured requirements for the missing jobs.
+
+The single-contact force decomposition projects the cap onto both parents once
+and retains all real MM forces. Same-cap MACE/QM projected RMS/maximum errors are
+**0.0127151/0.0759817 eV/angstrom**. Capped QM plus retained MM relative to full
+QM gives **0.3942092/2.0543877**, exceeding the unchanged **0.05/0.15** full-real
+limits; the baseline hybrid also exceeds both. Complete-parent MACE's maximum
+atom-vector/net-ligand errors are **0.1716568/0.1147311**, above **0.15/0.05**.
+The capped description's own contact-minus-separated energy error is
+**0.265180 kcal/mol**. Full-parent separated QM is absent, so complete energy
+partition attribution remains unmeasured. This one contact cannot qualify the
+matrix; all seven existing sensitivity failures remain. The independent
+GPT-6.1-sol/MAX [v4 audit](../../Worker_Log/Milestone_03/Gate_07_v4_audit.md)
+accepts only the actual admission, partial arithmetic and decision to stop;
+it confirms direct retained-MM forces and once-projected cap derivatives.
+All **46**
+accepted G05 records, earlier scientific evidence, model, inputs and locks stay
+byte-identical. The [cleanup strategy](../../Worker_Log/Milestone_03/evidence/G07_v2/cleanup-strategy.md)
+preserves useful code/logs/assets and identifies only verified temporary or
+reconstructible candidates; no cache or essential asset was deleted.
 
 G05 on the same child `m03-reference-g05` is **accepted_for_scope** for the
 fixed neutral nonperiodic CPU local-reference profile. The independent
@@ -159,15 +202,16 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-Proceed with independent [M04/G08](gates/G08-thermodynamics-and-estimators.md)
-analytic thermodynamic validation using its accepted G02/G03 prerequisites.
-Preserve the completed G05 batch, M03 numerical evidence and all scientific
-limits. G06/G07 numerical review is complete; G07-08/09 references and physical
-acceptance remain pending. The seven cut-sensitivity exceedances are differences
-between MACE-based descriptions, not errors measured against full QM. Review
-that physical scope before protein accuracy claims or acceptance of dependent
-molecular milestones. Use GPT-6.1-sol/MAX for future independent audits.
-No new G07 reference budget is inferred by this continuation decision.
+Review the concrete remaining-budget and scratch-space constraint before another
+quantum launch, carrying the same cumulative ledger and already admitted pilot.
+The current continuation assessment fails; no limit, setting or projection was
+silently relaxed. Preserve all accepted G05 data, controls, seven sensitivity
+exceedances and the new pilot force failures. Use GPT-6.1-sol/MAX for necessary
+independent reviews of new execution/physical evidence. G06/G07 numerical review
+remains accepted; G07-T4 and M03 physical closure remain blocked. M04/G08 is
+outside this assignment.
+The [current remaining-reference handoff](handoffs/G07-reference-remaining-v2.md)
+records the exact checkpoint and safe continuation conditions.
 
 | Scientific scope | Status | Next condition |
 |---|---|---|
@@ -178,9 +222,9 @@ No new G07 reference budget is inferred by this continuation decision.
 | G04 / analytic CPU | accepted | [Astra high full-G04 audit](../../Worker_Log/Milestone_03/Gate_04_v1_audit.md) and [acceptance](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/acceptance.json); no blocking findings |
 | G06 / fixed-volume small-system Reference/MACE-CPU | accepted_for_scope | Sol 6.1/MAX accepts six assertions for the narrow numerical profile; wider precision/dynamics profiles remain unqualified |
 | G07 / T1/T2/T3 small-system Reference/MACE-CPU | accepted_for_scope | Sol 6.1/MAX accepts seven numerical assertions, periodic and unequal two-ligand composition; physical T4 remains blocked |
-| G07 / T4 physical-reference sensitivity | blocked | Seven force-sensitivity failures; 30 new references absent and new compute budget unapproved |
+| G07 / T4 physical-reference sensitivity | blocked | Seven sensitivity failures plus measured pilot force-approximation exceedances; one validated full-parent reference, 29 missing; runtime/scratch screens exceed current envelope |
 | M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
-| M04 / G08 analytic thermodynamic accounting | next / not_started | Accepted M02 prerequisites; explicitly independent of G04-G07 physical qualification |
+| M04 / G08 analytic thermodynamic accounting | not_started / outside assignment | Earlier handoff superseded by the user's G07 reference continuation |
 | M05-M08 / G09-G13 | not_started | Retain molecular gate prerequisites and physical-qualification limits |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |

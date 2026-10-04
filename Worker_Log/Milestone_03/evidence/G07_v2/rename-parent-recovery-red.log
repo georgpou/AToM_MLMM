@@ -1,0 +1,128 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+____ test_recovery_fsyncs_renamed_attempt_before_admitted_checkpoint[False] ____
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a0/output'))
+rejected_converged_pilot = PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a0/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/receipt.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7faf41facc10>
+use_corrective_cli = False
+
+    @pytest.mark.parametrize('use_corrective_cli', [False, True])
+    def test_recovery_fsyncs_renamed_attempt_before_admitted_checkpoint(
+            synthetic, rejected_converged_pilot, monkeypatch, use_corrective_cli):
+        import resume_joint_quantum as joint
+        rename = joint.os.rename
+        def loss_after_rename(source, target):
+            rename(source, target)
+            raise RuntimeError('injected loss before rename-parent fsync')
+        monkeypatch.setattr(joint.os, 'rename', loss_after_rename)
+        with pytest.raises(RuntimeError):
+            revalidate_fake(synthetic)
+        monkeypatch.setattr(joint.os, 'rename', rename)
+        parent = rejected_converged_pilot.parent.parent
+        synced = []
+        sync_directory = joint.recovery.sync_directory
+        atomic_dump = joint.recovery.atomic_dump
+        def sync(path):
+            synced.append(Path(path))
+            return sync_directory(path)
+        def dump(path, data):
+            if joint.PILOT in data.get('record_hashes', {}):
+                assert parent in synced, 'renamed attempt parent was not durable before admission'
+            return atomic_dump(path, data)
+        monkeypatch.setattr(joint.recovery, 'sync_directory', sync)
+        monkeypatch.setattr(joint.recovery, 'atomic_dump', dump)
+        if use_corrective_cli:revalidate_fake(synthetic)
+>       assert run_fake(synthetic).returncode == 1
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/unit/test_joint_quantum_execution.py:380: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_joint_quantum_execution.py:137: in run_fake
+    return subprocess.CompletedProcess(cmd,joint.run(args),'','')
+                                           ^^^^^^^^^^^^^^^
+tools/resume_joint_quantum.py:302: in run
+    return recovery.run(args,
+tools/resume_neutral_quantum.py:472: in run
+    checkpoint()
+tools/resume_neutral_quantum.py:470: in checkpoint
+    atomic_dump(progress_path, state)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a0/output/progress.json')
+data = {'identity': {'approval_sha256': 'aec8bc635354f3a00352e37b743d729821021827c9aeb1c7af2ddb9d9b5b0f74', 'input_manifest_s...test_recovery_fsyncs_renamed_a0/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0002/receipt.json', ...}}, ...}
+
+    def dump(path, data):
+        if joint.PILOT in data.get('record_hashes', {}):
+>           assert parent in synced, 'renamed attempt parent was not durable before admission'
+E           AssertionError: renamed attempt parent was not durable before admission
+E           assert PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a0/output/jobs/ethanol-methanol-d3-r0--full-parent') in [PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a0/output'), PosixPath('/tmp/pytest-of-agent/p...parent/attempt-0002'), PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a0/output/records'), ...]
+
+tests/unit/test_joint_quantum_execution.py:375: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+____ test_recovery_fsyncs_renamed_attempt_before_admitted_checkpoint[True] _____
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a1/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a1/output'))
+rejected_converged_pilot = PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a1/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/receipt.json')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7faf41facc50>
+use_corrective_cli = True
+
+    @pytest.mark.parametrize('use_corrective_cli', [False, True])
+    def test_recovery_fsyncs_renamed_attempt_before_admitted_checkpoint(
+            synthetic, rejected_converged_pilot, monkeypatch, use_corrective_cli):
+        import resume_joint_quantum as joint
+        rename = joint.os.rename
+        def loss_after_rename(source, target):
+            rename(source, target)
+            raise RuntimeError('injected loss before rename-parent fsync')
+        monkeypatch.setattr(joint.os, 'rename', loss_after_rename)
+        with pytest.raises(RuntimeError):
+            revalidate_fake(synthetic)
+        monkeypatch.setattr(joint.os, 'rename', rename)
+        parent = rejected_converged_pilot.parent.parent
+        synced = []
+        sync_directory = joint.recovery.sync_directory
+        atomic_dump = joint.recovery.atomic_dump
+        def sync(path):
+            synced.append(Path(path))
+            return sync_directory(path)
+        def dump(path, data):
+            if joint.PILOT in data.get('record_hashes', {}):
+                assert parent in synced, 'renamed attempt parent was not durable before admission'
+            return atomic_dump(path, data)
+        monkeypatch.setattr(joint.recovery, 'sync_directory', sync)
+        monkeypatch.setattr(joint.recovery, 'atomic_dump', dump)
+        if use_corrective_cli:revalidate_fake(synthetic)
+>       assert run_fake(synthetic).returncode == 1
+               ^^^^^^^^^^^^^^^^^^^
+
+tests/unit/test_joint_quantum_execution.py:380: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/unit/test_joint_quantum_execution.py:137: in run_fake
+    return subprocess.CompletedProcess(cmd,joint.run(args),'','')
+                                           ^^^^^^^^^^^^^^^
+tools/resume_joint_quantum.py:302: in run
+    return recovery.run(args,
+tools/resume_neutral_quantum.py:472: in run
+    checkpoint()
+tools/resume_neutral_quantum.py:470: in checkpoint
+    atomic_dump(progress_path, state)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a1/output/progress.json')
+data = {'identity': {'approval_sha256': '8f036f4bfbb1579023927e2a58fd55dc3c096c4b88a8cc83878ea6a9f7dfdeb2', 'input_manifest_s...test_recovery_fsyncs_renamed_a1/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0002/receipt.json', ...}}, ...}
+
+    def dump(path, data):
+        if joint.PILOT in data.get('record_hashes', {}):
+>           assert parent in synced, 'renamed attempt parent was not durable before admission'
+E           AssertionError: renamed attempt parent was not durable before admission
+E           assert PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a1/output/jobs/ethanol-methanol-d3-r0--full-parent') in [PosixPath('/tmp/pytest-of-agent/pytest-25/test_recovery_fsyncs_renamed_a1/output/jobs/ethanol-methanol-d3-r0--full-pa...of-agent/pytest-25/test_recovery_fsyncs_renamed_a1/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0002'), ...]
+
+tests/unit/test_joint_quantum_execution.py:375: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+=========================== short test summary info ============================
+FAILED tests/unit/test_joint_quantum_execution.py::test_recovery_fsyncs_renamed_attempt_before_admitted_checkpoint[False]
+FAILED tests/unit/test_joint_quantum_execution.py::test_recovery_fsyncs_renamed_attempt_before_admitted_checkpoint[True]
+2 failed, 33 deselected in 2.36s

@@ -1,0 +1,26 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_ordinary_recovery_cannot_bypass_correction_by_removing_markers ______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-21/test_ordinary_recovery_cannot_0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-21/test_ordinary_recovery_cannot_0/output'))
+rejected_converged_pilot = PosixPath('/tmp/pytest-of-agent/pytest-21/test_ordinary_recovery_cannot_0/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/receipt.json')
+
+    def test_ordinary_recovery_cannot_bypass_correction_by_removing_markers(synthetic, rejected_converged_pilot):
+        receipt_path = revalidate_fake(synthetic)
+        receipt = json.loads(receipt_path.read_text())
+        receipt.pop('completion_kind')
+        receipt['wall_seconds'] = 0
+        receipt['diagnostic_sha256'].pop('revalidation.json')
+        receipt_path.with_name('revalidation.json').unlink()
+        receipt_path.write_text(json.dumps(receipt))
+        result = run_fake(synthetic)
+>       assert result.returncode == 2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...-output', '/tmp/pytest-of-agent/pytest-21/test_ordinary_recovery_cannot_0/output'], returncode=1, stdout='', stderr='').returncode
+
+tests/unit/test_joint_quantum_execution.py:350: AssertionError
+---------------------------- Captured stdout setup -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+=========================== short test summary info ============================
+FAILED tests/unit/test_joint_quantum_execution.py::test_ordinary_recovery_cannot_bypass_correction_by_removing_markers
+1 failed, 32 deselected in 1.23s

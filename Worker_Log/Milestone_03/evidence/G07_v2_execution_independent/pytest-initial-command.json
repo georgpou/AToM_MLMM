@@ -1,0 +1,13 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/unit/test_joint_quantum_execution.py",
+    "-q",
+    "--basetemp=/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/pytest-initial"
+  ],
+  "started_utc": "2026-10-04T10:07:12.002243+00:00",
+  "finished_utc": "2026-10-04T10:07:20.580235+00:00",
+  "exit": 0
+}

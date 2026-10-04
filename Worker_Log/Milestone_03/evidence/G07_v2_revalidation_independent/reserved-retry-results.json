@@ -1,0 +1,8 @@
+{
+  "source_sha256": "e221904557f4e0294e1f31925f4d84da3af0898939591f036b03c629d6a0bbe9",
+  "first_attempt_exit": 23,
+  "second_attempt_has_correction_sidecar": false,
+  "second_attempt_generic_validation": "computed",
+  "joint_validation_accepted": false,
+  "error": "ValueError('validation correction original identity differs')"
+}

@@ -1,0 +1,9 @@
+{
+  "recorded_utc": "2026-10-04T10:54:37.119603+00:00",
+  "pilot_status": "running/incomplete",
+  "elapsed_seconds": 1716.0937012970003,
+  "screening_coefficient": 52.88583044825073,
+  "remaining_worker_screen_at_current_elapsed_seconds": 90757.04052010419,
+  "remaining_authorized_seconds": 84683.906298703,
+  "interpretation": "Preliminary reviewed screening estimate already exceeds remaining budget; future jobs remain unmeasured. Continue only the allowed pilot, then checkpoint/assess actual receipt. No budget extension or scientific-setting change."
+}

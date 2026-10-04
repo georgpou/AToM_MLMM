@@ -1,0 +1,174 @@
+{
+  "started_utc": "2026-10-04T12:41:00.823573+00:00",
+  "finished_utc": "2026-10-04T12:41:01.009128+00:00",
+  "reviewer_model": "gpt-6.1-sol",
+  "reasoning_effort": "max",
+  "execution_source_commit": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+  "observed_head": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+  "source_sha256": {
+    "fixtures/chemical_reference_v3/reference-settings.json": "483461026da33db22fe9e980840185a6fd9193593f4f96352105f02de30c511f",
+    "fixtures/chemical_reference_v3/structures/ethanol-methanol-d3-r0.json": "e26ff5cca90134401ab6a2949f0665a6a7280d6e9f849e6aab1242ed624dcf70",
+    "fixtures/chemical_reference_v3/quantum/records/ethanol-methanol-d3-r0.json": "ae421d5119c54ca6827c27b3b87a07a3cdbb2b0acf8d046f7c260dd9c37c9214",
+    "fixtures/chemical_reference_v3/quantum/records/ethanol-methanol-separated.json": "5d2c414f05b636954b7ec63a88f51c9df4bc52fe633744d1a34d2ab424f2fead",
+    "Worker_Log/Milestone_03/evidence/G07_v2/quantum-attempt-v1/records/ethanol-methanol-d3-r0--full-parent.json": "c1e34ea209bf4949c0f200859a75a35072ee5cf6e1750f8d7a9044a7259f0eed",
+    "fixtures/fragment_ligand/prepared-mm-v1/quantum-job-matrix.json": "4e8e9eac08cd9676022c122298e53f16041db7989c757e320a6b8dc065bf776a",
+    "docs/project-0/reference/G07-reference-execution-proposal-v1.md": "b6fc5371948e91797d4406b8b1ec86b9abbbb7739d6c9b4576071bd3a5a9270d",
+    "fixtures/fragment_ligand/descriptions-v1/manifest.json": "274990a53795cf25e9aede12014eabcc90d267aa8d5e9fdb59924a88a0063a95",
+    "Worker_Log/Milestone_03/evidence/G07_v1/fifty-description-single-points/ethanol-methanol-d3-r0--baseline.json": "778b4b10fbb2a448939d4f4faf7aab34f95a2436d9a1e95129903d7056c70b1a",
+    "Worker_Log/Milestone_03/evidence/G07_v1/fifty-description-single-points/ethanol-methanol-separated--baseline.json": "33ab08525b517a2f860aea488bc271932681b447b0f683475c53e60888f5bd53",
+    "Worker_Log/Milestone_03/evidence/G07_v1/fifty-description-single-points/ethanol-methanol-d3-r0--uncut.json": "d40aa5ea7d3b4f243375be525124b44bc8c90c1385d9dbb6d884b055c7aaa019",
+    "fixtures/fragment_ligand/descriptions-v1/ethanol-methanol-d3-r0--baseline.json": "fa2070023763c56bd89438221e6e5f35d6161acd5710fe4cc0e356379a5aec22"
+  },
+  "comparison_sha256": "becf5c2b0511343965b07c5e29988a7b4892fe00401d4cac0871d3d38143217a",
+  "comparison_script_sha256": "142f6500eb90e6e91842fc7911c9787294d266b7d3a74dc9db11bfea1ff40c9e",
+  "assessment_sha256": "8296da765bfb7444c5654a2b0a253a2a3c7d5c9898d6a5bcc96aae14627dc9b5",
+  "correction_receipt_sha256": "2b8ea63e59a1806bdec9af1c9867ab31de526d009c9a95f93c97c9984bef03ef",
+  "original_bytes_unchanged": true,
+  "correction_exact_original_derived": true,
+  "provenance_valid": true,
+  "admitted_count": 1,
+  "remaining_count": 29,
+  "worker_launches_before_and_after": 1,
+  "validation_only_attempts": 1,
+  "wall_seconds_debited": 2325.6446500519996,
+  "coordinator_only_addition": 0.0014274109998950735,
+  "remaining_wall_seconds": 84074.355349948,
+  "progress_sha256": "8e5fee37b95288137d9c6b5a7cefe1307a9435a2ef33d03be0f560d8c2f2c0c6",
+  "live_worker_groups": [],
+  "scratch_absent": true,
+  "prior_v3_audit_unchanged": true,
+  "independently_matched_array_max_differences": {
+    "full_qm": 2.220446049250313e-16,
+    "projected_cap_qm": 1.1102230246251565e-16,
+    "projected_mace": 6.938893903907228e-18,
+    "all_retained_mm": 0.0,
+    "model_error": 1.1102230246251565e-16,
+    "partition_error": 2.220446049250313e-16,
+    "hybrid_error": 2.220446049250313e-16
+  },
+  "cap_jacobian_fd_max_errors": {
+    "1e-05": 1.09211256704711e-09,
+    "1e-06": 2.352287808982112e-11,
+    "1e-07": 1.0185680077157144e-10
+  },
+  "cap_parents": [
+    "p5",
+    "p4"
+  ],
+  "cap_applied_once": true,
+  "full_real_force_rows": 32,
+  "mm_source": "exact frozen retained_mm_xml; OpenMM Reference double, no model forces",
+  "retained_mm_sha256": "b614825e113321efc0d1327fbee6cda86e074e2c516690ea3ff339f69f5e44e5",
+  "retained_mm_subtraction_max_difference_eV_angstrom": 1.4988010832439613e-15,
+  "retained_mm_force_groups": [
+    {
+      "class_name": "HarmonicBondForce",
+      "energy_kj_mol": 2.6840023312753716,
+      "maximum_atom_force_eV_angstrom": 0.9397195288163446
+    },
+    {
+      "class_name": "PeriodicTorsionForce",
+      "energy_kj_mol": 160.2941321069901,
+      "maximum_atom_force_eV_angstrom": 1.0587248769119206
+    },
+    {
+      "class_name": "NonbondedForce",
+      "energy_kj_mol": -117.73872086439752,
+      "maximum_atom_force_eV_angstrom": 3.4642258653363003
+    },
+    {
+      "class_name": "HarmonicAngleForce",
+      "energy_kj_mol": 5.696778438279526,
+      "maximum_atom_force_eV_angstrom": 0.7395824454300116
+    }
+  ],
+  "force_decomposition_max_residual_eV_angstrom": 2.7755575615628914e-17,
+  "unchanged_force_limits": {
+    "component_rms_eV_angstrom": 0.05,
+    "maximum_atom_vector_eV_angstrom": 0.15,
+    "net_ligand_vector_eV_angstrom": 0.05
+  },
+  "metrics": {
+    "projected_mace_minus_same_cap_qm": {
+      "component_rms_eV_angstrom": 0.012715052477122821,
+      "maximum_atom_vector_eV_angstrom": 0.0759817207836679,
+      "net_ligand_vector_eV_angstrom": 0.03418273562712539,
+      "within_each_existing_force_limit": {
+        "component_rms_eV_angstrom": true,
+        "maximum_atom_vector_eV_angstrom": true,
+        "net_ligand_vector_eV_angstrom": true
+      }
+    },
+    "capped_qm_plus_all_retained_mm_minus_full_qm": {
+      "component_rms_eV_angstrom": 0.39420922811516973,
+      "maximum_atom_vector_eV_angstrom": 2.054387704164463,
+      "net_ligand_vector_eV_angstrom": 0.017460852025955483,
+      "within_each_existing_force_limit": {
+        "component_rms_eV_angstrom": false,
+        "maximum_atom_vector_eV_angstrom": false,
+        "net_ligand_vector_eV_angstrom": true
+      }
+    },
+    "baseline_hybrid_minus_full_qm": {
+      "component_rms_eV_angstrom": 0.39512538711220185,
+      "maximum_atom_vector_eV_angstrom": 2.054387704164463,
+      "net_ligand_vector_eV_angstrom": 0.04619796516010624,
+      "within_each_existing_force_limit": {
+        "component_rms_eV_angstrom": false,
+        "maximum_atom_vector_eV_angstrom": false,
+        "net_ligand_vector_eV_angstrom": true
+      }
+    },
+    "full_mace_minus_full_qm": {
+      "component_rms_eV_angstrom": 0.04001272845802726,
+      "maximum_atom_vector_eV_angstrom": 0.17165675472372494,
+      "net_ligand_vector_eV_angstrom": 0.11473112247719594,
+      "within_each_existing_force_limit": {
+        "component_rms_eV_angstrom": true,
+        "maximum_atom_vector_eV_angstrom": false,
+        "net_ligand_vector_eV_angstrom": false
+      }
+    }
+  },
+  "maximum_error_atom_ids": {
+    "projected_mace_minus_same_cap_qm": "p6",
+    "capped_qm_plus_all_retained_mm_minus_full_qm": "p9",
+    "baseline_hybrid_minus_full_qm": "p9",
+    "full_mace_minus_full_qm": "p4"
+  },
+  "baseline_same_cap_contact_minus_separated_kcal_mol": {
+    "mace": -2.488598858074634,
+    "qm": -2.7537783700434604,
+    "error": 0.2651795119688263
+  },
+  "full_parent_separated_energy_reference_absent": true,
+  "orbital_spherical_counts": {
+    "H": 17,
+    "C": 37,
+    "N": 37,
+    "O": 40
+  },
+  "auxiliary_spherical_counts": {
+    "H": 18,
+    "C": 75,
+    "N": 77,
+    "O": 77
+  },
+  "pilot_basis_counts": {
+    "orbital": 836,
+    "auxiliary": 1386
+  },
+  "basis_jobs_checked": 30,
+  "projected_remaining_worker_seconds": 122992.52458401839,
+  "projected_remaining_hours": 34.164590162227334,
+  "projected_max_rss_bytes": 5189601468,
+  "projected_scratch_bytes": 17997534324,
+  "scratch_plus_reserve_bytes": 23366243444,
+  "assessment_free_disk_bytes": 19725025280,
+  "continue_authorized": false,
+  "false_flag_rejection": "measured pilot assessment identities or values differ",
+  "true_flag_rejection": "pilot projections exceed the remaining resource/budget envelope",
+  "no_heavy_model_or_qm_imports": true,
+  "actual_original_and_ledger_unchanged_by_auditor": true,
+  "verdict": "accepted_for_scope: actual admission, one-contact arithmetic and stop assessment; physical acceptance blocked"
+}

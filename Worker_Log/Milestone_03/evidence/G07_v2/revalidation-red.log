@@ -1,0 +1,104 @@
+EEEE                                                                     [100%]
+==================================== ERRORS ====================================
+_ ERROR at setup of test_revalidation_rejects_changed_original_evidence[receipt.json] _
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-16/test_revalidation_rejects_chan0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-16/test_revalidation_rejects_chan0/output'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0dc9077110>
+
+    @pytest.fixture
+    def rejected_converged_pilot(synthetic, monkeypatch):
+        import resume_joint_quantum as joint
+        from generate_neutral_quantum import digest
+        exe, output = synthetic
+        exe.write_text(exe.read_text().replace('SCF has converged.', 'Energy and wave function converged.'))
+        validator = joint.validate_joint_record
+        def previous_parser(*args):
+            raise ValueError('explicit SCF convergence is absent from the saved Psi4 log')
+        monkeypatch.setattr(joint, 'validate_joint_record', previous_parser)
+        assert run_fake(synthetic).returncode == 1
+        monkeypatch.setattr(joint, 'validate_joint_record', validator)
+        source = next(output.glob('jobs/*/attempt-*/receipt.json'))
+>       monkeypatch.setattr(joint, 'REJECTED_PILOT_RECEIPT_SHA256', digest(source))
+E       AttributeError: <module 'resume_joint_quantum' from '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'> has no attribute 'REJECTED_PILOT_RECEIPT_SHA256'
+
+tests/unit/test_joint_quantum_execution.py:259: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+_ ERROR at setup of test_revalidation_rejects_changed_original_evidence[record.json] _
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-16/test_revalidation_rejects_chan1/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-16/test_revalidation_rejects_chan1/output'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0dc913ff10>
+
+    @pytest.fixture
+    def rejected_converged_pilot(synthetic, monkeypatch):
+        import resume_joint_quantum as joint
+        from generate_neutral_quantum import digest
+        exe, output = synthetic
+        exe.write_text(exe.read_text().replace('SCF has converged.', 'Energy and wave function converged.'))
+        validator = joint.validate_joint_record
+        def previous_parser(*args):
+            raise ValueError('explicit SCF convergence is absent from the saved Psi4 log')
+        monkeypatch.setattr(joint, 'validate_joint_record', previous_parser)
+        assert run_fake(synthetic).returncode == 1
+        monkeypatch.setattr(joint, 'validate_joint_record', validator)
+        source = next(output.glob('jobs/*/attempt-*/receipt.json'))
+>       monkeypatch.setattr(joint, 'REJECTED_PILOT_RECEIPT_SHA256', digest(source))
+E       AttributeError: <module 'resume_joint_quantum' from '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'> has no attribute 'REJECTED_PILOT_RECEIPT_SHA256'
+
+tests/unit/test_joint_quantum_execution.py:259: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+_ ERROR at setup of test_revalidation_rejects_changed_original_evidence[record.psi4.txt] _
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-16/test_revalidation_rejects_chan2/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-16/test_revalidation_rejects_chan2/output'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0dbcd51310>
+
+    @pytest.fixture
+    def rejected_converged_pilot(synthetic, monkeypatch):
+        import resume_joint_quantum as joint
+        from generate_neutral_quantum import digest
+        exe, output = synthetic
+        exe.write_text(exe.read_text().replace('SCF has converged.', 'Energy and wave function converged.'))
+        validator = joint.validate_joint_record
+        def previous_parser(*args):
+            raise ValueError('explicit SCF convergence is absent from the saved Psi4 log')
+        monkeypatch.setattr(joint, 'validate_joint_record', previous_parser)
+        assert run_fake(synthetic).returncode == 1
+        monkeypatch.setattr(joint, 'validate_joint_record', validator)
+        source = next(output.glob('jobs/*/attempt-*/receipt.json'))
+>       monkeypatch.setattr(joint, 'REJECTED_PILOT_RECEIPT_SHA256', digest(source))
+E       AttributeError: <module 'resume_joint_quantum' from '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'> has no attribute 'REJECTED_PILOT_RECEIPT_SHA256'
+
+tests/unit/test_joint_quantum_execution.py:259: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+______ ERROR at setup of test_revalidation_respects_lease_and_live_worker ______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-16/test_revalidation_respects_lea0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-16/test_revalidation_respects_lea0/output'))
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0dbcd13810>
+
+    @pytest.fixture
+    def rejected_converged_pilot(synthetic, monkeypatch):
+        import resume_joint_quantum as joint
+        from generate_neutral_quantum import digest
+        exe, output = synthetic
+        exe.write_text(exe.read_text().replace('SCF has converged.', 'Energy and wave function converged.'))
+        validator = joint.validate_joint_record
+        def previous_parser(*args):
+            raise ValueError('explicit SCF convergence is absent from the saved Psi4 log')
+        monkeypatch.setattr(joint, 'validate_joint_record', previous_parser)
+        assert run_fake(synthetic).returncode == 1
+        monkeypatch.setattr(joint, 'validate_joint_record', validator)
+        source = next(output.glob('jobs/*/attempt-*/receipt.json'))
+>       monkeypatch.setattr(joint, 'REJECTED_PILOT_RECEIPT_SHA256', digest(source))
+E       AttributeError: <module 'resume_joint_quantum' from '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'> has no attribute 'REJECTED_PILOT_RECEIPT_SHA256'
+
+tests/unit/test_joint_quantum_execution.py:259: AttributeError
+---------------------------- Captured stdout setup -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+=========================== short test summary info ============================
+ERROR tests/unit/test_joint_quantum_execution.py::test_revalidation_rejects_changed_original_evidence[receipt.json]
+ERROR tests/unit/test_joint_quantum_execution.py::test_revalidation_rejects_changed_original_evidence[record.json]
+ERROR tests/unit/test_joint_quantum_execution.py::test_revalidation_rejects_changed_original_evidence[record.psi4.txt]
+ERROR tests/unit/test_joint_quantum_execution.py::test_revalidation_respects_lease_and_live_worker
+24 deselected, 4 errors in 4.29s

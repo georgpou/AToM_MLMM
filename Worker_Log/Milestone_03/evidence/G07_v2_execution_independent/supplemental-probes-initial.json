@@ -1,0 +1,46 @@
+{
+  "pilot_cumulative_ceiling": {
+    "seed_exit": 1,
+    "resume_exit": 1,
+    "prior_debit_seeded_seconds": 3600.5,
+    "final_debit": 3600.50283337,
+    "attempts_before": 1,
+    "attempts_after": 1,
+    "stop_reason": "pilot_budget_exhausted",
+    "no_extra_launch": true,
+    "command": [
+      "/workspace/atom-mlmm-g07/env/bin/python",
+      "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/reviewed-source-initial/tools/resume_joint_quantum.py",
+      "--plan-root",
+      "/workspace/AToM_MLMM/fixtures/chemical_reference_v3",
+      "--approval",
+      "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-initial/pilot-cumulative-ceiling/authorization.json",
+      "--matrix",
+      "/workspace/AToM_MLMM/fixtures/fragment_ligand/prepared-mm-v1/quantum-job-matrix.json",
+      "--output",
+      "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-initial/pilot-cumulative-ceiling/output",
+      "--reference-python",
+      "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-initial/synthetic-reference/bin/python"
+    ],
+    "stderr": ""
+  },
+  "matrix_tamper_even_rebound_hash": {
+    "exit": 2,
+    "stderr": "G07 execution rejected: matrix differs from the exact frozen scientific queue\n",
+    "output_exists": false,
+    "command": [
+      "/workspace/atom-mlmm-g07/env/bin/python",
+      "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/reviewed-source-initial/tools/resume_joint_quantum.py",
+      "--plan-root",
+      "/workspace/AToM_MLMM/fixtures/chemical_reference_v3",
+      "--approval",
+      "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-initial/independent-matrix-tamper/authorization.json",
+      "--matrix",
+      "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-initial/independent-matrix-tamper/matrix.json",
+      "--output",
+      "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-initial/independent-matrix-tamper/output",
+      "--check-resume"
+    ]
+  },
+  "system_swap_configuration": "Filename\t\t\t\tType\t\tSize\t\tUsed\t\tPriority\n"
+}

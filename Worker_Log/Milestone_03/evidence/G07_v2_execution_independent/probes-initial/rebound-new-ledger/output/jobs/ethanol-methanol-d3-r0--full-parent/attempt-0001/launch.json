@@ -1,0 +1,10 @@
+{
+  "command": [
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-initial/synthetic-reference/bin/python",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/reviewed-source-initial/tools/generate_neutral_quantum.py",
+    "--worker",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-initial/rebound-new-ledger/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/order.json"
+  ],
+  "coordinator_pid": 12748,
+  "coordinator_start_ticks": "125842"
+}

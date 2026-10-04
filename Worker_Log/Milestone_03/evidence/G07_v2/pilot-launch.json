@@ -1,0 +1,20 @@
+{
+  "started_utc": "2026-10-04T10:26:00.369068+00:00",
+  "source_commit": "4e2cb06b0e5e0b3b081e379969428ec93a807866",
+  "command_spec_sha256": "e60ea58eb69ae273d9a16704b1fddcc2151dec8e09e6ddbb3420d9723e8d3ec4",
+  "execution_audit_path": "Worker_Log/Milestone_03/Gate_07_v2_audit.md",
+  "execution_audit_sha256": "79e9725654cdd5d8b3c315ddbee07f773121285f2ab9f0583ce511d3a758f9e8",
+  "progress_identity": {
+    "approval_sha256": "fb20e06a6179df03ef6ced63cc09a4d1bdc74e024fc08cb5c5e301bd1079d216",
+    "input_manifest_sha256": "96d1afb9f7966d2b854f1ddbf6e68b7662be4a00819e7dd72846838c06939f13",
+    "reference_settings_sha256": "483461026da33db22fe9e980840185a6fd9193593f4f96352105f02de30c511f",
+    "history": {}
+  },
+  "active_worker_at_launch": {
+    "pid": 23384,
+    "start_ticks": "218739",
+    "name": "ethanol-methanol-d3-r0--full-parent",
+    "attempt": "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2/quantum-attempt-v1/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001",
+    "guarded": true
+  }
+}

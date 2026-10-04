@@ -1,0 +1,25 @@
+#!/workspace/atom-mlmm-g07/env/bin/python
+
+import json, os, signal, sys, time
+from pathlib import Path
+order = json.loads(Path(sys.argv[-1]).read_text())
+geometry = order['structure']; record = Path(order['output'])
+mode = os.environ.get('G07_INDEPENDENT_MODE', '')
+if mode == 'stubborn':
+    signal.signal(signal.SIGTERM, signal.SIG_IGN)
+    Path(os.environ['G07_INDEPENDENT_STARTED']).write_text(str(os.getpid()))
+    time.sleep(25)
+elif mode == 'wait':
+    time.sleep(25)
+data = dict(status='computed', name=order['job_name'], source_input_sha256=order['source_input_sha256'],
+    method='wb97m-d3bj/def2-tzvppd', psi4_version='1.10.2', formal_charge=0, multiplicity=1,
+    positions_angstrom=geometry['positions_angstrom'], atomic_numbers=geometry['atomic_numbers'],
+    energy_hartree=-1., gradient_hartree_bohr=[[0.,0.,0.] for _ in geometry['atomic_numbers']],
+    quantum_energy_variables={'DISPERSION CORRECTION ENERGY':-.001,'DFT VV10 ENERGY':0.},
+    basis_file_sha256=order['basis_file_sha256'], settings=order['settings'], network_denied=True,
+    wall_seconds=.001, threads=2, memory=order['runtime_memory'])
+record.write_text(json.dumps(data))
+if mode != 'no_log':
+    record.with_suffix('.psi4.txt').write_text('SCF has converged.\n' if mode != 'no_convergence' else 'SCF iteration incomplete.\n')
+if mode == 'computed_fail':
+    sys.exit(23)

@@ -1,0 +1,7 @@
+{
+  "command": "Read-only validate_assessment with exact measured identities and continue_authorized=True; no run/worker.",
+  "rejected": true,
+  "reason": "pilot projections exceed the remaining resource/budget envelope",
+  "unchanged_progress_sha256": "8e5fee37b95288137d9c6b5a7cefe1307a9435a2ef33d03be0f560d8c2f2c0c6",
+  "unchanged_original_receipt_sha256": "b42dd4aff42a8e5e52f3ab00a0e857dd58d8de6bdcc1a819becbce5f885a5f1f"
+}

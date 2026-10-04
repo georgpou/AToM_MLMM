@@ -1,0 +1,34 @@
+{
+  "utc": "2026-10-04T12:44:28.482344+00:00",
+  "execution_source_commit": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+  "reviewed_artifact_sha256": {
+    "actual-revalidation-result.json": "668254d3c95d563bbd98434672ad14ba268020fa6b7607dbf695e444a6d93d5c",
+    "pilot-force-comparison.json": "becf5c2b0511343965b07c5e29988a7b4892fe00401d4cac0871d3d38143217a",
+    "compare_pilot_forces.py": "142f6500eb90e6e91842fc7911c9787294d266b7d3a74dc9db11bfea1ff40c9e",
+    "pilot-assessment.json": "8296da765bfb7444c5654a2b0a253a2a3c7d5c9898d6a5bcc96aae14627dc9b5",
+    "basis-and-auxiliary-size-screen.json": "ccfdb7fa742f82468396fc733b5aeb0e23b80c30b18129323431403ef75ed045"
+  },
+  "reviewed_source_files_match_v3": {
+    "tools/resume_joint_quantum.py": true,
+    "tests/unit/test_joint_quantum_execution.py": true,
+    "tools/resume_neutral_quantum.py": true,
+    "tools/quantum_worker_guard.py": true,
+    "tools/generate_neutral_quantum.py": true,
+    "Worker_Log/Milestone_03/evidence/G07_v2/authorization.json": true
+  },
+  "actual_job_directories": 1,
+  "actual_full_parent_records": 1,
+  "full_parent_separated_absent": true,
+  "accepted_G05_count": 46,
+  "accepted_G05_exact_base_bytes": true,
+  "original_hashes_preserved": true,
+  "actual_progress_sha256": "8e5fee37b95288137d9c6b5a7cefe1307a9435a2ef33d03be0f560d8c2f2c0c6",
+  "v3_audit_sha256": "102f678257013779989ca400a4a1fb42645f55e154af685e319ff81894b15ff5",
+  "independent_command": "python Worker_Log/Milestone_03/evidence/G07_v2_pilot_partial_independent/verify_partial_pilot.py",
+  "independent_command_exit": 0,
+  "independent_arithmetic_and_XML_checks": "passed",
+  "audit_path": "Worker_Log/Milestone_03/Gate_07_v4_audit.md",
+  "audit_sha256": "8e937fde5ad0bab7b9e160ac6609fcabc36af504a6e23c1f796c9a0eef2f6dce",
+  "audit_finished_utc": "2026-10-04T12:45:09.100989+00:00",
+  "verdict": "accepted_for_scope: partial evidence and stop decision; G07-T4/M03/continuation blocked"
+}

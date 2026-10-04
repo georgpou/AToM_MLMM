@@ -1,0 +1,16 @@
+{
+  "name": "two",
+  "elements": [
+    "H"
+  ],
+  "atomic_numbers": [
+    1
+  ],
+  "positions_angstrom": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ]
+  ]
+}

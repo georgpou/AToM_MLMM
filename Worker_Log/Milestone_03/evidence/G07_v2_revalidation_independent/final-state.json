@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-04T12:27:09.606005+00:00",
+  "reviewer_model": "gpt-6.1-sol",
+  "reasoning_effort": "max",
+  "source_commit": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+  "source_parent": "daa1efa345e1ac2a756f1ff0442389eae862a0d6",
+  "branch": "m03-g06-g07",
+  "files": {
+    "tools/resume_joint_quantum.py": {
+      "expected": "67372fbe9c8083aebfa77886240608fcadacba930a1d7c643d6ae9f11938f61f",
+      "working": "67372fbe9c8083aebfa77886240608fcadacba930a1d7c643d6ae9f11938f61f",
+      "committed": "67372fbe9c8083aebfa77886240608fcadacba930a1d7c643d6ae9f11938f61f"
+    },
+    "tests/unit/test_joint_quantum_execution.py": {
+      "expected": "094d71ada6f3382b9f3b872088a242526c8f903ffd4123c11a6f04aba9287f30",
+      "working": "094d71ada6f3382b9f3b872088a242526c8f903ffd4123c11a6f04aba9287f30",
+      "committed": "094d71ada6f3382b9f3b872088a242526c8f903ffd4123c11a6f04aba9287f30"
+    },
+    "tools/resume_neutral_quantum.py": {
+      "expected": "d7fd518d9663c60399e101c94c518f8f13b03625cff41e34546b96bfeae1e63d",
+      "working": "d7fd518d9663c60399e101c94c518f8f13b03625cff41e34546b96bfeae1e63d",
+      "committed": "d7fd518d9663c60399e101c94c518f8f13b03625cff41e34546b96bfeae1e63d"
+    },
+    "tools/quantum_worker_guard.py": {
+      "expected": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030",
+      "working": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030",
+      "committed": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030"
+    },
+    "tools/generate_neutral_quantum.py": {
+      "expected": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff",
+      "working": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff",
+      "committed": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff"
+    },
+    "Worker_Log/Milestone_03/evidence/G07_v2/authorization.json": {
+      "expected": "fb20e06a6179df03ef6ced63cc09a4d1bdc74e024fc08cb5c5e301bd1079d216",
+      "working": "fb20e06a6179df03ef6ced63cc09a4d1bdc74e024fc08cb5c5e301bd1079d216",
+      "committed": "fb20e06a6179df03ef6ced63cc09a4d1bdc74e024fc08cb5c5e301bd1079d216"
+    }
+  },
+  "all_six_source_hashes_match": true,
+  "actual_original_hashes_unchanged": true,
+  "actual_progress_hash_unchanged": true,
+  "actual_correction_absent": true,
+  "actual_admitted_count": 0,
+  "independent_focused_tests_passed": 35,
+  "independent_probe_named_checks": 42,
+  "independent_rename_resume_paths": 2,
+  "audit_sha256": "102f678257013779989ca400a4a1fb42645f55e154af685e319ff81894b15ff5",
+  "audit_path": "Worker_Log/Milestone_03/Gate_07_v3_audit.md",
+  "verdict": "accepted_for_scope: validation-only correction/admission; no QM or continuation",
+  "audit_finished_utc": "2026-10-04T12:29:53.067202+00:00",
+  "local_documentation_errors": 0
+}

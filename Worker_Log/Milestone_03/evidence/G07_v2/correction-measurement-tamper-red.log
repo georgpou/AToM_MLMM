@@ -1,0 +1,124 @@
+FFFF                                                                     [100%]
+=================================== FAILURES ===================================
+_ test_correction_cannot_change_original_measurements_before_admission[wall_seconds] _
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-19/test_correction_cannot_change_0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-19/test_correction_cannot_change_0/output'))
+rejected_converged_pilot = PosixPath('/tmp/pytest-of-agent/pytest-19/test_correction_cannot_change_0/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/receipt.json')
+entry = 'wall_seconds'
+
+    @pytest.mark.parametrize('entry', ['wall_seconds', 'resources', 'correction', 'original_copy'])
+    def test_correction_cannot_change_original_measurements_before_admission(
+            synthetic, rejected_converged_pilot, entry):
+        receipt_path = revalidate_fake(synthetic)
+        receipt = json.loads(receipt_path.read_text())
+        if entry == 'wall_seconds':receipt['wall_seconds'] = .00001
+        elif entry == 'resources':receipt['sampled_rss_peak_bytes'] = 0
+        else:
+            from generate_neutral_quantum import digest
+            name = 'revalidation.json' if entry == 'correction' else 'original-receipt.json'
+            path = receipt_path.with_name(name)
+            data = json.loads(path.read_text())
+            if entry == 'correction':data['copied_file_sha256'] = {}
+            else:data['wall_seconds'] = .00001
+            path.write_text(json.dumps(data))
+            receipt['diagnostic_sha256'][name] = digest(path)
+        receipt_path.write_text(json.dumps(receipt))
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/unit/test_joint_quantum_execution.py:332: Failed
+---------------------------- Captured stdout setup -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+_ test_correction_cannot_change_original_measurements_before_admission[resources] _
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-19/test_correction_cannot_change_1/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-19/test_correction_cannot_change_1/output'))
+rejected_converged_pilot = PosixPath('/tmp/pytest-of-agent/pytest-19/test_correction_cannot_change_1/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/receipt.json')
+entry = 'resources'
+
+    @pytest.mark.parametrize('entry', ['wall_seconds', 'resources', 'correction', 'original_copy'])
+    def test_correction_cannot_change_original_measurements_before_admission(
+            synthetic, rejected_converged_pilot, entry):
+        receipt_path = revalidate_fake(synthetic)
+        receipt = json.loads(receipt_path.read_text())
+        if entry == 'wall_seconds':receipt['wall_seconds'] = .00001
+        elif entry == 'resources':receipt['sampled_rss_peak_bytes'] = 0
+        else:
+            from generate_neutral_quantum import digest
+            name = 'revalidation.json' if entry == 'correction' else 'original-receipt.json'
+            path = receipt_path.with_name(name)
+            data = json.loads(path.read_text())
+            if entry == 'correction':data['copied_file_sha256'] = {}
+            else:data['wall_seconds'] = .00001
+            path.write_text(json.dumps(data))
+            receipt['diagnostic_sha256'][name] = digest(path)
+        receipt_path.write_text(json.dumps(receipt))
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/unit/test_joint_quantum_execution.py:332: Failed
+---------------------------- Captured stdout setup -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+_ test_correction_cannot_change_original_measurements_before_admission[correction] _
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-19/test_correction_cannot_change_2/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-19/test_correction_cannot_change_2/output'))
+rejected_converged_pilot = PosixPath('/tmp/pytest-of-agent/pytest-19/test_correction_cannot_change_2/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/receipt.json')
+entry = 'correction'
+
+    @pytest.mark.parametrize('entry', ['wall_seconds', 'resources', 'correction', 'original_copy'])
+    def test_correction_cannot_change_original_measurements_before_admission(
+            synthetic, rejected_converged_pilot, entry):
+        receipt_path = revalidate_fake(synthetic)
+        receipt = json.loads(receipt_path.read_text())
+        if entry == 'wall_seconds':receipt['wall_seconds'] = .00001
+        elif entry == 'resources':receipt['sampled_rss_peak_bytes'] = 0
+        else:
+            from generate_neutral_quantum import digest
+            name = 'revalidation.json' if entry == 'correction' else 'original-receipt.json'
+            path = receipt_path.with_name(name)
+            data = json.loads(path.read_text())
+            if entry == 'correction':data['copied_file_sha256'] = {}
+            else:data['wall_seconds'] = .00001
+            path.write_text(json.dumps(data))
+            receipt['diagnostic_sha256'][name] = digest(path)
+        receipt_path.write_text(json.dumps(receipt))
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/unit/test_joint_quantum_execution.py:332: Failed
+---------------------------- Captured stdout setup -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+_ test_correction_cannot_change_original_measurements_before_admission[original_copy] _
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-19/test_correction_cannot_change_3/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-19/test_correction_cannot_change_3/output'))
+rejected_converged_pilot = PosixPath('/tmp/pytest-of-agent/pytest-19/test_correction_cannot_change_3/output/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0001/receipt.json')
+entry = 'original_copy'
+
+    @pytest.mark.parametrize('entry', ['wall_seconds', 'resources', 'correction', 'original_copy'])
+    def test_correction_cannot_change_original_measurements_before_admission(
+            synthetic, rejected_converged_pilot, entry):
+        receipt_path = revalidate_fake(synthetic)
+        receipt = json.loads(receipt_path.read_text())
+        if entry == 'wall_seconds':receipt['wall_seconds'] = .00001
+        elif entry == 'resources':receipt['sampled_rss_peak_bytes'] = 0
+        else:
+            from generate_neutral_quantum import digest
+            name = 'revalidation.json' if entry == 'correction' else 'original-receipt.json'
+            path = receipt_path.with_name(name)
+            data = json.loads(path.read_text())
+            if entry == 'correction':data['copied_file_sha256'] = {}
+            else:data['wall_seconds'] = .00001
+            path.write_text(json.dumps(data))
+            receipt['diagnostic_sha256'][name] = digest(path)
+        receipt_path.write_text(json.dumps(receipt))
+>       with pytest.raises(ValueError):
+E       Failed: DID NOT RAISE ValueError
+
+tests/unit/test_joint_quantum_execution.py:332: Failed
+---------------------------- Captured stdout setup -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+=========================== short test summary info ============================
+FAILED tests/unit/test_joint_quantum_execution.py::test_correction_cannot_change_original_measurements_before_admission[wall_seconds]
+FAILED tests/unit/test_joint_quantum_execution.py::test_correction_cannot_change_original_measurements_before_admission[resources]
+FAILED tests/unit/test_joint_quantum_execution.py::test_correction_cannot_change_original_measurements_before_admission[correction]
+FAILED tests/unit/test_joint_quantum_execution.py::test_correction_cannot_change_original_measurements_before_admission[original_copy]
+4 failed, 28 deselected in 4.40s

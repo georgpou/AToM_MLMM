@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-04T10:17:51.044844+00:00",
+  "branch": "m03-g06-g07",
+  "head": "34388d2b70d8fc032238cbf0dfa28e3290cc14e8",
+  "expected_base": "34388d2b70d8fc032238cbf0dfa28e3290cc14e8",
+  "files": {
+    "tools/resume_joint_quantum.py": {
+      "expected": "26440a94b4d8c27c541ad8a82cd3e7766bbff277c2919fe2d4b3b2a70dcfaaf8",
+      "observed": "26440a94b4d8c27c541ad8a82cd3e7766bbff277c2919fe2d4b3b2a70dcfaaf8",
+      "matches": true
+    },
+    "tools/resume_neutral_quantum.py": {
+      "expected": "d7fd518d9663c60399e101c94c518f8f13b03625cff41e34546b96bfeae1e63d",
+      "observed": "d7fd518d9663c60399e101c94c518f8f13b03625cff41e34546b96bfeae1e63d",
+      "matches": true
+    },
+    "tools/quantum_worker_guard.py": {
+      "expected": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030",
+      "observed": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030",
+      "matches": true
+    },
+    "tools/generate_neutral_quantum.py": {
+      "expected": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff",
+      "observed": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff",
+      "matches": true
+    },
+    "tests/unit/test_joint_quantum_execution.py": {
+      "expected": "808a42cc7b1e50caa382d5468f8d3cd80ea371319d8f267cec46bb1f44b9955a",
+      "observed": "808a42cc7b1e50caa382d5468f8d3cd80ea371319d8f267cec46bb1f44b9955a",
+      "matches": true
+    },
+    "Worker_Log/Milestone_03/evidence/G07_v2/authorization.json": {
+      "expected": "fb20e06a6179df03ef6ced63cc09a4d1bdc74e024fc08cb5c5e301bd1079d216",
+      "observed": "fb20e06a6179df03ef6ced63cc09a4d1bdc74e024fc08cb5c5e301bd1079d216",
+      "matches": true
+    }
+  },
+  "all_match": true,
+  "unchanged_guard_generator": true
+}

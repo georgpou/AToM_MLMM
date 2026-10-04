@@ -1,0 +1,21 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________ test_actual_psi4_1102_convergence_message_is_admitted _____________
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-14/test_actual_psi4_1102_converge0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-14/test_actual_psi4_1102_converge0/output'))
+
+    def test_actual_psi4_1102_convergence_message_is_admitted(synthetic):
+        exe = synthetic[0]
+        exe.write_text(exe.read_text().replace('SCF has converged.', 'Energy and wave function converged.'))
+        assert run_fake(synthetic).returncode == 1
+        state = json.loads((synthetic[1]/'progress.json').read_text())
+>       assert len(state['record_hashes']) == 1
+E       assert 0 == 1
+E        +  where 0 = len({})
+
+tests/unit/test_joint_quantum_execution.py:243: AssertionError
+----------------------------- Captured stdout call -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+=========================== short test summary info ============================
+FAILED tests/unit/test_joint_quantum_execution.py::test_actual_psi4_1102_convergence_message_is_admitted
+1 failed in 1.20s

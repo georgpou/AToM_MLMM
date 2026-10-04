@@ -1,0 +1,198 @@
+{
+  "utc": "2026-10-04T10:13:24.392578+00:00",
+  "accepted_records": 46,
+  "all_record_hashes_match": true,
+  "records": {
+    "records/acetamide--20.json": {
+      "expected": "c4bbc12e66c98e63d7736762162b0845d1c8092575159edbd26fea44175b9758",
+      "observed": "c4bbc12e66c98e63d7736762162b0845d1c8092575159edbd26fea44175b9758"
+    },
+    "records/acetamide-0.json": {
+      "expected": "39b4ca855c763906e7719ada576897f49c9761af9a4b281f5338fc36f1e49804",
+      "observed": "39b4ca855c763906e7719ada576897f49c9761af9a4b281f5338fc36f1e49804"
+    },
+    "records/acetamide-20.json": {
+      "expected": "cd8ba6da7f4523cf6bfd2ebbd92b27e3c11eae18024979fb7da36fec5a8487fb",
+      "observed": "cd8ba6da7f4523cf6bfd2ebbd92b27e3c11eae18024979fb7da36fec5a8487fb"
+    },
+    "records/butane--60.json": {
+      "expected": "a2fd934b5449b02a79da7dcdb1d1e839f6fe034d5cff466143f9a1c764cf9052",
+      "observed": "a2fd934b5449b02a79da7dcdb1d1e839f6fe034d5cff466143f9a1c764cf9052"
+    },
+    "records/butane-120.json": {
+      "expected": "c767441b2f64cf0a3fcd866e366b0babca57cb2b0ae5e0926cf9eb73c495e91a",
+      "observed": "c767441b2f64cf0a3fcd866e366b0babca57cb2b0ae5e0926cf9eb73c495e91a"
+    },
+    "records/butane-180.json": {
+      "expected": "b5145fbe5a4f3f5181ba6baa41a8ffc24926cd957ad11875440e23497aa2403b",
+      "observed": "b5145fbe5a4f3f5181ba6baa41a8ffc24926cd957ad11875440e23497aa2403b"
+    },
+    "records/butane-60.json": {
+      "expected": "f502f4e81fc4ab286d9bcbeb318670f87e3b016e7762f70f99ac787347a44fc4",
+      "observed": "f502f4e81fc4ab286d9bcbeb318670f87e3b016e7762f70f99ac787347a44fc4"
+    },
+    "records/butane-acetamide-d3.4-r0.json": {
+      "expected": "4eb702e194785a2ff5dfc5a7cac2cd26ddcfe13531f0a9b7e61016d8138a91e9",
+      "observed": "4eb702e194785a2ff5dfc5a7cac2cd26ddcfe13531f0a9b7e61016d8138a91e9"
+    },
+    "records/butane-acetamide-d3.8-r0.json": {
+      "expected": "f75a3beb7a6b353273cd0e1924a8e3bd313ed2508add9eb40ef4646806bec8b5",
+      "observed": "f75a3beb7a6b353273cd0e1924a8e3bd313ed2508add9eb40ef4646806bec8b5"
+    },
+    "records/butane-acetamide-d3.8-r60.json": {
+      "expected": "90233a8a1b4f338ca7508fd2975be6fb56a8f71525b16f611411aa0ffa750254",
+      "observed": "90233a8a1b4f338ca7508fd2975be6fb56a8f71525b16f611411aa0ffa750254"
+    },
+    "records/butane-acetamide-d4.5-r0.json": {
+      "expected": "2c766f5e6c3094d25dd25b8c515b6aa175c627f46a32681eada3424c9c039640",
+      "observed": "2c766f5e6c3094d25dd25b8c515b6aa175c627f46a32681eada3424c9c039640"
+    },
+    "records/butane-acetamide-separated.json": {
+      "expected": "cb0985bb90e26586e6eda8358aeeedf395c64c38564e990fe9341522a089ee79",
+      "observed": "cb0985bb90e26586e6eda8358aeeedf395c64c38564e990fe9341522a089ee79"
+    },
+    "records/butane-methanol-d3.4-r0.json": {
+      "expected": "ac615cd16b324be1f0aacd2b83abe891fda967d93ce200188ddd1003ec936150",
+      "observed": "ac615cd16b324be1f0aacd2b83abe891fda967d93ce200188ddd1003ec936150"
+    },
+    "records/butane-methanol-d3.8-r0.json": {
+      "expected": "8eed760ec83a7c9c759ee6697a52a8e2a5b111dedba0abfc52e4ebb8fef5b1f2",
+      "observed": "8eed760ec83a7c9c759ee6697a52a8e2a5b111dedba0abfc52e4ebb8fef5b1f2"
+    },
+    "records/butane-methanol-d3.8-r60.json": {
+      "expected": "266f88621b9468d7b12846c1a11472337a64bcce1659fcd624da8a248d9a96b4",
+      "observed": "266f88621b9468d7b12846c1a11472337a64bcce1659fcd624da8a248d9a96b4"
+    },
+    "records/butane-methanol-d4.5-r0.json": {
+      "expected": "75366662100f7534d813a4c090501f9c1bacb7219bfd9a61b9b79ffce871b517",
+      "observed": "75366662100f7534d813a4c090501f9c1bacb7219bfd9a61b9b79ffce871b517"
+    },
+    "records/butane-methanol-separated.json": {
+      "expected": "12bce7b67be2fb408217cb38a3aab2ba639b94d413dc1d80552b163b9be3cd69",
+      "observed": "12bce7b67be2fb408217cb38a3aab2ba639b94d413dc1d80552b163b9be3cd69"
+    },
+    "records/ethanol--60.json": {
+      "expected": "fe39a0e85d06a163908a017b8a7e4616513d3a54503b8e2c3590f23c7fc5a8e8",
+      "observed": "fe39a0e85d06a163908a017b8a7e4616513d3a54503b8e2c3590f23c7fc5a8e8"
+    },
+    "records/ethanol-120.json": {
+      "expected": "0f787da1bf9e7ae0051597c86803a7209fb2211f336e7e490add2a9a5adc925b",
+      "observed": "0f787da1bf9e7ae0051597c86803a7209fb2211f336e7e490add2a9a5adc925b"
+    },
+    "records/ethanol-180.json": {
+      "expected": "52c25f41757b4588682583e07ac2ebdbb4778d4c66348fb2cbf0466ed517f5d4",
+      "observed": "52c25f41757b4588682583e07ac2ebdbb4778d4c66348fb2cbf0466ed517f5d4"
+    },
+    "records/ethanol-60.json": {
+      "expected": "ba99fdae920ff38e8fd9cc0d39b144a3ad15d9083f81a945abba924385a67eee",
+      "observed": "ba99fdae920ff38e8fd9cc0d39b144a3ad15d9083f81a945abba924385a67eee"
+    },
+    "records/ethanol-acetamide-d2.6-r0.json": {
+      "expected": "a88f1cdbdb47634e11f90c27475b5f3cb779b136914dc8c030da27f81771554f",
+      "observed": "a88f1cdbdb47634e11f90c27475b5f3cb779b136914dc8c030da27f81771554f"
+    },
+    "records/ethanol-acetamide-d3-r0.json": {
+      "expected": "e92a102b7e41c8f2ada86f6dbb31aab4484099f482217f761562b24dd5b01c5a",
+      "observed": "e92a102b7e41c8f2ada86f6dbb31aab4484099f482217f761562b24dd5b01c5a"
+    },
+    "records/ethanol-acetamide-d3-r60.json": {
+      "expected": "d0e7e71f85c13e3343d253c194b8c0a5b5ad626aef26f623e434d44794d4dab8",
+      "observed": "d0e7e71f85c13e3343d253c194b8c0a5b5ad626aef26f623e434d44794d4dab8"
+    },
+    "records/ethanol-acetamide-d3.5-r0.json": {
+      "expected": "1fe003e81c6cec73b40c40db3f5045c94b143939e680df234b9e16dac899a4bd",
+      "observed": "1fe003e81c6cec73b40c40db3f5045c94b143939e680df234b9e16dac899a4bd"
+    },
+    "records/ethanol-acetamide-separated.json": {
+      "expected": "6a5733d89f9777bd45e5c67ce76938a17f8f02bfdb8205ea69daaa40b0aafcd6",
+      "observed": "6a5733d89f9777bd45e5c67ce76938a17f8f02bfdb8205ea69daaa40b0aafcd6"
+    },
+    "records/ethanol-methanol-d2.6-r0.json": {
+      "expected": "b4249b2ebf855e95778edc212d3bb5507e6673bc9758f30ac6cc7d5424837ab5",
+      "observed": "b4249b2ebf855e95778edc212d3bb5507e6673bc9758f30ac6cc7d5424837ab5"
+    },
+    "records/ethanol-methanol-d3-r0.json": {
+      "expected": "ae421d5119c54ca6827c27b3b87a07a3cdbb2b0acf8d046f7c260dd9c37c9214",
+      "observed": "ae421d5119c54ca6827c27b3b87a07a3cdbb2b0acf8d046f7c260dd9c37c9214"
+    },
+    "records/ethanol-methanol-d3-r60.json": {
+      "expected": "d03acc072655fba3e397e41fb933c151c9e891b6810e25d18f809db614bfbbe0",
+      "observed": "d03acc072655fba3e397e41fb933c151c9e891b6810e25d18f809db614bfbbe0"
+    },
+    "records/ethanol-methanol-d3.5-r0.json": {
+      "expected": "c295021c5c86e6d965bd47775b99b5c306a24533f8d0dfe52fdf70270a386cdf",
+      "observed": "c295021c5c86e6d965bd47775b99b5c306a24533f8d0dfe52fdf70270a386cdf"
+    },
+    "records/ethanol-methanol-separated.json": {
+      "expected": "5d2c414f05b636954b7ec63a88f51c9df4bc52fe633744d1a34d2ab424f2fead",
+      "observed": "5d2c414f05b636954b7ec63a88f51c9df4bc52fe633744d1a34d2ab424f2fead"
+    },
+    "records/methanol-baseline.json": {
+      "expected": "48b263f2f5480dcf3a2037393fb6a163c0b69b7df3d036b2426be2d766e60b8f",
+      "observed": "48b263f2f5480dcf3a2037393fb6a163c0b69b7df3d036b2426be2d766e60b8f"
+    },
+    "records/methanol-oh60.json": {
+      "expected": "d5098504f58776dbdac837b67b51d308ca75affaa0cd6cdf593c9c784b2f00e1",
+      "observed": "d5098504f58776dbdac837b67b51d308ca75affaa0cd6cdf593c9c784b2f00e1"
+    },
+    "records/methanol-stretch003.json": {
+      "expected": "4d076cbf7bd0d989d496ca0dd74be806cf7b59afa3e9cc8d5b215e47d2d1abf0",
+      "observed": "4d076cbf7bd0d989d496ca0dd74be806cf7b59afa3e9cc8d5b215e47d2d1abf0"
+    },
+    "records/acetamide-0-rotation-0.json": {
+      "expected": "2434aced571bf0ac8a2cc739f9731c0b32b54790deb817bc0f1dc98449a8681c",
+      "observed": "2434aced571bf0ac8a2cc739f9731c0b32b54790deb817bc0f1dc98449a8681c"
+    },
+    "records/acetamide-0-rotation-1.json": {
+      "expected": "297076bab4146567c20759832837ff62ade0e5082b4ae4b54b53b44480587088",
+      "observed": "297076bab4146567c20759832837ff62ade0e5082b4ae4b54b53b44480587088"
+    },
+    "records/acetamide-0-rotation-2.json": {
+      "expected": "9dd288c9f7545fd57bfe1529282af63581f08a717af05dd58d4c95499e62b66f",
+      "observed": "9dd288c9f7545fd57bfe1529282af63581f08a717af05dd58d4c95499e62b66f"
+    },
+    "records/acetamide-0-rotation-3.json": {
+      "expected": "2f235f4546b72266d4c25560cee6998615eb329f4248902da0b0761252b57f7b",
+      "observed": "2f235f4546b72266d4c25560cee6998615eb329f4248902da0b0761252b57f7b"
+    },
+    "records/butane-180-rotation-0.json": {
+      "expected": "b43dd2de8968427387a2346de570a90498bd413e224aa395b29618f4a0547a0a",
+      "observed": "b43dd2de8968427387a2346de570a90498bd413e224aa395b29618f4a0547a0a"
+    },
+    "records/ethanol-180-rotation-0.json": {
+      "expected": "6af05a8c418ffdc934d70dfef0a2a24bc2c61865f7bb10f038750797ebecf7ca",
+      "observed": "6af05a8c418ffdc934d70dfef0a2a24bc2c61865f7bb10f038750797ebecf7ca"
+    },
+    "records/methanol-baseline-rotation-0.json": {
+      "expected": "67ab65b4536cccbcece9550225bcb4ec183258cd680ccf4aec9ae56fc6edf6a0",
+      "observed": "67ab65b4536cccbcece9550225bcb4ec183258cd680ccf4aec9ae56fc6edf6a0"
+    },
+    "records/methanol-baseline-rotation-1.json": {
+      "expected": "f26cb271e623e7399d3814315730b654395afafefea07d4ee46531d3ebe777e8",
+      "observed": "f26cb271e623e7399d3814315730b654395afafefea07d4ee46531d3ebe777e8"
+    },
+    "records/methanol-baseline-rotation-2.json": {
+      "expected": "8d95bfbc286dbd2c106156a5f4bb2957d5a501d75ba58b3ba46d62e50929ef1f",
+      "observed": "8d95bfbc286dbd2c106156a5f4bb2957d5a501d75ba58b3ba46d62e50929ef1f"
+    },
+    "records/methanol-baseline-rotation-3.json": {
+      "expected": "830b64fe6cb35560357333dd291efe2c5eda21745de148e6a43fa499a227e1c9",
+      "observed": "830b64fe6cb35560357333dd291efe2c5eda21745de148e6a43fa499a227e1c9"
+    },
+    "records/acetamide-0-fine-grid.json": {
+      "expected": "9ef4e2f586a112c71e8482c0c55bc6e97bb9e2079030f3e255ec04f269abcce0",
+      "observed": "9ef4e2f586a112c71e8482c0c55bc6e97bb9e2079030f3e255ec04f269abcce0"
+    },
+    "records/ethanol-acetamide-d3-r0-fine-grid.json": {
+      "expected": "b69b85be804a9d1835015ec261e73861a581f053b211f5e9a3ab30749fb48b2a",
+      "observed": "b69b85be804a9d1835015ec261e73861a581f053b211f5e9a3ab30749fb48b2a"
+    }
+  },
+  "new_job_count": 30,
+  "new_kinds": {
+    "full-parent": 20,
+    "alternative-ethane": 10
+  },
+  "reused_jobs": 20,
+  "all_reused_hashes_match": true
+}

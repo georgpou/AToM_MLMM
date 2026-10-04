@@ -1,0 +1,27 @@
+{
+  "completed_utc": "2026-10-04T12:31:17.836193+00:00",
+  "source_commit": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+  "execution_audit_sha256": "102f678257013779989ca400a4a1fb42645f55e154af685e319ff81894b15ff5",
+  "command_spec_sha256": "554049fb3e8f2d69ab11e092e960baa1a6fd51b03ebd1560e5e7bced3940f8fc",
+  "coordinator_exit": 1,
+  "coordinator_exit_notice": "Queue incomplete, successful validation-only recovery; no worker launched.",
+  "admitted_count": 1,
+  "remaining_count": 29,
+  "quantum_worker_launches": 1,
+  "validation_only_attempts": 1,
+  "original_attempt_byte_identical": true,
+  "wall_seconds_debited": 2325.6446500519996,
+  "prior_wall_seconds_debited": 2325.6432226409997,
+  "progress_sha256": "8e5fee37b95288137d9c6b5a7cefe1307a9435a2ef33d03be0f560d8c2f2c0c6",
+  "live_attempt_processes": [],
+  "live_original_group_members": [],
+  "remaining_scratch": [],
+  "pilot": {
+    "pilot_record_sha256": "c1e34ea209bf4949c0f200859a75a35072ee5cf6e1750f8d7a9044a7259f0eed",
+    "pilot_receipt_sha256": "2b8ea63e59a1806bdec9af1c9867ab31de526d009c9a95f93c97c9984bef03ef",
+    "pilot_resources_sha256": "69b475a5a59b351b6d66161b34f6e8f5e567d4554563a3b1957659fca9b7b41b",
+    "pilot_wall_seconds": 2325.6233955589996,
+    "pilot_rss_peak_bytes": 3425435648,
+    "pilot_scratch_peak_bytes": 9679518016
+  }
+}

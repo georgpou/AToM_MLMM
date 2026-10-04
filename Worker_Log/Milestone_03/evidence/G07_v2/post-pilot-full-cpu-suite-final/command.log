@@ -1,0 +1,30 @@
+........................................................................ [ 17%]
+........................................................................ [ 34%]
+........................................................................ [ 52%]
+........................................................................ [ 69%]
+.F...................................................................... [ 86%]
+......................................................                   [100%]
+=================================== FAILURES ===================================
+______ test_failed_pilot_receipt_is_never_promoted_and_retry_keeps_budget ______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-22/test_failed_pilot_receipt_is_n0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-22/test_failed_pilot_receipt_is_n0/output'))
+
+    def test_failed_pilot_receipt_is_never_promoted_and_retry_keeps_budget(synthetic):
+        first = run_fake(synthetic, 'computed_fail'); assert first.returncode == 1, first.stderr
+        output = synthetic[1]; state = json.loads((output/'progress.json').read_text())
+        assert not state['record_hashes']
+        charged = state['wall_seconds_debited']
+        receipt = next(output.glob('jobs/*/attempt-*/receipt.json')); original = receipt.read_bytes()
+        second = run_fake(synthetic); assert second.returncode == 1, second.stderr
+        state = json.loads((output/'progress.json').read_text())
+>       assert len(state['record_hashes']) == 1 and state['wall_seconds_debited'] > charged
+E       assert (0 == 1)
+E        +  where 0 = len({})
+
+tests/unit/test_joint_quantum_execution.py:167: AssertionError
+----------------------------- Captured stdout call -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 23 verified False total 0 / 30
+ethanol-methanol-d3-r0--full-parent exit 0 verified False total 0 / 30
+=========================== short test summary info ============================
+FAILED tests/unit/test_joint_quantum_execution.py::test_failed_pilot_receipt_is_never_promoted_and_retry_keeps_budget
+1 failed, 413 passed in 269.38s (0:04:29)

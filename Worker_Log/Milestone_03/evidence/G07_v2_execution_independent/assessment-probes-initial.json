@@ -1,0 +1,18 @@
+{
+  "valid_zero_projection": {
+    "accepted": true,
+    "source_log_missing": true
+  },
+  "wrong_record_hash": {
+    "accepted": false,
+    "error": "ValueError('pilot assessment/receipt identity or success differs')"
+  },
+  "wrong_receipt_hash": {
+    "accepted": false,
+    "error": "ValueError('pilot assessment/receipt identity or success differs')"
+  },
+  "wrong_matrix_hash": {
+    "accepted": false,
+    "error": "ValueError('pilot assessment/receipt identity or success differs')"
+  }
+}

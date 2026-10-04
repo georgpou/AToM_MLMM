@@ -1,0 +1,18 @@
+{
+  "source_tools": "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/reviewed-source-repaired/tools",
+  "src": "/workspace/AToM_MLMM/src",
+  "approval": "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/authorization.json",
+  "args": {
+    "plan_root": "/workspace/AToM_MLMM/fixtures/chemical_reference_v3",
+    "matrix": "/workspace/AToM_MLMM/fixtures/fragment_ligand/prepared-mm-v1/quantum-job-matrix.json",
+    "approval": "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/authorization.json",
+    "output": "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/output",
+    "reference_python": "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/synthetic-reference/bin/python",
+    "check_resume": false,
+    "memory_gib": 3.0,
+    "wall_limit_seconds": null,
+    "continue_batch": true,
+    "pilot_assessment": "/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/probes-repaired/durable-pilot-and-diagnostic-recovery/measured-assessment.json"
+  },
+  "trace_durability": null
+}

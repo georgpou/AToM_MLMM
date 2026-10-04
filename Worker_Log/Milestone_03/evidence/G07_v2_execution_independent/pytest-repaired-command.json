@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "tests/unit/test_joint_quantum_execution.py",
+    "tests/unit/test_quantum_recovery.py",
+    "tests/unit/test_quantum_interruptions.py",
+    "-q",
+    "--basetemp=/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/pytest-repaired"
+  ],
+  "started_utc": "2026-10-04T10:18:05.475757+00:00",
+  "finished_utc": "2026-10-04T10:20:23.843286+00:00",
+  "exit": 0
+}

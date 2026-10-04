@@ -1,0 +1,13 @@
+{
+  "source_sha256": "feab0c473f301432969c1ec4cd3c06ed93f57bb52bec7f5cd314c614a644acc6",
+  "first_corrected_wall_seconds": 2325.6233955589996,
+  "altered_wall_seconds": 0.0,
+  "repeated_call_accepted": true,
+  "record_validator_accepted": true,
+  "ordinary_recovery_receipt_admitted": true,
+  "original_copy_unchanged": true,
+  "canonical_original_unchanged": true,
+  "canonical_progress_unchanged": true,
+  "fixture_progress_debit_unchanged": true,
+  "subprocess_launches": 0
+}
