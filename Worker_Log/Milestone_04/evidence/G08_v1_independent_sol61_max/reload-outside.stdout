@@ -1,0 +1,12 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/atom-mlmm-g08-r2/env/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/AToM_MLMM
+configfile: pytest.ini
+plugins: platformdirs-4.12.2, cov-7.1.0, anyio-4.15.1
+collecting ... collected 2 items
+
+tests/integration/test_model_adapter.py::test_local_asset_fresh_process_reload[physical] PASSED [ 50%]
+tests/integration/test_model_adapter.py::test_local_asset_fresh_process_reload[alchemical] PASSED [100%]
+
+============================== 2 passed in 13.25s ==============================

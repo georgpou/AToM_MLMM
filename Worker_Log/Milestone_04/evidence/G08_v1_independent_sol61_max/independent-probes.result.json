@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python",
+    "Worker_Log/Milestone_04/evidence/G08_v1_independent_sol61_max/independent_probes.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "started": "2026-10-04T14:45:45.469756+00:00",
+  "finished": "2026-10-04T14:46:10.710250+00:00",
+  "exit_code": 1,
+  "wall_seconds": 25.240449172999433,
+  "maximum_child_rss_kib": 770540,
+  "memory_events_before": "low 0\nhigh 0\nmax 40382\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 40382\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

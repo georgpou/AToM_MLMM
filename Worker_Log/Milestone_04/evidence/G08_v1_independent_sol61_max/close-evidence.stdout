@@ -1,0 +1,22 @@
+{
+  "timestamp": "2026-10-04T14:57:41.047395+00:00",
+  "unchanged_tracked_files": 7567,
+  "submission": "29847120ec99c472580ce23c7b1b317c690c3784",
+  "archives": [
+    {
+      "path": "full-pytest-temp.tar.gz",
+      "nodes": 6378,
+      "bytes": 26425318,
+      "sha256": "d04c7fc63842dc33b653f00cb4d0368959ed34ac56fb0221faabfaaef7e64e6d",
+      "all_members_verified": true
+    },
+    {
+      "path": "focused-pytest-temp.tar.gz",
+      "nodes": 19,
+      "bytes": 7911509,
+      "sha256": "cd23dade9d2b03526e0a7b2f170a40e3fa1d3564f5e6a9264d2865bb6e693d0f",
+      "all_members_verified": true
+    }
+  ],
+  "cgroup_memory_events": "low 0\nhigh 0\nmax 41084\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

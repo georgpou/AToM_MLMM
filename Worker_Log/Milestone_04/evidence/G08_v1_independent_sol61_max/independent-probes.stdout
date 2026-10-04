@@ -1,0 +1,17 @@
+PASS quadrature_and_independent_harmonic_samples
+PASS nonlinear_native_contexts
+PASS finite_wall_independent_integrals
+PASS generic_unequal_count_estimators
+PASS record_admission_and_state_reordering
+ADMITTED BindingResult_final_with_uncomputed_correction
+ADMITTED BindingResult_final_with_empty_correction_ledger
+PASS partial_corrections_and_joint_covariance
+PASS AR1_correlation_and_contributions
+PASS new_unequal_midpoint_ensembles
+PASS worker_raw_frame_and_seed_replay
+{
+  "positives": 9,
+  "required_rejections": 33,
+  "admitted_faults": 2,
+  "failures": 0
+}

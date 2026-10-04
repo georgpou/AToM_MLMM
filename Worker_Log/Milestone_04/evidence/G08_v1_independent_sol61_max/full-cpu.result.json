@@ -1,0 +1,18 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "--basetemp",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_04/evidence/G08_v1_independent_sol61_max/full-pytest-temp"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "started": "2026-10-04T14:31:01.326130+00:00",
+  "finished": "2026-10-04T14:36:31.482137+00:00",
+  "exit_code": 1,
+  "wall_seconds": 330.1559602269999,
+  "maximum_child_rss_kib": 1979912,
+  "memory_events_before": "low 0\nhigh 0\nmax 38486\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 40382\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

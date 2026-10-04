@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python",
+    "tools/check_docs.py",
+    "--self-test"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "started": "2026-10-04T15:00:16.830780+00:00",
+  "finished": "2026-10-04T15:00:17.032753+00:00",
+  "exit_code": 0,
+  "wall_seconds": 0.2019221769996875,
+  "maximum_child_rss_kib": 13712,
+  "memory_events_before": "low 0\nhigh 0\nmax 41084\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 41084\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

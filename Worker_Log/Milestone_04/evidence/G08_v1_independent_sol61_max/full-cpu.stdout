@@ -1,0 +1,176 @@
+........................................................................ [ 16%]
+........................................................................ [ 33%]
+..................................................................FF.... [ 49%]
+........................................................................ [ 66%]
+........................................................................ [ 83%]
+........................................................................ [ 99%]
+.                                                                        [100%]
+=================================== FAILURES ===================================
+_______________ test_local_asset_fresh_process_reload[physical] ________________
+
+real_fixture = (PhysicalBundle(system_xml='<?xml version="1.0" ?>\n<System openmmVersion="8.6.1" type="System" version="1">\n\t<Perio..., velocities_nm_ps=None, units=Units(positions='nm', energy='kJ/mol', forces='kJ/mol/nm', time='ps', temperature='K')))
+tmp_path = PosixPath('/workspace/AToM_MLMM/Worker_Log/Milestone_04/evidence/G08_v1_independent_sol61_max/full-pytest-temp/test_local_asset_fresh_process0')
+artifact_kind = 'physical'
+
+    @pytest.mark.parametrize('artifact_kind', ('physical','alchemical'))
+    def test_local_asset_fresh_process_reload(real_fixture, tmp_path, artifact_kind):
+        import hashlib, json, os, shutil, subprocess, sys
+        from pathlib import Path
+        from atm_mlmm.atm import PhysicalEvaluator, AtmEvaluator, build_atm, save_bundle
+        from atm_mlmm.schema import to_json
+        bundle,snapshot=real_fixture
+        if artifact_kind=='physical':
+            artifact=bundle
+            with PhysicalEvaluator(bundle,REFERENCE) as evaluator:expected=[evaluator.evaluate(snapshot)]
+        else:
+            from atm_mlmm.geometry import resolve_protocol
+            from atm_mlmm.protocols.abfe import make_protocol
+            from atm_mlmm.schedule import linear_schedule
+            from atm_mlmm.schema import MobileGroup, RestraintSpec
+            transfer=resolve_protocol(bundle,make_protocol((MobileGroup('mobile',IDS[8:],('ligand',),'ligand'),),(.3,.1,-.2)))
+            artifact=build_atm(bundle,transfer,linear_schedule((('initial',0.),('middle',.37),('final',1.))),
+                               RestraintSpec('outside',('l8',),0.,(.2,.4,.1)))
+            with AtmEvaluator(artifact,REFERENCE) as evaluator:
+                expected=[evaluator.evaluate(snapshot,state).total for state in ('initial','middle','final')]
+        path=tmp_path/'artifact.json';digest=save_bundle(path,artifact)
+        (tmp_path/'snapshot.json').write_text(to_json(snapshot))
+        # Move source and approved asset together to a fresh installation root.
+        # Old absolute asset paths must never become an undeclared cache dependency.
+        repo=Path(__file__).resolve().parents[2];relocated=tmp_path/'relocated'
+        shutil.copytree(repo/'src',relocated/'src',ignore=shutil.ignore_patterns('__pycache__'))
+        shutil.copytree(repo/'models',relocated/'models')
+        code = '''import json,socket,sys,builtins,io
+    def denied(*args,**kwargs): raise RuntimeError("offline reload forbids network")
+    socket.socket.connect=denied
+    socket.create_connection=denied
+    socket.getaddrinfo=denied
+    old_root=sys.argv[4]
+    normal_open=builtins.open
+    def guarded_open(file,*args,**kwargs):
+        if str(file).startswith(old_root):raise RuntimeError("old checkout is unavailable")
+        return normal_open(file,*args,**kwargs)
+    builtins.open=guarded_open
+    io.open=guarded_open
+    from atm_mlmm.atm import load_bundle,PhysicalEvaluator,AtmEvaluator
+    from atm_mlmm.schema import from_json,RuntimeSpec
+    bundle=load_bundle(sys.argv[1],sys.argv[2],trusted=True)
+    snapshot=from_json(normal_open(sys.argv[3]).read())
+    runtime=RuntimeSpec('Reference','double',(),.0005,300.,'NVT','Verlet')
+    if sys.argv[5]=='physical':
+        physical=bundle
+        with PhysicalEvaluator(bundle,runtime) as evaluator:outputs=[evaluator.evaluate(snapshot)]
+    else:
+        physical=bundle.physical
+        with AtmEvaluator(bundle,runtime) as evaluator:
+            outputs=[evaluator.evaluate(snapshot,state).total for state in ('initial','middle','final')]
+    print(json.dumps({'outputs':[{'energy':out.energy_kj_mol,'forces':out.forces_kj_mol_nm} for out in outputs],
+     'artifact_identity':bundle.content_identity,'model_input_ids':physical.model_input_ids,
+     'links':len(physical.links),'network_denied':True,'old_checkout_denied':True}))
+    '''
+        env={**os.environ,'PYTHONPATH':str(relocated/'src'),'XDG_CACHE_HOME':str(tmp_path/'empty-xdg'),
+             'TORCH_HOME':str(tmp_path/'empty-torch'),'MACE_CACHE_DIR':str(tmp_path/'empty-mace')}
+        result=subprocess.run([sys.executable,'-c',code,str(path),digest,str(tmp_path/'snapshot.json'),str(repo),artifact_kind],
+                              cwd=tmp_path,env=env,text=True,capture_output=True)
+>       assert result.returncode==0,result.stdout+result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<string>", line 15, in <module>
+E           File "/workspace/AToM_MLMM/Worker_Log/Milestone_04/evidence/G08_v1_independent_sol61_max/full-pytest-temp/test_local_asset_fresh_process0/relocated/src/atm_mlmm/atm.py", line 344, in load_bundle
+E           File "/workspace/atom-mlmm-g08-r2/env/lib/python3.11/pathlib.py", line 1050, in read_bytes
+E             with self.open(mode='rb') as f:
+E                  ^^^^^^^^^^^^^^^^^^^^
+E           File "/workspace/atom-mlmm-g08-r2/env/lib/python3.11/pathlib.py", line 1044, in open
+E             return io.open(self, mode, buffering, encoding, errors, newline)
+E                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "<string>", line 9, in guarded_open
+E         RuntimeError: old checkout is unavailable
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/workspace/atom-mlmm-g08-r2/env/bin/python', '-c', 'import json,socket,sys,builtins,io\ndef de...^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<string>", line 9, in guarded_open\nRuntimeError: old checkout is unavailable\n').returncode
+
+tests/integration/test_model_adapter.py:302: AssertionError
+______________ test_local_asset_fresh_process_reload[alchemical] _______________
+
+real_fixture = (PhysicalBundle(system_xml='<?xml version="1.0" ?>\n<System openmmVersion="8.6.1" type="System" version="1">\n\t<Perio..., velocities_nm_ps=None, units=Units(positions='nm', energy='kJ/mol', forces='kJ/mol/nm', time='ps', temperature='K')))
+tmp_path = PosixPath('/workspace/AToM_MLMM/Worker_Log/Milestone_04/evidence/G08_v1_independent_sol61_max/full-pytest-temp/test_local_asset_fresh_process1')
+artifact_kind = 'alchemical'
+
+    @pytest.mark.parametrize('artifact_kind', ('physical','alchemical'))
+    def test_local_asset_fresh_process_reload(real_fixture, tmp_path, artifact_kind):
+        import hashlib, json, os, shutil, subprocess, sys
+        from pathlib import Path
+        from atm_mlmm.atm import PhysicalEvaluator, AtmEvaluator, build_atm, save_bundle
+        from atm_mlmm.schema import to_json
+        bundle,snapshot=real_fixture
+        if artifact_kind=='physical':
+            artifact=bundle
+            with PhysicalEvaluator(bundle,REFERENCE) as evaluator:expected=[evaluator.evaluate(snapshot)]
+        else:
+            from atm_mlmm.geometry import resolve_protocol
+            from atm_mlmm.protocols.abfe import make_protocol
+            from atm_mlmm.schedule import linear_schedule
+            from atm_mlmm.schema import MobileGroup, RestraintSpec
+            transfer=resolve_protocol(bundle,make_protocol((MobileGroup('mobile',IDS[8:],('ligand',),'ligand'),),(.3,.1,-.2)))
+            artifact=build_atm(bundle,transfer,linear_schedule((('initial',0.),('middle',.37),('final',1.))),
+                               RestraintSpec('outside',('l8',),0.,(.2,.4,.1)))
+            with AtmEvaluator(artifact,REFERENCE) as evaluator:
+                expected=[evaluator.evaluate(snapshot,state).total for state in ('initial','middle','final')]
+        path=tmp_path/'artifact.json';digest=save_bundle(path,artifact)
+        (tmp_path/'snapshot.json').write_text(to_json(snapshot))
+        # Move source and approved asset together to a fresh installation root.
+        # Old absolute asset paths must never become an undeclared cache dependency.
+        repo=Path(__file__).resolve().parents[2];relocated=tmp_path/'relocated'
+        shutil.copytree(repo/'src',relocated/'src',ignore=shutil.ignore_patterns('__pycache__'))
+        shutil.copytree(repo/'models',relocated/'models')
+        code = '''import json,socket,sys,builtins,io
+    def denied(*args,**kwargs): raise RuntimeError("offline reload forbids network")
+    socket.socket.connect=denied
+    socket.create_connection=denied
+    socket.getaddrinfo=denied
+    old_root=sys.argv[4]
+    normal_open=builtins.open
+    def guarded_open(file,*args,**kwargs):
+        if str(file).startswith(old_root):raise RuntimeError("old checkout is unavailable")
+        return normal_open(file,*args,**kwargs)
+    builtins.open=guarded_open
+    io.open=guarded_open
+    from atm_mlmm.atm import load_bundle,PhysicalEvaluator,AtmEvaluator
+    from atm_mlmm.schema import from_json,RuntimeSpec
+    bundle=load_bundle(sys.argv[1],sys.argv[2],trusted=True)
+    snapshot=from_json(normal_open(sys.argv[3]).read())
+    runtime=RuntimeSpec('Reference','double',(),.0005,300.,'NVT','Verlet')
+    if sys.argv[5]=='physical':
+        physical=bundle
+        with PhysicalEvaluator(bundle,runtime) as evaluator:outputs=[evaluator.evaluate(snapshot)]
+    else:
+        physical=bundle.physical
+        with AtmEvaluator(bundle,runtime) as evaluator:
+            outputs=[evaluator.evaluate(snapshot,state).total for state in ('initial','middle','final')]
+    print(json.dumps({'outputs':[{'energy':out.energy_kj_mol,'forces':out.forces_kj_mol_nm} for out in outputs],
+     'artifact_identity':bundle.content_identity,'model_input_ids':physical.model_input_ids,
+     'links':len(physical.links),'network_denied':True,'old_checkout_denied':True}))
+    '''
+        env={**os.environ,'PYTHONPATH':str(relocated/'src'),'XDG_CACHE_HOME':str(tmp_path/'empty-xdg'),
+             'TORCH_HOME':str(tmp_path/'empty-torch'),'MACE_CACHE_DIR':str(tmp_path/'empty-mace')}
+        result=subprocess.run([sys.executable,'-c',code,str(path),digest,str(tmp_path/'snapshot.json'),str(repo),artifact_kind],
+                              cwd=tmp_path,env=env,text=True,capture_output=True)
+>       assert result.returncode==0,result.stdout+result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<string>", line 15, in <module>
+E           File "/workspace/AToM_MLMM/Worker_Log/Milestone_04/evidence/G08_v1_independent_sol61_max/full-pytest-temp/test_local_asset_fresh_process1/relocated/src/atm_mlmm/atm.py", line 344, in load_bundle
+E           File "/workspace/atom-mlmm-g08-r2/env/lib/python3.11/pathlib.py", line 1050, in read_bytes
+E             with self.open(mode='rb') as f:
+E                  ^^^^^^^^^^^^^^^^^^^^
+E           File "/workspace/atom-mlmm-g08-r2/env/lib/python3.11/pathlib.py", line 1044, in open
+E             return io.open(self, mode, buffering, encoding, errors, newline)
+E                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "<string>", line 9, in guarded_open
+E         RuntimeError: old checkout is unavailable
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/workspace/atom-mlmm-g08-r2/env/bin/python', '-c', 'import json,socket,sys,builtins,io\ndef de...^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File "<string>", line 9, in guarded_open\nRuntimeError: old checkout is unavailable\n').returncode
+
+tests/integration/test_model_adapter.py:302: AssertionError
+=========================== short test summary info ============================
+FAILED tests/integration/test_model_adapter.py::test_local_asset_fresh_process_reload[physical]
+FAILED tests/integration/test_model_adapter.py::test_local_asset_fresh_process_reload[alchemical]
+2 failed, 431 passed in 327.50s (0:05:27)
