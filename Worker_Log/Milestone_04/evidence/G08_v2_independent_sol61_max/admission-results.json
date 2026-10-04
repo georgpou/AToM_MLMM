@@ -1,0 +1,396 @@
+{
+  "rejections": [
+    {
+      "name": "original_v1_admitted-final-uncomputed.json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "original_v1_admitted-final-empty-ledger.json",
+      "type": "MalformedInput",
+      "error": "final binding result requires its standard thermodynamic definition"
+    },
+    {
+      "name": "missing_definition_constructor",
+      "type": "MalformedInput",
+      "error": "final binding result requires its standard thermodynamic definition"
+    },
+    {
+      "name": "missing_definition_json",
+      "type": "MalformedInput",
+      "error": "final binding result requires its standard thermodynamic definition"
+    },
+    {
+      "name": "identity_mismatch_constructor",
+      "type": "IdentityError",
+      "error": "binding result thermodynamic identity mismatch"
+    },
+    {
+      "name": "identity_mismatch_json",
+      "type": "IdentityError",
+      "error": "binding result thermodynamic identity mismatch"
+    },
+    {
+      "name": "empty_result_ledger_constructor",
+      "type": "IdentityError",
+      "error": "binding result correction ledger differs from its definition"
+    },
+    {
+      "name": "empty_result_ledger_json",
+      "type": "IdentityError",
+      "error": "binding result correction ledger differs from its definition"
+    },
+    {
+      "name": "reordered_result_ledger_constructor",
+      "type": "IdentityError",
+      "error": "binding result correction ledger differs from its definition"
+    },
+    {
+      "name": "reordered_result_ledger_json",
+      "type": "IdentityError",
+      "error": "binding result correction ledger differs from its definition"
+    },
+    {
+      "name": "duplicate_result_ledger_constructor",
+      "type": "IdentityError",
+      "error": "duplicate real atom ID"
+    },
+    {
+      "name": "duplicate_result_ledger_json",
+      "type": "IdentityError",
+      "error": "duplicate real atom ID"
+    },
+    {
+      "name": "different_result_value_constructor",
+      "type": "IdentityError",
+      "error": "binding result correction ledger differs from its definition"
+    },
+    {
+      "name": "different_result_value_json",
+      "type": "IdentityError",
+      "error": "binding result correction ledger differs from its definition"
+    },
+    {
+      "name": "duplicate_unresolved_ids_constructor",
+      "type": "IdentityError",
+      "error": "duplicate real atom ID"
+    },
+    {
+      "name": "duplicate_unresolved_ids_json",
+      "type": "IdentityError",
+      "error": "duplicate real atom ID"
+    },
+    {
+      "name": "unknown_unresolved_id_constructor",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "unknown_unresolved_id_json",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "resolved_status_marked_unresolved_constructor",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "resolved_status_marked_unresolved_json",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "deterministic_covariance_marker_constructor",
+      "type": "MalformedInput",
+      "error": "unresolved correction covariance needs an uncertain correction"
+    },
+    {
+      "name": "deterministic_covariance_marker_json",
+      "type": "MalformedInput",
+      "error": "unresolved correction covariance needs an uncertain correction"
+    },
+    {
+      "name": "wrong_corrected_value_constructor",
+      "type": "MalformedInput",
+      "error": "final binding value differs from restrained value plus corrections"
+    },
+    {
+      "name": "wrong_corrected_value_json",
+      "type": "MalformedInput",
+      "error": "final binding value differs from restrained value plus corrections"
+    },
+    {
+      "name": "missing_final_error_constructor",
+      "type": "MalformedInput",
+      "error": "final value and covariance-aware error must coexist"
+    },
+    {
+      "name": "missing_final_error_json",
+      "type": "MalformedInput",
+      "error": "final value and covariance-aware error must coexist"
+    },
+    {
+      "name": "missing_final_value_constructor",
+      "type": "MalformedInput",
+      "error": "final value and covariance-aware error must coexist"
+    },
+    {
+      "name": "missing_final_value_json",
+      "type": "MalformedInput",
+      "error": "final value and covariance-aware error must coexist"
+    },
+    {
+      "name": "negative_final_error_constructor",
+      "type": "MalformedInput",
+      "error": "unresolved correction prevents a final binding result"
+    },
+    {
+      "name": "negative_final_error_json",
+      "type": "MalformedInput",
+      "error": "unresolved correction prevents a final binding result"
+    },
+    {
+      "name": "matching_identity_nonstandard_observable_constructor",
+      "type": "MalformedInput",
+      "error": "final binding result requires its standard thermodynamic definition"
+    },
+    {
+      "name": "matching_identity_nonstandard_observable_json",
+      "type": "MalformedInput",
+      "error": "final binding result requires its standard thermodynamic definition"
+    },
+    {
+      "name": "missing_translation_standard_state_constructor",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_translation_standard_state_json",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_bound_release_constructor",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_bound_release_json",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_orientation_constructor",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_orientation_json",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_conformation_constructor",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_conformation_json",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_state_counting_constructor",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_state_counting_json",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_midpoint_bridge_constructor",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_midpoint_bridge_json",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_ALL_constructor",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "missing_ALL_json",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "hidden_uncomputed_partial_translation_standard_state_constructor",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_partial_translation_standard_state_json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_final_translation_standard_state_constructor",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_final_translation_standard_state_json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_partial_bound_release_constructor",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_partial_bound_release_json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_final_bound_release_constructor",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_final_bound_release_json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_partial_orientation_constructor",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_partial_orientation_json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_final_orientation_constructor",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_final_orientation_json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_partial_conformation_constructor",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_partial_conformation_json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_final_conformation_constructor",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_final_conformation_json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_partial_state_counting_constructor",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_partial_state_counting_json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_final_state_counting_constructor",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_final_state_counting_json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_partial_midpoint_bridge_constructor",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_partial_midpoint_bridge_json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_final_midpoint_bridge_constructor",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "hidden_uncomputed_final_midpoint_bridge_json",
+      "type": "MalformedInput",
+      "error": "uncomputed ledger status must remain unresolved"
+    },
+    {
+      "name": "additional_missing_obligation_constructor",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    },
+    {
+      "name": "additional_missing_obligation_json",
+      "type": "MalformedInput",
+      "error": "binding result unresolved entries differ from declared obligations"
+    }
+  ],
+  "positives": [
+    "complete_deterministic_producer",
+    "partial_missing_translation_standard_state",
+    "partial_missing_bound_release",
+    "partial_missing_orientation",
+    "partial_missing_conformation",
+    "partial_missing_state_counting",
+    "partial_missing_midpoint_bridge",
+    "partial_missing_ALL",
+    "uncomputed_partial_translation_standard_state",
+    "uncomputed_partial_bound_release",
+    "uncomputed_partial_orientation",
+    "uncomputed_partial_conformation",
+    "uncomputed_partial_state_counting",
+    "uncomputed_partial_midpoint_bridge",
+    "matching_reordered_definition",
+    "additional_resolved_obligation",
+    "additional_unresolved_obligation",
+    "uncertain_covariance_withheld",
+    "complete_joint_covariance_producer",
+    "legacy_v1_seed_41",
+    "legacy_v1_seed_73",
+    "legacy_v1_seed_109",
+    "legacy_partial_without_definition"
+  ],
+  "failures": [],
+  "metrics": {
+    "joint_final_error": 0.2648457029081552,
+    "legacy_identity_41": "0059be4e148c03b3da524915b7a4e01bd44d3816f4ab21aaaef61a10cd42171d",
+    "legacy_identity_73": "53d396702b1db1e36e53522de13d2777d50e33fd5acfab62ffaa89166595fb94",
+    "legacy_identity_109": "e473321e8c3911a65fd1f43e84973370bccccb8f8953c6d53b95412c1e751ad6"
+  }
+}

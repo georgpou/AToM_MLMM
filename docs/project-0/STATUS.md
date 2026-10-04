@@ -1,7 +1,10 @@
 # Current status
 
-**Current assignment: technical ML/MM engine readiness, beginning with M04/G08
-on `m04-engine-readiness`.** The user's latest instruction supersedes the
+**Current assignment: technical ML/MM engine readiness on `m04-engine-readiness`,
+now prioritizing a tiny cloud host–guest example and common system/settings runner.**
+The user's latest steering reserves T4 lysozyme L99A and Slurm setup for later
+HPC work. Cloud tests target numerical correctness and stable bounded execution,
+with MLIP physical accuracy explicitly unqualified. This supersedes the
 G07-only assignment and authorizes a new branch copied from published
 `m03-g06-g07` at `fc6dbe3dfbb33906f85c0756d6c6ba6b44f1dd86`. The
 [fresh-agent handoff](handoffs/ENGINE-READINESS-fresh-agent-v1.md) directs known-answer
@@ -12,7 +15,7 @@ preserving unfulfilled physical/combined-review requirements. No new gate code
 or longer production run was started during handoff preparation. Main and the
 published G07 predecessor remain unchanged.
 
-**G08-R1 repair and combined M04 are ready for v2 independent review.**
+**G08 and combined M04 are accepted for the analytic CPU scope; G08-R1 is closed.**
 Source `966a8d61347f65a69f8ba7e6750c4379d4e0503f` implements explicit thermodynamic
 records/correction obligations, finite-wall translation, full reduced-potential
 reconstruction, active unequal-midpoint bridge checks and independent pinned
@@ -30,8 +33,12 @@ admission with absent/uncomputed corrections. V1 evidence is frozen. The
 [v2 worker](../../Worker_Log/Milestone_04/Gate_08_v2_worker.md) on source
 `8cf2494424d796fc3fc393e25b00e05b6281a85f` binds final results to complete matching
 definitions/ledgers, preserves legacy partial records, and passes **21 focused /
-437 full CPU tests**. Independent closure of R1 and the additive amendments is
-pending; no gate/milestone or molecular binding acceptance is claimed.
+437 full CPU tests**. The actual
+[GPT-6.1-sol/MAX v2 audit](../../Worker_Log/Milestone_04/Gate_08_v2_audit.md)
+confirms 437 fresh full passes, 21 affected passes, 72 independent rejections and
+23 positive round trips; it accepts the refined amendments and combined M04 on
+exact submission `c0280818ad18fa5e95a022eccc892e2310a41721`. Molecular binding,
+GPU and G07/M03 physical acceptance remain unqualified/open.
 
 Maintenance reclaimed **2,083,614,720 bytes**; free disk increased from
 **18.354 to 20.294 GiB** immediately afterward. Removed 328 verified compressed
@@ -250,9 +257,11 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-Obtain actual GPT-6.1-sol/MAX independent G08-R1 closure, then continue
-scoped G09/G10 technical preparation/export/restart work under the current
-engine-readiness handoff. Report technical evidence separately from molecular
+Continue scoped G09/G10 technical preparation/export/restart work with a tiny
+18-crown-6/methanol cloud example (48 neutral H/C/O atoms), existing capped-fragment
+controls and one shared configuration-driven execution path. The user defers T4
+lysozyme and Slurm/HPC settings until cluster work begins. Report technical
+evidence separately from molecular
 physical qualification. G06/G07 numerical review remains accepted; G07-T4 and
 M03 physical closure remain blocked. Preserve all accepted G05 data, controls,
 seven sensitivity exceedances, pilot force failures and the unchanged cumulative
@@ -271,7 +280,7 @@ retains the failed resource screen and safe continuation conditions.
 | G07 / T1/T2/T3 small-system Reference/MACE-CPU | accepted_for_scope | Sol 6.1/MAX accepts seven numerical assertions, periodic and unequal two-ligand composition; physical T4 remains blocked |
 | G07 / T4 physical-reference sensitivity | blocked | Seven sensitivity failures plus measured pilot force-approximation exceedances; one validated full-parent reference, 29 missing; runtime/scratch screens exceed current envelope |
 | M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
-| M04 / G08 analytic thermodynamic accounting | ready_for_review | [G08 v2 worker](../../Worker_Log/Milestone_04/Gate_08_v2_worker.md); G08-R1 admission repair, 21 focused/437 full CPU passes; actual Sol 6.1/MAX independent closure pending; v1 numerics confirmed |
+| M04 / G08 analytic thermodynamic accounting | accepted | [GPT-6.1-sol/MAX v2 audit](../../Worker_Log/Milestone_04/Gate_08_v2_audit.md), exact c0280818/source8cf2494; G08-R1 closed, refined amendments and combined M04 analytic CPU accepted; 437 full/21 affected passes |
 | M05-M08 / G09-G13 | not_started | Retain molecular gate prerequisites and physical-qualification limits |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |

@@ -1,0 +1,31 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/atom-mlmm-g08-r2/env/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/AToM_MLMM
+configfile: pytest.ini
+plugins: platformdirs-4.12.2, cov-7.1.0, anyio-4.15.1
+collecting ... collected 21 items
+
+tests/unit/test_binding_result_admission.py::test_final_requires_embedded_thermodynamic_definition PASSED [  4%]
+tests/unit/test_binding_result_admission.py::test_final_definition_identity_observable_and_ordered_ledger_match PASSED [  9%]
+tests/unit/test_binding_result_admission.py::test_uncomputed_correction_cannot_hide_its_unresolved_status PASSED [ 14%]
+tests/unit/test_binding_result_admission.py::test_partial_and_covariance_aware_final_round_trips PASSED [ 19%]
+tests/unit/test_restraint_volume.py::test_finite_wall_and_standard_state_sign PASSED [ 23%]
+tests/unit/test_restraint_volume.py::test_volume_rejects_invalid_or_undefined_domain[args0] PASSED [ 28%]
+tests/unit/test_restraint_volume.py::test_volume_rejects_invalid_or_undefined_domain[args1] PASSED [ 33%]
+tests/unit/test_restraint_volume.py::test_volume_rejects_invalid_or_undefined_domain[args2] PASSED [ 38%]
+tests/unit/test_restraint_volume.py::test_volume_rejects_invalid_or_undefined_domain[args3] PASSED [ 42%]
+tests/unit/test_restraint_volume.py::test_volume_rejects_invalid_or_undefined_domain[args4] PASSED [ 47%]
+tests/unit/test_restraint_volume.py::test_required_correction_cannot_default_to_zero PASSED [ 52%]
+tests/unit/test_restraint_volume.py::test_endpoint_weights_and_covariance_are_explicit PASSED [ 57%]
+tests/unit/test_restraint_volume.py::test_joint_correction_covariance_controls_final_uncertainty PASSED [ 61%]
+tests/unit/test_schedule.py::test_reduced_energies_match_context PASSED  [ 66%]
+tests/unit/test_schedule.py::test_active_midpoint_difference_requires_bridge PASSED [ 71%]
+tests/unit/test_schedule.py::test_raw_records_reject_lost_identity_duplicate_samples_and_nonfinite PASSED [ 76%]
+tests/sampling/test_analytic_free_energy.py::test_estimators_covariance_and_offsets PASSED [ 80%]
+tests/sampling/test_analytic_free_energy.py::test_uwham_large_constant_state_offsets_are_a_gauge PASSED [ 85%]
+tests/sampling/test_analytic_free_energy.py::test_repeated_seed_harmonic_md PASSED [ 90%]
+tests/sampling/test_analytic_free_energy.py::test_estimator_rejects_disconnected_support_and_missing_counts PASSED [ 95%]
+tests/sampling/test_analytic_free_energy.py::test_harmonic_known_difference PASSED [100%]
+
+============================= 21 passed in 33.96s ==============================

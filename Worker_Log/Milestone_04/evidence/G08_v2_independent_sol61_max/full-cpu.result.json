@@ -1,0 +1,18 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "--basetemp",
+    "/tmp/g08-v2-independent-sol61-max-full"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "started": "2026-10-04T15:16:56.855398+00:00",
+  "finished": "2026-10-04T15:22:24.349857+00:00",
+  "exit_code": 0,
+  "wall_seconds": 327.49441744700016,
+  "maximum_child_rss_kib": 1980604,
+  "memory_events_before": "low 0\nhigh 0\nmax 41097\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 41670\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

@@ -1,0 +1,9 @@
+{
+  "submission": "c0280818ad18fa5e95a022eccc892e2310a41721",
+  "unchanged_tracked_files": 7649,
+  "timestamp": "2026-10-04T15:26:58.879083+00:00",
+  "cpu_max": "200000 100000",
+  "memory_max": "8589934592",
+  "swap": "Filename\t\t\t\tType\t\tSize\t\tUsed\t\tPriority",
+  "memory_events": "low 0\nhigh 0\nmax 41670\noom 0\noom_kill 0\noom_group_kill 0"
+}
