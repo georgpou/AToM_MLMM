@@ -76,6 +76,48 @@ It is one test covering three reference datasets; preserve upstream collection c
 
 ## Scientific work and records
 
+### G08 analytic thermodynamics
+
+`EvaluationRecords` saves explicit sample/state/walker identities and sequences,
+raw u0/u1/outside/observed-total energies, the complete schedule and provenance.
+`schedule.reduced_potentials` reconstructs the admitted expression at every
+state and checks observed totals. `analysis.analyze` uses PyMBAR 4.0.3 or the
+pinned AToM Python UWHAM objective through `adapters/atom.py`; both receive the
+same dimensionless states and counts. UWHAM's independent objective refinement
+uses its exact gradient/Hessian, avoiding the default optimizer's insufficient
+normalization. State constants are removed and restored explicitly; data are
+never clipped. The pinned direct-exponential UWHAM profile rejects density
+ratios beyond its declared finite numerical range.
+
+`ThermodynamicSpec` supplies endpoint weights, state connections, endpoint/domain,
+restraint/orientation/state-counting descriptions, standard volume and correction
+obligations. The new records are additive schema-1.0 types; existing serialized
+records and their identities are unchanged. Standard binding uses the S05
+bound-minus-bulk convention and requires explicit entries for translation,
+bound release, orientation, conformation, state counting and midpoint connection.
+Missing/uncomputed corrections withhold a final result. Evidence-backed zero
+and not-applicable entries require proof. Uncertain corrections need joint
+covariance with state estimates; independent errors are not silently assumed.
+
+The initial correlation profile thins fixed-state walker histories using the
+largest measured statistical inefficiency among both endpoints, their difference
+and the outside term. It preserves all original observations and validates them
+before thinning. Exchanging correlated walkers explicitly require later block/
+resampling qualification. Overlap and effective contributions are diagnostics,
+not proof of chemical accuracy or complete conformational sampling.
+
+The bounded known-answer example saves immutable attempts, complete frames,
+full real forces, raw records and identities:
+
+```bash
+source /workspace/atom-mlmm-g08-r2/activate.sh
+PYTHONPATH="$PWD/src" python examples/g08_known_answer.py --output /tmp/new-g08-attempt
+python -m pytest tests/sampling/test_analytic_free_energy.py tests/unit/test_schedule.py tests/unit/test_restraint_volume.py -v
+```
+
+Use the actual installed setup prefix. This analytic Reference/NVT example
+does not define a molecular standard binding free energy.
+
 Freeze the relevant M00 decisions before implementation: Hamiltonian, cap rule, units, force ownership, maps, supported chemistry, ensemble, corrections and numerical/reference limits. Keep the existing cap Jacobian, midpoint bridge and restraint-volume definitions. Run structural and analytic tests before a real-model or protein calculation. [S06](project-0/specs/S06-validation-and-tolerances.md) supplies numerical and chemical-reference checks; each gate owns its planned assertions.
 
 Keep one short [worker log](project-0/templates/worker-log.md) per task with exact commands/statuses and the tested profile/snapshot. Update STATUS, then continue from the completed predecessor. Review the implemented gate/milestone on its combined snapshot; do not create another documentation-audit cycle. Earlier documentation and environment-audit artifacts remain in Git at `ecd2c90bc67a8f9b6a5ab35e3da0e9cdeca89368` if a specific historical investigation needs them.

@@ -33,6 +33,59 @@ def timestep_fs_to_ps(timestep_fs):
     return float(timestep_fs)*.001
 
 
+def estimate_uwham(reduced_potentials, sample_counts):
+    """Pinned Python UWHAM core on the exact shared dimensionless states.
+
+    Supplying explicit counts avoids the upstream dataframe path's one-based
+    labels, leg reversal, kcal gas constant, and midpoint-identity assumption.
+    Upstream ze is log Z; common free energies are -ze. W has mean one,
+    so divide by the total count to obtain the MBAR normalization.
+    """
+    if importlib.metadata.version('atom-openmm') != '8.5.0b0':
+        raise UnsupportedCapability('UWHAM requires pinned AToM 8.5.0b0')
+    from atom_openmm.uwham import _obj_fcn, _uwham
+    from scipy.optimize import minimize
+    from ..schema import QualificationError
+    potentials = np.asarray(reduced_potentials, dtype=float)
+    # The pinned core exponentiates density ratios directly. Reject unsupported
+    # range instead of clipping potentials, altering data or pretending support.
+    state_zeros = potentials[:, 0].copy()
+    canonical = potentials-state_zeros[:, None]
+    ratios = canonical-canonical[0]
+    if np.max(np.abs(ratios)) > 600.:
+        raise QualificationError('pinned UWHAM density support exceeds admitted finite numerical range')
+    counts = np.asarray(sample_counts, dtype=int)
+    # The upstream entry point does not expose optimizer options. Refine its
+    # exact pinned objective/gradient/Hessian independently of MBAR, then use
+    # its entry point for weights and Fisher covariance at that stationary point.
+    objective = lambda z: _obj_fcn(z, -ratios, counts, 0)
+    fit = minimize(lambda z: objective(z)[0], np.zeros(len(counts)-1), method='trust-exact',
+                   jac=lambda z: objective(z)[1], hess=lambda z: objective(z)[2],
+                   options={'gtol': 1.e-12, 'maxiter': 1000})
+    if not np.isfinite(fit.x).all() or np.max(np.abs(fit.jac)) > 1.e-6:
+        raise QualificationError('independent pinned UWHAM objective did not converge')
+    z = fit.x.copy()
+    # Near a stationary point objective differences can round to zero before
+    # its gradient does. Newton refinement uses the same independent exact
+    # Hessian, rather than accepting SciPy's success flag as numerical evidence.
+    for _ in range(8):
+        _, grad, hessian = objective(z)
+        if np.max(np.abs(grad)) <= 1.e-12:
+            break
+        try:
+            z -= np.linalg.solve(hessian, grad)
+        except np.linalg.LinAlgError as exc:
+            raise QualificationError('pinned UWHAM Hessian has disconnected/insufficient support') from exc
+    output = _uwham(logQ=-canonical.T, size=counts, base=0, init=np.r_[0., z], fisher=True)
+    residual = float(np.max(np.abs(output['check']-1.)))
+    gradient = float(np.max(np.abs(output['result'].jac)))
+    if not np.isfinite(residual) or residual > 1.e-8 or not np.isfinite(gradient) or gradient > 1.e-10:
+        raise QualificationError('pinned UWHAM optimizer failed normalization/stationarity checks')
+    return dict(free_energies_dimensionless=-output['ze']+state_zeros-state_zeros[0], covariance_dimensionless=output['Ve'],
+                normalized_weights=output['W']/potentials.shape[1], solver_residual=max(residual, gradient),
+                optimizer_success=bool(fit.success), optimizer_message=str(fit.message))
+
+
 def atom_keywords(physical, transfer, schedule, runtime, *, reserved_group=1):
     validate_runtime(runtime)
     validate_transfer(physical, transfer)

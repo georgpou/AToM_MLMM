@@ -582,6 +582,141 @@ class RestraintSpec(Record):
 
 
 @record
+class EvaluationRecords(Record):
+    """Raw NVT observations; walker sequence is explicit for correlation analysis."""
+    schedule: ScheduleSpec
+    sample_ids: tuple[str, ...]
+    sampled_state_ids: tuple[str, ...]
+    walker_ids: tuple[str, ...]
+    sequence_numbers: tuple[int, ...]
+    u0_raw_kJ_mol: tuple[float, ...]
+    u1_raw_kJ_mol: tuple[float, ...]
+    outside_energy_kJ_mol: tuple[float, ...]
+    observed_total_kJ_mol: tuple[float, ...]
+    physical_identity: str
+    transfer_identity: str
+    restraint_identity: str
+    provenance: Mapping[str, str]
+    sampling_mode: str
+
+    def _validate(self):
+        _ids(self.sample_ids)
+        count = len(self.sample_ids)
+        arrays = (self.sampled_state_ids, self.walker_ids, self.sequence_numbers,
+                  self.u0_raw_kJ_mol, self.u1_raw_kJ_mol, self.outside_energy_kJ_mol,
+                  self.observed_total_kJ_mol)
+        if any(len(array) != count for array in arrays):
+            raise MalformedInput('raw observation fields must cover every sample')
+        known = {s.state_id for s in self.schedule.states}
+        if not set(self.sampled_state_ids) <= known:
+            raise IdentityError('observation references unknown sampled state')
+        _required(*self.walker_ids, self.physical_identity, self.transfer_identity, self.restraint_identity)
+        if not self.provenance:
+            raise MalformedInput('observation provenance required')
+        _required(*self.provenance.keys(), *self.provenance.values())
+        if self.sampling_mode not in ('independent', 'correlated'):
+            raise MalformedInput('explicit observation sampling_mode required')
+        previous = {}
+        for walker, number in zip(self.walker_ids, self.sequence_numbers):
+            if number < 0 or number <= previous.get(walker, -1):
+                raise IdentityError('walker sequence_numbers must increase without duplicates')
+            previous[walker] = number
+
+
+@record
+class CorrectionRecord(Record):
+    """Additive S05 correction; missing computations never acquire zero values."""
+    correction_id: str
+    status: str
+    value_kj_mol: float | None
+    standard_error_kj_mol: float | None
+    evidence: str
+
+    def _validate(self):
+        _required(self.correction_id)
+        if self.status not in ('required_uncomputed', 'computed', 'zero_demonstrated', 'not_applicable'):
+            raise MalformedInput('unknown correction status')
+        if self.status == 'required_uncomputed':
+            if self.value_kj_mol is not None or self.standard_error_kj_mol is not None:
+                raise MalformedInput('uncomputed correction cannot have a value/error')
+        else:
+            if not self.evidence.strip():
+                raise MalformedInput('resolved correction needs evidence')
+            if self.value_kj_mol is None or self.standard_error_kj_mol is None or self.standard_error_kj_mol < 0:
+                raise MalformedInput('resolved correction needs value and nonnegative error')
+            if self.status in ('zero_demonstrated', 'not_applicable') and (self.value_kj_mol != 0 or self.standard_error_kj_mol != 0):
+                raise MalformedInput('evidence-backed zero/not-applicable correction must be zero')
+
+
+STANDARD_CORRECTION_OBLIGATIONS = ('translation_standard_state', 'bound_release', 'orientation',
+                                   'conformation', 'state_counting', 'midpoint_bridge')
+
+
+@record
+class ThermodynamicSpec(Record):
+    observable: str
+    endpoint_weights: Mapping[str, float]
+    sign_convention: str
+    state_connections: tuple[tuple[str, str], ...]
+    endpoint_descriptions: Mapping[str, str]
+    correction_obligations: tuple[str, ...]
+    corrections: tuple[CorrectionRecord, ...]
+    standard_volume_nm3: float | None
+    domain_description: str
+    restraint_description: str
+    orientation_description: str
+    state_counting_description: str
+
+    def _validate(self):
+        if self.observable not in ('restrained_free_energy', 'standard_binding_free_energy'):
+            raise UnsupportedCapability('unadmitted thermodynamic observable')
+        _required(self.sign_convention, self.domain_description, self.restraint_description,
+                  self.orientation_description, self.state_counting_description)
+        if self.sign_convention not in ('endpoint_difference', 'bound_minus_bulk', 'B_minus_A'):
+            raise UnsupportedCapability('unknown thermodynamic sign convention')
+        if not self.endpoint_weights or not any(self.endpoint_weights.values()) or abs(sum(self.endpoint_weights.values())) > 1.e-12:
+            raise MalformedInput('endpoint weights must define a nonzero gauge-invariant difference')
+        _ids(tuple(self.endpoint_weights))
+        if not set(self.endpoint_weights) <= set(self.endpoint_descriptions):
+            raise MalformedInput('weighted endpoints need descriptions')
+        _required(*self.endpoint_descriptions.values())
+        if not self.state_connections or any(a == b or not a.strip() or not b.strip() for a, b in self.state_connections):
+            raise MalformedInput('explicit state graph connections required')
+        _ids(self.correction_obligations, empty=True)
+        _ids(tuple(c.correction_id for c in self.corrections), empty=True)
+        if not {c.correction_id for c in self.corrections} <= set(self.correction_obligations):
+            raise MalformedInput('corrections must correspond to declared obligations')
+        if self.standard_volume_nm3 is not None and self.standard_volume_nm3 <= 0:
+            raise MalformedInput('standard volume must be positive')
+        if self.observable == 'standard_binding_free_energy':
+            if self.sign_convention != 'bound_minus_bulk' or self.standard_volume_nm3 is None:
+                raise MalformedInput('standard binding requires bound-minus-bulk and standard volume')
+            if not set(STANDARD_CORRECTION_OBLIGATIONS) <= set(self.correction_obligations):
+                raise MalformedInput('standard binding requires explicit correction obligations')
+
+
+@record
+class BindingResult(Record):
+    restrained_kj_mol: float
+    restrained_standard_error_kj_mol: float
+    corrections: tuple[CorrectionRecord, ...]
+    unresolved_corrections: tuple[str, ...]
+    final_kj_mol: float | None
+    final_standard_error_kj_mol: float | None
+    thermodynamic_identity: str
+    diagnostics: Mapping[str, Any] = field(default_factory=dict)
+
+    def _validate(self):
+        _required(self.thermodynamic_identity)
+        if self.restrained_standard_error_kj_mol < 0:
+            raise MalformedInput('negative restrained error')
+        if (self.final_kj_mol is None) != (self.final_standard_error_kj_mol is None):
+            raise MalformedInput('final value and covariance-aware error must coexist')
+        if self.final_kj_mol is not None and (self.unresolved_corrections or self.final_standard_error_kj_mol < 0):
+            raise MalformedInput('unresolved correction prevents a final binding result')
+
+
+@record
 class ForceOwnership(Record):
     force_id: str
     class_name: str

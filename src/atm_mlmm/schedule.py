@@ -78,3 +78,40 @@ def softened_perturbation(u0, u1, schedule, parameters):
     z = 1+2*y/p['Acore']+2*(y/p['Acore'])**2
     # tanh(a*log(z)/2) is algebraically (z**a-1)/(z**a+1).
     return (p['Umax']-p['Ubcore'])*math.tanh(.5*p['Acore']*math.log(z))+p['Ubcore']
+
+
+def reduced_potentials(records):
+    """Reconstruct every state from raw physical endpoints and outside energy.
+
+    No upstream perturbation tuple, sampled-state total, or softened difference
+    substitutes for the saved raw physical endpoints. Observed totals are an
+    independent scope/units check on the executed sampling state.
+    """
+    import numpy as np
+    from .restraints import MOLAR_GAS_CONSTANT_KJ_MOL_K
+    from .schema import IdentityError, NumericalDomainError
+    schedule = records.schedule
+    validate_schedule(schedule)
+    u0, u1, outside = map(np.asarray, (records.u0_raw_kJ_mol, records.u1_raw_kJ_mol,
+                                      records.outside_energy_kJ_mol))
+    rows = []
+    for state in schedule.states:
+        p = state.parameters
+        if schedule.kind == 'linear':
+            expression = u0+p['Lambda']*(u1-u0)
+        else:
+            soft = np.array([softened_perturbation(a, b, schedule, p) for a, b in zip(u0, u1)])
+            bias = p['Lambda2']*soft+p['W0']
+            diff = p['Lambda2']-p['Lambda1']
+            if diff:
+                bias = bias+diff/p['Alpha']*np.logaddexp(0., -p['Alpha']*(soft-p['Uh']))
+            expression = (u0 if p['Direction'] > 0 else u1)+bias
+        rows.append(expression+outside)
+    total = np.asarray(rows)
+    if not np.isfinite(total).all():
+        raise NumericalDomainError('nonfinite reconstructed potential; preserve failing records')
+    index = {s.state_id: i for i, s in enumerate(schedule.states)}
+    observed = total[[index[s] for s in records.sampled_state_ids], np.arange(len(records.sample_ids))]
+    if not np.allclose(observed, records.observed_total_kJ_mol, atol=1.e-8, rtol=0):
+        raise IdentityError('reconstruction disagrees with observed sampling-state total')
+    return total/(MOLAR_GAS_CONSTANT_KJ_MOL_K*schedule.temperature_K)
