@@ -5,8 +5,10 @@ G05's scientific approval and records stay immutable. G07 has its own cumulative
 All launches use the maintained durable coordinator and leased group supervisor.
 """
 import argparse
+import fcntl
 import json
 import math
+import os
 from pathlib import Path
 import sys
 
@@ -16,6 +18,10 @@ import resume_neutral_quantum as recovery
 PILOT = 'ethanol-methanol-d3-r0--full-parent'
 APPROVAL_PATH = Path(__file__).resolve().parents[1]/'Worker_Log/Milestone_03/evidence/G07_v2/authorization.json'
 APPROVAL_SHA256 = 'fb20e06a6179df03ef6ced63cc09a4d1bdc74e024fc08cb5c5e301bd1079d216'
+REJECTED_PILOT_RECEIPT_SHA256 = 'b42dd4aff42a8e5e52f3ab00a0e857dd58d8de6bdcc1a819becbce5f885a5f1f'
+REVALIDATION_NOTE = ('No QM launch. Order, launch, worker identities, samples and wall time are historical copies. '
+                     'Psi4 1.10.2 explicitly reports Energy and wave function converged.; strict validation passes. '
+                     'Original rejection remains immutable; cumulative quantum debit is unchanged.')
 
 
 def validate_authorization(root, approval_path, matrix_path):
@@ -71,12 +77,138 @@ def validate_joint_record(path, order, expected_sha=None):
     log = Path(path).with_suffix('.psi4.txt')
     if log.exists():
         text = log.read_text()
-        if 'SCF has converged.' not in text or 'SCF failed to converge' in text:
+        converged = ('SCF has converged.' in text
+                     or 'Energy and wave function converged.' in text)
+        if not converged or 'SCF failed to converge' in text:
             raise ValueError('explicit SCF convergence is absent from the saved Psi4 log')
         recovery.sync_file(log)
     else:
         raise ValueError('saved SCF convergence log is missing')
+    receipt_path = Path(path).with_name('receipt.json')
+    canonical_output = Path(json.loads(APPROVAL_PATH.read_text())['attempt_path'])
+    reserved_correction = canonical_output/'jobs'/PILOT/'attempt-0002'
+    original_receipt = reserved_correction.parent/'attempt-0001'/'receipt.json'
+    pinned_rejection = original_receipt.exists() and digest(original_receipt) == REJECTED_PILOT_RECEIPT_SHA256
+    if ((Path(path).parent.resolve() == reserved_correction.resolve() and pinned_rejection)
+            or Path(path).with_name('revalidation.json').exists()
+            or (receipt_path.exists() and json.loads(receipt_path.read_text()).get('completion_kind') == 'validation_only_correction')):
+        validate_correction(Path(path).parent)
     return record
+
+
+def validate_correction(target):
+    """Bind a correction to original bytes and measurements before every reuse."""
+    approval = json.loads(APPROVAL_PATH.read_text())
+    source = Path(approval['attempt_path'])/'jobs'/PILOT/'attempt-0001'
+    original_path = source/'receipt.json'
+    if (target.resolve() != (source.parent/'attempt-0002').resolve()
+            or digest(original_path) != REJECTED_PILOT_RECEIPT_SHA256):
+        raise ValueError('validation correction original identity differs')
+    original = recovery.completion_receipt(source/'record.json', PILOT)
+    copied = {}
+    for path in sorted(source.iterdir()):
+        if not path.is_file() or path.is_symlink():
+            raise ValueError('unexpected original attempt entry')
+        name = 'original-receipt.json' if path.name == 'receipt.json' else path.name
+        copied[name] = digest(path)
+        if digest(target/name) != copied[name]:
+            raise ValueError('validation correction copied original differs: ' + name)
+    correction_path = target/'revalidation.json'
+    correction = json.loads(correction_path.read_text())
+    expected_correction = dict(kind='validation_only_correction', revalidated_utc=correction['revalidated_utc'],
+        original_attempt=str(source), original_receipt_sha256=REJECTED_PILOT_RECEIPT_SHA256,
+        original_validation_error=original['validation_error'], copied_file_sha256=copied,
+        validator_source_sha256=digest(Path(__file__)), note=REVALIDATION_NOTE)
+    recovery.dt.datetime.fromisoformat(correction['revalidated_utc'])
+    if correction != expected_correction:
+        raise ValueError('validation correction statement differs from original evidence')
+    expected = dict(original)
+    expected.pop('validation_error')
+    expected.update(completion_kind='validation_only_correction',
+                    original_receipt_sha256=REJECTED_PILOT_RECEIPT_SHA256,
+                    original_receipt_path=str(original_path), revalidated_utc=correction['revalidated_utc'])
+    expected['diagnostic_sha256'] = dict(copied, **{'revalidation.json':digest(correction_path)})
+    saved = recovery.completion_receipt(target/'record.json', PILOT)
+    if saved != expected:
+        raise ValueError('validation correction receipt differs from original measurements')
+    return saved
+
+
+def revalidate_pilot(output, root, approval, matrix, reference_python):
+    """Correct one hash-exact parser rejection, preserving its original receipt.
+
+    This creates a validation-only copy, never a worker launch or fresh budget.
+    It cannot reopen failed workers, interrupted attempts or other rejections.
+    """
+    if output.resolve() != Path(approval['attempt_path']).resolve():
+        raise ValueError('revalidation requires the canonical G07 output ledger')
+    recovery.validate_environment(reference_python, root)
+    with (output.parent/'queue-lease.lock').open('a') as lock:
+        try:
+            fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        except BlockingIOError:
+            raise ValueError('another coordinator holds this attempt lock')
+        state = json.loads((output/'progress.json').read_text())
+        expected = dict(approval_sha256=digest(APPROVAL_PATH),
+                        input_manifest_sha256=approval['input_manifest_sha256'],
+                        reference_settings_sha256=approval['reference_settings_sha256'], history={})
+        if state['identity'] != expected or any(s['status'] == 'running' for s in state['sessions']):
+            raise ValueError('revalidation ledger identity or closed-session status differs')
+        if recovery.attempt_processes(output):
+            raise ValueError('old quantum worker remains active; refuse revalidation')
+        parent = output/'jobs'/PILOT
+        source = parent/'attempt-0001'
+        original_path = source/'receipt.json'
+        if digest(original_path) != REJECTED_PILOT_RECEIPT_SHA256:
+            raise ValueError('revalidation requires the exact original parser rejection receipt')
+        receipt = recovery.completion_receipt(source/'record.json', PILOT)
+        error = "ValueError('explicit SCF convergence is absent from the saved Psi4 log')"
+        if (receipt['exit'] != 0 or receipt.get('reason') is not None
+                or receipt.get('validation_error') != error
+                or receipt.get('group_cleanup_verified') is not True):
+            raise ValueError('only the completed parser-rejected pilot can be revalidated')
+        identity = json.loads((source/'worker-identity.json').read_text())
+        if recovery.group_members(identity['pid']):
+            raise ValueError('original supervised process group remains active')
+        settings = json.loads((root/'reference-settings.json').read_text())
+        order = joint_queue(matrix, settings)[PILOT]
+        validate_joint_record(source/'record.json', order, receipt['record_sha256'])
+        if 'Energy and wave function converged.' not in (source/'record.psi4.txt').read_text():
+            raise ValueError('actual Psi4 convergence message is absent')
+        target = parent/'attempt-0002'
+        if target.exists():
+            validate_correction(target)
+            validate_joint_record(target/'record.json', order, receipt['record_sha256'])
+            return target/'receipt.json'
+        staging = parent/'.revalidation-staging-v1'
+        recovery.durable_mkdir(staging)  # Existing partial staging is preserved and rejected.
+        copied = {}
+        for path in sorted(source.iterdir()):
+            if not path.is_file() or path.is_symlink():
+                raise ValueError('unexpected original attempt entry: ' + str(path))
+            name = 'original-receipt.json' if path.name == 'receipt.json' else path.name
+            with (staging/name).open('xb') as stream:
+                stream.write(path.read_bytes())
+                stream.flush()
+                os.fsync(stream.fileno())
+            copied[name] = digest(staging/name)
+        recovery.sync_directory(staging)
+        correction = dict(kind='validation_only_correction', revalidated_utc=recovery.utc(),
+            original_attempt=str(source), original_receipt_sha256=REJECTED_PILOT_RECEIPT_SHA256,
+            original_validation_error=receipt['validation_error'], copied_file_sha256=copied,
+            validator_source_sha256=digest(Path(__file__)),
+            note=REVALIDATION_NOTE)
+        recovery.exclusive_dump(staging/'revalidation.json', correction)
+        receipt = dict(receipt)
+        receipt.pop('validation_error')
+        receipt.update(completion_kind='validation_only_correction',
+                       original_receipt_sha256=REJECTED_PILOT_RECEIPT_SHA256,
+                       original_receipt_path=str(original_path), revalidated_utc=correction['revalidated_utc'])
+        receipt['diagnostic_sha256'] = dict(copied, **{'revalidation.json':digest(staging/'revalidation.json')})
+        recovery.exclusive_dump(staging/'receipt.json', receipt)
+        os.rename(staging, target)
+        recovery.sync_directory(parent)
+        return target/'receipt.json'
 
 
 def execution_policy(approval, continuation):
@@ -153,6 +285,10 @@ def run(args):
     matrix_path = Path(args.matrix).resolve()
     approval, matrix = validate_authorization(root, args.approval, matrix_path)
     output = Path(args.output).resolve()
+    if getattr(args, 'revalidate_pilot', False):
+        if args.check_resume or args.continue_batch:
+            raise ValueError('validation-only correction cannot be combined with preflight or batch continuation')
+        revalidate_pilot(output, root, approval, matrix, args.reference_python)
     if output != Path(approval['attempt_path']).resolve():
         raise ValueError('attempt path differs from the separately bound G07 budget ledger')
     if args.memory_gib != 3:
@@ -179,6 +315,8 @@ if __name__ == '__main__':
     parser.add_argument('--wall-limit-seconds', type=float)
     parser.add_argument('--continue-batch', action='store_true')
     parser.add_argument('--pilot-assessment')
+    parser.add_argument('--revalidate-pilot', action='store_true',
+                        help='correct the exact saved pilot convergence-parser rejection without new QM')
     try:
         sys.exit(run(parser.parse_args()))
     except (ValueError, KeyError, OSError, TypeError) as error:

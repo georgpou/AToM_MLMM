@@ -235,6 +235,122 @@ def test_nonconverged_zero_exit_record_is_not_promoted(synthetic):
     assert 'converg' in receipt['validation_error']
 
 
+def test_actual_psi4_1102_convergence_message_is_admitted(synthetic):
+    exe = synthetic[0]
+    exe.write_text(exe.read_text().replace('SCF has converged.', 'Energy and wave function converged.'))
+    assert run_fake(synthetic).returncode == 1
+    state = json.loads((synthetic[1]/'progress.json').read_text())
+    assert len(state['record_hashes']) == 1
+
+
+@pytest.fixture
+def rejected_converged_pilot(synthetic, monkeypatch):
+    import resume_joint_quantum as joint
+    from generate_neutral_quantum import digest
+    exe, output = synthetic
+    exe.write_text(exe.read_text().replace('SCF has converged.', 'Energy and wave function converged.'))
+    validator = joint.validate_joint_record
+    def previous_parser(*args):
+        raise ValueError('explicit SCF convergence is absent from the saved Psi4 log')
+    monkeypatch.setattr(joint, 'validate_joint_record', previous_parser)
+    assert run_fake(synthetic).returncode == 1
+    monkeypatch.setattr(joint, 'validate_joint_record', validator)
+    source = next(output.glob('jobs/*/attempt-*/receipt.json'))
+    monkeypatch.setattr(joint, 'REJECTED_PILOT_RECEIPT_SHA256', digest(source))
+    return source
+
+
+def revalidate_fake(synthetic):
+    import resume_joint_quantum as joint
+    exe, output = synthetic
+    approval, matrix = joint.validate_authorization(PLAN, joint.APPROVAL_PATH, MATRIX)
+    return joint.revalidate_pilot(output, PLAN, approval, matrix, str(exe))
+
+
+def test_posthoc_validation_preserves_rejection_and_debit_without_qm(synthetic, rejected_converged_pilot):
+    import resume_joint_quantum as joint
+    from generate_neutral_quantum import digest
+    output = synthetic[1]
+    original = rejected_converged_pilot.read_bytes()
+    charged = json.loads((output/'progress.json').read_text())['wall_seconds_debited']
+    receipt_path = revalidate_fake(synthetic)
+    receipt = json.loads(receipt_path.read_text())
+    assert receipt['completion_kind'] == 'validation_only_correction'
+    assert receipt['original_receipt_sha256'] == digest(rejected_converged_pilot)
+    assert 'validation_error' not in receipt
+    assert rejected_converged_pilot.read_bytes() == original
+    # A future executable must not be called while recovering this record.
+    synthetic[0].write_text('#!'+sys.executable+'\nraise SystemExit(91)\n')
+    assert run_fake(synthetic).returncode == 1
+    state = json.loads((output/'progress.json').read_text())
+    assert len(state['record_hashes']) == 1 and state['wall_seconds_debited'] >= charged
+    assert len(list(output.glob('jobs/*/attempt-*'))) == 2
+    assert revalidate_fake(synthetic) == receipt_path
+    assert rejected_converged_pilot.read_bytes() == original
+    assert joint.recovery.completion_receipt(receipt_path.with_name('record.json'), joint.PILOT)
+
+
+@pytest.mark.parametrize('target', ['receipt.json', 'record.json', 'record.psi4.txt'])
+def test_revalidation_rejects_changed_original_evidence(synthetic, rejected_converged_pilot, target):
+    path = rejected_converged_pilot.with_name(target)
+    path.write_text(path.read_text()+'\nchanged\n')
+    with pytest.raises(ValueError):
+        revalidate_fake(synthetic)
+    assert len(list(synthetic[1].glob('jobs/*/attempt-*'))) == 1
+
+
+def test_revalidation_respects_lease_and_live_worker(synthetic, rejected_converged_pilot, monkeypatch):
+    import fcntl
+    import resume_joint_quantum as joint
+    with (synthetic[1].parent/'queue-lease.lock').open('a') as lock:
+        fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        with pytest.raises(ValueError, match='coordinator'):
+            revalidate_fake(synthetic)
+    monkeypatch.setattr(joint.recovery, 'attempt_processes', lambda output: [1234])
+    with pytest.raises(ValueError, match='active'):
+        revalidate_fake(synthetic)
+    assert len(list(synthetic[1].glob('jobs/*/attempt-*'))) == 1
+
+
+@pytest.mark.parametrize('entry', ['wall_seconds', 'resources', 'correction', 'original_copy'])
+def test_correction_cannot_change_original_measurements_before_admission(
+        synthetic, rejected_converged_pilot, entry):
+    receipt_path = revalidate_fake(synthetic)
+    receipt = json.loads(receipt_path.read_text())
+    if entry == 'wall_seconds':receipt['wall_seconds'] = .00001
+    elif entry == 'resources':receipt['sampled_rss_peak_bytes'] = 0
+    else:
+        from generate_neutral_quantum import digest
+        name = 'revalidation.json' if entry == 'correction' else 'original-receipt.json'
+        path = receipt_path.with_name(name)
+        data = json.loads(path.read_text())
+        if entry == 'correction':data['copied_file_sha256'] = {}
+        else:data['wall_seconds'] = .00001
+        path.write_text(json.dumps(data))
+        receipt['diagnostic_sha256'][name] = digest(path)
+    receipt_path.write_text(json.dumps(receipt))
+    with pytest.raises(ValueError):
+        revalidate_fake(synthetic)
+    # Ordinary recovery must also reject; the corrective CLI is not required.
+    result = run_fake(synthetic)
+    assert result.returncode == 2
+    state = json.loads((synthetic[1]/'progress.json').read_text())
+    assert not state['record_hashes']
+
+
+def test_ordinary_recovery_cannot_bypass_correction_by_removing_markers(synthetic, rejected_converged_pilot):
+    receipt_path = revalidate_fake(synthetic)
+    receipt = json.loads(receipt_path.read_text())
+    receipt.pop('completion_kind')
+    receipt['wall_seconds'] = 0
+    receipt['diagnostic_sha256'].pop('revalidation.json')
+    receipt_path.with_name('revalidation.json').unlink()
+    receipt_path.write_text(json.dumps(receipt))
+    result = run_fake(synthetic)
+    assert result.returncode == 2
+    assert not json.loads((synthetic[1]/'progress.json').read_text())['record_hashes']
+
+
 @pytest.mark.parametrize('mode', ['missing', 'changed'])
 def test_recovery_rejects_missing_or_changed_convergence_log(synthetic, mode):
     assert run_fake(synthetic).returncode == 1
