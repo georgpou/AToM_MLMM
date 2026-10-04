@@ -1,0 +1,13 @@
+Unchanged validator SHA-256: 170bbb9d06892b1909a8818fb60c89f4d3ad421ac830b03f3865590f3f26c314
+Only logs, prep and latest-result output paths are redirected to new audit evidence.
+core_exact_versions: exit 0
+amber_exact_versions: exit 0
+core_pip_check: exit 0
+amber_pip_check: exit 0
+openmm_installation: exit 0
+cpu_potentials_and_atm: exit 0
+separate_ambertools_integration: exit 0
+atom_uwham: exit 0
+repository_documentation: exit 0
+Environment checks: PASS; documentation: PASS
+Full results: /workspace/AToM_MLMM-m03-g06-g07/Worker_Log/Milestone_03/evidence/G06_G07_v1_independent_sol61_max/strict-logs/validation-20261004T073737Z-45319/results.json

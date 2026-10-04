@@ -1,20 +1,34 @@
 # Current status
 
-**Next independent development scope: M04/G08.** The user considers cut/region
-sensitivity investigation a lower priority and has deferred the independent
-audit. G08 explicitly permits development alongside G04-G07 after accepted
-G02/G03; its analytic thermodynamic checks do not need new G07 QM. See the
-[continuation and interpretation note](handoffs/M04-after-M03-numerical-handoff-v1.md).
-The recorded sensitivity exceedances and physical-reference requirements remain;
-they do not establish an unresolved numerical engine defect. No scientific limit
-or gate acceptance has changed.
+**G06 and G07 numerical scopes are independently accepted; M03 physical closure
+remains blocked.** The actual **GPT-6.1-sol/MAX** reviewer audited exact submission
+`ad994d68333a7dabffd4cbcc68dfc9a4a2114b0b`, carrying source
+`c584086da68654b07f1a477d7ce1e48da42a9838`. The
+[G06 audit](../../Worker_Log/Milestone_03/Gate_06_v1_audit.md) accepts all six
+assertions; the [G07/M03 audit](../../Worker_Log/Milestone_03/Gate_07_v1_audit.md)
+accepts T1/T2/T3 and its seven numerical assertions separately. This is the narrow
+small-system single-point **OpenMM Reference double / MACE CPU float64** scope;
+OpenMM CPU PME precision, dynamics, protein/binding accuracy and broader profiles
+are not qualified. No mathematical/coding repair finding remains in that scope.
+
+Independent checks: **381 full-suite passes**, **45 focused passes**, **9/9 strict
+environment checks**, 24 additional alternative-cut periodic route comparisons
+and five intermediate force sweeps. All 1,924 initially frozen tracked files and
+46 accepted G05 records remained byte-identical during review. The seven
+project-specific force-sensitivity exceedances and 30 missing quantum references
+remain physical qualification blockers; no limit or scientific input changed.
+
+**Next independent development scope: M04/G08.** G08 explicitly permits
+development alongside G04-G07 after accepted G02/G03; its analytic thermodynamic
+checks do not need new G07 QM. The reviewer confirms it may proceed. See the
+[published-branch continuation instructions](handoffs/M04-G08-fresh-agent-handoff-v1.md).
 
 The current child `m03-g06-g07` continues the published G05 base
 `08ccee74d0da900ffb1bd98d076e6e87e9df1b0c`. G06-T1/T2/T3 and G07-T1/T2/T3
 implementation and small-system numerical checks are complete on source
 `c584086da68654b07f1a477d7ce1e48da42a9838`: **381 CPU-suite passes**, **23 final
-G06 focused passes**, and **9/9 strict main/Amber environment checks**. G06 is
-ready for independent review; no new gate acceptance is claimed. See the
+G06 focused passes**, and **9/9 strict main/Amber environment checks**. The
+independent audit above accepts the implemented numerical scope only. See the
 [G06 worker](../../Worker_Log/Milestone_03/Gate_06_v1_worker.md),
 [G07 worker](../../Worker_Log/Milestone_03/Gate_07_v1_worker.md), and exact
 [snapshot](../../Worker_Log/Milestone_03/evidence/G07_v1/snapshot.json).
@@ -36,8 +50,8 @@ reference DFT was launched; AM1-BCC preparation did run. All **46** accepted G05
 records, earlier evidence, model, scientific inputs and locks remain unchanged.
 The [conditional execution proposal](reference/G07-reference-execution-proposal-v1.md)
 requires review of the sensitivity finding and a new applicable budget before
-any pilot/batch. No budget selection or independent review has occurred. The
-requested reviewer is **GPT-6.1-sol/MAX**, with no QM rerun.
+any pilot/batch. Independent review of the finding is now recorded above;
+no new budget has been selected and no new reference calculation was launched.
 
 G05 on the same child `m03-reference-g05` is **accepted_for_scope** for the
 fixed neutral nonperiodic CPU local-reference profile. The independent
@@ -148,12 +162,12 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 Proceed with independent [M04/G08](gates/G08-thermodynamics-and-estimators.md)
 analytic thermodynamic validation using its accepted G02/G03 prerequisites.
 Preserve the completed G05 batch, M03 numerical evidence and all scientific
-limits. G06/G07 independent review, G07-08/09 references and physical acceptance
-remain deferred/pending; the seven cut-sensitivity exceedances are differences
+limits. G06/G07 numerical review is complete; G07-08/09 references and physical
+acceptance remain pending. The seven cut-sensitivity exceedances are differences
 between MACE-based descriptions, not errors measured against full QM. Review
 that physical scope before protein accuracy claims or acceptance of dependent
-molecular milestones. The chosen future reviewer is GPT-6.1-sol/MAX; no audit
-or new QM is launched by this continuation decision.
+molecular milestones. Use GPT-6.1-sol/MAX for future independent audits.
+No new G07 reference budget is inferred by this continuation decision.
 
 | Scientific scope | Status | Next condition |
 |---|---|---|
@@ -162,10 +176,10 @@ or new QM is launched by this continuation decision.
 | M01 / G00-T1, G01-T1/T2/T3 | accepted_for_scope | [Independent combined v2 review](../../Worker_Log/Milestone_01/Gate_01_v2_audit.md); 47-test result on the recorded CPU profile |
 | M02 / G02-T1/T2/T3, G03-T1/T2/T3 | accepted_for_scope | [G02 v2 audit](../../Worker_Log/Milestone_02/Gate_02_v2_audit.md) / [G03-M02 v2 audit](../../Worker_Log/Milestone_02/Gate_03_v2_audit.md); R1/R2/R3 closed on exact reviewed snapshot; [acceptance record](../../Worker_Log/Milestone_02/evidence/M02_v2_closure/acceptance.json) |
 | G04 / analytic CPU | accepted | [Astra high full-G04 audit](../../Worker_Log/Milestone_03/Gate_04_v1_audit.md) and [acceptance](../../Worker_Log/Milestone_03/evidence/G04_v1_closure/acceptance.json); no blocking findings |
-| G06 / fixed-volume small-system CPU | ready_for_audit | All six stable assertions and 23 focused cases pass; independent review pending |
-| G07 / T1/T2/T3 small-system CPU | ready_for_audit | Seven numerical stable assertions pass, including periodic and unequal two-ligand composition; independent review pending |
+| G06 / fixed-volume small-system Reference/MACE-CPU | accepted_for_scope | Sol 6.1/MAX accepts six assertions for the narrow numerical profile; wider precision/dynamics profiles remain unqualified |
+| G07 / T1/T2/T3 small-system Reference/MACE-CPU | accepted_for_scope | Sol 6.1/MAX accepts seven numerical assertions, periodic and unequal two-ligand composition; physical T4 remains blocked |
 | G07 / T4 physical-reference sensitivity | blocked | Seven force-sensitivity failures; 30 new references absent and new compute budget unapproved |
-| M03 / G04-G07 | blocked | G04 and neutral CPU G05 accepted; resolve G07-T4 and obtain applicable G06/G07 combined review |
+| M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
 | M04 / G08 analytic thermodynamic accounting | next / not_started | Accepted M02 prerequisites; explicitly independent of G04-G07 physical qualification |
 | M05-M08 / G09-G13 | not_started | Retain molecular gate prerequisites and physical-qualification limits |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |

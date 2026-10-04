@@ -1,0 +1,55 @@
+============================= test session starts ==============================
+platform linux -- Python 3.11.16, pytest-9.1.1, pluggy-1.6.0 -- /workspace/atom-mlmm-g05-v2/env/bin/python
+cachedir: .pytest_cache
+rootdir: /workspace/AToM_MLMM-m03-g06-g07
+configfile: pytest.ini
+plugins: anyio-4.15.1, platformdirs-4.12.2, cov-7.1.0
+collecting ... collected 45 items
+
+tests/integration/test_mechanical_pme.py::test_periodic_builder_admits_standard_pme PASSED [  2%]
+tests/integration/test_mechanical_pme.py::test_ml_mm_cross_interactions_retained PASSED [  4%]
+tests/integration/test_mechanical_pme.py::test_nonstandard_forces_and_box_rejected[offset] PASSED [  6%]
+tests/integration/test_mechanical_pme.py::test_nonstandard_forces_and_box_rejected[exception-offset] PASSED [  8%]
+tests/integration/test_mechanical_pme.py::test_nonstandard_forces_and_box_rejected[ljpme] PASSED [ 11%]
+tests/integration/test_mechanical_pme.py::test_nonstandard_forces_and_box_rejected[custom] PASSED [ 13%]
+tests/integration/test_mechanical_pme.py::test_nonstandard_forces_and_box_rejected[triclinic] PASSED [ 15%]
+tests/integration/test_mechanical_pme.py::test_nonstandard_forces_and_box_rejected[dispersion] PASSED [ 17%]
+tests/integration/test_mechanical_pme.py::test_nonstandard_forces_and_box_rejected[two-nb] PASSED [ 20%]
+tests/integration/test_masked_interactions.py::test_pme_charge_mask_cross_identity PASSED [ 22%]
+tests/integration/test_masked_interactions.py::test_lj_mask_cross_and_switching PASSED [ 24%]
+tests/integration/test_masked_interactions.py::test_invalid_mask_sets_reject[sets0] PASSED [ 26%]
+tests/integration/test_masked_interactions.py::test_invalid_mask_sets_reject[sets1] PASSED [ 28%]
+tests/integration/test_masked_interactions.py::test_invalid_mask_sets_reject[sets2] PASSED [ 31%]
+tests/integration/test_masked_interactions.py::test_invalid_mask_sets_reject[sets3] PASSED [ 33%]
+tests/integration/test_periodic_geometry.py::test_images_caps_and_bulk_separation PASSED [ 35%]
+tests/integration/test_periodic_geometry.py::test_cap_wrapping_and_image_seam_continuity PASSED [ 37%]
+tests/integration/test_periodic_geometry.py::test_backend_graph_matches_independent_geometry PASSED [ 40%]
+tests/integration/test_periodic_geometry.py::test_runtime_unsafe_box_rejected[box0] PASSED [ 42%]
+tests/integration/test_periodic_geometry.py::test_runtime_unsafe_box_rejected[box1] PASSED [ 44%]
+tests/integration/test_periodic_geometry.py::test_ambiguous_bond_image_is_outside_admitted_domain PASSED [ 46%]
+tests/integration/test_periodic_geometry.py::test_wrapped_cap_derivative_fault_is_detected PASSED [ 48%]
+tests/integration/test_periodic_geometry.py::test_actual_cap_graph_matches_enumerated_images PASSED [ 51%]
+tests/integration/test_joint_hybrid_atm.py::test_uncut_reference_description_uses_same_builder PASSED [ 53%]
+tests/integration/test_joint_hybrid_atm.py::test_direct_native_and_atom_agree[False] PASSED [ 55%]
+tests/integration/test_joint_hybrid_atm.py::test_real_model_two_unequal_ligand_single_points PASSED [ 57%]
+tests/integration/test_joint_hybrid_atm.py::test_mm_boundary_parent_force PASSED [ 60%]
+tests/integration/test_joint_hybrid_atm.py::test_joint_contact_and_disconnected_graph PASSED [ 62%]
+tests/integration/test_joint_hybrid_atm.py::test_only_mobile_groups_translate[False] PASSED [ 64%]
+tests/integration/test_joint_hybrid_atm.py::test_only_mobile_groups_translate[True] PASSED [ 66%]
+tests/integration/test_joint_hybrid_atm.py::test_joint_periodic_geometry_and_forces[False] PASSED [ 68%]
+tests/integration/test_joint_hybrid_atm.py::test_joint_periodic_geometry_and_forces[True] PASSED [ 71%]
+tests/integration/test_joint_hybrid_atm.py::test_periodic_full_real_derivative_step_sweep PASSED [ 73%]
+tests/contracts/test_embedding_extension.py::test_environment_provider_reuses_atm_and_protocols[False-False] PASSED [ 75%]
+tests/contracts/test_embedding_extension.py::test_environment_provider_reuses_atm_and_protocols[False-True] PASSED [ 77%]
+tests/contracts/test_embedding_extension.py::test_environment_provider_reuses_atm_and_protocols[True-False] PASSED [ 80%]
+tests/contracts/test_embedding_extension.py::test_environment_provider_reuses_atm_and_protocols[True-True] PASSED [ 82%]
+tests/contracts/test_embedding_extension.py::test_joint_checker_detects_cap_and_environment_faults[False-omit-cap] PASSED [ 84%]
+tests/contracts/test_embedding_extension.py::test_joint_checker_detects_cap_and_environment_faults[False-omit-environment] PASSED [ 86%]
+tests/contracts/test_embedding_extension.py::test_joint_checker_detects_cap_and_environment_faults[False-double-parent] PASSED [ 88%]
+tests/contracts/test_embedding_extension.py::test_joint_checker_detects_cap_and_environment_faults[True-omit-cap] PASSED [ 91%]
+tests/contracts/test_embedding_extension.py::test_joint_checker_detects_cap_and_environment_faults[True-omit-environment] PASSED [ 93%]
+tests/contracts/test_embedding_extension.py::test_joint_checker_detects_cap_and_environment_faults[True-double-parent] PASSED [ 95%]
+tests/unit/test_joint_reference_plan.py::test_frozen_joint_matrix_preserves_twenty_rows_and_fifty_descriptions PASSED [ 97%]
+tests/unit/test_joint_reference_plan.py::test_cap_reference_rejects_changed_geometry_before_reusing_quantum PASSED [100%]
+
+======================== 45 passed in 70.03s (0:01:10) =========================

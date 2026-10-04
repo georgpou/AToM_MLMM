@@ -1,0 +1,43 @@
+{
+  "reviewed_head": "ad994d68333a7dabffd4cbcc68dfc9a4a2114b0b",
+  "submission_hashes_verified": 181,
+  "frozen_start_hashes_verified": 1924,
+  "accepted_base_files": 1740,
+  "unchanged_base_files": 1732,
+  "changed_base_files": [
+    "docs/project-0/STATUS.md",
+    "src/atm_mlmm/adapters/atom.py",
+    "src/atm_mlmm/atm.py",
+    "src/atm_mlmm/embeddings/mechanical.py",
+    "src/atm_mlmm/geometry.py",
+    "src/atm_mlmm/hybrid.py",
+    "src/atm_mlmm/ledger.py",
+    "src/atm_mlmm/model_reference.py"
+  ],
+  "accepted_quantum_record_count": 46,
+  "new_fixture_hashes_verified": 75,
+  "exact_frozen_description_ledgers": 50,
+  "ledger_dispositions": {
+    "retained": 11175,
+    "removed": 5245,
+    "added_inert_cap": 30,
+    "replaced_by_exclusion": 1885,
+    "added_exclusion": 11965
+  },
+  "independently_recomputed_saved_energy_error_max_kj_mol": 4.656612873077393e-10,
+  "independently_recomputed_saved_force_component_error_max_kj_mol_nm": 2.7853275241795927e-12,
+  "geometries": 20,
+  "descriptions": 50,
+  "pair_comparisons": 40,
+  "failure_count": 7,
+  "max_energy_sensitivity_kcal_mol": 0.9744628863435872,
+  "max_force_sensitivity_eV_angstrom": 0.12165016265111901,
+  "energy_limit_kcal_mol": 1.0,
+  "force_limit_eV_angstrom": 0.05,
+  "new_reference_jobs": 30,
+  "full_parent_jobs": 20,
+  "alternative_cap_jobs": 10,
+  "reused_g05_jobs": 20,
+  "new_quantum_runs": 0,
+  "physical_acceptance": "blocked"
+}

@@ -1,0 +1,88 @@
+[
+  {
+    "exceptions_periodic": true,
+    "masked": {
+      "kind": "charge",
+      "energies_kj_mol": {
+        "union": -8.875790774084697,
+        "cavity": -0.4093447556910156,
+        "ligand": -1.94430877962348,
+        "empty": 0.0
+      },
+      "cross_kj_mol": -6.522137238770201,
+      "realized_pme": [
+        4.4,
+        64,
+        64,
+        64
+      ],
+      "mask_net_charges_e": {
+        "union": 0.24,
+        "cavity": 0.34,
+        "ligand": -0.1,
+        "empty": 0.0
+      },
+      "background_convention": "openmm-uniform-neutralizing-background",
+      "lj_mixing": "Lorentz-Berthelot",
+      "scope": "energy diagnostic, not a free-energy correction"
+    },
+    "ewald_expected_kj_mol": {
+      "union": -8.875882398415408,
+      "cavity": -0.40939498162524846,
+      "ligand": -1.944354592199471,
+      "empty": 0.0
+    },
+    "charge_errors_kj_mol": {
+      "union": 9.162433071097098e-05,
+      "cavity": 5.022593423287258e-05,
+      "ligand": 4.581257599101107e-05,
+      "empty": 0.0
+    },
+    "lj_actual_kj_mol": 2.3340890393106974,
+    "lj_expected_kj_mol": 2.334089039310693,
+    "lj_error_kj_mol": 4.440892098500626e-15
+  },
+  {
+    "exceptions_periodic": false,
+    "masked": {
+      "kind": "charge",
+      "energies_kj_mol": {
+        "union": -18.373364196740187,
+        "cavity": -0.4093447556910156,
+        "ligand": -1.94430877962348,
+        "empty": 0.0
+      },
+      "cross_kj_mol": -16.01971066142569,
+      "realized_pme": [
+        4.4,
+        64,
+        64,
+        64
+      ],
+      "mask_net_charges_e": {
+        "union": 0.24,
+        "cavity": 0.34,
+        "ligand": -0.1,
+        "empty": 0.0
+      },
+      "background_convention": "openmm-uniform-neutralizing-background",
+      "lj_mixing": "Lorentz-Berthelot",
+      "scope": "energy diagnostic, not a free-energy correction"
+    },
+    "ewald_expected_kj_mol": {
+      "union": -18.373455821070902,
+      "cavity": -0.40939498162524846,
+      "ligand": -1.944354592199471,
+      "empty": 0.0
+    },
+    "charge_errors_kj_mol": {
+      "union": 9.16243307145237e-05,
+      "cavity": 5.022593423287258e-05,
+      "ligand": 4.581257599101107e-05,
+      "empty": 0.0
+    },
+    "lj_actual_kj_mol": -0.002477018531978842,
+    "lj_expected_kj_mol": -0.002477018531978841,
+    "lj_error_kj_mol": 1.3010426069826053e-18
+  }
+]

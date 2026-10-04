@@ -1,0 +1,4 @@
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+Two periodic/nonperiodic-exception mask and switched-LJ checks passed.
+24 alternative-cap periodic direct/native/AToM route comparisons passed; five directional derivative sweeps passed.
+Geometry rejections and five deliberate force/map faults detected.

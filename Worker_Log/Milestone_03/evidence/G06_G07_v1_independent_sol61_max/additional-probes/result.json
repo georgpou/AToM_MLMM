@@ -1,0 +1,41 @@
+{
+  "command": [
+    "python",
+    "Worker_Log/Milestone_03/evidence/G06_G07_v1_independent_sol61_max/independent_probes.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM-m03-g06-g07",
+  "exit_code": 0,
+  "wall_seconds": 39.26140582400694,
+  "finished_utc": "2026-10-04T07:36:51.125136+00:00",
+  "memory_cap_bytes": 8589934592,
+  "cpu_quota": "200000 100000",
+  "peak_sampled_process_tree_rss_bytes": 801001472,
+  "child_maxrss_bytes": 800862208,
+  "peak_sampled_cgroup_bytes": 7640080384,
+  "memory_events_before": {
+    "low": 0,
+    "high": 0,
+    "max": 32472,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "memory_events_after": {
+    "low": 0,
+    "high": 0,
+    "max": 32472,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "memory_event_deltas": {
+    "low": 0,
+    "high": 0,
+    "max": 0,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "minimum_free_disk_bytes": 21576515584,
+  "samples": 40
+}
