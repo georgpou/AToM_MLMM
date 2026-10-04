@@ -1,0 +1,15 @@
+{
+  "command": [
+    "python",
+    "tools/check_docs.py",
+    "--self-test"
+  ],
+  "cwd": "/tmp/atm-mlmm-g09-independent-readonly",
+  "started": "2026-10-04T16:57:20.110808+00:00",
+  "finished": "2026-10-04T16:57:20.301210+00:00",
+  "exit_code": 0,
+  "wall_seconds": 0.19035379600063607,
+  "maximum_child_rss_kib": 13916,
+  "memory_events_before": "low 0\nhigh 0\nmax 55121\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 55121\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

@@ -1,0 +1,11 @@
+{
+  "error": "independent injected domain failure inside integrator.step",
+  "actual_integrator": "LangevinMiddleIntegrator",
+  "actual_worker": "OMMWorkerATMSync",
+  "advanced_step": 1,
+  "production_failure_archives": [],
+  "committed_sample_directories": [],
+  "work_directory": "/tmp/g09-independent-integration-failure-egsih3_8",
+  "auditor_capture": "integration-failure-auditor-state.xml",
+  "retained_by_production": false
+}

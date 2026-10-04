@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/workspace/AToM_MLMM/Worker_Log/Milestone_05/evidence/G09_v1_independent_sol61_max/integration_failure_probe.py", line 69, in <module>
+    assert archives,'integration exception escaped the retention handler; failed coordinates/checkpoint were not archived'
+           ^^^^^^^^
+AssertionError: integration exception escaped the retention handler; failed coordinates/checkpoint were not archived

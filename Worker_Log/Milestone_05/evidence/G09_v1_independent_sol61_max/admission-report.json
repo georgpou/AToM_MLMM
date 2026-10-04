@@ -1,0 +1,260 @@
+{
+  "rejections": 49,
+  "cases": [
+    {
+      "name": "boolean seed",
+      "type": "MalformedInput",
+      "message": "seed must be an integer between 1 and 2147473647"
+    },
+    {
+      "name": "negative seed",
+      "type": "MalformedInput",
+      "message": "seed must be an integer between 1 and 2147473647"
+    },
+    {
+      "name": "too large seed",
+      "type": "MalformedInput",
+      "message": "seed must be an integer between 1 and 2147473647"
+    },
+    {
+      "name": "zero dt",
+      "type": "MalformedInput",
+      "message": "timestep_ps must be positive"
+    },
+    {
+      "name": "NaN dt",
+      "type": "ValueError",
+      "message": "nonfinite JSON constant: NaN"
+    },
+    {
+      "name": "infinite temperature",
+      "type": "ValueError",
+      "message": "nonfinite JSON constant: Infinity"
+    },
+    {
+      "name": "CPU platform",
+      "type": "UnsupportedCapability",
+      "message": "bounded worker preflight admits Reference double on CPU"
+    },
+    {
+      "name": "unknown integrator",
+      "type": "UnsupportedCapability",
+      "message": "unsupported settings: ['integrator']"
+    },
+    {
+      "name": "solvent setting",
+      "type": "UnsupportedCapability",
+      "message": "unsupported settings: ['solvent']"
+    },
+    {
+      "name": "wrong ligand count",
+      "type": "MalformedInput",
+      "message": "protocol must transfer the declared complete ligand molecule(s)"
+    },
+    {
+      "name": "unknown protocol",
+      "type": "UnsupportedCapability",
+      "message": "protocol_kind must be abfe or rbfe"
+    },
+    {
+      "name": "zero displacement",
+      "type": "MalformedInput",
+      "message": "displacement_nm must be nonzero"
+    },
+    {
+      "name": "bool displacement",
+      "type": "MalformedInput",
+      "message": "displacement_nm requires three finite numbers"
+    },
+    {
+      "name": "infinite displacement",
+      "type": "ValueError",
+      "message": "nonfinite JSON constant: Infinity"
+    },
+    {
+      "name": "negative restraint",
+      "type": "MalformedInput",
+      "message": "outside_spring_kj_mol_nm2 must be nonnegative"
+    },
+    {
+      "name": "phase equality",
+      "type": "MalformedInput",
+      "message": "temperatures_K must increase to temperature_K"
+    },
+    {
+      "name": "wrong last temperature",
+      "type": "MalformedInput",
+      "message": "temperatures_K must increase to temperature_K"
+    },
+    {
+      "name": "negative phase step",
+      "type": "MalformedInput",
+      "message": "steps_per_phase must be an integer between 1 and 999999"
+    },
+    {
+      "name": "boolean frame count",
+      "type": "MalformedInput",
+      "message": "frames_per_state must be an integer between 1 and 999999"
+    },
+    {
+      "name": "float frame step",
+      "type": "MalformedInput",
+      "message": "steps_per_frame must be an integer between 1 and 999999"
+    },
+    {
+      "name": "unbounded sample count",
+      "type": "MalformedInput",
+      "message": "bounded journal permits fewer than one million samples"
+    },
+    {
+      "name": "manifest wrong identity",
+      "type": "IdentityError",
+      "message": "input manifest digest mismatch"
+    },
+    {
+      "name": "host triplet",
+      "type": "UnsupportedCapability",
+      "message": "neutral unambiguous singlet host required: 18-crown-6"
+    },
+    {
+      "name": "host negative charge",
+      "type": "UnsupportedCapability",
+      "message": "neutral unambiguous singlet host required: 18-crown-6"
+    },
+    {
+      "name": "partial host",
+      "type": "UnsupportedCapability",
+      "message": "complete static host required: 18-crown-6"
+    },
+    {
+      "name": "immutable existing chunk",
+      "type": "FileExistsError",
+      "message": "immutable sample already exists: /tmp/g09-independent-admission-f_0sauxy/journal/000000"
+    },
+    {
+      "name": "journal index -1",
+      "type": "ValueError",
+      "message": "sample index must be a nonnegative six-digit integer"
+    },
+    {
+      "name": "journal index True",
+      "type": "ValueError",
+      "message": "sample index must be a nonnegative six-digit integer"
+    },
+    {
+      "name": "journal index 1000000",
+      "type": "ValueError",
+      "message": "sample index must be a nonnegative six-digit integer"
+    },
+    {
+      "name": "journal index 1.5",
+      "type": "ValueError",
+      "message": "sample index must be a nonnegative six-digit integer"
+    },
+    {
+      "name": "record corruption",
+      "type": "IdentityError",
+      "message": "sample journal artifact mismatch: /tmp/g09-independent-admission-f_0sauxy/record-corruption/000000/record.json"
+    },
+    {
+      "name": "State corruption",
+      "type": "IdentityError",
+      "message": "sample journal artifact mismatch: /tmp/g09-independent-admission-f_0sauxy/State-corruption/000000/state.xml"
+    },
+    {
+      "name": "checkpoint corruption",
+      "type": "IdentityError",
+      "message": "sample journal artifact mismatch: /tmp/g09-independent-admission-f_0sauxy/checkpoint-corruption/000000/checkpoint.chk"
+    },
+    {
+      "name": "unknown entry",
+      "type": "IdentityError",
+      "message": "unrecognized sample journal entry; preserve and inspect before resuming"
+    },
+    {
+      "name": "missing first index",
+      "type": "IdentityError",
+      "message": "sample journal has missing/reordered transaction identities"
+    },
+    {
+      "name": "pending transaction",
+      "type": "IdentityError",
+      "message": "incomplete sample transaction preserved for inspection: /tmp/g09-independent-admission-f_0sauxy/pending-transaction/.pending-000001-probe"
+    },
+    {
+      "name": "duplicate sample",
+      "type": "IdentityError",
+      "message": "duplicate sample identity or nonincreasing walker sequence"
+    },
+    {
+      "name": "repeated walker sequence",
+      "type": "IdentityError",
+      "message": "duplicate sample identity or nonincreasing walker sequence"
+    },
+    {
+      "name": "checkpoint wrong state",
+      "type": "IdentityError",
+      "message": "checkpoint parameters disagree with recorded state identity"
+    },
+    {
+      "name": "absent trust",
+      "type": "UnsupportedCapability",
+      "message": "worker System/PythonForce artifacts require explicitly trusted loading"
+    },
+    {
+      "name": "wrong manifest hash",
+      "type": "IdentityError",
+      "message": "worker manifest digest mismatch before loading"
+    },
+    {
+      "name": "worker unknown state",
+      "type": "MalformedInput",
+      "message": "unknown schedule state: unknown"
+    },
+    {
+      "name": "worker reversed real ids",
+      "type": "IdentityError",
+      "message": "worker physical/ordered atom identity mismatch"
+    },
+    {
+      "name": "worker physical identity",
+      "type": "IdentityError",
+      "message": "worker physical/ordered atom identity mismatch"
+    },
+    {
+      "name": "worker runtime identity",
+      "type": "IdentityError",
+      "message": "worker bundle/runtime identity mismatch"
+    },
+    {
+      "name": "worker parameter mismatch",
+      "type": "IdentityError",
+      "message": "saved worker State parameters differ from declared state"
+    },
+    {
+      "name": "worker invalid seed",
+      "type": "MalformedInput",
+      "message": "worker integrator_seed must be a positive bounded integer"
+    },
+    {
+      "name": "worker missing core file",
+      "type": "IdentityError",
+      "message": "worker files do not cover the complete pinned contract"
+    },
+    {
+      "name": "worker path escape",
+      "type": "IdentityError",
+      "message": "worker file identity mismatch: ../outside.txt"
+    }
+  ],
+  "valid_configurations": [
+    48,
+    32,
+    41
+  ],
+  "actual_constructor": "OMMWorkerATMSync",
+  "rbfe_groups": 2,
+  "seed_before_context": 719,
+  "work_directory": "/tmp/g09-independent-admission-f_0sauxy",
+  "failed_evidence_unchanged": true
+}

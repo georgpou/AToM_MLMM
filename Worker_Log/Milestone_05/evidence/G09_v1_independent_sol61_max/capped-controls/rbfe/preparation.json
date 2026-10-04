@@ -1,0 +1,49 @@
+{
+  "initial_energy_kj_mol": -1260979.0639624042,
+  "minimization_iterations": 3,
+  "phases": [
+    {
+      "constraint_tolerance": 1e-05,
+      "energy_kj_mol": -1261034.8678582588,
+      "integration_groups": [
+        0
+      ],
+      "max_real_force_kj_mol_nm": 556.4434425260395,
+      "physical_identity": "de91a4e9d7a9292a75ecc60e99308ca74ec68f327dd355a4bfc62278b9bd219f",
+      "seed": 41,
+      "snapshot_identity": "3d4a4bee8ec0045789442002571d8d276afe6553fb92d0ac46168282475d9c91",
+      "steps": 2,
+      "temperature_K": 10.0,
+      "timestep_ps": 0.0005
+    },
+    {
+      "constraint_tolerance": 1e-05,
+      "energy_kj_mol": -1261029.2888753994,
+      "integration_groups": [
+        0
+      ],
+      "max_real_force_kj_mol_nm": 855.4906114579308,
+      "physical_identity": "de91a4e9d7a9292a75ecc60e99308ca74ec68f327dd355a4bfc62278b9bd219f",
+      "seed": 42,
+      "snapshot_identity": "c54150326b00d6517913cf09864f5031fb8fe2cefb12cb558a53f3f6214a931f",
+      "steps": 2,
+      "temperature_K": 100.0,
+      "timestep_ps": 0.0005
+    },
+    {
+      "constraint_tolerance": 1e-05,
+      "energy_kj_mol": -1261005.46638752,
+      "integration_groups": [
+        0
+      ],
+      "max_real_force_kj_mol_nm": 1745.9680388537988,
+      "physical_identity": "de91a4e9d7a9292a75ecc60e99308ca74ec68f327dd355a4bfc62278b9bd219f",
+      "seed": 43,
+      "snapshot_identity": "5bccd164b33b608728936e41d1c73af7a1c3d3f3f66660dcfcf6d1b2e80e085f",
+      "steps": 2,
+      "temperature_K": 300.0,
+      "timestep_ps": 0.0005
+    }
+  ],
+  "physical_identity": "de91a4e9d7a9292a75ecc60e99308ca74ec68f327dd355a4bfc62278b9bd219f"
+}
