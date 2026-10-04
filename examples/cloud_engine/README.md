@@ -58,7 +58,10 @@ To relocate an attempt, copy its complete directory, activate the identical
 locked environment, set `PYTHONPATH` to `<copy>/worker/runtime/source`, then run
 `python -m atm_mlmm resume <copy> --trusted`. Checkpoints require the identical
 software/source/runtime profile; portable States restore observables without
-promising identical RNG continuation. Resume supports a committed sample prefix.
+promising identical RNG continuation. Continuation comparisons must start from
+the same exact saved System/State and seed: independent ML minimizations can
+differ at floating-point roundoff, including the chosen anchor center. Resume
+supports a committed sample prefix.
 Preparation interrupted before metadata creation must start a new attempt.
 An incomplete `.pending-*` sample transaction blocks continuation and preserves
 its files for inspection. Concurrent controllers and automatic hard-crash repair

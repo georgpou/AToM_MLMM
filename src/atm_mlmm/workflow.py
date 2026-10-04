@@ -251,13 +251,16 @@ def _execute(directory,metadata,*,stop_after_samples=None):
             else:
                 worker.restore_portable_state(initial,state.state_id)
             for frame in range(len(existing),settings['frames_per_state']):
-                worker.evaluator._guard()
                 step_start = time.perf_counter()
-                worker.evaluator.integrator.step(settings['steps_per_frame'])
                 try:
+                    worker.evaluator._guard()
+                    worker.evaluator.integrator.step(settings['steps_per_frame'])
                     snapshot = _snapshot(worker)
                     domain = _domain(bundle.physical.topology,snapshot,settings['displacement_nm'],settings['protocol_kind'])
                     result = worker.evaluate(snapshot,state.state_id)
+                    # Preserve the original full-force refresh before a
+                    # checkpoint; the failure handler below uses cached state.
+                    saved = worker.evaluator.context.getState(getPositions=True,getVelocities=True,getParameters=True,getEnergy=True,getForces=True)
                 except Exception as error:
                     # Save even a rejected finite frame before raising. XML also
                     # retains nonfinite numeric output that strict JSON rejects.
@@ -268,9 +271,13 @@ def _execute(directory,metadata,*,stop_after_samples=None):
                     saved = worker.evaluator.context.getState(getPositions=True,getVelocities=True,getParameters=True)
                     (failed/'state.xml').write_text(mm.XmlSerializer.serialize(saved))
                     (failed/'checkpoint.chk').write_bytes(worker.evaluator.context.createCheckpoint())
-                    write_json(failed/'error.json',{'error_type':type(error).__name__,'message':str(error),'state_id':state.state_id})
+                    write_json(failed/'error.json',{'error_type':type(error).__name__,'message':str(error),
+                        'state_id':state.state_id,'walker_id':f"{metadata['run_id']}:{state.state_id}",
+                        'attempted_sample_id':f"{metadata['run_id']}:{state.state_id}:{frame+1}",
+                        'sequence_number':frame+1,'journal_index':len(rows),
+                        'actual_step':int(worker.evaluator.context.getStepCount()),
+                        'actual_time_ps':saved.getTime().value_in_unit(unit.picosecond)})
                     raise
-                saved = worker.evaluator.context.getState(getPositions=True,getVelocities=True,getParameters=True,getEnergy=True,getForces=True)
                 row = dict(sample_id=f"{metadata['run_id']}:{state.state_id}:{frame+1}",
                     walker_id=f"{metadata['run_id']}:{state.state_id}",sequence_number=frame+1,
                     state_id=state.state_id,positions_nm=snapshot.positions_nm,

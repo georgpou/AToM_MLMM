@@ -1,13 +1,14 @@
 """Exact same-profile continuation and conservative raw-journal failures."""
 import json
 from pathlib import Path
+import shutil
 import numpy as np
 import pytest
 from tests.workflow.test_cloud_host_guest import FIXTURE
 
 
 def test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples(tmp_path):
-    from atm_mlmm.workflow import run_configuration, resume_run
+    from atm_mlmm.workflow import run_configuration, resume_run, _execute
     from atm_mlmm.persistence import read_sample_chunks
     base = json.loads((FIXTURE/'config.json').read_text())
     base['input_manifest'] = str(FIXTURE/'manifest.json')
@@ -15,10 +16,17 @@ def test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples(tmp
     path = tmp_path/'config.json'
     path.write_text(json.dumps(base))
     complete, interrupted = tmp_path/'complete', tmp_path/'interrupted'
-    run_configuration(path,complete,trusted=True)
     first = run_configuration(path,interrupted,trusted=True,stop_after_samples=1)
     assert first['status'] == 'interrupted'
     assert len(read_sample_chunks(interrupted/'samples')) == 1
+    # Independent minimizations may differ at floating-point roundoff, including
+    # the resulting anchor center. Compare continuation from the same exact
+    # prepared System/State and seed, not two independently assembled bundles.
+    complete.mkdir()
+    shutil.copytree(interrupted/'worker',complete/'worker')
+    metadata=json.loads((interrupted/'metadata.json').read_text())
+    reference_metadata={**metadata,'run_id':metadata['run_id']+':reference'}
+    _execute(complete,reference_metadata)
     final = resume_run(interrupted,trusted=True)
     assert final['status'] == 'complete'
     a,b = (read_sample_chunks(p/'samples') for p in (complete,interrupted))
