@@ -12,7 +12,7 @@ preserving unfulfilled physical/combined-review requirements. No new gate code
 or longer production run was started during handoff preparation. Main and the
 published G07 predecessor remain unchanged.
 
-**G08 and combined M04 require the G08-R1 result-admission repair.**
+**G08-R1 repair and combined M04 are ready for v2 independent review.**
 Source `966a8d61347f65a69f8ba7e6750c4379d4e0503f` implements explicit thermodynamic
 records/correction obligations, finite-wall translation, full reduced-potential
 reconstruction, active unequal-midpoint bridge checks and independent pinned
@@ -26,9 +26,12 @@ both known-answer criteria, with mean **1.4813958 +/-0.0437064 kJ/mol** versus
 ensembles and their cross-state energies are preserved. The actual
 [GPT-6.1-sol/MAX v1 audit](../../Worker_Log/Milestone_04/Gate_08_v1_audit.md)
 confirms the numerics and 433 fresh CPU passes, but rejects final-result record
-admission with absent/uncomputed corrections. V1 evidence is frozen; a v2 repair
-and independent closure are required. No gate/milestone or molecular binding
-acceptance is claimed.
+admission with absent/uncomputed corrections. V1 evidence is frozen. The
+[v2 worker](../../Worker_Log/Milestone_04/Gate_08_v2_worker.md) on source
+`8cf2494424d796fc3fc393e25b00e05b6281a85f` binds final results to complete matching
+definitions/ledgers, preserves legacy partial records, and passes **21 focused /
+437 full CPU tests**. Independent closure of R1 and the additive amendments is
+pending; no gate/milestone or molecular binding acceptance is claimed.
 
 Maintenance reclaimed **2,083,614,720 bytes**; free disk increased from
 **18.354 to 20.294 GiB** immediately afterward. Removed 328 verified compressed
@@ -247,7 +250,7 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-Repair G08-R1 and obtain actual GPT-6.1-sol/MAX independent closure, then continue
+Obtain actual GPT-6.1-sol/MAX independent G08-R1 closure, then continue
 scoped G09/G10 technical preparation/export/restart work under the current
 engine-readiness handoff. Report technical evidence separately from molecular
 physical qualification. G06/G07 numerical review remains accepted; G07-T4 and
@@ -268,7 +271,7 @@ retains the failed resource screen and safe continuation conditions.
 | G07 / T1/T2/T3 small-system Reference/MACE-CPU | accepted_for_scope | Sol 6.1/MAX accepts seven numerical assertions, periodic and unequal two-ligand composition; physical T4 remains blocked |
 | G07 / T4 physical-reference sensitivity | blocked | Seven sensitivity failures plus measured pilot force-approximation exceedances; one validated full-parent reference, 29 missing; runtime/scratch screens exceed current envelope |
 | M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
-| M04 / G08 analytic thermodynamic accounting | changes_requested | [G08 v1 audit](../../Worker_Log/Milestone_04/Gate_08_v1_audit.md); numerics and 433 independent CPU passes confirmed; G08-R1 final-result admission open, v2 required |
+| M04 / G08 analytic thermodynamic accounting | ready_for_review | [G08 v2 worker](../../Worker_Log/Milestone_04/Gate_08_v2_worker.md); G08-R1 admission repair, 21 focused/437 full CPU passes; actual Sol 6.1/MAX independent closure pending; v1 numerics confirmed |
 | M05-M08 / G09-G13 | not_started | Retain molecular gate prerequisites and physical-qualification limits |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |

@@ -1,0 +1,417 @@
+[
+  {
+    "path": "examples/g08_known_answer.py",
+    "bytes": 7604,
+    "sha256": "40b4cc0f15ffa54e50ee0cfe816ace7c01a4c638561ae1067eaccc3181597050"
+  },
+  {
+    "path": "pytest.ini",
+    "bytes": 266,
+    "sha256": "291dd0e9bfb44d45c4930f27fb343a6d9a05d9dfad99ae3d23e2d1ef9aa1392b"
+  },
+  {
+    "path": "src/atm_mlmm/__init__.py",
+    "bytes": 83,
+    "sha256": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5"
+  },
+  {
+    "path": "src/atm_mlmm/adapters/__init__.py",
+    "bytes": 77,
+    "sha256": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb"
+  },
+  {
+    "path": "src/atm_mlmm/adapters/atom.py",
+    "bytes": 12582,
+    "sha256": "96d557a1933a616d7daeb1bd9ac63665b6f18bf0625babe0367e5e475e33cb2c"
+  },
+  {
+    "path": "src/atm_mlmm/analysis.py",
+    "bytes": 11808,
+    "sha256": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06"
+  },
+  {
+    "path": "src/atm_mlmm/analytic.py",
+    "bytes": 7995,
+    "sha256": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba"
+  },
+  {
+    "path": "src/atm_mlmm/atm.py",
+    "bytes": 18475,
+    "sha256": "9ee50066bcc83c5d8aff820578dab309e355a23c4e55aec58e8bce4efffb6e68"
+  },
+  {
+    "path": "src/atm_mlmm/capabilities.py",
+    "bytes": 4617,
+    "sha256": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4"
+  },
+  {
+    "path": "src/atm_mlmm/chemical_reference.py",
+    "bytes": 5335,
+    "sha256": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9"
+  },
+  {
+    "path": "src/atm_mlmm/derivatives.py",
+    "bytes": 1170,
+    "sha256": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582"
+  },
+  {
+    "path": "src/atm_mlmm/embeddings/__init__.py",
+    "bytes": 65,
+    "sha256": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1"
+  },
+  {
+    "path": "src/atm_mlmm/embeddings/mechanical.py",
+    "bytes": 8242,
+    "sha256": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303"
+  },
+  {
+    "path": "src/atm_mlmm/endpoints.py",
+    "bytes": 1609,
+    "sha256": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71"
+  },
+  {
+    "path": "src/atm_mlmm/environment.py",
+    "bytes": 12160,
+    "sha256": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691"
+  },
+  {
+    "path": "src/atm_mlmm/geometry.py",
+    "bytes": 10103,
+    "sha256": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e"
+  },
+  {
+    "path": "src/atm_mlmm/hybrid.py",
+    "bytes": 5765,
+    "sha256": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb"
+  },
+  {
+    "path": "src/atm_mlmm/identity.py",
+    "bytes": 1653,
+    "sha256": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec"
+  },
+  {
+    "path": "src/atm_mlmm/joint_reference.py",
+    "bytes": 5187,
+    "sha256": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a"
+  },
+  {
+    "path": "src/atm_mlmm/ledger.py",
+    "bytes": 16146,
+    "sha256": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c"
+  },
+  {
+    "path": "src/atm_mlmm/model_reference.py",
+    "bytes": 4291,
+    "sha256": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b"
+  },
+  {
+    "path": "src/atm_mlmm/models/__init__.py",
+    "bytes": 36,
+    "sha256": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d"
+  },
+  {
+    "path": "src/atm_mlmm/models/analytic_boundary.py",
+    "bytes": 4223,
+    "sha256": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec"
+  },
+  {
+    "path": "src/atm_mlmm/models/mace.py",
+    "bytes": 7976,
+    "sha256": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285"
+  },
+  {
+    "path": "src/atm_mlmm/partition.py",
+    "bytes": 5330,
+    "sha256": "b7fb0dfe94771470d1849ca414df961099cd59fe0d3ba843a866551ef72c58f2"
+  },
+  {
+    "path": "src/atm_mlmm/persistence.py",
+    "bytes": 899,
+    "sha256": "8918751bd21041230980da0186191b3a1d98bb6af2c48de70a6f13eb39eb2c36"
+  },
+  {
+    "path": "src/atm_mlmm/prepare.py",
+    "bytes": 970,
+    "sha256": "7353423f9e4b55d722ac3c20756fd36399f461577c384047261db9dff6a85765"
+  },
+  {
+    "path": "src/atm_mlmm/protocols/__init__.py",
+    "bytes": 79,
+    "sha256": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d"
+  },
+  {
+    "path": "src/atm_mlmm/protocols/abfe.py",
+    "bytes": 560,
+    "sha256": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177"
+  },
+  {
+    "path": "src/atm_mlmm/protocols/rbfe.py",
+    "bytes": 555,
+    "sha256": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9"
+  },
+  {
+    "path": "src/atm_mlmm/restraints.py",
+    "bytes": 2040,
+    "sha256": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995"
+  },
+  {
+    "path": "src/atm_mlmm/routing.py",
+    "bytes": 6599,
+    "sha256": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564"
+  },
+  {
+    "path": "src/atm_mlmm/schedule.py",
+    "bytes": 5759,
+    "sha256": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888"
+  },
+  {
+    "path": "src/atm_mlmm/schema.py",
+    "bytes": 39928,
+    "sha256": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302"
+  },
+  {
+    "path": "tests/__init__.py",
+    "bytes": 65,
+    "sha256": "245ff252d3046c44fdce3334745f2e2c970998c473e93f77a4e5f905cbeb7b39"
+  },
+  {
+    "path": "tests/analytic_oracle.py",
+    "bytes": 6939,
+    "sha256": "51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6"
+  },
+  {
+    "path": "tests/conftest.py",
+    "bytes": 1638,
+    "sha256": "322b2c77459f96a38e72d2af34c184d55a229433d9a6d49518f269c807aafe9e"
+  },
+  {
+    "path": "tests/contracts/test_architecture_boundaries.py",
+    "bytes": 2758,
+    "sha256": "735c3fdcd6947ed54ebe2aef80ba80d5e50edd84df087ebe3151aa0b1421304b"
+  },
+  {
+    "path": "tests/contracts/test_capabilities.py",
+    "bytes": 6211,
+    "sha256": "5802147ec1d583439286c27668f6393ed5155ebe2686ba17bda6e29ba0328a23"
+  },
+  {
+    "path": "tests/contracts/test_embedding_extension.py",
+    "bytes": 5437,
+    "sha256": "24ac3c39401c6d3c1b054a82f6d56d86b379c39dca2502a76a620f314d4513ac"
+  },
+  {
+    "path": "tests/contracts/test_evidence_schema.py",
+    "bytes": 2525,
+    "sha256": "fc27c2da5dd8403196aad0dd3a26374122eef7ca415a25c49df700f0f2e18a1b"
+  },
+  {
+    "path": "tests/contracts/test_fault_injection.py",
+    "bytes": 6751,
+    "sha256": "be5c98115e5f4f7f4edd8a8deb1f74a750ae81eb463dcd96618f76a6360c47ba"
+  },
+  {
+    "path": "tests/contracts/test_m02_admission.py",
+    "bytes": 14972,
+    "sha256": "04d4fd65aad842dc30e243db759836c3cf74f7a1ca9bf1d6aacbd205fa65ed52"
+  },
+  {
+    "path": "tests/contracts/test_mace_candidate_admission.py",
+    "bytes": 1473,
+    "sha256": "ea3c61dcce1515b548cd430a652a4ab9769c96bcc67173b3ca8b28275a4920e2"
+  },
+  {
+    "path": "tests/contracts/test_physical_evaluator.py",
+    "bytes": 3749,
+    "sha256": "b741edf13ad4d1c71c10bc2a4a1083b3afb2a1a74caa1b67c6ccd2f4fa1bf039"
+  },
+  {
+    "path": "tests/contracts/test_schema.py",
+    "bytes": 5207,
+    "sha256": "27add1acfba155b2d8e98d7bf2b2ed7c8d26b4be791f1c44e8dc94598a06c196"
+  },
+  {
+    "path": "tests/contracts/test_transfer_protocols.py",
+    "bytes": 3982,
+    "sha256": "a424d78f5f71f98aa3100a3bf5e88be1c3598634d68b06c626715b2a23ca84c3"
+  },
+  {
+    "path": "tests/environment/test_cloud_install.py",
+    "bytes": 2534,
+    "sha256": "f870834c1f502e9c3c1cdc8611975b3c48f56206b8cae5dcbbc11ed02a6b2180"
+  },
+  {
+    "path": "tests/environment/test_cpu_smoke.py",
+    "bytes": 1065,
+    "sha256": "e9f49a2ecef97eef5f9a61031b606021d3e52514b88238289d23dfa7ee5cb987"
+  },
+  {
+    "path": "tests/integration/test_boundary_ledger.py",
+    "bytes": 4798,
+    "sha256": "8b4aa650d66923c8ef5b2a82c6bbf41070d7626eab3db2832737ec856ae07ae7"
+  },
+  {
+    "path": "tests/integration/test_checkpoint_loading.py",
+    "bytes": 3869,
+    "sha256": "8d597860105ee617468111bca7cb345af37919b7b5f2c2356438c14abca37d65"
+  },
+  {
+    "path": "tests/integration/test_chemical_reference.py",
+    "bytes": 10154,
+    "sha256": "4d2b01a411504647a53c5104f27626b9c278c9c9e0bb6aa4437cb06bbb6854bd"
+  },
+  {
+    "path": "tests/integration/test_joint_hybrid_atm.py",
+    "bytes": 9534,
+    "sha256": "c7f83b7039480a2d3d35a82c709af6fea669a5ba09a2829a3d6f409221ed0b6c"
+  },
+  {
+    "path": "tests/integration/test_link_geometry.py",
+    "bytes": 21085,
+    "sha256": "2804e87da826497e1f35a8883de565bac7b93d3f2540c9c2cffa58a297235c23"
+  },
+  {
+    "path": "tests/integration/test_locality.py",
+    "bytes": 2071,
+    "sha256": "9b5c702fdbfa6e37af40f14dafab55530cfbed26d1990a70cb3756bce4d28e4b"
+  },
+  {
+    "path": "tests/integration/test_mace_link_example.py",
+    "bytes": 2310,
+    "sha256": "f072b8e3e8ff277454bc0e523d73041b736e845e2bd6bb597a2d80f99b241c18"
+  },
+  {
+    "path": "tests/integration/test_masked_interactions.py",
+    "bytes": 3561,
+    "sha256": "0cf93d6dc3e573fe8555c850a340ed8a1a6112654c2912e1e90c73d140580458"
+  },
+  {
+    "path": "tests/integration/test_mechanical_pme.py",
+    "bytes": 4910,
+    "sha256": "7183b6c054ed8a0ed0201066526611c18b1fa36f788289c054fe629acf97cddc"
+  },
+  {
+    "path": "tests/integration/test_model_adapter.py",
+    "bytes": 16901,
+    "sha256": "81340042ff5bc63d19009a9b758da96d883c3640e122fa647631c298d97ac9c9"
+  },
+  {
+    "path": "tests/integration/test_model_domain.py",
+    "bytes": 4906,
+    "sha256": "4ecb006bf70722960c2a67e2c593704597ddba7ae6772b232ce8c2a25f3ab6fa"
+  },
+  {
+    "path": "tests/integration/test_periodic_geometry.py",
+    "bytes": 7928,
+    "sha256": "b623dde7a9e592111d0c844c3ef8f4eed38e2bbfaee7760ec9974be82940c3a6"
+  },
+  {
+    "path": "tests/integration/test_pythonforce_atm.py",
+    "bytes": 8785,
+    "sha256": "e3f80f69896c00e1abeafa045091867a67625d1feb6d36f270d222093baf1ab4"
+  },
+  {
+    "path": "tests/joint_oracle.py",
+    "bytes": 9278,
+    "sha256": "6fa6539328e8a2efcbce5967a0691f2a5167aac1a4865144ae2a9999118d4371"
+  },
+  {
+    "path": "tests/link_oracle.py",
+    "bytes": 5701,
+    "sha256": "8bc02479945b1c685df2f9b7b7ca9456af8ea2b2d62cb7812d5871cdfa162cdb"
+  },
+  {
+    "path": "tests/link_permutation.py",
+    "bytes": 3374,
+    "sha256": "57798656dbfb3689b1a72257f612758d5aa24a96be9c491c1124e6089eacc67f"
+  },
+  {
+    "path": "tests/model_oracle.py",
+    "bytes": 2706,
+    "sha256": "bb3346feb610cca855616e12a333cd0131e187aab79ccbce27a423782aabeb14"
+  },
+  {
+    "path": "tests/periodic_oracle.py",
+    "bytes": 6427,
+    "sha256": "bd736c543c782558f1dea9186d245b74b3c067328dc2d02ede1fd8bbe48319a1"
+  },
+  {
+    "path": "tests/sampling/test_analytic_free_energy.py",
+    "bytes": 9195,
+    "sha256": "115347e5e320576955c67cbdd1b167331397d0e09c87ea38de02da7d8388cac2"
+  },
+  {
+    "path": "tests/unit/test_binding_result_admission.py",
+    "bytes": 5591,
+    "sha256": "a880bac7bc03435f8836b965960fc93c043b51245a89e2c0025a2b46bec9c7b9"
+  },
+  {
+    "path": "tests/unit/test_environment.py",
+    "bytes": 6752,
+    "sha256": "8bdc003c5007fd2e25c8130c2626703d6653dfe123cadbe35aca20317bcbea92"
+  },
+  {
+    "path": "tests/unit/test_force_inventory.py",
+    "bytes": 5213,
+    "sha256": "b397bdcedd9f26b6cbe5bae5970bc6d48100a55b29607b0105464d4955b76877"
+  },
+  {
+    "path": "tests/unit/test_identity.py",
+    "bytes": 1338,
+    "sha256": "d4ea798f03946c528580719d01bd606115919ac23bf49b87a1bd73b45e7cbc46"
+  },
+  {
+    "path": "tests/unit/test_joint_quantum_execution.py",
+    "bytes": 22233,
+    "sha256": "094d71ada6f3382b9f3b872088a242526c8f903ffd4123c11a6f04aba9287f30"
+  },
+  {
+    "path": "tests/unit/test_joint_reference_plan.py",
+    "bytes": 1736,
+    "sha256": "d3292da6a4fad2475c6306817c0ecc039774dae8066e8b1f420605018fd88c18"
+  },
+  {
+    "path": "tests/unit/test_partition.py",
+    "bytes": 4737,
+    "sha256": "36b50d6c5c2fc2cefb01f197b9c3b97a12f3b7758eaa3a624355170e71a7f90b"
+  },
+  {
+    "path": "tests/unit/test_quantum_interruptions.py",
+    "bytes": 15807,
+    "sha256": "e116e6a65363d8f1fb53da80bac79b8d4a3ed4aa5114abc98993b28c0eca013f"
+  },
+  {
+    "path": "tests/unit/test_quantum_recovery.py",
+    "bytes": 15903,
+    "sha256": "d64e9b5a67725f03989656f149b47348c7bec60b8bdd53443584208203c43037"
+  },
+  {
+    "path": "tests/unit/test_reference_metrics.py",
+    "bytes": 1259,
+    "sha256": "0738969cfc4f03ddefcb7051981998883ab21f5dba204d54d324b78460810efa"
+  },
+  {
+    "path": "tests/unit/test_reference_provenance.py",
+    "bytes": 3802,
+    "sha256": "adb511e9aff9e51d8ce18a8c0a218e815d02d5513dabc3c188df80e242e25b26"
+  },
+  {
+    "path": "tests/unit/test_restraint_volume.py",
+    "bytes": 7262,
+    "sha256": "a94050d92da64658cfeb10dd409297d024a4a46c8ae856dadce4170b02e2f57c"
+  },
+  {
+    "path": "tests/unit/test_schedule.py",
+    "bytes": 7776,
+    "sha256": "dbcae5eca66362826deae77674e8a5c164d2ccb49d0a6876b7389be430d9ba1e"
+  },
+  {
+    "path": "tests/workflow/test_active_force_groups.py",
+    "bytes": 4923,
+    "sha256": "c702cab61dab3064150effd98aa282536584cde6e895af709d722c608e5d1512"
+  },
+  {
+    "path": "tests/workflow/test_atom_force_routing.py",
+    "bytes": 15770,
+    "sha256": "6e202411be5d2aee839c377ef68bc3f043518f02deb7e451ca976a85963a4261"
+  }
+]

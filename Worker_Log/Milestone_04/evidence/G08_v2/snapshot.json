@@ -1,0 +1,21 @@
+{
+  "source": "8cf2494424d796fc3fc393e25b00e05b6281a85f",
+  "base": "89eb8b9",
+  "branch": "m04-engine-readiness",
+  "source_test_files": 83,
+  "focused": {
+    "exit": 0,
+    "passed": 21,
+    "seconds": 34.16
+  },
+  "full_cpu": {
+    "exit": 0,
+    "passed": 437,
+    "seconds": 322.62,
+    "basetemp": "/tmp/g08-v2-root-full"
+  },
+  "activation": "/workspace/atom-mlmm-g08-r2/activate.sh",
+  "OPENBLAS_NUM_THREADS": 2,
+  "memory_events": "low 0\nhigh 0\nmax 41097\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "v1_audit_sha256": "c31d2575b8d89a6bf67cedb753951c0a6842748b1ad51865696e99da6ac1b84a"
+}
