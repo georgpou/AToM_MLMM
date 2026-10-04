@@ -1,0 +1,45 @@
+{
+  "elapsed_preparation_handover_seconds": 10.897061325000323,
+  "profile": {
+    "installed_distribution_identity": "1865672db5d5a8db6c4d6abc4035d2eb0d70339cb85c1958f85eac7e7800fbf1",
+    "machine": "x86_64",
+    "model_device": "CPU",
+    "model_dtype": "float64",
+    "openmm_platform": "Reference",
+    "packages": {
+      "atom-openmm": "8.5.0b0",
+      "mace-torch": "0.3.16",
+      "numpy": "2.4.6",
+      "openmm": "8.6.1",
+      "torch": "2.8.0"
+    },
+    "precision": "double",
+    "python": "3.11.16"
+  },
+  "run_id": "eea9f6615c0e43f88497d0036e339671",
+  "runtime_identity": "93485f1c629858c556c4758a1f735296e45d3ccbe6c908aa5e73d42f965cf56b",
+  "settings": {
+    "displacement_nm": [
+      2.4,
+      0.0,
+      0.0
+    ],
+    "frames_per_state": 20,
+    "minimization_iterations": 10,
+    "outside_spring_kj_mol_nm2": 10.0,
+    "platform": "Reference",
+    "protocol_kind": "abfe",
+    "seed": 41,
+    "steps_per_frame": 5,
+    "steps_per_phase": 2,
+    "temperature_K": 300.0,
+    "temperatures_K": [
+      10.0,
+      100.0,
+      300.0
+    ],
+    "timestep_ps": 0.0005
+  },
+  "version": 1,
+  "worker_manifest_sha256": "8963f9ae8aa2ff3d5e042113d92ba3573f7e4dc9fd87006e9196b51b6ea57613"
+}

@@ -1,0 +1,2 @@
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+{'energies_kj_mol': [6674957571.708881, -2728905.287527373], 'all_real_atoms': 48, 'finite_full_forces': True}

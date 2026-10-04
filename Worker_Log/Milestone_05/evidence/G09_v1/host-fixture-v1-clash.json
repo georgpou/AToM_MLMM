@@ -1,0 +1,11 @@
+{
+  "failure": "score-free above-oxygen pose clashes with another host atom",
+  "closest_pair": [
+    "g005",
+    "h019"
+  ],
+  "distance_nm": 0.02649224366089429,
+  "observed_total_energy_kj_mol": 6674957572.008882,
+  "raw_fixture": "fixtures/cloud_host_guest/v1",
+  "next_action": "preserve v1; choose v2 by full-host Bondi-distance admission, not an energy/model score"
+}

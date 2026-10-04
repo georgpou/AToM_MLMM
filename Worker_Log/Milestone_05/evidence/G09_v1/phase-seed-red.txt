@@ -1,0 +1,20 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+__________ test_phase_seeds_are_applied_before_context_initialization __________
+
+    def test_phase_seeds_are_applied_before_context_initialization():
+        from atm_mlmm.prepare import prepare_phases
+        physical, _, _, _, snapshot = case()
+        a = prepare_phases(physical,snapshot,REFERENCE,seed=73)
+        b = prepare_phases(physical,snapshot,REFERENCE,seed=73)
+        c = prepare_phases(physical,snapshot,REFERENCE,seed=109)
+>       assert a['snapshot'].positions_nm == b['snapshot'].positions_nm
+E       assert ((0.195218946...2574028), ...) == ((0.195277715...3749963), ...)
+E         
+E         At index 0 diff: (0.19521894619039423, 0.1002709041641726, -0.09726195910897928) != (0.19527771536055974, 0.10016378818245976, -0.09731191074946301)
+E         Use -v to get more diff
+
+tests/workflow/test_preparation_phases.py:46: AssertionError
+=========================== short test summary info ============================
+FAILED tests/workflow/test_preparation_phases.py::test_phase_seeds_are_applied_before_context_initialization
+1 failed in 0.18s

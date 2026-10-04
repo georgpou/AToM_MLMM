@@ -1,0 +1,25 @@
+{
+  "name": "18-crown-6 + methanol",
+  "version": 1,
+  "real_atoms": 48,
+  "host_formula": "C12H24O6",
+  "guest_formula": "CH4O",
+  "physical_scope": "all-ML vacuum; no MM or binding-accuracy qualification",
+  "chemistry": "two complete neutral singlets; H/C/O; no stereocenters, cuts, solvent, ions or metals",
+  "preparation": {
+    "rdkit": "2026.03.6",
+    "openmm": "8.6.1.dev-b399af4",
+    "physical_scope": "all-ML vacuum; original MM is explicitly inert",
+    "geometry": "ETKDGv3/MMFF94s, seeds61709/61710; fixed O-H donor placement",
+    "selection": "no model, quantum, experimental or docking score used",
+    "source_smiles": {
+      "host": "O1CCOCCOCCOCCOCCOCC1",
+      "guest": "CO"
+    }
+  },
+  "files": {
+    "system-input.json": "946b5b8da6237a1779b1935da35d4cd2a89bccd6e9dde82ee916edcd7503524d",
+    "partition.json": "e21829bb387dc5cb55bb5684ed026339f20addd065fe0c9c916646369c5c2fce",
+    "snapshot.json": "0d573d1a2a0003c9e276186e1c79f33af05b5bb9f8c35594034c984293a11e89"
+  }
+}

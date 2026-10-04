@@ -1,0 +1,70 @@
+F....FF                                                                  [100%]
+=================================== FAILURES ===================================
+_____________________ test_neutral_complete_host_is_static _____________________
+
+topology = TopologyView(atoms=(AtomIdentity(atom_id='p-b', element='C', chain='A', residue='7', insertion_code='', atom_name='CB'...eculeState(molecule_id='ligand-b', atom_ids=('l-b1', 'l-b2', 'l-b3'), role='ligand', formal_charge=0, multiplicity=1)))
+partition_spec = PartitionSpec(ml_ids=('p-b', 'l-a1', 'l-a2', 'l-b1', 'l-b2', 'l-b3'), protein_ml_ids=('p-b',), permitted_cuts=(('p-b',... formal_charge=0, multiplicity=1), ComponentState(atom_ids=('l-b1', 'l-b2', 'l-b3'), formal_charge=0, multiplicity=1)))
+
+    def test_neutral_complete_host_is_static(topology, partition_spec):
+        from atm_mlmm.partition import resolve_partition
+        from atm_mlmm.identity import validate_mobile_groups
+        from atm_mlmm.protocols.abfe import make_protocol
+        from atm_mlmm.schema import MobileGroup, UnsupportedCapability
+        topology, spec = host_case(topology, partition_spec)
+>       result = resolve_partition(topology, spec)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/unit/test_host_role.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+topology = TopologyView(atoms=(AtomIdentity(atom_id='p-b', element='C', chain='A', residue='7', insertion_code='', atom_name='CB'...eculeState(molecule_id='ligand-b', atom_ids=('l-b1', 'l-b2', 'l-b3'), role='ligand', formal_charge=0, multiplicity=1)))
+spec = PartitionSpec(ml_ids=('p-b', 'l-a1', 'l-a2', 'l-b1', 'l-b2', 'l-b3'), protein_ml_ids=('p-b',), permitted_cuts=(('p-b',... formal_charge=0, multiplicity=1), ComponentState(atom_ids=('l-b1', 'l-b2', 'l-b3'), formal_charge=0, multiplicity=1)))
+
+    def resolve_partition(topology, spec):
+        atoms = {a.atom_id: a for a in topology.atoms}
+        selected, protein = set(spec.ml_ids), set(spec.protein_ml_ids)
+        if not selected <= atoms.keys():
+            raise IdentityError(f'unknown selected real IDs: {sorted(selected - atoms.keys())}')
+        graph = {a: set() for a in atoms}
+        for bond in topology.bonds:
+            graph[bond.atom1].add(bond.atom2)
+            graph[bond.atom2].add(bond.atom1)
+        membership = {a: m for m in topology.molecules for a in m.atom_ids}
+        for bond in topology.bonds:
+            if membership[bond.atom1].molecule_id != membership[bond.atom2].molecule_id:
+                raise IdentityError(f'bond contradicts molecule membership: {bond.atom1}-{bond.atom2}')
+        if any(membership[a].role != 'protein' for a in protein):
+            raise UnsupportedCapability('protein selection contains a nonprotein atom')
+        # Bond connectivity, rather than atom names, completes protein hydrogens.
+        hydrogens = {neighbor for a in protein for neighbor in graph[a] if atoms[neighbor].element == 'H'}
+        protein |= hydrogens
+        selected |= hydrogens
+        if {a for a in selected if membership[a].role == 'protein'} != protein:
+            raise IdentityError('protein_ml_ids do not describe the selected protein atoms')
+        for a in selected:
+            if atoms[a].element not in ELEMENTS:
+                raise UnsupportedCapability(f'unknown/unsupported element {atoms[a].element}: {a}')
+            if membership[a].role not in ('ligand', 'protein'):
+>               raise UnsupportedCapability(f'unsupported selected molecule role: {membership[a].role}')
+E               atm_mlmm.schema.UnsupportedCapability: unsupported selected molecule role: host
+
+src/atm_mlmm/partition.py:63: UnsupportedCapability
+________ test_explicit_phases_keep_physical_hamiltonian_and_full_forces ________
+
+    def test_explicit_phases_keep_physical_hamiltonian_and_full_forces():
+>       from atm_mlmm.prepare import prepare_phases
+E       ImportError: cannot import name 'prepare_phases' from 'atm_mlmm.prepare' (/workspace/AToM_MLMM/src/atm_mlmm/prepare.py)
+
+tests/workflow/test_preparation_phases.py:11: ImportError
+________________ test_bad_phase_settings_reject_before_context _________________
+
+    def test_bad_phase_settings_reject_before_context():
+>       from atm_mlmm.prepare import prepare_phases
+E       ImportError: cannot import name 'prepare_phases' from 'atm_mlmm.prepare' (/workspace/AToM_MLMM/src/atm_mlmm/prepare.py)
+
+tests/workflow/test_preparation_phases.py:31: ImportError
+=========================== short test summary info ============================
+FAILED tests/unit/test_host_role.py::test_neutral_complete_host_is_static - a...
+FAILED tests/workflow/test_preparation_phases.py::test_explicit_phases_keep_physical_hamiltonian_and_full_forces
+FAILED tests/workflow/test_preparation_phases.py::test_bad_phase_settings_reject_before_context
+3 failed, 4 passed in 0.16s

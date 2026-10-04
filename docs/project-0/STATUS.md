@@ -15,6 +15,23 @@ preserving unfulfilled physical/combined-review requirements. No new gate code
 or longer production run was started during handoff preparation. Main and the
 published G07 predecessor remain unchanged.
 
+**Tiny cloud preflight v1 is implemented and ready for independent review.**
+The [worker](../../Worker_Log/Milestone_05/Gate_09_v1_worker.md) and
+[shared runner guide](../../examples/cloud_engine/README.md) identify source
+`34cc6ba0d3e618450128b4a679ffc64046c48733`: one manifest/settings path for
+48-atom 18-crown-6/methanol, 32-atom capped ABFE and 41-atom unequal-ligand RBFE.
+All-active phased preparation, actual pinned worker PDB/System/State construction,
+full real-force/raw-state records, same-profile checkpoint continuation,
+portable-State checks and fresh relocated offline resume are implemented.
+Final CPU regression passes **459 tests in 400.62 s**, with no skips. The
+[host pilot](../../Worker_Log/Milestone_05/evidence/G09_v1/host-pilot-diagnostics.json)
+completes **60 frames/300 steps**, 0.05 ps per state; all recorded coordinates,
+velocities and forces are finite, both maps pass unchanged guards, and peak
+process RSS is 987,168,768 bytes. This is partial G09-T2/T3 and G10-T1/T3 vacuum
+technical coverage. The host/runner amendment awaits actual GPT-6.1-sol/MAX
+review. Solvent, exchange, GPU, molecular accuracy and full G09/G10/M05 remain
+open. No binding estimate or QM continuation ran.
+
 **G08 and combined M04 are accepted for the analytic CPU scope; G08-R1 is closed.**
 Source `966a8d61347f65a69f8ba7e6750c4379d4e0503f` implements explicit thermodynamic
 records/correction obligations, finite-wall translation, full reduced-potential
@@ -257,9 +274,9 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-Continue scoped G09/G10 technical preparation/export/restart work with a tiny
-18-crown-6/methanol cloud example (48 neutral H/C/O atoms), existing capped-fragment
-controls and one shared configuration-driven execution path. The user defers T4
+Finish independent review of the frozen cloud preflight. Then retain its common
+runner baseline while solvent coupling and actual exchange receive their
+explicit later coverage. The user defers T4
 lysozyme and Slurm/HPC settings until cluster work begins. Report technical
 evidence separately from molecular
 physical qualification. G06/G07 numerical review remains accepted; G07-T4 and
@@ -281,7 +298,8 @@ retains the failed resource screen and safe continuation conditions.
 | G07 / T4 physical-reference sensitivity | blocked | Seven sensitivity failures plus measured pilot force-approximation exceedances; one validated full-parent reference, 29 missing; runtime/scratch screens exceed current envelope |
 | M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
 | M04 / G08 analytic thermodynamic accounting | accepted | [GPT-6.1-sol/MAX v2 audit](../../Worker_Log/Milestone_04/Gate_08_v2_audit.md), exact c0280818/source8cf2494; G08-R1 closed, refined amendments and combined M04 analytic CPU accepted; 437 full/21 affected passes |
-| M05-M08 / G09-G13 | not_started | Retain molecular gate prerequisites and physical-qualification limits |
+| M05 / G09-G10 cloud technical subsets | ready_for_audit / partial | [Cloud v1 worker](../../Worker_Log/Milestone_05/Gate_09_v1_worker.md), source34cc6ba, 459 CPU passes/60-frame bounded pilot; actual Sol 6.1/MAX review pending; solvent/exchange/full M05 remain open |
+| M06-M08 / G11-G13 | deferred | T4 lysozyme and Slurm settings reserved for user-initiated HPC work; retain physical-qualification prerequisites |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |
 

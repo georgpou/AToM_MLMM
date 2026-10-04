@@ -1,0 +1,94 @@
+.FF.                                                                     [100%]
+=================================== FAILURES ===================================
+_________ test_common_runner_preserves_raw_states_and_all_real_forces __________
+
+tmp_path = PosixPath('/tmp/g09-common-run-1/test_common_runner_preserves_r0')
+
+    def test_common_runner_preserves_raw_states_and_all_real_forces(tmp_path):
+        from atm_mlmm.workflow import run_configuration
+        from atm_mlmm.schema import from_json
+        from atm_mlmm.schedule import reduced_potentials
+        base = json.loads((FIXTURE/'config.json').read_text())
+        base['input_manifest'] = str(FIXTURE/'manifest.json')
+        base['settings'].update(frames_per_state=1,steps_per_frame=1,minimization_iterations=3)
+        path=tmp_path/'config.json'
+        path.write_text(json.dumps(base))
+        out=tmp_path/'run'
+>       summary=run_configuration(path,out,trusted=True)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_engine_configuration.py:32: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/workflow.py:378: in run_configuration
+    return _execute(directory,metadata,stop_after_samples=stop_after_samples)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:286: in _execute
+    records = _records(rows,bundle,metadata)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:207: in _records
+    return EvaluationRecords(bundle.schedule,tuple(r['sample_id'] for r in rows),
+src/atm_mlmm/workflow.py:210: in <genexpr>
+    *(tuple(r['raw'][name] for r in rows) for name in
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x7f0c5b3df6d0>
+
+>   *(tuple(r['raw'][name] for r in rows) for name in
+            ^^^^^^^^^^^^^^
+      ('u0_raw_kJ_mol','u1_raw_kJ_mol','outside_energy_kJ_mol','total_energy_kJ_mol')),
+    bundle.physical.content_identity,bundle.transfer.content_identity,bundle.restraints.content_identity,
+    {'run_id':metadata['run_id'],'worker_manifest_sha256':metadata['worker_manifest_sha256'],
+     'runtime_identity':bundle.schedule.content_identity+':'+metadata['runtime_identity'],
+     'profile':'Reference double / pinned MACE CPU float64 / fixed windows'},'correlated')
+E    KeyError: 'total_energy_kJ_mol'
+
+src/atm_mlmm/workflow.py:210: KeyError
+----------------------------- Captured stdout call -----------------------------
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+___ test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples ___
+
+tmp_path = PosixPath('/tmp/g09-common-run-1/test_interrupted_actual_worker0')
+
+    def test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples(tmp_path):
+        from atm_mlmm.workflow import run_configuration, resume_run
+        from atm_mlmm.persistence import read_sample_chunks
+        base = json.loads((FIXTURE/'config.json').read_text())
+        base['input_manifest'] = str(FIXTURE/'manifest.json')
+        base['settings'].update(frames_per_state=2,steps_per_frame=1,minimization_iterations=3)
+        path = tmp_path/'config.json'
+        path.write_text(json.dumps(base))
+        complete, interrupted = tmp_path/'complete', tmp_path/'interrupted'
+>       run_configuration(path,complete,trusted=True)
+
+tests/workflow/test_engine_restart.py:18: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/workflow.py:378: in run_configuration
+    return _execute(directory,metadata,stop_after_samples=stop_after_samples)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:286: in _execute
+    records = _records(rows,bundle,metadata)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:207: in _records
+    return EvaluationRecords(bundle.schedule,tuple(r['sample_id'] for r in rows),
+src/atm_mlmm/workflow.py:210: in <genexpr>
+    *(tuple(r['raw'][name] for r in rows) for name in
+      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+.0 = <list_iterator object at 0x7f0c5b5610c0>
+
+>   *(tuple(r['raw'][name] for r in rows) for name in
+            ^^^^^^^^^^^^^^
+      ('u0_raw_kJ_mol','u1_raw_kJ_mol','outside_energy_kJ_mol','total_energy_kJ_mol')),
+    bundle.physical.content_identity,bundle.transfer.content_identity,bundle.restraints.content_identity,
+    {'run_id':metadata['run_id'],'worker_manifest_sha256':metadata['worker_manifest_sha256'],
+     'runtime_identity':bundle.schedule.content_identity+':'+metadata['runtime_identity'],
+     'profile':'Reference double / pinned MACE CPU float64 / fixed windows'},'correlated')
+E    KeyError: 'total_energy_kJ_mol'
+
+src/atm_mlmm/workflow.py:210: KeyError
+=========================== short test summary info ============================
+FAILED tests/workflow/test_engine_configuration.py::test_common_runner_preserves_raw_states_and_all_real_forces
+FAILED tests/workflow/test_engine_restart.py::test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples
+2 failed, 2 passed in 28.40s

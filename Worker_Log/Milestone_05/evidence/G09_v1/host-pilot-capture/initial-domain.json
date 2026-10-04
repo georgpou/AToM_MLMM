@@ -1,0 +1,23 @@
+[
+  {
+    "closest_pair": [
+      "h000",
+      "g005"
+    ],
+    "map": "map0",
+    "minimum_intermolecular_Bondi_ratio": 0.7454596710086367
+  },
+  {
+    "closest_pair": [
+      "h017",
+      "g000"
+    ],
+    "map": "map1",
+    "minimum_intermolecular_Bondi_ratio": 7.99167020815239
+  },
+  {
+    "bulk_ligand": "methanol",
+    "minimum_static_distance_nm": 2.5272873323185396,
+    "required_nm": 0.65
+  }
+]
