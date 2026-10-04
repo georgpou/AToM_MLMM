@@ -1,0 +1,29 @@
+FFF                                                                      [100%]
+=================================== FAILURES ===================================
+_____________________ test_reduced_energies_match_context ______________________
+
+    def test_reduced_energies_match_context():
+        from atm_mlmm.atm import AtmEvaluator, build_atm
+>       from atm_mlmm.schedule import production_schedule, reduced_potentials
+E       ImportError: cannot import name 'reduced_potentials' from 'atm_mlmm.schedule' (/workspace/AToM_MLMM/src/atm_mlmm/schedule.py)
+
+tests/unit/test_schedule.py:25: ImportError
+_______________ test_active_midpoint_difference_requires_bridge ________________
+
+    def test_active_midpoint_difference_requires_bridge():
+>       from atm_mlmm.analysis import directional_difference
+E       ImportError: cannot import name 'directional_difference' from 'atm_mlmm.analysis' (/workspace/AToM_MLMM/src/atm_mlmm/analysis.py)
+
+tests/unit/test_schedule.py:50: ImportError
+____ test_raw_records_reject_lost_identity_duplicate_samples_and_nonfinite _____
+
+    def test_raw_records_reject_lost_identity_duplicate_samples_and_nonfinite():
+>       from atm_mlmm.schedule import linear_schedule, reduced_potentials
+E       ImportError: cannot import name 'reduced_potentials' from 'atm_mlmm.schedule' (/workspace/AToM_MLMM/src/atm_mlmm/schedule.py)
+
+tests/unit/test_schedule.py:89: ImportError
+=========================== short test summary info ============================
+FAILED tests/unit/test_schedule.py::test_reduced_energies_match_context - Imp...
+FAILED tests/unit/test_schedule.py::test_active_midpoint_difference_requires_bridge
+FAILED tests/unit/test_schedule.py::test_raw_records_reject_lost_identity_duplicate_samples_and_nonfinite
+3 failed in 0.44s

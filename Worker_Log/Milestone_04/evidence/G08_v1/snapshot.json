@@ -1,0 +1,11 @@
+{
+  "base_commit": "e24e880abcb0353b8f9c2f2e509d6cbb46174f3b",
+  "source_commit": "966a8d61347f65a69f8ba7e6750c4379d4e0503f",
+  "branch": "m04-engine-readiness",
+  "predecessor": "fc6dbe3dfbb33906f85c0756d6c6ba6b44f1dd86",
+  "source_test_manifest": "source-test-manifest.json",
+  "full_cpu_tests": 433,
+  "full_cpu_exit": 0,
+  "independent_audit": "pending",
+  "G07_physical_qualification": "blocked; unchanged"
+}
