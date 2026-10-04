@@ -1,5 +1,11 @@
 # Fresh-agent continuation from the G06/G07 branch
 
+**Superseded operational handoff.** Use the
+[engine-readiness handoff](ENGINE-READINESS-fresh-agent-v1.md), which includes the
+completed G07 pilot, current environment paths, cleanup outcome and already
+prepared `m04-engine-readiness` branch. The older branch/worktree instructions,
+30-missing count and activation prefix below describe the earlier snapshot.
+
 **Prepared:** 2026-10-04, UTC.\
 **Published predecessor:** `m03-g06-g07` in `georgpou/AToM_MLMM`. Use the exact final published commit reported with this handoff.\
 **Reviewed submission:** `ad994d68333a7dabffd4cbcc68dfc9a4a2114b0b`; implementation/source `c584086da68654b07f1a477d7ce1e48da42a9838`; accepted G05 ancestor `08ccee74d0da900ffb1bd98d076e6e87e9df1b0c`.

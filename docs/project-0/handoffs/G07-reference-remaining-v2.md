@@ -1,5 +1,13 @@
 # Remaining G07 quantum references
 
+**Historical G07-only assignment.** The user's later instruction switches
+priority to technical engine readiness on the new `m04-engine-readiness` branch.
+Follow the [current fresh-agent handoff](ENGINE-READINESS-fresh-agent-v1.md) for
+scope and branch. The quantum identities, cumulative budget and physical
+limitations below remain in force; the later assignment does not authorize
+additional QM launches or a fresh budget. The final cleanup outcome is recorded
+in that handoff, superseding this document's earlier candidate-only inventory.
+
 Continue only `m03-g06-g07` in the existing checkout. Starting lineage is published `34388d2b70d8fc032238cbf0dfa28e3290cc14e8` → original execution `4e2cb06b0e5e0b3b081e379969428ec93a807866` → intermediate repair `daa1efa345e1ac2a756f1ff0442389eae862a0d6` → final reviewed recovery `fcc1de9619f58934ff0c5835e01ecf3848a8a48c`. Later publication/report commits preserve those source bytes. Inspect local changes and actual HEAD first; do not create a branch/worktree, reset/rebase/force-push or modify main. The [earlier pause handoff](G07-reference-paused-v2.md) is historical; its unfinished repair is now independently closed and applied.
 
 Exactly **one new reference is validated**: `ethanol-methanol-d3-r0--full-parent`. **19 full-parent + ten alternative-ethane references remain missing.** Reuse the 20 exact G05 baseline references in the frozen matrix; preserve all 46 accepted G05 records byte-for-byte. Never recalculate the admitted pilot just to resume.

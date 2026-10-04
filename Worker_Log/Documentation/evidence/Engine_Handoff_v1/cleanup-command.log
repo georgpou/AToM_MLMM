@@ -1,0 +1,56 @@
+{
+  "base_commit": "fc6dbe3dfbb33906f85c0756d6c6ba6b44f1dd86",
+  "branch": "m04-engine-readiness",
+  "before": {
+    "utc": "2026-10-04T13:14:56.448016+00:00",
+    "disk_free_bytes": 19707146240,
+    "cgroup": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "8589934592\n",
+      "memory.current": "5451431936\n",
+      "memory.events": "low 0\nhigh 0\nmax 261426\noom 0\noom_kill 0\noom_group_kill 0\n",
+      "memory.stat": "anon 54820864\nfile 4748304384\nkernel 647839744\nkernel_stack 524288\npagetables 2007040\nsec_pagetables 0\npercpu 11780\nsock 0\nvmalloc 4096\nshmem 63795200\nfile_mapped 24576\nfile_dirty 110592\nfile_writeback 0\nswapcached 0\nanon_thp 0\nfile_thp 253755392\nshmem_thp 0\ninactive_anon 61771776\nactive_anon 56840192\ninactive_file 235229184\nactive_file 4449275904\nunevictable 0\nslab_reclaimable 635351832\nslab_unreclaimable 9910328\nslab 645262160\nworkingset_refault_anon 0\nworkingset_refault_file 44229852\nworkingset_activate_anon 0\nworkingset_activate_file 165597\nworkingset_restore_anon 0\nworkingset_restore_file 0\nworkingset_nodereclaim 0\npgdemote_kswapd 0\npgdemote_direct 0\npgdemote_khugepaged 0\npgdemote_proactive 0\npgscan 49944387\npgsteal 49881191\npswpin 0\npswpout 0\npgscan_kswapd 104544\npgscan_direct 49838819\npgscan_khugepaged 1024\npgscan_proactive 0\npgsteal_kswapd 104544\npgsteal_direct 49775623\npgsteal_khugepaged 1024\npgsteal_proactive 0\npgfault 62846857\npgmajfault 1146\npgrefill 40389\npgactivate 1102540\npgdeactivate 40389\npglazyfree 2\npglazyfreed 0\nswpin_zero 0\nswpout_zero 0\nthp_fault_alloc 587\nthp_collapse_alloc 50\nthp_swpout 0\nthp_swpout_fallback 0\n"
+    },
+    "swaps": "Filename\t\t\t\tType\t\tSize\t\tUsed\t\tPriority\n"
+  },
+  "after": {
+    "utc": "2026-10-04T13:15:10.134902+00:00",
+    "disk_free_bytes": 21790760960,
+    "cgroup": {
+      "cpu.max": "200000 100000\n",
+      "memory.max": "8589934592\n",
+      "memory.current": "3539406848\n",
+      "memory.events": "low 0\nhigh 0\nmax 261426\noom 0\noom_kill 0\noom_group_kill 0\n",
+      "memory.stat": "anon 174198784\nfile 2783895552\nkernel 580808704\nkernel_stack 507904\npagetables 2076672\nsec_pagetables 0\npercpu 11700\nsock 0\nvmalloc 4096\nshmem 63795200\nfile_mapped 24576\nfile_dirty 3764224\nfile_writeback 0\nswapcached 0\nanon_thp 0\nfile_thp 134217728\nshmem_thp 0\ninactive_anon 181129216\nactive_anon 56864768\ninactive_file 309559296\nactive_file 2410541056\nunevictable 0\nslab_reclaimable 568439272\nslab_unreclaimable 9745576\nslab 578184848\nworkingset_refault_anon 0\nworkingset_refault_file 44258390\nworkingset_activate_anon 0\nworkingset_activate_file 165597\nworkingset_restore_anon 0\nworkingset_restore_file 0\nworkingset_nodereclaim 0\npgdemote_kswapd 0\npgdemote_direct 0\npgdemote_khugepaged 0\npgdemote_proactive 0\npgscan 49944387\npgsteal 49881191\npswpin 0\npswpout 0\npgscan_kswapd 104544\npgscan_direct 49838819\npgscan_khugepaged 1024\npgscan_proactive 0\npgsteal_kswapd 104544\npgsteal_direct 49775623\npgsteal_khugepaged 1024\npgsteal_proactive 0\npgfault 62881356\npgmajfault 1146\npgrefill 40389\npgactivate 1118694\npgdeactivate 40389\npglazyfree 2\npglazyfreed 0\nswpin_zero 0\nswpout_zero 0\nthp_fault_alloc 587\nthp_collapse_alloc 50\nthp_swpout 0\nthp_swpout_fallback 0\n"
+    },
+    "swaps": "Filename\t\t\t\tType\t\tSize\t\tUsed\t\tPriority\n"
+  },
+  "downloads_removed": 329,
+  "download_bytes_removed": 1547491781,
+  "ignored_cache_files_removed": 105,
+  "ignored_cache_bytes_removed": 2261972,
+  "archives": [
+    {
+      "archive": "Worker_Log/Milestone_03/evidence/G07_v2_revalidation_independent/probes-final.tar.gz",
+      "archive_bytes": 10306755,
+      "archive_sha256": "1a99f39ee394fee4f060e92e7799d630242a30de55480bf4416b53be4415c98b",
+      "tree": "Worker_Log/Milestone_03/evidence/G07_v2_revalidation_independent/probes-final",
+      "original_bytes": 275461674,
+      "round_trip": "every archive member read and compared against original SHA-256 and size before removal"
+    },
+    {
+      "archive": "Worker_Log/Milestone_03/evidence/G07_v2_revalidation_independent/probes-durable.tar.gz",
+      "archive_bytes": 10306837,
+      "archive_sha256": "d4d160f54fce428609ccc7e497e3f6f35e7ab4a3a8084e46b5a2584414930890",
+      "tree": "Worker_Log/Milestone_03/evidence/G07_v2_revalidation_independent/probes-durable",
+      "original_bytes": 275461838,
+      "round_trip": "every archive member read and compared against original SHA-256 and size before removal"
+    }
+  ],
+  "tracked_files_archived": 1606,
+  "other_base_tracked_files_hash_unchanged": true,
+  "other_base_tracked_files_checked": 7441,
+  "observed_disk_free_increase_bytes": 2083614720,
+  "quantum_launched": false,
+  "budget_changed": false
+}

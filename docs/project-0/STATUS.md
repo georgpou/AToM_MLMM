@@ -1,5 +1,29 @@
 # Current status
 
+**Current assignment: technical ML/MM engine readiness, beginning with M04/G08
+on `m04-engine-readiness`.** The user's latest instruction supersedes the
+G07-only assignment and authorizes a new branch copied from published
+`m03-g06-g07` at `fc6dbe3dfbb33906f85c0756d6c6ba6b44f1dd86`. The
+[fresh-agent handoff](handoffs/ENGINE-READINESS-fresh-agent-v1.md) directs known-answer
+thermodynamics, complete energy/force accounting, preparation/export,
+restart/exchange and reproducible cluster trials. G08 can proceed from accepted
+G02/G03. Later technical development must report its scoped evidence while
+preserving unfulfilled physical/combined-review requirements. No new gate code
+or longer production run was started during handoff preparation. Main and the
+published G07 predecessor remain unchanged.
+
+Maintenance reclaimed **2,083,614,720 bytes**; free disk increased from
+**18.354 to 20.294 GiB** immediately afterward. Removed 328 verified compressed
+package downloads, the verified installer, and ignored Python/pytest caches.
+Two closed independent probe trees were losslessly archived, preserving every
+one of their **1,606 files** and failure cases with hashes and restoration
+instructions. Canonical QM attempts/logs/receipts/ledger, active environments,
+code, fixtures, model assets and all 46 G05 records remain intact. Strict
+post-cleanup environment checks passed **9/9**. The
+[maintenance worker](../../Worker_Log/Documentation/Engine_Handoff_v1_worker.md)
+records verification and exact commands. This cleanup does not reset the QM
+budget or establish that the remaining references fit its resource screen.
+
 **G06 and G07 numerical scopes are independently accepted; M03 physical closure
 remains blocked.** The actual **GPT-6.1-sol/MAX** reviewer audited exact submission
 `ad994d68333a7dabffd4cbcc68dfc9a4a2114b0b`, carrying source
@@ -15,11 +39,12 @@ Independent checks: **381 full-suite passes**, **45 focused passes**, **9/9 stri
 environment checks**, 24 additional alternative-cut periodic route comparisons
 and five intermediate force sweeps. All 1,924 initially frozen tracked files and
 46 accepted G05 records remained byte-identical during review. The seven
-project-specific force-sensitivity exceedances and 30 missing quantum references
-remain physical qualification blockers; no limit or scientific input changed.
+project-specific force-sensitivity exceedances and 30 then-missing quantum references
+were physical qualification blockers at that review; **29 remain missing after
+the later pilot below**. No limit or scientific input changed.
 
-**Current assignment: complete and assess the frozen G07 references on the
-existing `m03-g06-g07` branch.** The user superseded the earlier M04/G08 handoff
+**Completed G07 assignment: assess the frozen references and checkpoint at the
+authorized resource/budget boundary on `m03-g06-g07`.** The user superseded the earlier M04/G08 handoff
 and authorized a 24-hour cumulative quantum-worker budget with a one-hour pilot.
 The published starting HEAD is `34388d2b70d8fc032238cbf0dfa28e3290cc14e8`;
 reviewed execution source `4e2cb06b0e5e0b3b081e379969428ec93a807866` is its direct
@@ -94,7 +119,9 @@ All **46**
 accepted G05 records, earlier scientific evidence, model, inputs and locks stay
 byte-identical. The [cleanup strategy](../../Worker_Log/Milestone_03/evidence/G07_v2/cleanup-strategy.md)
 preserves useful code/logs/assets and identifies only verified temporary or
-reconstructible candidates; no cache or essential asset was deleted.
+reconstructible candidates. No cache or essential asset was deleted during that
+G07 assignment; the later authorized maintenance at the top of this status
+removed only verified downloads/caches and archived closed redundant copies.
 
 G05 on the same child `m03-reference-g05` is **accepted_for_scope** for the
 fixed neutral nonperiodic CPU local-reference profile. The independent
