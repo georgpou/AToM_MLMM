@@ -1,0 +1,26 @@
+{
+  "version": 1,
+  "input_manifest": "manifest.json",
+  "input_manifest_sha256": "8db500a9bfbf4b49a136c16e58b1cf65e1af2232722246567fb66fa94087be03",
+  "settings": {
+    "temperature_K": 300.0,
+    "timestep_ps": 0.0005,
+    "platform": "Reference",
+    "seed": 41,
+    "temperatures_K": [
+      10.0,
+      100.0,
+      300.0
+    ],
+    "steps_per_phase": 2,
+    "minimization_iterations": 10,
+    "frames_per_state": 3,
+    "steps_per_frame": 2,
+    "displacement_nm": [
+      2.4,
+      0.0,
+      0.0
+    ],
+    "outside_spring_kj_mol_nm2": 10.0
+  }
+}

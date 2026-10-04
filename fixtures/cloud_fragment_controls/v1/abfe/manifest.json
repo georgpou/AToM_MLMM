@@ -1,0 +1,20 @@
+{
+  "chemistry": "existing G07 baseline protein C-C cut; whole neutral singlet methanol",
+  "files": {
+    "partition.json": "9f3992426964546e751aba7db3a15bbeae136478719a42add5679cb62d49dd0a",
+    "snapshot.json": "e91c663de66ba0f429ea3563aa5bbcf351dabd10cc7b22ca7c1d33cc2a4d8b84",
+    "system-input.json": "c47897078ef8c195b5e49456cd62300c0353256e2cf76b880e600378d8ff43bf"
+  },
+  "ml_real_atoms": 14,
+  "name": "fixed neutral capped-fragment abfe control",
+  "physical_scope": "vacuum mechanical ML/MM engine control; G07 physical qualification remains blocked",
+  "preparation": {
+    "mm_prepared_manifest_sha256": "b956f580c233ca84cf1c88c855f13bb060e14f4178a479177ba535d153b81c08",
+    "positions": "unchanged original G07 parent/ligand geometry; second RBFE guest translated by +2.4 nm",
+    "recipe": "tests.joint_oracle.joint_input(two_ligands=False)",
+    "selection": "no new model, quantum or affinity-based selection",
+    "source_sha256": "6fa6539328e8a2efcbce5967a0691f2a5167aac1a4865144ae2a9999118d4371"
+  },
+  "real_atoms": 32,
+  "version": 1
+}

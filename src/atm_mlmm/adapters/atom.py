@@ -9,6 +9,8 @@ import hashlib
 import importlib.metadata
 import logging
 import math
+import json
+import shutil
 from numbers import Real
 from pathlib import Path
 from types import SimpleNamespace
@@ -229,3 +231,188 @@ def build_atom(physical, transfer, schedule, restraints, runtime, *, reserved_gr
     upstream.set_integrator(runtime.temperature_K*unit.kelvin, upstream.frictionCoeff, upstream.MDstepsize)
     bundle = seal_alchemical(upstream.system, physical, transfer, schedule, restraints, construction='atom-8.5.0b0')
     return AtomRun(upstream, bundle, runtime, keywords)
+
+
+def export_worker_run(run, directory, snapshot, state_id, *, thermodynamics=None, integrator_seed=41):
+    """Immutable pinned PDB/System/State export with locally bundled source/assets."""
+    from ..atm import save_bundle
+    from ..persistence import write_json
+    from ..schema import to_json
+    if isinstance(integrator_seed,bool) or not isinstance(integrator_seed,int) or not 0 < integrator_seed < 2**31:
+        raise MalformedInput('integrator_seed must be a positive bounded integer')
+    directory = Path(directory)
+    directory.mkdir(parents=True, exist_ok=False)
+    run.evaluate(snapshot, state_id)
+    state = run.evaluator.context.getState(getPositions=True, getVelocities=True,
+                                           getParameters=True, getEnergy=True, getForces=True)
+    system = run.bundle.system_xml
+    (directory/'handover_sys.xml').write_text(system)
+    (directory/'handover_0.xml').write_text(mm.XmlSerializer.serialize(state))
+    topology = _topology(run.bundle.physical)
+    if snapshot.box_nm is not None:
+        topology.setPeriodicBoxVectors(tuple(mm.Vec3(*v)*unit.nanometer for v in snapshot.box_nm))
+    with (directory/'handover.pdb').open('w') as handle:
+        app.PDBFile.writeFile(topology, state.getPositions(), handle)
+    save_bundle(directory/'bundle.json', run.bundle)
+    (directory/'runtime.json').write_text(to_json(run.runtime)+'\n')
+    (directory/'snapshot.json').write_text(to_json(snapshot)+'\n')
+    if thermodynamics is not None:
+        (directory/'thermodynamics.json').write_text(to_json(thermodynamics)+'\n')
+    # Source/assets are copied without Python caches. Default MACE load recipes
+    # resolve under this installation root in a relocated offline process.
+    root = Path(__file__).resolve().parents[3]
+    for path in sorted((root/'src/atm_mlmm').rglob('*.py')):
+        target = directory/'runtime/source'/path.relative_to(root/'src')
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(path, target)
+    for name in ('core-conda-linux-64.lock','core-pip-inventory.txt','upstream-sources.json','package-identities.json'):
+        target = directory/'runtime/environment'/name
+        target.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(root/'environment/cloud-cpu'/name, target)
+    if run.bundle.physical.manifest.get('fixture_kind') == 'pinned_mace_candidate':
+        from ..models.mace import ASSET, verify_asset
+        verify_asset()
+        target = directory/'runtime/models/mace-off23-small'
+        target.mkdir(parents=True)
+        for name in ('MACE-OFF23_small.model','manifest.json','LICENSE.md'):
+            shutil.copyfile(ASSET/name, target/name)
+    parameters = dict(run.evaluator.context.getParameters())
+    manifest = dict(version=1, basename='handover', state_id=state_id, integrator_seed=integrator_seed,
+                    physical_identity=run.bundle.physical.content_identity,
+                    alchemical_identity=run.bundle.content_identity,
+                    runtime_identity=run.runtime.content_identity,
+                    real_atom_ids=list(snapshot.real_atom_ids), parameters=parameters,
+                    preliminary_pdb_coordinates='generated from current finite full-particle State',
+                    source_identity='sha256 of exact bundled source files',
+                    files={str(p.relative_to(directory)):hashlib.sha256(p.read_bytes()).hexdigest()
+                           for p in sorted(directory.rglob('*')) if p.is_file()})
+    write_json(directory/'manifest.json', manifest)
+    path = directory/'manifest.json'
+    return path, hashlib.sha256(path.read_bytes()).hexdigest()
+
+
+def load_worker_run(directory, expected_manifest_sha256, *, trusted=False, integrator_seed=None):
+    """Validate the whole bundle before the actual pinned worker constructor."""
+    from ..atm import load_bundle
+    from ..schema import from_json
+    if trusted is not True:
+        raise UnsupportedCapability('worker System/PythonForce artifacts require explicitly trusted loading')
+    directory = Path(directory).resolve()
+    payload = (directory/'manifest.json').read_bytes()
+    if hashlib.sha256(payload).hexdigest() != expected_manifest_sha256:
+        raise IdentityError('worker manifest digest mismatch before loading')
+    manifest = json.loads(payload)
+    if manifest.get('version') != 1 or manifest.get('basename') != 'handover':
+        raise UnsupportedCapability('unsupported worker export contract')
+    for name, digest in manifest['files'].items():
+        path = (directory/name).resolve()
+        if directory not in path.parents or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
+            raise IdentityError(f'worker file identity mismatch: {name}')
+    required = {'bundle.json','runtime.json','snapshot.json','handover.pdb','handover_sys.xml','handover_0.xml'}
+    if not required <= set(manifest['files']):
+        raise IdentityError('worker files do not cover the complete pinned contract')
+    bundle = load_bundle(directory/'bundle.json', manifest['files']['bundle.json'], trusted=True)
+    runtime = from_json((directory/'runtime.json').read_text())
+    if bundle.content_identity != manifest['alchemical_identity'] or runtime.content_identity != manifest['runtime_identity']:
+        raise IdentityError('worker bundle/runtime identity mismatch')
+    if (directory/'handover_sys.xml').read_text() != bundle.system_xml:
+        raise IdentityError('worker executable System differs from sealed bundle')
+    state_payload = (directory/'handover_0.xml').read_bytes()
+    if ET.fromstring(state_payload).tag != 'State':
+        raise IdentityError('worker initial artifact must be a portable State')
+    state = mm.XmlSerializer.deserialize(state_payload.decode())
+    initial = schedule_state(bundle.schedule,manifest['state_id'])
+    parameters = dict(state.getParameters())
+    if parameters != manifest['parameters'] or any(parameters.get(k) != v for k,v in initial.parameters.items()):
+        raise IdentityError('saved worker State parameters differ from declared state')
+    positions = state.getPositions(asNumpy=True).value_in_unit(unit.nanometer)
+    if positions.shape != (len(bundle.physical.masses_da),3) or not np.isfinite(positions).all():
+        raise IdentityError('worker State positions must cover every finite particle')
+    if bundle.physical.content_identity != manifest['physical_identity'] or tuple(manifest['real_atom_ids']) != tuple(a.atom_id for a in bundle.physical.topology.atoms):
+        raise IdentityError('worker physical/ordered atom identity mismatch')
+    if runtime.platform != 'Reference':
+        raise UnsupportedCapability('real worker handover initially admits Reference double only')
+    seed = manifest['integrator_seed'] if integrator_seed is None else integrator_seed
+    if isinstance(seed,bool) or not isinstance(seed,int) or not 0 < seed < 2**31:
+        raise MalformedInput('worker integrator_seed must be a positive bounded integer')
+    return WorkerRun(directory, manifest, bundle, runtime, seed)
+
+
+class WorkerRun:
+    """Actual OMMWorkerATMSync constructor, sharing sealed observable extraction."""
+    def __init__(self, directory, manifest, bundle, runtime, seed):
+        if importlib.metadata.version('atom-openmm') != '8.5.0b0':
+            raise UnsupportedCapability('worker handover requires pinned AToM 8.5.0b0')
+        from atom_openmm.ommsystem import OMMSystemABFE
+        from atom_openmm.ommworker import OMMWorkerATMSync
+        from atom_openmm.utils.AtomUtils import AtomUtils
+        keywords = atom_keywords(bundle.physical,bundle.transfer,bundle.schedule,runtime)
+        keywords['PRNT_FREQUENCY'] = 1
+        initial = schedule_state(bundle.schedule,manifest['state_id'])
+
+        class SealedSystem(OMMSystemABFE):
+            def create_system(self):
+                self.load_system()
+                if mm.XmlSerializer.serialize(self.system) != bundle.system_xml:
+                    raise IdentityError('actual worker System differs from sealed export')
+                # Avoid the stock zero-LJ repair and duplicate ATM/restraint/
+                # barostat assembly; the project already owns the complete System.
+                self.atm_utils = AtomUtils(self.system, fix_zero_LJparams=False)
+                self.atmforce = next(f for f in self.system.getForces() if isinstance(f,mm.ATMForce))
+                self.atmforcegroup = self.atmforce.getForceGroup()
+                self.cparams = {**initial.parameters, self.parameter['temperature']:runtime.temperature_K}
+                self.set_integrator(runtime.temperature_K*unit.kelvin,self.frictionCoeff,self.MDstepsize)
+                self.integrator.setRandomNumberSeed(seed)
+
+        basename = str(directory/'handover')
+        upstream = SealedSystem(basename,keywords,str(directory/'handover.pdb'),str(directory/'handover_sys.xml'),logging.getLogger('atm_mlmm.worker'))
+        self.worker = OMMWorkerATMSync(basename,upstream,keywords,compute=True,logger=logging.getLogger('atm_mlmm.worker'))
+        self.bundle,self.runtime,self.manifest,self.upstream = bundle,runtime,manifest,upstream
+        self.integrator_seed = seed
+        self.evaluator = AtmEvaluator(bundle,runtime,system=self.worker.system,
+                                      integrator=self.worker.integrator,external_context=self.worker.context)
+        self.set_state(manifest['state_id'])
+
+    def set_state(self, state_id):
+        self.evaluator.set_state(state_id,setter=lambda p:self.worker.set_state(AtomRun._worker_parameters(self,p)))
+
+    def evaluate(self, snapshot, state_id):
+        self.set_state(state_id)
+        result = self.evaluator.evaluate(snapshot,state_id)
+        # Actual upstream reporting must be fresh on this same Context.
+        upstream = self.worker.get_energy()
+        if not math.isclose(upstream['potential_energy'].value_in_unit(unit.kilojoules_per_mole),
+                            result.total.energy_kj_mol,rel_tol=0.,abs_tol=1.e-8):
+            raise IdentityError('actual worker reported stale/different potential energy')
+        return result
+
+    def restore_checkpoint(self, payload, state_id):
+        """Same-profile continuation; admit the saved parameters before reporting."""
+        self.evaluator._guard()
+        requested = schedule_state(self.bundle.schedule,state_id)
+        self.evaluator.context.loadCheckpoint(payload)
+        actual = self.evaluator.context.getParameters()
+        if any(actual[name] != value for name,value in requested.parameters.items()):
+            raise IdentityError('checkpoint parameters disagree with recorded state identity')
+        self.evaluator._state_id = state_id
+        self.evaluator._expected_parameters = dict(requested.parameters)
+        self.evaluator._guard()
+        self.worker.par = AtomRun._worker_parameters(self,requested.parameters)
+
+    def restore_portable_state(self, payload, state_id):
+        """Restore portable observables without promising random-number continuity."""
+        if ET.fromstring(payload).tag != 'State':
+            raise IdentityError('portable artifact must be a State')
+        self.evaluator.restore_state(mm.XmlSerializer.deserialize(payload),state_id)
+        self.set_state(state_id)
+
+    def close(self):
+        self.evaluator.close()
+        self.worker.context = self.worker.simulation = self.worker.integrator = self.worker.system = None
+        self.upstream.integrator = self.upstream.system = None
+
+    def __enter__(self):
+        return self
+
+    def __exit__(self,*args):
+        self.close()

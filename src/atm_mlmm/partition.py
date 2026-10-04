@@ -59,9 +59,16 @@ def resolve_partition(topology, spec):
     for a in selected:
         if atoms[a].element not in ELEMENTS:
             raise UnsupportedCapability(f'unknown/unsupported element {atoms[a].element}: {a}')
-        if membership[a].role not in ('ligand', 'protein'):
+        if membership[a].role not in ('ligand', 'protein', 'host'):
             raise UnsupportedCapability(f'unsupported selected molecule role: {membership[a].role}')
     for molecule in topology.molecules:
+        if molecule.role == 'host' and set(molecule.atom_ids) & selected:
+            if not set(molecule.atom_ids) <= selected:
+                raise UnsupportedCapability(f'complete static host required: {molecule.molecule_id}')
+            if molecule.formal_charge != 0 or molecule.multiplicity != 1:
+                raise UnsupportedCapability(f'neutral unambiguous singlet host required: {molecule.molecule_id}')
+            if len(_components(set(molecule.atom_ids), graph)) != 1:
+                raise IdentityError(f'disconnected host membership: {molecule.molecule_id}')
         if molecule.role == 'ligand':
             if not set(molecule.atom_ids) <= selected:
                 raise UnsupportedCapability(f'complete ligand required: {molecule.molecule_id}')

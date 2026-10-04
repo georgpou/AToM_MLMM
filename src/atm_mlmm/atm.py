@@ -145,7 +145,7 @@ def make_integrator(runtime):
 
 
 class _Evaluator:
-    def _open(self, system, runtime, integrator=None, *, varying_parameters=()):
+    def _open(self, system, runtime, integrator=None, *, varying_parameters=(), external_context=None):
         validate_runtime(runtime)
         self.system = system
         self.runtime = runtime
@@ -157,7 +157,15 @@ class _Evaluator:
             raise IdentityError('actual integrator temperature differs from runtime')
         platform = mm.Platform.getPlatformByName(runtime.platform)
         properties = {'Threads': '2'} if runtime.platform == 'CPU' else {}
-        self.context = mm.Context(system, self.integrator, platform, properties)
+        if external_context is None:
+            self.context = mm.Context(system, self.integrator, platform, properties)
+        else:
+            if (not isinstance(external_context, mm.Context)
+                    or mm.XmlSerializer.serialize(external_context.getSystem()) != mm.XmlSerializer.serialize(system)
+                    or mm.XmlSerializer.serialize(external_context.getIntegrator()) != mm.XmlSerializer.serialize(self.integrator)
+                    or external_context.getPlatform().getName() != runtime.platform):
+                raise IdentityError('external worker Context differs from sealed System/integrator/platform')
+            self.context = external_context
         self._fixed_parameters = {name: value for name, value in self.context.getParameters().items()
                                   if name not in varying_parameters}
         self._system_digest = xml_digest(mm.XmlSerializer.serialize(system))
@@ -227,7 +235,7 @@ class PhysicalEvaluator(_Evaluator):
 
 
 class AtmEvaluator(_Evaluator):
-    def __init__(self, bundle, runtime, *, system=None, integrator=None):
+    def __init__(self, bundle, runtime, *, system=None, integrator=None, external_context=None):
         from .routing import validate_routing
         validate_runtime(runtime)
         validate_schedule(bundle.schedule)
@@ -250,7 +258,8 @@ class AtmEvaluator(_Evaluator):
         self.outside_groups = {r.force_group for r in bundle.routing_report if r.disposition == 'outside'}
         if self.atm_force.getForceGroup() in self.outside_groups:
             raise IdentityError('ATM and outside energies require separate groups')
-        self._open(system, runtime, integrator, varying_parameters=bundle.schedule.parameter_units)
+        self._open(system, runtime, integrator, varying_parameters=bundle.schedule.parameter_units,
+                   external_context=external_context)
         self._state_id = bundle.schedule.states[0].state_id
         self._expected_parameters = dict(bundle.schedule.states[0].parameters)
         self._auxiliary_parameters = self._fixed_parameters

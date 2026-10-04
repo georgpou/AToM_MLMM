@@ -1,0 +1,45 @@
+{
+  "chemistry": "two complete neutral singlets; H/C/O; no stereocenters, cuts, solvent, ions or metals",
+  "files": {
+    "partition.json": "e21829bb387dc5cb55bb5684ed026339f20addd065fe0c9c916646369c5c2fce",
+    "snapshot.json": "8c63bdb781f258a60bed2eacea2d3ddd602d0b95e1e3cfd43b34c095137bc975",
+    "system-input.json": "4e41527f9b0f4a9162537d2ffdbd3727db05cb84088da40d9e96815904c07104"
+  },
+  "guest_formula": "CH4O",
+  "host_formula": "C12H24O6",
+  "name": "18-crown-6 + methanol",
+  "physical_scope": "all-ML vacuum; no MM or binding-accuracy qualification",
+  "preparation": {
+    "geometry": "ETKDGv3/MMFF94s, seeds61709/61710; first whole-host-admitted O-H donor placement",
+    "openmm": "8.6.1.dev-b399af4",
+    "physical_scope": "all-ML vacuum; original MM is explicitly inert",
+    "pose_rule": {
+      "O_O_distance_nm": 0.3,
+      "actual_minimum_ratio": 0.7454596710086367,
+      "approach_order": "outward radial, +z, -z",
+      "minimum_Bondi_ratio": 0.65,
+      "oxygen_order": [
+        0,
+        3,
+        6,
+        9,
+        12,
+        15
+      ],
+      "selected_approach": [
+        0.9883281398426329,
+        -8.10667549707716e-18,
+        -0.15234004068268156
+      ],
+      "selected_oxygen": 0
+    },
+    "rdkit": "2026.03.6",
+    "selection": "no model, quantum, experimental or docking score used",
+    "source_smiles": {
+      "guest": "CO",
+      "host": "O1CCOCCOCCOCCOCCOCC1"
+    }
+  },
+  "real_atoms": 48,
+  "version": 2
+}
