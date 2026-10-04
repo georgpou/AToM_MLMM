@@ -1,0 +1,55 @@
+{
+  "cwd": "/workspace/AToM_MLMM",
+  "recorded_utc": "2026-10-04T10:18:45.501605+00:00",
+  "network_policy": "restricted sidecar proxy preserved; enabled sandbox network only for approved destinations",
+  "commands": [
+    {
+      "command": "git status --short --branch; git rev-parse HEAD; git worktree list; git branch -avv; git remote -v",
+      "outcome": "clean work checkout at 2d7bcc94; requested worktree absent"
+    },
+    {
+      "command": "git fetch origin m03-g06-g07",
+      "outcome": "initial sandbox network denied; network-enabled retry fetched exact 34388d2"
+    },
+    {
+      "command": "git fetch origin refs/heads/m03-g06-g07:refs/remotes/origin/m03-g06-g07; git config --add remote.origin.fetch '+refs/heads/m03-g06-g07:refs/remotes/origin/m03-g06-g07'; git switch -c m03-g06-g07 --track origin/m03-g06-g07",
+      "outcome": "same-named tracking checkout, HEAD34388d2, clean; initial tracking attempt needed branch-specific fetch mapping; no reset/rebase/worktree/main change"
+    },
+    {
+      "command": "curl --fail --location --retry 2 --connect-timeout 15 --max-time 120 https://github.com/conda-forge/miniforge/releases/download/26.7.2-0/Miniforge3-26.7.2-0-Linux-x86_64.sh --output /workspace/atom-mlmm-g07/bootstrap/Miniforge3-26.7.2-0-Linux-x86_64.sh; sha256sum /workspace/atom-mlmm-g07/bootstrap/Miniforge3-26.7.2-0-Linux-x86_64.sh",
+      "outcome": "exit0, locked281b0ac7d550802efc81af633225a5e6116d29ae72f3ab4eae7168c3931a4c05"
+    },
+    {
+      "command": "CONDA_PKGS_DIRS=/workspace/atom-mlmm-g07/mamba/pkgs bash /workspace/atom-mlmm-g07/bootstrap/Miniforge3-26.7.2-0-Linux-x86_64.sh -b -p /workspace/atom-mlmm-g07/conda",
+      "outcome": "first exit1 missing read-only /home/agent/.conda; registry creation allowed by escalation; incomplete prefix preserved as conda-incomplete-bootstrap; same command retry exit0"
+    },
+    {
+      "command": "export CONDA_PKGS_DIRS=/workspace/atom-mlmm-g07/mamba/pkgs MAMBA_ROOT_PREFIX=/workspace/atom-mlmm-g07/mamba SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt; /workspace/atom-mlmm-g07/conda/bin/mamba --no-rc create --yes --quiet --ssl-verify \"$SSL_CERT_FILE\" --prefix /workspace/atom-mlmm-g07/reference-env --file fixtures/chemical_reference_v3/reference-explicit.lock",
+      "outcome": "exit0, exact105packages"
+    },
+    {
+      "command": "ATOM_MLMM_SETUP_ROOT=/workspace/atom-mlmm-g07 bash environment/cloud-cpu/install.sh",
+      "outcome": "exit0 main/Amber separate; 9/9 validationchecks"
+    },
+    {
+      "command": "source /workspace/atom-mlmm-g07/activate.sh; python -m pytest tests/unit/test_joint_quantum_execution.py -q",
+      "outcome": "initial8failed4passed;16passafterfirstimplementation;19passafterauthorization/logrepair;20passwithmeasuredassessment;22-case final result in adapter-reviewed-green.log"
+    },
+    {
+      "command": "source /workspace/atom-mlmm-g07/activate.sh; python -m pytest tests/unit/test_joint_quantum_execution.py tests/unit/test_quantum_recovery.py tests/unit/test_quantum_interruptions.py -q",
+      "outcome": "initial7newadapterfail47pass (42inherited+5new); finalfullsuitecoversall"
+    },
+    {
+      "command": "source /workspace/atom-mlmm-g07/activate.sh; python tools/monitor_cpu_check.py --output Worker_Log/Milestone_03/evidence/G07_v2/full-cpu-suite -- python -m pytest -q",
+      "outcome": "exit0,397passed216.72s, before independent safetyrepairs"
+    },
+    {
+      "command": "source /workspace/atom-mlmm-g07/activate.sh; python tools/monitor_cpu_check.py --output Worker_Log/Milestone_03/evidence/G07_v2/full-cpu-suite-final -- python -m pytest -q",
+      "outcome": "see final supervised result"
+    },
+    {
+      "command": "GIT_TERMINAL_PROMPT=0 git push --dry-run origin HEAD:refs/heads/m03-g06-g07",
+      "outcome": "exit0 Everything up-to-date; actual publication remains later"
+    }
+  ]
+}

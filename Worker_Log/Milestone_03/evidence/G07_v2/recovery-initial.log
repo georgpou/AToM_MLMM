@@ -1,0 +1,195 @@
+F....F.FFFFF..........................................                   [100%]
+=================================== FAILURES ===================================
+_______ test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget ________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_only_frozen_thirty_jobs_w0')
+
+    def test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget(tmp_path):
+        result = subprocess.run(command(tmp_path/'output', ['--check-resume']), capture_output=True, text=True)
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/workspace/AToM_MLMM/tools/resume_joint_quantum.py", line 150, in <module>
+E             sys.exit(run(parser.parse_args()))
+E                      ^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/workspace/AToM_MLMM/tools/resume_joint_quantum.py", line 121, in run
+E             approval, matrix = validate_authorization(root, args.approval, matrix_path)
+E                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/workspace/AToM_MLMM/tools/resume_joint_quantum.py", line 41, in validate_authorization
+E             from atm_mlmm.joint_reference import quantum_job_matrix
+E         ModuleNotFoundError: No module named 'atm_mlmm'
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...ion\n    from atm_mlmm.joint_reference import quantum_job_matrix\nModuleNotFoundError: No module named \'atm_mlmm\'\n').returncode
+
+tests/unit/test_joint_quantum_execution.py:29: AssertionError
+__________ test_matrix_tamper_rejects_even_with_rebound_authorization __________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_matrix_tamper_rejects_eve0')
+
+    def test_matrix_tamper_rejects_even_with_rebound_authorization(tmp_path):
+        import hashlib
+        matrix = json.loads(MATRIX.read_text()); matrix['new_jobs'][0]['positions_angstrom'][0][0] += .1
+        path = tmp_path/'matrix.json'; path.write_text(json.dumps(matrix))
+        approval = json.loads(AUTH.read_text()); approval['matrix_sha256'] = hashlib.sha256(path.read_bytes()).hexdigest()
+        auth = tmp_path/'authorization.json'; auth.write_text(json.dumps(approval))
+        result = subprocess.run(command(tmp_path/'output', ['--check-resume'], auth=auth, matrix=path), capture_output=True, text=True)
+>       assert result.returncode == 2
+E       AssertionError: assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...ion\n    from atm_mlmm.joint_reference import quantum_job_matrix\nModuleNotFoundError: No module named \'atm_mlmm\'\n').returncode
+
+tests/unit/test_joint_quantum_execution.py:55: AssertionError
+________ test_pilot_completion_stops_for_assessment_and_durable_receipt ________
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-2/test_pilot_completion_stops_fo0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-2/test_pilot_completion_stops_fo0/output'))
+
+    def test_pilot_completion_stops_for_assessment_and_durable_receipt(synthetic):
+        result = run_fake(synthetic)
+        assert result.returncode == 1, result.stderr
+>       output = synthetic[1]; state = json.loads((output/'progress.json').read_text())
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/unit/test_joint_quantum_execution.py:107: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../atom-mlmm-g07/env/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/tmp/pytest-of-agent/pytest-2/test_pilot_completion_stops_fo0/output/progress.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-2/test_pilot_completion_stops_fo0/output/progress.json'
+
+../atom-mlmm-g07/env/lib/python3.11/pathlib.py:1044: FileNotFoundError
+______ test_failed_pilot_receipt_is_never_promoted_and_retry_keeps_budget ______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-2/test_failed_pilot_receipt_is_n0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-2/test_failed_pilot_receipt_is_n0/output'))
+
+    def test_failed_pilot_receipt_is_never_promoted_and_retry_keeps_budget(synthetic):
+        first = run_fake(synthetic, 'computed_fail'); assert first.returncode == 1, first.stderr
+>       output = synthetic[1]; state = json.loads((output/'progress.json').read_text())
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/unit/test_joint_quantum_execution.py:120: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../atom-mlmm-g07/env/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/tmp/pytest-of-agent/pytest-2/test_failed_pilot_receipt_is_n0/output/progress.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-2/test_failed_pilot_receipt_is_n0/output/progress.json'
+
+../atom-mlmm-g07/env/lib/python3.11/pathlib.py:1044: FileNotFoundError
+_________________ test_timeout_kills_worker_and_charges_resume _________________
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-2/test_timeout_kills_worker_and_0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-2/test_timeout_kills_worker_and_0/output'))
+
+    def test_timeout_kills_worker_and_charges_resume(synthetic):
+        first = run_fake(synthetic,'wait', ['--wall-limit-seconds','1.5'])
+        assert first.returncode == 1, first.stderr
+>       output = synthetic[1]; state = json.loads((output/'progress.json').read_text())
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/unit/test_joint_quantum_execution.py:134: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../atom-mlmm-g07/env/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/tmp/pytest-of-agent/pytest-2/test_timeout_kills_worker_and_0/output/progress.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-2/test_timeout_kills_worker_and_0/output/progress.json'
+
+../atom-mlmm-g07/env/lib/python3.11/pathlib.py:1044: FileNotFoundError
+______ test_resume_requires_pilot_assessment_and_rejects_changed_receipt _______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-2/test_resume_requires_pilot_ass0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-2/test_resume_requires_pilot_ass0/output'))
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-2/test_resume_requires_pilot_ass0')
+
+    def test_resume_requires_pilot_assessment_and_rejects_changed_receipt(synthetic, tmp_path):
+        assert run_fake(synthetic).returncode == 1
+        result = run_fake(synthetic, extra=['--continue-batch'])
+>       assert result.returncode == 2 and 'assessment' in result.stderr.lower()
+E       AssertionError: assert (1 == 2)
+E        +  where 1 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...ion\n    from atm_mlmm.joint_reference import quantum_job_matrix\nModuleNotFoundError: No module named \'atm_mlmm\'\n').returncode
+
+tests/unit/test_joint_quantum_execution.py:144: AssertionError
+______________ test_nonconverged_zero_exit_record_is_not_promoted ______________
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-2/test_nonconverged_zero_exit_re0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-2/test_nonconverged_zero_exit_re0/output'))
+
+    def test_nonconverged_zero_exit_record_is_not_promoted(synthetic):
+        exe = synthetic[0]
+        exe.write_text(exe.read_text().replace("SCF has converged.","SCF did not converge."))
+        result = run_fake(synthetic)
+        assert result.returncode == 1, result.stderr
+>       state = json.loads((synthetic[1]/'progress.json').read_text())
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/unit/test_joint_quantum_execution.py:152: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../atom-mlmm-g07/env/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/tmp/pytest-of-agent/pytest-2/test_nonconverged_zero_exit_re0/output/progress.json')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-2/test_nonconverged_zero_exit_re0/output/progress.json'
+
+../atom-mlmm-g07/env/lib/python3.11/pathlib.py:1044: FileNotFoundError
+=========================== short test summary info ============================
+FAILED tests/unit/test_joint_quantum_execution.py::test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget
+FAILED tests/unit/test_joint_quantum_execution.py::test_matrix_tamper_rejects_even_with_rebound_authorization
+FAILED tests/unit/test_joint_quantum_execution.py::test_pilot_completion_stops_for_assessment_and_durable_receipt
+FAILED tests/unit/test_joint_quantum_execution.py::test_failed_pilot_receipt_is_never_promoted_and_retry_keeps_budget
+FAILED tests/unit/test_joint_quantum_execution.py::test_timeout_kills_worker_and_charges_resume
+FAILED tests/unit/test_joint_quantum_execution.py::test_resume_requires_pilot_assessment_and_rejects_changed_receipt
+FAILED tests/unit/test_joint_quantum_execution.py::test_nonconverged_zero_exit_record_is_not_promoted
+7 failed, 47 passed in 94.37s (0:01:34)

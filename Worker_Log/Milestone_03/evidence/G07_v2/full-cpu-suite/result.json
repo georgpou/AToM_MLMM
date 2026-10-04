@@ -1,0 +1,43 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q"
+  ],
+  "cwd": "/workspace/AToM_MLMM",
+  "exit_code": 0,
+  "wall_seconds": 219.43607648499994,
+  "finished_utc": "2026-10-04T10:08:43.729501+00:00",
+  "memory_cap_bytes": 8589934592,
+  "cpu_quota": "200000 100000",
+  "peak_sampled_process_tree_rss_bytes": 1747021824,
+  "child_maxrss_bytes": 1679867904,
+  "peak_sampled_cgroup_bytes": 8589930496,
+  "memory_events_before": {
+    "low": 0,
+    "high": 0,
+    "max": 32506,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "memory_events_after": {
+    "low": 0,
+    "high": 0,
+    "max": 40127,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "memory_event_deltas": {
+    "low": 0,
+    "high": 0,
+    "max": 7621,
+    "oom": 0,
+    "oom_kill": 0,
+    "oom_group_kill": 0
+  },
+  "minimum_free_disk_bytes": 20362244096,
+  "samples": 220
+}

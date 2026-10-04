@@ -1,0 +1,7 @@
+{
+  "accepted_g05_count": 46,
+  "all_46_g05_byte_identical": true,
+  "changed_previous_files": [
+    "tools/resume_neutral_quantum.py"
+  ]
+}

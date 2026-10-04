@@ -1,0 +1,25 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______ test_zero_projection_assessment_cannot_replace_measured_evidence _______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-10/test_zero_projection_assessmen0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-10/test_zero_projection_assessmen0/output'))
+
+    def test_zero_projection_assessment_cannot_replace_measured_evidence(synthetic):
+        import resume_joint_quantum as joint
+        from generate_neutral_quantum import digest
+        assert run_fake(synthetic).returncode == 1
+        output = synthetic[1]; state = json.loads((output/'progress.json').read_text())
+        pilot = state['provenance'][joint.PILOT]
+        data = dict(continue_authorized=True,matrix_sha256=json.loads(AUTH.read_text())['matrix_sha256'],
+            pilot_record_sha256=state['record_hashes'][joint.PILOT],pilot_receipt_sha256=digest(pilot['receipt']),
+            projected_remaining_worker_seconds=0.,projected_max_rss_bytes=0.,projected_scratch_bytes=0.)
+        path = output.parent/'assessment.json'; path.write_text(json.dumps(data))
+>       with pytest.raises(ValueError,match='measured'):
+E       Failed: DID NOT RAISE ValueError
+
+tests/unit/test_joint_quantum_execution.py:258: Failed
+----------------------------- Captured stdout call -----------------------------
+ethanol-methanol-d3-r0--full-parent exit 0 verified True total 1 / 30
+=========================== short test summary info ============================
+FAILED tests/unit/test_joint_quantum_execution.py::test_zero_projection_assessment_cannot_replace_measured_evidence
+1 failed in 1.16s

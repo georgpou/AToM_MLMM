@@ -1,0 +1,120 @@
+F....FFFFFFF                                                             [100%]
+=================================== FAILURES ===================================
+_______ test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget ________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-1/test_only_frozen_thirty_jobs_w0')
+
+    def test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget(tmp_path):
+        result = subprocess.run(command(tmp_path/'output', ['--check-resume']), capture_output=True, text=True)
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: /workspace/atom-mlmm-g07/env/bin/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...n/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory\n").returncode
+
+tests/unit/test_joint_quantum_execution.py:26: AssertionError
+__________ test_matrix_tamper_rejects_even_with_rebound_authorization __________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-1/test_matrix_tamper_rejects_eve0')
+
+    def test_matrix_tamper_rejects_even_with_rebound_authorization(tmp_path):
+        import hashlib
+        matrix = json.loads(MATRIX.read_text()); matrix['new_jobs'][0]['positions_angstrom'][0][0] += .1
+        path = tmp_path/'matrix.json'; path.write_text(json.dumps(matrix))
+        approval = json.loads(AUTH.read_text()); approval['matrix_sha256'] = hashlib.sha256(path.read_bytes()).hexdigest()
+        auth = tmp_path/'authorization.json'; auth.write_text(json.dumps(approval))
+        result = subprocess.run(command(tmp_path/'output', ['--check-resume'], auth=auth, matrix=path), capture_output=True, text=True)
+        assert result.returncode == 2
+>       assert 'frozen' in result.stderr.lower()
+E       assert 'frozen' in "/workspace/atom-mlmm-g07/env/bin/python: can't open file '/workspace/atom_mlmm/tools/resume_joint_quantum.py': [errno 2] no such file or directory\n"
+E        +  where "/workspace/atom-mlmm-g07/env/bin/python: can't open file '/workspace/atom_mlmm/tools/resume_joint_quantum.py': [errno 2] no such file or directory\n" = <built-in method lower of str object at 0x7f3f5b1cd210>()
+E        +    where <built-in method lower of str object at 0x7f3f5b1cd210> = "/workspace/atom-mlmm-g07/env/bin/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory\n".lower
+E        +      where "/workspace/atom-mlmm-g07/env/bin/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory\n" = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...n/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory\n").stderr
+
+tests/unit/test_joint_quantum_execution.py:53: AssertionError
+___________________ test_stricter_resource_and_pilot_policy ____________________
+
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f3f5b0c4bd0>
+
+    def test_stricter_resource_and_pilot_policy(monkeypatch):
+        monkeypatch.syspath_prepend(str(REPO/'tools'))
+>       import resume_joint_quantum as joint
+E       ModuleNotFoundError: No module named 'resume_joint_quantum'
+
+tests/unit/test_joint_quantum_execution.py:58: ModuleNotFoundError
+________ test_pilot_completion_stops_for_assessment_and_durable_receipt ________
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-1/test_pilot_completion_stops_fo0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-1/test_pilot_completion_stops_fo0/output'))
+
+    def test_pilot_completion_stops_for_assessment_and_durable_receipt(synthetic):
+        result = run_fake(synthetic)
+>       assert result.returncode == 1, result.stderr
+E       AssertionError: /workspace/atom-mlmm-g07/env/bin/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory
+E         
+E       assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...n/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory\n").returncode
+
+tests/unit/test_joint_quantum_execution.py:103: AssertionError
+______ test_failed_pilot_receipt_is_never_promoted_and_retry_keeps_budget ______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-1/test_failed_pilot_receipt_is_n0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-1/test_failed_pilot_receipt_is_n0/output'))
+
+    def test_failed_pilot_receipt_is_never_promoted_and_retry_keeps_budget(synthetic):
+>       first = run_fake(synthetic, 'computed_fail'); assert first.returncode == 1, first.stderr
+                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       AssertionError: /workspace/atom-mlmm-g07/env/bin/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory
+E         
+E       assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...n/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory\n").returncode
+
+tests/unit/test_joint_quantum_execution.py:116: AssertionError
+_________________ test_timeout_kills_worker_and_charges_resume _________________
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-1/test_timeout_kills_worker_and_0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-1/test_timeout_kills_worker_and_0/output'))
+
+    def test_timeout_kills_worker_and_charges_resume(synthetic):
+        first = run_fake(synthetic,'wait', ['--wall-limit-seconds','1.5'])
+>       assert first.returncode == 1, first.stderr
+E       AssertionError: /workspace/atom-mlmm-g07/env/bin/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory
+E         
+E       assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...n/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory\n").returncode
+
+tests/unit/test_joint_quantum_execution.py:130: AssertionError
+______ test_resume_requires_pilot_assessment_and_rejects_changed_receipt _______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-1/test_resume_requires_pilot_ass0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-1/test_resume_requires_pilot_ass0/output'))
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-1/test_resume_requires_pilot_ass0')
+
+    def test_resume_requires_pilot_assessment_and_rejects_changed_receipt(synthetic, tmp_path):
+>       assert run_fake(synthetic).returncode == 1
+E       assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...n/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory\n").returncode
+E        +    where CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...n/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory\n") = run_fake((PosixPath('/tmp/pytest-of-agent/pytest-1/test_resume_requires_pilot_ass0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-1/test_resume_requires_pilot_ass0/output')))
+
+tests/unit/test_joint_quantum_execution.py:139: AssertionError
+______________ test_nonconverged_zero_exit_record_is_not_promoted ______________
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-1/test_nonconverged_zero_exit_re0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-1/test_nonconverged_zero_exit_re0/output'))
+
+    def test_nonconverged_zero_exit_record_is_not_promoted(synthetic):
+        exe = synthetic[0]
+        exe.write_text(exe.read_text().replace("SCF has converged.","SCF did not converge."))
+        result = run_fake(synthetic)
+>       assert result.returncode == 1, result.stderr
+E       AssertionError: /workspace/atom-mlmm-g07/env/bin/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory
+E         
+E       assert 2 == 1
+E        +  where 2 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...n/python: can't open file '/workspace/AToM_MLMM/tools/resume_joint_quantum.py': [Errno 2] No such file or directory\n").returncode
+
+tests/unit/test_joint_quantum_execution.py:148: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_joint_quantum_execution.py::test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget
+FAILED tests/unit/test_joint_quantum_execution.py::test_matrix_tamper_rejects_even_with_rebound_authorization
+FAILED tests/unit/test_joint_quantum_execution.py::test_stricter_resource_and_pilot_policy
+FAILED tests/unit/test_joint_quantum_execution.py::test_pilot_completion_stops_for_assessment_and_durable_receipt
+FAILED tests/unit/test_joint_quantum_execution.py::test_failed_pilot_receipt_is_never_promoted_and_retry_keeps_budget
+FAILED tests/unit/test_joint_quantum_execution.py::test_timeout_kills_worker_and_charges_resume
+FAILED tests/unit/test_joint_quantum_execution.py::test_resume_requires_pilot_assessment_and_rejects_changed_receipt
+FAILED tests/unit/test_joint_quantum_execution.py::test_nonconverged_zero_exit_record_is_not_promoted
+8 failed, 4 passed in 0.18s

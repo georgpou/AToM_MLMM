@@ -146,6 +146,12 @@ def completion_receipt(record, name):
         raise ValueError('invalid completion receipt: ' + str(path))
     if 'record_sha256' in receipt and receipt['record_sha256'] != digest(record):
         raise ValueError('completion receipt record digest differs: ' + str(path))
+    for filename, sha in receipt.get('diagnostic_sha256', {}).items():
+        if Path(filename).name != filename or digest(path.parent / filename) != sha:
+            raise ValueError('completion receipt diagnostic digest differs: ' + str(path))
+    for key, filename in (('order_sha256', 'order.json'), ('launch_sha256', 'launch.json')):
+        if key in receipt and receipt[key] != digest(path.parent / filename):
+            raise ValueError('completion receipt launch/order digest differs: ' + str(path))
     return receipt
 
 
@@ -267,7 +273,22 @@ def measurements(pid=None):
                 continue
         data['rss_scope'] = 'supervisor and same-process-group workers'
     data['disk_free_bytes'] = shutil.disk_usage('/workspace').free
+    for name in ('cpu.max', 'memory.swap.current', 'memory.swap.max', 'memory.pressure'):
+        path = Path('/sys/fs/cgroup') / name
+        if path.exists():
+            data[name] = path.read_text().strip()
     return data
+
+
+def directory_bytes(path):
+    size = 0
+    for entry in Path(path).rglob('*'):
+        try:
+            if entry.is_file():
+                size += entry.stat().st_size
+        except FileNotFoundError:
+            pass  # A worker can delete a temporary file during sampling.
+    return size
 
 
 def group_members(group):
@@ -310,23 +331,31 @@ def terminate_group(process):
         raise ValueError('worker process group remains active; refuse further scheduling')
 
 
-def run(args):
+def run(args, *, plan_validator=validate_plan, queue_builder=queue, policy=None,
+        record_validator=validate_record):
+    policy = policy or {}
     root = Path(args.plan_root).resolve()
-    approval, _ = validate_plan(root, args.approval)
+    approval, _ = plan_validator(root, args.approval)
     settings = json.loads((root / 'reference-settings.json').read_text())
-    orders = queue(root, settings)
+    orders = queue_builder(root, settings)
     allocation = f'{args.memory_gib:g} GiB'
     allocated_bytes = memory_bytes(allocation)
     cap = approval['approved_resource_cap']
     if cap['cpu_threads'] != 2 or memory_bytes(cap['psi4_memory']) < allocated_bytes:
         raise ValueError('runtime exceeds the authorized resource cap')
-    wall_cap = min(settings['wall_cap_hours'], cap['wall_hours']) * 3600
+    wall_cap = min(policy.get('wall_hours', settings['wall_cap_hours']), cap['wall_hours']) * 3600
     if args.wall_limit_seconds is not None:
         if not math.isfinite(args.wall_limit_seconds) or args.wall_limit_seconds <= 0:
             raise ValueError('wall limit must be finite and positive')
         wall_cap = min(wall_cap, args.wall_limit_seconds)
     saved, prior_wall, historical = history(args, approval, orders)
     output = Path(args.output).resolve()
+    def promote(source, target):
+        publish_record(source, target)
+        for suffix in policy.get('diagnostic_suffixes', ()):
+            companion = Path(source).with_suffix(suffix)
+            if companion.exists():
+                publish_record(companion, Path(target).with_suffix(suffix))
     identity = dict(approval_sha256=digest(args.approval),
                     input_manifest_sha256=digest(root / 'input-manifest.json'),
                     reference_settings_sha256=digest(root / 'reference-settings.json'),
@@ -340,7 +369,7 @@ def run(args):
         raise ValueError('execution requires --reference-python')
     validate_environment(args.reference_python, root)
     durable_mkdir(output, parents=True, exist_ok=True)
-    with (output / 'coordinator.lock').open('a') as lock:
+    with Path(policy.get('queue_lease_path', output / 'coordinator.lock')).open('a') as lock:
         try:
             fcntl.flock(lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         except BlockingIOError:
@@ -364,15 +393,22 @@ def run(args):
                                    note='conservatively debited until recovery; no coordinator exit invented')
             for name, sha in state['record_hashes'].items():
                 source = Path(state['provenance'][name]['source'])
+                receipt_sha = state['provenance'][name].get('receipt_sha256')
+                if receipt_sha is not None and digest(source.with_name('receipt.json')) != receipt_sha:
+                    raise ValueError('checkpoint completion receipt digest differs: ' + name)
                 receipt = completion_receipt(source, name)
                 if not admitted(receipt):
                     raise ValueError('checkpoint admitted a known failed completion: ' + name)
-                validate_record(source, orders[name], sha)
+                if policy.get('require_receipt') and receipt is None:
+                    raise ValueError('checkpoint completion receipt is missing: ' + name)
+                record_validator(source, orders[name], sha)
                 target = output / 'records' / (name + '.json')
                 if not target.exists():
-                    validate_record(source, orders[name], sha)
-                    publish_record(source, target)
-                validate_record(target, orders[name], sha)
+                    record_validator(source, orders[name], sha)
+                    promote(source, target)
+                elif policy:
+                    promote(source, target)
+                record_validator(target, orders[name], sha)
                 # Upgrade legacy checkpoints whose old writer did not fsync
                 # referenced bytes/entries before declaring them durable.
                 sync_file(source)
@@ -389,7 +425,7 @@ def run(args):
                          ready_for_comparison=False)
             for name, path in saved.items():
                 target = output / 'records' / (name + '.json')
-                publish_record(path, target)
+                promote(path, target)
                 state['record_hashes'][name] = digest(target)
                 state['provenance'][name] = dict(source=str(path), recovered=True, coordinator_exit=None,
                                                 note='verified completed worker record; exit receipt not inferred')
@@ -404,16 +440,20 @@ def run(args):
                 receipt = completion_receipt(record, name)
                 if not admitted(receipt):
                     continue
+                if policy.get('require_receipt') and receipt is None:
+                    continue
                 if receipt is not None:
                     sync_file(record.with_name('receipt.json'))
-                validate_record(record, orders[name])
+                record_validator(record, orders[name])
                 target = output / 'records' / (name + '.json')
-                publish_record(record, target)
+                promote(record, target)
                 state['record_hashes'][name] = digest(target)
                 state['provenance'][name] = dict(source=str(record), recovered=True,
                     coordinator_exit=receipt['exit'] if receipt is not None else None)
                 if receipt is not None:
                     state['provenance'][name]['receipt'] = str(record.with_name('receipt.json'))
+                    if policy:
+                        state['provenance'][name]['receipt_sha256'] = digest(record.with_name('receipt.json'))
                 break
         session = dict(started_utc=utc(), status='running', wall_seconds=0., runtime_memory=allocation,
                        wall_cap_seconds=wall_cap, resources_at_start=measurements())
@@ -431,11 +471,23 @@ def run(args):
 
         checkpoint()
         for name, original_order in orders.items():
+            if policy.get('stop_after_job') in state['record_hashes']:
+                session['stop_reason'] = 'pilot_assessment_pending'
+                break
             if name in state['record_hashes']:
                 continue
             checkpoint()
             if state['remaining_wall_seconds'] <= .02:
                 session['stop_reason'] = 'budget_exhausted'
+                break
+            pilot = name == policy.get('pilot_job')
+            pilot_remaining = policy.get('pilot_wall_seconds', float('inf')) - state['wall_seconds_debited']
+            if pilot and pilot_remaining <= .02:
+                session['stop_reason'] = 'pilot_budget_exhausted'
+                break
+            before = measurements()
+            if before['disk_free_bytes'] < policy.get('disk_min_bytes', 2 * 2**30):
+                session['stop_reason'] = 'scratch_disk_headroom_exhausted'
                 break
             parent = output / 'jobs' / name
             durable_mkdir(parent, exist_ok=True)
@@ -461,6 +513,8 @@ def run(args):
                                '--control-fd', str(control_read)]
             receipt['launch_command'] = guarded_command
             worker_started = time.monotonic()
+            worker_deadline = worker_started + min(state['remaining_wall_seconds'],
+                                                   pilot_remaining if pilot else float('inf'))
             reason = None
             process = None
             try:
@@ -478,18 +532,34 @@ def run(args):
                     rss_peak = cgroup_peak = 0
                     with (attempt / 'resources.jsonl').open('x') as samples:
                         while process.poll() is None:
-                            sample = dict(utc=utc(), **measurements(process.pid))
+                            sample = dict(utc=utc(), job_name=name, process_group=process.pid,
+                                          elapsed_seconds=time.monotonic() - worker_started,
+                                          **measurements(process.pid))
+                            if policy:
+                                sample['scratch_bytes'] = directory_bytes(scratch)
                             rss_peak = max(rss_peak, sample.get('VmHWM', 0), sample.get('VmRSS', 0))
                             cgroup_peak = max(cgroup_peak, sample.get('memory.current', 0))
                             samples.write(json.dumps(sample) + '\n')
                             samples.flush()
                             checkpoint()
-                            if state['remaining_wall_seconds'] <= 0:
+                            actual_limit = sample.get('memory.max')
+                            pressure_max = policy.get('pressure_max_bytes', 7 * 2**30)
+                            rss_max = policy.get('rss_max_bytes', 7 * 2**30)
+                            if isinstance(actual_limit, int) and policy:
+                                rss_max = min(rss_max, actual_limit - 2 * 2**30)
+                                pressure_max = min(pressure_max, actual_limit - 512 * 2**20)
+                            events = dict(line.split() for line in sample.get('memory.events', '').splitlines())
+                            initial_events = dict(line.split() for line in before.get('memory.events', '').splitlines())
+                            if state['remaining_wall_seconds'] <= 0 or time.monotonic() >= worker_deadline:
                                 reason = 'timeout'
-                            elif max(sample.get('memory.pressure_bytes', sample.get('memory.current', 0)),
-                                     sample.get('VmRSS', 0)) > 7 * 2**30:
+                            elif sample.get('VmRSS', 0) > rss_max:
+                                reason = 'process_group_rss_exhausted' if policy else 'memory_headroom_exhausted'
+                            elif sample.get('memory.pressure_bytes', sample.get('memory.current', 0)) > pressure_max:
                                 reason = 'memory_headroom_exhausted'
-                            elif sample['disk_free_bytes'] < 2 * 2**30:
+                            elif any(int(events.get(key, 0)) > int(initial_events.get(key, 0))
+                                     for key in ('oom', 'oom_kill', 'oom_group_kill')):
+                                reason = 'cgroup_oom_event'
+                            elif sample['disk_free_bytes'] < policy.get('disk_min_bytes', 2 * 2**30):
                                 reason = 'scratch_disk_headroom_exhausted'
                             if reason:
                                 terminate_group(process)
@@ -518,19 +588,33 @@ def run(args):
                            resources_after=measurements())
             if receipt['exit'] == 0 and reason is None:
                 try:
-                    validate_record(record, order)
+                    record_validator(record, order)
                 except (ValueError, KeyError, OSError, TypeError) as error:
                     receipt['validation_error'] = repr(error)
             if record.exists():
                 sync_file(record)
                 receipt['record_sha256'] = digest(record)
+            if policy:
+                receipt.update(order_sha256=digest(attempt / 'order.json'),
+                               launch_sha256=digest(launch_path), diagnostic_sha256={})
+                for filename in ('resources.jsonl', 'launcher.txt'):
+                    diagnostic = attempt / filename
+                    sync_file(diagnostic)
+                    receipt['diagnostic_sha256'][filename] = digest(diagnostic)
+                for suffix in policy.get('diagnostic_suffixes', ()):
+                    diagnostic = record.with_suffix(suffix)
+                    if diagnostic.exists():
+                        sync_file(diagnostic)
+                        receipt['diagnostic_sha256'][diagnostic.name] = digest(diagnostic)
             exclusive_dump(attempt / 'receipt.json', receipt)
             if admitted(receipt):
                 target = output / 'records' / (name + '.json')
-                publish_record(record, target)
+                promote(record, target)
                 state['record_hashes'][name] = digest(target)
                 state['provenance'][name] = dict(source=str(record), recovered=False,
                                                 coordinator_exit=receipt['exit'], receipt=str(attempt / 'receipt.json'))
+                if policy:
+                    state['provenance'][name]['receipt_sha256'] = digest(attempt / 'receipt.json')
             shutil.rmtree(scratch)
             checkpoint()
             print(name, 'exit', receipt['exit'], 'verified', name in state['record_hashes'],
@@ -538,11 +622,14 @@ def run(args):
             if reason:
                 session['stop_reason'] = reason
                 break
+            if policy.get('stop_on_failure') and not admitted(receipt):
+                session['stop_reason'] = 'worker_failed_or_invalid'
+                break
         session.update(status='finished', ended_utc=utc(), resources_at_end=measurements())
         checkpoint()
         if state['ready_for_comparison']:
             for name, sha in state['record_hashes'].items():
-                validate_record(output / 'records' / (name + '.json'), orders[name], sha)
+                record_validator(output / 'records' / (name + '.json'), orders[name], sha)
             manifest = dict(scope='independent quantum references only; no model comparison',
                             approval=approval, **{k: v for k, v in identity.items() if k != 'history'},
                             ready_for_comparison=True,

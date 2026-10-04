@@ -1,0 +1,42 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+______ test_recovery_rejects_missing_or_changed_convergence_log[missing] _______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-8/test_recovery_rejects_missing_0/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-8/test_recovery_rejects_missing_0/output'))
+mode = 'missing'
+
+    @pytest.mark.parametrize('mode', ['missing', 'changed'])
+    def test_recovery_rejects_missing_or_changed_convergence_log(synthetic, mode):
+        assert run_fake(synthetic).returncode == 1
+        log = next(synthetic[1].glob('jobs/*/attempt-*/record.psi4.txt'))
+        if mode == 'missing':log.unlink()
+        else:log.write_text(log.read_text()+'tampered diagnostic\n')
+        result = run_fake(synthetic)
+>       assert result.returncode == 2, result.stderr
+E       AssertionError: 
+E       assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...mp/pytest-of-agent/pytest-8/test_recovery_rejects_missing_0/reference/bin/python'], returncode=1, stdout='', stderr='').returncode
+
+tests/unit/test_joint_quantum_execution.py:214: AssertionError
+______ test_recovery_rejects_missing_or_changed_convergence_log[changed] _______
+
+synthetic = (PosixPath('/tmp/pytest-of-agent/pytest-8/test_recovery_rejects_missing_1/reference/bin/python'), PosixPath('/tmp/pytest-of-agent/pytest-8/test_recovery_rejects_missing_1/output'))
+mode = 'changed'
+
+    @pytest.mark.parametrize('mode', ['missing', 'changed'])
+    def test_recovery_rejects_missing_or_changed_convergence_log(synthetic, mode):
+        assert run_fake(synthetic).returncode == 1
+        log = next(synthetic[1].glob('jobs/*/attempt-*/record.psi4.txt'))
+        if mode == 'missing':log.unlink()
+        else:log.write_text(log.read_text()+'tampered diagnostic\n')
+        result = run_fake(synthetic)
+>       assert result.returncode == 2, result.stderr
+E       AssertionError: 
+E       assert 1 == 2
+E        +  where 1 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...mp/pytest-of-agent/pytest-8/test_recovery_rejects_missing_1/reference/bin/python'], returncode=1, stdout='', stderr='').returncode
+
+tests/unit/test_joint_quantum_execution.py:214: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_joint_quantum_execution.py::test_recovery_rejects_missing_or_changed_convergence_log[missing]
+FAILED tests/unit/test_joint_quantum_execution.py::test_recovery_rejects_missing_or_changed_convergence_log[changed]
+2 failed in 2.52s

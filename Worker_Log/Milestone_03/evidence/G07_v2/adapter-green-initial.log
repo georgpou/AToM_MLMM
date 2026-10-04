@@ -1,0 +1,28 @@
+F
+=================================== FAILURES ===================================
+_______ test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget ________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-3/test_only_frozen_thirty_jobs_w0')
+
+    def test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget(tmp_path):
+        result = subprocess.run(command(tmp_path/'output', ['--check-resume']), capture_output=True, text=True)
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "/workspace/AToM_MLMM/tools/resume_joint_quantum.py", line 150, in <module>
+E             sys.exit(run(parser.parse_args()))
+E                      ^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/workspace/AToM_MLMM/tools/resume_joint_quantum.py", line 121, in run
+E             approval, matrix = validate_authorization(root, args.approval, matrix_path)
+E                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E           File "/workspace/AToM_MLMM/tools/resume_joint_quantum.py", line 41, in validate_authorization
+E             from atm_mlmm.joint_reference import quantum_job_matrix
+E         ModuleNotFoundError: No module named 'atm_mlmm'
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/workspace/atom-mlmm-g07/env/bin/python', '/workspace/AToM_MLMM/tools/resume_joint_quantum.py'...ion\n    from atm_mlmm.joint_reference import quantum_job_matrix\nModuleNotFoundError: No module named \'atm_mlmm\'\n').returncode
+
+tests/unit/test_joint_quantum_execution.py:29: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_joint_quantum_execution.py::test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed in 0.05s
