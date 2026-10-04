@@ -131,6 +131,10 @@ def validate_correction(target):
     saved = recovery.completion_receipt(target/'record.json', PILOT)
     if saved != expected:
         raise ValueError('validation correction receipt differs from original measurements')
+    # Repair a crash after directory rename but before its parent fsync. Both
+    # ordinary recovery and corrective-CLI replay must do this before admission.
+    recovery.sync_directory(target)
+    recovery.sync_directory(target.parent)
     return saved
 
 

@@ -351,6 +351,36 @@ def test_ordinary_recovery_cannot_bypass_correction_by_removing_markers(syntheti
     assert not json.loads((synthetic[1]/'progress.json').read_text())['record_hashes']
 
 
+@pytest.mark.parametrize('use_corrective_cli', [False, True])
+def test_recovery_fsyncs_renamed_attempt_before_admitted_checkpoint(
+        synthetic, rejected_converged_pilot, monkeypatch, use_corrective_cli):
+    import resume_joint_quantum as joint
+    rename = joint.os.rename
+    def loss_after_rename(source, target):
+        rename(source, target)
+        raise RuntimeError('injected loss before rename-parent fsync')
+    monkeypatch.setattr(joint.os, 'rename', loss_after_rename)
+    with pytest.raises(RuntimeError):
+        revalidate_fake(synthetic)
+    monkeypatch.setattr(joint.os, 'rename', rename)
+    parent = rejected_converged_pilot.parent.parent
+    synced = []
+    sync_directory = joint.recovery.sync_directory
+    atomic_dump = joint.recovery.atomic_dump
+    def sync(path):
+        synced.append(Path(path))
+        return sync_directory(path)
+    def dump(path, data):
+        if joint.PILOT in data.get('record_hashes', {}):
+            assert parent in synced, 'renamed attempt parent was not durable before admission'
+        return atomic_dump(path, data)
+    monkeypatch.setattr(joint.recovery, 'sync_directory', sync)
+    monkeypatch.setattr(joint.recovery, 'atomic_dump', dump)
+    if use_corrective_cli:revalidate_fake(synthetic)
+    assert run_fake(synthetic).returncode == 1
+    assert parent in synced
+
+
 @pytest.mark.parametrize('mode', ['missing', 'changed'])
 def test_recovery_rejects_missing_or_changed_convergence_log(synthetic, mode):
     assert run_fake(synthetic).returncode == 1
