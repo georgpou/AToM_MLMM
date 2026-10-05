@@ -35,3 +35,12 @@ and local checks therefore leave actual Colab CPU and TPU execution pending.
 Returned bundles must be verified before any hardware/profile acceptance claim.
 This technical work does not qualify equilibrium, liquid density, pressure/virial,
 protein production, molecular accuracy or affinity; M03 blockers remain visible.
+
+[Open the separate TPU component notebook in Colab](https://colab.research.google.com/github/georgpou/AToM_MLMM/blob/m05-colab-workflows/notebooks/m05_colab_tpu_benchmarks.ipynb).
+See the [experimental profile](../environment/colab-tpu/README.md). Its empty
+`SOURCE_SHA` and `REFERENCE_SHA256` fields deliberately require the exact reviewed
+implementation/reference identities; branch names are rejected. First save the
+CPU reference with `python tools/m05_tpu_probe.py cpu-reference --output UNUSED`.
+Switching runtimes requires restoring that verified complete export and
+reinstalling the CPU base before cloning the separate XLA prefix. The probe
+retains failed precision/operators and never qualifies timing from those results.
