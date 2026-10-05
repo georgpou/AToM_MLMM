@@ -7,6 +7,62 @@ pilots. The user will transfer the finished code to HPC for demanding calculatio
 This preparation task removes abandoned execution tooling and verifies the retained
 engine; it does not implement or accept the next scheduler increment.
 
+## Required orchestration and audit workflow
+
+The chat agent is the **orchestrator**. It plans tasks, prepares detailed worker
+instructions, checks task completion, coordinates audits and maintains the
+handoff. Delegate implementation and repairs to **`gpt-6-luna` with reasoning
+effort `max`**. The auditor is **`gpt-6.1-sol` with reasoning effort `max`**.
+Use these exact model identifiers when spawning agents; do not silently substitute
+a model or lower reasoning effort. If either is unavailable, report that limitation.
+
+**Concurrency limit: the orchestrator plus at most one running side agent.**
+Only the orchestrator may spawn agents. Workers and auditors must not spawn their
+own agents. Finish the active worker or auditor before starting another. Never
+run implementation, repairs or another audit alongside an active auditor.
+
+Give each Luna worker a bounded, detailed assignment containing the task/gate,
+exact starting snapshot, prerequisites, relevant files/contracts, required behavior,
+independent numerical expectations, protected invariants, resource limits,
+verification commands, completion criteria and expected code/log/evidence output.
+Supply only relevant context; do not duplicate the complete conversation or rerun
+accepted checks without a reason.
+
+Follow this sequence:
+
+1. Define the implementation batch and complete every task in it using Luna max
+   workers **one at a time**. The orchestrator verifies that the expected outputs
+   and required checks are present. Do not call the auditor for unfinished work
+   or for each intermediate edit.
+2. Once all tasks in the batch are finished, call one Sol 6.1 max auditor with
+   the exact combined snapshot, compact diff, task requirements, worker reports
+   and focused evidence. It must assess coding, physics/chemistry and mathematics:
+   implementation/admission/restart correctness; Hamiltonian, chemical states,
+   force ownership, caps and interaction accounting; and units, derivatives,
+   exchange probabilities, thermodynamic signs and statistical claims.
+3. **Let the auditor finish its complete report before any fix is implemented.**
+   Do not interrupt it to start repairs, edit its reviewed source while it works,
+   or act on provisional findings. Obtain the final findings and decision first.
+4. If repairs are required, give small fixes to one Luna max worker. For complex
+   findings, decide how many bounded repair tasks/workers are needed and their
+   dependency order. Run those workers sequentially, never more than one alongside
+   the orchestrator. Complete and verify the entire repair batch before auditing
+   again; the orchestrator must not bypass delegation by implementing fixes itself.
+5. Audit the repaired combined snapshot with Sol 6.1 max, again letting it finish.
+   Repeat the repair/audit loop until the auditor explicitly gives GREEN for all
+   applicable coding, physics/chemistry and mathematical assertions in the declared
+   scope. Keep every failure, finding, repair and review decision in the logs.
+
+Where an existing scientific contract requires design review before implementation,
+finish a **standalone design task** first and audit that completed task. Then run
+the implementation batch and its final audit. This preserves the concurrency and
+finished-task rules while retaining required scientific design review.
+
+A scoped implementation GREEN does not establish chemical accuracy or full-program
+qualification while the physical blockers below remain. Mark unavailable hardware,
+missing references and unresolved physical failures explicitly; do not waive them,
+relax tolerances or label a blocked gate GREEN to finish the loop.
+
 ## Start and accepted baseline
 
 Read [AGENTS](../../../AGENTS.md), [STATUS](../STATUS.md),
