@@ -354,9 +354,10 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 Continue the main engine on Codex Cloud using the
 [current assignment](handoffs/CLOUD-ENGINE-CONTINUATION.md). First extend G10's
 accepted pair-only controller through a standalone multistate transaction design.
-The proposed [G10 v3 design](../../Worker_Log/Milestone_05/Gate_10_v3_worker.md)
-is `ready_for_audit`; it is not implemented or accepted, and implementation
-remains gated on independent review. This is G10-T2/T3 technical work, not a new
+The standalone [G10 v3 design](../../Worker_Log/Milestone_05/Gate_10_v3_worker.md)
+is **GREEN / accepted_for_scope** by the [Sol 6.1/max design audit](../../Worker_Log/Milestone_05/Gate_10_v3_audit.md)
+on `678aa3e2db9d5f77517ad8cfb278ac8a4df7032d`; runtime implementation and its
+independent acceptance remain pending. This is G10-T2/T3 technical work, not a new
 gate definition or full M05 acceptance. Then advance deterministic G11/G12 protein and dual-ligand
 support and G13 packaging/resource measurements as their technical dependencies
 are satisfied. Preserve the shared engine and accepted pair regression path.
@@ -384,7 +385,7 @@ authorize a new QM budget or production continuation.
 | G07 / T4 physical-reference sensitivity | blocked | Seven sensitivity failures plus measured pilot force-approximation exceedances; one validated full-parent reference, 29 missing; runtime/scratch screens exceed current envelope |
 | M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
 | M04 / G08 analytic thermodynamic accounting | accepted | [GPT-6.1-sol/MAX v2 audit](../../Worker_Log/Milestone_04/Gate_08_v2_audit.md), exact c0280818/source8cf2494; G08-R1 closed, refined amendments and combined M04 analytic CPU accepted; 437 full/21 affected passes |
-| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial (full milestone) | [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) / [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md):543 full/52 independent CPU passes; denser/exchange/restart definition accepted; proposed G10 v3 multistate design is `ready_for_audit`, not implemented or accepted; full M05 open. Earlier lineage: [G09 v4 audit](../../Worker_Log/Milestone_05/Gate_09_v4_audit.md): R1/R2 closed, bounded explicit-water G09 subsets and unchanged G10 pair scope accepted; 501 root CPU passes, 21 independent focused passes/six probes; full M05 open |
+| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial (full milestone) | [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) / [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md):543 full/52 independent CPU passes; denser/exchange/restart definition accepted; [G10 v3 standalone multistate design](../../Worker_Log/Milestone_05/Gate_10_v3_audit.md) is GREEN on `678aa3e2db9d5f77517ad8cfb278ac8a4df7032d`, runtime implementation pending; full M05 open. Earlier lineage: [G09 v4 audit](../../Worker_Log/Milestone_05/Gate_09_v4_audit.md): R1/R2 closed, bounded explicit-water G09 subsets and unchanged G10 pair scope accepted; 501 root CPU passes, 21 independent focused passes/six probes; full M05 open |
 | M06-M08 / G11-G13 | technical implementation pending / physical qualification deferred | Advance deterministic CPU engine support as relevant runtime prerequisites pass; reserve demanding protein calculations and Slurm settings for HPC; retain full-milestone qualification requirements |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |

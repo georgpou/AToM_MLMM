@@ -1,0 +1,196 @@
+{
+  "base": "3952a9b36a92e37f0f98fdf3981c9320368a18b3",
+  "beta_mol_per_kJ": 0.4009078501424201,
+  "changed_paths": [
+    "Worker_Log/Milestone_05/Gate_10_v3_worker.md",
+    "Worker_Log/Milestone_05/evidence/G10_v3/implementation-plan.md",
+    "docs/project-0/STATUS.md",
+    "docs/project-0/specs/g10-multistate-runtime-amendment.md"
+  ],
+  "compact_diff_sha256": "045ffdfb0ee8d09a7a52ba8de00d8b48a81b494f39636b4938f949d595991726",
+  "design_head": "179c3035c6b70293811b6dd6e24319fd9ac932db",
+  "detailed_balance_counterexample": {
+    "forward_flux": "5/124",
+    "from": [
+      0,
+      1,
+      2
+    ],
+    "reverse_flux": "0",
+    "to": [
+      0,
+      2,
+      1
+    ]
+  },
+  "fixtures": [
+    {
+      "atoms": 224,
+      "kind": "abfe",
+      "ligands": [
+        {
+          "atoms": 6,
+          "charge": 0,
+          "multiplicity": 1,
+          "name": "methanol"
+        }
+      ],
+      "manifest_sha256": "db063aaf141f3bd21229ea388df3e927c44d70b03bbcca7d1cf4fbe2f0d0b054",
+      "outside_spring_kj_mol_nm2": 10.0,
+      "temperature_K": 300.0,
+      "waters": 64
+    },
+    {
+      "atoms": 233,
+      "kind": "rbfe",
+      "ligands": [
+        {
+          "atoms": 6,
+          "charge": 0,
+          "multiplicity": 1,
+          "name": "methanol"
+        },
+        {
+          "atoms": 9,
+          "charge": 0,
+          "multiplicity": 1,
+          "name": "acetamide"
+        }
+      ],
+      "manifest_sha256": "1a85a6d997ea61dd471b5334c34d137683e9dafe38cb1f92025c306cf25dee45",
+      "outside_spring_kj_mol_nm2": 10.0,
+      "temperature_K": 300.0,
+      "waters": 64
+    }
+  ],
+  "flat_connected_triangle_all_accept_final": [
+    0,
+    2,
+    1
+  ],
+  "host_rng_aliases": [
+    "random",
+    "numpy.random"
+  ],
+  "host_rng_roundtrip_and_caller_isolation": "cached normal variates, identical nine-draw replay, both post-streams",
+  "inherited_baseline": {
+    "path": "/workspace/g10-start-baseline.log",
+    "rerun_by_auditor": false,
+    "result": "...............................                                          [100%]\n31 passed in 115.64s (0:01:55)",
+    "sha256": "7ba7622aac12e8047c32c9578647d22c56c6a796553195611330c5c889039162"
+  },
+  "inherited_setup": {
+    "finished": "2026-10-05T20:54:57.844982+00:00",
+    "path": "/workspace/m05-cpu-setup-v2/latest-validation.json",
+    "rerun_by_auditor": false,
+    "results": [
+      {
+        "exit_code": 0,
+        "name": "core_exact_versions"
+      },
+      {
+        "exit_code": 0,
+        "name": "amber_exact_versions"
+      },
+      {
+        "exit_code": 0,
+        "name": "core_pip_check"
+      },
+      {
+        "exit_code": 0,
+        "name": "amber_pip_check"
+      },
+      {
+        "exit_code": 0,
+        "name": "openmm_installation"
+      },
+      {
+        "exit_code": 0,
+        "name": "cpu_potentials_and_atm"
+      },
+      {
+        "exit_code": 0,
+        "name": "separate_ambertools_integration"
+      },
+      {
+        "exit_code": 0,
+        "name": "atom_uwham"
+      },
+      {
+        "exit_code": 0,
+        "name": "repository_documentation"
+      }
+    ],
+    "sha256": "5b9e70f8014ac7d29818aa0206366497ec6513400578e2f75b2b34a5309f66a3"
+  },
+  "inspection_checkout_head": "678aa3e2db9d5f77517ad8cfb278ac8a4df7032d",
+  "max_unique_pairs_eight_states": 28,
+  "multistate_runtime_and_fault_tests": "planned, not run",
+  "ordered_kernel_stationarity": "exact Fraction equality at all six permutations",
+  "outside_cancels_from_delta_but_not_matrix": true,
+  "outside_inclusive_reduced_energies": [
+    [
+      1.4833590455269543,
+      3.006808876068151
+    ],
+    [
+      3.4878982962390546,
+      5.412255976922671
+    ]
+  ],
+  "pair_kernel_detailed_balance": "exact Fraction equality, both 6x6 kernels",
+  "permutation_history": [
+    [
+      0,
+      1,
+      2
+    ],
+    [
+      1,
+      0,
+      2
+    ],
+    [
+      2,
+      0,
+      1
+    ]
+  ],
+  "pinned_downhill_accepts_without_draw": true,
+  "pinned_pair_source": "/workspace/m05-cpu-setup-v2/env/lib/python3.11/site-packages/atom_openmm/gibbs_sampling.py",
+  "pinned_pair_source_sha256": "9cddeeacc19c6b3f992da58969111f6c3f757aaaf55c1863a6078c76000efb5f",
+  "pinned_scalar_decisions": [
+    {
+      "accepted": true,
+      "delta": 0.7,
+      "draw": 0.24829265189570476
+    },
+    {
+      "accepted": false,
+      "delta": 0.7,
+      "draw": 0.7482926518957047
+    }
+  ],
+  "protected_trees_unchanged": [
+    "src",
+    "tests",
+    "fixtures",
+    "environment",
+    "models"
+  ],
+  "resolved_workers": [
+    [
+      0,
+      1
+    ],
+    [
+      0,
+      2
+    ]
+  ],
+  "reviewed_head": "678aa3e2db9d5f77517ad8cfb278ac8a4df7032d",
+  "scope": "design evidence only; no multistate implementation claim",
+  "source_inventory_files": 38,
+  "source_inventory_sha256": "e0490dc04a25de08531f9e9db84dfeae9825ffa9406692d3f5c458d5c88e35ca",
+  "whole_sweep_detailed_balance_violations": 10
+}
