@@ -136,7 +136,8 @@ def load_configuration(path):
     if snapshot.real_atom_ids != tuple(a.atom_id for a in original.topology.atoms) or snapshot.box_nm != original.box_nm:
         raise IdentityError('input snapshot atom order/box differs from prepared system')
     if snapshot.box_nm is not None:
-        raise UnsupportedCapability('this initial common preflight admits nonperiodic inputs; solvated PME workflow is pending')
+        from .geometry import orthorhombic_lengths
+        orthorhombic_lengths(snapshot.box_nm)
     ligands = [m for m in original.topology.molecules if m.role == 'ligand']
     if len(ligands) != (1 if settings['protocol_kind'] == 'abfe' else 2):
         raise MalformedInput('protocol must transfer the declared complete ligand molecule(s)')
@@ -145,7 +146,7 @@ def load_configuration(path):
     return Configuration(resolved,original,partition,snapshot,runtime,schedule,settings,manifest)
 
 
-def _domain(topology, snapshot, displacement, kind):
+def _domain(topology, snapshot, displacement, kind, boundary_edges=()):
     """Fixed geometry admission on both full maps; no energy-based pose choice."""
     import numpy as np
     atoms = topology.atoms
@@ -154,6 +155,21 @@ def _domain(topology, snapshot, displacement, kind):
     if any(a.element not in radii for a in atoms):
         raise UnsupportedCapability('geometry guard admits H/C/N/O only')
     x = np.asarray(snapshot.positions_nm,dtype=float)
+    from .geometry import minimum_image, unwrap_molecules
+    if snapshot.box_nm is not None:
+        x = unwrap_molecules(topology,x,snapshot.box_nm)
+    def distances(a, b):
+        delta = a[:,None,:]-b[None,:,:]
+        if snapshot.box_nm is not None:
+            delta = minimum_image(delta,snapshot.box_nm)
+        return np.linalg.norm(delta,axis=2)
+    caps = []
+    for a,b in boundary_edges:
+        delta = x[index[b]]-x[index[a]]
+        length = np.linalg.norm(delta)
+        if length == 0 or not math.isfinite(length):
+            raise NumericalDomainError('coincident/nonfinite cap parents')
+        caps.append(x[index[a]]+.109*delta/length)
     mapped = x.copy()
     ligands = [m for m in topology.molecules if m.role == 'ligand']
     for sign,molecule in zip((1.,-1.),ligands):
@@ -164,7 +180,7 @@ def _domain(topology, snapshot, displacement, kind):
         for i,molecule in enumerate(topology.molecules):
             for other in topology.molecules[i+1:]:
                 a,b = [index[v] for v in molecule.atom_ids],[index[v] for v in other.atom_ids]
-                distance = np.linalg.norm(positions[a,None,:]-positions[None,b,:],axis=2)
+                distance = distances(positions[a],positions[b])
                 scale = np.asarray([radii[atoms[j].element] for j in a])[:,None]+np.asarray([radii[atoms[j].element] for j in b])[None,:]
                 ratio = distance/scale
                 p,q = np.unravel_index(np.argmin(ratio),ratio.shape)
@@ -173,6 +189,13 @@ def _domain(topology, snapshot, displacement, kind):
         if minimum < .65:
             raise NumericalDomainError(f'{label} intermolecular Bondi ratio {minimum:.9g} < 0.65 at {pair}')
         diagnostics.append(dict(map=label,minimum_intermolecular_Bondi_ratio=minimum,closest_pair=pair))
+        if caps:
+            mobile = [index[a] for molecule in ligands for a in molecule.atom_ids]
+            cap_distances = distances(positions[mobile],np.asarray(caps))
+            scale = np.asarray([radii[atoms[i].element]+radii['H'] for i in mobile])[:,None]
+            if float(np.min(cap_distances/scale)) < .65:
+                raise NumericalDomainError(f'{label} ligand-cap Bondi ratio below 0.65')
+            diagnostics[-1]['minimum_ligand_cap_distance_nm'] = float(np.min(cap_distances))
     # The alternate placement must initially/remain beyond the model's local
     # support plus a 0.2-nm margin from every static host/protein real atom.
     obstacles = [index[a] for m in topology.molecules if m.role in ('host','protein') for a in m.atom_ids]
@@ -180,10 +203,19 @@ def _domain(topology, snapshot, displacement, kind):
         raise UnsupportedCapability('preflight requires a declared static host or protein')
     for j,ligand in enumerate(ligands):
         bulk = mapped if j == 0 else x  # RBFE starts ligand2 in bulk; map1 moves it back.
-        distance = float(np.min(np.linalg.norm(bulk[[index[a] for a in ligand.atom_ids],None,:]-bulk[None,obstacles,:],axis=2)))
+        static = bulk[obstacles]
+        if caps:
+            static = np.vstack((static,caps))
+        distance = float(np.min(distances(bulk[[index[a] for a in ligand.atom_ids]],static)))
         if distance < .65:
             raise NumericalDomainError(f'bulk ligand {ligand.molecule_id} clearance {distance:.9g} nm < 0.65 nm')
         diagnostics.append(dict(bulk_ligand=ligand.molecule_id,minimum_static_distance_nm=distance,required_nm=.65))
+        other = [index[a] for molecule in ligands if molecule is not ligand for a in molecule.atom_ids]
+        if other:
+            other_distance = float(np.min(distances(bulk[[index[a] for a in ligand.atom_ids]],bulk[other])))
+            if other_distance < .65:
+                raise NumericalDomainError(f'bulk ligand {ligand.molecule_id} other ligand clearance {other_distance:.9g} nm < 0.65 nm')
+            diagnostics[-1]['minimum_other_ligand_distance_nm'] = other_distance
     return diagnostics
 
 
@@ -203,7 +235,10 @@ def _snapshot(worker):
     indices = [physical.real_to_final[a.atom_id] for a in physical.topology.atoms]
     x = state.getPositions(asNumpy=True).value_in_unit(unit.nanometer)[indices]
     v = state.getVelocities(asNumpy=True).value_in_unit(unit.nanometer/unit.picosecond)[indices]
-    return Snapshot(tuple(a.atom_id for a in physical.topology.atoms),x,None,v)
+    box = None
+    if physical.manifest.get('periodicity') == 'orthorhombic-pme-v1':
+        box = state.getPeriodicBoxVectors(asNumpy=True).value_in_unit(unit.nanometer)
+    return Snapshot(tuple(a.atom_id for a in physical.topology.atoms),x,box,v)
 
 
 def _records(rows,bundle,metadata):
@@ -216,6 +251,21 @@ def _records(rows,bundle,metadata):
         {'run_id':metadata['run_id'],'worker_manifest_sha256':metadata['worker_manifest_sha256'],
          'runtime_identity':metadata['runtime_identity'],'schedule_identity':bundle.schedule.content_identity,
          'profile':'Reference double / pinned MACE CPU float64 / fixed windows'},'correlated')
+
+
+def _archive_map_states(directory, payload, transfer):
+    """Copy cached State coordinates through both fixed maps, without evaluation.
+
+    XML retains nonfinite coordinates. Parameters and velocities are copied for
+    diagnosis; these files are transformed coordinates, not reevaluated states.
+    """
+    import xml.etree.ElementTree as ET
+    for label,displacement in (('map0',transfer.displacement0_nm),('map1',transfer.displacement1_nm)):
+        state = ET.fromstring(payload)
+        for position,shift in zip(state.find('Positions'),displacement):
+            for axis,delta in zip(('x','y','z'),shift):
+                position.set(axis,repr(float(position.get(axis))+delta))
+        (directory/f'{label}-state.xml').write_text(ET.tostring(state,encoding='unicode'))
 
 
 def _execute(directory,metadata,*,stop_after_samples=None):
@@ -256,7 +306,8 @@ def _execute(directory,metadata,*,stop_after_samples=None):
                     worker.evaluator._guard()
                     worker.evaluator.integrator.step(settings['steps_per_frame'])
                     snapshot = _snapshot(worker)
-                    domain = _domain(bundle.physical.topology,snapshot,settings['displacement_nm'],settings['protocol_kind'])
+                    domain = _domain(bundle.physical.topology,snapshot,settings['displacement_nm'],settings['protocol_kind'],
+                                     tuple((link.ml_parent_id,link.mm_parent_id) for link in bundle.physical.links))
                     result = worker.evaluate(snapshot,state.state_id)
                     # Preserve the original full-force refresh before a
                     # checkpoint; the failure handler below uses cached state.
@@ -269,12 +320,16 @@ def _execute(directory,metadata,*,stop_after_samples=None):
                     # Request only cached state: a rejected domain/force must
                     # not be evaluated again while preserving its coordinates.
                     saved = worker.evaluator.context.getState(getPositions=True,getVelocities=True,getParameters=True)
-                    (failed/'state.xml').write_text(mm.XmlSerializer.serialize(saved))
+                    payload = mm.XmlSerializer.serialize(saved)
+                    (failed/'state.xml').write_text(payload)
                     (failed/'checkpoint.chk').write_bytes(worker.evaluator.context.createCheckpoint())
+                    _archive_map_states(failed,payload,bundle.transfer)
                     write_json(failed/'error.json',{'error_type':type(error).__name__,'message':str(error),
                         'state_id':state.state_id,'walker_id':f"{metadata['run_id']}:{state.state_id}",
                         'attempted_sample_id':f"{metadata['run_id']}:{state.state_id}:{frame+1}",
                         'sequence_number':frame+1,'journal_index':len(rows),
+                        'transfer_identity':bundle.transfer.content_identity,
+                        'map_states':'cached parameters/velocities and transformed coordinates; no energy/force reevaluation',
                         'actual_step':int(worker.evaluator.context.getStepCount()),
                         'actual_time_ps':saved.getTime().value_in_unit(unit.picosecond)})
                     raise
@@ -309,7 +364,7 @@ def _execute(directory,metadata,*,stop_after_samples=None):
         peak_process_rss_bytes=resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,
         reconstructed_matrix_shape=list(matrix.shape),limitations=[
             'Fixed windows; replica exchange is pending.',
-            'No equilibrium, solvent, molecular accuracy, standard corrections or affinity qualification.',
+            'No equilibrium, solvent-density, molecular accuracy, standard corrections or affinity qualification.',
             'Checkpoint continuation requires the identical CPU/software/source profile.',
             'Hard-crash pending transactions are preserved and require inspection.'])
     write_json(directory/'summary.json',summary)
@@ -327,7 +382,8 @@ def run_configuration(path,directory,*,trusted=False,stop_after_samples=None):
     for name,record in (('system-input',configuration.original),('partition',configuration.partition),('snapshot',configuration.snapshot)):
         (directory/f'{name}.json').write_text(to_json(record)+'\n')
     settings = configuration.settings
-    domain = _domain(configuration.original.topology,configuration.snapshot,settings['displacement_nm'],settings['protocol_kind'])
+    domain = _domain(configuration.original.topology,configuration.snapshot,settings['displacement_nm'],settings['protocol_kind'],
+                     configuration.partition.permitted_cuts)
     write_json(directory/'initial-domain.json',domain)
     from .hybrid import build_physical
     from .models.mace import model_spec
@@ -340,7 +396,8 @@ def run_configuration(path,directory,*,trusted=False,stop_after_samples=None):
     started = time.perf_counter()
     physical = build_physical(configuration.original,
         resolve_partition(configuration.original.topology,configuration.partition),model_spec(),
-        EmbeddingSpec('mechanical','1','protein_c_c','nonperiodic'),cap_distance_nm=.109)
+        EmbeddingSpec('mechanical','1','protein_c_c',
+                      'orthorhombic-pme-v1' if configuration.snapshot.box_nm is not None else 'nonperiodic'),cap_distance_nm=.109)
     prepared = prepare_phases(physical,configuration.snapshot,configuration.runtime,
         temperatures_K=settings['temperatures_K'],steps_per_phase=settings['steps_per_phase'],
         minimization_iterations=settings['minimization_iterations'],seed=settings['seed'])
@@ -348,7 +405,8 @@ def run_configuration(path,directory,*,trusted=False,stop_after_samples=None):
     snapshot = prepared.pop('snapshot')
     (directory/'prepared-snapshot.json').write_text(to_json(snapshot)+'\n')
     write_json(directory/'preparation.json',prepared)
-    _domain(physical.topology,snapshot,settings['displacement_nm'],settings['protocol_kind'])
+    _domain(physical.topology,snapshot,settings['displacement_nm'],settings['protocol_kind'],
+            tuple((link.ml_parent_id,link.mm_parent_id) for link in physical.links))
     groups = tuple(MobileGroup(m.molecule_id,m.atom_ids,('ligand',),m.molecule_id)
                    for m in physical.topology.molecules if m.role=='ligand')
     protocol = (abfe if settings['protocol_kind']=='abfe' else rbfe).make_protocol(groups,tuple(settings['displacement_nm']))
@@ -360,7 +418,7 @@ def run_configuration(path,directory,*,trusted=False,stop_after_samples=None):
     thermo = ThermodynamicSpec('restrained_free_energy',{states[0].state_id:1.,states[-1].state_id:-1.},
         'endpoint_difference',tuple((a.state_id,b.state_id) for a,b in zip(states,states[1:])),
         {s.state_id:'Explicit native ATM schedule state; no thermodynamic domain inferred from its label' for s in states},
-        (),(),None,'Unbounded vacuum coordinates; short geometry-guarded pilot',
+        (),(),None,('Fixed orthorhombic periodic cell' if snapshot.box_nm is not None else 'Unbounded vacuum coordinates')+'; short geometry-guarded pilot',
         'Outside static harmonic anchor only; no ligand-domain release correction',
         'Lab frame; no orientational correction computed','No physical state-counting qualification')
     with build_atom(physical,transfer,configuration.schedule,restraint,configuration.runtime) as source:

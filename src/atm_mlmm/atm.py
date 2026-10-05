@@ -56,7 +56,10 @@ def physical_system(bundle):
 def outside_force(physical, restraints):
     if not set(restraints.atom_ids) <= set(physical.real_to_final):
         raise IdentityError('outside restraint references unknown real atoms')
-    force = mm.CustomExternalForce('0.5*k*((x-x0)^2+(y-y0)^2+(z-z0)^2)')
+    distance_squared = ('periodicdistance(x,y,z,x0,y0,z0)^2'
+                        if physical.manifest.get('periodicity') == 'orthorhombic-pme-v1'
+                        else '(x-x0)^2+(y-y0)^2+(z-z0)^2')
+    force = mm.CustomExternalForce('0.5*k*('+distance_squared+')')
     for parameter in ('k', 'x0', 'y0', 'z0'):
         force.addPerParticleParameter(parameter)
     for atom_id in restraints.atom_ids:

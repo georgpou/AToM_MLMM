@@ -250,7 +250,7 @@ def export_worker_run(run, directory, snapshot, state_id, *, thermodynamics=None
     (directory/'handover_0.xml').write_text(mm.XmlSerializer.serialize(state))
     topology = _topology(run.bundle.physical)
     if snapshot.box_nm is not None:
-        topology.setPeriodicBoxVectors(tuple(mm.Vec3(*v)*unit.nanometer for v in snapshot.box_nm))
+        topology.setPeriodicBoxVectors(tuple(mm.Vec3(*v) for v in snapshot.box_nm)*unit.nanometer)
     with (directory/'handover.pdb').open('w') as handle:
         app.PDBFile.writeFile(topology, state.getPositions(), handle)
     save_bundle(directory/'bundle.json', run.bundle)
@@ -416,3 +416,54 @@ class WorkerRun:
 
     def __exit__(self,*args):
         self.close()
+
+
+def attempt_pair_exchange(workers, snapshots, state_ids, walker_ids):
+    """One same-temperature state swap using fresh actual-worker potentials.
+
+    The pinned AToM Metropolis routine owns the decision. Configurations and
+    walker labels stay with their workers; only thermodynamic state labels move.
+    This bounded adapter is not an asynchronous exchange controller or an
+    estimator for correlated exchanging trajectories. On evaluation failure the
+    exception propagates and no exchange decision/history is returned.
+    """
+    from dataclasses import asdict
+    from atom_openmm.gibbs_sampling import pairwise_metropolis_sampling
+    if any(len(values) != 2 for values in (workers,snapshots,state_ids,walker_ids)):
+        raise IdentityError('pair exchange requires exactly two workers, snapshots, states and walker IDs')
+    if any(not isinstance(w,str) or not w.strip() for w in walker_ids) or len(set(walker_ids)) != 2:
+        raise IdentityError('pair exchange requires distinct nonempty walker IDs')
+    if len(set(state_ids)) != 2:
+        raise IdentityError('pair exchange requires distinct thermodynamic states')
+    if any(not isinstance(w,WorkerRun) for w in workers) or workers[0] is workers[1]:
+        raise UnsupportedCapability('exchange requires two distinct actual sealed workers')
+    if (workers[0].bundle.content_identity != workers[1].bundle.content_identity or
+            workers[0].runtime != workers[1].runtime):
+        raise IdentityError('exchange workers must share the complete sealed Hamiltonian/schedule/runtime')
+    for state_id in state_ids:
+        schedule_state(workers[0].bundle.schedule,state_id)
+    # Evaluate the full potential, including every outside term. Each context
+    # refreshes its actual upstream report after coordinates/parameters change.
+    temperature = workers[0].runtime.temperature_K
+    rt = .00831446261815324*temperature
+    evaluations = [[workers[w].evaluate(snapshots[w],state_ids[s]) for w in range(2)] for s in range(2)]
+    matrix = [[evaluation.total.energy_kj_mol/rt for evaluation in row] for row in evaluations]
+    if not all(math.isfinite(value) for row in matrix for value in row):
+        from ..schema import NumericalDomainError
+        raise NumericalDomainError('nonfinite exchange reduced potential')
+    # Restore each original assignment before applying the actual decision.
+    for w,worker in enumerate(workers):
+        worker.evaluate(snapshots[w],state_ids[w])
+    partner = pairwise_metropolis_sampling(0,0,[0,1],[0,1],matrix)
+    accepted = partner == 1
+    after = tuple(reversed(state_ids)) if accepted else tuple(state_ids)
+    refreshed = [worker.evaluate(snapshots[w],after[w]) for w,worker in enumerate(workers)]
+    return dict(walker_ids=tuple(walker_ids),state_ids_before=tuple(state_ids),state_ids_after=after,
+                accepted=accepted,reduced_energies=matrix,
+                exponent=matrix[0][1]+matrix[1][0]-matrix[0][0]-matrix[1][1],
+                raw_energies=[[asdict(e.raw) for e in row] for row in evaluations],
+                energies_after_kj_mol=[e.total.energy_kj_mol for e in refreshed],
+                physical_identity=workers[0].bundle.physical.content_identity,
+                alchemical_identity=workers[0].bundle.content_identity,
+                runtime_identity=workers[0].runtime.content_identity,
+                mechanism='AToM 8.5.0b0 pairwise_metropolis_sampling; full context potentials')
