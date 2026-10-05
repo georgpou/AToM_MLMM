@@ -17,6 +17,10 @@ The user withdrew notebook delivery and external execution experiments. Their
 tooling and obsolete assignments are removed; accepted CPU code, locks, model,
 fixtures, reference ledgers and scientific evidence are retained. Historical
 results below describe their exact reviewed snapshots, not new gate acceptance.
+
+The [cleanup worker](../../Worker_Log/Documentation/Cloud_Engine_Continuation_v1_worker.md)
+records **31 focused CPU passes in 117.17 s**, zero skips, and 8,391 retained
+files matching the accepted base. No next-gate implementation is claimed.
 The [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) and
 [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md) accept
 the [new definition](specs/m05-dense-exchange-amendment.md) and declared CPU scope,

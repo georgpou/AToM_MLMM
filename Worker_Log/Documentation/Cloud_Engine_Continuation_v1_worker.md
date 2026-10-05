@@ -47,6 +47,8 @@ Evidence: [focused JUnit](evidence/Cloud_Engine_Continuation_v1/focused.xml),
 The full historical 543-test suite was not repeated for this removal-only task.
 Its recorded acceptance remains tied to the original reviewed source; these
 31 checks do not establish a new gate/milestone acceptance.
+The first evidence-writing documentation check saw its not-yet-created output
+file as a missing target; after creation, the final check passed with zero errors.
 
 ## Handoff
 

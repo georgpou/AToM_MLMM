@@ -1,10 +1,8 @@
 {
-  "errors": [
-    "Worker_Log/Documentation/Cloud_Engine_Continuation_v1_worker.md: missing target: evidence/Cloud_Engine_Continuation_v1/documentation.json"
-  ],
+  "errors": [],
   "counts": {
     "markdown_files": 204,
-    "local_links": 1400,
+    "local_links": 1401,
     "external_links_not_fetched": 57
   },
   "scope": "local documentation only; no external-link or scientific qualification",
