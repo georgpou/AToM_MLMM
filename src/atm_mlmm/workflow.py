@@ -253,19 +253,76 @@ def _records(rows,bundle,metadata):
          'profile':'Reference double / pinned MACE CPU float64 / fixed windows'},'correlated')
 
 
-def _archive_map_states(directory, payload, transfer):
-    """Copy cached State coordinates through both fixed maps, without evaluation.
+def _mapped_state_xml(payload, displacement):
+    """Copy cached State coordinates through a fixed map, without evaluation.
 
     XML retains nonfinite coordinates. Parameters and velocities are copied for
     diagnosis; these files are transformed coordinates, not reevaluated states.
     """
     import xml.etree.ElementTree as ET
-    for label,displacement in (('map0',transfer.displacement0_nm),('map1',transfer.displacement1_nm)):
-        state = ET.fromstring(payload)
-        for position,shift in zip(state.find('Positions'),displacement):
-            for axis,delta in zip(('x','y','z'),shift):
-                position.set(axis,repr(float(position.get(axis))+delta))
-        (directory/f'{label}-state.xml').write_text(ET.tostring(state,encoding='unicode'))
+    state = ET.fromstring(payload)
+    for position,shift in zip(state.find('Positions'),displacement):
+        for axis,delta in zip(('x','y','z'),shift):
+            position.set(axis,repr(float(position.get(axis))+delta))
+    return ET.tostring(state,encoding='unicode')
+
+
+def _archive_failure(directory, worker, error, identifiers):
+    """Retain available evidence; secondary failures never replace the primary.
+
+    Only cached State data and checkpoint bytes are requested. Each independent
+    artifact is attempted even when another cannot be saved. Exception notes
+    carry archive diagnostics when the filesystem cannot retain error.json.
+    """
+    import openmm as mm
+    from openmm import unit
+    unavailable = object()
+    archive_errors = []
+
+    def attempt(operation, action):
+        try:
+            return action()
+        except Exception as secondary:
+            archive_errors.append({'operation':operation,'error_type':type(secondary).__name__,
+                                   'message':str(secondary)})
+            error.add_note(f'Failure archive ({operation}): {type(secondary).__name__}: {secondary}')
+            return unavailable
+
+    if attempt('create failure directory',lambda:directory.mkdir(exist_ok=False)) is unavailable:
+        return  # Never overwrite evidence from an earlier failed attempt.
+    metadata = {'error_type':type(error).__name__,'message':str(error),**identifiers,
+                'transfer_identity':worker.bundle.transfer.content_identity,
+                'map_states':'cached parameters/velocities and transformed coordinates; no energy/force reevaluation',
+                'actual_step':None,'actual_time_ps':None,'archive_errors':archive_errors}
+    attempt('write primary error.json',lambda:write_json(directory/'error.json',metadata))
+    context = worker.evaluator.context
+    step = attempt('read step count',lambda:int(context.getStepCount()))
+    if step is not unavailable:
+        metadata['actual_step'] = step
+    saved = attempt('capture cached State',lambda:context.getState(
+        getPositions=True,getVelocities=True,getParameters=True))
+    payload = unavailable
+    if saved is not unavailable:
+        def cached_time():
+            value = float(saved.getTime().value_in_unit(unit.picosecond))
+            if not math.isfinite(value):
+                raise NumericalDomainError('nonfinite cached State time')
+            return value
+        state_time = attempt('read cached State time',cached_time)
+        if state_time is not unavailable:
+            metadata['actual_time_ps'] = state_time
+        payload = attempt('serialize cached State',lambda:mm.XmlSerializer.serialize(saved))
+        if payload is not unavailable:
+            attempt('write state.xml',lambda:(directory/'state.xml').write_text(payload))
+    checkpoint = attempt('capture checkpoint',context.createCheckpoint)
+    if checkpoint is not unavailable:
+        attempt('write checkpoint.chk',lambda:(directory/'checkpoint.chk').write_bytes(checkpoint))
+    if payload is not unavailable:
+        transfer = worker.bundle.transfer
+        for label,displacement in (('map0',transfer.displacement0_nm),('map1',transfer.displacement1_nm)):
+            attempt(f'write {label}-state.xml',lambda:(directory/f'{label}-state.xml').write_text(
+                _mapped_state_xml(payload,displacement)))
+    attempt('update error.json',lambda:write_json(directory/'error.json',metadata))
 
 
 def _execute(directory,metadata,*,stop_after_samples=None):
@@ -313,25 +370,10 @@ def _execute(directory,metadata,*,stop_after_samples=None):
                     # checkpoint; the failure handler below uses cached state.
                     saved = worker.evaluator.context.getState(getPositions=True,getVelocities=True,getParameters=True,getEnergy=True,getForces=True)
                 except Exception as error:
-                    # Save even a rejected finite frame before raising. XML also
-                    # retains nonfinite numeric output that strict JSON rejects.
-                    failed = directory/f'failure-{len(rows):06d}'
-                    failed.mkdir(exist_ok=False)
-                    # Request only cached state: a rejected domain/force must
-                    # not be evaluated again while preserving its coordinates.
-                    saved = worker.evaluator.context.getState(getPositions=True,getVelocities=True,getParameters=True)
-                    payload = mm.XmlSerializer.serialize(saved)
-                    (failed/'state.xml').write_text(payload)
-                    (failed/'checkpoint.chk').write_bytes(worker.evaluator.context.createCheckpoint())
-                    _archive_map_states(failed,payload,bundle.transfer)
-                    write_json(failed/'error.json',{'error_type':type(error).__name__,'message':str(error),
+                    _archive_failure(directory/f'failure-{len(rows):06d}',worker,error,{
                         'state_id':state.state_id,'walker_id':f"{metadata['run_id']}:{state.state_id}",
                         'attempted_sample_id':f"{metadata['run_id']}:{state.state_id}:{frame+1}",
-                        'sequence_number':frame+1,'journal_index':len(rows),
-                        'transfer_identity':bundle.transfer.content_identity,
-                        'map_states':'cached parameters/velocities and transformed coordinates; no energy/force reevaluation',
-                        'actual_step':int(worker.evaluator.context.getStepCount()),
-                        'actual_time_ps':saved.getTime().value_in_unit(unit.picosecond)})
+                        'sequence_number':frame+1,'journal_index':len(rows)})
                     raise
                 row = dict(sample_id=f"{metadata['run_id']}:{state.state_id}:{frame+1}",
                     walker_id=f"{metadata['run_id']}:{state.state_id}",sequence_number=frame+1,

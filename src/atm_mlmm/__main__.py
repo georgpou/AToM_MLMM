@@ -31,6 +31,8 @@ def main():
             result = resume_run(args.directory,trusted=args.trusted)
     except (ValueError,OSError) as error:
         print(f'{type(error).__name__}: {error}',file=sys.stderr)
+        for note in getattr(error,'__notes__',()):
+            print(note,file=sys.stderr)
         return 2
     print(json.dumps(result,indent=2,allow_nan=False))
     return 0
