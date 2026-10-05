@@ -126,6 +126,10 @@ Never reuse the prior attempt's matrix, a cached reported potential, or a
 sample's `system_total_energy_kJ_mol` as an attempted-pair matrix. Parameter
 refresh and context evaluation remain inside `attempt_pair_exchange`; the
 scheduler contains no copy of its Hamiltonian or Metropolis calculation.
+The current admitted fixture's nonzero static-anchor outside term is
+state-independent. This amendment introduces no state-dependent outside
+Hamiltonian or restraint; the complete context totals still include every
+outside term supported by the sealed worker.
 
 At the admitted temperature,
 
@@ -167,11 +171,18 @@ integration. Stage and fsync each successful worker sample and its portable
 State/checkpoint before moving to the next worker. Before each pair call, stage
 and fsync the attempt index, resolved walkers, and full before permutation.
 The adapter callback writes and fsyncs that attempt's `evaluated`, `decision`,
-and `refreshed` phase records. After each decision, write and fsync the full
-after permutation before starting the next pair. Preserve all completed and
-partially attempted phases in the pending tree.
+and `refreshed` phase records. When it emits `decision`, write `decision.json`
+with the adapter report plus the full before and computed after permutations;
+fsync it before allowing parameter refresh to continue. Write `history.json`
+with both permutations and the resolved walker/state mapping at the same point.
+Persist `refreshed.json` after post-decision evaluation. Do not start the next
+pair until all three phase files and full attempt history are durable. Preserve
+all completed and partially attempted phases in the pending tree.
 
-After the final pair, capture all workers' final portable States and
+After the final pair, freshly evaluate every worker under its final assigned
+state and save per-walker raw/total/parameter values in
+`final-state-reports.json`. These are boundary checkpoint checks, not extra
+exchange decisions. Then capture all workers' final portable States and
 checkpoints, final full permutation, sample rows, attempt histories, and both
 post-boundary host RNG streams. Hash-bind every file; fsync files and nested
 directories; seal the complete boundary; and publish it by one same-filesystem
@@ -190,9 +201,10 @@ inspectable: staged samples are
 attempt `q` uses `attempts/<q:04d>/attempt.json`, `evaluated.json`,
 `decision.json`, `refreshed.json`, and `history.json`. `attempt.json` is durable
 before the adapter call and contains the resolved pair and full before
-permutation; `history.json` contains the full before and after permutations and
-is durable before the next attempt. Missing later phase files identify where
-execution stopped without treating an absent decision as rejection.
+permutation. `decision.json` and `history.json` carry the full before and after
+permutations; all present phase files are durable before the next attempt.
+Missing later phase files identify where execution stopped without treating an
+absent decision as rejection.
 
 Any exception archives cached State/checkpoint and both transformed
 coordinate-State records for every worker independently, without force or
@@ -222,8 +234,21 @@ Read and hash-verify metadata, mode, declared limits, initial boundary, every
 committed boundary, all attempt phases, every full permutation, sample IDs and
 sequences, checkpoint/State artifacts, RNG documents, chain links, and the
 absence or explicit presence of pending trees before any trusted worker or
-executable System/model load. Validate all state IDs and pair selections again
-against the inert sealed bundle records before constructing contexts.
+executable System/model load. Before loading, also verify field shapes/types,
+sample and phase identity, raw-to-total/unit consistency, and that each stored
+reduced-energy entry equals its stored full total multiplied by the admitted
+beta. These inert checks establish integrity and internal arithmetic
+consistency, not physical freshness.
+
+After trusted loading, restore every context from the latest committed
+checkpoint under its recorded final state. Before any integration, evaluate the
+restored coordinates in the actual context and compare each fresh raw energy,
+full total, parameter set, and sample/checkpoint coordinate identity with that
+boundary's `final_state_reports` and portable State. Reject stale but
+internally consistent saved energies here. Compare the constructed bundle and
+runtime identities with the inert manifest before continuing. State IDs and
+pair selections are already validated against inert bundle records before
+constructing contexts.
 
 Source identity is the exact recursive inventory of Python source files under
 `src/atm_mlmm` plus each SHA-256, not only the hashes of source filenames a
@@ -238,15 +263,19 @@ source/checkout; no migration or source substitution is allowed.
 The journal mode is explicit and versioned. Pair/multistate mode confusion,
 changed source inventory or hash, changed runtime profile, malformed
 permutation, repeated/missing sample sequence, changed RNG data, incomplete
-attempt phases, stale energy reports, or changed checkpoints reject before
-trusted worker load. The lock protects a local filesystem transaction; mounted
-durable storage remains export-only unless separately qualified.
+attempt phases, or hash-invalid checkpoints reject before trusted worker load.
+An internally rehashed checkpoint with a stale final energy report rejects
+after trusted restore through the fresh actual-context comparison and before
+integration. The lock protects a local filesystem transaction; mounted durable
+storage remains export-only unless separately qualified.
 
 ## Required focused controls and faults
 
-Before any pilot, use analytic ABFE/RBFE controls with a nonzero state-dependent
-outside term and nonlinear ATM parameters. Independently verify every four-entry
-matrix, full-force sample, forced accept and forced reject. Include the
+Before any pilot, use analytic ABFE/RBFE controls with nonlinear ATM parameters
+and the existing nonzero, state-independent outside anchor included in all four
+context totals. Independently verify every four-entry matrix, full-force
+sample, forced accept and forced reject. Do not add a state-dependent outside
+term. Include the
 overlapping `(0,1)` then `(1,2)` example to prove current-permutation resolution.
 
 Inject failures at worker 1 integration after worker 0 has integrated and been
