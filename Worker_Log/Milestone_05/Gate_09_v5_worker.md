@@ -2,7 +2,7 @@
 
 **Scope:** G09 bounded technical increment; Reference double / approved MACE
 CPU float64, NVT 300 K, 0.0005 ps, two threads.\
-**Outcome:** ready_for_audit; independent review pending.\
+**Outcome:** accepted_for_scope by the independent combined audit; wider scopes remain open.\
 **Finished:** 2026-10-05T14:56:55.234424+00:00.\
 **Snapshot:** `m05-colab-workflows`, base `fab6388b041acc4362f30b5ff7d3789a33fc536f`,
 frozen scientific source `424a859732b77b2f91cd03b12bb3f0b8adf3f541`.
@@ -20,9 +20,9 @@ pass official nbformat5.10.4 schema validation in separate temporary tooling.
 New `solvated_fragment/v2` adds 64 rigid classical TIP3P waters to the original
 ABFE/RBFE solutes (224/233 real atoms), preserving solute parameters, masses,
 constraints, complete ligands and fixed ML membership. The
-[proposed amendment](../../docs/project-0/specs/m05-dense-exchange-amendment.md)
+[accepted amendment](../../docs/project-0/specs/m05-dense-exchange-amendment.md)
 freezes geometry-only construction, inherited PME/ensemble/accounting and
-unchanged S06 limits; scientific acceptance awaits independent review.
+unchanged S06 limits; the independent combined audit accepts this bounded scientific scope.
 
 An initial force sweep exposed a stock Reference periodic pair artifact,
 reduced to two waters/six atoms without ML/caps/project code. Evidence is retained;
@@ -67,3 +67,8 @@ affinity or physical molecular/protein qualification is claimed. Keep M03's
 seven sensitivity failures,29 missing references and QM ledger
 2325.644650052/86400s unchanged. G10 combined CPU review is submitted separately;
 full G09/G10/M05 remains open.
+
+Independent review accepted this scope with no required repairs: [audit](Gate_09_v5_audit.md).
+The single reviewer passed52 fresh checks, with0skips, and independent raw-data
+probes. See [review evidence](evidence/M05_v1_review/README.md). Scientific source
+and submitted evidence remain unchanged; these acceptance lines are reporting only.

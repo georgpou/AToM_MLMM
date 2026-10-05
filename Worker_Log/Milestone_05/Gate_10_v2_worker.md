@@ -3,7 +3,7 @@
 **Scope:** G10 and combined G09/G10 bounded CPU technical increment; Reference
 double / approved MACE CPU float64; earlier accepted scopes carried forward only
 where unchanged.\
-**Outcome:** ready_for_audit; independent review pending.\
+**Outcome:** accepted_for_scope by the independent combined audit; wider scopes remain open.\
 **Finished:** 2026-10-05T14:56:55.234424+00:00.\
 **Snapshot:** `m05-colab-workflows`, base `fab6388b041acc4362f30b5ff7d3789a33fc536f`,
 frozen scientific source `424a859732b77b2f91cd03b12bb3f0b8adf3f541`.
@@ -27,7 +27,7 @@ Correlated records reconstruct the complete schedule; exchanging-walker
 statistical estimation remains unqualified.
 
 The [definition](../../docs/project-0/specs/m05-dense-exchange-amendment.md)
-requires review. The separate TPU notebook/profile probes the identical real
+is independently accepted for this scope. The separate TPU notebook/profile probes the identical real
 checkpoint, actual hardware/arithmetic, energy/coordinate gradients, cap-parent
 projection, graph changes, FD sweeps and synchronized component costs. Timing
 qualification requires numeric/precision/fallback checks. CPU locks/production
@@ -70,4 +70,9 @@ frozen source (`python -m pytest -q --basetemp=/workspace/m05-evidence/full-suit
 check passes all108 configurations, FD derivatives and changed graph shapes;
 reference SHA `8a625d5bdcbac5cc1ddeb244ff12d095b14f811a287ca18732f86c943dba8d73`.
 Full raw reference plus startup/steady CPU timings is sealed.
-One independent combined technical review is assigned next.
+The independent combined technical review accepted this frozen scope.
+
+Independent review accepted this scope with no required repairs: [audit](Gate_10_v2_audit.md).
+The single reviewer passed52 fresh checks, with0skips, and independent raw-data
+probes. See [review evidence](evidence/M05_v1_review/README.md). Scientific source
+and submitted evidence remain unchanged; these acceptance lines are reporting only.

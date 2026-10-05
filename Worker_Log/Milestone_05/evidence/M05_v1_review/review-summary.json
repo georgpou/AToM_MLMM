@@ -1,0 +1,42 @@
+{
+  "focused": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "41",
+    "time": "86.325",
+    "timestamp": "2026-10-05T15:00:44.715915+00:00",
+    "hostname": "742094d5a4c8"
+  },
+  "additional": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "11",
+    "time": "42.031",
+    "timestamp": "2026-10-05T15:03:58.903842+00:00",
+    "hostname": "742094d5a4c8"
+  },
+  "reviewer_files": {
+    "evidence-check.json": "c39d456bfbaa49c17dfd7e5229c42280b0a16c803556bda01569fa3f5d265373",
+    "evidence-check-rerun.log": "c39d456bfbaa49c17dfd7e5229c42280b0a16c803556bda01569fa3f5d265373",
+    "additional.log": "7a6cd0dba2a39fb95c0f931f1ebd00b5b612857a99205407118e30ab7f7017d7",
+    "focused.xml": "caae1599e12b2eb9dc8b44a5feb0fee1c89d018d2b4e4b1207fd4f9c812c2366",
+    "test_extra.py": "59cc8e1f4bd9a84bc7d110f6b3aa13b6282366a6aa69b3b7060a683464077e31",
+    "reference-check.log": "bf1d4d99d12a2a1be261d19a9463e8c47c44a30da9eeca69744f4912c2db2eb8",
+    "geometry-check.log": "9ad95227d001bfa0080f9a28e6936a4ee063d1779daf3ed922e0130f2a7c2213",
+    "reference-check.json": "959985cbac8b63d7f0f6937dea7d762e3fe5a458c8f83e131bc8c753cc94a40d",
+    "evidence-check.log": "15f26636c7756964b46615f9d04bf4c6a2738cb5f3db1cb99310c1b8c2ae175a",
+    "check_evidence.py": "594277952053656fef6655b4d849d5f2a39c515a3ad5c10664936febc21ae787",
+    "additional.xml": "39295cb27781ba81e347815df9d64d6737a7bd4dc4a80b372a548f2504da25d5",
+    "geometry-check.json": "9ad95227d001bfa0080f9a28e6936a4ee063d1779daf3ed922e0130f2a7c2213",
+    "docs.log": "7de5d6fbd67bc79a240c3fe35070f99b6fad2c62333a6a0c7785ef640302619d",
+    "roundoff-check.json": "7bcb6f5e2dd025b21c12b40b0368b89eb7b4fd38c5ccce8f0e1567e7c106a3ab",
+    "geometry_probe.py": "8ff26149f859023ddc7bde3f007190f17dcd238a63be15052c9cb4b07d8dd941",
+    "focused.log": "32a7c51ab43a2bf99395dcba207d346c719e6c1e0b7256d2aaede3a2c27d87f9",
+    "reference_probe.py": "2cfff2522ee46ac58a056d8aa82c49c6944eb5ee1be59f1f7cde73e12fc8c636"
+  },
+  "git_status": "?? Worker_Log/Milestone_05/Gate_09_v5_audit.md\n?? Worker_Log/Milestone_05/Gate_10_v2_audit.md\n"
+}

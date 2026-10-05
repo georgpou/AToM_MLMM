@@ -1,7 +1,10 @@
 # M05 denser water and exchange transaction definition
 
-**Status:** proposed; frozen before numerical results, pending independent
-G09 v5/G10 v2 scientific review. Earlier sparse/vacuum definitions are unchanged.
+**Status:** accepted_for_scope by the [G09 v5 audit](../../../Worker_Log/Milestone_05/Gate_09_v5_audit.md)
+and [G10 v2 combined audit](../../../Worker_Log/Milestone_05/Gate_10_v2_audit.md),
+2026-10-05 UTC. The initial construction/transaction definition was frozen before
+results; the separately identified post-diagnosis fixture representation is
+explicitly covered by that review. Earlier sparse/vacuum definitions are unchanged.
 
 ## Denser local-water control
 
@@ -104,6 +107,7 @@ Actual TPU hardware and arithmetic precision must be demonstrated. Unsupported
 float64/operators, CPU fallback or missing hardware must be reported explicitly;
 no untrained model, replacement weights, silent float32 or CUDA substitution.
 
-Independent reviewer decision will be recorded in the new canonical gate audits.
-Until that decision, the denser control and exchange extension are proposed
-technical coverage; neither they nor notebook delivery close full M05 or M03.
+The canonical audits accept the bounded denser control and transactional exchange
+technical scope on scientific source `424a859732b77b2f91cd03b12bb3f0b8adf3f541`,
+frozen submission `bc6fd520308fba7e7448929138eb91e80ca6f063`. Notebook delivery
+does not supply actual Colab/TPU evidence or close full M05/M03.

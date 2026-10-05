@@ -1,0 +1,26 @@
+{
+  "abfe": [
+    {
+      "water_other_min_ratio": 0.8032818748452315,
+      "water_cap_min_ratio": 1.181006366634187,
+      "ligand_cap_min_ratio": 1.34279010035577
+    },
+    {
+      "water_other_min_ratio": 0.8032818748452315,
+      "water_cap_min_ratio": 1.181006366634187,
+      "ligand_cap_min_ratio": 9.826366863530385
+    }
+  ],
+  "rbfe": [
+    {
+      "water_other_min_ratio": 0.8001337767989352,
+      "water_cap_min_ratio": 1.181006366634187,
+      "ligand_cap_min_ratio": 1.34279010035577
+    },
+    {
+      "water_other_min_ratio": 0.8001337767989353,
+      "water_cap_min_ratio": 1.181006366634187,
+      "ligand_cap_min_ratio": 1.342790100355771
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "evidence-check.json": "c39d456bfbaa49c17dfd7e5229c42280b0a16c803556bda01569fa3f5d265373",
+  "focused.xml": "caae1599e12b2eb9dc8b44a5feb0fee1c89d018d2b4e4b1207fd4f9c812c2366",
+  "README.md": "2e8c0c53b37cb2fcd622fb72b1f8764c56f9c98476c775793646e847691e3ebf",
+  "reference-check.json": "959985cbac8b63d7f0f6937dea7d762e3fe5a458c8f83e131bc8c753cc94a40d",
+  "reviewer-records.tar.gz": "6d04d83f47c67c2e4fd72769f12b2eeccfefa4f3305b346464c2516093c93101",
+  "additional.xml": "39295cb27781ba81e347815df9d64d6737a7bd4dc4a80b372a548f2504da25d5",
+  "geometry-check.json": "9ad95227d001bfa0080f9a28e6936a4ee063d1779daf3ed922e0130f2a7c2213",
+  "implementation-ledger.md": "6bf70b8a7fb888d390cdc6e7df2df079192da4ac239468b55fd1c50b745c6b2c",
+  "docs-closure.log": "726842b35b437065c6430dfa6fb54c6c927bc2d506ce6307aeca920ab94c12af",
+  "review-package.md": "f08bb0b7db40bc5268254d611273f8277ea38bef8223f5086ccf5f858a99a1d7",
+  "roundoff-check.json": "7bcb6f5e2dd025b21c12b40b0368b89eb7b4fd38c5ccce8f0e1567e7c106a3ab",
+  "review-summary.json": "04d29651ac85e4fcc1a77ba2ffce12dc0db974489f4a5ac91037cbd87bb1bbe9"
+}

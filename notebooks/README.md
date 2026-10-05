@@ -46,9 +46,9 @@ reinstalling the CPU base before cloning the separate XLA prefix. The probe
 retains failed precision/operators and never qualifies timing from those results.
 
 Executable extension/TPU source pin: `424a859732b77b2f91cd03b12bb3f0b8adf3f541`.
-The implementing session's review/result is recorded in the
-[G09 worker](../Worker_Log/Milestone_05/Gate_09_v5_worker.md) and
-[G10 combined worker](../Worker_Log/Milestone_05/Gate_10_v2_worker.md); actual
+The independent acceptance is recorded in the
+[G09 audit](../Worker_Log/Milestone_05/Gate_09_v5_audit.md) and
+[G10 combined audit](../Worker_Log/Milestone_05/Gate_10_v2_audit.md); actual
 Colab execution remains pending.
 
 For the old baseline, which predates the export helper, stop all jobs and use
