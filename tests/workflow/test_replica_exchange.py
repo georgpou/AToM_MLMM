@@ -12,6 +12,26 @@ from tests.workflow.test_atom_force_routing import atom_case
 from tests.workflow.test_solvated_handover import water_run
 
 
+def multistate_oracle_raw(snapshot,kind,parameters,schedule):
+    u0=physical_answer(mapped_positions(snapshot.positions_nm,kind,0),marker=20.)[0]
+    u1=physical_answer(mapped_positions(snapshot.positions_nm,kind,1),marker=20.)[0]
+    expression=nonlinear_answer(u0,u1,parameters)[0]
+    outside=outside_answer(snapshot.positions_nm)[0]
+    from atm_mlmm.schedule import softened_perturbation
+    return {'u0_raw_kJ_mol':u0,'u1_raw_kJ_mol':u1,'delta_u_raw_kJ_mol':u1-u0,
+            'delta_u_softcore_kJ_mol':softened_perturbation(u0,u1,schedule,parameters),
+            'atm_expression_energy_kJ_mol':expression,'outside_energy_kJ_mol':outside,
+            'system_total_energy_kJ_mol':expression+outside}
+
+
+def sample_snapshot(sample):
+    from atm_mlmm.schema import Snapshot
+    positions=tuple(tuple(row) for row in sample['positions_nm'])
+    velocities=None if sample['velocities_nm_ps'] is None else tuple(tuple(row) for row in sample['velocities_nm_ps'])
+    box=None if sample['box_nm'] is None else tuple(tuple(row) for row in sample['box_nm'])
+    return Snapshot(tuple(sample['real_atom_ids']),positions,box,velocities)
+
+
 @pytest.mark.parametrize('kind', ('abfe', 'rbfe'))
 @pytest.mark.parametrize('accept', (False, True))
 def test_acceptance_uses_actual_reduced_energies(tmp_path, monkeypatch, kind, accept):
@@ -130,3 +150,117 @@ def test_exchange_rejects_incompatible_hamiltonians_before_sampling(tmp_path, mo
         workers = tuple(stack.enter_context(load_worker_run(manifest.parent, digest, trusted=True)) for manifest, digest, _ in exports)
         with pytest.raises(IdentityError, match='Hamiltonian'):
             attempt_pair_exchange(workers, tuple(s for _, _, s in exports), ('first', 'second'), ('A', 'B'))
+
+
+@pytest.mark.parametrize('kind',('abfe','rbfe'))
+def test_multistate_decision_uses_fresh_nonlinear_outside_energies(tmp_path,monkeypatch,kind):
+    from tests.workflow.test_persistent_exchange import prepare_multistate
+    from atm_mlmm.adapters import atom
+    from atm_mlmm.exchange import run_multistate_exchange
+    from atm_mlmm.exchange_journal import read_multistate_boundaries
+    from atm_mlmm.persistence import read_json
+    from atm_mlmm.schema import from_json
+    from atom_openmm import gibbs_sampling
+    prepared=prepare_multistate(tmp_path/'prepared',kind=kind)
+    bundle=from_json((prepared/'worker/bundle.json').read_text())
+    calls=[]; original=atom.attempt_pair_exchange
+    def poison_then_exchange(workers,snapshots,state_ids,walker_ids,**kwargs):
+        calls.append((tuple(walker_ids),tuple(state_ids)))
+        poison=next(state.state_id for state in bundle.schedule.states if state.state_id not in state_ids)
+        for worker,snapshot in zip(workers,snapshots):
+            worker.evaluate(snapshot,poison)
+        return original(workers,snapshots,state_ids,walker_ids,**kwargs)
+    monkeypatch.setattr(atom,'attempt_pair_exchange',poison_then_exchange)
+    monkeypatch.setattr(gibbs_sampling,'_random',lambda:0.)
+    output=tmp_path/'exchange'
+    run_multistate_exchange(prepared,output,state_ids=('first','middle','third'),
+        state_pairs=((0,1),(1,2)),boundaries=1,steps_per_boundary=1,seed=73,trusted=True)
+    assert len(calls)==2
+    boundary=read_multistate_boundaries(output)[0]
+    samples={sample['walker_index']:sample for sample in boundary['samples']}
+    for index in range(2):
+        attempt_dir=output/'boundaries/000000/attempts'/f'{index:04d}'
+        attempt=read_json(attempt_dir/'attempt.json')
+        evaluated=read_json(attempt_dir/'evaluated.json')
+        decision=read_json(attempt_dir/'decision.json')
+        refreshed=read_json(attempt_dir/'refreshed.json')
+        worker_indices=attempt['worker_indices']
+        expected_matrix=[]; expected_raw=[]
+        for state_id in attempt['state_ids']:
+            state=next(state for state in bundle.schedule.states if state.state_id==state_id)
+            row=[]; raw_row=[]
+            for worker_index in worker_indices:
+                sample=samples[worker_index]
+                snapshot=sample_snapshot(sample)
+                raw=multistate_oracle_raw(snapshot,kind,state.parameters,bundle.schedule)
+                raw_row.append(raw)
+                row.append(raw['system_total_energy_kJ_mol']/(.00831446261815324*300.))
+            expected_matrix.append(row); expected_raw.append(raw_row)
+        np.testing.assert_allclose(evaluated['reduced_energies'],expected_matrix,atol=1e-8,rtol=0)
+        for state_index in range(2):
+            for walker_index in range(2):
+                for name,value in expected_raw[state_index][walker_index].items():
+                    assert evaluated['raw_energies'][state_index][walker_index][name]==pytest.approx(value,abs=1e-8)
+        assert decision['accepted'] is True
+        after=decision['state_ids_after']
+        for column,worker_index in enumerate(worker_indices):
+            state=next(state for state in bundle.schedule.states if state.state_id==after[column])
+            sample=samples[worker_index]
+            snapshot=sample_snapshot(sample)
+            expected=multistate_oracle_raw(snapshot,kind,state.parameters,bundle.schedule)
+            assert refreshed['energies_after_kj_mol'][column]==pytest.approx(
+                expected['system_total_energy_kJ_mol'],abs=1e-8)
+
+
+@pytest.mark.parametrize('kind',('abfe','rbfe'))
+@pytest.mark.parametrize('accept',(False,True))
+def test_multistate_actual_adapter_accept_and_reject_thresholds(tmp_path,monkeypatch,kind,accept):
+    from tests.workflow.test_persistent_exchange import prepare_multistate
+    from atm_mlmm.adapters.atom import load_worker_run,attempt_pair_exchange
+    from atm_mlmm.persistence import read_json
+    from atm_mlmm.schema import from_json
+    from atom_openmm import gibbs_sampling
+    prepared=prepare_multistate(tmp_path/'prepared',kind=kind)
+    manifest=read_json(prepared/'worker/manifest.json')
+    bundle=from_json((prepared/'worker/bundle.json').read_text())
+    snapshot=from_json((prepared/'worker/snapshot.json').read_text())
+    changed=np.array(snapshot.positions_nm,copy=True)
+    changed[2]+=(.16,-.12,.04)
+    frames=(snapshot,replace(snapshot,positions_nm=changed))
+    def independent(state_id,frame):
+        state=next(state for state in bundle.schedule.states if state.state_id==state_id)
+        raw=multistate_oracle_raw(frame,kind,state.parameters,bundle.schedule)
+        return raw['system_total_energy_kJ_mol']
+    selected=None
+    for first in bundle.schedule.states:
+        for second in bundle.schedule.states:
+            if first.state_id==second.state_id: continue
+            delta=((independent(first.state_id,frames[1])+independent(second.state_id,frames[0])-
+                    independent(first.state_id,frames[0])-independent(second.state_id,frames[1]))/
+                   (.00831446261815324*300.))
+            if delta>1e-5:
+                selected=(first.state_id,second.state_id,delta); break
+        if selected is not None: break
+    assert selected is not None
+    state_ids=(selected[0],selected[1]); delta=selected[2]
+    probability=math.exp(-delta)
+    draw=probability*.5 if accept else (1.+probability)*.5
+    monkeypatch.setattr(gibbs_sampling,'_random',lambda:draw)
+    with ExitStack() as stack:
+        workers=tuple(stack.enter_context(load_worker_run(prepared/'worker',
+            read_json(prepared/'metadata.json')['worker_manifest_sha256'],trusted=True,integrator_seed=51+i))
+            for i in range(2))
+        for worker in workers:
+            worker.evaluate(frames[1],bundle.schedule.states[-1].state_id)
+        report=attempt_pair_exchange(workers,frames,state_ids,('walker-A','walker-B'))
+        expected=[[independent(state_id,frame)/(.00831446261815324*300.) for frame in frames]
+                  for state_id in state_ids]
+        np.testing.assert_allclose(report['reduced_energies'],expected,atol=1e-8,rtol=0)
+        assert report['exponent']==pytest.approx(delta,abs=1e-8)
+        assert report['accepted'] is accept
+        expected_states=state_ids[::-1] if accept else state_ids
+        assert tuple(report['state_ids_after'])==tuple(expected_states)
+        for index,worker in enumerate(workers):
+            actual=worker.evaluate(frames[index],expected_states[index])
+            assert report['energies_after_kj_mol'][index]==pytest.approx(
+                actual.total.energy_kj_mol,abs=1e-8)
