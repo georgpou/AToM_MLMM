@@ -1,0 +1,23 @@
+{
+  "argv": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "--basetemp=/workspace/m05-evidence/full-suite-final",
+    "--junitxml=/workspace/m05-evidence/full-suite-final.xml"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 611.2863088060003,
+  "max_rss_kib": 5195792,
+  "user_s": 674.785703,
+  "system_s": 40.574493,
+  "counts": {
+    "tests": 543,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "scientific_source": "424a859732b77b2f91cd03b12bb3f0b8adf3f541"
+}

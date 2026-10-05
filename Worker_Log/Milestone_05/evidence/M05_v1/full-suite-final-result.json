@@ -1,0 +1,16 @@
+{
+  "argv": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "--basetemp=/workspace/m05-evidence/full-suite-final",
+    "--junitxml=/workspace/m05-evidence/full-suite-final.xml"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 611.2863088060003,
+  "max_rss_kib": 5195792,
+  "user_s": 674.785703,
+  "system_s": 40.574493
+}

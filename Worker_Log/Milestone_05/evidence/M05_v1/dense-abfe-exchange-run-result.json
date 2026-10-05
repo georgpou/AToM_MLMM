@@ -1,0 +1,24 @@
+{
+  "argv": [
+    "python",
+    "-m",
+    "atm_mlmm",
+    "exchange",
+    "/workspace/m05-evidence/dense-abfe",
+    "--output",
+    "/workspace/m05-evidence/dense-abfe-exchange",
+    "--rounds",
+    "4",
+    "--steps-per-round",
+    "2",
+    "--seed",
+    "711",
+    "--trusted"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 23.161157879000257,
+  "max_rss_kib": 796076,
+  "user_s": 31.902493,
+  "system_s": 1.2140469999999999
+}

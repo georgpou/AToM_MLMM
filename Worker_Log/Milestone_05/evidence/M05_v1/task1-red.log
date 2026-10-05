@@ -1,0 +1,242 @@
+FFFFFFFFFFF                                                              [100%]
+=================================== FAILURES ===================================
+________ test_complete_copy_retains_failed_transaction_and_is_verified _________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-3/test_complete_copy_retains_fai0')
+
+    def test_complete_copy_retains_failed_transaction_and_is_verified(tmp_path):
+>       export, verify = api()
+                         ^^^^^
+
+tests/workflow/test_evidence_export.py:29: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('atm_mlmm.evidence'), 'verified evidence transport is missing'
+E       AssertionError: verified evidence transport is missing
+E       assert None
+E        +  where None = <function find_spec at 0x7f35aa61a340>('atm_mlmm.evidence')
+E        +    where <function find_spec at 0x7f35aa61a340> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/workflow/test_evidence_export.py:11: AssertionError
+____________ test_verify_rejects_partial_or_changed_copy[modified] _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-3/test_verify_rejects_partial_or0')
+change = 'modified'
+
+    @pytest.mark.parametrize('change', ('modified', 'missing', 'extra', 'empty-directory'))
+    def test_verify_rejects_partial_or_changed_copy(tmp_path, change):
+>       export, verify = api()
+                         ^^^^^
+
+tests/workflow/test_evidence_export.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('atm_mlmm.evidence'), 'verified evidence transport is missing'
+E       AssertionError: verified evidence transport is missing
+E       assert None
+E        +  where None = <function find_spec at 0x7f35aa61a340>('atm_mlmm.evidence')
+E        +    where <function find_spec at 0x7f35aa61a340> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/workflow/test_evidence_export.py:11: AssertionError
+_____________ test_verify_rejects_partial_or_changed_copy[missing] _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-3/test_verify_rejects_partial_or1')
+change = 'missing'
+
+    @pytest.mark.parametrize('change', ('modified', 'missing', 'extra', 'empty-directory'))
+    def test_verify_rejects_partial_or_changed_copy(tmp_path, change):
+>       export, verify = api()
+                         ^^^^^
+
+tests/workflow/test_evidence_export.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('atm_mlmm.evidence'), 'verified evidence transport is missing'
+E       AssertionError: verified evidence transport is missing
+E       assert None
+E        +  where None = <function find_spec at 0x7f35aa61a340>('atm_mlmm.evidence')
+E        +    where <function find_spec at 0x7f35aa61a340> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/workflow/test_evidence_export.py:11: AssertionError
+______________ test_verify_rejects_partial_or_changed_copy[extra] ______________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-3/test_verify_rejects_partial_or2')
+change = 'extra'
+
+    @pytest.mark.parametrize('change', ('modified', 'missing', 'extra', 'empty-directory'))
+    def test_verify_rejects_partial_or_changed_copy(tmp_path, change):
+>       export, verify = api()
+                         ^^^^^
+
+tests/workflow/test_evidence_export.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('atm_mlmm.evidence'), 'verified evidence transport is missing'
+E       AssertionError: verified evidence transport is missing
+E       assert None
+E        +  where None = <function find_spec at 0x7f35aa61a340>('atm_mlmm.evidence')
+E        +    where <function find_spec at 0x7f35aa61a340> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/workflow/test_evidence_export.py:11: AssertionError
+_________ test_verify_rejects_partial_or_changed_copy[empty-directory] _________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-3/test_verify_rejects_partial_or3')
+change = 'empty-directory'
+
+    @pytest.mark.parametrize('change', ('modified', 'missing', 'extra', 'empty-directory'))
+    def test_verify_rejects_partial_or_changed_copy(tmp_path, change):
+>       export, verify = api()
+                         ^^^^^
+
+tests/workflow/test_evidence_export.py:43: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('atm_mlmm.evidence'), 'verified evidence transport is missing'
+E       AssertionError: verified evidence transport is missing
+E       assert None
+E        +  where None = <function find_spec at 0x7f35aa61a340>('atm_mlmm.evidence')
+E        +    where <function find_spec at 0x7f35aa61a340> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/workflow/test_evidence_export.py:11: AssertionError
+_______________ test_copy_failure_keeps_local_and_partial_bytes ________________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-3/test_copy_failure_keeps_local_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f35a8a84a10>
+
+    def test_copy_failure_keeps_local_and_partial_bytes(tmp_path, monkeypatch):
+>       export, _ = api()
+                    ^^^^^
+
+tests/workflow/test_evidence_export.py:60: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('atm_mlmm.evidence'), 'verified evidence transport is missing'
+E       AssertionError: verified evidence transport is missing
+E       assert None
+E        +  where None = <function find_spec at 0x7f35aa61a340>('atm_mlmm.evidence')
+E        +    where <function find_spec at 0x7f35aa61a340> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/workflow/test_evidence_export.py:11: AssertionError
+___________________ test_rejects_symlinks_and_recursive_copy ___________________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-3/test_rejects_symlinks_and_recu0')
+
+    def test_rejects_symlinks_and_recursive_copy(tmp_path):
+>       export, _ = api()
+                    ^^^^^
+
+tests/workflow/test_evidence_export.py:80: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('atm_mlmm.evidence'), 'verified evidence transport is missing'
+E       AssertionError: verified evidence transport is missing
+E       assert None
+E        +  where None = <function find_spec at 0x7f35aa61a340>('atm_mlmm.evidence')
+E        +    where <function find_spec at 0x7f35aa61a340> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/workflow/test_evidence_export.py:11: AssertionError
+_______ test_manifest_path_traversal_is_rejected_without_reading_outside _______
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-3/test_manifest_path_traversal_i0')
+
+    def test_manifest_path_traversal_is_rejected_without_reading_outside(tmp_path):
+>       export, verify = api()
+                         ^^^^^
+
+tests/workflow/test_evidence_export.py:90: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def api():
+>       assert importlib.util.find_spec('atm_mlmm.evidence'), 'verified evidence transport is missing'
+E       AssertionError: verified evidence transport is missing
+E       assert None
+E        +  where None = <function find_spec at 0x7f35aa61a340>('atm_mlmm.evidence')
+E        +    where <function find_spec at 0x7f35aa61a340> = <module 'importlib.util' (frozen)>.find_spec
+E        +      where <module 'importlib.util' (frozen)> = importlib.util
+
+tests/workflow/test_evidence_export.py:11: AssertionError
+___________ test_cpu_notebook_schema_and_immutable_visible_baseline ____________
+
+    def test_cpu_notebook_schema_and_immutable_visible_baseline():
+>       notebook = cpu_notebook()
+                   ^^^^^^^^^^^^^^
+
+tests/environment/test_m05_notebooks.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def cpu_notebook():
+        path = ROOT/'notebooks/m05_colab_cpu.ipynb'
+>       assert path.is_file(), 'CPU Colab notebook is missing'
+E       AssertionError: CPU Colab notebook is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = PosixPath('/workspace/AToM_MLMM/notebooks/m05_colab_cpu.ipynb').is_file
+
+tests/environment/test_m05_notebooks.py:14: AssertionError
+_______________ test_cpu_launcher_retains_nonzero_log_and_stops ________________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-3/test_cpu_launcher_retains_nonz0')
+
+    def test_cpu_launcher_retains_nonzero_log_and_stops(tmp_path):
+>       notebook = cpu_notebook()
+                   ^^^^^^^^^^^^^^
+
+tests/environment/test_m05_notebooks.py:35: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def cpu_notebook():
+        path = ROOT/'notebooks/m05_colab_cpu.ipynb'
+>       assert path.is_file(), 'CPU Colab notebook is missing'
+E       AssertionError: CPU Colab notebook is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = PosixPath('/workspace/AToM_MLMM/notebooks/m05_colab_cpu.ipynb').is_file
+
+tests/environment/test_m05_notebooks.py:14: AssertionError
+__________________ test_cpu_launcher_timeout_preserves_result __________________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-3/test_cpu_launcher_timeout_pres0')
+
+    def test_cpu_launcher_timeout_preserves_result(tmp_path):
+>       helper = next(c for c in cpu_notebook()['cells'] if c.get('id') == 'command-runner')
+                                 ^^^^^^^^^^^^^^
+
+tests/environment/test_m05_notebooks.py:48: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def cpu_notebook():
+        path = ROOT/'notebooks/m05_colab_cpu.ipynb'
+>       assert path.is_file(), 'CPU Colab notebook is missing'
+E       AssertionError: CPU Colab notebook is missing
+E       assert False
+E        +  where False = is_file()
+E        +    where is_file = PosixPath('/workspace/AToM_MLMM/notebooks/m05_colab_cpu.ipynb').is_file
+
+tests/environment/test_m05_notebooks.py:14: AssertionError
+=========================== short test summary info ============================
+FAILED tests/workflow/test_evidence_export.py::test_complete_copy_retains_failed_transaction_and_is_verified
+FAILED tests/workflow/test_evidence_export.py::test_verify_rejects_partial_or_changed_copy[modified]
+FAILED tests/workflow/test_evidence_export.py::test_verify_rejects_partial_or_changed_copy[missing]
+FAILED tests/workflow/test_evidence_export.py::test_verify_rejects_partial_or_changed_copy[extra]
+FAILED tests/workflow/test_evidence_export.py::test_verify_rejects_partial_or_changed_copy[empty-directory]
+FAILED tests/workflow/test_evidence_export.py::test_copy_failure_keeps_local_and_partial_bytes
+FAILED tests/workflow/test_evidence_export.py::test_rejects_symlinks_and_recursive_copy
+FAILED tests/workflow/test_evidence_export.py::test_manifest_path_traversal_is_rejected_without_reading_outside
+FAILED tests/environment/test_m05_notebooks.py::test_cpu_notebook_schema_and_immutable_visible_baseline
+FAILED tests/environment/test_m05_notebooks.py::test_cpu_launcher_retains_nonzero_log_and_stops
+FAILED tests/environment/test_m05_notebooks.py::test_cpu_launcher_timeout_preserves_result
+11 failed in 0.08s

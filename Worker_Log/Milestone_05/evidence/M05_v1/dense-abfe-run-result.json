@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "python",
+    "-m",
+    "atm_mlmm",
+    "run",
+    "fixtures/solvated_fragment/v2/abfe/config.json",
+    "--output",
+    "/workspace/m05-evidence/dense-abfe",
+    "--trusted"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 27.395394555000166,
+  "max_rss_kib": 867524,
+  "user_s": 42.089105,
+  "system_s": 3.2419029999999998
+}

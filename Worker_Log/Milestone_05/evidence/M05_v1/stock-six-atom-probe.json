@@ -1,0 +1,218 @@
+{
+  "openmm_version": "8.6.1.dev-b399af4",
+  "platform": "Reference",
+  "construction": "stock OpenMM ForceField tip3p.xml; no project builder, ML or caps",
+  "system_xml": "<?xml version=\"1.0\" ?>\n<System openmmVersion=\"8.6.1\" type=\"System\" version=\"1\">\n\t<PeriodicBoxVectors>\n\t\t<A x=\"6.4\" y=\"0\" z=\"0\"/>\n\t\t<B x=\"0\" y=\"6.4\" z=\"0\"/>\n\t\t<C x=\"0\" y=\"0\" z=\"6.4\"/>\n\t</PeriodicBoxVectors>\n\t<Particles>\n\t\t<Particle mass=\"15.99943\"/>\n\t\t<Particle mass=\"1.007947\"/>\n\t\t<Particle mass=\"1.007947\"/>\n\t\t<Particle mass=\"15.99943\"/>\n\t\t<Particle mass=\"1.007947\"/>\n\t\t<Particle mass=\"1.007947\"/>\n\t</Particles>\n\t<Constraints>\n\t\t<Constraint d=\".09572\" p1=\"0\" p2=\"1\"/>\n\t\t<Constraint d=\".09572\" p1=\"0\" p2=\"2\"/>\n\t\t<Constraint d=\".09572\" p1=\"3\" p2=\"4\"/>\n\t\t<Constraint d=\".09572\" p1=\"3\" p2=\"5\"/>\n\t\t<Constraint d=\".15139006545247014\" p1=\"1\" p2=\"2\"/>\n\t\t<Constraint d=\".15139006545247014\" p1=\"4\" p2=\"5\"/>\n\t</Constraints>\n\t<Forces>\n\t\t<Force forceGroup=\"0\" name=\"HarmonicBondForce\" type=\"HarmonicBondForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Bonds/>\n\t\t</Force>\n\t\t<Force alpha=\"4.4\" cutoff=\".9\" dispersionCorrection=\"0\" ewaldTolerance=\"1e-07\" exceptionsUsePeriodic=\"0\" forceGroup=\"0\" includeDirectSpace=\"1\" ljAlpha=\"0\" ljnx=\"0\" ljny=\"0\" ljnz=\"0\" method=\"4\" name=\"NonbondedForce\" nx=\"64\" ny=\"64\" nz=\"64\" recipForceGroup=\"1\" rfDielectric=\"78.3\" switchingDistance=\".75\" type=\"NonbondedForce\" useSwitchingFunction=\"1\" version=\"4\">\n\t\t\t<GlobalParameters/>\n\t\t\t<ParticleOffsets/>\n\t\t\t<ExceptionOffsets/>\n\t\t\t<Particles>\n\t\t\t\t<Particle eps=\".635968\" q=\"-.834\" sig=\".3150752406575124\"/>\n\t\t\t\t<Particle eps=\"0\" q=\".417\" sig=\"1\"/>\n\t\t\t\t<Particle eps=\"0\" q=\".417\" sig=\"1\"/>\n\t\t\t\t<Particle eps=\".635968\" q=\"-.834\" sig=\".3150752406575124\"/>\n\t\t\t\t<Particle eps=\"0\" q=\".417\" sig=\"1\"/>\n\t\t\t\t<Particle eps=\"0\" q=\".417\" sig=\"1\"/>\n\t\t\t</Particles>\n\t\t\t<Exceptions>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"1\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"0\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"1\" p2=\"2\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"4\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"3\" p2=\"5\" q=\"0\" sig=\"1\"/>\n\t\t\t\t<Exception eps=\"0\" p1=\"4\" p2=\"5\" q=\"0\" sig=\"1\"/>\n\t\t\t</Exceptions>\n\t\t</Force>\n\t\t<Force forceGroup=\"0\" name=\"HarmonicAngleForce\" type=\"HarmonicAngleForce\" usesPeriodic=\"0\" version=\"2\">\n\t\t\t<Angles/>\n\t\t</Force>\n\t</Forces>\n</System>\n",
+  "rows": [
+    {
+      "mode": "raw",
+      "positions_nm": [
+        [
+          0.4415733928415964,
+          9.999999999988898e-06,
+          6.08
+        ],
+        [
+          0.5372933928415964,
+          -1.1102907872609369e-17,
+          6.08
+        ],
+        [
+          0.417574672000693,
+          0.09266272064859948,
+          6.08
+        ],
+        [
+          0.4415733928415964,
+          0.32,
+          1.6653345369377347e-17
+        ],
+        [
+          0.5372933928415964,
+          0.32,
+          1.6653345369377347e-17
+        ],
+        [
+          0.417574672000693,
+          0.4126627206485995,
+          1.6653345369377347e-17
+        ]
+      ],
+      "energy_kj_mol": -0.04356594368221067,
+      "real_space_energy_kj_mol": 696.4422814520001,
+      "reciprocal_energy_kj_mol": -696.4858473956823,
+      "forces_kj_mol_nm": [
+        [
+          38.2645568235736,
+          -35.263112881157895,
+          -66.9889821222343
+        ],
+        [
+          -26.36541400937668,
+          6.167956809081218,
+          20.720221930229716
+        ],
+        [
+          -22.589367084598024,
+          17.57120562751477,
+          58.93709344491325
+        ],
+        [
+          25.45905427286965,
+          0.7150676224540007,
+          -72.48081964833165
+        ],
+        [
+          -5.03295738690457,
+          2.8294517971897193,
+          35.052120149266415
+        ],
+        [
+          -10.310564088260378,
+          7.541810663291443,
+          24.873243705116266
+        ]
+      ]
+    },
+    {
+      "mode": "one-hydrogen-exact-zero",
+      "positions_nm": [
+        [
+          0.4415733928415964,
+          9.999999999988898e-06,
+          6.08
+        ],
+        [
+          0.5372933928415964,
+          0.0,
+          6.08
+        ],
+        [
+          0.417574672000693,
+          0.09266272064859948,
+          6.08
+        ],
+        [
+          0.4415733928415964,
+          0.32,
+          1.6653345369377347e-17
+        ],
+        [
+          0.5372933928415964,
+          0.32,
+          1.6653345369377347e-17
+        ],
+        [
+          0.417574672000693,
+          0.4126627206485995,
+          1.6653345369377347e-17
+        ]
+      ],
+      "energy_kj_mol": -0.16298219342149878,
+      "real_space_energy_kj_mol": 696.3228652022608,
+      "reciprocal_energy_kj_mol": -696.4858473956823,
+      "forces_kj_mol_nm": [
+        [
+          38.2645568235736,
+          -35.26311288115792,
+          -66.9889821222343
+        ],
+        [
+          -28.047884087439826,
+          7.810030909923938,
+          22.524295576435122
+        ],
+        [
+          -22.589367084598024,
+          17.571205627514786,
+          58.93709344491325
+        ],
+        [
+          27.350825116244664,
+          -5.609281206212955,
+          -78.8051684769986
+        ],
+        [
+          -5.03295738690457,
+          6.790280266310603,
+          39.012948618387306
+        ],
+        [
+          -10.519864853572216,
+          8.26325692199481,
+          25.432690418456936
+        ]
+      ]
+    },
+    {
+      "mode": "canonical-faces",
+      "positions_nm": [
+        [
+          0.4415733928415964,
+          9.999999999988898e-06,
+          6.08
+        ],
+        [
+          0.5372933928415964,
+          -0.0,
+          6.08
+        ],
+        [
+          0.417574672000693,
+          0.09266272064859948,
+          6.08
+        ],
+        [
+          0.4415733928415964,
+          0.32,
+          0.0
+        ],
+        [
+          0.5372933928415964,
+          0.32,
+          0.0
+        ],
+        [
+          0.417574672000693,
+          0.4126627206485995,
+          0.0
+        ]
+      ],
+      "energy_kj_mol": -0.16298219342149878,
+      "real_space_energy_kj_mol": 696.3228652022608,
+      "reciprocal_energy_kj_mol": -696.4858473956823,
+      "forces_kj_mol_nm": [
+        [
+          38.2645568235736,
+          -35.26311288115792,
+          -66.98898212223428
+        ],
+        [
+          -28.047884087439854,
+          7.810030909923938,
+          22.52429557643513
+        ],
+        [
+          -22.589367084598024,
+          17.571205627514786,
+          58.93709344491328
+        ],
+        [
+          27.350825116244778,
+          -5.6092812062128985,
+          -78.80516847699863
+        ],
+        [
+          -5.032957386904627,
+          6.79028026631056,
+          39.01294861838732
+        ],
+        [
+          -10.519864853572244,
+          8.263256921994781,
+          25.432690418456943
+        ]
+      ]
+    }
+  ]
+}

@@ -44,3 +44,25 @@ CPU reference with `python tools/m05_tpu_probe.py cpu-reference --output UNUSED`
 Switching runtimes requires restoring that verified complete export and
 reinstalling the CPU base before cloning the separate XLA prefix. The probe
 retains failed precision/operators and never qualifies timing from those results.
+
+Executable extension/TPU source pin: `424a859732b77b2f91cd03b12bb3f0b8adf3f541`.
+The implementing session's review/result is recorded in the
+[G09 worker](../Worker_Log/Milestone_05/Gate_09_v5_worker.md) and
+[G10 combined worker](../Worker_Log/Milestone_05/Gate_10_v2_worker.md); actual
+Colab execution remains pending.
+
+For the old baseline, which predates the export helper, stop all jobs and use
+standard Python to download a complete archive before changing runtimes:
+
+```python
+import hashlib, shutil
+assert not Path(str(EVIDENCE) + "-stopped.zip").exists(), "Preserve prior archives."
+archive = shutil.make_archive(str(EVIDENCE) + "-stopped", "zip", str(EVIDENCE))
+print(archive, hashlib.sha256(Path(archive).read_bytes()).hexdigest())
+```
+
+Choose an unused archive path; retain its printed SHA and download the entire
+archive. Verify its bytes before extraction/import. Its individual worker/sample
+manifests remain authoritative. For M05 attempts use the notebook's sealed
+complete-tree export cell, which also captures command logs and failed pending
+transactions without writing a new log into the source during copying.

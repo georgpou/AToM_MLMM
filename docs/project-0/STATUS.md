@@ -1,5 +1,26 @@
 # Current status
 
+**M05 child-branch CPU increment delivered; independent review pending.**
+`m05-colab-workflows` starts at published M04 HEAD
+`fab6388b041acc4362f30b5ff7d3789a33fc536f`; main is unchanged. Scientific source
+`424a859732b77b2f91cd03b12bb3f0b8adf3f541` passes **543 full CPU tests in606.45s**,
+no skips. The [G09 v5 worker](../../Worker_Log/Milestone_05/Gate_09_v5_worker.md)
+and [G10 v2 combined worker](../../Worker_Log/Milestone_05/Gate_10_v2_worker.md)
+submit64-water local controls (224/233 atoms), independent both-map full forces,
+solvated offline/checkpoint/portable-State evidence, four-round persistent
+pair-exchange pilots and complete sealed exports. The original CPU locks,
+MACE bytes and S06 limits remain unchanged.
+
+Both [Colab notebooks](../../notebooks/README.md) are delivered and pass official
+schema validation. A separate pinned actual-MACE TPU experiment has108 CPU
+reference configurations with changed graphs and cap-parent/ligand/solvent FDs.
+**Actual Colab CPU and TPU execution is not_run**; no authorized executor/hardware
+is available here. Returned exports must be verified before hardware claims.
+The [new definition](specs/m05-dense-exchange-amendment.md) is proposed pending
+scientific review. The reduced stock OpenMM Reference artifact is reported;
+engine/general runtime code is unchanged, with only synthetic fixture input
+roundoff formatting. Full M05, molecular accuracy and M03 remain open.
+
 **Bounded cloud solvent/exchange technical scope accepted; G09-R2 closed.**
 On `m04-engine-readiness`, the [G09 v3 worker](../../Worker_Log/Milestone_05/Gate_09_v3_worker.md)
 and [G10 v1 worker](../../Worker_Log/Milestone_05/Gate_10_v1_worker.md) add sparse
@@ -316,18 +337,16 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-The user now assigns the [M05 Colab continuation](handoffs/M05-colab-next-agent.md):
-the next agent must create `notebooks/`, reproduce the locked CPU profile on
-Colab, use it for demanding bounded G09/G10 validation, and then attempt a
-separate TPU compatibility/benchmark profile. Colab/TPU execution is not yet run;
-the current OpenMM Reference/MACE CPU-float64 scope remains the accepted baseline.
+The [M05 continuation](handoffs/M05-colab-next-agent.md) is implemented for the
+available bounded CPU scope. Review the new G09 v5/G10 v2 submission, then run
+[the notebooks](../../notebooks/README.md) on user-selected Colab CPU followed by
+TPU; import complete verified evidence before declaring either profile qualified.
+No Colab executor/hardware was available in this session. The next dependency
+is actual Colab evidence and separately admitted broader scientific profiles.
 
-The [current cloud handoff](handoffs/CLOUD-ENGINE-after-G09-v4.md) records the
-reviewed completion of bounded explicit-water coupling and a single actual
-pair-exchange boundary. R1/R2 are closed; the v4 audit accepts the bounded
-technical scope on the exact recorded snapshot. Retain the common runner while
-dense-solvent preparation and a persistent exchange controller receive explicit
-later coverage in new attempts. The user defers T4 lysozyme and Slurm/HPC settings until cluster work
+The previous [cloud handoff](handoffs/CLOUD-ENGINE-after-G09-v4.md) remains the
+accepted M04/sparse-water lineage. New CPU controls and transactional scheduling
+have their own frozen evidence; full M05 stays open. The user defers T4 lysozyme and Slurm/HPC settings until cluster work
 begins. Report technical evidence separately from molecular physical
 qualification. G06/G07 numerical review remains accepted; G07-T4 and
 M03 physical closure remain blocked. Preserve all accepted G05 data, controls,
@@ -348,7 +367,7 @@ retains the failed resource screen and safe continuation conditions.
 | G07 / T4 physical-reference sensitivity | blocked | Seven sensitivity failures plus measured pilot force-approximation exceedances; one validated full-parent reference, 29 missing; runtime/scratch screens exceed current envelope |
 | M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
 | M04 / G08 analytic thermodynamic accounting | accepted | [GPT-6.1-sol/MAX v2 audit](../../Worker_Log/Milestone_04/Gate_08_v2_audit.md), exact c0280818/source8cf2494; G08-R1 closed, refined amendments and combined M04 analytic CPU accepted; 437 full/21 affected passes |
-| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial | [G09 v4 audit](../../Worker_Log/Milestone_05/Gate_09_v4_audit.md): R1/R2 closed, bounded explicit-water G09 subsets and unchanged G10 pair scope accepted; 501 root CPU passes, 21 independent focused passes/six probes; full M05 open |
+| M05 / G09-G10 cloud technical subsets | accepted_for_scope (earlier) / ready_for_audit (new CPU increment) | [G09 v5 worker](../../Worker_Log/Milestone_05/Gate_09_v5_worker.md) / [G10 v2 combined worker](../../Worker_Log/Milestone_05/Gate_10_v2_worker.md):543 full CPU passes; denser/exchange/restart evidence; Colab/TPU not_run; full M05 open. Earlier lineage: [G09 v4 audit](../../Worker_Log/Milestone_05/Gate_09_v4_audit.md): R1/R2 closed, bounded explicit-water G09 subsets and unchanged G10 pair scope accepted; 501 root CPU passes, 21 independent focused passes/six probes; full M05 open |
 | M06-M08 / G11-G13 | deferred | T4 lysozyme and Slurm settings reserved for user-initiated HPC work; retain physical-qualification prerequisites |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |

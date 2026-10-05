@@ -1,0 +1,26 @@
+{
+  "dense-numerical-0.json": {
+    "max_absolute_energy_error_kj_mol": 0.0,
+    "max_full_real_force_error_kj_mol_nm": 1.6484591469634324e-12,
+    "max_smallest_step_fd_error_kj_mol_nm": 0.00024245060342309444,
+    "fd_atoms": [
+      "p5",
+      "p4",
+      "a:l0",
+      "dense-water-0:O",
+      "dense-water-32:O"
+    ]
+  },
+  "dense-numerical-1.json": {
+    "max_absolute_energy_error_kj_mol": 0.0,
+    "max_full_real_force_error_kj_mol_nm": 1.2505552149377763e-12,
+    "max_smallest_step_fd_error_kj_mol_nm": 0.00024136582291589548,
+    "fd_atoms": [
+      "p5",
+      "p4",
+      "a:l0",
+      "dense-water-0:O",
+      "dense-water-32:O"
+    ]
+  }
+}

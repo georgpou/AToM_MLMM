@@ -1,0 +1,42 @@
+....F.                                                                   [100%]
+=================================== FAILURES ===================================
+____ test_actual_cpu_reference_cap_gradients_step_sweeps_and_changed_graphs ____
+
+cpu_reference = (PosixPath('/workspace/m05-evidence/tpu-reference-tests/tpu-cpu-reference0/export'), {'reference_sha256': 'ed05b6ddb7a...c4d6abc4035d2eb0d70339cb85c1958f85eac7e7800fbf1', ...}, 'source_sha': '6a1990dbd798defd57d781e72c5f5711d7fe4992', ...})
+
+    @pytest.mark.model_assets
+    def test_actual_cpu_reference_cap_gradients_step_sweeps_and_changed_graphs(cpu_reference):
+        directory,identity,reference=cpu_reference
+        assert identity['rows']==108
+        assert {(r['case'],r['map']) for r in reference['rows']}=={('abfe',0),('abfe',1),('rbfe',0),('rbfe',1)}
+        assert len(reference['cpu_steady_timings'])==4
+        assert all(len(t['synchronized_end_to_end_s'])==5 for t in reference['cpu_steady_timings'])
+        changed_graph=False
+        for case,mapping in [('abfe',0),('abfe',1),('rbfe',0),('rbfe',1)]:
+            rows=[r for r in reference['rows'] if (r['case'],r['map'])==(case,mapping)]
+            base=next(r for r in rows if r['variant']=='base')
+            changed=next(r for r in rows if r['variant']=='changed')
+            shape=next(r for r in rows if r['variant']=='graph-shape')
+            assert not np.array_equal(base['model']['positions_nm'],changed['model']['positions_nm'])
+            assert base['energy_kj_mol']!=changed['energy_kj_mol']
+            changed_graph |= len(base['model']['directed_edges'])!=len(shape['model']['directed_edges'])
+            forces=np.array(base['all_real_ml_forces'])
+            descriptor=next(c for c in reference['cases'] if c['kind']==case)
+            # Ordinary solvent is outside fixed ML membership, while both cap
+            # parents receive their actual energy derivatives.
+            solvent=[i for i,a in enumerate(descriptor['real_atom_ids']) if a.startswith('dense-water-')]
+            np.testing.assert_array_equal(forces[solvent],0.)
+            for atom in {r['fd_atom'] for r in rows if r['variant']=='fd'}:
+                errors=[]
+                for step in reference['fd_steps_nm']:
+                    values={r['sign']:r['energy_kj_mol'] for r in rows if r['variant']=='fd' and r['fd_atom']==atom and r['step_nm']==step}
+>                   fd=-(values[1]-values[-1])/(2*step); error=abs(fd-forces[atom,1]);errors.append(error)
+                                   ^^^^^^^^^^
+E                   KeyError: -1
+
+tests/environment/test_tpu_experiment.py:87: KeyError
+---------------------------- Captured stdout setup -----------------------------
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+=========================== short test summary info ============================
+FAILED tests/environment/test_tpu_experiment.py::test_actual_cpu_reference_cap_gradients_step_sweeps_and_changed_graphs
+1 failed, 5 passed in 69.69s (0:01:09)

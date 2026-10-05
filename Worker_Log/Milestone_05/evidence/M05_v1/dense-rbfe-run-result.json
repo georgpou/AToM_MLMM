@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "python",
+    "-m",
+    "atm_mlmm",
+    "run",
+    "fixtures/solvated_fragment/v2/rbfe/config.json",
+    "--output",
+    "/workspace/m05-evidence/dense-rbfe",
+    "--trusted"
+  ],
+  "exit_code": 0,
+  "timed_out": false,
+  "wall_s": 28.749404986000172,
+  "max_rss_kib": 892016,
+  "user_s": 44.947984,
+  "system_s": 3.292883
+}

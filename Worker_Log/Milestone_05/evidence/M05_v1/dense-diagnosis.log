@@ -1,0 +1,68 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_ test_dense_both_map_full_forces_coupling_and_parent_solvent_step_sweeps[abfe] _
+
+dense_physical = (Configuration(document={'input_manifest': 'manifest.json', 'input_manifest_sha256': 'e0925c128c4e4d68ca69253bc0541132...='p4', final_particle_index=224, model_input_index=14, virtual_site_type='LocalCoordinatesSite', distance_nm=0.109),)))
+tmp_path = PosixPath('/workspace/m05-evidence/dense-diagnosis/test_dense_both_map_full_force0')
+
+    @pytest.mark.model_assets
+    def test_dense_both_map_full_forces_coupling_and_parent_solvent_step_sweeps(dense_physical,tmp_path):
+        import openmm as mm
+        from atm_mlmm.atm import PhysicalEvaluator
+        from atm_mlmm.model_reference import NativeMACE
+        from atm_mlmm.geometry import final_positions
+        from tests.joint_oracle import mapped_snapshot,independent_answer
+        from tests.periodic_oracle import plain_periodic
+        config,physical=dense_physical
+        native=NativeMACE()
+        masked=mm.XmlSerializer.deserialize(physical.manifest['retained_mm_xml'])
+        retained=mm.XmlSerializer.deserialize(physical.manifest['retained_mm_xml'])
+        nb=next(f for f in masked.getForces() if isinstance(f,mm.NonbondedForce))
+        ligand={physical.real_to_final[a] for m in physical.topology.molecules if m.role=='ligand' for a in m.atom_ids}
+        solvent=[i for i,a in enumerate(config.snapshot.real_atom_ids) if a.startswith('dense-water-')]
+        for i in ligand:
+            _,sigma,_=nb.getParticleParameters(i); nb.setParticleParameters(i,0.,sigma,0.)
+        for i in range(nb.getNumExceptions()):
+            a,b,_,sigma,_=nb.getExceptionParameters(i)
+            if a in ligand or b in ligand: nb.setExceptionParameters(i,a,b,0.,sigma,0.)
+        link=physical.links[0]
+        selected=[config.snapshot.real_atom_ids.index(a) for a in (link.ml_parent_id,link.mm_parent_id)]
+        selected+=[26,solvent[0],solvent[96]]
+        evidence=[]
+        with PhysicalEvaluator(physical,config.runtime) as direct:
+            for mapping in (0,1):
+                frame=mapped_snapshot(physical,config.snapshot,mapping)
+                actual=direct.evaluate(frame)
+                e,f,_=independent_answer(physical,frame,native)
+                assert abs(actual.energy_kj_mol-e)<=1e-4
+                np.testing.assert_allclose(actual.forces_kj_mol_nm,f,atol=5e-3,rtol=0)
+                positions=final_positions(physical,frame)
+                _,coupled=plain_periodic(retained,positions,frame.box_nm)
+                _,uncoupled=plain_periodic(masked,positions,frame.box_nm)
+                s=[physical.real_to_final[config.snapshot.real_atom_ids[i]] for i in solvent]
+                assert np.max(np.abs(coupled[s]-uncoupled[s]))>1e-3
+                for atom in selected:
+                    values=[]
+                    energy_pairs=[]
+                    for step in (1e-3,1e-4,1e-5):
+                        energies=[]
+                        for sign in (1.,-1.):
+                            x=np.array(frame.positions_nm); x[atom,1]+=sign*step
+                            energies.append(direct.evaluate(replace(frame,positions_nm=x)).energy_kj_mol)
+                        values.append(-(energies[0]-energies[1])/(2*step))
+                        energy_pairs.append(energies)
+                    force=actual.forces_kj_mol_nm[atom][1]
+                    evidence.append({'map':mapping,'atom_id':frame.real_atom_ids[atom],'force_y':force,'fd_y':values,
+                        'energies_plus_minus':energy_pairs,'positions_nm':frame.positions_nm})
+                    (tmp_path/'dense-numerical-evidence.json').write_text(json.dumps(evidence,indent=2)+'\n')
+>                   assert abs(values[-1]-force)<=1e-3+1e-4*abs(force)
+E                   assert 245111.92198196464 <= (0.001 + (0.0001 * 405.41423432489137))
+E                    +  where 245111.92198196464 = abs((-245517.33621628952 - -405.41423432489137))
+E                    +  and   405.41423432489137 = abs(-405.41423432489137)
+
+tests/workflow/test_dense_solvent.py:154: AssertionError
+----------------------------- Captured stdout call -----------------------------
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+=========================== short test summary info ============================
+FAILED tests/workflow/test_dense_solvent.py::test_dense_both_map_full_forces_coupling_and_parent_solvent_step_sweeps[abfe]
+1 failed in 7.76s
