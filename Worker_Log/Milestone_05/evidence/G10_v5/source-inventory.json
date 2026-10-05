@@ -1,0 +1,610 @@
+{
+  "artifact_root_external": "/workspace/G10_v5_artifacts",
+  "attempts": {
+    "final-focused": {
+      "abfe": {
+        "bundled_exchange_py_sha256": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+        "committed_tree_manifests": [
+          {
+            "boundary": "initial",
+            "manifest_sha256": "367a66d3bb874a613c2aae7cc6adbc1386eacf9773ec348b0e7d1cd9f460043e"
+          },
+          {
+            "boundary": "000000",
+            "manifest_sha256": "d76b6fc5014a640a06d11651ba75cb4f76b60290c7f9cda1580f30ff4b675f1d"
+          },
+          {
+            "boundary": "000001",
+            "manifest_sha256": "f19fe801a7c019e1639e56ad44b7db3207c52dcef127c36b80d4b4be80e67e09"
+          }
+        ],
+        "multistate_metadata_sha256": "cf5c88b5c0a22809e71578642a74f421c59663091a7f6bd74a00d9aa51a4284b",
+        "prepared_metadata_sha256": "91e7cc1affda98fdfa831f26bbad9b97cba0210b1bb9e1f3aede42c470fdfc9c",
+        "prepared_worker_manifest_sha256": "2a9079fdba3601b03c260fd1b3486d8a6e6002b1a898f575cbde56d2d53ccac6",
+        "source_file_count": 38,
+        "source_files": {
+          "runtime/source/atm_mlmm/__init__.py": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+          "runtime/source/atm_mlmm/__main__.py": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+          "runtime/source/atm_mlmm/adapters/__init__.py": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+          "runtime/source/atm_mlmm/adapters/atom.py": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+          "runtime/source/atm_mlmm/analysis.py": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+          "runtime/source/atm_mlmm/analytic.py": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+          "runtime/source/atm_mlmm/atm.py": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+          "runtime/source/atm_mlmm/capabilities.py": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+          "runtime/source/atm_mlmm/chemical_reference.py": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+          "runtime/source/atm_mlmm/derivatives.py": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+          "runtime/source/atm_mlmm/embeddings/__init__.py": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+          "runtime/source/atm_mlmm/embeddings/mechanical.py": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+          "runtime/source/atm_mlmm/endpoints.py": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+          "runtime/source/atm_mlmm/environment.py": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+          "runtime/source/atm_mlmm/evidence.py": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+          "runtime/source/atm_mlmm/exchange.py": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+          "runtime/source/atm_mlmm/exchange_journal.py": "29c6aaa3aef92cdb326b39fce9264e5a018f1db9ea3af414e4bdd50d8794a9a8",
+          "runtime/source/atm_mlmm/geometry.py": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+          "runtime/source/atm_mlmm/hybrid.py": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+          "runtime/source/atm_mlmm/identity.py": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+          "runtime/source/atm_mlmm/joint_reference.py": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+          "runtime/source/atm_mlmm/ledger.py": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+          "runtime/source/atm_mlmm/model_reference.py": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+          "runtime/source/atm_mlmm/models/__init__.py": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+          "runtime/source/atm_mlmm/models/analytic_boundary.py": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+          "runtime/source/atm_mlmm/models/mace.py": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+          "runtime/source/atm_mlmm/partition.py": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+          "runtime/source/atm_mlmm/persistence.py": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+          "runtime/source/atm_mlmm/prepare.py": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+          "runtime/source/atm_mlmm/protocols/__init__.py": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+          "runtime/source/atm_mlmm/protocols/abfe.py": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+          "runtime/source/atm_mlmm/protocols/rbfe.py": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+          "runtime/source/atm_mlmm/restraints.py": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+          "runtime/source/atm_mlmm/routing.py": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+          "runtime/source/atm_mlmm/schedule.py": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+          "runtime/source/atm_mlmm/schema.py": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+          "runtime/source/atm_mlmm/solvent.py": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+          "runtime/source/atm_mlmm/workflow.py": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc"
+        }
+      },
+      "rbfe": {
+        "bundled_exchange_py_sha256": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+        "committed_tree_manifests": [
+          {
+            "boundary": "initial",
+            "manifest_sha256": "aa603679c57e23d0d04edfdbbf00c05b93fdd35fcb17410f312b2f1ccc247434"
+          },
+          {
+            "boundary": "000000",
+            "manifest_sha256": "8f47632ae17abfad3cbbf3950d54e4b1f756997aae363f825ae39d94394a4f24"
+          },
+          {
+            "boundary": "000001",
+            "manifest_sha256": "78ec4e00aa339670526b8e72fc6c38f9e5b077edf6cf073a39f89ab17e947e78"
+          }
+        ],
+        "multistate_metadata_sha256": "33d0401585966982bf97fd2aff774a4190e72de55c50fb6c6a0317d9339b2f43",
+        "prepared_metadata_sha256": "76b0aaa431ae8e791c22389f1b297ac984f877779105089ed902cd0efe1ec5ba",
+        "prepared_worker_manifest_sha256": "2a0e5ff4c25ff6713027808bd80a487c3b991a18bd94c943909178f1c7d8fe1b",
+        "source_file_count": 38,
+        "source_files": {
+          "runtime/source/atm_mlmm/__init__.py": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+          "runtime/source/atm_mlmm/__main__.py": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+          "runtime/source/atm_mlmm/adapters/__init__.py": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+          "runtime/source/atm_mlmm/adapters/atom.py": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+          "runtime/source/atm_mlmm/analysis.py": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+          "runtime/source/atm_mlmm/analytic.py": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+          "runtime/source/atm_mlmm/atm.py": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+          "runtime/source/atm_mlmm/capabilities.py": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+          "runtime/source/atm_mlmm/chemical_reference.py": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+          "runtime/source/atm_mlmm/derivatives.py": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+          "runtime/source/atm_mlmm/embeddings/__init__.py": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+          "runtime/source/atm_mlmm/embeddings/mechanical.py": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+          "runtime/source/atm_mlmm/endpoints.py": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+          "runtime/source/atm_mlmm/environment.py": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+          "runtime/source/atm_mlmm/evidence.py": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+          "runtime/source/atm_mlmm/exchange.py": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+          "runtime/source/atm_mlmm/exchange_journal.py": "29c6aaa3aef92cdb326b39fce9264e5a018f1db9ea3af414e4bdd50d8794a9a8",
+          "runtime/source/atm_mlmm/geometry.py": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+          "runtime/source/atm_mlmm/hybrid.py": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+          "runtime/source/atm_mlmm/identity.py": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+          "runtime/source/atm_mlmm/joint_reference.py": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+          "runtime/source/atm_mlmm/ledger.py": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+          "runtime/source/atm_mlmm/model_reference.py": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+          "runtime/source/atm_mlmm/models/__init__.py": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+          "runtime/source/atm_mlmm/models/analytic_boundary.py": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+          "runtime/source/atm_mlmm/models/mace.py": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+          "runtime/source/atm_mlmm/partition.py": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+          "runtime/source/atm_mlmm/persistence.py": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+          "runtime/source/atm_mlmm/prepare.py": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+          "runtime/source/atm_mlmm/protocols/__init__.py": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+          "runtime/source/atm_mlmm/protocols/abfe.py": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+          "runtime/source/atm_mlmm/protocols/rbfe.py": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+          "runtime/source/atm_mlmm/restraints.py": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+          "runtime/source/atm_mlmm/routing.py": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+          "runtime/source/atm_mlmm/schedule.py": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+          "runtime/source/atm_mlmm/schema.py": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+          "runtime/source/atm_mlmm/solvent.py": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+          "runtime/source/atm_mlmm/workflow.py": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc"
+        }
+      }
+    },
+    "focused": {
+      "abfe": {
+        "bundled_exchange_py_sha256": "801757d189765d4b28088fe5dcc98b46866c5ae0e1257fd02d2eb3dba6cfeec2",
+        "committed_tree_manifests": [
+          {
+            "boundary": "initial",
+            "manifest_sha256": "2e280377d60ef24513da26ae56205f70ac01c34e61328ea31ba7003f9fab5c78"
+          },
+          {
+            "boundary": "000000",
+            "manifest_sha256": "0dd359552661b8a5b958ecb8635d490718df2adcbbfc6b1e8cb821dce9997ec3"
+          }
+        ],
+        "multistate_metadata_sha256": "e503f2f059e60d316d6c5ba55cd9b1b22fec0fa70b0c16a1d6bf9cd531366fbc",
+        "prepared_metadata_sha256": "55c09351cbfb496ba200d7b32f099df8a91699bd6841fabe3a3386daa5d01964",
+        "prepared_worker_manifest_sha256": "4fc3f896462cfc5c397bd978d6281ae57b05f9e6423d6f091d89440809c0a0a4",
+        "source_file_count": 38,
+        "source_files": {
+          "runtime/source/atm_mlmm/__init__.py": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+          "runtime/source/atm_mlmm/__main__.py": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+          "runtime/source/atm_mlmm/adapters/__init__.py": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+          "runtime/source/atm_mlmm/adapters/atom.py": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+          "runtime/source/atm_mlmm/analysis.py": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+          "runtime/source/atm_mlmm/analytic.py": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+          "runtime/source/atm_mlmm/atm.py": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+          "runtime/source/atm_mlmm/capabilities.py": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+          "runtime/source/atm_mlmm/chemical_reference.py": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+          "runtime/source/atm_mlmm/derivatives.py": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+          "runtime/source/atm_mlmm/embeddings/__init__.py": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+          "runtime/source/atm_mlmm/embeddings/mechanical.py": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+          "runtime/source/atm_mlmm/endpoints.py": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+          "runtime/source/atm_mlmm/environment.py": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+          "runtime/source/atm_mlmm/evidence.py": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+          "runtime/source/atm_mlmm/exchange.py": "801757d189765d4b28088fe5dcc98b46866c5ae0e1257fd02d2eb3dba6cfeec2",
+          "runtime/source/atm_mlmm/exchange_journal.py": "29c6aaa3aef92cdb326b39fce9264e5a018f1db9ea3af414e4bdd50d8794a9a8",
+          "runtime/source/atm_mlmm/geometry.py": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+          "runtime/source/atm_mlmm/hybrid.py": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+          "runtime/source/atm_mlmm/identity.py": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+          "runtime/source/atm_mlmm/joint_reference.py": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+          "runtime/source/atm_mlmm/ledger.py": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+          "runtime/source/atm_mlmm/model_reference.py": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+          "runtime/source/atm_mlmm/models/__init__.py": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+          "runtime/source/atm_mlmm/models/analytic_boundary.py": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+          "runtime/source/atm_mlmm/models/mace.py": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+          "runtime/source/atm_mlmm/partition.py": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+          "runtime/source/atm_mlmm/persistence.py": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+          "runtime/source/atm_mlmm/prepare.py": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+          "runtime/source/atm_mlmm/protocols/__init__.py": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+          "runtime/source/atm_mlmm/protocols/abfe.py": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+          "runtime/source/atm_mlmm/protocols/rbfe.py": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+          "runtime/source/atm_mlmm/restraints.py": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+          "runtime/source/atm_mlmm/routing.py": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+          "runtime/source/atm_mlmm/schedule.py": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+          "runtime/source/atm_mlmm/schema.py": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+          "runtime/source/atm_mlmm/solvent.py": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+          "runtime/source/atm_mlmm/workflow.py": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc"
+        }
+      },
+      "rbfe": {
+        "bundled_exchange_py_sha256": "801757d189765d4b28088fe5dcc98b46866c5ae0e1257fd02d2eb3dba6cfeec2",
+        "committed_tree_manifests": [
+          {
+            "boundary": "initial",
+            "manifest_sha256": "86c11b86ddae5fa87cefb8ffbd53df1d28d6aeb41d05ab0c25c2c46a92c880dd"
+          },
+          {
+            "boundary": "000000",
+            "manifest_sha256": "fc383a5496a46dc34af65092ca0b65b0eb34962c25546a472760c9dd62b5e364"
+          }
+        ],
+        "multistate_metadata_sha256": "ee95774bf0a77fa4a030ab4e0effa0e46244eb0378f4f8697cf7014e7c7b55e4",
+        "prepared_metadata_sha256": "60e61eaf87ee183d5a7ee3782bf93375c7733a90835c976e9605ee3616ac0c7b",
+        "prepared_worker_manifest_sha256": "2adc4f859be35f71f2593f462919a2e91eebdf19290e536e29979914b8b32e32",
+        "source_file_count": 38,
+        "source_files": {
+          "runtime/source/atm_mlmm/__init__.py": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+          "runtime/source/atm_mlmm/__main__.py": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+          "runtime/source/atm_mlmm/adapters/__init__.py": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+          "runtime/source/atm_mlmm/adapters/atom.py": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+          "runtime/source/atm_mlmm/analysis.py": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+          "runtime/source/atm_mlmm/analytic.py": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+          "runtime/source/atm_mlmm/atm.py": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+          "runtime/source/atm_mlmm/capabilities.py": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+          "runtime/source/atm_mlmm/chemical_reference.py": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+          "runtime/source/atm_mlmm/derivatives.py": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+          "runtime/source/atm_mlmm/embeddings/__init__.py": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+          "runtime/source/atm_mlmm/embeddings/mechanical.py": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+          "runtime/source/atm_mlmm/endpoints.py": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+          "runtime/source/atm_mlmm/environment.py": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+          "runtime/source/atm_mlmm/evidence.py": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+          "runtime/source/atm_mlmm/exchange.py": "801757d189765d4b28088fe5dcc98b46866c5ae0e1257fd02d2eb3dba6cfeec2",
+          "runtime/source/atm_mlmm/exchange_journal.py": "29c6aaa3aef92cdb326b39fce9264e5a018f1db9ea3af414e4bdd50d8794a9a8",
+          "runtime/source/atm_mlmm/geometry.py": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+          "runtime/source/atm_mlmm/hybrid.py": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+          "runtime/source/atm_mlmm/identity.py": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+          "runtime/source/atm_mlmm/joint_reference.py": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+          "runtime/source/atm_mlmm/ledger.py": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+          "runtime/source/atm_mlmm/model_reference.py": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+          "runtime/source/atm_mlmm/models/__init__.py": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+          "runtime/source/atm_mlmm/models/analytic_boundary.py": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+          "runtime/source/atm_mlmm/models/mace.py": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+          "runtime/source/atm_mlmm/partition.py": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+          "runtime/source/atm_mlmm/persistence.py": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+          "runtime/source/atm_mlmm/prepare.py": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+          "runtime/source/atm_mlmm/protocols/__init__.py": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+          "runtime/source/atm_mlmm/protocols/abfe.py": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+          "runtime/source/atm_mlmm/protocols/rbfe.py": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+          "runtime/source/atm_mlmm/restraints.py": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+          "runtime/source/atm_mlmm/routing.py": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+          "runtime/source/atm_mlmm/schedule.py": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+          "runtime/source/atm_mlmm/schema.py": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+          "runtime/source/atm_mlmm/solvent.py": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+          "runtime/source/atm_mlmm/workflow.py": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc"
+        }
+      }
+    },
+    "probe-fix1": {
+      "abfe": {
+        "bundled_exchange_py_sha256": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+        "committed_tree_manifests": [
+          {
+            "boundary": "initial",
+            "manifest_sha256": "92b4066ee3591bd9fd2e0ef12afc5aa9a6219d28feeec45988e6d17cebaa4137"
+          },
+          {
+            "boundary": "000000",
+            "manifest_sha256": "23a666dc8876789bef8d40ddc8fc5f3587e12ecb0956c1bcbf7e6619f88b8af8"
+          },
+          {
+            "boundary": "000001",
+            "manifest_sha256": "9e316b90741860b0b8e9477217802131c12a2623c7adec5bb7e5e6060cb85782"
+          }
+        ],
+        "multistate_metadata_sha256": "1b9b3d1a9085db3edea51138e3d78caf1f7a370b53672306b1a863168f49eb64",
+        "prepared_metadata_sha256": "7e6e5cb7b4f7ad2b801adb51f19111f9a31a79eb2cf5f07aff17283331f89d7b",
+        "prepared_worker_manifest_sha256": "2a9079fdba3601b03c260fd1b3486d8a6e6002b1a898f575cbde56d2d53ccac6",
+        "source_file_count": 38,
+        "source_files": {
+          "runtime/source/atm_mlmm/__init__.py": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+          "runtime/source/atm_mlmm/__main__.py": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+          "runtime/source/atm_mlmm/adapters/__init__.py": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+          "runtime/source/atm_mlmm/adapters/atom.py": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+          "runtime/source/atm_mlmm/analysis.py": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+          "runtime/source/atm_mlmm/analytic.py": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+          "runtime/source/atm_mlmm/atm.py": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+          "runtime/source/atm_mlmm/capabilities.py": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+          "runtime/source/atm_mlmm/chemical_reference.py": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+          "runtime/source/atm_mlmm/derivatives.py": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+          "runtime/source/atm_mlmm/embeddings/__init__.py": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+          "runtime/source/atm_mlmm/embeddings/mechanical.py": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+          "runtime/source/atm_mlmm/endpoints.py": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+          "runtime/source/atm_mlmm/environment.py": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+          "runtime/source/atm_mlmm/evidence.py": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+          "runtime/source/atm_mlmm/exchange.py": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+          "runtime/source/atm_mlmm/exchange_journal.py": "29c6aaa3aef92cdb326b39fce9264e5a018f1db9ea3af414e4bdd50d8794a9a8",
+          "runtime/source/atm_mlmm/geometry.py": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+          "runtime/source/atm_mlmm/hybrid.py": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+          "runtime/source/atm_mlmm/identity.py": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+          "runtime/source/atm_mlmm/joint_reference.py": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+          "runtime/source/atm_mlmm/ledger.py": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+          "runtime/source/atm_mlmm/model_reference.py": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+          "runtime/source/atm_mlmm/models/__init__.py": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+          "runtime/source/atm_mlmm/models/analytic_boundary.py": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+          "runtime/source/atm_mlmm/models/mace.py": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+          "runtime/source/atm_mlmm/partition.py": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+          "runtime/source/atm_mlmm/persistence.py": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+          "runtime/source/atm_mlmm/prepare.py": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+          "runtime/source/atm_mlmm/protocols/__init__.py": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+          "runtime/source/atm_mlmm/protocols/abfe.py": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+          "runtime/source/atm_mlmm/protocols/rbfe.py": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+          "runtime/source/atm_mlmm/restraints.py": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+          "runtime/source/atm_mlmm/routing.py": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+          "runtime/source/atm_mlmm/schedule.py": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+          "runtime/source/atm_mlmm/schema.py": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+          "runtime/source/atm_mlmm/solvent.py": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+          "runtime/source/atm_mlmm/workflow.py": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc"
+        }
+      },
+      "rbfe": {
+        "bundled_exchange_py_sha256": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+        "committed_tree_manifests": [
+          {
+            "boundary": "initial",
+            "manifest_sha256": "55ffedf8b3f73688f084438fac3fdbc1032ff677671aaeee03f395d471ab4cde"
+          },
+          {
+            "boundary": "000000",
+            "manifest_sha256": "52ec5e7da4b07ad4f505165be378161d4d6180b6641eb6ce0e390b17d216a84c"
+          },
+          {
+            "boundary": "000001",
+            "manifest_sha256": "2c53fbd80ea3ecefb0c2567cb4963742e5fd886a8811b9fa422e16023bbf5231"
+          }
+        ],
+        "multistate_metadata_sha256": "c50f8c3fb774cb88144da2ba76d17e3d793066025293f878dcbb10f9ebbf12a0",
+        "prepared_metadata_sha256": "1462d0dd150dcc79b42eaef13dc13e829d8864213c4a543040efb967cddad4d6",
+        "prepared_worker_manifest_sha256": "2a0e5ff4c25ff6713027808bd80a487c3b991a18bd94c943909178f1c7d8fe1b",
+        "source_file_count": 38,
+        "source_files": {
+          "runtime/source/atm_mlmm/__init__.py": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+          "runtime/source/atm_mlmm/__main__.py": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+          "runtime/source/atm_mlmm/adapters/__init__.py": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+          "runtime/source/atm_mlmm/adapters/atom.py": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+          "runtime/source/atm_mlmm/analysis.py": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+          "runtime/source/atm_mlmm/analytic.py": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+          "runtime/source/atm_mlmm/atm.py": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+          "runtime/source/atm_mlmm/capabilities.py": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+          "runtime/source/atm_mlmm/chemical_reference.py": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+          "runtime/source/atm_mlmm/derivatives.py": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+          "runtime/source/atm_mlmm/embeddings/__init__.py": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+          "runtime/source/atm_mlmm/embeddings/mechanical.py": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+          "runtime/source/atm_mlmm/endpoints.py": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+          "runtime/source/atm_mlmm/environment.py": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+          "runtime/source/atm_mlmm/evidence.py": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+          "runtime/source/atm_mlmm/exchange.py": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+          "runtime/source/atm_mlmm/exchange_journal.py": "29c6aaa3aef92cdb326b39fce9264e5a018f1db9ea3af414e4bdd50d8794a9a8",
+          "runtime/source/atm_mlmm/geometry.py": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+          "runtime/source/atm_mlmm/hybrid.py": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+          "runtime/source/atm_mlmm/identity.py": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+          "runtime/source/atm_mlmm/joint_reference.py": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+          "runtime/source/atm_mlmm/ledger.py": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+          "runtime/source/atm_mlmm/model_reference.py": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+          "runtime/source/atm_mlmm/models/__init__.py": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+          "runtime/source/atm_mlmm/models/analytic_boundary.py": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+          "runtime/source/atm_mlmm/models/mace.py": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+          "runtime/source/atm_mlmm/partition.py": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+          "runtime/source/atm_mlmm/persistence.py": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+          "runtime/source/atm_mlmm/prepare.py": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+          "runtime/source/atm_mlmm/protocols/__init__.py": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+          "runtime/source/atm_mlmm/protocols/abfe.py": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+          "runtime/source/atm_mlmm/protocols/rbfe.py": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+          "runtime/source/atm_mlmm/restraints.py": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+          "runtime/source/atm_mlmm/routing.py": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+          "runtime/source/atm_mlmm/schedule.py": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+          "runtime/source/atm_mlmm/schema.py": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+          "runtime/source/atm_mlmm/solvent.py": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+          "runtime/source/atm_mlmm/workflow.py": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc"
+        }
+      }
+    },
+    "repair2": {
+      "abfe": {
+        "bundled_exchange_py_sha256": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+        "committed_tree_manifests": [
+          {
+            "boundary": "initial",
+            "manifest_sha256": "7d651eee69f1568cf905e9bd726def27cd101a09fd0b00154a0f0cc54efd63fe"
+          },
+          {
+            "boundary": "000000",
+            "manifest_sha256": "37fc3d9451497bebe132e63feae8626626e879db13d0afd4f4a5b05567b3235d"
+          },
+          {
+            "boundary": "000001",
+            "manifest_sha256": "49d59f8ec8bc595d2254cf32c46ded9b0d41975dbc0ed14e74010b41a68ee270"
+          }
+        ],
+        "multistate_metadata_sha256": "67c3130e29a75589418f663e0341fffadc8b5fbe68de3fd5db9714174ea5aadc",
+        "prepared_metadata_sha256": "33eaa47f74712c5f53a3e172c57eb776b9b9c50176cba139ab67d296a5963c19",
+        "prepared_worker_manifest_sha256": "2a9079fdba3601b03c260fd1b3486d8a6e6002b1a898f575cbde56d2d53ccac6",
+        "source_file_count": 38,
+        "source_files": {
+          "runtime/source/atm_mlmm/__init__.py": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+          "runtime/source/atm_mlmm/__main__.py": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+          "runtime/source/atm_mlmm/adapters/__init__.py": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+          "runtime/source/atm_mlmm/adapters/atom.py": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+          "runtime/source/atm_mlmm/analysis.py": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+          "runtime/source/atm_mlmm/analytic.py": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+          "runtime/source/atm_mlmm/atm.py": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+          "runtime/source/atm_mlmm/capabilities.py": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+          "runtime/source/atm_mlmm/chemical_reference.py": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+          "runtime/source/atm_mlmm/derivatives.py": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+          "runtime/source/atm_mlmm/embeddings/__init__.py": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+          "runtime/source/atm_mlmm/embeddings/mechanical.py": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+          "runtime/source/atm_mlmm/endpoints.py": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+          "runtime/source/atm_mlmm/environment.py": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+          "runtime/source/atm_mlmm/evidence.py": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+          "runtime/source/atm_mlmm/exchange.py": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+          "runtime/source/atm_mlmm/exchange_journal.py": "29c6aaa3aef92cdb326b39fce9264e5a018f1db9ea3af414e4bdd50d8794a9a8",
+          "runtime/source/atm_mlmm/geometry.py": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+          "runtime/source/atm_mlmm/hybrid.py": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+          "runtime/source/atm_mlmm/identity.py": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+          "runtime/source/atm_mlmm/joint_reference.py": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+          "runtime/source/atm_mlmm/ledger.py": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+          "runtime/source/atm_mlmm/model_reference.py": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+          "runtime/source/atm_mlmm/models/__init__.py": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+          "runtime/source/atm_mlmm/models/analytic_boundary.py": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+          "runtime/source/atm_mlmm/models/mace.py": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+          "runtime/source/atm_mlmm/partition.py": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+          "runtime/source/atm_mlmm/persistence.py": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+          "runtime/source/atm_mlmm/prepare.py": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+          "runtime/source/atm_mlmm/protocols/__init__.py": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+          "runtime/source/atm_mlmm/protocols/abfe.py": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+          "runtime/source/atm_mlmm/protocols/rbfe.py": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+          "runtime/source/atm_mlmm/restraints.py": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+          "runtime/source/atm_mlmm/routing.py": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+          "runtime/source/atm_mlmm/schedule.py": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+          "runtime/source/atm_mlmm/schema.py": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+          "runtime/source/atm_mlmm/solvent.py": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+          "runtime/source/atm_mlmm/workflow.py": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc"
+        }
+      },
+      "rbfe": {
+        "bundled_exchange_py_sha256": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+        "committed_tree_manifests": [
+          {
+            "boundary": "initial",
+            "manifest_sha256": "7f199cb1c490c409578fce7a9ead46a9a65da0fd8ee39f161e84bfb842529851"
+          },
+          {
+            "boundary": "000000",
+            "manifest_sha256": "df1c0c8e42a36abfc6a53e2a7b9ae960036adbfd5b1d2b81acac2c885684e4ed"
+          },
+          {
+            "boundary": "000001",
+            "manifest_sha256": "852ff07c1b5d719924a2b318274bc02faed25638ef57eab1fd25f566afe5ac7d"
+          }
+        ],
+        "multistate_metadata_sha256": "0133f18ea704cd00f8b485902daf48f162411331da7bb358df279f86f2daa629",
+        "prepared_metadata_sha256": "2aaae80da754be7125f677dd8b74b3614db5f3b663fc835120c21bb7a3c6c128",
+        "prepared_worker_manifest_sha256": "2a0e5ff4c25ff6713027808bd80a487c3b991a18bd94c943909178f1c7d8fe1b",
+        "source_file_count": 38,
+        "source_files": {
+          "runtime/source/atm_mlmm/__init__.py": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+          "runtime/source/atm_mlmm/__main__.py": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+          "runtime/source/atm_mlmm/adapters/__init__.py": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+          "runtime/source/atm_mlmm/adapters/atom.py": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+          "runtime/source/atm_mlmm/analysis.py": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+          "runtime/source/atm_mlmm/analytic.py": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+          "runtime/source/atm_mlmm/atm.py": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+          "runtime/source/atm_mlmm/capabilities.py": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+          "runtime/source/atm_mlmm/chemical_reference.py": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+          "runtime/source/atm_mlmm/derivatives.py": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+          "runtime/source/atm_mlmm/embeddings/__init__.py": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+          "runtime/source/atm_mlmm/embeddings/mechanical.py": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+          "runtime/source/atm_mlmm/endpoints.py": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+          "runtime/source/atm_mlmm/environment.py": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+          "runtime/source/atm_mlmm/evidence.py": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+          "runtime/source/atm_mlmm/exchange.py": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+          "runtime/source/atm_mlmm/exchange_journal.py": "29c6aaa3aef92cdb326b39fce9264e5a018f1db9ea3af414e4bdd50d8794a9a8",
+          "runtime/source/atm_mlmm/geometry.py": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+          "runtime/source/atm_mlmm/hybrid.py": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+          "runtime/source/atm_mlmm/identity.py": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+          "runtime/source/atm_mlmm/joint_reference.py": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+          "runtime/source/atm_mlmm/ledger.py": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+          "runtime/source/atm_mlmm/model_reference.py": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+          "runtime/source/atm_mlmm/models/__init__.py": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+          "runtime/source/atm_mlmm/models/analytic_boundary.py": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+          "runtime/source/atm_mlmm/models/mace.py": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+          "runtime/source/atm_mlmm/partition.py": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+          "runtime/source/atm_mlmm/persistence.py": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+          "runtime/source/atm_mlmm/prepare.py": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+          "runtime/source/atm_mlmm/protocols/__init__.py": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+          "runtime/source/atm_mlmm/protocols/abfe.py": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+          "runtime/source/atm_mlmm/protocols/rbfe.py": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+          "runtime/source/atm_mlmm/restraints.py": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+          "runtime/source/atm_mlmm/routing.py": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+          "runtime/source/atm_mlmm/schedule.py": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+          "runtime/source/atm_mlmm/schema.py": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+          "runtime/source/atm_mlmm/solvent.py": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+          "runtime/source/atm_mlmm/workflow.py": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc"
+        }
+      }
+    },
+    "repaired": {
+      "abfe": {
+        "bundled_exchange_py_sha256": "4e592c9e045dd9ca1efbb084d81f07ac2c606c9f5366453a8ea02d8de62d01f9",
+        "committed_tree_manifests": [
+          {
+            "boundary": "initial",
+            "manifest_sha256": "a0d867b5e312398026d3daf91de7f7c5fa16e9136801021873b54678be5abb02"
+          },
+          {
+            "boundary": "000000",
+            "manifest_sha256": "f2a78bf90496093785c023bf19f35bf5e1a2e7a80aeb55b7b3f4266da5538c0f"
+          }
+        ],
+        "multistate_metadata_sha256": "93236363ac8c8e7feb16dc7cc6b2145de084c155283289b4f01979f98b59567e",
+        "prepared_metadata_sha256": "ec748e139a2bdff024cba898082ce920cc9cdd0fb2e52e6ec6371ac9d640ac26",
+        "prepared_worker_manifest_sha256": "912eea8159b95e9e0cd9d252e9803b775a62d1a1431a737e4bcf4847974ce383",
+        "source_file_count": 38,
+        "source_files": {
+          "runtime/source/atm_mlmm/__init__.py": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+          "runtime/source/atm_mlmm/__main__.py": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+          "runtime/source/atm_mlmm/adapters/__init__.py": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+          "runtime/source/atm_mlmm/adapters/atom.py": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+          "runtime/source/atm_mlmm/analysis.py": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+          "runtime/source/atm_mlmm/analytic.py": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+          "runtime/source/atm_mlmm/atm.py": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+          "runtime/source/atm_mlmm/capabilities.py": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+          "runtime/source/atm_mlmm/chemical_reference.py": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+          "runtime/source/atm_mlmm/derivatives.py": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+          "runtime/source/atm_mlmm/embeddings/__init__.py": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+          "runtime/source/atm_mlmm/embeddings/mechanical.py": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+          "runtime/source/atm_mlmm/endpoints.py": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+          "runtime/source/atm_mlmm/environment.py": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+          "runtime/source/atm_mlmm/evidence.py": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+          "runtime/source/atm_mlmm/exchange.py": "4e592c9e045dd9ca1efbb084d81f07ac2c606c9f5366453a8ea02d8de62d01f9",
+          "runtime/source/atm_mlmm/exchange_journal.py": "29c6aaa3aef92cdb326b39fce9264e5a018f1db9ea3af414e4bdd50d8794a9a8",
+          "runtime/source/atm_mlmm/geometry.py": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+          "runtime/source/atm_mlmm/hybrid.py": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+          "runtime/source/atm_mlmm/identity.py": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+          "runtime/source/atm_mlmm/joint_reference.py": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+          "runtime/source/atm_mlmm/ledger.py": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+          "runtime/source/atm_mlmm/model_reference.py": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+          "runtime/source/atm_mlmm/models/__init__.py": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+          "runtime/source/atm_mlmm/models/analytic_boundary.py": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+          "runtime/source/atm_mlmm/models/mace.py": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+          "runtime/source/atm_mlmm/partition.py": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+          "runtime/source/atm_mlmm/persistence.py": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+          "runtime/source/atm_mlmm/prepare.py": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+          "runtime/source/atm_mlmm/protocols/__init__.py": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+          "runtime/source/atm_mlmm/protocols/abfe.py": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+          "runtime/source/atm_mlmm/protocols/rbfe.py": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+          "runtime/source/atm_mlmm/restraints.py": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+          "runtime/source/atm_mlmm/routing.py": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+          "runtime/source/atm_mlmm/schedule.py": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+          "runtime/source/atm_mlmm/schema.py": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+          "runtime/source/atm_mlmm/solvent.py": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+          "runtime/source/atm_mlmm/workflow.py": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc"
+        }
+      },
+      "rbfe": {
+        "bundled_exchange_py_sha256": "4e592c9e045dd9ca1efbb084d81f07ac2c606c9f5366453a8ea02d8de62d01f9",
+        "committed_tree_manifests": [
+          {
+            "boundary": "initial",
+            "manifest_sha256": "a26153e7f473c333d666d1983d0e76cc6ddfea0252a4f4b32508714bbb961c8e"
+          },
+          {
+            "boundary": "000000",
+            "manifest_sha256": "de47d5054753a81334e5fc6a693ade6bee20b7d815302d871f8d4a2e41cbe908"
+          }
+        ],
+        "multistate_metadata_sha256": "a218852726f5e6e4aca599cd913890d68a14fe8d1c22e0f20ed0e4b0419d01ca",
+        "prepared_metadata_sha256": "efe3da0ccbad2e3b546f8a1729a4c07b9c5f58931793166bceb0edfd4be4b3b7",
+        "prepared_worker_manifest_sha256": "276e6f004cce1bbf1d5977cc395378f255b0f9487eddbcc726f2b75e52e36ead",
+        "source_file_count": 38,
+        "source_files": {
+          "runtime/source/atm_mlmm/__init__.py": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+          "runtime/source/atm_mlmm/__main__.py": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+          "runtime/source/atm_mlmm/adapters/__init__.py": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+          "runtime/source/atm_mlmm/adapters/atom.py": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+          "runtime/source/atm_mlmm/analysis.py": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+          "runtime/source/atm_mlmm/analytic.py": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+          "runtime/source/atm_mlmm/atm.py": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+          "runtime/source/atm_mlmm/capabilities.py": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+          "runtime/source/atm_mlmm/chemical_reference.py": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+          "runtime/source/atm_mlmm/derivatives.py": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+          "runtime/source/atm_mlmm/embeddings/__init__.py": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+          "runtime/source/atm_mlmm/embeddings/mechanical.py": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+          "runtime/source/atm_mlmm/endpoints.py": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+          "runtime/source/atm_mlmm/environment.py": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+          "runtime/source/atm_mlmm/evidence.py": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+          "runtime/source/atm_mlmm/exchange.py": "4e592c9e045dd9ca1efbb084d81f07ac2c606c9f5366453a8ea02d8de62d01f9",
+          "runtime/source/atm_mlmm/exchange_journal.py": "29c6aaa3aef92cdb326b39fce9264e5a018f1db9ea3af414e4bdd50d8794a9a8",
+          "runtime/source/atm_mlmm/geometry.py": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+          "runtime/source/atm_mlmm/hybrid.py": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+          "runtime/source/atm_mlmm/identity.py": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+          "runtime/source/atm_mlmm/joint_reference.py": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+          "runtime/source/atm_mlmm/ledger.py": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+          "runtime/source/atm_mlmm/model_reference.py": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+          "runtime/source/atm_mlmm/models/__init__.py": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+          "runtime/source/atm_mlmm/models/analytic_boundary.py": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+          "runtime/source/atm_mlmm/models/mace.py": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+          "runtime/source/atm_mlmm/partition.py": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+          "runtime/source/atm_mlmm/persistence.py": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+          "runtime/source/atm_mlmm/prepare.py": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+          "runtime/source/atm_mlmm/protocols/__init__.py": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+          "runtime/source/atm_mlmm/protocols/abfe.py": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+          "runtime/source/atm_mlmm/protocols/rbfe.py": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+          "runtime/source/atm_mlmm/restraints.py": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+          "runtime/source/atm_mlmm/routing.py": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+          "runtime/source/atm_mlmm/schedule.py": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+          "runtime/source/atm_mlmm/schema.py": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+          "runtime/source/atm_mlmm/solvent.py": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+          "runtime/source/atm_mlmm/workflow.py": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc"
+        }
+      }
+    }
+  },
+  "starting_head": "1f26d2e52f63f0d3b734c5e5dd0f4fe0f51dd8df"
+}

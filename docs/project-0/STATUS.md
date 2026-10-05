@@ -1,17 +1,28 @@
 # Current status
 
-**G10 multistate core Tasks 1–3 are implemented; the pilot and combined audit
-remain pending.** Child branch `g10-engine-next` starts from
-`bd44b2c93a5cba40225dba632f0277e535467be9`. Source/result commit
+**G10 multistate Tasks 1–4 are implemented; the independent combined audit is
+pending.** On `g10-engine-next`, the multistate core source/result commit
 `cef01748db1d872775c1cb88e67f881182066e6c` adds the bounded 3–8-state serial
-controller, inert journal checks and analytic/fault regressions; test-only
-follow-up `5a8ab584cc9af9e74afb7f2d926ca8b4af688e41` covers a secondary archive
-failure. The retained
-pair/export/restart command passes **73 tests in 195.08 seconds**, with no skips;
-the docs self-test reports zero errors. This is implementation evidence, not
-G10 acceptance. The next worker owns Task 4’s solvated pilots and usage docs,
-followed by combined CPU verification and audit; no pilots or full CPU suite
-ran in this core task. See the [G10 v4 worker record](../../Worker_Log/Milestone_05/Gate_10_v4_worker.md).
+controller and analytic/fault regressions, with test-only archive follow-up
+`5a8ab584cc9af9e74afb7f2d926ca8b4af688e41`. Task 4 starts from exact clean
+HEAD `1f26d2e52f63f0d3b734c5e5dd0f4fe0f51dd8df`; code/result commit
+`a507bbddfccc1a88b8df4ab18277040889bf379c` adds v2 ABFE/RBFE pilots, usage docs,
+and a minimal checkpoint/sample identity repair. The repair preserves exact
+sample/report hashes and portable-State/checkpoint equality, adds a `1e-15 nm`
+captured-sample/checkpoint position bound for measured OpenMM unit-roundtrip
+drift, and uses the existing `1e-8` raw-energy comparison. Physical definitions
+and accepted Hamiltonian tolerances are unchanged. The fresh pilots pass
+**2 tests in 156.56 s**; required pair/export/restart compatibility passes
+**74 tests in 171.69 s**; the single combined CPU suite passes **577 tests in
+913.26 s**, all with no skips. The docs self-test reports zero errors. Full
+failure and source history, local run artifacts, and resource scopes are in
+the [G10 v5 evidence](../../Worker_Log/Milestone_05/evidence/G10_v5/README.md)
+and [v5 worker record](../../Worker_Log/Milestone_05/Gate_10_v5_worker.md).
+This is implementation evidence, not G10/M05 acceptance. Full G10/M05,
+affinity/equilibrium/mixing/uncertainty claims and existing G07 physical/
+reference blockers remain open; the 46 G05 records and QM ledger
+`2325.6446500519996 / 86400 s` are unchanged. The v4 core report remains
+preserved at [Gate_10_v4_worker.md](../../Worker_Log/Milestone_05/Gate_10_v4_worker.md).
 
 **Current continuation: CPU engine development on `cloud-engine-continuation`.**
 The [current handoff](handoffs/CLOUD-ENGINE-CONTINUATION.md) supersedes earlier

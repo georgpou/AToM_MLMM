@@ -1,0 +1,1546 @@
+{
+  "cases": [
+    {
+      "actual_context_oracle": {
+        "attempted_pair_matrices": [
+          {
+            "accepted": true,
+            "attempt_index": 0,
+            "boundary_index": 0,
+            "exponent_actual_context": 0.0074874061974696815,
+            "raw_energies_actual_context": [
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -711738.6675883938,
+                  "delta_u_raw_kJ_mol": 2.4796539675444365,
+                  "delta_u_softcore_kJ_mol": 2.4796539675444365,
+                  "outside_energy_kJ_mol": 6.477485377870343e-07,
+                  "system_total_energy_kJ_mol": -711738.667587746,
+                  "u0_raw_kJ_mol": -711738.6675883938,
+                  "u1_raw_kJ_mol": -711736.1879344262
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -711738.6308476715,
+                  "delta_u_raw_kJ_mol": 2.44230171199888,
+                  "delta_u_softcore_kJ_mol": 2.44230171199888,
+                  "outside_energy_kJ_mol": 6.457097635049781e-07,
+                  "system_total_energy_kJ_mol": -711738.6308470258,
+                  "u0_raw_kJ_mol": -711738.6308476715,
+                  "u1_raw_kJ_mol": -711736.1885459595
+                }
+              ],
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -711737.42776141,
+                  "delta_u_raw_kJ_mol": 2.4796539675444365,
+                  "delta_u_softcore_kJ_mol": 2.4796539675444365,
+                  "outside_energy_kJ_mol": 6.477485377870343e-07,
+                  "system_total_energy_kJ_mol": -711737.4277607623,
+                  "u0_raw_kJ_mol": -711738.6675883938,
+                  "u1_raw_kJ_mol": -711736.1879344262
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -711737.4096968155,
+                  "delta_u_raw_kJ_mol": 2.44230171199888,
+                  "delta_u_softcore_kJ_mol": 2.44230171199888,
+                  "outside_energy_kJ_mol": 6.457097635049781e-07,
+                  "system_total_energy_kJ_mol": -711737.4096961698,
+                  "u0_raw_kJ_mol": -711738.6308476715,
+                  "u1_raw_kJ_mol": -711736.1885459595
+                }
+              ]
+            ],
+            "reduced_energies_actual_context": [
+              [
+                -285341.61908583384,
+                -285341.60435619066
+              ],
+              [
+                -285341.12202946324,
+                -285341.1147872263
+              ]
+            ],
+            "state_pair_indices": [
+              0,
+              1
+            ],
+            "worker_indices": [
+              0,
+              1
+            ]
+          },
+          {
+            "accepted": true,
+            "attempt_index": 1,
+            "boundary_index": 0,
+            "exponent_actual_context": 0.013284118846058846,
+            "raw_energies_actual_context": [
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -711737.42776141,
+                  "delta_u_raw_kJ_mol": 2.4796539675444365,
+                  "delta_u_softcore_kJ_mol": 2.4796539675444365,
+                  "outside_energy_kJ_mol": 6.477485377870343e-07,
+                  "system_total_energy_kJ_mol": -711737.4277607623,
+                  "u0_raw_kJ_mol": -711738.6675883938,
+                  "u1_raw_kJ_mol": -711736.1879344262
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -711737.5054688728,
+                  "delta_u_raw_kJ_mol": 2.4133837814442813,
+                  "delta_u_softcore_kJ_mol": 2.4133837814442813,
+                  "outside_energy_kJ_mol": 6.688009243167277e-07,
+                  "system_total_energy_kJ_mol": -711737.505468204,
+                  "u0_raw_kJ_mol": -711738.7121607636,
+                  "u1_raw_kJ_mol": -711736.2987769821
+                }
+              ],
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -711736.1879344262,
+                  "delta_u_raw_kJ_mol": 2.4796539675444365,
+                  "delta_u_softcore_kJ_mol": 2.4796539675444365,
+                  "outside_energy_kJ_mol": 6.477485377870343e-07,
+                  "system_total_energy_kJ_mol": -711736.1879337785,
+                  "u0_raw_kJ_mol": -711738.6675883938,
+                  "u1_raw_kJ_mol": -711736.1879344262
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -711736.2987769821,
+                  "delta_u_raw_kJ_mol": 2.4133837814442813,
+                  "delta_u_softcore_kJ_mol": 2.4133837814442813,
+                  "outside_energy_kJ_mol": 6.688009243167277e-07,
+                  "system_total_energy_kJ_mol": -711736.2987763133,
+                  "u0_raw_kJ_mol": -711738.7121607636,
+                  "u1_raw_kJ_mol": -711736.2987769821
+                }
+              ]
+            ],
+            "reduced_energies_actual_context": [
+              [
+                -285341.12202946324,
+                -285341.15318298666
+              ],
+              [
+                -285340.62497309264,
+                -285340.66941073496
+              ]
+            ],
+            "state_pair_indices": [
+              1,
+              2
+            ],
+            "worker_indices": [
+              0,
+              2
+            ]
+          },
+          {
+            "accepted": true,
+            "attempt_index": 0,
+            "boundary_index": 1,
+            "exponent_actual_context": 0.017894165066536516,
+            "raw_energies_actual_context": [
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -711728.0521950631,
+                  "delta_u_raw_kJ_mol": 2.745335855637677,
+                  "delta_u_softcore_kJ_mol": 2.745335855637677,
+                  "outside_energy_kJ_mol": 2.5713526095290923e-06,
+                  "system_total_energy_kJ_mol": -711728.0521924917,
+                  "u0_raw_kJ_mol": -711728.0521950631,
+                  "u1_raw_kJ_mol": -711725.3068592075
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -711728.2080819063,
+                  "delta_u_raw_kJ_mol": 2.65606763609685,
+                  "delta_u_softcore_kJ_mol": 2.65606763609685,
+                  "outside_energy_kJ_mol": 2.692384878203454e-06,
+                  "system_total_energy_kJ_mol": -711728.208079214,
+                  "u0_raw_kJ_mol": -711728.2080819063,
+                  "u1_raw_kJ_mol": -711725.5520142702
+                }
+              ],
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -711726.6795271353,
+                  "delta_u_raw_kJ_mol": 2.745335855637677,
+                  "delta_u_softcore_kJ_mol": 2.745335855637677,
+                  "outside_energy_kJ_mol": 2.5713526095290923e-06,
+                  "system_total_energy_kJ_mol": -711726.679524564,
+                  "u0_raw_kJ_mol": -711728.0521950631,
+                  "u1_raw_kJ_mol": -711725.3068592075
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -711726.8800480883,
+                  "delta_u_raw_kJ_mol": 2.65606763609685,
+                  "delta_u_softcore_kJ_mol": 2.65606763609685,
+                  "outside_energy_kJ_mol": 2.692384878203454e-06,
+                  "system_total_energy_kJ_mol": -711726.8800453959,
+                  "u0_raw_kJ_mol": -711728.2080819063,
+                  "u1_raw_kJ_mol": -711725.5520142702
+                }
+              ]
+            ],
+            "reduced_energies_actual_context": [
+              [
+                -285337.363290544,
+                -285337.4257867547
+              ],
+              [
+                -285336.8129771961,
+                -285336.8933675718
+              ]
+            ],
+            "state_pair_indices": [
+              0,
+              1
+            ],
+            "worker_indices": [
+              1,
+              2
+            ]
+          },
+          {
+            "accepted": true,
+            "attempt_index": 1,
+            "boundary_index": 1,
+            "exponent_actual_context": -0.0007867298554629087,
+            "raw_energies_actual_context": [
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -711726.6795271353,
+                  "delta_u_raw_kJ_mol": 2.745335855637677,
+                  "delta_u_softcore_kJ_mol": 2.745335855637677,
+                  "outside_energy_kJ_mol": 2.5713526095290923e-06,
+                  "system_total_energy_kJ_mol": -711726.679524564,
+                  "u0_raw_kJ_mol": -711728.0521950631,
+                  "u1_raw_kJ_mol": -711725.3068592075
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -711726.7147253631,
+                  "delta_u_raw_kJ_mol": 2.749260597047396,
+                  "delta_u_softcore_kJ_mol": 2.749260597047396,
+                  "outside_energy_kJ_mol": 2.5760768387058044e-06,
+                  "system_total_energy_kJ_mol": -711726.714722787,
+                  "u0_raw_kJ_mol": -711728.0893556615,
+                  "u1_raw_kJ_mol": -711725.3400950645
+                }
+              ],
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -711725.3068592075,
+                  "delta_u_raw_kJ_mol": 2.745335855637677,
+                  "delta_u_softcore_kJ_mol": 2.745335855637677,
+                  "outside_energy_kJ_mol": 2.5713526095290923e-06,
+                  "system_total_energy_kJ_mol": -711725.3068566361,
+                  "u0_raw_kJ_mol": -711728.0521950631,
+                  "u1_raw_kJ_mol": -711725.3068592075
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -711725.3400950645,
+                  "delta_u_raw_kJ_mol": 2.749260597047396,
+                  "delta_u_softcore_kJ_mol": 2.749260597047396,
+                  "outside_energy_kJ_mol": 2.5760768387058044e-06,
+                  "system_total_energy_kJ_mol": -711725.3400924884,
+                  "u0_raw_kJ_mol": -711728.0893556615,
+                  "u1_raw_kJ_mol": -711725.3400950645
+                }
+              ]
+            ],
+            "reduced_energies_actual_context": [
+              [
+                -285336.8129771961,
+                -285336.82708844007
+              ],
+              [
+                -285336.26266384823,
+                -285336.2759883623
+              ]
+            ],
+            "state_pair_indices": [
+              1,
+              2
+            ],
+            "worker_indices": [
+              1,
+              0
+            ]
+          }
+        ],
+        "binding_result": "not_evaluated",
+        "cap_parent_atom_ids": [
+          "p4",
+          "p5"
+        ],
+        "cap_parent_forces_checked_from_saved_samples": 6,
+        "case": "abfe",
+        "energy_tolerance_kJ_mol": 1e-08,
+        "full_schedule_matrix_max_abs_error_reduced_energy": 0.0,
+        "full_schedule_matrix_reconstruction_shape": [
+          3,
+          6
+        ],
+        "nonzero_outside_anchor_energy_count": 18,
+        "ordered_state_pairs": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "pair_attempt_count": 4,
+        "sample_count": 6,
+        "state_ids": [
+          "contact",
+          "middle",
+          "separated"
+        ]
+      },
+      "boundaries": [
+        {
+          "boundary_index": 0,
+          "pair_count": 2,
+          "samples": [
+            {
+              "box_present": true,
+              "capture_time_state_id": "contact",
+              "full_force_shape": [
+                224,
+                3
+              ],
+              "map_diagnostics": [
+                {
+                  "closest_pair": [
+                    "p18",
+                    "a:l1"
+                  ],
+                  "map": "map0",
+                  "minimum_intermolecular_Bondi_ratio": 0.7433508126647994,
+                  "minimum_ligand_cap_distance_nm": 0.36537346770767143
+                },
+                {
+                  "closest_pair": [
+                    "p9",
+                    "dense-water-25:H1"
+                  ],
+                  "map": "map1",
+                  "minimum_intermolecular_Bondi_ratio": 0.8017178287312704,
+                  "minimum_ligand_cap_distance_nm": 2.687502282865521
+                }
+              ],
+              "parameters": {
+                "Acore": 0.0,
+                "Alpha": 0.1,
+                "Direction": 1.0,
+                "Lambda1": 0.0,
+                "Lambda2": 0.0,
+                "UOffset": 0.0,
+                "Ubcore": 500.0,
+                "Uh": 0.0,
+                "Umax": 10000.0,
+                "W0": 0.0
+              },
+              "raw": {
+                "atm_expression_energy_kJ_mol": -711738.6675883938,
+                "delta_u_raw_kJ_mol": 2.4796539675444365,
+                "delta_u_softcore_kJ_mol": 2.4796539675444365,
+                "outside_energy_kJ_mol": 6.477485377870343e-07,
+                "system_total_energy_kJ_mol": -711738.667587746,
+                "u0_raw_kJ_mol": -711738.6675883938,
+                "u1_raw_kJ_mol": -711736.1879344262
+              },
+              "real_atom_count": 224,
+              "sample_id": "3c024279a4704faf8a6f70d8c8d48fea:walker-0:boundary-1",
+              "sequence_number": 1,
+              "velocities_present": true,
+              "walker_id": "3c024279a4704faf8a6f70d8c8d48fea:walker-0",
+              "walker_index": 0
+            },
+            {
+              "box_present": true,
+              "capture_time_state_id": "middle",
+              "full_force_shape": [
+                224,
+                3
+              ],
+              "map_diagnostics": [
+                {
+                  "closest_pair": [
+                    "p18",
+                    "a:l1"
+                  ],
+                  "map": "map0",
+                  "minimum_intermolecular_Bondi_ratio": 0.7433679121535488,
+                  "minimum_ligand_cap_distance_nm": 0.36537452336834275
+                },
+                {
+                  "closest_pair": [
+                    "p9",
+                    "dense-water-25:H1"
+                  ],
+                  "map": "map1",
+                  "minimum_intermolecular_Bondi_ratio": 0.801746690848372,
+                  "minimum_ligand_cap_distance_nm": 2.687491796622717
+                }
+              ],
+              "parameters": {
+                "Acore": 0.0,
+                "Alpha": 0.1,
+                "Direction": 1.0,
+                "Lambda1": 0.5,
+                "Lambda2": 0.5,
+                "UOffset": 0.0,
+                "Ubcore": 500.0,
+                "Uh": 0.0,
+                "Umax": 10000.0,
+                "W0": 0.0
+              },
+              "raw": {
+                "atm_expression_energy_kJ_mol": -711737.4096968155,
+                "delta_u_raw_kJ_mol": 2.44230171199888,
+                "delta_u_softcore_kJ_mol": 2.44230171199888,
+                "outside_energy_kJ_mol": 6.457097635049781e-07,
+                "system_total_energy_kJ_mol": -711737.4096961698,
+                "u0_raw_kJ_mol": -711738.6308476715,
+                "u1_raw_kJ_mol": -711736.1885459595
+              },
+              "real_atom_count": 224,
+              "sample_id": "3c024279a4704faf8a6f70d8c8d48fea:walker-1:boundary-1",
+              "sequence_number": 1,
+              "velocities_present": true,
+              "walker_id": "3c024279a4704faf8a6f70d8c8d48fea:walker-1",
+              "walker_index": 1
+            },
+            {
+              "box_present": true,
+              "capture_time_state_id": "separated",
+              "full_force_shape": [
+                224,
+                3
+              ],
+              "map_diagnostics": [
+                {
+                  "closest_pair": [
+                    "p18",
+                    "a:l1"
+                  ],
+                  "map": "map0",
+                  "minimum_intermolecular_Bondi_ratio": 0.7433976560096225,
+                  "minimum_ligand_cap_distance_nm": 0.36537962855152967
+                },
+                {
+                  "closest_pair": [
+                    "p9",
+                    "dense-water-25:H1"
+                  ],
+                  "map": "map1",
+                  "minimum_intermolecular_Bondi_ratio": 0.8018186388642994,
+                  "minimum_ligand_cap_distance_nm": 2.687500925365763
+                }
+              ],
+              "parameters": {
+                "Acore": 0.0,
+                "Alpha": 0.1,
+                "Direction": 1.0,
+                "Lambda1": 1.0,
+                "Lambda2": 1.0,
+                "UOffset": 0.0,
+                "Ubcore": 500.0,
+                "Uh": 0.0,
+                "Umax": 10000.0,
+                "W0": 0.0
+              },
+              "raw": {
+                "atm_expression_energy_kJ_mol": -711736.2987769821,
+                "delta_u_raw_kJ_mol": 2.4133837814442813,
+                "delta_u_softcore_kJ_mol": 2.4133837814442813,
+                "outside_energy_kJ_mol": 6.688009243167277e-07,
+                "system_total_energy_kJ_mol": -711736.2987763133,
+                "u0_raw_kJ_mol": -711738.7121607636,
+                "u1_raw_kJ_mol": -711736.2987769821
+              },
+              "real_atom_count": 224,
+              "sample_id": "3c024279a4704faf8a6f70d8c8d48fea:walker-2:boundary-1",
+              "sequence_number": 1,
+              "velocities_present": true,
+              "walker_id": "3c024279a4704faf8a6f70d8c8d48fea:walker-2",
+              "walker_index": 2
+            }
+          ],
+          "walker_to_state_final": [
+            2,
+            0,
+            1
+          ],
+          "walker_to_state_start": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "boundary_index": 1,
+          "pair_count": 2,
+          "samples": [
+            {
+              "box_present": true,
+              "capture_time_state_id": "separated",
+              "full_force_shape": [
+                224,
+                3
+              ],
+              "map_diagnostics": [
+                {
+                  "closest_pair": [
+                    "p18",
+                    "a:l1"
+                  ],
+                  "map": "map0",
+                  "minimum_intermolecular_Bondi_ratio": 0.7436759024403816,
+                  "minimum_ligand_cap_distance_nm": 0.3654532266760928
+                },
+                {
+                  "closest_pair": [
+                    "p9",
+                    "dense-water-25:H1"
+                  ],
+                  "map": "map1",
+                  "minimum_intermolecular_Bondi_ratio": 0.8008436708724557,
+                  "minimum_ligand_cap_distance_nm": 2.686932545166255
+                }
+              ],
+              "parameters": {
+                "Acore": 0.0,
+                "Alpha": 0.1,
+                "Direction": 1.0,
+                "Lambda1": 1.0,
+                "Lambda2": 1.0,
+                "UOffset": 0.0,
+                "Ubcore": 500.0,
+                "Uh": 0.0,
+                "Umax": 10000.0,
+                "W0": 0.0
+              },
+              "raw": {
+                "atm_expression_energy_kJ_mol": -711725.3400950645,
+                "delta_u_raw_kJ_mol": 2.749260597047396,
+                "delta_u_softcore_kJ_mol": 2.749260597047396,
+                "outside_energy_kJ_mol": 2.5760768387058044e-06,
+                "system_total_energy_kJ_mol": -711725.3400924884,
+                "u0_raw_kJ_mol": -711728.0893556615,
+                "u1_raw_kJ_mol": -711725.3400950645
+              },
+              "real_atom_count": 224,
+              "sample_id": "3c024279a4704faf8a6f70d8c8d48fea:walker-0:boundary-2",
+              "sequence_number": 2,
+              "velocities_present": true,
+              "walker_id": "3c024279a4704faf8a6f70d8c8d48fea:walker-0",
+              "walker_index": 0
+            },
+            {
+              "box_present": true,
+              "capture_time_state_id": "contact",
+              "full_force_shape": [
+                224,
+                3
+              ],
+              "map_diagnostics": [
+                {
+                  "closest_pair": [
+                    "p18",
+                    "a:l1"
+                  ],
+                  "map": "map0",
+                  "minimum_intermolecular_Bondi_ratio": 0.7436515344797415,
+                  "minimum_ligand_cap_distance_nm": 0.3654514496117947
+                },
+                {
+                  "closest_pair": [
+                    "p9",
+                    "dense-water-25:H1"
+                  ],
+                  "map": "map1",
+                  "minimum_intermolecular_Bondi_ratio": 0.8008459799734469,
+                  "minimum_ligand_cap_distance_nm": 2.686965742107269
+                }
+              ],
+              "parameters": {
+                "Acore": 0.0,
+                "Alpha": 0.1,
+                "Direction": 1.0,
+                "Lambda1": 0.0,
+                "Lambda2": 0.0,
+                "UOffset": 0.0,
+                "Ubcore": 500.0,
+                "Uh": 0.0,
+                "Umax": 10000.0,
+                "W0": 0.0
+              },
+              "raw": {
+                "atm_expression_energy_kJ_mol": -711728.0521950631,
+                "delta_u_raw_kJ_mol": 2.745335855637677,
+                "delta_u_softcore_kJ_mol": 2.745335855637677,
+                "outside_energy_kJ_mol": 2.5713526095290923e-06,
+                "system_total_energy_kJ_mol": -711728.0521924917,
+                "u0_raw_kJ_mol": -711728.0521950631,
+                "u1_raw_kJ_mol": -711725.3068592075
+              },
+              "real_atom_count": 224,
+              "sample_id": "3c024279a4704faf8a6f70d8c8d48fea:walker-1:boundary-2",
+              "sequence_number": 2,
+              "velocities_present": true,
+              "walker_id": "3c024279a4704faf8a6f70d8c8d48fea:walker-1",
+              "walker_index": 1
+            },
+            {
+              "box_present": true,
+              "capture_time_state_id": "middle",
+              "full_force_shape": [
+                224,
+                3
+              ],
+              "map_diagnostics": [
+                {
+                  "closest_pair": [
+                    "p18",
+                    "a:l1"
+                  ],
+                  "map": "map0",
+                  "minimum_intermolecular_Bondi_ratio": 0.7437913102300712,
+                  "minimum_ligand_cap_distance_nm": 0.36547229381071805
+                },
+                {
+                  "closest_pair": [
+                    "p9",
+                    "dense-water-25:H1"
+                  ],
+                  "map": "map1",
+                  "minimum_intermolecular_Bondi_ratio": 0.8010705172252994,
+                  "minimum_ligand_cap_distance_nm": 2.686986081091068
+                }
+              ],
+              "parameters": {
+                "Acore": 0.0,
+                "Alpha": 0.1,
+                "Direction": 1.0,
+                "Lambda1": 0.5,
+                "Lambda2": 0.5,
+                "UOffset": 0.0,
+                "Ubcore": 500.0,
+                "Uh": 0.0,
+                "Umax": 10000.0,
+                "W0": 0.0
+              },
+              "raw": {
+                "atm_expression_energy_kJ_mol": -711726.8800480883,
+                "delta_u_raw_kJ_mol": 2.65606763609685,
+                "delta_u_softcore_kJ_mol": 2.65606763609685,
+                "outside_energy_kJ_mol": 2.692384878203454e-06,
+                "system_total_energy_kJ_mol": -711726.8800453959,
+                "u0_raw_kJ_mol": -711728.2080819063,
+                "u1_raw_kJ_mol": -711725.5520142702
+              },
+              "real_atom_count": 224,
+              "sample_id": "3c024279a4704faf8a6f70d8c8d48fea:walker-2:boundary-2",
+              "sequence_number": 2,
+              "velocities_present": true,
+              "walker_id": "3c024279a4704faf8a6f70d8c8d48fea:walker-2",
+              "walker_index": 2
+            }
+          ],
+          "walker_to_state_final": [
+            1,
+            2,
+            0
+          ],
+          "walker_to_state_start": [
+            2,
+            0,
+            1
+          ]
+        }
+      ],
+      "case": "abfe",
+      "committed_tree_manifests_sha256": {
+        "boundary-000000": "23a666dc8876789bef8d40ddc8fc5f3587e12ecb0956c1bcbf7e6619f88b8af8",
+        "boundary-000001": "9e316b90741860b0b8e9477217802131c12a2623c7adec5bb7e5e6060cb85782",
+        "initial": "92b4066ee3591bd9fd2e0ef12afc5aa9a6219d28feeec45988e6d17cebaa4137"
+      },
+      "copied_input_hashes_unchanged": {
+        "manifest.json": "db063aaf141f3bd21229ea388df3e927c44d70b03bbcca7d1cf4fbe2f0d0b054",
+        "partition.json": "9f3992426964546e751aba7db3a15bbeae136478719a42add5679cb62d49dd0a",
+        "snapshot.json": "29a0f65763d169c1a7fe80a41da62dd01587e26eefb7588436f2098ebacd03b4",
+        "system-input.json": "cd1c5f6c9a8e16499c17a87477646d86680f03a950e7d06b647657d6879ac274"
+      },
+      "input_config_original_sha256": "95442f332740badd917230a5d7fd96786640eb371383d184b3947405668a57ac",
+      "input_manifest_sha256": "db063aaf141f3bd21229ea388df3e927c44d70b03bbcca7d1cf4fbe2f0d0b054",
+      "multistate_metadata_sha256": "1b9b3d1a9085db3edea51138e3d78caf1f7a370b53672306b1a863168f49eb64",
+      "prepared_metadata_sha256": "7e6e5cb7b4f7ad2b801adb51f19111f9a31a79eb2cf5f07aff17283331f89d7b",
+      "resource_metrics": {
+        "continued_original_to_two_boundaries": {
+          "peak_process_rss_bytes": 1279324160,
+          "rss_sampling_interval_seconds": 0.01,
+          "rss_scope": "pytest parent process VmRSS sampled during this operation; includes Python/test harness",
+          "wall_seconds": 13.067598361998535
+        },
+        "continued_replay_copy_to_two_boundaries": {
+          "peak_process_rss_bytes": 1192058880,
+          "rss_sampling_interval_seconds": 0.01,
+          "rss_scope": "pytest parent process VmRSS sampled during this operation; includes Python/test harness",
+          "wall_seconds": 13.127993014000822
+        },
+        "initial_one_boundary_prefix": {
+          "peak_process_rss_bytes": 1098293248,
+          "rss_sampling_interval_seconds": 0.01,
+          "rss_scope": "pytest parent process VmRSS sampled during this operation; includes Python/test harness",
+          "wall_seconds": 18.01601005000157
+        },
+        "machine_memory_limit_bytes": 8589934592,
+        "pilot_scope": "serial CPU technical execution; includes the prepared-run handoff and two-boundary committed prefix",
+        "preparation": {
+          "peak_process_rss_bytes": 908713984,
+          "rss_sampling_interval_seconds": 0.01,
+          "rss_scope": "pytest parent process VmRSS sampled during this operation; includes Python/test harness",
+          "wall_seconds": 18.643991098999322
+        }
+      },
+      "stale_coordinate_probe": {
+        "case": "stale-coordinate-probe",
+        "deliberate_coordinate_displacement_nm": 2.000177801164682e-12,
+        "guard_bound_nm": 1e-15,
+        "inert_journal_validation": "passed after resealing the altered State/checkpoint pair",
+        "original_checkpoint_sha256": "7b35c80770710389885e7589c1b838e73a086e17d55aeca040ebd77d10e0090a",
+        "pending_transaction_created": false,
+        "resealed_checkpoint_sha256": "de1fe24f866c12d1ba430d53d4b7b564f0f52cd3a1547704c1794fada82f23c0",
+        "runtime_rejection": "restored checkpoint coordinates differ from captured sample beyond unit-conversion roundoff",
+        "sample_coordinate_identity_preserved": true,
+        "tampered_worker_index": 0,
+        "worker_evaluate_calls_before_rejection": 0
+      },
+      "summary": {
+        "accepted_exchanges": 4,
+        "all_real_atoms": 224,
+        "attempts_per_boundary": 2,
+        "binding_result": "not_evaluated",
+        "boundaries": 2,
+        "elapsed_execution_seconds": 12.741332132000025,
+        "peak_process_rss_bytes": 1279008768,
+        "profile": {
+          "installed_distribution_identity": "1865672db5d5a8db6c4d6abc4035d2eb0d70339cb85c1958f85eac7e7800fbf1",
+          "machine": "x86_64",
+          "model_device": "CPU",
+          "model_dtype": "float64",
+          "openmm_platform": "Reference",
+          "packages": {
+            "atom-openmm": "8.5.0b0",
+            "mace-torch": "0.3.16",
+            "numpy": "2.4.6",
+            "openmm": "8.6.1",
+            "torch": "2.8.0"
+          },
+          "precision": "double",
+          "python": "3.11.16"
+        },
+        "reconstructed_matrix_shape": [
+          3,
+          6
+        ],
+        "samples": 6,
+        "scope": "bounded serial multistate exchange; no equilibrium, affinity or exchanging-walker uncertainty qualification",
+        "state_ids_after": [
+          "middle",
+          "separated",
+          "contact"
+        ],
+        "status": "complete",
+        "walker_ids": [
+          "3c024279a4704faf8a6f70d8c8d48fea:walker-0",
+          "3c024279a4704faf8a6f70d8c8d48fea:walker-1",
+          "3c024279a4704faf8a6f70d8c8d48fea:walker-2"
+        ],
+        "walker_to_state_final": [
+          1,
+          2,
+          0
+        ]
+      },
+      "worker_manifest_sha256": "2a9079fdba3601b03c260fd1b3486d8a6e6002b1a898f575cbde56d2d53ccac6"
+    },
+    {
+      "actual_context_oracle": {
+        "attempted_pair_matrices": [
+          {
+            "accepted": true,
+            "attempt_index": 0,
+            "boundary_index": 0,
+            "exponent_actual_context": 0.013962688739411533,
+            "raw_energies_actual_context": [
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -1261298.5320190832,
+                  "delta_u_raw_kJ_mol": 2.5966567620635033,
+                  "delta_u_softcore_kJ_mol": 2.5966567620635033,
+                  "outside_energy_kJ_mol": 6.516140165084734e-07,
+                  "system_total_energy_kJ_mol": -1261298.5320184315,
+                  "u0_raw_kJ_mol": -1261298.5320190832,
+                  "u1_raw_kJ_mol": -1261295.935362321
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -1261298.5920136517,
+                  "delta_u_raw_kJ_mol": 2.52700140979141,
+                  "delta_u_softcore_kJ_mol": 2.52700140979141,
+                  "outside_energy_kJ_mol": 6.484779279607031e-07,
+                  "system_total_energy_kJ_mol": -1261298.5920130033,
+                  "u0_raw_kJ_mol": -1261298.5920136517,
+                  "u1_raw_kJ_mol": -1261296.065012242
+                }
+              ],
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -1261297.2336907021,
+                  "delta_u_raw_kJ_mol": 2.5966567620635033,
+                  "delta_u_softcore_kJ_mol": 2.5966567620635033,
+                  "outside_energy_kJ_mol": 6.516140165084734e-07,
+                  "system_total_energy_kJ_mol": -1261297.2336900504,
+                  "u0_raw_kJ_mol": -1261298.5320190832,
+                  "u1_raw_kJ_mol": -1261295.935362321
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -1261297.3285129468,
+                  "delta_u_raw_kJ_mol": 2.52700140979141,
+                  "delta_u_softcore_kJ_mol": 2.52700140979141,
+                  "outside_energy_kJ_mol": 6.484779279607031e-07,
+                  "system_total_energy_kJ_mol": -1261297.3285122984,
+                  "u0_raw_kJ_mol": -1261298.5920136517,
+                  "u1_raw_kJ_mol": -1261296.065012242
+                }
+              ]
+            ],
+            "reduced_energies_actual_context": [
+              [
+                -505664.4828592998,
+                -505664.5069115946
+              ],
+              [
+                -505663.96234925976,
+                -505664.00036424334
+              ]
+            ],
+            "state_pair_indices": [
+              0,
+              1
+            ],
+            "worker_indices": [
+              0,
+              1
+            ]
+          },
+          {
+            "accepted": true,
+            "attempt_index": 1,
+            "boundary_index": 0,
+            "exponent_actual_context": 0.031455733929760754,
+            "raw_energies_actual_context": [
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -1261297.2336907021,
+                  "delta_u_raw_kJ_mol": 2.5966567620635033,
+                  "delta_u_softcore_kJ_mol": 2.5966567620635033,
+                  "outside_energy_kJ_mol": 6.516140165084734e-07,
+                  "system_total_energy_kJ_mol": -1261297.2336900504,
+                  "u0_raw_kJ_mol": -1261298.5320190832,
+                  "u1_raw_kJ_mol": -1261295.935362321
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -1261297.2910873815,
+                  "delta_u_raw_kJ_mol": 2.439734247745946,
+                  "delta_u_softcore_kJ_mol": 2.439734247745946,
+                  "outside_energy_kJ_mol": 6.693777212610531e-07,
+                  "system_total_energy_kJ_mol": -1261297.2910867122,
+                  "u0_raw_kJ_mol": -1261298.5109545053,
+                  "u1_raw_kJ_mol": -1261296.0712202576
+                }
+              ],
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -1261295.935362321,
+                  "delta_u_raw_kJ_mol": 2.5966567620635033,
+                  "delta_u_softcore_kJ_mol": 2.5966567620635033,
+                  "outside_energy_kJ_mol": 6.516140165084734e-07,
+                  "system_total_energy_kJ_mol": -1261295.9353616694,
+                  "u0_raw_kJ_mol": -1261298.5320190832,
+                  "u1_raw_kJ_mol": -1261295.935362321
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -1261296.0712202576,
+                  "delta_u_raw_kJ_mol": 2.439734247745946,
+                  "delta_u_softcore_kJ_mol": 2.439734247745946,
+                  "outside_energy_kJ_mol": 6.693777212610531e-07,
+                  "system_total_energy_kJ_mol": -1261296.0712195882,
+                  "u0_raw_kJ_mol": -1261298.5109545053,
+                  "u1_raw_kJ_mol": -1261296.0712202576
+                }
+              ]
+            ],
+            "reduced_energies_actual_context": [
+              [
+                -505663.96234925976,
+                -505663.985360032
+              ],
+              [
+                -505663.44183921977,
+                -505663.4963057259
+              ]
+            ],
+            "state_pair_indices": [
+              1,
+              2
+            ],
+            "worker_indices": [
+              0,
+              2
+            ]
+          },
+          {
+            "accepted": true,
+            "attempt_index": 0,
+            "boundary_index": 1,
+            "exponent_actual_context": 0.04701414058217779,
+            "raw_energies_actual_context": [
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -1261288.4787684926,
+                  "delta_u_raw_kJ_mol": 3.1647737501189113,
+                  "delta_u_softcore_kJ_mol": 3.1647737501189113,
+                  "outside_energy_kJ_mol": 2.5448445841669e-06,
+                  "system_total_energy_kJ_mol": -1261288.4787659477,
+                  "u0_raw_kJ_mol": -1261288.4787684926,
+                  "u1_raw_kJ_mol": -1261285.3139947425
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -1261288.2042592452,
+                  "delta_u_raw_kJ_mol": 2.9302353616803885,
+                  "delta_u_softcore_kJ_mol": 2.9302353616803885,
+                  "outside_energy_kJ_mol": 2.7274629568180547e-06,
+                  "system_total_energy_kJ_mol": -1261288.2042565178,
+                  "u0_raw_kJ_mol": -1261288.2042592452,
+                  "u1_raw_kJ_mol": -1261285.2740238835
+                }
+              ],
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -1261286.8963816175,
+                  "delta_u_raw_kJ_mol": 3.1647737501189113,
+                  "delta_u_softcore_kJ_mol": 3.1647737501189113,
+                  "outside_energy_kJ_mol": 2.5448445841669e-06,
+                  "system_total_energy_kJ_mol": -1261286.8963790727,
+                  "u0_raw_kJ_mol": -1261288.4787684926,
+                  "u1_raw_kJ_mol": -1261285.3139947425
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -1261286.7391415644,
+                  "delta_u_raw_kJ_mol": 2.9302353616803885,
+                  "delta_u_softcore_kJ_mol": 2.9302353616803885,
+                  "outside_energy_kJ_mol": 2.7274629568180547e-06,
+                  "system_total_energy_kJ_mol": -1261286.739138837,
+                  "u0_raw_kJ_mol": -1261288.2042592452,
+                  "u1_raw_kJ_mol": -1261285.2740238835
+                }
+              ]
+            ],
+            "reduced_energies_actual_context": [
+              [
+                -505660.4524314596,
+                -505660.3423784742
+              ],
+              [
+                -505659.81804013945,
+                -505659.75500129454
+              ]
+            ],
+            "state_pair_indices": [
+              0,
+              1
+            ],
+            "worker_indices": [
+              1,
+              2
+            ]
+          },
+          {
+            "accepted": true,
+            "attempt_index": 1,
+            "boundary_index": 1,
+            "exponent_actual_context": 0.0060167411575093865,
+            "raw_energies_actual_context": [
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -1261286.8963816175,
+                  "delta_u_raw_kJ_mol": 3.1647737501189113,
+                  "delta_u_softcore_kJ_mol": 3.1647737501189113,
+                  "outside_energy_kJ_mol": 2.5448445841669e-06,
+                  "system_total_energy_kJ_mol": -1261286.8963790727,
+                  "u0_raw_kJ_mol": -1261288.4787684926,
+                  "u1_raw_kJ_mol": -1261285.3139947425
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -1261286.5938883938,
+                  "delta_u_raw_kJ_mol": 3.1347581683658063,
+                  "delta_u_softcore_kJ_mol": 3.1347581683658063,
+                  "outside_energy_kJ_mol": 2.633735282935486e-06,
+                  "system_total_energy_kJ_mol": -1261286.59388576,
+                  "u0_raw_kJ_mol": -1261288.161267478,
+                  "u1_raw_kJ_mol": -1261285.0265093097
+                }
+              ],
+              [
+                {
+                  "atm_expression_energy_kJ_mol": -1261285.3139947425,
+                  "delta_u_raw_kJ_mol": 3.1647737501189113,
+                  "delta_u_softcore_kJ_mol": 3.1647737501189113,
+                  "outside_energy_kJ_mol": 2.5448445841669e-06,
+                  "system_total_energy_kJ_mol": -1261285.3139921976,
+                  "u0_raw_kJ_mol": -1261288.4787684926,
+                  "u1_raw_kJ_mol": -1261285.3139947425
+                },
+                {
+                  "atm_expression_energy_kJ_mol": -1261285.0265093097,
+                  "delta_u_raw_kJ_mol": 3.1347581683658063,
+                  "delta_u_softcore_kJ_mol": 3.1347581683658063,
+                  "outside_energy_kJ_mol": 2.633735282935486e-06,
+                  "system_total_energy_kJ_mol": -1261285.0265066759,
+                  "u0_raw_kJ_mol": -1261288.161267478,
+                  "u1_raw_kJ_mol": -1261285.0265093097
+                }
+              ]
+            ],
+            "reduced_energies_actual_context": [
+              [
+                -505659.81804013945,
+                -505659.6967681958
+              ],
+              [
+                -505659.1836488193,
+                -505659.06839361676
+              ]
+            ],
+            "state_pair_indices": [
+              1,
+              2
+            ],
+            "worker_indices": [
+              1,
+              0
+            ]
+          }
+        ],
+        "binding_result": "not_evaluated",
+        "cap_parent_atom_ids": [
+          "p4",
+          "p5"
+        ],
+        "cap_parent_forces_checked_from_saved_samples": 6,
+        "case": "rbfe",
+        "energy_tolerance_kJ_mol": 1e-08,
+        "full_schedule_matrix_max_abs_error_reduced_energy": 0.0,
+        "full_schedule_matrix_reconstruction_shape": [
+          3,
+          6
+        ],
+        "nonzero_outside_anchor_energy_count": 18,
+        "ordered_state_pairs": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ]
+        ],
+        "pair_attempt_count": 4,
+        "sample_count": 6,
+        "state_ids": [
+          "contact",
+          "middle",
+          "separated"
+        ]
+      },
+      "boundaries": [
+        {
+          "boundary_index": 0,
+          "pair_count": 2,
+          "samples": [
+            {
+              "box_present": true,
+              "capture_time_state_id": "contact",
+              "full_force_shape": [
+                233,
+                3
+              ],
+              "map_diagnostics": [
+                {
+                  "closest_pair": [
+                    "p18",
+                    "a:l1"
+                  ],
+                  "map": "map0",
+                  "minimum_intermolecular_Bondi_ratio": 0.7433892838629402,
+                  "minimum_ligand_cap_distance_nm": 0.3654227824363964
+                },
+                {
+                  "closest_pair": [
+                    "p18",
+                    "b:l3"
+                  ],
+                  "map": "map1",
+                  "minimum_intermolecular_Bondi_ratio": 0.7493492544867746,
+                  "minimum_ligand_cap_distance_nm": 0.3665396204813387
+                }
+              ],
+              "parameters": {
+                "Acore": 0.0,
+                "Alpha": 0.1,
+                "Direction": 1.0,
+                "Lambda1": 0.0,
+                "Lambda2": 0.0,
+                "UOffset": 0.0,
+                "Ubcore": 500.0,
+                "Uh": 0.0,
+                "Umax": 10000.0,
+                "W0": 0.0
+              },
+              "raw": {
+                "atm_expression_energy_kJ_mol": -1261298.5320190832,
+                "delta_u_raw_kJ_mol": 2.5966567620635033,
+                "delta_u_softcore_kJ_mol": 2.5966567620635033,
+                "outside_energy_kJ_mol": 6.516140165084734e-07,
+                "system_total_energy_kJ_mol": -1261298.5320184315,
+                "u0_raw_kJ_mol": -1261298.5320190832,
+                "u1_raw_kJ_mol": -1261295.935362321
+              },
+              "real_atom_count": 233,
+              "sample_id": "b3935af8ca834574aa93bd7a2180afdd:walker-0:boundary-1",
+              "sequence_number": 1,
+              "velocities_present": true,
+              "walker_id": "b3935af8ca834574aa93bd7a2180afdd:walker-0",
+              "walker_index": 0
+            },
+            {
+              "box_present": true,
+              "capture_time_state_id": "middle",
+              "full_force_shape": [
+                233,
+                3
+              ],
+              "map_diagnostics": [
+                {
+                  "closest_pair": [
+                    "p18",
+                    "a:l1"
+                  ],
+                  "map": "map0",
+                  "minimum_intermolecular_Bondi_ratio": 0.743278586408374,
+                  "minimum_ligand_cap_distance_nm": 0.365431293761861
+                },
+                {
+                  "closest_pair": [
+                    "p18",
+                    "b:l3"
+                  ],
+                  "map": "map1",
+                  "minimum_intermolecular_Bondi_ratio": 0.7492087896714744,
+                  "minimum_ligand_cap_distance_nm": 0.36653970218106874
+                }
+              ],
+              "parameters": {
+                "Acore": 0.0,
+                "Alpha": 0.1,
+                "Direction": 1.0,
+                "Lambda1": 0.5,
+                "Lambda2": 0.5,
+                "UOffset": 0.0,
+                "Ubcore": 500.0,
+                "Uh": 0.0,
+                "Umax": 10000.0,
+                "W0": 0.0
+              },
+              "raw": {
+                "atm_expression_energy_kJ_mol": -1261297.3285129468,
+                "delta_u_raw_kJ_mol": 2.52700140979141,
+                "delta_u_softcore_kJ_mol": 2.52700140979141,
+                "outside_energy_kJ_mol": 6.484779279607031e-07,
+                "system_total_energy_kJ_mol": -1261297.3285122984,
+                "u0_raw_kJ_mol": -1261298.5920136517,
+                "u1_raw_kJ_mol": -1261296.065012242
+              },
+              "real_atom_count": 233,
+              "sample_id": "b3935af8ca834574aa93bd7a2180afdd:walker-1:boundary-1",
+              "sequence_number": 1,
+              "velocities_present": true,
+              "walker_id": "b3935af8ca834574aa93bd7a2180afdd:walker-1",
+              "walker_index": 1
+            },
+            {
+              "box_present": true,
+              "capture_time_state_id": "separated",
+              "full_force_shape": [
+                233,
+                3
+              ],
+              "map_diagnostics": [
+                {
+                  "closest_pair": [
+                    "p18",
+                    "a:l1"
+                  ],
+                  "map": "map0",
+                  "minimum_intermolecular_Bondi_ratio": 0.7431196839707367,
+                  "minimum_ligand_cap_distance_nm": 0.3654226955230092
+                },
+                {
+                  "closest_pair": [
+                    "p18",
+                    "b:l3"
+                  ],
+                  "map": "map1",
+                  "minimum_intermolecular_Bondi_ratio": 0.7490925960681486,
+                  "minimum_ligand_cap_distance_nm": 0.36654563354266767
+                }
+              ],
+              "parameters": {
+                "Acore": 0.0,
+                "Alpha": 0.1,
+                "Direction": 1.0,
+                "Lambda1": 1.0,
+                "Lambda2": 1.0,
+                "UOffset": 0.0,
+                "Ubcore": 500.0,
+                "Uh": 0.0,
+                "Umax": 10000.0,
+                "W0": 0.0
+              },
+              "raw": {
+                "atm_expression_energy_kJ_mol": -1261296.0712202576,
+                "delta_u_raw_kJ_mol": 2.439734247745946,
+                "delta_u_softcore_kJ_mol": 2.439734247745946,
+                "outside_energy_kJ_mol": 6.693777212610531e-07,
+                "system_total_energy_kJ_mol": -1261296.0712195882,
+                "u0_raw_kJ_mol": -1261298.5109545053,
+                "u1_raw_kJ_mol": -1261296.0712202576
+              },
+              "real_atom_count": 233,
+              "sample_id": "b3935af8ca834574aa93bd7a2180afdd:walker-2:boundary-1",
+              "sequence_number": 1,
+              "velocities_present": true,
+              "walker_id": "b3935af8ca834574aa93bd7a2180afdd:walker-2",
+              "walker_index": 2
+            }
+          ],
+          "walker_to_state_final": [
+            2,
+            0,
+            1
+          ],
+          "walker_to_state_start": [
+            0,
+            1,
+            2
+          ]
+        },
+        {
+          "boundary_index": 1,
+          "pair_count": 2,
+          "samples": [
+            {
+              "box_present": true,
+              "capture_time_state_id": "separated",
+              "full_force_shape": [
+                233,
+                3
+              ],
+              "map_diagnostics": [
+                {
+                  "closest_pair": [
+                    "p18",
+                    "a:l1"
+                  ],
+                  "map": "map0",
+                  "minimum_intermolecular_Bondi_ratio": 0.7433337024239708,
+                  "minimum_ligand_cap_distance_nm": 0.365516394935502
+                },
+                {
+                  "closest_pair": [
+                    "p18",
+                    "b:l3"
+                  ],
+                  "map": "map1",
+                  "minimum_intermolecular_Bondi_ratio": 0.7503445505049049,
+                  "minimum_ligand_cap_distance_nm": 0.3668972764578482
+                }
+              ],
+              "parameters": {
+                "Acore": 0.0,
+                "Alpha": 0.1,
+                "Direction": 1.0,
+                "Lambda1": 1.0,
+                "Lambda2": 1.0,
+                "UOffset": 0.0,
+                "Ubcore": 500.0,
+                "Uh": 0.0,
+                "Umax": 10000.0,
+                "W0": 0.0
+              },
+              "raw": {
+                "atm_expression_energy_kJ_mol": -1261285.0265093097,
+                "delta_u_raw_kJ_mol": 3.1347581683658063,
+                "delta_u_softcore_kJ_mol": 3.1347581683658063,
+                "outside_energy_kJ_mol": 2.633735282935486e-06,
+                "system_total_energy_kJ_mol": -1261285.0265066759,
+                "u0_raw_kJ_mol": -1261288.161267478,
+                "u1_raw_kJ_mol": -1261285.0265093097
+              },
+              "real_atom_count": 233,
+              "sample_id": "b3935af8ca834574aa93bd7a2180afdd:walker-0:boundary-2",
+              "sequence_number": 2,
+              "velocities_present": true,
+              "walker_id": "b3935af8ca834574aa93bd7a2180afdd:walker-0",
+              "walker_index": 0
+            },
+            {
+              "box_present": true,
+              "capture_time_state_id": "contact",
+              "full_force_shape": [
+                233,
+                3
+              ],
+              "map_diagnostics": [
+                {
+                  "closest_pair": [
+                    "p18",
+                    "a:l1"
+                  ],
+                  "map": "map0",
+                  "minimum_intermolecular_Bondi_ratio": 0.7433634461188064,
+                  "minimum_ligand_cap_distance_nm": 0.3655379968432039
+                },
+                {
+                  "closest_pair": [
+                    "p18",
+                    "b:l3"
+                  ],
+                  "map": "map1",
+                  "minimum_intermolecular_Bondi_ratio": 0.7502965146573433,
+                  "minimum_ligand_cap_distance_nm": 0.36690084128189204
+                }
+              ],
+              "parameters": {
+                "Acore": 0.0,
+                "Alpha": 0.1,
+                "Direction": 1.0,
+                "Lambda1": 0.0,
+                "Lambda2": 0.0,
+                "UOffset": 0.0,
+                "Ubcore": 500.0,
+                "Uh": 0.0,
+                "Umax": 10000.0,
+                "W0": 0.0
+              },
+              "raw": {
+                "atm_expression_energy_kJ_mol": -1261288.4787684926,
+                "delta_u_raw_kJ_mol": 3.1647737501189113,
+                "delta_u_softcore_kJ_mol": 3.1647737501189113,
+                "outside_energy_kJ_mol": 2.5448445841669e-06,
+                "system_total_energy_kJ_mol": -1261288.4787659477,
+                "u0_raw_kJ_mol": -1261288.4787684926,
+                "u1_raw_kJ_mol": -1261285.3139947425
+              },
+              "real_atom_count": 233,
+              "sample_id": "b3935af8ca834574aa93bd7a2180afdd:walker-1:boundary-2",
+              "sequence_number": 2,
+              "velocities_present": true,
+              "walker_id": "b3935af8ca834574aa93bd7a2180afdd:walker-1",
+              "walker_index": 1
+            },
+            {
+              "box_present": true,
+              "capture_time_state_id": "middle",
+              "full_force_shape": [
+                233,
+                3
+              ],
+              "map_diagnostics": [
+                {
+                  "closest_pair": [
+                    "p18",
+                    "a:l1"
+                  ],
+                  "map": "map0",
+                  "minimum_intermolecular_Bondi_ratio": 0.7429348835678603,
+                  "minimum_ligand_cap_distance_nm": 0.3655061671195325
+                },
+                {
+                  "closest_pair": [
+                    "p18",
+                    "b:l3"
+                  ],
+                  "map": "map1",
+                  "minimum_intermolecular_Bondi_ratio": 0.7499947705481832,
+                  "minimum_ligand_cap_distance_nm": 0.3669081159119149
+                }
+              ],
+              "parameters": {
+                "Acore": 0.0,
+                "Alpha": 0.1,
+                "Direction": 1.0,
+                "Lambda1": 0.5,
+                "Lambda2": 0.5,
+                "UOffset": 0.0,
+                "Ubcore": 500.0,
+                "Uh": 0.0,
+                "Umax": 10000.0,
+                "W0": 0.0
+              },
+              "raw": {
+                "atm_expression_energy_kJ_mol": -1261286.7391415644,
+                "delta_u_raw_kJ_mol": 2.9302353616803885,
+                "delta_u_softcore_kJ_mol": 2.9302353616803885,
+                "outside_energy_kJ_mol": 2.7274629568180547e-06,
+                "system_total_energy_kJ_mol": -1261286.739138837,
+                "u0_raw_kJ_mol": -1261288.2042592452,
+                "u1_raw_kJ_mol": -1261285.2740238835
+              },
+              "real_atom_count": 233,
+              "sample_id": "b3935af8ca834574aa93bd7a2180afdd:walker-2:boundary-2",
+              "sequence_number": 2,
+              "velocities_present": true,
+              "walker_id": "b3935af8ca834574aa93bd7a2180afdd:walker-2",
+              "walker_index": 2
+            }
+          ],
+          "walker_to_state_final": [
+            1,
+            2,
+            0
+          ],
+          "walker_to_state_start": [
+            2,
+            0,
+            1
+          ]
+        }
+      ],
+      "case": "rbfe",
+      "committed_tree_manifests_sha256": {
+        "boundary-000000": "52ec5e7da4b07ad4f505165be378161d4d6180b6641eb6ce0e390b17d216a84c",
+        "boundary-000001": "2c53fbd80ea3ecefb0c2567cb4963742e5fd886a8811b9fa422e16023bbf5231",
+        "initial": "55ffedf8b3f73688f084438fac3fdbc1032ff677671aaeee03f395d471ab4cde"
+      },
+      "copied_input_hashes_unchanged": {
+        "manifest.json": "1a85a6d997ea61dd471b5334c34d137683e9dafe38cb1f92025c306cf25dee45",
+        "partition.json": "7a24349a35de86dbfe6183a877adc0280929ccd0781fcd7ab56de3ec1a2532e1",
+        "snapshot.json": "d22736bc0238cff7751497d1c8cfae797eeb23264677b73330d38bc6744feb14",
+        "system-input.json": "c10a2f3ead50231a5dc661c99da286bf1f8e5cc96c44f2c65707517d6162d0c2"
+      },
+      "input_config_original_sha256": "ea2accbd2902e9a3caa8eeea20deda99e2ff656bb3b7dac004b394950c11ecb9",
+      "input_manifest_sha256": "1a85a6d997ea61dd471b5334c34d137683e9dafe38cb1f92025c306cf25dee45",
+      "multistate_metadata_sha256": "c50f8c3fb774cb88144da2ba76d17e3d793066025293f878dcbb10f9ebbf12a0",
+      "prepared_metadata_sha256": "1462d0dd150dcc79b42eaef13dc13e829d8864213c4a543040efb967cddad4d6",
+      "resource_metrics": {
+        "continued_original_to_two_boundaries": {
+          "peak_process_rss_bytes": 2087329792,
+          "rss_sampling_interval_seconds": 0.01,
+          "rss_scope": "pytest parent process VmRSS sampled during this operation; includes Python/test harness",
+          "wall_seconds": 14.480628399000125
+        },
+        "continued_replay_copy_to_two_boundaries": {
+          "peak_process_rss_bytes": 1997660160,
+          "rss_sampling_interval_seconds": 0.01,
+          "rss_scope": "pytest parent process VmRSS sampled during this operation; includes Python/test harness",
+          "wall_seconds": 15.957572706000064
+        },
+        "initial_one_boundary_prefix": {
+          "peak_process_rss_bytes": 1906819072,
+          "rss_sampling_interval_seconds": 0.01,
+          "rss_scope": "pytest parent process VmRSS sampled during this operation; includes Python/test harness",
+          "wall_seconds": 20.505111633001434
+        },
+        "machine_memory_limit_bytes": 8589934592,
+        "pilot_scope": "serial CPU technical execution; includes the prepared-run handoff and two-boundary committed prefix",
+        "preparation": {
+          "peak_process_rss_bytes": 1716719616,
+          "rss_sampling_interval_seconds": 0.01,
+          "rss_scope": "pytest parent process VmRSS sampled during this operation; includes Python/test harness",
+          "wall_seconds": 15.533568327000467
+        }
+      },
+      "stale_coordinate_probe": {
+        "case": "stale-coordinate-probe",
+        "deliberate_coordinate_displacement_nm": 2.000177801164682e-12,
+        "guard_bound_nm": 1e-15,
+        "inert_journal_validation": "passed after resealing the altered State/checkpoint pair",
+        "original_checkpoint_sha256": "636ffc6dae78d89448cdb165cb7796e7f5ece829304779529f5104d03ae15bdf",
+        "pending_transaction_created": false,
+        "resealed_checkpoint_sha256": "17092172ffd057a8cb4283b3c1e9059efe0a4761c6dcbe4f5deef61c6abbf959",
+        "runtime_rejection": "restored checkpoint coordinates differ from captured sample beyond unit-conversion roundoff",
+        "sample_coordinate_identity_preserved": true,
+        "tampered_worker_index": 0,
+        "worker_evaluate_calls_before_rejection": 0
+      },
+      "summary": {
+        "accepted_exchanges": 4,
+        "all_real_atoms": 233,
+        "attempts_per_boundary": 2,
+        "binding_result": "not_evaluated",
+        "boundaries": 2,
+        "elapsed_execution_seconds": 14.146114416000273,
+        "peak_process_rss_bytes": 2087018496,
+        "profile": {
+          "installed_distribution_identity": "1865672db5d5a8db6c4d6abc4035d2eb0d70339cb85c1958f85eac7e7800fbf1",
+          "machine": "x86_64",
+          "model_device": "CPU",
+          "model_dtype": "float64",
+          "openmm_platform": "Reference",
+          "packages": {
+            "atom-openmm": "8.5.0b0",
+            "mace-torch": "0.3.16",
+            "numpy": "2.4.6",
+            "openmm": "8.6.1",
+            "torch": "2.8.0"
+          },
+          "precision": "double",
+          "python": "3.11.16"
+        },
+        "reconstructed_matrix_shape": [
+          3,
+          6
+        ],
+        "samples": 6,
+        "scope": "bounded serial multistate exchange; no equilibrium, affinity or exchanging-walker uncertainty qualification",
+        "state_ids_after": [
+          "middle",
+          "separated",
+          "contact"
+        ],
+        "status": "complete",
+        "walker_ids": [
+          "b3935af8ca834574aa93bd7a2180afdd:walker-0",
+          "b3935af8ca834574aa93bd7a2180afdd:walker-1",
+          "b3935af8ca834574aa93bd7a2180afdd:walker-2"
+        ],
+        "walker_to_state_final": [
+          1,
+          2,
+          0
+        ]
+      },
+      "worker_manifest_sha256": "2a0e5ff4c25ff6713027808bd80a487c3b991a18bd94c943909178f1c7d8fe1b"
+    }
+  ],
+  "external_artifact_root": "/workspace/G10_v5_artifacts/probe-fix1",
+  "qualification": "bounded CPU technical pilots only; binding_result=not_evaluated"
+}

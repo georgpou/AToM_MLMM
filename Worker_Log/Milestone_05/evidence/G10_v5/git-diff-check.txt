@@ -1,0 +1,1 @@
+git diff --cached --check: exit_code=0; no whitespace errors in the staged report and evidence snapshot.
