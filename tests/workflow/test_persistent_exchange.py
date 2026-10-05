@@ -560,6 +560,39 @@ def test_partial_integration_stages_worker_zero_and_replays_entire_boundary(tmp_
                for walker in {sample['walker_id'] for sample in samples})
 
 
+def test_multistate_primary_error_survives_secondary_worker_archive_failure(tmp_path,monkeypatch):
+    run,resume,_=multistate_api()
+    import atm_mlmm.exchange as controller
+    from atm_mlmm.persistence import read_json
+    prepared=prepare_multistate(tmp_path/'prepared')
+    output=tmp_path/'exchange'
+    run(prepared,output,state_ids=('first','middle','third'),state_pairs=((0,1),(1,2)),
+        boundaries=2,steps_per_boundary=1,seed=73,trusted=True,stop_after_boundaries=1)
+    original_sample=controller._multistate_sample
+    def fail_worker_one_sample(worker,index,walker_id,sequence,*args,**kwargs):
+        if index==1 and sequence==2:
+            raise RuntimeError('primary sample capture failure')
+        return original_sample(worker,index,walker_id,sequence,*args,**kwargs)
+    original_archive=controller._archive_failure
+    def fail_worker_one_archive(directory,worker,error,identifiers):
+        if Path(directory).name=='worker-001':
+            raise OSError('secondary archive failure')
+        return original_archive(directory,worker,error,identifiers)
+    monkeypatch.setattr(controller,'_multistate_sample',fail_worker_one_sample)
+    monkeypatch.setattr(controller,'_archive_failure',fail_worker_one_archive)
+    with pytest.raises(RuntimeError,match='primary sample capture failure') as failure:
+        resume(output,trusted=True)
+    assert any('secondary archive failure' in note for note in failure.value.__notes__)
+    pending=output/'pending'
+    diagnostics=read_json(pending/'failure.json')
+    assert diagnostics['message']=='primary sample capture failure'
+    assert diagnostics['archive_errors']==[{'operation':'capture worker 1',
+        'error_type':'OSError','message':'secondary archive failure'}]
+    for worker_index in (0,2):
+        assert (pending/'failures'/f'worker-{worker_index:03d}'/'error.json').is_file()
+        assert (pending/'failures'/f'worker-{worker_index:03d}'/'checkpoint.chk').is_file()
+
+
 @pytest.mark.parametrize('phase',('evaluated','decision','refreshed'))
 @pytest.mark.parametrize('attempt_index',(0,1))
 def test_multistate_phase_persistence_failure_rolls_back_whole_sweep(
