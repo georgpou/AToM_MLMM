@@ -38,7 +38,7 @@ All commands above exited 0. The immutable reference identifies clean source `42
 
 The separate TPU probe is accepted as **unqualified experimental tooling**, not as a TPU implementation result. Inspection confirms actual backend checks, synchronized arithmetic precision probing, hash-bound real-model comparisons, full cap-parent projection, ATen fallback rejection, retained numerical/operator failures, and timing qualification only after admission. Lightweight negative/admission tests passed. Actual TPU arithmetic, operator coverage, fallback reporting reliability on hardware and speed remain **not_run / declined to judge**. A CPU reference or requested float64 dtype is not hardware evidence.
 
-The exact user-run fallback is in the notebooks and [run instructions](../../notebooks/README.md): select the runtime, use the immutable reviewed source and reference identities, repeat isolated setup, restore/verify complete exports, run the actual probe, and return all reports/negative diagnostics. Actual Colab CPU/TPU qualification requires those returned artifacts and verification. No additional user permission or external service is needed to finish this local audit.
+The exact user-run fallback is in the notebooks and [run instructions](https://github.com/georgpou/AToM_MLMM/blob/2c02cc2713924140a82aefda37fd5885747e5837/notebooks/README.md): select the runtime, use the immutable reviewed source and reference identities, repeat isolated setup, restore/verify complete exports, run the actual probe, and return all reports/negative diagnostics. Actual Colab CPU/TPU qualification requires those returned artifacts and verification. No additional user permission or external service is needed to finish this local audit.
 
 ## Combined acceptance and handoff
 

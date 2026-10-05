@@ -1,5 +1,0 @@
-# Experimental additions to a clone of the unchanged CPU main environment.
-# CPython 3.11, Linux x86_64, glibc >=2.31; never install into the CPU prefix.
-torch-xla==2.8.0 --hash=sha256:92af0ed9aff7983a35df4eb6b744a33ea881d0cbcb674e89b46f11285d3062cb
-libtpu==0.0.17 --hash=sha256:4963214199e151613874c2b3f45b983bb09a6e4ba43bb028c917323b8caf418b
-absl-py==2.3.1 --hash=sha256:eeecf07f0c2a93ace0772c92e596ace6d3d3996c042b2128459aaae2a76de11d

@@ -99,15 +99,10 @@ source and cannot silently migrate. Correlated exchange records support exact
 energy reconstruction; exchanging-walker statistical estimation remains
 unqualified and no affinity is reported.
 
-## TPU scope and review decision
-
-TPU experiments use a separate profile and the identical approved checkpoint.
-OpenMM remains CPU; an isolated MACE result cannot establish full-engine speedup.
-Actual TPU hardware and arithmetic precision must be demonstrated. Unsupported
-float64/operators, CPU fallback or missing hardware must be reported explicitly;
-no untrained model, replacement weights, silent float32 or CUDA substitution.
+## Accepted CPU scope
 
 The canonical audits accept the bounded denser control and transactional exchange
 technical scope on scientific source `424a859732b77b2f91cd03b12bb3f0b8adf3f541`,
-frozen submission `bc6fd520308fba7e7448929138eb91e80ca6f063`. Notebook delivery
-does not supply actual Colab/TPU evidence or close full M05/M03.
+frozen submission `bc6fd520308fba7e7448929138eb91e80ca6f063`. Full M05/M03 remain
+open. The optional external execution experiment was withdrawn by the user;
+its removal does not change the accepted CPU scientific definitions above.

@@ -1,5 +1,9 @@
 # Fresh-agent handoff: make the ML/MM engine ready for cluster trials
 
+**Historical assignment.** Use the [current engine continuation](CLOUD-ENGINE-CONTINUATION.md).
+G08 and the bounded G09/G10 CPU work below have since been implemented/reviewed;
+the original commands and next-work sequence are retained as history.
+
 **Prepared:** 2026-10-04 UTC.\
 **Repository:** <https://github.com/georgpou/AToM_MLMM>.\
 **Continuation branch:** `m04-engine-readiness`.\

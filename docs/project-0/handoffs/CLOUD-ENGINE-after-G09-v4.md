@@ -1,5 +1,9 @@
 # Cloud solvent and pair-exchange checkpoint
 
+**Historical snapshot.** Use the [current engine continuation](CLOUD-ENGINE-CONTINUATION.md).
+Dense local-water controls and persistent pair exchange described below as next
+work have since been accepted for their bounded CPU scope.
+
 **Finalized:** 2026-10-05 UTC. **Branch:** `m04-engine-readiness`.
 Continue this branch with normal commits/pushes; preserve main and the published
 `m03-g06-g07` predecessor. This completes the bounded implementation resumed

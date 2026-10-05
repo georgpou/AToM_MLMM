@@ -1,7 +1,9 @@
 # Current status
 
-**M05 child-branch bounded CPU increment independently accepted.**
-`m05-colab-workflows` starts at published M04 HEAD
+**Current continuation: CPU engine development on `cloud-engine-continuation`.**
+The [current handoff](handoffs/CLOUD-ENGINE-CONTINUATION.md) supersedes earlier
+implementation assignments. The branch starts at accepted report snapshot
+`2c02cc2713924140a82aefda37fd5885747e5837`, retaining published M04 predecessor
 `fab6388b041acc4362f30b5ff7d3789a33fc536f`; main is unchanged. Scientific source
 `424a859732b77b2f91cd03b12bb3f0b8adf3f541` passes **543 full CPU tests in606.45s**,
 no skips. The [G09 v5 worker](../../Worker_Log/Milestone_05/Gate_09_v5_worker.md)
@@ -11,11 +13,10 @@ solvated offline/checkpoint/portable-State evidence, four-round persistent
 pair-exchange pilots and complete sealed exports. The original CPU locks,
 MACE bytes and S06 limits remain unchanged.
 
-Both [Colab notebooks](../../notebooks/README.md) are delivered and pass official
-schema validation. A separate pinned actual-MACE TPU experiment has108 CPU
-reference configurations with changed graphs and cap-parent/ligand/solvent FDs.
-**Actual Colab CPU and TPU execution is not_run**; no authorized executor/hardware
-is available here. Returned exports must be verified before hardware claims.
+The user withdrew notebook delivery and external execution experiments. Their
+tooling and obsolete assignments are removed; accepted CPU code, locks, model,
+fixtures, reference ledgers and scientific evidence are retained. Historical
+results below describe their exact reviewed snapshots, not new gate acceptance.
 The [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) and
 [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md) accept
 the [new definition](specs/m05-dense-exchange-amendment.md) and declared CPU scope,
@@ -53,13 +54,13 @@ all 49 source/input/regression hashes, and closes R2 on exact submission
 and carries forward the unchanged G10 single-pair scope and scientific amendment.
 Dense-solvent equilibration, persistent exchange/RNG/history supervision,
 GPU, molecular accuracy and full G09/G10/M05 remain open. The
-[current handoff](handoffs/CLOUD-ENGINE-after-G09-v4.md) records the exact
+[historical handoff](handoffs/CLOUD-ENGINE-after-G09-v4.md) records the exact
 source/submission, environment, saved attempts and remaining work. The
 [v2 continuation](handoffs/CLOUD-ENGINE-after-G09-v2.md) stays frozen. This branch
 continues published `m03-g06-g07` at
 `fc6dbe3dfbb33906f85c0756d6c6ba6b44f1dd86`; main and that predecessor remain
 unchanged. The original [engine-readiness handoff](handoffs/ENGINE-READINESS-fresh-agent-v1.md)
-remains the broader assignment. T4 lysozyme L99A and Slurm setup are reserved
+remains a historical broader assignment. T4 lysozyme L99A and Slurm setup are reserved
 for user-initiated HPC work. Cloud tests target numerical correctness and stable
 bounded execution; MLIP physical accuracy remains unqualified.
 
@@ -340,27 +341,25 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-The user now defers TPU and prioritizes unattended **Colab CPU notebooks for
-ABFE/RBFE MD and missing QM references**. The
-[new assignment](handoffs/M05-colab-long-runs.md) reuses the independently accepted
-M05 implementation and adds long-run launch/checkpoint/export/resume controls and
-a QM notebook. Heavy jobs should run on user-selected Colab without Codex polling.
-The one-time small Colab smoke check establishes deployment portability; it does
-not require redoing completed development,543 tests, review or accepted QM data.
-Actual Colab execution remains not_run. Existing CPU notebooks are validation
-wrappers; the long-run/QM interface is the next work. Preserve the exact
-[source/review handoff](handoffs/M05-after-colab-tooling.md) and existing budgets.
+Continue the main engine on Codex Cloud using the
+[current assignment](handoffs/CLOUD-ENGINE-CONTINUATION.md). First extend G10's
+accepted pair-only controller to a bounded multi-state CPU scheduler, with a
+reviewed transaction design, independent cross-state energies and fault/replay
+tests. This is an implementation subset of G10-T2/T3, not a new gate definition
+or full M05 acceptance. Then advance deterministic G11/G12 protein and dual-ligand
+support and G13 packaging/resource measurements as their technical dependencies
+are satisfied. Preserve the shared engine and accepted pair regression path.
 
-The previous [cloud handoff](handoffs/CLOUD-ENGINE-after-G09-v4.md) remains the
-accepted M04/sparse-water lineage. New CPU controls and transactional scheduling
-have their own frozen evidence; full M05 stays open. The user defers T4 lysozyme and Slurm/HPC settings until cluster work
-begins. Report technical evidence separately from molecular physical
-qualification. G06/G07 numerical review remains accepted; G07-T4 and
-M03 physical closure remain blocked. Preserve all accepted G05 data, controls,
-seven sensitivity exceedances, pilot force failures and the unchanged cumulative
-quantum ledger. No quantum/production continuation is authorized by this technical
-work; the [remaining-reference handoff](handoffs/G07-reference-remaining-v2.md)
-retains the failed resource screen and safe continuation conditions.
+Use existing tiny ABFE/RBFE controls and small serial CPU checks. The accepted
+18-crown-6/methanol input is ABFE only; a methanol-to-ethanol host–guest RBFE input
+still needs preparation and qualification. Expensive QM, equilibrated solvent,
+long protein/production sampling and cluster settings are deferred to HPC.
+G06/G07 numerical review remains accepted; G07-T4/M03 physical closure and full
+M05 remain open. Preserve all accepted G05 data, seven sensitivity exceedances,
+pilot force failures and the cumulative quantum ledger. The
+[remaining-reference handoff](handoffs/G07-reference-remaining-v2.md) retains the
+failed resource screen and safe continuation conditions. This cleanup does not
+authorize a new QM budget or production continuation.
 
 | Scientific scope | Status | Next condition |
 |---|---|---|
@@ -374,8 +373,8 @@ retains the failed resource screen and safe continuation conditions.
 | G07 / T4 physical-reference sensitivity | blocked | Seven sensitivity failures plus measured pilot force-approximation exceedances; one validated full-parent reference, 29 missing; runtime/scratch screens exceed current envelope |
 | M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
 | M04 / G08 analytic thermodynamic accounting | accepted | [GPT-6.1-sol/MAX v2 audit](../../Worker_Log/Milestone_04/Gate_08_v2_audit.md), exact c0280818/source8cf2494; G08-R1 closed, refined amendments and combined M04 analytic CPU accepted; 437 full/21 affected passes |
-| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial (full milestone) | [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) / [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md):543 full/52 independent CPU passes; denser/exchange/restart definition accepted; Colab not_run/TPU deferred; full M05 open. Earlier lineage: [G09 v4 audit](../../Worker_Log/Milestone_05/Gate_09_v4_audit.md): R1/R2 closed, bounded explicit-water G09 subsets and unchanged G10 pair scope accepted; 501 root CPU passes, 21 independent focused passes/six probes; full M05 open |
-| M06-M08 / G11-G13 | deferred | T4 lysozyme and Slurm settings reserved for user-initiated HPC work; retain physical-qualification prerequisites |
+| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial (full milestone) | [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) / [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md):543 full/52 independent CPU passes; denser/exchange/restart definition accepted; next: general multi-state scheduling; full M05 open. Earlier lineage: [G09 v4 audit](../../Worker_Log/Milestone_05/Gate_09_v4_audit.md): R1/R2 closed, bounded explicit-water G09 subsets and unchanged G10 pair scope accepted; 501 root CPU passes, 21 independent focused passes/six probes; full M05 open |
+| M06-M08 / G11-G13 | technical implementation pending / physical qualification deferred | Advance deterministic CPU engine support as relevant runtime prerequisites pass; reserve demanding protein calculations and Slurm settings for HPC; retain full-milestone qualification requirements |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |
 

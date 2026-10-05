@@ -60,7 +60,7 @@ with zero link errors.
 ## Handoff
 
 Colab CPU execution is **not_run**: no authorized executor is available. The
-notebooks and [run instructions](../../notebooks/README.md) are the assigned
+notebooks and [run instructions](https://github.com/georgpou/AToM_MLMM/blob/2c02cc2713924140a82aefda37fd5885747e5837/notebooks/README.md) are the assigned
 user-run fallback. Returned complete exports must be verified before a Colab
 claim. Denser local hydration is not equilibrated liquid density; no NPT/virial,
 affinity or physical molecular/protein qualification is claimed. Keep M03's
