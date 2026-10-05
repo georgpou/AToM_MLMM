@@ -1,0 +1,21 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+____________ test_rbfe_bulk_guard_clears_the_other_complete_ligand _____________
+
+    def test_rbfe_bulk_guard_clears_the_other_complete_ligand():
+        from atm_mlmm.workflow import _domain
+        from atm_mlmm.schema import NumericalDomainError
+        from tests.joint_oracle import joint_input, DISPLACEMENT
+        original, _, snapshot = joint_input(two_ligands=True, periodic=True)
+        x = np.array(snapshot.positions_nm)
+        x[:26] -= (0., 0., 2.)
+        # Neither ligand clashes with the full protein, but the declared bulk
+        # ligand reconnects to the other complete ML ligand at map0.
+        x[32:] += x[26]+(0., 0., .55)-x[32]
+>       with pytest.raises(NumericalDomainError, match='other ligand'):
+E       Failed: DID NOT RAISE NumericalDomainError
+
+tests/workflow/test_solvated_handover.py:121: Failed
+=========================== short test summary info ============================
+FAILED tests/workflow/test_solvated_handover.py::test_rbfe_bulk_guard_clears_the_other_complete_ligand
+1 failed in 0.18s

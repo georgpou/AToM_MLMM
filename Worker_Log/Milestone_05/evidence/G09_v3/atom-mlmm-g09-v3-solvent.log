@@ -1,0 +1,596 @@
+......EEEEEEEEEE                                                         [100%]
+==================================== ERRORS ====================================
+_________ ERROR at setup of test_bulk_site_and_real_cross_forces[abfe] _________
+
+request = <SubRequest 'water_run' for <Function test_bulk_site_and_real_cross_forces[abfe]>>
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7fdf6c9a8210>, _basetemp=PosixPath('/tmp/pytest-of-agent/pytest-6'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module', params=('abfe', 'rbfe'))
+    def water_run(request, tmp_path_factory):
+        import json
+        from atm_mlmm.workflow import run_configuration, resume_run
+        from atm_mlmm.persistence import read_sample_chunks
+        from atm_mlmm.schema import from_json
+        kind = request.param
+        fixture = FIXTURE / kind
+        root = tmp_path_factory.mktemp('water-'+kind)
+        config = json.loads((fixture / 'config.json').read_text())
+        config['input_manifest'] = str(fixture / 'manifest.json')
+        config['settings'].update(frames_per_state=1, steps_per_frame=1, steps_per_phase=1,
+                                  minimization_iterations=3)
+        path = root / 'config.json'
+        path.write_text(json.dumps(config))
+        output = root / 'run'
+>       initial = run_configuration(path, output, trusted=True, stop_after_samples=1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_solvated_handover.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/workflow.py:404: in run_configuration
+    manifest,digest = export_worker_run(source,directory/'worker',snapshot,initial_id,
+src/atm_mlmm/adapters/atom.py:255: in export_worker_run
+    app.PDBFile.writeFile(topology, state.getPositions(), handle)
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:292: in writeFile
+    PDBFile.writeHeader(topology, file)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+topology = <Topology; 4 chains, 11 residues, 57 atoms, 46 bonds>
+file = <_io.TextIOWrapper name='/tmp/pytest-of-agent/pytest-6/water-abfe0/run/worker/handover.pdb' mode='w' encoding='UTF-8'>
+
+    @staticmethod
+    def writeHeader(topology, file=sys.stdout):
+        """Write out the header for a PDB file.
+    
+        Parameters
+        ----------
+        topology : Topology
+            The Topology defining the molecular system being written
+        file : file=stdout
+            A file to write the file to
+        """
+        print("REMARK   1 CREATED WITH OPENMM %s, %s" % (Platform.getOpenMMVersion(), str(date.today())), file=file)
+        vectors = topology.getPeriodicBoxVectors()
+        if vectors is not None:
+            a, b, c, alpha, beta, gamma = computeLengthsAndAngles(vectors)
+            RAD_TO_DEG = 180/math.pi
+>           print("CRYST1%9.3f%9.3f%9.3f%7.2f%7.2f%7.2f P 1           1 " % (
+                    a*10, b*10, c*10, alpha*RAD_TO_DEG, beta*RAD_TO_DEG, gamma*RAD_TO_DEG), file=file)
+E           TypeError: Quantity.__float__ returned non-float (type Quantity)
+
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:312: TypeError
+---------------------------- Captured stdout setup -----------------------------
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+_________ ERROR at setup of test_same_hamiltonian_in_preparation[abfe] _________
+
+request = <SubRequest 'water_run' for <Function test_bulk_site_and_real_cross_forces[abfe]>>
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7fdf6c9a8210>, _basetemp=PosixPath('/tmp/pytest-of-agent/pytest-6'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module', params=('abfe', 'rbfe'))
+    def water_run(request, tmp_path_factory):
+        import json
+        from atm_mlmm.workflow import run_configuration, resume_run
+        from atm_mlmm.persistence import read_sample_chunks
+        from atm_mlmm.schema import from_json
+        kind = request.param
+        fixture = FIXTURE / kind
+        root = tmp_path_factory.mktemp('water-'+kind)
+        config = json.loads((fixture / 'config.json').read_text())
+        config['input_manifest'] = str(fixture / 'manifest.json')
+        config['settings'].update(frames_per_state=1, steps_per_frame=1, steps_per_phase=1,
+                                  minimization_iterations=3)
+        path = root / 'config.json'
+        path.write_text(json.dumps(config))
+        output = root / 'run'
+>       initial = run_configuration(path, output, trusted=True, stop_after_samples=1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_solvated_handover.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/workflow.py:404: in run_configuration
+    manifest,digest = export_worker_run(source,directory/'worker',snapshot,initial_id,
+src/atm_mlmm/adapters/atom.py:255: in export_worker_run
+    app.PDBFile.writeFile(topology, state.getPositions(), handle)
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:292: in writeFile
+    PDBFile.writeHeader(topology, file)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+topology = <Topology; 4 chains, 11 residues, 57 atoms, 46 bonds>
+file = <_io.TextIOWrapper name='/tmp/pytest-of-agent/pytest-6/water-abfe0/run/worker/handover.pdb' mode='w' encoding='UTF-8'>
+
+    @staticmethod
+    def writeHeader(topology, file=sys.stdout):
+        """Write out the header for a PDB file.
+    
+        Parameters
+        ----------
+        topology : Topology
+            The Topology defining the molecular system being written
+        file : file=stdout
+            A file to write the file to
+        """
+        print("REMARK   1 CREATED WITH OPENMM %s, %s" % (Platform.getOpenMMVersion(), str(date.today())), file=file)
+        vectors = topology.getPeriodicBoxVectors()
+        if vectors is not None:
+            a, b, c, alpha, beta, gamma = computeLengthsAndAngles(vectors)
+            RAD_TO_DEG = 180/math.pi
+>           print("CRYST1%9.3f%9.3f%9.3f%7.2f%7.2f%7.2f P 1           1 " % (
+                    a*10, b*10, c*10, alpha*RAD_TO_DEG, beta*RAD_TO_DEG, gamma*RAD_TO_DEG), file=file)
+E           TypeError: Quantity.__float__ returned non-float (type Quantity)
+
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:312: TypeError
+________ ERROR at setup of test_worker_load_matches_direct_state[abfe] _________
+
+request = <SubRequest 'water_run' for <Function test_bulk_site_and_real_cross_forces[abfe]>>
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7fdf6c9a8210>, _basetemp=PosixPath('/tmp/pytest-of-agent/pytest-6'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module', params=('abfe', 'rbfe'))
+    def water_run(request, tmp_path_factory):
+        import json
+        from atm_mlmm.workflow import run_configuration, resume_run
+        from atm_mlmm.persistence import read_sample_chunks
+        from atm_mlmm.schema import from_json
+        kind = request.param
+        fixture = FIXTURE / kind
+        root = tmp_path_factory.mktemp('water-'+kind)
+        config = json.loads((fixture / 'config.json').read_text())
+        config['input_manifest'] = str(fixture / 'manifest.json')
+        config['settings'].update(frames_per_state=1, steps_per_frame=1, steps_per_phase=1,
+                                  minimization_iterations=3)
+        path = root / 'config.json'
+        path.write_text(json.dumps(config))
+        output = root / 'run'
+>       initial = run_configuration(path, output, trusted=True, stop_after_samples=1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_solvated_handover.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/workflow.py:404: in run_configuration
+    manifest,digest = export_worker_run(source,directory/'worker',snapshot,initial_id,
+src/atm_mlmm/adapters/atom.py:255: in export_worker_run
+    app.PDBFile.writeFile(topology, state.getPositions(), handle)
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:292: in writeFile
+    PDBFile.writeHeader(topology, file)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+topology = <Topology; 4 chains, 11 residues, 57 atoms, 46 bonds>
+file = <_io.TextIOWrapper name='/tmp/pytest-of-agent/pytest-6/water-abfe0/run/worker/handover.pdb' mode='w' encoding='UTF-8'>
+
+    @staticmethod
+    def writeHeader(topology, file=sys.stdout):
+        """Write out the header for a PDB file.
+    
+        Parameters
+        ----------
+        topology : Topology
+            The Topology defining the molecular system being written
+        file : file=stdout
+            A file to write the file to
+        """
+        print("REMARK   1 CREATED WITH OPENMM %s, %s" % (Platform.getOpenMMVersion(), str(date.today())), file=file)
+        vectors = topology.getPeriodicBoxVectors()
+        if vectors is not None:
+            a, b, c, alpha, beta, gamma = computeLengthsAndAngles(vectors)
+            RAD_TO_DEG = 180/math.pi
+>           print("CRYST1%9.3f%9.3f%9.3f%7.2f%7.2f%7.2f P 1           1 " % (
+                    a*10, b*10, c*10, alpha*RAD_TO_DEG, beta*RAD_TO_DEG, gamma*RAD_TO_DEG), file=file)
+E           TypeError: Quantity.__float__ returned non-float (type Quantity)
+
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:312: TypeError
+______ ERROR at setup of test_saved_raw_records_reconstruct_states[abfe] _______
+
+request = <SubRequest 'water_run' for <Function test_bulk_site_and_real_cross_forces[abfe]>>
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7fdf6c9a8210>, _basetemp=PosixPath('/tmp/pytest-of-agent/pytest-6'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module', params=('abfe', 'rbfe'))
+    def water_run(request, tmp_path_factory):
+        import json
+        from atm_mlmm.workflow import run_configuration, resume_run
+        from atm_mlmm.persistence import read_sample_chunks
+        from atm_mlmm.schema import from_json
+        kind = request.param
+        fixture = FIXTURE / kind
+        root = tmp_path_factory.mktemp('water-'+kind)
+        config = json.loads((fixture / 'config.json').read_text())
+        config['input_manifest'] = str(fixture / 'manifest.json')
+        config['settings'].update(frames_per_state=1, steps_per_frame=1, steps_per_phase=1,
+                                  minimization_iterations=3)
+        path = root / 'config.json'
+        path.write_text(json.dumps(config))
+        output = root / 'run'
+>       initial = run_configuration(path, output, trusted=True, stop_after_samples=1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_solvated_handover.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/workflow.py:404: in run_configuration
+    manifest,digest = export_worker_run(source,directory/'worker',snapshot,initial_id,
+src/atm_mlmm/adapters/atom.py:255: in export_worker_run
+    app.PDBFile.writeFile(topology, state.getPositions(), handle)
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:292: in writeFile
+    PDBFile.writeHeader(topology, file)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+topology = <Topology; 4 chains, 11 residues, 57 atoms, 46 bonds>
+file = <_io.TextIOWrapper name='/tmp/pytest-of-agent/pytest-6/water-abfe0/run/worker/handover.pdb' mode='w' encoding='UTF-8'>
+
+    @staticmethod
+    def writeHeader(topology, file=sys.stdout):
+        """Write out the header for a PDB file.
+    
+        Parameters
+        ----------
+        topology : Topology
+            The Topology defining the molecular system being written
+        file : file=stdout
+            A file to write the file to
+        """
+        print("REMARK   1 CREATED WITH OPENMM %s, %s" % (Platform.getOpenMMVersion(), str(date.today())), file=file)
+        vectors = topology.getPeriodicBoxVectors()
+        if vectors is not None:
+            a, b, c, alpha, beta, gamma = computeLengthsAndAngles(vectors)
+            RAD_TO_DEG = 180/math.pi
+>           print("CRYST1%9.3f%9.3f%9.3f%7.2f%7.2f%7.2f P 1           1 " % (
+                    a*10, b*10, c*10, alpha*RAD_TO_DEG, beta*RAD_TO_DEG, gamma*RAD_TO_DEG), file=file)
+E           TypeError: Quantity.__float__ returned non-float (type Quantity)
+
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:312: TypeError
+_____ ERROR at setup of test_both_mapped_geometries_remain_admitted[abfe] ______
+
+request = <SubRequest 'water_run' for <Function test_bulk_site_and_real_cross_forces[abfe]>>
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7fdf6c9a8210>, _basetemp=PosixPath('/tmp/pytest-of-agent/pytest-6'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module', params=('abfe', 'rbfe'))
+    def water_run(request, tmp_path_factory):
+        import json
+        from atm_mlmm.workflow import run_configuration, resume_run
+        from atm_mlmm.persistence import read_sample_chunks
+        from atm_mlmm.schema import from_json
+        kind = request.param
+        fixture = FIXTURE / kind
+        root = tmp_path_factory.mktemp('water-'+kind)
+        config = json.loads((fixture / 'config.json').read_text())
+        config['input_manifest'] = str(fixture / 'manifest.json')
+        config['settings'].update(frames_per_state=1, steps_per_frame=1, steps_per_phase=1,
+                                  minimization_iterations=3)
+        path = root / 'config.json'
+        path.write_text(json.dumps(config))
+        output = root / 'run'
+>       initial = run_configuration(path, output, trusted=True, stop_after_samples=1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_solvated_handover.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/workflow.py:404: in run_configuration
+    manifest,digest = export_worker_run(source,directory/'worker',snapshot,initial_id,
+src/atm_mlmm/adapters/atom.py:255: in export_worker_run
+    app.PDBFile.writeFile(topology, state.getPositions(), handle)
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:292: in writeFile
+    PDBFile.writeHeader(topology, file)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+topology = <Topology; 4 chains, 11 residues, 57 atoms, 46 bonds>
+file = <_io.TextIOWrapper name='/tmp/pytest-of-agent/pytest-6/water-abfe0/run/worker/handover.pdb' mode='w' encoding='UTF-8'>
+
+    @staticmethod
+    def writeHeader(topology, file=sys.stdout):
+        """Write out the header for a PDB file.
+    
+        Parameters
+        ----------
+        topology : Topology
+            The Topology defining the molecular system being written
+        file : file=stdout
+            A file to write the file to
+        """
+        print("REMARK   1 CREATED WITH OPENMM %s, %s" % (Platform.getOpenMMVersion(), str(date.today())), file=file)
+        vectors = topology.getPeriodicBoxVectors()
+        if vectors is not None:
+            a, b, c, alpha, beta, gamma = computeLengthsAndAngles(vectors)
+            RAD_TO_DEG = 180/math.pi
+>           print("CRYST1%9.3f%9.3f%9.3f%7.2f%7.2f%7.2f P 1           1 " % (
+                    a*10, b*10, c*10, alpha*RAD_TO_DEG, beta*RAD_TO_DEG, gamma*RAD_TO_DEG), file=file)
+E           TypeError: Quantity.__float__ returned non-float (type Quantity)
+
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:312: TypeError
+_________ ERROR at setup of test_bulk_site_and_real_cross_forces[rbfe] _________
+
+request = <SubRequest 'water_run' for <Function test_bulk_site_and_real_cross_forces[rbfe]>>
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7fdf6c9a8210>, _basetemp=PosixPath('/tmp/pytest-of-agent/pytest-6'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module', params=('abfe', 'rbfe'))
+    def water_run(request, tmp_path_factory):
+        import json
+        from atm_mlmm.workflow import run_configuration, resume_run
+        from atm_mlmm.persistence import read_sample_chunks
+        from atm_mlmm.schema import from_json
+        kind = request.param
+        fixture = FIXTURE / kind
+        root = tmp_path_factory.mktemp('water-'+kind)
+        config = json.loads((fixture / 'config.json').read_text())
+        config['input_manifest'] = str(fixture / 'manifest.json')
+        config['settings'].update(frames_per_state=1, steps_per_frame=1, steps_per_phase=1,
+                                  minimization_iterations=3)
+        path = root / 'config.json'
+        path.write_text(json.dumps(config))
+        output = root / 'run'
+>       initial = run_configuration(path, output, trusted=True, stop_after_samples=1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_solvated_handover.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/workflow.py:404: in run_configuration
+    manifest,digest = export_worker_run(source,directory/'worker',snapshot,initial_id,
+src/atm_mlmm/adapters/atom.py:255: in export_worker_run
+    app.PDBFile.writeFile(topology, state.getPositions(), handle)
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:292: in writeFile
+    PDBFile.writeHeader(topology, file)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+topology = <Topology; 5 chains, 12 residues, 66 atoms, 54 bonds>
+file = <_io.TextIOWrapper name='/tmp/pytest-of-agent/pytest-6/water-rbfe0/run/worker/handover.pdb' mode='w' encoding='UTF-8'>
+
+    @staticmethod
+    def writeHeader(topology, file=sys.stdout):
+        """Write out the header for a PDB file.
+    
+        Parameters
+        ----------
+        topology : Topology
+            The Topology defining the molecular system being written
+        file : file=stdout
+            A file to write the file to
+        """
+        print("REMARK   1 CREATED WITH OPENMM %s, %s" % (Platform.getOpenMMVersion(), str(date.today())), file=file)
+        vectors = topology.getPeriodicBoxVectors()
+        if vectors is not None:
+            a, b, c, alpha, beta, gamma = computeLengthsAndAngles(vectors)
+            RAD_TO_DEG = 180/math.pi
+>           print("CRYST1%9.3f%9.3f%9.3f%7.2f%7.2f%7.2f P 1           1 " % (
+                    a*10, b*10, c*10, alpha*RAD_TO_DEG, beta*RAD_TO_DEG, gamma*RAD_TO_DEG), file=file)
+E           TypeError: Quantity.__float__ returned non-float (type Quantity)
+
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:312: TypeError
+_________ ERROR at setup of test_same_hamiltonian_in_preparation[rbfe] _________
+
+request = <SubRequest 'water_run' for <Function test_bulk_site_and_real_cross_forces[rbfe]>>
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7fdf6c9a8210>, _basetemp=PosixPath('/tmp/pytest-of-agent/pytest-6'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module', params=('abfe', 'rbfe'))
+    def water_run(request, tmp_path_factory):
+        import json
+        from atm_mlmm.workflow import run_configuration, resume_run
+        from atm_mlmm.persistence import read_sample_chunks
+        from atm_mlmm.schema import from_json
+        kind = request.param
+        fixture = FIXTURE / kind
+        root = tmp_path_factory.mktemp('water-'+kind)
+        config = json.loads((fixture / 'config.json').read_text())
+        config['input_manifest'] = str(fixture / 'manifest.json')
+        config['settings'].update(frames_per_state=1, steps_per_frame=1, steps_per_phase=1,
+                                  minimization_iterations=3)
+        path = root / 'config.json'
+        path.write_text(json.dumps(config))
+        output = root / 'run'
+>       initial = run_configuration(path, output, trusted=True, stop_after_samples=1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_solvated_handover.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/workflow.py:404: in run_configuration
+    manifest,digest = export_worker_run(source,directory/'worker',snapshot,initial_id,
+src/atm_mlmm/adapters/atom.py:255: in export_worker_run
+    app.PDBFile.writeFile(topology, state.getPositions(), handle)
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:292: in writeFile
+    PDBFile.writeHeader(topology, file)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+topology = <Topology; 5 chains, 12 residues, 66 atoms, 54 bonds>
+file = <_io.TextIOWrapper name='/tmp/pytest-of-agent/pytest-6/water-rbfe0/run/worker/handover.pdb' mode='w' encoding='UTF-8'>
+
+    @staticmethod
+    def writeHeader(topology, file=sys.stdout):
+        """Write out the header for a PDB file.
+    
+        Parameters
+        ----------
+        topology : Topology
+            The Topology defining the molecular system being written
+        file : file=stdout
+            A file to write the file to
+        """
+        print("REMARK   1 CREATED WITH OPENMM %s, %s" % (Platform.getOpenMMVersion(), str(date.today())), file=file)
+        vectors = topology.getPeriodicBoxVectors()
+        if vectors is not None:
+            a, b, c, alpha, beta, gamma = computeLengthsAndAngles(vectors)
+            RAD_TO_DEG = 180/math.pi
+>           print("CRYST1%9.3f%9.3f%9.3f%7.2f%7.2f%7.2f P 1           1 " % (
+                    a*10, b*10, c*10, alpha*RAD_TO_DEG, beta*RAD_TO_DEG, gamma*RAD_TO_DEG), file=file)
+E           TypeError: Quantity.__float__ returned non-float (type Quantity)
+
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:312: TypeError
+________ ERROR at setup of test_worker_load_matches_direct_state[rbfe] _________
+
+request = <SubRequest 'water_run' for <Function test_bulk_site_and_real_cross_forces[rbfe]>>
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7fdf6c9a8210>, _basetemp=PosixPath('/tmp/pytest-of-agent/pytest-6'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module', params=('abfe', 'rbfe'))
+    def water_run(request, tmp_path_factory):
+        import json
+        from atm_mlmm.workflow import run_configuration, resume_run
+        from atm_mlmm.persistence import read_sample_chunks
+        from atm_mlmm.schema import from_json
+        kind = request.param
+        fixture = FIXTURE / kind
+        root = tmp_path_factory.mktemp('water-'+kind)
+        config = json.loads((fixture / 'config.json').read_text())
+        config['input_manifest'] = str(fixture / 'manifest.json')
+        config['settings'].update(frames_per_state=1, steps_per_frame=1, steps_per_phase=1,
+                                  minimization_iterations=3)
+        path = root / 'config.json'
+        path.write_text(json.dumps(config))
+        output = root / 'run'
+>       initial = run_configuration(path, output, trusted=True, stop_after_samples=1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_solvated_handover.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/workflow.py:404: in run_configuration
+    manifest,digest = export_worker_run(source,directory/'worker',snapshot,initial_id,
+src/atm_mlmm/adapters/atom.py:255: in export_worker_run
+    app.PDBFile.writeFile(topology, state.getPositions(), handle)
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:292: in writeFile
+    PDBFile.writeHeader(topology, file)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+topology = <Topology; 5 chains, 12 residues, 66 atoms, 54 bonds>
+file = <_io.TextIOWrapper name='/tmp/pytest-of-agent/pytest-6/water-rbfe0/run/worker/handover.pdb' mode='w' encoding='UTF-8'>
+
+    @staticmethod
+    def writeHeader(topology, file=sys.stdout):
+        """Write out the header for a PDB file.
+    
+        Parameters
+        ----------
+        topology : Topology
+            The Topology defining the molecular system being written
+        file : file=stdout
+            A file to write the file to
+        """
+        print("REMARK   1 CREATED WITH OPENMM %s, %s" % (Platform.getOpenMMVersion(), str(date.today())), file=file)
+        vectors = topology.getPeriodicBoxVectors()
+        if vectors is not None:
+            a, b, c, alpha, beta, gamma = computeLengthsAndAngles(vectors)
+            RAD_TO_DEG = 180/math.pi
+>           print("CRYST1%9.3f%9.3f%9.3f%7.2f%7.2f%7.2f P 1           1 " % (
+                    a*10, b*10, c*10, alpha*RAD_TO_DEG, beta*RAD_TO_DEG, gamma*RAD_TO_DEG), file=file)
+E           TypeError: Quantity.__float__ returned non-float (type Quantity)
+
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:312: TypeError
+______ ERROR at setup of test_saved_raw_records_reconstruct_states[rbfe] _______
+
+request = <SubRequest 'water_run' for <Function test_bulk_site_and_real_cross_forces[rbfe]>>
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7fdf6c9a8210>, _basetemp=PosixPath('/tmp/pytest-of-agent/pytest-6'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module', params=('abfe', 'rbfe'))
+    def water_run(request, tmp_path_factory):
+        import json
+        from atm_mlmm.workflow import run_configuration, resume_run
+        from atm_mlmm.persistence import read_sample_chunks
+        from atm_mlmm.schema import from_json
+        kind = request.param
+        fixture = FIXTURE / kind
+        root = tmp_path_factory.mktemp('water-'+kind)
+        config = json.loads((fixture / 'config.json').read_text())
+        config['input_manifest'] = str(fixture / 'manifest.json')
+        config['settings'].update(frames_per_state=1, steps_per_frame=1, steps_per_phase=1,
+                                  minimization_iterations=3)
+        path = root / 'config.json'
+        path.write_text(json.dumps(config))
+        output = root / 'run'
+>       initial = run_configuration(path, output, trusted=True, stop_after_samples=1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_solvated_handover.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/workflow.py:404: in run_configuration
+    manifest,digest = export_worker_run(source,directory/'worker',snapshot,initial_id,
+src/atm_mlmm/adapters/atom.py:255: in export_worker_run
+    app.PDBFile.writeFile(topology, state.getPositions(), handle)
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:292: in writeFile
+    PDBFile.writeHeader(topology, file)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+topology = <Topology; 5 chains, 12 residues, 66 atoms, 54 bonds>
+file = <_io.TextIOWrapper name='/tmp/pytest-of-agent/pytest-6/water-rbfe0/run/worker/handover.pdb' mode='w' encoding='UTF-8'>
+
+    @staticmethod
+    def writeHeader(topology, file=sys.stdout):
+        """Write out the header for a PDB file.
+    
+        Parameters
+        ----------
+        topology : Topology
+            The Topology defining the molecular system being written
+        file : file=stdout
+            A file to write the file to
+        """
+        print("REMARK   1 CREATED WITH OPENMM %s, %s" % (Platform.getOpenMMVersion(), str(date.today())), file=file)
+        vectors = topology.getPeriodicBoxVectors()
+        if vectors is not None:
+            a, b, c, alpha, beta, gamma = computeLengthsAndAngles(vectors)
+            RAD_TO_DEG = 180/math.pi
+>           print("CRYST1%9.3f%9.3f%9.3f%7.2f%7.2f%7.2f P 1           1 " % (
+                    a*10, b*10, c*10, alpha*RAD_TO_DEG, beta*RAD_TO_DEG, gamma*RAD_TO_DEG), file=file)
+E           TypeError: Quantity.__float__ returned non-float (type Quantity)
+
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:312: TypeError
+_____ ERROR at setup of test_both_mapped_geometries_remain_admitted[rbfe] ______
+
+request = <SubRequest 'water_run' for <Function test_bulk_site_and_real_cross_forces[rbfe]>>
+tmp_path_factory = TempPathFactory(_given_basetemp=None, _trace=<pluggy._tracing.TagTracerSub object at 0x7fdf6c9a8210>, _basetemp=PosixPath('/tmp/pytest-of-agent/pytest-6'), _retention_count=3, _retention_policy='all')
+
+    @pytest.fixture(scope='module', params=('abfe', 'rbfe'))
+    def water_run(request, tmp_path_factory):
+        import json
+        from atm_mlmm.workflow import run_configuration, resume_run
+        from atm_mlmm.persistence import read_sample_chunks
+        from atm_mlmm.schema import from_json
+        kind = request.param
+        fixture = FIXTURE / kind
+        root = tmp_path_factory.mktemp('water-'+kind)
+        config = json.loads((fixture / 'config.json').read_text())
+        config['input_manifest'] = str(fixture / 'manifest.json')
+        config['settings'].update(frames_per_state=1, steps_per_frame=1, steps_per_phase=1,
+                                  minimization_iterations=3)
+        path = root / 'config.json'
+        path.write_text(json.dumps(config))
+        output = root / 'run'
+>       initial = run_configuration(path, output, trusted=True, stop_after_samples=1)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_solvated_handover.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/workflow.py:404: in run_configuration
+    manifest,digest = export_worker_run(source,directory/'worker',snapshot,initial_id,
+src/atm_mlmm/adapters/atom.py:255: in export_worker_run
+    app.PDBFile.writeFile(topology, state.getPositions(), handle)
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:292: in writeFile
+    PDBFile.writeHeader(topology, file)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+topology = <Topology; 5 chains, 12 residues, 66 atoms, 54 bonds>
+file = <_io.TextIOWrapper name='/tmp/pytest-of-agent/pytest-6/water-rbfe0/run/worker/handover.pdb' mode='w' encoding='UTF-8'>
+
+    @staticmethod
+    def writeHeader(topology, file=sys.stdout):
+        """Write out the header for a PDB file.
+    
+        Parameters
+        ----------
+        topology : Topology
+            The Topology defining the molecular system being written
+        file : file=stdout
+            A file to write the file to
+        """
+        print("REMARK   1 CREATED WITH OPENMM %s, %s" % (Platform.getOpenMMVersion(), str(date.today())), file=file)
+        vectors = topology.getPeriodicBoxVectors()
+        if vectors is not None:
+            a, b, c, alpha, beta, gamma = computeLengthsAndAngles(vectors)
+            RAD_TO_DEG = 180/math.pi
+>           print("CRYST1%9.3f%9.3f%9.3f%7.2f%7.2f%7.2f P 1           1 " % (
+                    a*10, b*10, c*10, alpha*RAD_TO_DEG, beta*RAD_TO_DEG, gamma*RAD_TO_DEG), file=file)
+E           TypeError: Quantity.__float__ returned non-float (type Quantity)
+
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/app/pdbfile.py:312: TypeError
+=========================== short test summary info ============================
+ERROR tests/workflow/test_solvated_handover.py::test_bulk_site_and_real_cross_forces[abfe]
+ERROR tests/workflow/test_solvated_handover.py::test_same_hamiltonian_in_preparation[abfe]
+ERROR tests/workflow/test_solvated_handover.py::test_worker_load_matches_direct_state[abfe]
+ERROR tests/workflow/test_solvated_handover.py::test_saved_raw_records_reconstruct_states[abfe]
+ERROR tests/workflow/test_solvated_handover.py::test_both_mapped_geometries_remain_admitted[abfe]
+ERROR tests/workflow/test_solvated_handover.py::test_bulk_site_and_real_cross_forces[rbfe]
+ERROR tests/workflow/test_solvated_handover.py::test_same_hamiltonian_in_preparation[rbfe]
+ERROR tests/workflow/test_solvated_handover.py::test_worker_load_matches_direct_state[rbfe]
+ERROR tests/workflow/test_solvated_handover.py::test_saved_raw_records_reconstruct_states[rbfe]
+ERROR tests/workflow/test_solvated_handover.py::test_both_mapped_geometries_remain_admitted[rbfe]
+6 passed, 10 errors in 15.84s

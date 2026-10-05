@@ -1,0 +1,44 @@
+{
+  "alchemical_identity": "726c012390d73c56401dc9bdfba80bd9f81fb1ef0305bbe74266402d1def518c",
+  "all_real_atoms": 65,
+  "binding_result": "not_evaluated",
+  "elapsed_execution_seconds": 7.582533418999901,
+  "limitations": [
+    "Fixed windows; replica exchange is pending.",
+    "No equilibrium, solvent-density, molecular accuracy, standard corrections or affinity qualification.",
+    "Checkpoint continuation requires the identical CPU/software/source profile.",
+    "Hard-crash pending transactions are preserved and require inspection."
+  ],
+  "peak_process_rss_bytes": 903782400,
+  "physical_identity": "44b391a3600306ff3b947b7f93b0c00d6b376252c15fd850f669443b91d618eb",
+  "profile": {
+    "installed_distribution_identity": "1865672db5d5a8db6c4d6abc4035d2eb0d70339cb85c1958f85eac7e7800fbf1",
+    "machine": "x86_64",
+    "model_device": "CPU",
+    "model_dtype": "float64",
+    "openmm_platform": "Reference",
+    "packages": {
+      "atom-openmm": "8.5.0b0",
+      "mace-torch": "0.3.16",
+      "numpy": "2.4.6",
+      "openmm": "8.6.1",
+      "torch": "2.8.0"
+    },
+    "precision": "double",
+    "python": "3.11.16"
+  },
+  "reconstructed_matrix_shape": [
+    3,
+    9
+  ],
+  "runtime_identity": "93485f1c629858c556c4758a1f735296e45d3ccbe6c908aa5e73d42f965cf56b",
+  "samples": 9,
+  "scope": "bounded engine preflight; no equilibrium or physical-accuracy claim",
+  "states": [
+    "contact",
+    "middle",
+    "separated"
+  ],
+  "status": "complete",
+  "worker_manifest_sha256": "dce2bfac6a0a5e473b847c83c3d80549d227c1a99ecc8411e97704e146c4e517"
+}

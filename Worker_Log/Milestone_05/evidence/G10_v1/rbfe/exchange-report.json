@@ -1,0 +1,76 @@
+{
+  "walker_ids": [
+    "7f6476b01d2f456f8b8a271c0c0e232d:contact",
+    "7f6476b01d2f456f8b8a271c0c0e232d:separated"
+  ],
+  "state_ids_before": [
+    "contact",
+    "separated"
+  ],
+  "state_ids_after": [
+    "separated",
+    "contact"
+  ],
+  "accepted": true,
+  "reduced_energies": [
+    [
+      -505546.2365226362,
+      -505546.23706210114
+    ],
+    [
+      -505549.57945996965,
+      -505549.6062814114
+    ]
+  ],
+  "exponent": 0.026281976839527488,
+  "raw_energies": [
+    [
+      {
+        "u0_raw_kJ_mol": -1261003.5855954369,
+        "u1_raw_kJ_mol": -1261011.924013685,
+        "delta_u_raw_kJ_mol": -8.33841824810952,
+        "delta_u_softcore_kJ_mol": -8.33841824810952,
+        "atm_expression_energy_kJ_mol": -1261003.5855954369,
+        "outside_energy_kJ_mol": 7.823372886759462e-07,
+        "system_total_energy_kJ_mol": -1261003.5855946545
+      },
+      {
+        "u0_raw_kJ_mol": -1261003.586941019,
+        "u1_raw_kJ_mol": -1261011.9909154212,
+        "delta_u_raw_kJ_mol": -8.403974402230233,
+        "delta_u_softcore_kJ_mol": -8.403974402230233,
+        "atm_expression_energy_kJ_mol": -1261003.586941019,
+        "outside_energy_kJ_mol": 7.559725342962967e-07,
+        "system_total_energy_kJ_mol": -1261003.586940263
+      }
+    ],
+    [
+      {
+        "u0_raw_kJ_mol": -1261003.5855954369,
+        "u1_raw_kJ_mol": -1261011.924013685,
+        "delta_u_raw_kJ_mol": -8.33841824810952,
+        "delta_u_softcore_kJ_mol": -8.33841824810952,
+        "atm_expression_energy_kJ_mol": -1261011.924013685,
+        "outside_energy_kJ_mol": 7.823372886759462e-07,
+        "system_total_energy_kJ_mol": -1261011.9240129027
+      },
+      {
+        "u0_raw_kJ_mol": -1261003.586941019,
+        "u1_raw_kJ_mol": -1261011.9909154212,
+        "delta_u_raw_kJ_mol": -8.403974402230233,
+        "delta_u_softcore_kJ_mol": -8.403974402230233,
+        "atm_expression_energy_kJ_mol": -1261011.9909154212,
+        "outside_energy_kJ_mol": 7.559725342962967e-07,
+        "system_total_energy_kJ_mol": -1261011.9909146652
+      }
+    ]
+  ],
+  "energies_after_kj_mol": [
+    -1261011.9240129027,
+    -1261003.586940263
+  ],
+  "physical_identity": "44b391a3600306ff3b947b7f93b0c00d6b376252c15fd850f669443b91d618eb",
+  "alchemical_identity": "6943dfe7717a4b0b2902b5e68891d4b1685c92d3d5b555f5430f1d85dbf9eaba",
+  "runtime_identity": "93485f1c629858c556c4758a1f735296e45d3ccbe6c908aa5e73d42f965cf56b",
+  "mechanism": "AToM 8.5.0b0 pairwise_metropolis_sampling; full context potentials"
+}

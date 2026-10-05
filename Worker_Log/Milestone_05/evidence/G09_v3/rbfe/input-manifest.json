@@ -1,0 +1,13 @@
+{
+  "files": {
+    "partition.json": "7a24349a35de86dbfe6183a877adc0280929ccd0781fcd7ab56de3ec1a2532e1",
+    "snapshot.json": "b91fa6bb048336ab1d316f2bf9be16db59175f2c9906456fa3407b8bbfbc5650",
+    "system-input.json": "d2fdced8b45ae66f7fb4b5af3649b3dbb3d25804523216108b732664a92805c6"
+  },
+  "physical_scope": "sparse explicit TIP3P PME coupling control; no density/equilibrium qualification",
+  "source_files": {
+    "partition.json": "7a24349a35de86dbfe6183a877adc0280929ccd0781fcd7ab56de3ec1a2532e1",
+    "snapshot.json": "2c5dfd45f82440ade45e8964d1a83327161d08e348a7d6c7152ffd445b5e8475",
+    "system-input.json": "1cfedce56e6051652b33e47393df0d5e976d3967c6d4fc6ee8142bd88a96156d"
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "input_manifest": "manifest.json",
+  "input_manifest_sha256": "34d02773c25078fd54e1bdd588412839dc572c71c3f5732215482598f164f405",
+  "schedule": {
+    "data": {
+      "expression": "select(step(Direction), u0, u1) + select(Lambda2-Lambda1, ((Lambda2-Lambda1)/Alpha)*log(1+exp(-Alpha*(usc-Uh))) + Lambda2*usc + W0, Lambda2*usc + W0);usc = select(Acore, select(step(u-Ubcore), (Umax-Ubcore)*fsc+Ubcore, u), u);fsc = (z^Acore-1)/(z^Acore+1);z = 1 + 2*(y/Acore) + 2*(y/Acore)^2;y = (u-Ubcore)/(Umax-Ubcore);u = select(step(Direction), 1, -1)*(u1-(u0 + UOffset))",
+      "kind": "softplus",
+      "parameter_units": {
+        "Acore": "dimensionless",
+        "Alpha": "mol/kJ",
+        "Direction": "dimensionless",
+        "Lambda1": "dimensionless",
+        "Lambda2": "dimensionless",
+        "UOffset": "kJ/mol",
+        "Ubcore": "kJ/mol",
+        "Uh": "kJ/mol",
+        "Umax": "kJ/mol",
+        "W0": "kJ/mol"
+      },
+      "states": [
+        {
+          "data": {
+            "parameters": {
+              "Acore": 0.0,
+              "Alpha": 0.1,
+              "Direction": 1.0,
+              "Lambda1": 0.0,
+              "Lambda2": 0.0,
+              "UOffset": 0.0,
+              "Ubcore": 500.0,
+              "Uh": 0.0,
+              "Umax": 10000.0,
+              "W0": 0.0
+            },
+            "state_id": "contact"
+          },
+          "record_type": "ScheduleState"
+        },
+        {
+          "data": {
+            "parameters": {
+              "Acore": 0.0,
+              "Alpha": 0.1,
+              "Direction": 1.0,
+              "Lambda1": 0.5,
+              "Lambda2": 0.5,
+              "UOffset": 0.0,
+              "Ubcore": 500.0,
+              "Uh": 0.0,
+              "Umax": 10000.0,
+              "W0": 0.0
+            },
+            "state_id": "middle"
+          },
+          "record_type": "ScheduleState"
+        },
+        {
+          "data": {
+            "parameters": {
+              "Acore": 0.0,
+              "Alpha": 0.1,
+              "Direction": 1.0,
+              "Lambda1": 1.0,
+              "Lambda2": 1.0,
+              "UOffset": 0.0,
+              "Ubcore": 500.0,
+              "Uh": 0.0,
+              "Umax": 10000.0,
+              "W0": 0.0
+            },
+            "state_id": "separated"
+          },
+          "record_type": "ScheduleState"
+        }
+      ],
+      "temperature_K": 300.0
+    },
+    "record_type": "ScheduleSpec",
+    "schema_version": "1.0"
+  },
+  "settings": {
+    "displacement_nm": [
+      2.4,
+      0.0,
+      0.0
+    ],
+    "frames_per_state": 3,
+    "minimization_iterations": 10,
+    "outside_spring_kj_mol_nm2": 10.0,
+    "platform": "Reference",
+    "protocol_kind": "abfe",
+    "seed": 41,
+    "steps_per_frame": 2,
+    "steps_per_phase": 2,
+    "temperature_K": 300.0,
+    "temperatures_K": [
+      10.0,
+      100.0,
+      300.0
+    ],
+    "timestep_ps": 0.0005
+  },
+  "version": 1
+}

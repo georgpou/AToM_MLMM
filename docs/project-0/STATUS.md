@@ -1,7 +1,19 @@
 # Current status
 
-**Paused at a reviewed cloud engine checkpoint on `m04-engine-readiness`.**
-The user requested a graceful stop near the session limit. The
+**Resumed bounded cloud solvent and exchange implementation on `m04-engine-readiness`.**
+The user resumed the reviewed checkpoint and requested economical serial work.
+The [G09 v3 worker](../../Worker_Log/Milestone_05/Gate_09_v3_worker.md) and
+[G10 v1 worker](../../Worker_Log/Milestone_05/Gate_10_v1_worker.md) submit sparse
+rigid TIP3P/orthorhombic PME controls (56/65 real atoms), live-box and full-map
+guards, actual periodic worker export, two-map failure archives and one actual
+AToM pair-exchange decision with fresh four-entry energies/state histories.
+Tested source is `5645db24f707adbdaff34dc7de6ac04b518d7d6b`: **489 CPU tests
+passed in 481.86 s**, no skips. Both CLI pilots saved nine frames/18 sampling
+steps, preserved full real forces and boxes, with peak process RSS below
+0.85 GiB. The [periodic anchor/water amendment](specs/cloud-solvent-control-amendment.md)
+is proposed pending independent review; no new acceptance is claimed yet.
+Dense-solvent equilibration, persistent exchange/RNG/history supervision,
+GPU, molecular accuracy and full G09/G10/M05 remain open. The
 [continuation handoff](handoffs/CLOUD-ENGINE-after-G09-v2.md) records the exact
 source/submission, environment, saved attempts and remaining work. This branch
 continues published `m03-g06-g07` at
@@ -288,10 +300,11 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-Work is paused at the [reviewed cloud handoff](handoffs/CLOUD-ENGINE-after-G09-v2.md)
-until the user resumes. R1 is closed. Retain this common runner baseline while
-solvent coupling and actual exchange receive explicit later coverage in new
-attempts. The user defers T4 lysozyme and Slurm/HPC settings until cluster work
+The [reviewed cloud handoff](handoffs/CLOUD-ENGINE-after-G09-v2.md) has resumed.
+R1 is closed. G09 v3/G10 v1 submit bounded explicit-water coupling and actual
+pair-exchange checks for independent review. Retain the common runner while
+dense-solvent preparation and a persistent exchange controller receive explicit
+later coverage in new attempts. The user defers T4 lysozyme and Slurm/HPC settings until cluster work
 begins. Report technical evidence separately from molecular physical
 qualification. G06/G07 numerical review remains accepted; G07-T4 and
 M03 physical closure remain blocked. Preserve all accepted G05 data, controls,

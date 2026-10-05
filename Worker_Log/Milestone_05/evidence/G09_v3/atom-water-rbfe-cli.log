@@ -1,0 +1,45 @@
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+{
+  "scope": "bounded engine preflight; no equilibrium or physical-accuracy claim",
+  "status": "complete",
+  "samples": 9,
+  "states": [
+    "contact",
+    "middle",
+    "separated"
+  ],
+  "all_real_atoms": 65,
+  "binding_result": "not_evaluated",
+  "physical_identity": "44b391a3600306ff3b947b7f93b0c00d6b376252c15fd850f669443b91d618eb",
+  "alchemical_identity": "726c012390d73c56401dc9bdfba80bd9f81fb1ef0305bbe74266402d1def518c",
+  "runtime_identity": "93485f1c629858c556c4758a1f735296e45d3ccbe6c908aa5e73d42f965cf56b",
+  "worker_manifest_sha256": "dce2bfac6a0a5e473b847c83c3d80549d227c1a99ecc8411e97704e146c4e517",
+  "profile": {
+    "python": "3.11.16",
+    "machine": "x86_64",
+    "packages": {
+      "openmm": "8.6.1",
+      "numpy": "2.4.6",
+      "torch": "2.8.0",
+      "mace-torch": "0.3.16",
+      "atom-openmm": "8.5.0b0"
+    },
+    "installed_distribution_identity": "1865672db5d5a8db6c4d6abc4035d2eb0d70339cb85c1958f85eac7e7800fbf1",
+    "openmm_platform": "Reference",
+    "precision": "double",
+    "model_device": "CPU",
+    "model_dtype": "float64"
+  },
+  "elapsed_execution_seconds": 7.582533418999901,
+  "peak_process_rss_bytes": 903782400,
+  "reconstructed_matrix_shape": [
+    3,
+    9
+  ],
+  "limitations": [
+    "Fixed windows; replica exchange is pending.",
+    "No equilibrium, solvent-density, molecular accuracy, standard corrections or affinity qualification.",
+    "Checkpoint continuation requires the identical CPU/software/source profile.",
+    "Hard-crash pending transactions are preserved and require inspection."
+  ]
+}

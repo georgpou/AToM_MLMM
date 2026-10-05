@@ -1,0 +1,88 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+__________ test_failure_retains_both_mapped_coordinates[integration] ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-10/test_failure_retains_both_mapp0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f21ad8f3cd0>
+origin = 'integration'
+
+    @pytest.mark.parametrize('origin', ('integration', 'final_state'))
+    def test_failure_retains_both_mapped_coordinates(tmp_path, monkeypatch, origin):
+        from atm_mlmm.schema import from_json
+        _challenge(tmp_path, monkeypatch, origin)
+        directory = tmp_path / 'attempt'
+        bundle = from_json((directory / 'worker/bundle.json').read_text())
+        failed = directory / 'failure-000000'
+        original = mm.XmlSerializer.deserialize((failed / 'state.xml').read_text())
+        for label, displacement in (('map0', bundle.transfer.displacement0_nm), ('map1', bundle.transfer.displacement1_nm)):
+>           state = mm.XmlSerializer.deserialize((failed / f'{label}-state.xml').read_text())
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_failure_geometries.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../atom-mlmm-g09-v3/env/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/tmp/pytest-of-agent/pytest-10/test_failure_retains_both_mapp0/attempt/failure-000000/map0-state.xml')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-10/test_failure_retains_both_mapp0/attempt/failure-000000/map0-state.xml'
+
+../atom-mlmm-g09-v3/env/lib/python3.11/pathlib.py:1044: FileNotFoundError
+__________ test_failure_retains_both_mapped_coordinates[final_state] ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-10/test_failure_retains_both_mapp1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f21a83cff90>
+origin = 'final_state'
+
+    @pytest.mark.parametrize('origin', ('integration', 'final_state'))
+    def test_failure_retains_both_mapped_coordinates(tmp_path, monkeypatch, origin):
+        from atm_mlmm.schema import from_json
+        _challenge(tmp_path, monkeypatch, origin)
+        directory = tmp_path / 'attempt'
+        bundle = from_json((directory / 'worker/bundle.json').read_text())
+        failed = directory / 'failure-000000'
+        original = mm.XmlSerializer.deserialize((failed / 'state.xml').read_text())
+        for label, displacement in (('map0', bundle.transfer.displacement0_nm), ('map1', bundle.transfer.displacement1_nm)):
+>           state = mm.XmlSerializer.deserialize((failed / f'{label}-state.xml').read_text())
+                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_failure_geometries.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+../atom-mlmm-g09-v3/env/lib/python3.11/pathlib.py:1058: in read_text
+    with self.open(mode='r', encoding=encoding, errors=errors) as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = PosixPath('/tmp/pytest-of-agent/pytest-10/test_failure_retains_both_mapp1/attempt/failure-000000/map0-state.xml')
+mode = 'r', buffering = -1, encoding = 'locale', errors = None, newline = None
+
+    def open(self, mode='r', buffering=-1, encoding=None,
+             errors=None, newline=None):
+        """
+        Open the file pointed by this path and return a file object, as
+        the built-in open() function does.
+        """
+        if "b" not in mode:
+            encoding = io.text_encoding(encoding)
+>       return io.open(self, mode, buffering, encoding, errors, newline)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       FileNotFoundError: [Errno 2] No such file or directory: '/tmp/pytest-of-agent/pytest-10/test_failure_retains_both_mapp1/attempt/failure-000000/map0-state.xml'
+
+../atom-mlmm-g09-v3/env/lib/python3.11/pathlib.py:1044: FileNotFoundError
+=========================== short test summary info ============================
+FAILED tests/workflow/test_failure_geometries.py::test_failure_retains_both_mapped_coordinates[integration]
+FAILED tests/workflow/test_failure_geometries.py::test_failure_retains_both_mapped_coordinates[final_state]
+2 failed in 0.91s
