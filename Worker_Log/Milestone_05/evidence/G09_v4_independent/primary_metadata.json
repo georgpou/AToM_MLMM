@@ -1,0 +1,30 @@
+{
+  "cli_stderr": "NumericalDomainError: original scientific trigger\nFailure archive (write primary error.json): OSError: independent primary_metadata write unavailable\n",
+  "metadata": {
+    "actual_step": 1,
+    "actual_time_ps": 0.0005,
+    "archive_errors": [
+      {
+        "error_type": "OSError",
+        "message": "independent primary_metadata write unavailable",
+        "operation": "write primary error.json"
+      }
+    ],
+    "attempted_sample_id": "R2:first:1",
+    "error_type": "NumericalDomainError",
+    "journal_index": 0,
+    "map_states": "cached parameters/velocities and transformed coordinates; no energy/force reevaluation",
+    "message": "original scientific trigger",
+    "sequence_number": 1,
+    "state_id": "first",
+    "transfer_identity": "7e7b49f32ec333e6f8b11a911674b274cea4a51f578b83cd5b1fc71d3ddf3523",
+    "walker_id": "R2:first"
+  },
+  "surviving_files": [
+    "checkpoint.chk",
+    "error.json",
+    "map0-state.xml",
+    "map1-state.xml",
+    "state.xml"
+  ]
+}
