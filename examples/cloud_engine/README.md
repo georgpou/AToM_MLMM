@@ -106,3 +106,79 @@ To reproduce the frozen water inputs at a new destination, run
 `PYTHONPATH=src python tools/build_solvent_control.py /tmp/new-water-inputs`
 after locked-environment activation. The tool preserves the solute particle and
 exception parameters and never overwrites an existing destination.
+
+## Bounded persistent multistate water pilots
+
+The additive persistent multistate API composes the same pinned actual-worker
+pair adapter used above. It keeps each worker's coordinates, velocities and
+integrator state with that worker and moves only the schedule assignment. The
+API admits three to eight explicit schedule states and at most eight live
+worker contexts. `state_pairs` contains zero-based indices into the supplied
+ordered `state_ids`; each undirected pair appears once, and the selected edges
+must connect every declared state. After each decision, the next pair resolves
+its workers from the current full permutation.
+
+For a short solvated ABFE pilot, copy the immutable v2 input directory and
+change only the bounded preparation counts. Use the same steps for the
+unequal-ligand RBFE input at
+`fixtures/solvated_fragment/v2/rbfe`. The shared `run_configuration` path
+prepares a fresh bundle from the copied v2 inputs before the exchange run:
+
+```python
+import json
+import shutil
+from pathlib import Path
+
+from atm_mlmm.exchange import run_multistate_exchange, resume_multistate_exchange
+from atm_mlmm.schema import from_json
+from atm_mlmm.workflow import run_configuration
+
+fixture = Path("fixtures/solvated_fragment/v2/abfe")
+inputs = Path("/tmp/g10-abfe-inputs")
+shutil.copytree(fixture, inputs)
+config_path = inputs / "config.json"
+config = json.loads(config_path.read_text())
+config["settings"].update(
+    frames_per_state=1,
+    steps_per_frame=1,
+    steps_per_phase=1,
+    minimization_iterations=3,
+)
+config_path.write_text(json.dumps(config, indent=2) + "\n")
+
+prepared = Path("/tmp/g10-abfe-prepared")
+run_configuration(config_path, prepared, trusted=True)
+bundle = from_json((prepared / "worker" / "bundle.json").read_text())
+state_ids = tuple(state.state_id for state in bundle.schedule.states)
+output = Path("/tmp/g10-abfe-multistate")
+run_multistate_exchange(
+    prepared,
+    output,
+    state_ids=state_ids,
+    state_pairs=((0, 1), (1, 2)),
+    boundaries=2,
+    steps_per_boundary=1,
+    seed=247,
+    trusted=True,
+)
+resume_multistate_exchange(output, trusted=True)  # verifies a completed run
+```
+
+Run the ABFE and RBFE pilots serially on the locked CPU profile. The bounded
+pilot ceiling is three workers, four committed boundaries and two integration
+steps per worker at each boundary; the examples above use three workers, two
+boundaries and one step. The journal mode is
+`persistent-multistate-exchange-v1`. Resume requires the same bundled source,
+software and runtime profile. An incomplete boundary is preserved and rejected
+by default; `resume_multistate_exchange(output, trusted=True,
+recover_pending=True)` explicitly archives it and replays the whole boundary
+from the preceding committed states and RNG streams.
+
+These pilots exercise shared-engine setup, short CPU integration, sample and
+attempt records, schedule-state assignment and checkpoint replay. They retain
+full real-atom forces, velocities, box vectors, parameters, raw named energies
+and both-map geometry diagnostics. They are technical checks only:
+`binding_result` remains `not_evaluated`, and no equilibrium, mixing,
+convergence, exchanging-walker uncertainty, molecular accuracy or affinity
+result follows from them. They make no change to the fixtures' chemistry,
+Hamiltonian, maps, constraints, force field or numerical tolerances.

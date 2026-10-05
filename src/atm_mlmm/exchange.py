@@ -22,6 +22,8 @@ from .schema import (AlchemicalBundle,EvaluationRecords,IdentityError,MalformedI
                      RuntimeSpec,UnsupportedCapability,from_json,to_json)
 from .workflow import _archive_failure,_domain,_integer,_profile,_snapshot
 
+_MULTISTATE_COORDINATE_ROUNDTRIP_ATOL_NM=1.0e-15
+
 
 def _verify_source_profile(directory,metadata):
     if metadata.get('version')!=1 or metadata['profile']!=_profile():
@@ -410,7 +412,7 @@ def _fresh_multistate_check(worker,index,walker_id,state_id,boundary,report,meta
     import numpy as np
     import openmm as mm
     from openmm import unit
-    from .schema import IdentityError
+    from .schema import IdentityError,Snapshot
     checkpoint=(boundary/'workers'/f'worker-{index:03d}.chk').read_bytes()
     state_path=boundary/'workers'/f'worker-{index:03d}-state.xml'
     worker.restore_checkpoint(checkpoint,state_id)
@@ -433,10 +435,25 @@ def _fresh_multistate_check(worker,index,walker_id,state_id,boundary,report,meta
     expected_parameters=metadata['state_parameters'][state_id]
     if any(actual_parameters.get(name)!=value for name,value in expected_parameters.items()):
         raise IdentityError('restored checkpoint parameters disagree with final assignment')
-    if _coordinate_digest(snapshot.positions_nm)!=report['coordinate_sha256']:
-        raise IdentityError('restored checkpoint coordinates disagree with final-state report')
-    if sample is not None and snapshot.positions_nm!=tuple(tuple(v) for v in sample['positions_nm']):
-        raise IdentityError('restored checkpoint coordinates disagree with captured sample')
+    if sample is None:
+        if _coordinate_digest(snapshot.positions_nm)!=report['coordinate_sha256']:
+            raise IdentityError('restored checkpoint coordinates disagree with final-state report')
+    else:
+        sample_positions=np.asarray(sample['positions_nm'],dtype=float)
+        if _coordinate_digest(sample['positions_nm'])!=report['coordinate_sha256']:
+            raise IdentityError('final-state report lost the captured sample coordinate identity')
+        if not np.allclose(np.asarray(snapshot.positions_nm),sample_positions,
+                           atol=_MULTISTATE_COORDINATE_ROUNDTRIP_ATOL_NM,rtol=0):
+            raise IdentityError('restored checkpoint coordinates differ from captured sample beyond unit-conversion roundoff')
+        sample_velocities=(None if sample['velocities_nm_ps'] is None else
+                           tuple(tuple(v) for v in sample['velocities_nm_ps']))
+        if sample_velocities!=snapshot.velocities_nm_ps:
+            raise IdentityError('restored checkpoint velocities disagree with captured sample')
+        sample_box=(None if sample['box_nm'] is None else tuple(tuple(v) for v in sample['box_nm']))
+        if sample_box!=snapshot.box_nm:
+            raise IdentityError('restored checkpoint box disagrees with captured sample')
+        captured_snapshot=Snapshot(tuple(sample['real_atom_ids']),
+            tuple(tuple(v) for v in sample['positions_nm']),sample_box,sample_velocities)
     result=worker.evaluate(snapshot,state_id)
     actual_total=_plain_document(result.total); saved_total=report['total']
     total_matches=set(actual_total)==set(saved_total)
@@ -447,11 +464,21 @@ def _fresh_multistate_check(worker,index,walker_id,state_id,boundary,report,meta
                 total_matches=abs(value-saved)<=1e-8
             elif name=='forces_kj_mol_nm':
                 total_matches=np.allclose(value,saved,atol=1e-8,rtol=0)
+            elif name=='snapshot_identity' and sample is not None:
+                # The journal hash binds the exact captured sample; the fresh
+                # context identity binds its round-tripped Snapshot. Coordinates
+                # were checked above within the explicit 1e-15 nm unit bound,
+                # while velocities and the periodic box remain exact.
+                total_matches=(saved==captured_snapshot.content_identity and
+                               value==snapshot.content_identity)
             else:
                 total_matches=value==saved
             if not total_matches: break
-    if (asdict(result.raw)!=report['raw'] or result.parameters!=report['parameters'] or
-        not total_matches):
+    actual_raw=asdict(result.raw); saved_raw=report.get('raw')
+    raw_matches=isinstance(saved_raw,dict) and set(actual_raw)==set(saved_raw)
+    if raw_matches:
+        raw_matches=all(abs(value-saved_raw[name])<=1e-8 for name,value in actual_raw.items())
+    if (not raw_matches or result.parameters!=report['parameters'] or not total_matches):
         raise IdentityError('fresh actual-context complete raw/total/parameter report disagrees with checkpoint')
 
 
@@ -579,7 +606,11 @@ def _execute_multistate(directory,metadata,*,stop_after_boundaries=None):
                 final_reports=[]
                 for w,worker in enumerate(workers):
                     state_id=metadata['state_ids'][walker_to_state[w]]
-                    snapshot=_snapshot(worker); _geometry(worker,snapshot,metadata['settings'])
+                    # Pair evaluation round-trips coordinates through OpenMM's
+                    # unit conversion. Keep the captured sample as the exact
+                    # identity and explicitly refresh the final assigned state
+                    # at those same saved coordinates.
+                    snapshot=snapshots[w]; _geometry(worker,snapshot,metadata['settings'])
                     result=worker.evaluate(snapshot,state_id)
                     saved=worker.evaluator.context.getState(getPositions=True,getVelocities=True,getParameters=True)
                     final_reports.append(_multistate_report(worker,w,metadata['walker_ids'][w],
