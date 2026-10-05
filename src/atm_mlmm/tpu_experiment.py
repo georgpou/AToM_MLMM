@@ -128,7 +128,7 @@ def export_cpu_reference(output):
             variants.append(('changed',changed,None,None,None))
             shape=x.copy()
             first_ligand=next(m for m in physical.topology.molecules if m.role=='ligand')
-            shape[[ids.index(a) for a in first_ligand.atom_ids],1]+=.08
+            shape[[ids.index(a) for a in first_ligand.atom_ids],0]+=.08
             variants.append(('graph-shape',shape,None,None,None))
             for atom,step,sign in itertools.product(selected,document['fd_steps_nm'],(1,-1)):
                 moved=x.copy(); moved[atom,1]+=sign*step
