@@ -21,6 +21,9 @@ results below describe their exact reviewed snapshots, not new gate acceptance.
 The [cleanup worker](../../Worker_Log/Documentation/Cloud_Engine_Continuation_v1_worker.md)
 records **31 focused CPU passes in 117.17 s**, zero skips, and 8,391 retained
 files matching the accepted base. No next-gate implementation is claimed.
+The [independent cleanup audit](../../Worker_Log/Documentation/Cloud_Engine_Continuation_v1_audit.md)
+accepts the administrative scope on `d600b0783060c0bfec96d5330f9b522d73de5ec4`
+with no material findings; this is not a new gate or milestone acceptance.
 The [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) and
 [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md) accept
 the [new definition](specs/m05-dense-exchange-amendment.md) and declared CPU scope,

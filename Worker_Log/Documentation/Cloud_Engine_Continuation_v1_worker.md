@@ -2,7 +2,7 @@
 
 **Scope:** user-authorized removal of abandoned execution tooling, repository
 onboarding correction and a prepared Codex Cloud engine continuation branch.\
-**Outcome:** ready_for_audit; next gate implementation pending.\
+**Outcome:** accepted_for_scope by independent cleanup review; next gate implementation pending.\
 **Finished:** 2026-10-05 UTC.\
 **Snapshot:** `cloud-engine-continuation`; accepted base
 `2c02cc2713924140a82aefda37fd5885747e5837`; cleanup source/documentation commit
@@ -58,6 +58,8 @@ analysis and G11/G12/G13 technical work as dependencies pass. No scheduler or ne
 protein feature is implemented by this cleanup. Prepare/qualify the requested
 18-crown-6 methanol-to-ethanol RBFE input when needed; only methanol ABFE is
 currently accepted. Preserve G07 physical failures and the original QM budget;
-demanding calculations and cluster settings are reserved for HPC. The independent
-review, if completed, belongs in `Cloud_Engine_Continuation_v1_audit.md` and does
-not retroactively approve the cancelled notebook branch.
+demanding calculations and cluster settings are reserved for HPC. The
+[independent audit](Cloud_Engine_Continuation_v1_audit.md) accepts the cleanup
+on `d600b0783060c0bfec96d5330f9b522d73de5ec4` with no material findings. Its
+preservation, documentation, imports and ancestry checks passed; it did not
+repeat scientific tests or retroactively approve the cancelled notebook branch.
