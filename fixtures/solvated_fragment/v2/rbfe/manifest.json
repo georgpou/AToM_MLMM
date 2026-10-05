@@ -1,0 +1,13 @@
+{
+  "files": {
+    "system-input.json": "c10a2f3ead50231a5dc661c99da286bf1f8e5cc96c44f2c65707517d6162d0c2",
+    "partition.json": "7a24349a35de86dbfe6183a877adc0280929ccd0781fcd7ab56de3ec1a2532e1",
+    "snapshot.json": "d22736bc0238cff7751497d1c8cfae797eeb23264677b73330d38bc6744feb14"
+  },
+  "physical_scope": "64 denser local TIP3P waters; no liquid density/equilibrium qualification",
+  "source_files": {
+    "system-input.json": "1cfedce56e6051652b33e47393df0d5e976d3967c6d4fc6ee8142bd88a96156d",
+    "partition.json": "7a24349a35de86dbfe6183a877adc0280929ccd0781fcd7ab56de3ec1a2532e1",
+    "snapshot.json": "2c5dfd45f82440ade45e8964d1a83327161d08e348a7d6c7152ffd445b5e8475"
+  }
+}

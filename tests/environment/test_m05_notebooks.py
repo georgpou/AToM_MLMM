@@ -1,5 +1,6 @@
 """Notebook orchestration is executable and propagates command failures."""
 import json
+import os
 from pathlib import Path
 import subprocess
 import sys
@@ -56,3 +57,12 @@ def test_cpu_launcher_timeout_preserves_result(tmp_path):
         namespace['run_command']([sys.executable,'-c','import time; print("started",flush=True); time.sleep(2)'], 'bounded', .1)
     status = json.loads((tmp_path/'evidence/bounded-command.json').read_text())
     assert status['timed_out'] and status['exit_code'] != 0
+
+
+def test_exchange_cli_exposes_controller_and_explicit_pending_recovery():
+    env={**os.environ,'PYTHONPATH':str(ROOT/'src')}
+    result=subprocess.run([sys.executable,'-m','atm_mlmm','--help'],cwd=ROOT,env=env,text=True,capture_output=True)
+    assert result.returncode==0
+    assert 'resume-exchange' in result.stdout and 'exchange' in result.stdout
+    result=subprocess.run([sys.executable,'-m','atm_mlmm','resume-exchange','--help'],cwd=ROOT,env=env,text=True,capture_output=True)
+    assert result.returncode==0 and '--recover-pending' in result.stdout

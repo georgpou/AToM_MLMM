@@ -418,7 +418,7 @@ class WorkerRun:
         self.close()
 
 
-def attempt_pair_exchange(workers, snapshots, state_ids, walker_ids):
+def attempt_pair_exchange(workers, snapshots, state_ids, walker_ids, *, phase_callback=None):
     """One same-temperature state swap using fresh actual-worker potentials.
 
     The pinned AToM Metropolis routine owns the decision. Configurations and
@@ -454,11 +454,19 @@ def attempt_pair_exchange(workers, snapshots, state_ids, walker_ids):
     # Restore each original assignment before applying the actual decision.
     for w,worker in enumerate(workers):
         worker.evaluate(snapshots[w],state_ids[w])
+    evaluated = dict(walker_ids=tuple(walker_ids),state_ids_before=tuple(state_ids),
+                     reduced_energies=matrix,
+                     exponent=matrix[0][1]+matrix[1][0]-matrix[0][0]-matrix[1][1],
+                     raw_energies=[[asdict(e.raw) for e in row] for row in evaluations])
+    if phase_callback is not None:
+        phase_callback('evaluated',evaluated)
     partner = pairwise_metropolis_sampling(0,0,[0,1],[0,1],matrix)
     accepted = partner == 1
     after = tuple(reversed(state_ids)) if accepted else tuple(state_ids)
+    if phase_callback is not None:
+        phase_callback('decision',{**evaluated,'accepted':accepted,'state_ids_after':after})
     refreshed = [worker.evaluate(snapshots[w],after[w]) for w,worker in enumerate(workers)]
-    return dict(walker_ids=tuple(walker_ids),state_ids_before=tuple(state_ids),state_ids_after=after,
+    report = dict(walker_ids=tuple(walker_ids),state_ids_before=tuple(state_ids),state_ids_after=after,
                 accepted=accepted,reduced_energies=matrix,
                 exponent=matrix[0][1]+matrix[1][0]-matrix[0][0]-matrix[1][1],
                 raw_energies=[[asdict(e.raw) for e in row] for row in evaluations],
@@ -467,3 +475,6 @@ def attempt_pair_exchange(workers, snapshots, state_ids, walker_ids):
                 alchemical_identity=workers[0].bundle.content_identity,
                 runtime_identity=workers[0].runtime.content_identity,
                 mechanism='AToM 8.5.0b0 pairwise_metropolis_sampling; full context potentials')
+    if phase_callback is not None:
+        phase_callback('refreshed',report)
+    return report

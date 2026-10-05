@@ -13,7 +13,7 @@ cell, 2.4 nm transfer, 0.109 nm cap, Reference double/MACE CPU float64, NVT 300 
 alpha 4.4/fixed 64 cubed mesh and disabled dispersion correction are unchanged.
 
 Water candidates use a 0.32 nm cubic lattice with integer offsets -3 through 3
-around the original first ligand oxygen and its translated site. Order candidates
+around the original first ligand carbon (input atom 26) and its translated site. Order candidates
 by squared distance then integer coordinates. Use identical TIP3P geometry
 (OH 0.09572 nm, HOH 104.52 degrees). Admit each whole water only when every
 intermolecular atom pair at both maps has minimum-image Bondi ratio >= 0.80;
@@ -31,6 +31,24 @@ longer work requires measured resource preflight. S06 limits stay unchanged.
 Required evidence includes preserved solute parameters/masses/constraints and
 membership, brute-force geometry/images, independent both-map full forces,
 cap-parent/solvent FD sweeps, actual worker export and raw pilot records.
+
+The first ABFE sweep exposed an external Reference real-space periodic pair
+artifact in the pinned `8.6.1.dev-b399af4` build: a reconstructed water hydrogen
+at -1.11029e-17 nm contributed a +4.9022384396 kJ/mol jump. A six-atom system
+created solely by stock OpenMM TIP3P reproduces a 0.11941625 kJ/mol real-space
+jump (reciprocal contribution unchanged), with a 6.32435 kJ/mol/nm maximum
+hydrogen force difference. This has no ML/caps/project builder. A single-water
+stock control passes. Keep the reproducible diagnosis; further backend repair
+is outside the user's method-development priority.
+
+Synthetic water inputs therefore represent coordinates within eight box-length
+floating-point ULPs of an integer box face as the exact face (7.10543e-15 nm in
+this cell). Apply this only while formatting candidate fixture coordinates,
+before the unchanged geometry selection. General runtime geometry and OpenMM
+are unchanged. No meaningful coordinate, FD step, force, tolerance, constraint
+or Hamiltonian term changes. Original failed inputs/records remain evidence;
+the input representation needs independent review with the denser definition.
+Old sealed inputs/bundles remain frozen and source-bound.
 
 ## Persistent pair exchange
 

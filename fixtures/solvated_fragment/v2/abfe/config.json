@@ -1,0 +1,27 @@
+{
+  "input_manifest": "manifest.json",
+  "input_manifest_sha256": "db063aaf141f3bd21229ea388df3e927c44d70b03bbcca7d1cf4fbe2f0d0b054",
+  "settings": {
+    "displacement_nm": [
+      2.4,
+      0.0,
+      0.0
+    ],
+    "frames_per_state": 3,
+    "minimization_iterations": 10,
+    "outside_spring_kj_mol_nm2": 10.0,
+    "platform": "Reference",
+    "protocol_kind": "abfe",
+    "seed": 41,
+    "steps_per_frame": 2,
+    "steps_per_phase": 2,
+    "temperature_K": 300.0,
+    "temperatures_K": [
+      10.0,
+      100.0,
+      300.0
+    ],
+    "timestep_ps": 0.0005
+  },
+  "version": 1
+}
