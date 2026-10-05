@@ -340,14 +340,16 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-The [M05 continuation](handoffs/M05-colab-next-agent.md) is implemented for the
-available bounded CPU scope. The new G09 v5/G10 v2 submission is independently accepted. Run
-[the notebooks](../../notebooks/README.md) on user-selected Colab CPU followed by
-TPU; import complete verified evidence before declaring either profile qualified.
-No Colab executor/hardware was available in this session. The next dependency
-is actual Colab evidence and separately admitted broader scientific profiles;
-[the new handoff](handoffs/M05-after-colab-tooling.md) records exact source/review
-identities and the user-run dependency.
+The user now defers TPU and prioritizes unattended **Colab CPU notebooks for
+ABFE/RBFE MD and missing QM references**. The
+[new assignment](handoffs/M05-colab-long-runs.md) reuses the independently accepted
+M05 implementation and adds long-run launch/checkpoint/export/resume controls and
+a QM notebook. Heavy jobs should run on user-selected Colab without Codex polling.
+The one-time small Colab smoke check establishes deployment portability; it does
+not require redoing completed development,543 tests, review or accepted QM data.
+Actual Colab execution remains not_run. Existing CPU notebooks are validation
+wrappers; the long-run/QM interface is the next work. Preserve the exact
+[source/review handoff](handoffs/M05-after-colab-tooling.md) and existing budgets.
 
 The previous [cloud handoff](handoffs/CLOUD-ENGINE-after-G09-v4.md) remains the
 accepted M04/sparse-water lineage. New CPU controls and transactional scheduling
@@ -372,7 +374,7 @@ retains the failed resource screen and safe continuation conditions.
 | G07 / T4 physical-reference sensitivity | blocked | Seven sensitivity failures plus measured pilot force-approximation exceedances; one validated full-parent reference, 29 missing; runtime/scratch screens exceed current envelope |
 | M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
 | M04 / G08 analytic thermodynamic accounting | accepted | [GPT-6.1-sol/MAX v2 audit](../../Worker_Log/Milestone_04/Gate_08_v2_audit.md), exact c0280818/source8cf2494; G08-R1 closed, refined amendments and combined M04 analytic CPU accepted; 437 full/21 affected passes |
-| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial (full milestone) | [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) / [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md):543 full/52 independent CPU passes; denser/exchange/restart definition accepted; Colab/TPU not_run; full M05 open. Earlier lineage: [G09 v4 audit](../../Worker_Log/Milestone_05/Gate_09_v4_audit.md): R1/R2 closed, bounded explicit-water G09 subsets and unchanged G10 pair scope accepted; 501 root CPU passes, 21 independent focused passes/six probes; full M05 open |
+| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial (full milestone) | [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) / [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md):543 full/52 independent CPU passes; denser/exchange/restart definition accepted; Colab not_run/TPU deferred; full M05 open. Earlier lineage: [G09 v4 audit](../../Worker_Log/Milestone_05/Gate_09_v4_audit.md): R1/R2 closed, bounded explicit-water G09 subsets and unchanged G10 pair scope accepted; 501 root CPU passes, 21 independent focused passes/six probes; full M05 open |
 | M06-M08 / G11-G13 | deferred | T4 lysozyme and Slurm settings reserved for user-initiated HPC work; retain physical-qualification prerequisites |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |

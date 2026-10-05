@@ -33,7 +33,13 @@ current energies, labels, stable walkers, two host RNG streams and archived
 explicit rollback/replay. Correlated energy reconstruction is qualified;
 exchanging-walker statistical uncertainty is not.
 
-## Next dependency: actual Colab CPU, then TPU
+## Next dependency (superseded by later user steering)
+
+The user now defers TPU and requests unattended CPU MD/QM notebooks. Follow
+[the new assignment](M05-colab-long-runs.md); the original CPU-then-TPU sequence
+below is retained as history, not the current task.
+
+### Original CPU-then-TPU sequence
 
 No authorized Colab executor or TPU hardware was available here. Notebook
 creation, local tests and a selected runtime are not Colab/TPU qualification.

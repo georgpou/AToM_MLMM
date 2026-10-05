@@ -1,5 +1,10 @@
 # M05 Colab notebooks
 
+**Current direction:** TPU is deferred. The next assignment is
+[unattended CPU MD/QM launch and resume notebooks](../docs/project-0/handoffs/M05-colab-long-runs.md).
+This CPU notebook currently covers validation; a QM notebook and long-run
+interface still need implementation. Completed local validation is reused.
+
 [Open the CPU notebook in Colab](https://colab.research.google.com/github/georgpou/AToM_MLMM/blob/m05-colab-workflows/notebooks/m05_colab_cpu.ipynb).
 
 1. Choose **Runtime → Change runtime type → no accelerator**. Read the visible
@@ -21,7 +26,7 @@
    environment. Fixed windows use `resume`; exchange uses `resume-exchange`.
    Incomplete exchange rounds require inspection and explicit rollback/replay.
    Checkpoints and portable States have different RNG guarantees.
-6. Only after CPU evidence, use the separately documented TPU component notebook.
+6. TPU experiments are deferred by the user; preserve that notebook for later.
 
 The link opens this branch's notebook for convenience; executable science always
 checks the visible immutable source SHA, approved model hash and input manifest
