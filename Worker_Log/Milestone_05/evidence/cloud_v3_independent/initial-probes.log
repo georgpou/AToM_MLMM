@@ -1,0 +1,231 @@
+FF.F.F                                                                   [100%]
+=================================== FAILURES ===================================
+__________ test_preliminary_pdb_box_and_enumerated_image_oracle[abfe] __________
+
+kind = 'abfe'
+
+    @pytest.mark.parametrize('kind', ('abfe', 'rbfe'))
+    def test_preliminary_pdb_box_and_enumerated_image_oracle(kind):
+        """Enumerate 27 physical images independently of minimum_image()."""
+        from atm_mlmm.workflow import _domain
+        attempt = Path('/workspace/cloud-engine-pilots/water-v3') / kind
+        bundle = from_json((attempt / 'worker/bundle.json').read_text())
+        physical = bundle.physical
+        pdb = app.PDBFile(str(attempt / 'worker/handover.pdb'))
+        box = pdb.topology.getPeriodicBoxVectors().value_in_unit(unit.nanometer)
+        np.testing.assert_array_equal(box, np.eye(3)*6.4)
+        real = [physical.real_to_final[a.atom_id] for a in physical.topology.atoms]
+>       x = pdb.positions.value_in_unit(unit.nanometer)[real]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: list indices must be integers or slices, not list
+
+Worker_Log/Milestone_05/evidence/cloud_v3_independent/probes.py:31: TypeError
+__________ test_preliminary_pdb_box_and_enumerated_image_oracle[rbfe] __________
+
+kind = 'rbfe'
+
+    @pytest.mark.parametrize('kind', ('abfe', 'rbfe'))
+    def test_preliminary_pdb_box_and_enumerated_image_oracle(kind):
+        """Enumerate 27 physical images independently of minimum_image()."""
+        from atm_mlmm.workflow import _domain
+        attempt = Path('/workspace/cloud-engine-pilots/water-v3') / kind
+        bundle = from_json((attempt / 'worker/bundle.json').read_text())
+        physical = bundle.physical
+        pdb = app.PDBFile(str(attempt / 'worker/handover.pdb'))
+        box = pdb.topology.getPeriodicBoxVectors().value_in_unit(unit.nanometer)
+        np.testing.assert_array_equal(box, np.eye(3)*6.4)
+        real = [physical.real_to_final[a.atom_id] for a in physical.topology.atoms]
+>       x = pdb.positions.value_in_unit(unit.nanometer)[real]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       TypeError: list indices must be integers or slices, not list
+
+Worker_Log/Milestone_05/evidence/cloud_v3_independent/probes.py:31: TypeError
+_________ test_exchange_actual_nonfinite_and_outside_mutation_rejected _________
+
+tmp_path = PosixPath('/tmp/atom-mlmm-cloud-independent-probes/test_exchange_actual_nonfinite0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f01aa0ce550>
+
+    def test_exchange_actual_nonfinite_and_outside_mutation_rejected(tmp_path,monkeypatch):
+        from atm_mlmm.adapters.atom import load_worker_run, attempt_pair_exchange
+        from atom_openmm import gibbs_sampling
+        manifest,digest,snapshot = analytic_export(tmp_path)
+        def forbidden(*args):
+            raise AssertionError('rejected exchange must never reach Metropolis')
+        monkeypatch.setattr(gibbs_sampling,'pairwise_metropolis_sampling',forbidden)
+        with ExitStack() as stack:
+            workers = tuple(stack.enter_context(load_worker_run(manifest.parent,digest,trusted=True)) for _ in range(2))
+            huge = np.array(snapshot.positions_nm)
+            huge[2,0] = 1e200  # finite input, genuinely nonfinite actual child energy
+            with pytest.raises((NumericalDomainError,OverflowError)):
+>               attempt_pair_exchange(workers,(replace(snapshot,positions_nm=huge),snapshot),('first','second'),('A','B'))
+
+Worker_Log/Milestone_05/evidence/cloud_v3_independent/probes.py:121: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/adapters/atom.py:449: in attempt_pair_exchange
+    evaluations = [[workers[w].evaluate(snapshots[w],state_ids[s]) for w in range(2)] for s in range(2)]
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/adapters/atom.py:449: in <listcomp>
+    evaluations = [[workers[w].evaluate(snapshots[w],state_ids[s]) for w in range(2)] for s in range(2)]
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/adapters/atom.py:449: in <listcomp>
+    evaluations = [[workers[w].evaluate(snapshots[w],state_ids[s]) for w in range(2)] for s in range(2)]
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/adapters/atom.py:381: in evaluate
+    result = self.evaluator.evaluate(snapshot,state_id)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/atm.py:323: in evaluate
+    state = self.context.getState(getEnergy=True, getForces=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <openmm.openmm.Context; proxy of <Swig Object of type 'OpenMM::Context *' at 0x7f01a86f1f30> >
+positions = False, velocities = False, forces = False, energy = False
+parameters = False, parameterDerivatives = False, integratorParameters = False
+enforcePeriodicBox = False, groups = -1, getPositions = False
+getVelocities = False, getForces = True, getEnergy = True, getParameters = False
+getParameterDerivatives = False, getIntegratorParameters = False
+
+    def getState(self, positions=False, velocities=False,
+                 forces=False, energy=False, parameters=False,
+                 parameterDerivatives=False, integratorParameters=False,
+                 enforcePeriodicBox=False, groups=-1,
+                 getPositions=False, getVelocities=False,
+                 getForces=False, getEnergy=False, getParameters=False,
+                 getParameterDerivatives=False, getIntegratorParameters=False):
+        """Get a State object recording the current state information stored in this context.
+    
+        Parameters
+        ----------
+        positions : bool=False
+            whether to store particle positions in the State
+        velocities : bool=False
+            whether to store particle velocities in the State
+        forces : bool=False
+            whether to store the forces acting on particles in the State
+        energy : bool=False
+            whether to store potential and kinetic energy in the State
+        parameters : bool=False
+            whether to store context parameters in the State
+        parameterDerivatives : bool=False
+            whether to store parameter derivatives in the State
+        integratorParameters : bool=False
+            whether to store integrator parameters in the State
+        enforcePeriodicBox : bool=False
+            if false, the position of each particle will be whatever position
+            is stored in the Context, regardless of periodic boundary conditions.
+            If true, particle positions will be translated so the center of
+            every molecule lies in the same periodic box.
+        groups : set={0,1,2,...,31}
+            a set of indices for which force groups to include when computing
+            forces and energies. The default value includes all groups. groups
+            can also be passed as an unsigned integer interpreted as a bitmask,
+            in which case group i will be included if (groups&(1<<i)) != 0.
+        getPositions : bool=False
+            Deprecated.  Use `positions` instead.
+        getVelocities : bool=False
+            Deprecated.  Use `velocities` instead.
+        getForces : bool=False
+            Deprecated.  Use `forces` instead.
+        getEnergy : bool=False
+            Deprecated.  Use `energy` instead.
+        getParameters : bool=False
+            Deprecated.  Use `parameters` instead.
+        getParameterDerivatives : bool=False
+            Deprecated.  Use `parameterDerivatives` instead.
+        getIntegratorParameters : bool=False
+            Deprecated.  Use `integratorParameters` instead.
+        """
+        try:
+    # is the input integer-like?
+            groups_mask = int(groups)
+        except TypeError:
+            if isinstance(groups, set):
+    # nope, okay, then it should be an set
+                groups_mask = functools.reduce(operator.or_,
+                        ((1<<x) & 0xffffffff for x in groups))
+            else:
+                raise TypeError('%s is neither an int nor set' % groups)
+        if groups_mask >= 0x80000000:
+            groups_mask -= 0x100000000
+        types = 0
+        if positions or getPositions:
+            types += State.Positions
+        if velocities or getVelocities:
+            types += State.Velocities
+        if forces or getForces:
+            types += State.Forces
+        if energy or getEnergy:
+            types += State.Energy
+        if parameters or getParameters:
+            types += State.Parameters
+        if parameterDerivatives or getParameterDerivatives:
+            types += State.ParameterDerivatives
+        if integratorParameters or getIntegratorParameters:
+            types += State.IntegratorParameters
+>       state = _openmm.Context_getState(self, types, enforcePeriodicBox, groups_mask)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       openmm.OpenMMException: nonfinite selected harmonic result
+
+../atom-mlmm-g09-v3/env/lib/python3.11/site-packages/openmm/openmm.py:6048: OpenMMException
+_______ test_map_archive_failure_does_not_hide_original_scientific_error _______
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7f01b043bef0> >
+steps = 1
+
+    def step(integrator,steps):
+        original_step(integrator,steps)
+        if nonfinite:
+            context = owners[id(integrator)].evaluator.context
+            positions = original_state(context,getPositions=True).getPositions(asNumpy=True)
+            positions[0,0] = float('nan')*unit.nanometer
+            context.setPositions(positions)
+        fired['value'] = True
+>       raise NumericalDomainError('independent original scientific trigger')
+E       atm_mlmm.schema.NumericalDomainError: independent original scientific trigger
+
+Worker_Log/Milestone_05/evidence/cloud_v3_independent/probes.py:152: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/atom-mlmm-cloud-independent-probes/test_map_archive_failure_does_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f01a5a32650>
+
+    def test_map_archive_failure_does_not_hide_original_scientific_error(tmp_path,monkeypatch):
+        """Expected safety contract; frozen HEAD is allowed to fail this audit probe."""
+        out,execute = failure_attempt(tmp_path,monkeypatch,map_write_failure=True)
+        with pytest.raises(NumericalDomainError,match='independent original scientific trigger'):
+>           execute()
+
+Worker_Log/Milestone_05/evidence/cloud_v3_independent/probes.py:190: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+Worker_Log/Milestone_05/evidence/cloud_v3_independent/probes.py:170: in <lambda>
+    return out, lambda:workflow._execute(out,metadata)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:326: in _execute
+    _archive_map_states(failed,payload,bundle.transfer)
+src/atm_mlmm/workflow.py:268: in _archive_map_states
+    (directory/f'{label}-state.xml').write_text(ET.tostring(state,encoding='unicode'))
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+path = PosixPath('/tmp/atom-mlmm-cloud-independent-probes/test_map_archive_failure_does_0/failure-000000/map1-state.xml')
+args = ('<State openmmVersion="8.6.1" stepCount="1" time=".0005" type="State" version="1">\n\t<PeriodicBoxVectors>\n\t\t<A x=...>\n\t\t<Velocity x=".04318284427071068" y=".02811391313910241" z=".012394515127401378" />\n\t</Velocities>\n</State>',)
+kwargs = {}
+
+    def write(path,*args,**kwargs):
+        if map_write_failure and path.name == 'map1-state.xml':
+>           raise OSError('independent mapped State archive trigger')
+E           OSError: independent mapped State archive trigger
+
+Worker_Log/Milestone_05/evidence/cloud_v3_independent/probes.py:159: OSError
+=============================== warnings summary ===============================
+Worker_Log/Milestone_05/evidence/cloud_v3_independent/probes.py::test_exchange_actual_nonfinite_and_outside_mutation_rejected
+  /workspace/AToM_MLMM/src/atm_mlmm/analytic.py:22: RuntimeWarning: overflow encountered in multiply
+    energy = float(.5*np.sum(k*difference*difference))
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+FAILED Worker_Log/Milestone_05/evidence/cloud_v3_independent/probes.py::test_preliminary_pdb_box_and_enumerated_image_oracle[abfe]
+FAILED Worker_Log/Milestone_05/evidence/cloud_v3_independent/probes.py::test_preliminary_pdb_box_and_enumerated_image_oracle[rbfe]
+FAILED Worker_Log/Milestone_05/evidence/cloud_v3_independent/probes.py::test_exchange_actual_nonfinite_and_outside_mutation_rejected
+FAILED Worker_Log/Milestone_05/evidence/cloud_v3_independent/probes.py::test_map_archive_failure_does_not_hide_original_scientific_error
+4 failed, 2 passed, 1 warning in 1.55s

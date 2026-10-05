@@ -1,0 +1,634 @@
+FFFFFFFFFFFF                                                             [100%]
+=================================== FAILURES ===================================
+__ test_secondary_archive_error_keeps_primary_and_available_artifacts[mkdir] ___
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7fd7cbff1370> >
+steps = 1
+
+    def step(integrator, steps):
+        normal_step(integrator, steps)
+        fired['value'] = True
+>       raise primary
+E       atm_mlmm.schema.NumericalDomainError: original scientific trigger
+
+tests/workflow/test_failure_archive_errors.py:40: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-15/test_secondary_archive_error_k0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7e3c793d0>
+boundary = 'mkdir'
+
+    @pytest.mark.parametrize('boundary', (
+        'mkdir', 'step_count', 'cached_state', 'serialization', 'state.xml',
+        'checkpoint_capture', 'checkpoint.chk', 'map0-state.xml', 'map1-state.xml', 'error.json',
+    ))
+    def test_secondary_archive_error_keeps_primary_and_available_artifacts(tmp_path, monkeypatch, boundary):
+        out, primary, execute = failing_attempt(tmp_path, monkeypatch, boundary)
+        with pytest.raises(NumericalDomainError) as caught:
+>           execute()
+
+tests/workflow/test_failure_archive_errors.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/workflow/test_failure_archive_errors.py:98: in <lambda>
+    return out, primary, lambda: workflow._execute(out, metadata)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:319: in _execute
+    failed.mkdir(exist_ok=False)
+tests/workflow/test_failure_archive_errors.py:76: in mkdir
+    fault()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def fault():
+>       raise OSError(f'archive trigger: {boundary}')
+E       OSError: archive trigger: mkdir
+
+tests/workflow/test_failure_archive_errors.py:35: OSError
+_ test_secondary_archive_error_keeps_primary_and_available_artifacts[step_count] _
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7fd7cda0caf0> >
+steps = 1
+
+    def step(integrator, steps):
+        normal_step(integrator, steps)
+        fired['value'] = True
+>       raise primary
+E       atm_mlmm.schema.NumericalDomainError: original scientific trigger
+
+tests/workflow/test_failure_archive_errors.py:40: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-15/test_secondary_archive_error_k1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7cda22c90>
+boundary = 'step_count'
+
+    @pytest.mark.parametrize('boundary', (
+        'mkdir', 'step_count', 'cached_state', 'serialization', 'state.xml',
+        'checkpoint_capture', 'checkpoint.chk', 'map0-state.xml', 'map1-state.xml', 'error.json',
+    ))
+    def test_secondary_archive_error_keeps_primary_and_available_artifacts(tmp_path, monkeypatch, boundary):
+        out, primary, execute = failing_attempt(tmp_path, monkeypatch, boundary)
+        with pytest.raises(NumericalDomainError) as caught:
+>           execute()
+
+tests/workflow/test_failure_archive_errors.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/workflow/test_failure_archive_errors.py:98: in <lambda>
+    return out, primary, lambda: workflow._execute(out, metadata)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:333: in _execute
+    'actual_step':int(worker.evaluator.context.getStepCount()),
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/workflow/test_failure_archive_errors.py:56: in count
+    fault()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def fault():
+>       raise OSError(f'archive trigger: {boundary}')
+E       OSError: archive trigger: step_count
+
+tests/workflow/test_failure_archive_errors.py:35: OSError
+_ test_secondary_archive_error_keeps_primary_and_available_artifacts[cached_state] _
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7fd7cdcac6b0> >
+steps = 1
+
+    def step(integrator, steps):
+        normal_step(integrator, steps)
+        fired['value'] = True
+>       raise primary
+E       atm_mlmm.schema.NumericalDomainError: original scientific trigger
+
+tests/workflow/test_failure_archive_errors.py:40: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-15/test_secondary_archive_error_k2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7e3e5b750>
+boundary = 'cached_state'
+
+    @pytest.mark.parametrize('boundary', (
+        'mkdir', 'step_count', 'cached_state', 'serialization', 'state.xml',
+        'checkpoint_capture', 'checkpoint.chk', 'map0-state.xml', 'map1-state.xml', 'error.json',
+    ))
+    def test_secondary_archive_error_keeps_primary_and_available_artifacts(tmp_path, monkeypatch, boundary):
+        out, primary, execute = failing_attempt(tmp_path, monkeypatch, boundary)
+        with pytest.raises(NumericalDomainError) as caught:
+>           execute()
+
+tests/workflow/test_failure_archive_errors.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/workflow/test_failure_archive_errors.py:98: in <lambda>
+    return out, primary, lambda: workflow._execute(out, metadata)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:322: in _execute
+    saved = worker.evaluator.context.getState(getPositions=True,getVelocities=True,getParameters=True)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/workflow/test_failure_archive_errors.py:46: in state
+    fault()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def fault():
+>       raise OSError(f'archive trigger: {boundary}')
+E       OSError: archive trigger: cached_state
+
+tests/workflow/test_failure_archive_errors.py:35: OSError
+_ test_secondary_archive_error_keeps_primary_and_available_artifacts[serialization] _
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7fd7cc0719b0> >
+steps = 1
+
+    def step(integrator, steps):
+        normal_step(integrator, steps)
+        fired['value'] = True
+>       raise primary
+E       atm_mlmm.schema.NumericalDomainError: original scientific trigger
+
+tests/workflow/test_failure_archive_errors.py:40: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-15/test_secondary_archive_error_k3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7cbff25d0>
+boundary = 'serialization'
+
+    @pytest.mark.parametrize('boundary', (
+        'mkdir', 'step_count', 'cached_state', 'serialization', 'state.xml',
+        'checkpoint_capture', 'checkpoint.chk', 'map0-state.xml', 'map1-state.xml', 'error.json',
+    ))
+    def test_secondary_archive_error_keeps_primary_and_available_artifacts(tmp_path, monkeypatch, boundary):
+        out, primary, execute = failing_attempt(tmp_path, monkeypatch, boundary)
+        with pytest.raises(NumericalDomainError) as caught:
+>           execute()
+
+tests/workflow/test_failure_archive_errors.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/workflow/test_failure_archive_errors.py:98: in <lambda>
+    return out, primary, lambda: workflow._execute(out, metadata)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:323: in _execute
+    payload = mm.XmlSerializer.serialize(saved)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/workflow/test_failure_archive_errors.py:61: in serialize
+    fault()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def fault():
+>       raise OSError(f'archive trigger: {boundary}')
+E       OSError: archive trigger: serialization
+
+tests/workflow/test_failure_archive_errors.py:35: OSError
+_ test_secondary_archive_error_keeps_primary_and_available_artifacts[state.xml] _
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7fd7cbf38cb0> >
+steps = 1
+
+    def step(integrator, steps):
+        normal_step(integrator, steps)
+        fired['value'] = True
+>       raise primary
+E       atm_mlmm.schema.NumericalDomainError: original scientific trigger
+
+tests/workflow/test_failure_archive_errors.py:40: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-15/test_secondary_archive_error_k4')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7cc003550>
+boundary = 'state.xml'
+
+    @pytest.mark.parametrize('boundary', (
+        'mkdir', 'step_count', 'cached_state', 'serialization', 'state.xml',
+        'checkpoint_capture', 'checkpoint.chk', 'map0-state.xml', 'map1-state.xml', 'error.json',
+    ))
+    def test_secondary_archive_error_keeps_primary_and_available_artifacts(tmp_path, monkeypatch, boundary):
+        out, primary, execute = failing_attempt(tmp_path, monkeypatch, boundary)
+        with pytest.raises(NumericalDomainError) as caught:
+>           execute()
+
+tests/workflow/test_failure_archive_errors.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/workflow/test_failure_archive_errors.py:98: in <lambda>
+    return out, primary, lambda: workflow._execute(out, metadata)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:324: in _execute
+    (failed/'state.xml').write_text(payload)
+tests/workflow/test_failure_archive_errors.py:66: in write_text
+    fault()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def fault():
+>       raise OSError(f'archive trigger: {boundary}')
+E       OSError: archive trigger: state.xml
+
+tests/workflow/test_failure_archive_errors.py:35: OSError
+_ test_secondary_archive_error_keeps_primary_and_available_artifacts[checkpoint_capture] _
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7fd7cbf511f0> >
+steps = 1
+
+    def step(integrator, steps):
+        normal_step(integrator, steps)
+        fired['value'] = True
+>       raise primary
+E       atm_mlmm.schema.NumericalDomainError: original scientific trigger
+
+tests/workflow/test_failure_archive_errors.py:40: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-15/test_secondary_archive_error_k5')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7cbff0390>
+boundary = 'checkpoint_capture'
+
+    @pytest.mark.parametrize('boundary', (
+        'mkdir', 'step_count', 'cached_state', 'serialization', 'state.xml',
+        'checkpoint_capture', 'checkpoint.chk', 'map0-state.xml', 'map1-state.xml', 'error.json',
+    ))
+    def test_secondary_archive_error_keeps_primary_and_available_artifacts(tmp_path, monkeypatch, boundary):
+        out, primary, execute = failing_attempt(tmp_path, monkeypatch, boundary)
+        with pytest.raises(NumericalDomainError) as caught:
+>           execute()
+
+tests/workflow/test_failure_archive_errors.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/workflow/test_failure_archive_errors.py:98: in <lambda>
+    return out, primary, lambda: workflow._execute(out, metadata)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:325: in _execute
+    (failed/'checkpoint.chk').write_bytes(worker.evaluator.context.createCheckpoint())
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+tests/workflow/test_failure_archive_errors.py:51: in checkpoint
+    fault()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def fault():
+>       raise OSError(f'archive trigger: {boundary}')
+E       OSError: archive trigger: checkpoint_capture
+
+tests/workflow/test_failure_archive_errors.py:35: OSError
+_ test_secondary_archive_error_keeps_primary_and_available_artifacts[checkpoint.chk] _
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7fd7cbf684f0> >
+steps = 1
+
+    def step(integrator, steps):
+        normal_step(integrator, steps)
+        fired['value'] = True
+>       raise primary
+E       atm_mlmm.schema.NumericalDomainError: original scientific trigger
+
+tests/workflow/test_failure_archive_errors.py:40: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-15/test_secondary_archive_error_k6')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7cbfca490>
+boundary = 'checkpoint.chk'
+
+    @pytest.mark.parametrize('boundary', (
+        'mkdir', 'step_count', 'cached_state', 'serialization', 'state.xml',
+        'checkpoint_capture', 'checkpoint.chk', 'map0-state.xml', 'map1-state.xml', 'error.json',
+    ))
+    def test_secondary_archive_error_keeps_primary_and_available_artifacts(tmp_path, monkeypatch, boundary):
+        out, primary, execute = failing_attempt(tmp_path, monkeypatch, boundary)
+        with pytest.raises(NumericalDomainError) as caught:
+>           execute()
+
+tests/workflow/test_failure_archive_errors.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/workflow/test_failure_archive_errors.py:98: in <lambda>
+    return out, primary, lambda: workflow._execute(out, metadata)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:325: in _execute
+    (failed/'checkpoint.chk').write_bytes(worker.evaluator.context.createCheckpoint())
+tests/workflow/test_failure_archive_errors.py:71: in write_bytes
+    fault()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def fault():
+>       raise OSError(f'archive trigger: {boundary}')
+E       OSError: archive trigger: checkpoint.chk
+
+tests/workflow/test_failure_archive_errors.py:35: OSError
+_ test_secondary_archive_error_keeps_primary_and_available_artifacts[map0-state.xml] _
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7fd7cbfb1630> >
+steps = 1
+
+    def step(integrator, steps):
+        normal_step(integrator, steps)
+        fired['value'] = True
+>       raise primary
+E       atm_mlmm.schema.NumericalDomainError: original scientific trigger
+
+tests/workflow/test_failure_archive_errors.py:40: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-15/test_secondary_archive_error_k7')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7cbf7ac50>
+boundary = 'map0-state.xml'
+
+    @pytest.mark.parametrize('boundary', (
+        'mkdir', 'step_count', 'cached_state', 'serialization', 'state.xml',
+        'checkpoint_capture', 'checkpoint.chk', 'map0-state.xml', 'map1-state.xml', 'error.json',
+    ))
+    def test_secondary_archive_error_keeps_primary_and_available_artifacts(tmp_path, monkeypatch, boundary):
+        out, primary, execute = failing_attempt(tmp_path, monkeypatch, boundary)
+        with pytest.raises(NumericalDomainError) as caught:
+>           execute()
+
+tests/workflow/test_failure_archive_errors.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/workflow/test_failure_archive_errors.py:98: in <lambda>
+    return out, primary, lambda: workflow._execute(out, metadata)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:326: in _execute
+    _archive_map_states(failed,payload,bundle.transfer)
+src/atm_mlmm/workflow.py:268: in _archive_map_states
+    (directory/f'{label}-state.xml').write_text(ET.tostring(state,encoding='unicode'))
+tests/workflow/test_failure_archive_errors.py:66: in write_text
+    fault()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def fault():
+>       raise OSError(f'archive trigger: {boundary}')
+E       OSError: archive trigger: map0-state.xml
+
+tests/workflow/test_failure_archive_errors.py:35: OSError
+_ test_secondary_archive_error_keeps_primary_and_available_artifacts[map1-state.xml] _
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7fd7c8421930> >
+steps = 1
+
+    def step(integrator, steps):
+        normal_step(integrator, steps)
+        fired['value'] = True
+>       raise primary
+E       atm_mlmm.schema.NumericalDomainError: original scientific trigger
+
+tests/workflow/test_failure_archive_errors.py:40: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-15/test_secondary_archive_error_k8')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7cbee7990>
+boundary = 'map1-state.xml'
+
+    @pytest.mark.parametrize('boundary', (
+        'mkdir', 'step_count', 'cached_state', 'serialization', 'state.xml',
+        'checkpoint_capture', 'checkpoint.chk', 'map0-state.xml', 'map1-state.xml', 'error.json',
+    ))
+    def test_secondary_archive_error_keeps_primary_and_available_artifacts(tmp_path, monkeypatch, boundary):
+        out, primary, execute = failing_attempt(tmp_path, monkeypatch, boundary)
+        with pytest.raises(NumericalDomainError) as caught:
+>           execute()
+
+tests/workflow/test_failure_archive_errors.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/workflow/test_failure_archive_errors.py:98: in <lambda>
+    return out, primary, lambda: workflow._execute(out, metadata)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:326: in _execute
+    _archive_map_states(failed,payload,bundle.transfer)
+src/atm_mlmm/workflow.py:268: in _archive_map_states
+    (directory/f'{label}-state.xml').write_text(ET.tostring(state,encoding='unicode'))
+tests/workflow/test_failure_archive_errors.py:66: in write_text
+    fault()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def fault():
+>       raise OSError(f'archive trigger: {boundary}')
+E       OSError: archive trigger: map1-state.xml
+
+tests/workflow/test_failure_archive_errors.py:35: OSError
+_ test_secondary_archive_error_keeps_primary_and_available_artifacts[error.json] _
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7fd7cbf0e8f0> >
+steps = 1
+
+    def step(integrator, steps):
+        normal_step(integrator, steps)
+        fired['value'] = True
+>       raise primary
+E       atm_mlmm.schema.NumericalDomainError: original scientific trigger
+
+tests/workflow/test_failure_archive_errors.py:40: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-15/test_secondary_archive_error_k9')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7d3dffc10>
+boundary = 'error.json'
+
+    @pytest.mark.parametrize('boundary', (
+        'mkdir', 'step_count', 'cached_state', 'serialization', 'state.xml',
+        'checkpoint_capture', 'checkpoint.chk', 'map0-state.xml', 'map1-state.xml', 'error.json',
+    ))
+    def test_secondary_archive_error_keeps_primary_and_available_artifacts(tmp_path, monkeypatch, boundary):
+        out, primary, execute = failing_attempt(tmp_path, monkeypatch, boundary)
+        with pytest.raises(NumericalDomainError) as caught:
+>           execute()
+
+tests/workflow/test_failure_archive_errors.py:108: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/workflow/test_failure_archive_errors.py:98: in <lambda>
+    return out, primary, lambda: workflow._execute(out, metadata)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:327: in _execute
+    write_json(failed/'error.json',{'error_type':type(error).__name__,'message':str(error),
+src/atm_mlmm/persistence.py:20: in write_json
+    os.replace(temporary, path)
+tests/workflow/test_failure_archive_errors.py:81: in replace
+    fault()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def fault():
+>       raise OSError(f'archive trigger: {boundary}')
+E       OSError: archive trigger: error.json
+
+tests/workflow/test_failure_archive_errors.py:35: OSError
+_ test_normal_cli_surfaces_primary_and_secondary_archive_errors[map1-state.xml] _
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7fd7cdcb0cb0> >
+steps = 1
+
+    def step(integrator, steps):
+        normal_step(integrator, steps)
+        fired['value'] = True
+>       raise primary
+E       atm_mlmm.schema.NumericalDomainError: original scientific trigger
+
+tests/workflow/test_failure_archive_errors.py:40: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+args = (PosixPath('/tmp/pytest-of-agent/pytest-15/test_normal_cli_surfaces_prima0/attempt'),)
+kwargs = {'trusted': True}
+
+    def resume(*args, **kwargs):
+        try:
+>           execute()
+
+tests/workflow/test_failure_archive_errors.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/workflow/test_failure_archive_errors.py:98: in <lambda>
+    return out, primary, lambda: workflow._execute(out, metadata)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:326: in _execute
+    _archive_map_states(failed,payload,bundle.transfer)
+src/atm_mlmm/workflow.py:268: in _archive_map_states
+    (directory/f'{label}-state.xml').write_text(ET.tostring(state,encoding='unicode'))
+tests/workflow/test_failure_archive_errors.py:66: in write_text
+    fault()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def fault():
+>       raise OSError(f'archive trigger: {boundary}')
+E       OSError: archive trigger: map1-state.xml
+
+tests/workflow/test_failure_archive_errors.py:35: OSError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-15/test_normal_cli_surfaces_prima0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7cbf564d0>
+capsys = <_pytest.capture.CaptureFixture object at 0x7fd7cbf56490>
+boundary = 'map1-state.xml'
+
+    @pytest.mark.parametrize('boundary', ('map1-state.xml', 'error.json'))
+    def test_normal_cli_surfaces_primary_and_secondary_archive_errors(tmp_path, monkeypatch, capsys, boundary):
+        import atm_mlmm.workflow as workflow
+        from atm_mlmm.__main__ import main
+        out, primary, execute = failing_attempt(tmp_path, monkeypatch, boundary)
+    
+        def resume(*args, **kwargs):
+            try:
+                execute()
+            except Exception as error:
+                assert error is primary
+                raise
+    
+        monkeypatch.setattr(workflow, 'resume_run', resume)
+        monkeypatch.setattr(sys, 'argv', ['atm_mlmm', 'resume', str(out), '--trusted'])
+>       assert main() == 2
+               ^^^^^^
+
+tests/workflow/test_failure_archive_errors.py:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/__main__.py:31: in main
+    result = resume_run(args.directory,trusted=args.trusted)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (PosixPath('/tmp/pytest-of-agent/pytest-15/test_normal_cli_surfaces_prima0/attempt'),)
+kwargs = {'trusted': True}
+
+    def resume(*args, **kwargs):
+        try:
+            execute()
+        except Exception as error:
+>           assert error is primary
+E           AssertionError: assert OSError('archive trigger: map1-state.xml') is NumericalDomainError('original scientific trigger')
+
+tests/workflow/test_failure_archive_errors.py:145: AssertionError
+__ test_normal_cli_surfaces_primary_and_secondary_archive_errors[error.json] ___
+
+integrator = <openmm.openmm.LangevinMiddleIntegrator; proxy of <Swig Object of type 'OpenMM::LangevinMiddleIntegrator *' at 0x7fd7c83aa570> >
+steps = 1
+
+    def step(integrator, steps):
+        normal_step(integrator, steps)
+        fired['value'] = True
+>       raise primary
+E       atm_mlmm.schema.NumericalDomainError: original scientific trigger
+
+tests/workflow/test_failure_archive_errors.py:40: NumericalDomainError
+
+During handling of the above exception, another exception occurred:
+
+args = (PosixPath('/tmp/pytest-of-agent/pytest-15/test_normal_cli_surfaces_prima1/attempt'),)
+kwargs = {'trusted': True}
+
+    def resume(*args, **kwargs):
+        try:
+>           execute()
+
+tests/workflow/test_failure_archive_errors.py:143: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/workflow/test_failure_archive_errors.py:98: in <lambda>
+    return out, primary, lambda: workflow._execute(out, metadata)
+                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/workflow.py:327: in _execute
+    write_json(failed/'error.json',{'error_type':type(error).__name__,'message':str(error),
+src/atm_mlmm/persistence.py:20: in write_json
+    os.replace(temporary, path)
+tests/workflow/test_failure_archive_errors.py:81: in replace
+    fault()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def fault():
+>       raise OSError(f'archive trigger: {boundary}')
+E       OSError: archive trigger: error.json
+
+tests/workflow/test_failure_archive_errors.py:35: OSError
+
+During handling of the above exception, another exception occurred:
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-15/test_normal_cli_surfaces_prima1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7fd7cc09b750>
+capsys = <_pytest.capture.CaptureFixture object at 0x7fd7cc09ac10>
+boundary = 'error.json'
+
+    @pytest.mark.parametrize('boundary', ('map1-state.xml', 'error.json'))
+    def test_normal_cli_surfaces_primary_and_secondary_archive_errors(tmp_path, monkeypatch, capsys, boundary):
+        import atm_mlmm.workflow as workflow
+        from atm_mlmm.__main__ import main
+        out, primary, execute = failing_attempt(tmp_path, monkeypatch, boundary)
+    
+        def resume(*args, **kwargs):
+            try:
+                execute()
+            except Exception as error:
+                assert error is primary
+                raise
+    
+        monkeypatch.setattr(workflow, 'resume_run', resume)
+        monkeypatch.setattr(sys, 'argv', ['atm_mlmm', 'resume', str(out), '--trusted'])
+>       assert main() == 2
+               ^^^^^^
+
+tests/workflow/test_failure_archive_errors.py:150: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/__main__.py:31: in main
+    result = resume_run(args.directory,trusted=args.trusted)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (PosixPath('/tmp/pytest-of-agent/pytest-15/test_normal_cli_surfaces_prima1/attempt'),)
+kwargs = {'trusted': True}
+
+    def resume(*args, **kwargs):
+        try:
+            execute()
+        except Exception as error:
+>           assert error is primary
+E           AssertionError: assert OSError('archive trigger: error.json') is NumericalDomainError('original scientific trigger')
+
+tests/workflow/test_failure_archive_errors.py:145: AssertionError
+=========================== short test summary info ============================
+FAILED tests/workflow/test_failure_archive_errors.py::test_secondary_archive_error_keeps_primary_and_available_artifacts[mkdir]
+FAILED tests/workflow/test_failure_archive_errors.py::test_secondary_archive_error_keeps_primary_and_available_artifacts[step_count]
+FAILED tests/workflow/test_failure_archive_errors.py::test_secondary_archive_error_keeps_primary_and_available_artifacts[cached_state]
+FAILED tests/workflow/test_failure_archive_errors.py::test_secondary_archive_error_keeps_primary_and_available_artifacts[serialization]
+FAILED tests/workflow/test_failure_archive_errors.py::test_secondary_archive_error_keeps_primary_and_available_artifacts[state.xml]
+FAILED tests/workflow/test_failure_archive_errors.py::test_secondary_archive_error_keeps_primary_and_available_artifacts[checkpoint_capture]
+FAILED tests/workflow/test_failure_archive_errors.py::test_secondary_archive_error_keeps_primary_and_available_artifacts[checkpoint.chk]
+FAILED tests/workflow/test_failure_archive_errors.py::test_secondary_archive_error_keeps_primary_and_available_artifacts[map0-state.xml]
+FAILED tests/workflow/test_failure_archive_errors.py::test_secondary_archive_error_keeps_primary_and_available_artifacts[map1-state.xml]
+FAILED tests/workflow/test_failure_archive_errors.py::test_secondary_archive_error_keeps_primary_and_available_artifacts[error.json]
+FAILED tests/workflow/test_failure_archive_errors.py::test_normal_cli_surfaces_primary_and_secondary_archive_errors[map1-state.xml]
+FAILED tests/workflow/test_failure_archive_errors.py::test_normal_cli_surfaces_primary_and_secondary_archive_errors[error.json]
+12 failed in 2.78s

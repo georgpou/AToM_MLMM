@@ -86,6 +86,10 @@ every sample and uses minimum-image distances for both-map geometry guards.
 Failures preserve the original cached State/checkpoint plus `map0-state.xml`
 and `map1-state.xml` coordinate copies. Mapped copies retain cached parameters
 and velocities without reevaluating energies/forces, including nonfinite XML.
+Each archive operation is attempted independently. Secondary archive failures
+appear in `error.json` when writable and in notes on the original exception;
+the CLI displays both. A failed artifact write cannot replace the simulation
+error or insert a rejected sample.
 
 For an actual-worker exchange probe, use
 `atm_mlmm.adapters.atom.attempt_pair_exchange(workers, snapshots, state_ids, walker_ids)`

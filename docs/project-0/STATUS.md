@@ -1,17 +1,28 @@
 # Current status
 
-**Resumed bounded cloud solvent and exchange implementation on `m04-engine-readiness`.**
-The user resumed the reviewed checkpoint and requested economical serial work.
-The [G09 v3 worker](../../Worker_Log/Milestone_05/Gate_09_v3_worker.md) and
-[G10 v1 worker](../../Worker_Log/Milestone_05/Gate_10_v1_worker.md) submit sparse
-rigid TIP3P/orthorhombic PME controls (56/65 real atoms), live-box and full-map
-guards, actual periodic worker export, two-map failure archives and one actual
-AToM pair-exchange decision with fresh four-entry energies/state histories.
-Tested source is `5645db24f707adbdaff34dc7de6ac04b518d7d6b`: **489 CPU tests
-passed in 481.86 s**, no skips. Both CLI pilots saved nine frames/18 sampling
-steps, preserved full real forces and boxes, with peak process RSS below
-0.85 GiB. The [periodic anchor/water amendment](specs/cloud-solvent-control-amendment.md)
-is proposed pending independent review; no new acceptance is claimed yet.
+**Bounded cloud solvent/exchange implementation reviewed; G09-R2 repair awaits closure.**
+On `m04-engine-readiness`, the [G09 v3 worker](../../Worker_Log/Milestone_05/Gate_09_v3_worker.md)
+and [G10 v1 worker](../../Worker_Log/Milestone_05/Gate_10_v1_worker.md) add sparse
+rigid TIP3P/orthorhombic PME controls (56/65 real atoms), live-box/full-map
+guards, actual periodic worker export, two-map failure archives and one pinned
+AToM pair-exchange boundary with fresh four-entry energies/state histories.
+The [G09 v3 audit](../../Worker_Log/Milestone_05/Gate_09_v3_audit.md) accepts the
+[scientific amendment](specs/cloud-solvent-control-amendment.md), and the
+[G10 v1 audit](../../Worker_Log/Milestone_05/Gate_10_v1_audit.md) accepts the
+bounded pair scope. Independent checks passed 28 affected tests and seven
+probes; one contract probe exposed Important G09-R2: a secondary archive error
+hid the scientific failure in the CLI. V3 source `5645db24f707adbdaff34dc7de6ac04b518d7d6b`
+and all its evidence remain frozen; its 489-test result remains valid for that
+submission. Both CLI water pilots saved nine frames/18 sampling steps,
+preserved full real forces and boxes, with peak process RSS below 0.85 GiB.
+
+The [G09 v4 worker](../../Worker_Log/Milestone_05/Gate_09_v4_worker.md) submits
+repair source `027f8173babc13606afb24d96f58148704e38b1b`: primary provenance is
+written first, each artifact is attempted independently, and secondary archive
+errors are retained in metadata/exception notes and shown by the CLI. The
+original exception is preserved without evaluation reentry/sample insertion.
+Twelve new regressions first failed; 19 affected and **501 full CPU tests passed
+in 498.74 s**, no skips. Focused independent R2 closure is pending.
 Dense-solvent equilibration, persistent exchange/RNG/history supervision,
 GPU, molecular accuracy and full G09/G10/M05 remain open. The
 [continuation handoff](handoffs/CLOUD-ENGINE-after-G09-v2.md) records the exact
@@ -302,7 +313,8 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 The [reviewed cloud handoff](handoffs/CLOUD-ENGINE-after-G09-v2.md) has resumed.
 R1 is closed. G09 v3/G10 v1 submit bounded explicit-water coupling and actual
-pair-exchange checks for independent review. Retain the common runner while
+pair-exchange checks; their scientific definition and pair scope are independently
+accepted. G09-R2 repair awaits focused closure review on the v4 snapshot. Retain the common runner while
 dense-solvent preparation and a persistent exchange controller receive explicit
 later coverage in new attempts. The user defers T4 lysozyme and Slurm/HPC settings until cluster work
 begins. Report technical evidence separately from molecular physical
@@ -325,7 +337,7 @@ retains the failed resource screen and safe continuation conditions.
 | G07 / T4 physical-reference sensitivity | blocked | Seven sensitivity failures plus measured pilot force-approximation exceedances; one validated full-parent reference, 29 missing; runtime/scratch screens exceed current envelope |
 | M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
 | M04 / G08 analytic thermodynamic accounting | accepted | [GPT-6.1-sol/MAX v2 audit](../../Worker_Log/Milestone_04/Gate_08_v2_audit.md), exact c0280818/source8cf2494; G08-R1 closed, refined amendments and combined M04 analytic CPU accepted; 437 full/21 affected passes |
-| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial | [Sol 6.1/MAX v2 audit](../../Worker_Log/Milestone_05/Gate_09_v2_audit.md): G09-R1 closed; nine fresh passes/six prefix-failure challenges; inherited v1 design/numerical checks accepted; solvent/exchange/full M05 remain open |
+| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial; G09-R2 closure pending | V2 vacuum acceptance retained; [G09 v3 audit](../../Worker_Log/Milestone_05/Gate_09_v3_audit.md) accepts bounded solvent definition and [G10 v1 audit](../../Worker_Log/Milestone_05/Gate_10_v1_audit.md) accepts pair scope; [v4 repair](../../Worker_Log/Milestone_05/Gate_09_v4_worker.md) passes 501 CPU tests, R2 closure pending; full M05 open |
 | M06-M08 / G11-G13 | deferred | T4 lysozyme and Slurm settings reserved for user-initiated HPC work; retain physical-qualification prerequisites |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |

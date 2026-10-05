@@ -1,0 +1,12 @@
+{
+  "exit_code": 2,
+  "stderr": "OSError: independent mapped State archive trigger\n",
+  "failure_files": [
+    "checkpoint.chk",
+    "map0-state.xml",
+    "state.xml"
+  ],
+  "samples_exist": false,
+  "original_error": "NumericalDomainError: independent original scientific trigger",
+  "injected_archive_error": "OSError: independent mapped State archive trigger"
+}

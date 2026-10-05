@@ -1,6 +1,6 @@
 # Bounded explicit-water cloud control amendment
 
-**Status:** proposed, pending the G09 v3 / G10 v1 independent review. This extends technical coverage; it does not qualify liquid density, molecular accuracy or full M05.
+**Status:** scientific definition accepted by the G09 v3 / G10 v1 independent reviews. Failure-preservation implementation remains subject to G09-R2 closure. This extends technical coverage; it does not qualify liquid density, molecular accuracy or full M05.
 
 ## Scientific definition and rationale
 
@@ -22,4 +22,4 @@ Failures retain original cached State/checkpoint and both transformed coordinate
 
 ## Reviewer decision
 
-Pending the actual independent G09 v3 / G10 v1 audits. Prior G05/G07 physical failures, all reference artifacts, the cumulative QM ledger, G08/M04 acceptance and hardware limitations are unchanged.
+The [G09 v3 audit](../../../Worker_Log/Milestone_05/Gate_09_v3_audit.md) accepts the sparse-water/PME/minimum-image-anchor definition. The [G10 v1 audit](../../../Worker_Log/Milestone_05/Gate_10_v1_audit.md) accepts the single pair-exchange boundary for scope. G09-R2 blocks joint implementation acceptance: a secondary archive error must not obscure the original scientific failure. A new repair attempt and closure review are required; the v3 submission stays frozen. Prior G05/G07 physical failures, all reference artifacts, the cumulative QM ledger, G08/M04 acceptance and hardware limitations are unchanged.

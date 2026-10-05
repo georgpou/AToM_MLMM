@@ -1,0 +1,16 @@
+{
+  "branch": "m04-engine-readiness",
+  "reviewed_submission": "b11c16750ad111a2fcafcda7a2d51c6690254e97",
+  "tested_repair": "027f8173babc13606afb24d96f58148704e38b1b",
+  "captured_utc": "2026-10-05T11:04:30.329504+00:00",
+  "scientific_source_input_files": 49,
+  "full_cpu_tests": 501,
+  "full_cpu_seconds": 498.74,
+  "skips": 0,
+  "affected_tests": 19,
+  "affected_seconds": 28.52,
+  "red_tests": 12,
+  "red_seconds": 2.78,
+  "qm_wall_seconds_unchanged": 2325.644650052,
+  "qm_budget_seconds": 86400
+}

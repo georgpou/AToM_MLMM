@@ -1,0 +1,27 @@
+{
+  "reviewed_head": "b11c16750ad111a2fcafcda7a2d51c6690254e97",
+  "scientific_source_input_hashes": 48,
+  "G09_v3_capture_hashes": 114,
+  "G10_v1_capture_hashes": 11,
+  "controls": {
+    "abfe": {
+      "portable_worker_files": 48,
+      "submitted_frames": 9,
+      "matrix_shape": [
+        3,
+        9
+      ],
+      "exchange_matrix_and_exponent_match": true
+    },
+    "rbfe": {
+      "portable_worker_files": 48,
+      "submitted_frames": 9,
+      "matrix_shape": [
+        3,
+        9
+      ],
+      "exchange_matrix_and_exponent_match": true
+    }
+  },
+  "earlier_scientific_evidence_models_locks_unchanged": true
+}
