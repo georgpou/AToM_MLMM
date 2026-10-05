@@ -1,0 +1,14 @@
+{
+  "command": [
+    "python",
+    "/workspace/AToM_MLMM/Worker_Log/Milestone_05/evidence/G09_v2_independent_sol61_max/artifact_probe.py"
+  ],
+  "cwd": "/tmp/atm-mlmm-g09-v2-independent-readonly",
+  "started": "2026-10-04T17:31:02.019001+00:00",
+  "finished": "2026-10-04T17:31:02.165352+00:00",
+  "exit_code": 0,
+  "wall_seconds": 0.14626749499984726,
+  "maximum_child_rss_kib": 47168,
+  "memory_events_before": "low 0\nhigh 0\nmax 61844\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 61844\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

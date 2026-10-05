@@ -1,0 +1,158 @@
+[
+  {
+    "protocol": "abfe",
+    "origin": "guard",
+    "exact_State": true,
+    "exact_checkpoint": true,
+    "original_exception_object": true,
+    "energy_force_reentry": false,
+    "committed_prefix_unchanged": true,
+    "committed_samples": 1,
+    "provenance": {
+      "actual_step": 2,
+      "actual_time_ps": 0.001,
+      "attempted_sample_id": "independent-abfe:first:2",
+      "error_type": "NumericalDomainError",
+      "journal_index": 1,
+      "message": "independent guard failure after committed prefix",
+      "sequence_number": 2,
+      "state_id": "first",
+      "walker_id": "independent-abfe:first"
+    },
+    "archive_sha256": {
+      "checkpoint.chk": "e2a2e6e2c17a1a8b269a0b8e758094ef6063005bb6e289cc8dbddc7f1d43e5ed",
+      "error.json": "aed1bf40b0399a84e3f92acff7233e0cbb1cb1edbb0561205e594f435db9af18",
+      "state.xml": "d28f2456a043dbc82a5c11892964f1eef55dbbc4b2e7f79ea1816648d057d00a"
+    }
+  },
+  {
+    "protocol": "abfe",
+    "origin": "integration",
+    "exact_State": true,
+    "exact_checkpoint": true,
+    "original_exception_object": true,
+    "energy_force_reentry": false,
+    "committed_prefix_unchanged": true,
+    "committed_samples": 1,
+    "provenance": {
+      "actual_step": 4,
+      "actual_time_ps": 0.002,
+      "attempted_sample_id": "independent-abfe:first:2",
+      "error_type": "NumericalDomainError",
+      "journal_index": 1,
+      "message": "independent integration failure after committed prefix",
+      "sequence_number": 2,
+      "state_id": "first",
+      "walker_id": "independent-abfe:first"
+    },
+    "archive_sha256": {
+      "checkpoint.chk": "b69c862be7f3343199ca5ea9dedfaec27fdf4ec50e6e2762768b578a6421b1e5",
+      "error.json": "b111bafac4b7b0c8e445ab77994b28b2ff2440fd9bdf9ea9e219ec0e470f8089",
+      "state.xml": "c62c4153119a30d290ec1dc2e08e755ad8f7fab1e538d0f3776b2a75f848f5ab"
+    }
+  },
+  {
+    "protocol": "abfe",
+    "origin": "final_state",
+    "exact_State": true,
+    "exact_checkpoint": true,
+    "original_exception_object": true,
+    "energy_force_reentry": false,
+    "committed_prefix_unchanged": true,
+    "committed_samples": 1,
+    "provenance": {
+      "actual_step": 4,
+      "actual_time_ps": 0.002,
+      "attempted_sample_id": "independent-abfe:first:2",
+      "error_type": "NumericalDomainError",
+      "journal_index": 1,
+      "message": "independent final_state failure after committed prefix",
+      "sequence_number": 2,
+      "state_id": "first",
+      "walker_id": "independent-abfe:first"
+    },
+    "archive_sha256": {
+      "checkpoint.chk": "b69c862be7f3343199ca5ea9dedfaec27fdf4ec50e6e2762768b578a6421b1e5",
+      "error.json": "ef792962016759597727eb58eedc53519e36fa83a5f566ff13a599cbdbaf1038",
+      "state.xml": "c62c4153119a30d290ec1dc2e08e755ad8f7fab1e538d0f3776b2a75f848f5ab"
+    }
+  },
+  {
+    "protocol": "rbfe",
+    "origin": "guard",
+    "exact_State": true,
+    "exact_checkpoint": true,
+    "original_exception_object": true,
+    "energy_force_reentry": false,
+    "committed_prefix_unchanged": true,
+    "committed_samples": 1,
+    "provenance": {
+      "actual_step": 2,
+      "actual_time_ps": 0.001,
+      "attempted_sample_id": "independent-rbfe:first:2",
+      "error_type": "NumericalDomainError",
+      "journal_index": 1,
+      "message": "independent guard failure after committed prefix",
+      "sequence_number": 2,
+      "state_id": "first",
+      "walker_id": "independent-rbfe:first"
+    },
+    "archive_sha256": {
+      "checkpoint.chk": "e84d8ee1af8532bedcbc475c7571c04019864d95185735a5c08281dfcce11802",
+      "error.json": "685dfe1ce853e57fa6fa6971234f68be1f43fefa362432b517c5fa4f79c51e96",
+      "state.xml": "21584d175a5a9baaed2ed430f9d60de63af30d072e67af9a520799a719ba0ad5"
+    }
+  },
+  {
+    "protocol": "rbfe",
+    "origin": "integration",
+    "exact_State": true,
+    "exact_checkpoint": true,
+    "original_exception_object": true,
+    "energy_force_reentry": false,
+    "committed_prefix_unchanged": true,
+    "committed_samples": 1,
+    "provenance": {
+      "actual_step": 4,
+      "actual_time_ps": 0.002,
+      "attempted_sample_id": "independent-rbfe:first:2",
+      "error_type": "NumericalDomainError",
+      "journal_index": 1,
+      "message": "independent integration failure after committed prefix",
+      "sequence_number": 2,
+      "state_id": "first",
+      "walker_id": "independent-rbfe:first"
+    },
+    "archive_sha256": {
+      "checkpoint.chk": "2e127c9d148573336147fbf51f67f214a4d66f0a26e1960d9eb28467065b98b4",
+      "error.json": "293632d11d7337aed558671ed56d8769dc7a68fea25fdcfa2b8e5ff52b138bb7",
+      "state.xml": "18f643cae38321fa54935aaac00ad7347231641fe074f5b5d88b596575d0a410"
+    }
+  },
+  {
+    "protocol": "rbfe",
+    "origin": "final_state",
+    "exact_State": true,
+    "exact_checkpoint": true,
+    "original_exception_object": true,
+    "energy_force_reentry": false,
+    "committed_prefix_unchanged": true,
+    "committed_samples": 1,
+    "provenance": {
+      "actual_step": 4,
+      "actual_time_ps": 0.002,
+      "attempted_sample_id": "independent-rbfe:first:2",
+      "error_type": "NumericalDomainError",
+      "journal_index": 1,
+      "message": "independent final_state failure after committed prefix",
+      "sequence_number": 2,
+      "state_id": "first",
+      "walker_id": "independent-rbfe:first"
+    },
+    "archive_sha256": {
+      "checkpoint.chk": "2e127c9d148573336147fbf51f67f214a4d66f0a26e1960d9eb28467065b98b4",
+      "error.json": "b4b3d35d9990623cb70160c346bcf8a46df49cb01d9666636ebc4882c68ab27e",
+      "state.xml": "18f643cae38321fa54935aaac00ad7347231641fe074f5b5d88b596575d0a410"
+    }
+  }
+]

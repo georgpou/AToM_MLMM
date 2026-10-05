@@ -1,0 +1,21 @@
+{
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "--basetemp=/tmp/g09-v2-independent-focused",
+    "tests/workflow/test_engine_failure_retention.py",
+    "tests/workflow/test_engine_restart.py",
+    "tests/workflow/test_worker_handover.py",
+    "tests/workflow/test_engine_fresh_process.py"
+  ],
+  "cwd": "/tmp/atm-mlmm-g09-v2-independent-readonly",
+  "started": "2026-10-04T17:26:49.910809+00:00",
+  "finished": "2026-10-04T17:27:36.652950+00:00",
+  "exit_code": 0,
+  "wall_seconds": 46.74209747900022,
+  "maximum_child_rss_kib": 1320760,
+  "memory_events_before": "low 0\nhigh 0\nmax 61844\noom 0\noom_kill 0\noom_group_kill 0\n",
+  "memory_events_after": "low 0\nhigh 0\nmax 61844\noom 0\noom_kill 0\noom_group_kill 0\n"
+}

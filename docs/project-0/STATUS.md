@@ -1,50 +1,50 @@
 # Current status
 
-**Current assignment: technical ML/MM engine readiness on `m04-engine-readiness`,
-now prioritizing a tiny cloud host–guest example and common system/settings runner.**
-The user's latest steering reserves T4 lysozyme L99A and Slurm setup for later
-HPC work. Cloud tests target numerical correctness and stable bounded execution,
-with MLIP physical accuracy explicitly unqualified. This supersedes the
-G07-only assignment and authorizes a new branch copied from published
-`m03-g06-g07` at `fc6dbe3dfbb33906f85c0756d6c6ba6b44f1dd86`. The
-[fresh-agent handoff](handoffs/ENGINE-READINESS-fresh-agent-v1.md) directs known-answer
-thermodynamics, complete energy/force accounting, preparation/export,
-restart/exchange and reproducible cluster trials. G08 can proceed from accepted
-G02/G03. Later technical development must report its scoped evidence while
-preserving unfulfilled physical/combined-review requirements. No new gate code
-or longer production run was started during handoff preparation. Main and the
-published G07 predecessor remain unchanged.
+**Paused at a reviewed cloud engine checkpoint on `m04-engine-readiness`.**
+The user requested a graceful stop near the session limit. The
+[continuation handoff](handoffs/CLOUD-ENGINE-after-G09-v2.md) records the exact
+source/submission, environment, saved attempts and remaining work. This branch
+continues published `m03-g06-g07` at
+`fc6dbe3dfbb33906f85c0756d6c6ba6b44f1dd86`; main and that predecessor remain
+unchanged. The original [engine-readiness handoff](handoffs/ENGINE-READINESS-fresh-agent-v1.md)
+remains the broader assignment. T4 lysozyme L99A and Slurm setup are reserved
+for user-initiated HPC work. Cloud tests target numerical correctness and stable
+bounded execution; MLIP physical accuracy remains unqualified.
 
-**Tiny cloud preflight v1 has one independently confirmed repair requirement.**
-The [worker](../../Worker_Log/Milestone_05/Gate_09_v1_worker.md) and
-[shared runner guide](../../examples/cloud_engine/README.md) identify source
-`34cc6ba0d3e618450128b4a679ffc64046c48733`: one manifest/settings path for
-48-atom 18-crown-6/methanol, 32-atom capped ABFE and 41-atom unequal-ligand RBFE.
-All-active phased preparation, actual pinned worker PDB/System/State construction,
-full real-force/raw-state records, same-profile checkpoint continuation,
-portable-State checks and fresh relocated offline resume are implemented.
-Final CPU regression passes **459 tests in 400.62 s**, with no skips. The
-[host pilot](../../Worker_Log/Milestone_05/evidence/G09_v1/host-pilot-diagnostics.json)
-completes **60 frames/300 steps**, 0.05 ps per state; all recorded coordinates,
-velocities and forces are finite, both maps pass unchanged guards, and peak
-process RSS is 987,168,768 bytes. This is partial G09-T2/T3 and G10-T1/T3 vacuum
-technical coverage. The [actual GPT-6.1-sol/MAX audit](../../Worker_Log/Milestone_05/Gate_09_v1_audit.md)
-accepts the bounded host/vacuum design, passes 22 affected tests, 49 independent
-rejections and numerical/raw-record checks, but requires **G09-R1**: integration
-exceptions bypass the archive handler and can lose advanced failed coordinates/
-checkpoint. V1 is frozen; v2 will repair the boundary. Solvent, exchange, GPU,
-molecular accuracy and full G09/G10/M05 remain
-open. No binding estimate or QM continuation ran.
+**The bounded vacuum cloud technical scope is independently accepted; G09-R1 is closed.**
+The [shared runner guide](../../examples/cloud_engine/README.md) covers one
+manifest/settings path for 48-atom 18-crown-6/methanol, 32-atom capped ABFE and
+41-atom unequal-ligand RBFE. It implements all-active phased preparation, actual
+pinned worker PDB/System/State construction, full real-force/raw-state records,
+same-profile checkpoint continuation, portable-State checks and relocated
+offline resume. The [v1 worker](../../Worker_Log/Milestone_05/Gate_09_v1_worker.md)
+and [v1 audit](../../Worker_Log/Milestone_05/Gate_09_v1_audit.md) remain frozen on
+source `34cc6ba0d3e618450128b4a679ffc64046c48733`; their 22 independent affected
+passes, 49 admission rejections and numerical oracles are carried forward
+explicitly. The [v1 host pilot](../../Worker_Log/Milestone_05/evidence/G09_v1/host-pilot-diagnostics.json)
+completed **60 frames/300 steps**, 0.05 ps per state, with finite full arrays,
+both unchanged map guards passing and peak RSS about **0.94 GiB**.
 
-The [v2 worker](../../Worker_Log/Milestone_05/Gate_09_v2_worker.md) submits source
-`3246f0cbd6f66702e4b196bace593efba776a25e`: guard/integration/final-State failure
-retention and explicit advanced/attempted provenance. Five affected checks pass,
-the full CPU suite passes **461 tests in 399.38 s**, and a fresh CLI smoke saves
-nine frames/all 48 forces with the same physical/alchemical identities as v1.
-The strict restart oracle now uses one identical prepared bundle; independent
-minimization roundoff is not conflated with checkpoint continuity. R1 closure
-awaits the actual same Sol 6.1/MAX auditor. User requests a graceful stop after
-this reviewed repair because the session limit is nearly used.
+The [v2 worker](../../Worker_Log/Milestone_05/Gate_09_v2_worker.md) submits repair
+source `3246f0cbd6f66702e4b196bace593efba776a25e`, exact frozen submission
+`9fe93357f0852d7c018ab41923cc0d58cb0615e1`. Guard, integration and final-State
+failures now retain advanced State/checkpoint and attempted-record provenance
+without reevaluating failed energy/forces or appending a failed sample. Root
+full CPU verification passes **461 tests in 399.38 s**, no skips; a separate
+fresh CLI smoke saves nine frames/18 steps with the same physical/alchemical
+identities as v1. The strict restart oracle compares one identical prepared
+bundle, preserving exact equality rather than mixing independent minimization
+roundoff with checkpoint continuity.
+
+The [actual GPT-6.1-sol/MAX v2 audit](../../Worker_Log/Milestone_05/Gate_09_v2_audit.md)
+closes R1: **nine fresh affected passes**, the unchanged original reproducer
+passes, and **six independent actual-worker prefix/failure challenges** verify
+exact retention, provenance, unchanged committed samples and original errors.
+All 111 scientific files, 507 retained artifacts and 8,150 submitted blobs
+were independently verified. Acceptance covers partial G09-T2/T3 vacuum and
+G10-T1/T3 worker/restart/offline/journal subsets. Solvent, exchange, GPU,
+equilibrium, molecular accuracy and full G09/G10/M05 remain open. No binding
+estimate or new QM calculation ran; no blocker currently needs user help.
 
 **G08 and combined M04 are accepted for the analytic CPU scope; G08-R1 is closed.**
 Source `966a8d61347f65a69f8ba7e6750c4379d4e0503f` implements explicit thermodynamic
@@ -288,12 +288,12 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-Repair and independently close G09-R1 in an unused v2 attempt. Then retain its common
-runner baseline while solvent coupling and actual exchange receive their
-explicit later coverage. The user defers T4
-lysozyme and Slurm/HPC settings until cluster work begins. Report technical
-evidence separately from molecular
-physical qualification. G06/G07 numerical review remains accepted; G07-T4 and
+Work is paused at the [reviewed cloud handoff](handoffs/CLOUD-ENGINE-after-G09-v2.md)
+until the user resumes. R1 is closed. Retain this common runner baseline while
+solvent coupling and actual exchange receive explicit later coverage in new
+attempts. The user defers T4 lysozyme and Slurm/HPC settings until cluster work
+begins. Report technical evidence separately from molecular physical
+qualification. G06/G07 numerical review remains accepted; G07-T4 and
 M03 physical closure remain blocked. Preserve all accepted G05 data, controls,
 seven sensitivity exceedances, pilot force failures and the unchanged cumulative
 quantum ledger. No quantum/production continuation is authorized by this technical
@@ -312,7 +312,7 @@ retains the failed resource screen and safe continuation conditions.
 | G07 / T4 physical-reference sensitivity | blocked | Seven sensitivity failures plus measured pilot force-approximation exceedances; one validated full-parent reference, 29 missing; runtime/scratch screens exceed current envelope |
 | M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
 | M04 / G08 analytic thermodynamic accounting | accepted | [GPT-6.1-sol/MAX v2 audit](../../Worker_Log/Milestone_04/Gate_08_v2_audit.md), exact c0280818/source8cf2494; G08-R1 closed, refined amendments and combined M04 analytic CPU accepted; 437 full/21 affected passes |
-| M05 / G09-G10 cloud technical subsets | changes_required / partial | [Sol 6.1/MAX v1 audit](../../Worker_Log/Milestone_05/Gate_09_v1_audit.md): sole G09-R1 integration-error retention gap; 22 fresh passes/49 independent rejections; design accepted for scope; solvent/exchange/full M05 remain open |
+| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial | [Sol 6.1/MAX v2 audit](../../Worker_Log/Milestone_05/Gate_09_v2_audit.md): G09-R1 closed; nine fresh passes/six prefix-failure challenges; inherited v1 design/numerical checks accepted; solvent/exchange/full M05 remain open |
 | M06-M08 / G11-G13 | deferred | T4 lysozyme and Slurm settings reserved for user-initiated HPC work; retain physical-qualification prerequisites |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |
