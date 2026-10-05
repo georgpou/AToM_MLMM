@@ -316,6 +316,12 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
+The user now assigns the [M05 Colab continuation](handoffs/M05-colab-next-agent.md):
+the next agent must create `notebooks/`, reproduce the locked CPU profile on
+Colab, use it for demanding bounded G09/G10 validation, and then attempt a
+separate TPU compatibility/benchmark profile. Colab/TPU execution is not yet run;
+the current OpenMM Reference/MACE CPU-float64 scope remains the accepted baseline.
+
 The [current cloud handoff](handoffs/CLOUD-ENGINE-after-G09-v4.md) records the
 reviewed completion of bounded explicit-water coupling and a single actual
 pair-exchange boundary. R1/R2 are closed; the v4 audit accepts the bounded
