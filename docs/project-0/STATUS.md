@@ -1,5 +1,18 @@
 # Current status
 
+**G10 multistate core Tasks 1–3 are implemented; the pilot and combined audit
+remain pending.** Child branch `g10-engine-next` starts from
+`bd44b2c93a5cba40225dba632f0277e535467be9`. Source/result commit
+`cef01748db1d872775c1cb88e67f881182066e6c` adds the bounded 3–8-state serial
+controller, inert journal checks and analytic/fault regressions; test-only
+follow-up `5a8ab584cc9af9e74afb7f2d926ca8b4af688e41` covers a secondary archive
+failure. The retained
+pair/export/restart command passes **73 tests in 195.08 seconds**, with no skips;
+the docs self-test reports zero errors. This is implementation evidence, not
+G10 acceptance. The next worker owns Task 4’s solvated pilots and usage docs,
+followed by combined CPU verification and audit; no pilots or full CPU suite
+ran in this core task. See the [G10 v4 worker record](../../Worker_Log/Milestone_05/Gate_10_v4_worker.md).
+
 **Current continuation: CPU engine development on `cloud-engine-continuation`.**
 The [current handoff](handoffs/CLOUD-ENGINE-CONTINUATION.md) supersedes earlier
 implementation assignments. The branch starts at accepted report snapshot
