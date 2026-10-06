@@ -1,0 +1,8 @@
+{"accepted": 4, "immutable_capture_labels_unique_ids_and_live_full_inverses": true, "matrix_entries": 16, "max_abs_errors": {"complete_total": 0.0, "exponent": 0.0, "reduced_total": 0.0, "refresh": 0.0}, "name": "same-attempt-history-G10_v7_independent_artifacts-reference", "nonzero_outside_entries": 16, "rejected": 0, "run": "/tmp/G10_v7_independent_artifacts/reference", "samples": 6, "status": "PASS"}
+{"accepted": 4, "immutable_capture_labels_unique_ids_and_live_full_inverses": true, "matrix_entries": 16, "max_abs_errors": {"complete_total": 0.0, "exponent": 0.0, "reduced_total": 0.0, "refresh": 0.0}, "name": "same-attempt-history-abfe-multistate-run", "nonzero_outside_entries": 16, "rejected": 0, "run": "/workspace/G10_v7_artifacts/v7-attempt-001/abfe/multistate-run", "samples": 6, "status": "PASS"}
+{"accepted": 4, "immutable_capture_labels_unique_ids_and_live_full_inverses": true, "matrix_entries": 16, "max_abs_errors": {"complete_total": 0.0, "exponent": 0.0, "reduced_total": 0.0, "refresh": 0.0}, "name": "same-attempt-history-rbfe-multistate-run", "nonzero_outside_entries": 16, "rejected": 0, "run": "/workspace/G10_v7_artifacts/v7-attempt-001/rbfe/multistate-run", "samples": 6, "status": "PASS"}
+Traceback (most recent call last):
+  File "/workspace/AToM_MLMM-g10/Worker_Log/Milestone_05/evidence/G10_v7_independent/record_controls_probe.py", line 90, in <module>
+    assert total[True]>0 and total[False]>0, total
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: {True: 12, False: 0}
