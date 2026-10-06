@@ -902,6 +902,111 @@ def test_multistate_clock_roundoff_bound_rejects_same_step_time_shift():
         _validate_expected_clock(1,.0105,{'step':0,'time_ps':0.0},1,.0005)
 
 
+def _set_prepared_multistate_clock(prepared,time_ps):
+    import xml.etree.ElementTree as ET
+    from atm_mlmm.persistence import read_json,write_json
+    handover=prepared/'worker/handover_0.xml'
+    state=ET.fromstring(handover.read_text()); state.set('time',repr(time_ps))
+    handover.write_text(ET.tostring(state,encoding='unicode'))
+    manifest_path=prepared/'worker/manifest.json'; manifest=read_json(manifest_path)
+    manifest['files']['handover_0.xml']=hashlib.sha256(handover.read_bytes()).hexdigest()
+    write_json(manifest_path,manifest)
+    metadata_path=prepared/'metadata.json'; metadata=read_json(metadata_path)
+    metadata['worker_manifest_sha256']=hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+    write_json(metadata_path,metadata)
+    (prepared/'metadata.sha256').write_text(hashlib.sha256(metadata_path.read_bytes()).hexdigest()+'\n')
+
+
+def _clock_tree(root):
+    return {path.relative_to(root):path.read_bytes() for path in root.rglob('*') if path.is_file()}
+
+
+@pytest.mark.parametrize('clock_case',('overflow-origin','finite-one-ulp-backward'))
+def test_multistate_public_backward_clocks_reject_inertly(tmp_path,monkeypatch,clock_case):
+    import math
+    import openmm as mm
+    from openmm import unit
+    from atm_mlmm.adapters import atom
+    from atm_mlmm.adapters.atom import load_worker_run
+    from atm_mlmm.exchange_journal import seal_tree
+    from atm_mlmm.persistence import read_json,write_json
+    run,resume,read=multistate_api()
+    origin=1e308 if clock_case=='overflow-origin' else 1e14
+    backwards=.0005 if clock_case=='overflow-origin' else math.nextafter(origin,-math.inf)
+    prepared=prepare_multistate(tmp_path/'prepared')
+    _set_prepared_multistate_clock(prepared,origin)
+    output=tmp_path/'exchange'
+    run(prepared,output,state_ids=('first','middle','third'),state_pairs=((0,1),(1,2)),
+        boundaries=2,steps_per_boundary=1,seed=73,trusted=True,stop_after_boundaries=1)
+    boundary=output/'boundaries/000000'; metadata=read_json(output/'metadata.json')
+    sample_path=boundary/'samples/worker-000.json'; sample=read_json(sample_path)
+    reports_path=boundary/'final-state-reports.json'; reports=read_json(reports_path)
+    record=read_json(boundary/'record.json')
+    final_state=metadata['state_ids'][record['walker_to_state_final'][0]]
+    sample_checkpoint=boundary/'samples/worker-000.chk'
+    sample_state=boundary/'samples/worker-000-state.xml'
+    final_checkpoint=boundary/'workers/worker-000.chk'
+    final_portable=boundary/'workers/worker-000-state.xml'
+    for checkpoint,portable,state_id in ((sample_checkpoint,sample_state,sample['state_id']),
+                                         (final_checkpoint,final_portable,final_state)):
+        with load_worker_run(output/'worker',metadata['worker_manifest_sha256'],trusted=True,
+                             integrator_seed=metadata['integrator_seed_base']) as worker:
+            worker.restore_checkpoint(checkpoint.read_bytes(),state_id)
+            step=worker.evaluator.context.getStepCount()
+            worker.evaluator.context.setTime(backwards*unit.picosecond)
+            assert worker.evaluator.context.getStepCount()==step
+            checkpoint.write_bytes(worker.evaluator.context.createCheckpoint())
+            state=worker.evaluator.context.getState(getPositions=True,getVelocities=True,getParameters=True)
+            portable.write_text(mm.XmlSerializer.serialize(state))
+    sample['time_ps']=backwards; reports['workers'][0]['time_ps']=backwards
+    write_json(sample_path,sample); write_json(reports_path,reports)
+    seal_tree(boundary,index=0)
+    before=_clock_tree(output)
+    loads=[]; evaluations=[]; steps=[]
+    original_load=atom.load_worker_run; original_evaluate=atom.WorkerRun.evaluate
+    original_step=mm.LangevinMiddleIntegrator.step
+    def watch_load(*args,**kwargs):
+        loads.append(kwargs.get('integrator_seed')); return original_load(*args,**kwargs)
+    def watch_evaluate(self,*args,**kwargs):
+        evaluations.append(self.integrator_seed); return original_evaluate(self,*args,**kwargs)
+    def watch_step(self,count):
+        steps.append(count); return original_step(self,count)
+    monkeypatch.setattr(atom,'load_worker_run',watch_load)
+    monkeypatch.setattr(atom.WorkerRun,'evaluate',watch_evaluate)
+    monkeypatch.setattr(mm.LangevinMiddleIntegrator,'step',watch_step)
+    error=None
+    try:
+        resume(output,trusted=True)
+    except ValueError as caught:
+        error=str(caught)
+    after=_clock_tree(output)
+    print(json.dumps({'case':clock_case,'error':error,'loader_seeds':loads,
+                      'evaluations':len(evaluations),'step_calls':steps,
+                      'pending_exists':(output/'pending').exists(),
+                      'tree_unchanged':before==after},sort_keys=True),flush=True)
+    assert error is not None and 'clock' in error.lower()
+    assert loads==[] and evaluations==[] and steps==[]
+    assert not (output/'pending').exists() and before==after
+
+
+def test_multistate_finite_clock_envelope_rejects_forward_contradiction():
+    from atm_mlmm.exchange_journal import _validate_expected_clock
+    with pytest.raises(ValueError,match='clock'):
+        _validate_expected_clock(1,1.7e308,{'step':0,'time_ps':1e308},1,.0005)
+
+
+def test_multistate_clock_comparison_fails_closed_on_residual_overflow():
+    from atm_mlmm.exchange_journal import _validate_expected_clock
+    with pytest.raises(ValueError,match='clock'):
+        _validate_expected_clock(1,1.7e308,{'step':0,'time_ps':-1.7e308},1,.0005)
+
+
+def test_multistate_clock_accepts_negative_and_stagnant_large_origins():
+    from atm_mlmm.exchange_journal import _validate_expected_clock
+    _validate_expected_clock(1,-.9995,{'step':0,'time_ps':-1.0},1,.0005)
+    _validate_expected_clock(1,1e308,{'step':0,'time_ps':1e308},1,.0005)
+
+
 def _reseal_multistate_geometry_collision(output,worker_index,map_index):
     from atm_mlmm.adapters.atom import load_worker_run
     from atm_mlmm.exchange import _coordinate_digest

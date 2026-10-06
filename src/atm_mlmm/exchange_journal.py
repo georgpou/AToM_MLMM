@@ -552,19 +552,45 @@ def _validate_expected_clock(step,time_ps,origin,expected_steps,timestep_ps):
     expected_step=origin['step']+expected_steps
     if step!=expected_step:
         raise IdentityError('multistate sample clock disagrees with declared step/time increments')
-    observed_delta=time_ps-origin['time_ps']
-    expected_delta=expected_steps*timestep_ps
+    origin_time=origin['time_ps']
+    if not all(_finite(value) for value in (time_ps,origin_time,timestep_ps)):
+        raise IdentityError('multistate sample clock contains a nonfinite value')
+    if time_ps<origin_time:
+        raise IdentityError('multistate sample clock moves backward')
+    try:
+        observed_delta=time_ps-origin_time
+        expected_delta=expected_steps*timestep_ps
+        timestep_scale=expected_steps*abs(timestep_ps)
+    except (OverflowError,ValueError):
+        raise IdentityError('multistate sample clock arithmetic is nonfinite') from None
+    if not all(_finite(value) for value in (observed_delta,expected_delta,timestep_scale)):
+        raise IdentityError('multistate sample clock arithmetic is nonfinite')
     unit_roundoff=sys.float_info.epsilon/2
     accumulated_roundoff=expected_steps*unit_roundoff
     if accumulated_roundoff>=1:
         raise IdentityError('multistate declared time increment exceeds the floating-point comparison bound')
-    gamma_n=accumulated_roundoff/(1-accumulated_roundoff)
-    single_operation_bound=unit_roundoff/(1-unit_roundoff)
-    scale=abs(origin['time_ps'])+expected_steps*abs(timestep_ps)
-    bound=gamma_n*scale+single_operation_bound*(
-        expected_steps*abs(timestep_ps)+abs(time_ps)+abs(origin['time_ps'])+
-        abs(expected_delta)+abs(observed_delta))
-    if abs(observed_delta-expected_delta)>bound:
+    gamma_n=math.nextafter(accumulated_roundoff/(1-accumulated_roundoff),math.inf)
+    single_operation_bound=math.nextafter(unit_roundoff/(1-unit_roundoff),math.inf)
+    # Weight each nonnegative magnitude before summing. Summing raw clocks can
+    # overflow even when the justified gamma_n envelope is finite. nextafter
+    # rounds each positive product and the final sum outward, keeping this a
+    # computed upper bound despite binary64 rounding.
+    terms=tuple(math.nextafter(value,math.inf) for value in (
+        gamma_n*abs(origin_time),gamma_n*timestep_scale,
+        single_operation_bound*timestep_scale,single_operation_bound*abs(time_ps),
+        single_operation_bound*abs(origin_time),single_operation_bound*abs(expected_delta),
+        single_operation_bound*abs(observed_delta)))
+    if not all(_finite(value) for value in terms):
+        raise IdentityError('multistate sample clock roundoff bound is nonfinite')
+    try:
+        bound=math.nextafter(math.fsum(terms),math.inf)
+        residual=observed_delta-expected_delta
+        residual_magnitude=math.nextafter(abs(residual),math.inf)
+    except (OverflowError,ValueError):
+        raise IdentityError('multistate sample clock comparison is nonfinite') from None
+    if not _finite(bound) or not _finite(residual) or not _finite(residual_magnitude):
+        raise IdentityError('multistate sample clock comparison is nonfinite')
+    if residual_magnitude>bound:
         raise IdentityError('multistate sample clock disagrees with declared step/time increments')
 
 
