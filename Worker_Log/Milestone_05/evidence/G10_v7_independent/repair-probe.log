@@ -1,0 +1,41 @@
+{"boundary_manifest_sha256": "3c943a1888aaac347f7f21c24bacdd8802a915a8af29d8367c053d33e23d67aa", "intended_rejection": true, "loader_calls": [], "name": "numpy-key-boolean", "reader_error": "IdentityError: multistate host RNG document is malformed: invalid NumPy legacy RNG state", "resume_error": "IdentityError: multistate host RNG document is malformed: invalid NumPy legacy RNG state", "status": "PASS", "tree_unchanged": true}
+{"boundary_manifest_sha256": "a45ba7e82167ed34398fae5e3228afc6d14808b80ee87f15030aec816a8a9818", "intended_rejection": true, "loader_calls": [], "name": "numpy-key-overflow", "reader_error": "IdentityError: multistate host RNG document is malformed: invalid NumPy legacy RNG state", "resume_error": "IdentityError: multistate host RNG document is malformed: invalid NumPy legacy RNG state", "status": "PASS", "tree_unchanged": true}
+{"boundary_manifest_sha256": "23e927bad30a3df743ebd33f4f7217dd4c81100e5abfa8f8711b2cdf07163a28", "intended_rejection": true, "loader_calls": [], "name": "numpy-index-boolean", "reader_error": "IdentityError: multistate host RNG document is malformed: invalid NumPy legacy RNG state", "resume_error": "IdentityError: multistate host RNG document is malformed: invalid NumPy legacy RNG state", "status": "PASS", "tree_unchanged": true}
+Traceback (most recent call last):
+  File "/workspace/AToM_MLMM-g10/Worker_Log/Milestone_05/evidence/G10_v7_independent/repair_probe.py", line 292, in <module>
+    if __name__=='__main__': sys.exit(main())
+                                      ^^^^^^
+  File "/workspace/AToM_MLMM-g10/Worker_Log/Milestone_05/evidence/G10_v7_independent/repair_probe.py", line 287, in main
+    inert_controls(); arithmetic(); runtime_controls(); transaction_controls(); rollback_controls()
+    ^^^^^^^^^^^^^^^^
+  File "/workspace/AToM_MLMM-g10/Worker_Log/Milestone_05/evidence/G10_v7_independent/repair_probe.py", line 91, in inert_controls
+    for name,action in cases: inert(name,action)
+                              ^^^^^^^^^^^^^^^^^^
+  File "/workspace/AToM_MLMM-g10/Worker_Log/Milestone_05/evidence/G10_v7_independent/repair_probe.py", line 61, in inert
+    run,meta,b=clone(name); action(run,meta,b); reseal(run,initial)
+                            ^^^^^^^^^^^^^^^^^^
+  File "/workspace/AToM_MLMM-g10/Worker_Log/Milestone_05/evidence/G10_v7_independent/repair_probe.py", line 79, in <lambda>
+    ('numpy-cache-nonfinite',lambda r,m,b:edit(b/'rng.json',lambda d:d['numpy'].__setitem__(4,float('inf')))),
+                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/AToM_MLMM-g10/Worker_Log/Milestone_05/evidence/G10_v7_independent/repair_probe.py", line 48, in edit
+    d=read_json(path); action(d); write_json(path,d)
+                                  ^^^^^^^^^^^^^^^^^^
+  File "/workspace/AToM_MLMM-g10/src/atm_mlmm/persistence.py", line 11, in write_json
+    text = json.dumps(document, indent=2, sort_keys=True, allow_nan=False) + '\n'
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/m05-cpu-setup-v2/env/lib/python3.11/json/__init__.py", line 238, in dumps
+    **kw).encode(obj)
+          ^^^^^^^^^^^
+  File "/workspace/m05-cpu-setup-v2/env/lib/python3.11/json/encoder.py", line 202, in encode
+    chunks = list(chunks)
+             ^^^^^^^^^^^^
+  File "/workspace/m05-cpu-setup-v2/env/lib/python3.11/json/encoder.py", line 432, in _iterencode
+    yield from _iterencode_dict(o, _current_indent_level)
+  File "/workspace/m05-cpu-setup-v2/env/lib/python3.11/json/encoder.py", line 406, in _iterencode_dict
+    yield from chunks
+  File "/workspace/m05-cpu-setup-v2/env/lib/python3.11/json/encoder.py", line 317, in _iterencode_list
+    yield buf + _floatstr(value)
+                ^^^^^^^^^^^^^^^^
+  File "/workspace/m05-cpu-setup-v2/env/lib/python3.11/json/encoder.py", line 240, in floatstr
+    raise ValueError(
+ValueError: Out of range float values are not JSON compliant: inf

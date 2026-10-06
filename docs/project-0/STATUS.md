@@ -1,7 +1,15 @@
 # Current status
 
-**G10 multistate Tasks 1–4: independent combined audit RED / changes_required.**
-That v5 audit decision remains open pending one combined audit after all repairs.
+**G10 multistate Tasks 1–4: v7 independent combined audit PAUSED; no final decision.**
+The user requested a usage-limit checkpoint while the audit was incomplete.
+The sole `gpt-6.1-sol / max` auditor completed 53 focused passes (0 skips),
+three additional inert NumPy challenges and source/evidence identity checks;
+broader arithmetic/transaction/current-record probes remain pending. A fourth
+extra challenge stopped at an audit-harness serialization error, preserved in
+the raw evidence. No scoped GREEN or repair closure is claimed. Continue from
+[the durable checkpoint](../../Worker_Log/Milestone_05/evidence/G10_v7_independent/CONTINUATION.md)
+and [partial v7 audit](../../Worker_Log/Milestone_05/Gate_10_v7_audit.md) before any fix.
+The complete v5 RED / changes_required decision remains the prior decision.
 Task A (R1/R4/R7 and inert capture/report clock agreement) is now implemented in
 code/result commit `8157b24ee93a841dbf91cf10a02a19dd321e6c88`; its worker record
 and evidence are in [Gate_10_v6_worker.md](../../Worker_Log/Milestone_05/Gate_10_v6_worker.md).
@@ -26,8 +34,9 @@ the audit. Source, tests, specifications, worker reports and failed artifacts
 remain frozen. The [independent evidence](../../Worker_Log/Milestone_05/evidence/G10_v5_independent/README.md)
 records exact commands, outcomes, hashes and minimal repairs/regressions.
 The [audit-ready pause handoff](handoffs/G10-MULTISTATE-AUDIT-READY.md) remains
-historical provenance. Next: one bounded sequential repair batch and a new
-independent combined audit before multistate acceptance.
+historical provenance. The bounded repair batch is complete; next, resume and
+finish the paused independent combined audit before multistate acceptance or
+any additional repair.
 
 The [repair batch](handoffs/G10-MULTISTATE-REPAIR-BATCH.md) was shortened at
 the user's request: Task A followed by one combined runtime/durability worker.
