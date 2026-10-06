@@ -5,7 +5,9 @@ That v5 audit decision remains open pending one combined audit after all repairs
 Task A (R1/R4/R7 and inert capture/report clock agreement) is now implemented in
 code/result commit `8157b24ee93a841dbf91cf10a02a19dd321e6c88`; its worker record
 and evidence are in [Gate_10_v6_worker.md](../../Worker_Log/Milestone_05/Gate_10_v6_worker.md).
-Tasks B and C (R2/R3 and R5/R6) remain open. This is not G10 acceptance.
+Tasks B and C (R2/R3 and R5/R6) are implemented and self-checked in the v7
+worker report; the combined independent audit remains pending. This is not G10
+acceptance.
 
 After the user resumed the saved pause, the sole independent `gpt-6.1-sol / max`
 [v5 combined audit](../../Worker_Log/Milestone_05/Gate_10_v5_audit.md) reviewed
@@ -33,12 +35,15 @@ Completed [v6 Task A](../../Worker_Log/Milestone_05/Gate_10_v6_worker.md) has co
 commit `8157b24ee93a841dbf91cf10a02a19dd321e6c88` and clean report/evidence
 commit `f0bfbc5019e1741c23e9308f863054dd32c3bec0`. Its R1/R4/R7 and inert-clock
 self-checks pass **37 focused tests** (36 challenge PASS/0 VIOLATION) and
-**74 retained compatibility tests**, no skips. Root verified all 25 manifest
-entries at that report snapshot and unchanged protected paths. Original RED
-failures, harness trials, documentation and raw-trace whitespace failures are
-preserved. Next: one bounded Luna/max worker for R2/R3/R5/R6, fresh exact v2
-pilots and one final CPU suite, then one complete Sol 6.1/max combined audit.
-No independent repair acceptance is claimed; the v5 RED decision remains.
+**74 retained compatibility tests**, no skips. The completed [v7 runtime and
+durability worker](../../Worker_Log/Milestone_05/Gate_10_v7_worker.md) starts at
+`bfbaa873cf13570313c945a9665f84580dde7439`, submits source/result commit
+`27e1639fefdde8ccca62263846204237391bf621`, passes the fresh v2 pilots (**2
+tests**) and the one final CPU suite (**626 passed, no skip text**). Its exact
+RED/GREEN traces, test outputs and hashes are indexed in
+[G10 v7 evidence](../../Worker_Log/Milestone_05/evidence/G10_v7/README.md).
+The combined independent audit remains next; no independent repair acceptance
+is claimed and the v5 RED decision remains.
 
 **Completed G10 worker submission.** On `g10-engine-next`, the multistate core source/result commit
 `cef01748db1d872775c1cb88e67f881182066e6c` adds the bounded 3–8-state serial
