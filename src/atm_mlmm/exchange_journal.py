@@ -7,6 +7,7 @@ import os
 from pathlib import Path
 import re
 import random
+import sys
 import uuid
 
 from .persistence import read_json,write_json
@@ -21,6 +22,18 @@ def sync_directory(path):
     fd=os.open(path,os.O_RDONLY)
     try: os.fsync(fd)
     finally: os.close(fd)
+
+
+def _sync_rename_parents(source_parent,destination_parent):
+    errors=[]
+    for path in (Path(destination_parent),Path(source_parent)):
+        try: sync_directory(path)
+        except Exception as error:
+            if errors:
+                errors[0].add_note(f'Additional rename-parent fsync failure at {path}: {error}')
+            else:
+                errors.append(error)
+    if errors: raise errors[0]
 
 
 @contextmanager
@@ -125,7 +138,7 @@ def read_multistate_boundaries(directory, *, allow_pending=False):
         raise IdentityError('exchange journal mode is not persistent-multistate-exchange-v1')
     _verify_multistate_source(directory,metadata)
     _validate_multistate_metadata(metadata)
-    _validate_multistate_worker_contract(directory,metadata)
+    timestep_ps=_validate_multistate_worker_contract(directory,metadata)
     initial=directory/'initial'
     initial_manifest=verify_tree(initial,index=-1)
     if sha(initial/'manifest.json')!=metadata.get('initial_manifest_sha256'):
@@ -145,8 +158,9 @@ def read_multistate_boundaries(directory, *, allow_pending=False):
         raise IdentityError('multistate initial walker/state identity mismatch')
     _validate_inverse(initial/'walker-to-state.json',list(range(n)),n)
     _validate_rng_document(read_json(initial/'rng.json'))
-    _validate_final_reports(initial/'final-state-reports.json',metadata,None,
-                            expected_permutation=list(range(n)))
+    initial_reports=_validate_final_reports(initial/'final-state-reports.json',metadata,None,
+                                            expected_permutation=list(range(n)))
+    previous_reports=initial_reports
 
     pending=directory/'pending'
     if pending.exists() or pending.is_symlink():
@@ -204,6 +218,8 @@ def read_multistate_boundaries(directory, *, allow_pending=False):
                 not _same_parameters(sample.get('parameters'),metadata['state_parameters'].get(state_id))):
                 raise IdentityError('multistate sample ID/sequence/state/parameter identity mismatch')
             _validate_sample(sample,metadata)
+            _validate_expected_clock(sample['step'],sample['time_ps'],previous_reports[w],
+                                     metadata['steps_per_boundary'],timestep_ps)
             sample_ids.add(sample_id); sequences[workers[w]]=index+1; sample_rows.append(sample)
         current=list(start); attempt_rows=[]
         for q,(state_left,state_right) in enumerate(schedule_pairs):
@@ -285,8 +301,8 @@ def read_multistate_boundaries(directory, *, allow_pending=False):
         if current!=record['walker_to_state_final']:
             raise IdentityError('multistate final permutation does not reconstruct from decisions')
         _validate_rng_document(read_json(path/'rng.json'))
-        _validate_final_reports(path/'final-state-reports.json',metadata,sample_rows,
-                                expected_permutation=current)
+        previous_reports=_validate_final_reports(path/'final-state-reports.json',metadata,sample_rows,
+                                                 expected_permutation=current)
         for w in range(n):
             if not (path/'samples'/f'worker-{w:03d}-state.xml').is_file() or not (path/'samples'/f'worker-{w:03d}.chk').is_file():
                 raise IdentityError('multistate sample State/checkpoint is missing')
@@ -461,6 +477,7 @@ def _validate_multistate_worker_contract(directory,metadata):
     if (not isinstance(settings,dict) or settings.get('protocol_kind')!=bundle.transfer.protocol.kind or
         tuple(settings.get('displacement_nm',()))!=tuple(bundle.transfer.protocol.geometry_requests.get('displacement_nm',()))):
         raise IdentityError('multistate geometry settings differ from the sealed transfer maps')
+    return runtime.timestep_ps
 
 
 def _validate_permutation(value,n,name):
@@ -525,6 +542,30 @@ def _same_parameters(actual,expected):
 
 def _finite(value):
     return isinstance(value,(int,float)) and not isinstance(value,bool) and math.isfinite(value)
+
+
+def _clock_matches(actual_step,actual_time,expected_step,expected_time):
+    return actual_step==expected_step and actual_time==expected_time
+
+
+def _validate_expected_clock(step,time_ps,origin,expected_steps,timestep_ps):
+    expected_step=origin['step']+expected_steps
+    if step!=expected_step:
+        raise IdentityError('multistate sample clock disagrees with declared step/time increments')
+    observed_delta=time_ps-origin['time_ps']
+    expected_delta=expected_steps*timestep_ps
+    unit_roundoff=sys.float_info.epsilon/2
+    accumulated_roundoff=expected_steps*unit_roundoff
+    if accumulated_roundoff>=1:
+        raise IdentityError('multistate declared time increment exceeds the floating-point comparison bound')
+    gamma_n=accumulated_roundoff/(1-accumulated_roundoff)
+    single_operation_bound=unit_roundoff/(1-unit_roundoff)
+    scale=abs(origin['time_ps'])+expected_steps*abs(timestep_ps)
+    bound=gamma_n*scale+single_operation_bound*(
+        expected_steps*abs(timestep_ps)+abs(time_ps)+abs(origin['time_ps'])+
+        abs(expected_delta)+abs(observed_delta))
+    if abs(observed_delta-expected_delta)>bound:
+        raise IdentityError('multistate sample clock disagrees with declared step/time increments')
 
 
 def _validate_raw(raw):
@@ -653,6 +694,7 @@ def _validate_final_reports(path,metadata,samples,expected_permutation=None):
                 raise IdentityError('multistate final-state report coordinates disagree with sample')
             if row['step']!=samples[w]['step'] or row['time_ps']!=samples[w]['time_ps']:
                 raise IdentityError('multistate final-state report clock disagrees with captured sample')
+    return rows
 
 
 def preserve_pending(directory):
@@ -685,10 +727,11 @@ def preserve_multistate_pending(directory):
             files[path.relative_to(pending).as_posix()]=sha(path)
     write_json(pending/'rollback.json',{'policy':'archive all evidence; replay from previous all-worker checkpoints/permutation/host RNG',
         'original_pending_name':pending.name,'preserved_file_hashes':files})
-    with (pending/'rollback.json').open('rb') as handle: os.fsync(handle.fileno())
+    for path in sorted(p for p in pending.rglob('*') if p.is_file()):
+        with path.open('rb') as handle: os.fsync(handle.fileno())
     for path in sorted((p for p in pending.rglob('*') if p.is_dir()),key=lambda p:len(p.parts),reverse=True):
         sync_directory(path)
     sync_directory(pending)
     os.rename(pending,target)
-    sync_directory(target.parent); sync_directory(directory)
+    _sync_rename_parents(directory,target.parent)
     return target

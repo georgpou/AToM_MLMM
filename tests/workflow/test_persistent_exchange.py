@@ -690,31 +690,59 @@ def test_multistate_capture_seal_and_precommit_failures_do_not_publish(
         p.relative_to(right):p.read_bytes() for p in right.rglob('*') if p.is_file()}
 
 
-@pytest.mark.parametrize('failure',('parent-fsync','records','observations.json','summary.json'))
+@pytest.mark.parametrize('failure',('source-parent-fsync','destination-parent-fsync',
+                                   'records','observations.json','summary.json'))
 def test_multistate_postrename_failure_keeps_boundary_authoritative(tmp_path,monkeypatch,failure):
     run,resume,read=multistate_api()
     import atm_mlmm.exchange as controller
+    import atm_mlmm.exchange_journal as journal
+    from atm_mlmm.adapters import atom
+    from atm_mlmm.persistence import read_json
     prepared=prepare_multistate(tmp_path/'prepared')
     interrupted=tmp_path/'interrupted'
     run(prepared,interrupted,state_ids=('first','middle','third'),state_pairs=((0,1),(1,2)),
         boundaries=2,steps_per_boundary=1,seed=73,trusted=True,stop_after_boundaries=1)
     reference=tmp_path/'reference'; shutil.copytree(interrupted,reference)
     resume(reference,trusted=True)
-    if failure=='parent-fsync':
-        original=controller._publish_multistate_boundary
-        def fail_after_rename(pending,target,index):
-            original(pending,target,index)
-            if index==1: raise OSError('parent fsync failed after rename')
-        monkeypatch.setattr(controller,'_publish_multistate_boundary',fail_after_rename)
-        expected='parent fsync'
+    committed=interrupted/'boundaries/000001'
+    prior_hashes={name:controller.sha(interrupted/f'boundaries/{name:06d}/manifest.json')
+                  for name in (0,)}
+    published=[False]
+    evaluations_after_publish=[]
+    original_evaluate=atom.WorkerRun.evaluate
+    def watch_evaluate(self,*args,**kwargs):
+        if published[0]: evaluations_after_publish.append(self.integrator_seed)
+        return original_evaluate(self,*args,**kwargs)
+    monkeypatch.setattr(atom.WorkerRun,'evaluate',watch_evaluate)
+    if failure.endswith('parent-fsync'):
+        original_sync=journal.sync_directory
+        failing_parent=interrupted if failure.startswith('source') else interrupted/'boundaries'
+        failed=[False]
+        def fail_actual_parent_sync(path):
+            if committed.exists() and Path(path)==failing_parent and not failed[0]:
+                published[0]=True; failed[0]=True
+                raise OSError(f'{failure} failed after rename')
+            return original_sync(path)
+        monkeypatch.setattr(journal,'sync_directory',fail_actual_parent_sync)
+        expected=failure
     elif failure=='records':
+        original_publish=controller._publish_multistate_boundary
+        def mark_published(*args,**kwargs):
+            result=original_publish(*args,**kwargs); published[0]=True; return result
+        monkeypatch.setattr(controller,'_publish_multistate_boundary',mark_published)
         def fail_records(record): raise OSError('records rebuild failed')
         monkeypatch.setattr(controller,'to_json',fail_records)
         expected='records rebuild'
     else:
+        original_publish=controller._publish_multistate_boundary
+        def mark_published(*args,**kwargs):
+            result=original_publish(*args,**kwargs); published[0]=True; return result
+        monkeypatch.setattr(controller,'_publish_multistate_boundary',mark_published)
         original=controller.write_json
         def fail_report(path,document):
-            if Path(path).name==failure: raise OSError(f'{failure} rebuild failed')
+            if Path(path).name==failure:
+                published[0]=True
+                raise OSError(f'{failure} rebuild failed')
             return original(path,document)
         monkeypatch.setattr(controller,'write_json',fail_report)
         expected=f'{failure} rebuild'
@@ -722,8 +750,22 @@ def test_multistate_postrename_failure_keeps_boundary_authoritative(tmp_path,mon
         resume(interrupted,trusted=True)
     assert not (interrupted/'pending').exists()
     assert len(read(interrupted))==2
-    committed=interrupted/'boundaries/000001'
+    assert evaluations_after_publish==[]
     before={p.relative_to(committed):p.read_bytes() for p in committed.rglob('*') if p.is_file()}
+    assert prior_hashes=={name:controller.sha(interrupted/f'boundaries/{name:06d}/manifest.json')
+                          for name in (0,)}
+    archives=sorted((interrupted/'failures').glob('postcommit-*'))
+    assert len(archives)==1
+    failure_record=read_json(archives[0]/'error.json')
+    assert failure_record['message'].startswith(expected)
+    assert failure_record['archive_errors']==[]
+    for worker in range(3):
+        folder=archives[0]/f'worker-{worker:03d}'
+        assert (folder/'error.json').is_file()
+        assert (folder/'state.xml').read_bytes()==(committed/'workers'/f'worker-{worker:03d}-state.xml').read_bytes()
+        assert (folder/'checkpoint.chk').read_bytes()==(committed/'workers'/f'worker-{worker:03d}.chk').read_bytes()
+        assert (folder/'map0-state.xml').stat().st_size>0
+        assert (folder/'map1-state.xml').stat().st_size>0
     monkeypatch.undo()
     summary=resume(interrupted,trusted=True)
     assert summary['samples']==6 and len(read(interrupted))==2
@@ -731,6 +773,274 @@ def test_multistate_postrename_failure_keeps_boundary_authoritative(tmp_path,mon
     left=interrupted/'boundaries/000001'; right=reference/'boundaries/000001'
     assert {p.relative_to(left):p.read_bytes() for p in left.rglob('*') if p.is_file()}=={
         p.relative_to(right):p.read_bytes() for p in right.rglob('*') if p.is_file()}
+
+
+def test_multistate_postcommit_secondary_capture_error_keeps_primary_and_other_artifacts(
+        tmp_path,monkeypatch):
+    run,resume,read=multistate_api()
+    import atm_mlmm.exchange as controller
+    from atm_mlmm.adapters import atom
+    from atm_mlmm.persistence import read_json
+    prepared=prepare_multistate(tmp_path/'prepared'); interrupted=tmp_path/'interrupted'
+    run(prepared,interrupted,state_ids=('first','middle','third'),state_pairs=((0,1),(1,2)),
+        boundaries=2,steps_per_boundary=1,seed=73,trusted=True,stop_after_boundaries=1)
+    reference=tmp_path/'reference'; shutil.copytree(interrupted,reference); resume(reference,trusted=True)
+    committed=interrupted/'boundaries/000001'; published=[False]; evaluations_after_publish=[]
+    original_evaluate=atom.WorkerRun.evaluate
+    def watch_evaluate(self,*args,**kwargs):
+        if published[0]: evaluations_after_publish.append(self.integrator_seed)
+        return original_evaluate(self,*args,**kwargs)
+    original_publish=controller._publish_multistate_boundary
+    def mark_published(*args,**kwargs):
+        result=original_publish(*args,**kwargs); published[0]=True; return result
+    original_durable_bytes=controller._durable_bytes
+    def fail_one_capture(path,payload):
+        path=Path(path)
+        if path.name=='checkpoint.chk' and path.parent.name=='worker-001' and path.parent.parent.name.startswith('postcommit-'):
+            raise OSError('secondary cached checkpoint capture failed')
+        return original_durable_bytes(path,payload)
+    monkeypatch.setattr(atom.WorkerRun,'evaluate',watch_evaluate)
+    monkeypatch.setattr(controller,'_publish_multistate_boundary',mark_published)
+    monkeypatch.setattr(controller,'_durable_bytes',fail_one_capture)
+    monkeypatch.setattr(controller,'to_json',lambda record:(_ for _ in ()).throw(OSError('primary records serialization failed')))
+    with pytest.raises(OSError,match='primary records serialization failed'):
+        resume(interrupted,trusted=True)
+    assert evaluations_after_publish==[]
+    archive=next((interrupted/'failures').glob('postcommit-*'))
+    primary=read_json(archive/'error.json')
+    assert primary['message']=='primary records serialization failed'
+    assert any('worker 1 checkpoint' in error['operation'] and
+               'secondary cached checkpoint capture failed' in error['message']
+               for error in primary['archive_errors'])
+    for worker in (0,2):
+        folder=archive/f'worker-{worker:03d}'
+        assert all((folder/name).is_file() for name in
+                   ('error.json','state.xml','checkpoint.chk','map0-state.xml','map1-state.xml'))
+    worker=archive/'worker-001'
+    assert not (worker/'checkpoint.chk').exists()
+    assert all((worker/name).is_file() for name in ('error.json','state.xml','map0-state.xml','map1-state.xml'))
+    assert len(read(interrupted))==2
+    monkeypatch.undo(); assert resume(interrupted,trusted=True)['samples']==6
+
+
+@pytest.mark.parametrize('artifact',('checkpoint','portable-state'))
+def test_multistate_restore_rejects_actual_clock_mismatch_before_evaluation(
+        tmp_path,monkeypatch,artifact):
+    run,resume,_=multistate_api()
+    from openmm import unit
+    import openmm as mm
+    from atm_mlmm.adapters import atom
+    from atm_mlmm.adapters.atom import load_worker_run
+    from atm_mlmm.exchange_journal import seal_tree
+    from atm_mlmm.persistence import read_json
+    prepared=prepare_multistate(tmp_path/'prepared')
+    output=tmp_path/'exchange'
+    run(prepared,output,state_ids=('first','middle','third'),state_pairs=((0,1),(1,2)),
+        boundaries=1,steps_per_boundary=1,seed=73,trusted=True)
+    boundary=output/'boundaries/000000'; metadata=read_json(output/'metadata.json')
+    state_id=metadata['state_ids'][read_json(boundary/'record.json')['walker_to_state_final'][0]]
+    state_path=boundary/'workers/worker-000-state.xml'
+    checkpoint_path=boundary/'workers/worker-000.chk'
+    if artifact=='checkpoint':
+        with load_worker_run(output/'worker',metadata['worker_manifest_sha256'],trusted=True,
+                             integrator_seed=metadata['integrator_seed_base']) as worker:
+            worker.restore_checkpoint(checkpoint_path.read_bytes(),state_id)
+            worker.evaluator.context.setStepCount(99)
+            worker.evaluator.context.setTime(9.99*unit.picosecond)
+            saved=worker.evaluator.context.getState(getPositions=True,getVelocities=True,getParameters=True)
+            checkpoint_path.write_bytes(worker.evaluator.context.createCheckpoint())
+            state_path.write_text(mm.XmlSerializer.serialize(saved))
+    else:
+        import xml.etree.ElementTree as ET
+        saved=ET.fromstring(state_path.read_text())
+        saved.set('stepCount','99'); saved.set('time','9.99')
+        state_path.write_text(ET.tostring(saved,encoding='unicode'))
+    seal_tree(boundary,index=0)
+    evaluations=[]; original=atom.WorkerRun.evaluate
+    def observe(self,*args,**kwargs):
+        evaluations.append(self.integrator_seed)
+        return original(self,*args,**kwargs)
+    monkeypatch.setattr(atom.WorkerRun,'evaluate',observe)
+    with pytest.raises(ValueError,match='clock|portable State'):
+        resume(output,trusted=True)
+    assert evaluations==[]
+    assert not (output/'pending').exists()
+
+
+@pytest.mark.parametrize('clock_case',('skipped','backwards'))
+def test_multistate_inert_samples_follow_declared_clock_increments(tmp_path,clock_case):
+    run_multistate_exchange,_,read=multistate_api()
+    from atm_mlmm.exchange_journal import seal_tree
+    from atm_mlmm.persistence import read_json,write_json
+    prepared=prepare_multistate(tmp_path/'prepared')
+    output=tmp_path/'exchange'
+    run_multistate_exchange(prepared,output,state_ids=('first','middle','third'),
+        state_pairs=((0,1),(1,2)),boundaries=2,steps_per_boundary=1,seed=73,trusted=True)
+    boundary=output/'boundaries/000001'
+    sample_path=boundary/'samples/worker-000.json'; sample=read_json(sample_path)
+    reports_path=boundary/'final-state-reports.json'; reports=read_json(reports_path)
+    if clock_case=='skipped': sample['step']=99; sample['time_ps']=9.99
+    else: sample['step']=0; sample['time_ps']=0.0
+    reports['workers'][0]['step']=sample['step']; reports['workers'][0]['time_ps']=sample['time_ps']
+    write_json(sample_path,sample); write_json(reports_path,reports)
+    seal_tree(boundary,index=1)
+    with pytest.raises(ValueError,match='clock|timeline|increment'):
+        read(output)
+
+
+@pytest.mark.parametrize('steps',(100_000,999_999))
+def test_multistate_clock_roundoff_bound_covers_double_accumulation(steps):
+    from atm_mlmm.exchange_journal import _validate_expected_clock
+    timestep_ps=.0005; time_ps=0.0
+    for _ in range(steps): time_ps+=timestep_ps
+    _validate_expected_clock(steps,time_ps,{'step':0,'time_ps':0.0},steps,timestep_ps)
+
+
+def test_multistate_clock_roundoff_bound_rejects_same_step_time_shift():
+    from atm_mlmm.exchange_journal import _validate_expected_clock
+    with pytest.raises(ValueError,match='clock'):
+        _validate_expected_clock(1,.0105,{'step':0,'time_ps':0.0},1,.0005)
+
+
+def _reseal_multistate_geometry_collision(output,worker_index,map_index):
+    from atm_mlmm.adapters.atom import load_worker_run
+    from atm_mlmm.exchange import _coordinate_digest
+    from atm_mlmm.exchange_journal import seal_tree
+    from atm_mlmm.persistence import read_json,write_json
+    from atm_mlmm.workflow import _snapshot
+    import openmm as mm
+    import numpy as np
+    metadata=read_json(output/'metadata.json'); boundary=output/'boundaries/000000'
+    record=read_json(boundary/'record.json')
+    state_id=metadata['state_ids'][record['walker_to_state_final'][worker_index]]
+    with load_worker_run(output/'worker',metadata['worker_manifest_sha256'],trusted=True,
+                         integrator_seed=metadata['integrator_seed_base']+worker_index) as worker:
+        worker.restore_checkpoint((boundary/'workers'/f'worker-{worker_index:03d}.chk').read_bytes(),state_id)
+        original=_snapshot(worker); positions=np.asarray(original.positions_nm,dtype=float).copy()
+        ligand=original.real_atom_ids.index('a1'); environment=original.real_atom_ids.index('env')
+        shift=np.asarray(metadata['settings']['displacement_nm']) if map_index==1 else np.zeros(3)
+        positions[environment]=positions[ligand]+shift+np.array((.1,0.,0.))
+        moved=replace(original,positions_nm=tuple(tuple(float(v) for v in row) for row in positions))
+        sample_path=boundary/'samples'/f'worker-{worker_index:03d}.json'; sample=read_json(sample_path)
+        sample_result=worker.evaluate(moved,sample['state_id'])
+        sample_saved=worker.evaluator.context.getState(getPositions=True,getVelocities=True,getParameters=True)
+        sample.update(positions_nm=moved.positions_nm,velocities_nm_ps=moved.velocities_nm_ps,
+            raw=asdict(sample_result.raw),total_energy_kJ_mol=sample_result.total.energy_kj_mol,
+            real_forces_kj_mol_nm=sample_result.total.forces_kj_mol_nm,
+            parameters=dict(sample_result.parameters))
+        write_json(sample_path,sample)
+        (boundary/'samples'/f'worker-{worker_index:03d}-state.xml').write_text(mm.XmlSerializer.serialize(sample_saved))
+        (boundary/'samples'/f'worker-{worker_index:03d}.chk').write_bytes(worker.evaluator.context.createCheckpoint())
+        for attempt_dir in sorted((boundary/'attempts').iterdir()):
+            attempt=read_json(attempt_dir/'attempt.json')
+            if worker_index not in attempt['worker_indices']: continue
+            column=attempt['worker_indices'].index(worker_index)
+            docs={name:read_json(attempt_dir/f'{name}.json')
+                  for name in ('evaluated','decision','refreshed','history')}
+            results=[worker.evaluate(moved,pair_state) for pair_state in attempt['state_ids']]
+            for name in ('evaluated','decision','refreshed'):
+                doc=docs[name]
+                for row,result in enumerate(results):
+                    doc['raw_energies'][row][column]=asdict(result.raw)
+                    doc['reduced_energies'][row][column]=(
+                        result.total.energy_kj_mol*metadata['beta_mol_per_kJ'])
+                matrix=doc['reduced_energies']
+                doc['exponent']=matrix[0][1]+matrix[1][0]-matrix[0][0]-matrix[1][1]
+            after_state=docs['decision']['state_ids_after'][column]
+            docs['refreshed']['energies_after_kj_mol'][column]=worker.evaluate(
+                moved,after_state).total.energy_kj_mol
+            docs['history']['decision']=docs['decision']
+            for name,document in docs.items(): write_json(attempt_dir/f'{name}.json',document)
+        final_state=metadata['state_ids'][record['walker_to_state_final'][worker_index]]
+        final_result=worker.evaluate(moved,final_state)
+        final_saved=worker.evaluator.context.getState(getPositions=True,getVelocities=True,getParameters=True)
+        reports=read_json(boundary/'final-state-reports.json')
+        from atm_mlmm.exchange import _multistate_report
+        reports['workers'][worker_index]=_multistate_report(worker,worker_index,
+            metadata['walker_ids'][worker_index],final_state,moved,final_result,final_saved)
+        write_json(boundary/'final-state-reports.json',reports)
+        stem=f'worker-{worker_index:03d}'
+        (boundary/'workers'/f'{stem}-state.xml').write_text(mm.XmlSerializer.serialize(final_saved))
+        (boundary/'workers'/f'{stem}.chk').write_bytes(worker.evaluator.context.createCheckpoint())
+    seal_tree(boundary,index=0)
+    return metadata
+
+
+@pytest.mark.parametrize(('worker_index','map_index'),((0,0),(2,1)))
+def test_multistate_guard_checks_actual_restored_coordinates_before_any_evaluation(
+        tmp_path,monkeypatch,worker_index,map_index):
+    run,resume,read=multistate_api()
+    import atm_mlmm.exchange as controller
+    from atm_mlmm.adapters import atom
+    prepared=prepare_multistate(tmp_path/'prepared')
+    output=tmp_path/'exchange'
+    run(prepared,output,state_ids=('first','middle','third'),state_pairs=((0,1),(1,2)),
+        boundaries=1,steps_per_boundary=1,seed=73,trusted=True)
+    metadata=_reseal_multistate_geometry_collision(output,worker_index,map_index)
+    assert len(read(output))==1
+    evaluations=[]; geometry=[]
+    original_evaluate=atom.WorkerRun.evaluate; original_geometry=controller._geometry
+    def observe_evaluate(self,*args,**kwargs):
+        evaluations.append(self.integrator_seed); return original_evaluate(self,*args,**kwargs)
+    def observe_geometry(worker,snapshot,settings):
+        geometry.append((worker.integrator_seed,worker.evaluator.context.getStepCount()))
+        return original_geometry(worker,snapshot,settings)
+    monkeypatch.setattr(atom.WorkerRun,'evaluate',observe_evaluate)
+    monkeypatch.setattr(controller,'_geometry',observe_geometry)
+    with pytest.raises(ValueError,match=f'map{map_index}'):
+        resume(output,trusted=True)
+    assert not evaluations
+    assert not (output/'pending').exists()
+    assert geometry[-1]==(metadata['integrator_seed_base']+worker_index,1)
+
+
+def test_multistate_publish_and_rollback_fsync_all_files_and_both_parents(tmp_path,monkeypatch):
+    import os
+    import atm_mlmm.exchange as controller
+    import atm_mlmm.exchange_journal as journal
+    root=tmp_path/'publication'; pending=root/'pending'; source_parent=root
+    destination_parent=root/'boundaries'
+    pending.mkdir(parents=True); destination_parent.mkdir()
+    (pending/'workers').mkdir(); (pending/'workers'/'state.xml').write_text('<State/>\n')
+    (pending/'record.json').write_text('{}\n')
+    events=[]; original_fsync=journal.os.fsync; original_rename=journal.os.rename
+    def trace_fsync(fd):
+        events.append(('fsync',os.readlink(f'/proc/self/fd/{fd}')))
+        return original_fsync(fd)
+    def trace_rename(src,dst):
+        events.append(('rename',str(src),str(dst)))
+        return original_rename(src,dst)
+    monkeypatch.setattr(journal.os,'fsync',trace_fsync)
+    monkeypatch.setattr(journal.os,'rename',trace_rename)
+    controller._publish_multistate_boundary(pending,destination_parent/'000000',0)
+    rename_index=next(i for i,event in enumerate(events) if event[0]=='rename')
+    before_rename={Path(event[1]) for event in events[:rename_index] if event[0]=='fsync'}
+    for path in (pending/'manifest.json',pending/'record.json',pending/'workers/state.xml'):
+        assert path in before_rename
+    publication_after={Path(event[1]) for event in events[rename_index+1:] if event[0]=='fsync'}
+    assert {source_parent,destination_parent}<=publication_after
+
+    rollback_root=tmp_path/'rollback'; rollback_pending=rollback_root/'pending'
+    nested=rollback_pending/'failures'/'worker-000'; nested.mkdir(parents=True)
+    payloads={'failure.json':b'{"message":"primary"}\n','failures/worker-000/state.xml':b'<State/>\n'}
+    (rollback_pending/'failure.json').write_bytes(payloads['failure.json'])
+    (nested/'state.xml').write_bytes(payloads['failures/worker-000/state.xml'])
+    events.clear()
+    archive=journal.preserve_multistate_pending(rollback_root)
+    rename_index=next(i for i,event in enumerate(events) if event[0]=='rename')
+    before_rename={Path(event[1]) for event in events[:rename_index] if event[0]=='fsync'}
+    for relative in (*payloads.keys(),'rollback.json'):
+        assert rollback_pending/relative in before_rename
+    rollback_directories={rollback_pending,rollback_pending/'failures',nested}
+    directory_syncs=[(i,Path(event[1])) for i,event in enumerate(events[:rename_index])
+                     if event[0]=='fsync' and Path(event[1]) in rollback_directories]
+    for child,parent in ((rollback_pending/'failures/worker-000',rollback_pending/'failures'),
+                         (rollback_pending/'failures',rollback_pending)):
+        assert next(i for i,path in directory_syncs if path==child)<next(
+            i for i,path in directory_syncs if path==parent)
+    rollback_after={Path(event[1]) for event in events[rename_index+1:] if event[0]=='fsync'}
+    assert {rollback_root,rollback_root/'failures'}<=rollback_after
+    for relative,payload in payloads.items(): assert (archive/relative).read_bytes()==payload
 
 
 @pytest.mark.parametrize('fault',('permutation','sample-id','sample-sequence','rng','phase',

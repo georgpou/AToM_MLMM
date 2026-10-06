@@ -16,11 +16,12 @@ import time
 import uuid
 
 from .exchange_journal import (controller_lock,preserve_pending,read_exchange_rounds,
-                               seal,sha,sync_directory)
+                               seal,sha,sync_directory,_clock_matches,
+                               _sync_rename_parents)
 from .persistence import read_json,write_json
 from .schema import (AlchemicalBundle,EvaluationRecords,IdentityError,MalformedInput,
                      RuntimeSpec,UnsupportedCapability,from_json,to_json)
-from .workflow import _archive_failure,_domain,_integer,_profile,_snapshot
+from .workflow import _archive_failure,_domain,_integer,_mapped_state_xml,_profile,_snapshot
 
 _MULTISTATE_COORDINATE_ROUNDTRIP_ATOL_NM=1.0e-15
 
@@ -401,7 +402,7 @@ def _publish_multistate_boundary(pending,target,index):
     seal_tree(pending,index=index)
     if target.exists(): raise FileExistsError(target)
     os.rename(pending,target)
-    sync_directory(target.parent)
+    _sync_rename_parents(pending.parent,target.parent)
 
 
 def _state_ids_for_permutation(state_ids,permutation):
@@ -418,6 +419,17 @@ def _fresh_multistate_check(worker,index,walker_id,state_id,boundary,report,meta
     worker.restore_checkpoint(checkpoint,state_id)
     snapshot=_snapshot(worker)
     portable=mm.XmlSerializer.deserialize(state_path.read_text())
+    context=worker.evaluator.context
+    context_step=int(context.getStepCount())
+    context_time=float(context.getState().getTime().value_in_unit(unit.picosecond))
+    portable_step=int(portable.getStepCount())
+    portable_time=float(portable.getTime().value_in_unit(unit.picosecond))
+    if not _clock_matches(context_step,context_time,report['step'],report['time_ps']):
+        raise IdentityError('restored checkpoint clock disagrees with final-state report')
+    if not _clock_matches(portable_step,portable_time,context_step,context_time):
+        raise IdentityError('portable State clock disagrees with restored checkpoint')
+    if sample is not None and not _clock_matches(sample['step'],sample['time_ps'],report['step'],report['time_ps']):
+        raise IdentityError('restored checkpoint clock disagrees with captured sample')
     particle_indices=[worker.bundle.physical.real_to_final[a.atom_id] for a in worker.bundle.physical.topology.atoms]
     portable_x=portable.getPositions(asNumpy=True).value_in_unit(unit.nanometer)[particle_indices]
     portable_v=portable.getVelocities(asNumpy=True).value_in_unit(unit.nanometer/unit.picosecond)[particle_indices]
@@ -435,6 +447,7 @@ def _fresh_multistate_check(worker,index,walker_id,state_id,boundary,report,meta
     expected_parameters=metadata['state_parameters'][state_id]
     if any(actual_parameters.get(name)!=value for name,value in expected_parameters.items()):
         raise IdentityError('restored checkpoint parameters disagree with final assignment')
+    captured_snapshot=None
     if sample is None:
         if _coordinate_digest(snapshot.positions_nm)!=report['coordinate_sha256']:
             raise IdentityError('restored checkpoint coordinates disagree with final-state report')
@@ -454,6 +467,12 @@ def _fresh_multistate_check(worker,index,walker_id,state_id,boundary,report,meta
             raise IdentityError('restored checkpoint box disagrees with captured sample')
         captured_snapshot=Snapshot(tuple(sample['real_atom_ids']),
             tuple(tuple(v) for v in sample['positions_nm']),sample_box,sample_velocities)
+    return snapshot,captured_snapshot
+
+
+def _fresh_multistate_energy_check(worker,state_id,report,snapshot,captured_snapshot=None):
+    import numpy as np
+    from .schema import IdentityError
     result=worker.evaluate(snapshot,state_id)
     actual_total=_plain_document(result.total); saved_total=report['total']
     total_matches=set(actual_total)==set(saved_total)
@@ -464,7 +483,7 @@ def _fresh_multistate_check(worker,index,walker_id,state_id,boundary,report,meta
                 total_matches=abs(value-saved)<=1e-8
             elif name=='forces_kj_mol_nm':
                 total_matches=np.allclose(value,saved,atol=1e-8,rtol=0)
-            elif name=='snapshot_identity' and sample is not None:
+            elif name=='snapshot_identity' and captured_snapshot is not None:
                 # The journal hash binds the exact captured sample; the fresh
                 # context identity binds its round-tripped Snapshot. Coordinates
                 # were checked above within the explicit 1e-15 nm unit bound,
@@ -507,6 +526,61 @@ def _archive_multistate_failure(pending,workers,metadata,boundary_index,error):
             error.add_note(f'Multistate failure archive (secondary diagnostics): {secondary}')
 
 
+def _archive_published_multistate_failure(directory,boundary,workers,metadata,boundary_index,error):
+    """Copy committed cached states into a separate postcommit failure tree."""
+    directory=Path(directory); boundary=Path(boundary); errors=[]
+    record={'error_type':type(error).__name__,'message':str(error),
+        'boundary_index':boundary_index,'run_id':metadata['run_id'],
+        'committed_boundary':boundary.name,'commit_authoritative':True,'archive_errors':errors}
+    def attempt(operation,action,worker_errors=None):
+        try: return action()
+        except Exception as secondary:
+            detail={'operation':operation,'error_type':type(secondary).__name__,'message':str(secondary)}
+            errors.append(detail)
+            if worker_errors is not None: worker_errors.append(detail)
+            error.add_note(f'Multistate postcommit archive ({operation}): {secondary}')
+            return None
+    def write_primary():
+        archive_parent=directory/'failures'
+        archive_parent.mkdir(exist_ok=True)
+        sync_directory(directory)
+        archive=_new_durable_directory(archive_parent/f'postcommit-{uuid.uuid4().hex}')
+        _durable_json(archive/'error.json',record)
+        return archive
+    archive=attempt('create postcommit failure tree',write_primary)
+    if archive is None: return
+    for index,worker in enumerate(workers):
+        worker_errors=[]
+        worker_dir=attempt(f'create worker {index} capture directory',
+                           lambda:_new_durable_directory(archive/f'worker-{index:03d}'),worker_errors)
+        if worker_dir is None: continue
+        stem=f'worker-{index:03d}'
+        state_source=boundary/'workers'/f'{stem}-state.xml'
+        checkpoint_source=boundary/'workers'/f'{stem}.chk'
+        state_payload=attempt(f'read worker {index} portable State',state_source.read_bytes,worker_errors)
+        attempt(f'write worker {index} portable State',lambda:_durable_bytes(worker_dir/'state.xml',state_payload)
+                if state_payload is not None else None,worker_errors)
+        checkpoint=attempt(f'read worker {index} checkpoint',checkpoint_source.read_bytes,worker_errors)
+        attempt(f'write worker {index} checkpoint',lambda:_durable_bytes(worker_dir/'checkpoint.chk',checkpoint)
+                if checkpoint is not None else None,worker_errors)
+        if state_payload is not None:
+            for label,displacement in (('map0',worker.bundle.transfer.displacement0_nm),
+                                       ('map1',worker.bundle.transfer.displacement1_nm)):
+                mapped=attempt(f'prepare worker {index} {label} State',
+                    lambda:_mapped_state_xml(state_payload.decode(),displacement).encode(),worker_errors)
+                attempt(f'write worker {index} {label} State',
+                    lambda:_durable_bytes(worker_dir/f'{label}-state.xml',mapped)
+                    if mapped is not None else None,worker_errors)
+        diagnostics={'error_type':type(error).__name__,'message':str(error),
+            'boundary_index':boundary_index,'walker_id':metadata['walker_ids'][index],
+            'state_id':read_json(boundary/'final-state-reports.json')['workers'][index]['state_id'],
+            'archive_errors':worker_errors}
+        attempt(f'write worker {index} error record',lambda:_durable_json(worker_dir/'error.json',diagnostics),worker_errors)
+    if errors:
+        attempt('update primary failure diagnostics',lambda:_durable_json(archive/'error.json',record))
+    return archive
+
+
 def _execute_multistate(directory,metadata,*,stop_after_boundaries=None):
     import openmm as mm
     import numpy as np
@@ -527,14 +601,19 @@ def _execute_multistate(directory,metadata,*,stop_after_boundaries=None):
             integrator_seed=metadata['integrator_seed_base']+w)) for w in range(len(metadata['walker_ids']))]
         reports=read_json(boundary/'final-state-reports.json')['workers']
         sample_by_worker={sample['walker_index']:sample for sample in rows[-1]['samples']} if rows else None
+        restored=[]
         for w,worker in enumerate(workers):
-            _geometry(worker,_snapshot(worker),metadata['settings'])
-            _fresh_multistate_check(worker,w,metadata['walker_ids'][w],current_state_ids[w],
-                                    boundary,reports[w],metadata,
-                                    None if sample_by_worker is None else sample_by_worker[w])
+            restored.append(_fresh_multistate_check(worker,w,metadata['walker_ids'][w],
+                current_state_ids[w],boundary,reports[w],metadata,
+                None if sample_by_worker is None else sample_by_worker[w]))
+        for worker,(snapshot,_) in zip(workers,restored):
+            _geometry(worker,snapshot,metadata['settings'])
+        for w,worker in enumerate(workers):
+            _fresh_multistate_energy_check(worker,current_state_ids[w],reports[w],*restored[w])
         while len(rows)<metadata['boundaries'] and (
                 stop_after_boundaries is None or added<stop_after_boundaries):
             index=len(rows); pending=directory/'pending'
+            target=directory/'boundaries'/f'{index:06d}'
             _new_durable_directory(pending)
             start_permutation=list(walker_to_state)
             try:
@@ -629,7 +708,6 @@ def _execute_multistate(directory,metadata,*,stop_after_boundaries=None):
                     'walker_to_state_start':start_permutation,
                     'walker_to_state_final':list(walker_to_state),
                     'state_to_walker_final':inverse,'pair_count':len(metadata['state_pairs'])})
-                target=directory/'boundaries'/f'{index:06d}'
                 _publish_multistate_boundary(pending,target,index)
             except Exception as error:
                 if pending.exists():
@@ -639,6 +717,8 @@ def _execute_multistate(directory,metadata,*,stop_after_boundaries=None):
                         error.add_note(f'Multistate failure archive (failure directory): {secondary}')
                     metadata['last_walker_to_state']=list(walker_to_state)
                     _archive_multistate_failure(pending,workers,metadata,index,error)
+                elif target.exists():
+                    _archive_published_multistate_failure(directory,target,workers,metadata,index,error)
                 raise
             rows=read_multistate_boundaries(directory)
             walker_to_state=list(rows[-1]['walker_to_state_final'])
@@ -646,31 +726,37 @@ def _execute_multistate(directory,metadata,*,stop_after_boundaries=None):
             boundary=target; added+=1
     samples=[sample for row in rows for sample in row['samples']]
     bundle=workers[0].bundle
-    records=EvaluationRecords(bundle.schedule,tuple(s['sample_id'] for s in samples),
-        tuple(s['state_id'] for s in samples),tuple(s['walker_id'] for s in samples),
-        tuple(s['sequence_number'] for s in samples),
-        *(tuple(s['raw'][name] for s in samples) for name in
-          ('u0_raw_kJ_mol','u1_raw_kJ_mol','outside_energy_kJ_mol','system_total_energy_kJ_mol')),
-        bundle.physical.content_identity,bundle.transfer.content_identity,bundle.restraints.content_identity,
-        {'run_id':metadata['run_id'],'worker_manifest_sha256':metadata['worker_manifest_sha256'],
-         'runtime_identity':metadata['runtime_identity'],'schedule_identity':bundle.schedule.content_identity,
-         'profile':'Reference double / pinned CPU model / persistent multistate exchange'},'correlated')
-    from .schedule import reduced_potentials
-    matrix=reduced_potentials(records)
-    (directory/'records.json').write_text(to_json(records)+'\n')
-    write_json(directory/'observations.json',samples)
-    final_perm=list(range(len(metadata['state_ids']))) if not rows else rows[-1]['walker_to_state_final']
-    summary={'scope':'bounded serial multistate exchange; no equilibrium, affinity or exchanging-walker uncertainty qualification',
-        'status':'complete' if len(rows)==metadata['boundaries'] else 'interrupted',
-        'boundaries':len(rows),'samples':len(samples),'attempts_per_boundary':len(metadata['state_pairs']),
-        'accepted_exchanges':sum(bool(attempt['accepted']) for row in rows for attempt in row['attempts']),
-        'walker_ids':metadata['walker_ids'],'state_ids_after':_state_ids_for_permutation(metadata['state_ids'],final_perm),
-        'walker_to_state_final':final_perm,'all_real_atoms':len(bundle.physical.topology.atoms),
-        'profile':metadata['profile'],'elapsed_execution_seconds':time.perf_counter()-started,
-        'peak_process_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,
-        'reconstructed_matrix_shape':list(matrix.shape),'binding_result':'not_evaluated'}
-    write_json(directory/'summary.json',summary)
-    return summary
+    try:
+        records=EvaluationRecords(bundle.schedule,tuple(s['sample_id'] for s in samples),
+            tuple(s['state_id'] for s in samples),tuple(s['walker_id'] for s in samples),
+            tuple(s['sequence_number'] for s in samples),
+            *(tuple(s['raw'][name] for s in samples) for name in
+              ('u0_raw_kJ_mol','u1_raw_kJ_mol','outside_energy_kJ_mol','system_total_energy_kJ_mol')),
+            bundle.physical.content_identity,bundle.transfer.content_identity,bundle.restraints.content_identity,
+            {'run_id':metadata['run_id'],'worker_manifest_sha256':metadata['worker_manifest_sha256'],
+             'runtime_identity':metadata['runtime_identity'],'schedule_identity':bundle.schedule.content_identity,
+             'profile':'Reference double / pinned CPU model / persistent multistate exchange'},'correlated')
+        from .schedule import reduced_potentials
+        matrix=reduced_potentials(records)
+        (directory/'records.json').write_text(to_json(records)+'\n')
+        write_json(directory/'observations.json',samples)
+        final_perm=list(range(len(metadata['state_ids']))) if not rows else rows[-1]['walker_to_state_final']
+        summary={'scope':'bounded serial multistate exchange; no equilibrium, affinity or exchanging-walker uncertainty qualification',
+            'status':'complete' if len(rows)==metadata['boundaries'] else 'interrupted',
+            'boundaries':len(rows),'samples':len(samples),'attempts_per_boundary':len(metadata['state_pairs']),
+            'accepted_exchanges':sum(bool(attempt['accepted']) for row in rows for attempt in row['attempts']),
+            'walker_ids':metadata['walker_ids'],'state_ids_after':_state_ids_for_permutation(metadata['state_ids'],final_perm),
+            'walker_to_state_final':final_perm,'all_real_atoms':len(bundle.physical.topology.atoms),
+            'profile':metadata['profile'],'elapsed_execution_seconds':time.perf_counter()-started,
+            'peak_process_rss_bytes':resource.getrusage(resource.RUSAGE_SELF).ru_maxrss*1024,
+            'reconstructed_matrix_shape':list(matrix.shape),'binding_result':'not_evaluated'}
+        write_json(directory/'summary.json',summary)
+        return summary
+    except Exception as error:
+        if rows:
+            committed=directory/'boundaries'/f'{len(rows)-1:06d}'
+            _archive_published_multistate_failure(directory,committed,workers,metadata,len(rows)-1,error)
+        raise
 
 
 def run_multistate_exchange(prepared_run,output,*,state_ids,state_pairs,boundaries,
