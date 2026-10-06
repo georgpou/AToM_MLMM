@@ -1,5 +1,13 @@
 # Current status
 
+**Paused at the user's request before the combined G10 implementation audit.**
+All workers have finished; no auditor or scientific calculation is running.
+The [audit-ready pause handoff](handoffs/G10-MULTISTATE-AUDIT-READY.md) records
+the exact completed worker submission `ecace38b34e15fae65508b2ee9cd2f535a1b85c4`,
+combined diff, requirements, failure history, hashes and prepared Sol 6.1/max
+instructions. No implementation audit or new acceptance is claimed. Resume
+the audit only when the user continues the work.
+
 **G10 multistate Tasks 1–4 are implemented; the independent combined audit is
 pending.** On `g10-engine-next`, the multistate core source/result commit
 `cef01748db1d872775c1cb88e67f881182066e6c` adds the bounded 3–8-state serial

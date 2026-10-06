@@ -1,5 +1,13 @@
 # Main engine continuation on Codex Cloud
 
+**Latest steering:** the user selected “G10 design review, implementation, and
+audit”, then requested a pause immediately before the combined implementation
+audit. The [audit-ready handoff](G10-MULTISTATE-AUDIT-READY.md) contains the
+completed batch, exact snapshots and prepared review inputs. All workers are
+finished; the implementation audit has not started. This steering supersedes
+the preparation-only sentence below; it does not change physical safeguards
+or establish implementation acceptance.
+
 **Prepared:** 2026-10-05 UTC. **Branch:** `cloud-engine-continuation`.
 This is the current assignment; earlier handoffs describe historical snapshots.
 Complete engine implementation using deterministic tests and bounded serial CPU

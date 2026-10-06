@@ -1,0 +1,222 @@
+{
+  "agents": "all four side agents completed; no audit spawned",
+  "all_other_production_modules_unchanged": true,
+  "audit_status": "NOT_STARTED; user requested pause",
+  "branch": "g10-engine-next",
+  "checks_were_read_only": "hashes, git diff, saved log reads and source inventory; no new scientific job",
+  "code_result_snapshot": "a507bbddfccc1a88b8df4ab18277040889bf379c",
+  "code_result_to_worker_submission_source_test_fixture_environment_model_diff_empty": true,
+  "combined_diff": {
+    "compressed_sha256": "6713e8bac8c79b1624652289d476176ef07982ab0b3dbfb5800be11e286a3aab",
+    "compression": "gzip; sha256 is the exact decompressed Git diff",
+    "path": "combined-runtime.diff.gz",
+    "paths": [
+      "src/atm_mlmm/exchange.py",
+      "src/atm_mlmm/exchange_journal.py",
+      "tests/workflow/test_persistent_exchange.py",
+      "tests/workflow/test_replica_exchange.py",
+      "tests/workflow/test_multistate_exchange_pilots.py",
+      "examples/cloud_engine/README.md"
+    ],
+    "sha256": "9fc744b7d305dbaf3797e9bd28e2664b2550a00fbf99e56c1ace6067bffe9bd6",
+    "stat": " examples/cloud_engine/README.md                   |  76 +++\n src/atm_mlmm/exchange.py                          | 538 ++++++++++++++++-\n src/atm_mlmm/exchange_journal.py                  | 479 +++++++++++++++\n tests/workflow/test_multistate_exchange_pilots.py | 646 ++++++++++++++++++++\n tests/workflow/test_persistent_exchange.py        | 699 +++++++++++++++++++++-\n tests/workflow/test_replica_exchange.py           | 134 +++++\n 6 files changed, 2569 insertions(+), 3 deletions(-)\n"
+  },
+  "complete_changed_paths_file": "combined-changed-paths.txt",
+  "current_source_test_guide_hashes": {
+    "examples/cloud_engine/README.md": "602d6b903e845d4a19ad310ac219a39965a8e7885597bc75451b50f3b460388b",
+    "src/atm_mlmm/exchange.py": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+    "src/atm_mlmm/exchange_journal.py": "29c6aaa3aef92cdb326b39fce9264e5a018f1db9ea3af414e4bdd50d8794a9a8",
+    "tests/workflow/test_multistate_exchange_pilots.py": "02f52a895c4b868840b7d178586e2f13546d6cf98dd6cd60bff8de8c6335a9e6",
+    "tests/workflow/test_persistent_exchange.py": "1b8007e63ee8213f8a74d1d17cf2befebced7ede73dcb53359e22fc0f3a0aa79",
+    "tests/workflow/test_replica_exchange.py": "4c0f8cc1f19fb174cec8eb467c7bb4ff30354fde46b5a022999ce1beea417a87"
+  },
+  "external_artifact_root": "/workspace/G10_v5_artifacts",
+  "external_source_verification": [
+    {
+      "attempt": "final-focused",
+      "both_prepared_and_controller_source_verified": true,
+      "case": "abfe",
+      "exchange_sha256": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+      "source_files_per_bundle": 38
+    },
+    {
+      "attempt": "final-focused",
+      "both_prepared_and_controller_source_verified": true,
+      "case": "rbfe",
+      "exchange_sha256": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+      "source_files_per_bundle": 38
+    },
+    {
+      "attempt": "focused",
+      "both_prepared_and_controller_source_verified": true,
+      "case": "abfe",
+      "exchange_sha256": "801757d189765d4b28088fe5dcc98b46866c5ae0e1257fd02d2eb3dba6cfeec2",
+      "source_files_per_bundle": 38
+    },
+    {
+      "attempt": "focused",
+      "both_prepared_and_controller_source_verified": true,
+      "case": "rbfe",
+      "exchange_sha256": "801757d189765d4b28088fe5dcc98b46866c5ae0e1257fd02d2eb3dba6cfeec2",
+      "source_files_per_bundle": 38
+    },
+    {
+      "attempt": "probe-fix1",
+      "both_prepared_and_controller_source_verified": true,
+      "case": "abfe",
+      "exchange_sha256": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+      "source_files_per_bundle": 38
+    },
+    {
+      "attempt": "probe-fix1",
+      "both_prepared_and_controller_source_verified": true,
+      "case": "rbfe",
+      "exchange_sha256": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+      "source_files_per_bundle": 38
+    },
+    {
+      "attempt": "repair2",
+      "both_prepared_and_controller_source_verified": true,
+      "case": "abfe",
+      "exchange_sha256": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+      "source_files_per_bundle": 38
+    },
+    {
+      "attempt": "repair2",
+      "both_prepared_and_controller_source_verified": true,
+      "case": "rbfe",
+      "exchange_sha256": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+      "source_files_per_bundle": 38
+    },
+    {
+      "attempt": "repaired",
+      "both_prepared_and_controller_source_verified": true,
+      "case": "abfe",
+      "exchange_sha256": "4e592c9e045dd9ca1efbb084d81f07ac2c606c9f5366453a8ea02d8de62d01f9",
+      "source_files_per_bundle": 38
+    },
+    {
+      "attempt": "repaired",
+      "both_prepared_and_controller_source_verified": true,
+      "case": "rbfe",
+      "exchange_sha256": "4e592c9e045dd9ca1efbb084d81f07ac2c606c9f5366453a8ea02d8de62d01f9",
+      "source_files_per_bundle": 38
+    }
+  ],
+  "failed_raw_logs": [
+    {
+      "byte_equal": true,
+      "compressed_sha256": "67846fd6a792f274194779f136bdc4d74151e4b985ec0b98c2770b88cf8d9f04",
+      "external_uncompressed_path": "/workspace/G10_v5_artifacts/raw-logs/pilot-final-focused.log",
+      "pytest_final_line": "2 failed in 162.39s (0:02:42)",
+      "tracked_path": "Worker_Log/Milestone_05/evidence/G10_v5/pilot-final-focused.log.gz",
+      "uncompressed_sha256": "3870cb7ef542d91204a2ddb142208490bab5216bfa2e56a447a7c3c9f4cfa2c0"
+    },
+    {
+      "byte_equal": true,
+      "compressed_sha256": "b5c2c387cc4be890398085da89de7040fada22760d8edfa1b70f2ce922637798",
+      "external_uncompressed_path": "/workspace/G10_v5_artifacts/raw-logs/pilot-focused.log",
+      "pytest_final_line": "2 failed in 83.53s (0:01:23)",
+      "tracked_path": "Worker_Log/Milestone_05/evidence/G10_v5/pilot-focused.log.gz",
+      "uncompressed_sha256": "09b8e7aacb3462dc57886b6ce9a52c6a7b35bb43e4615828cc9cf5103177b6ea"
+    },
+    {
+      "byte_equal": true,
+      "compressed_sha256": "327a2ea1a7af30f0c849c9dc3ad6f3e9d373e0ed886ed531116f0016d384fbb6",
+      "external_uncompressed_path": "/workspace/G10_v5_artifacts/raw-logs/pilot-repair2.log",
+      "pytest_final_line": "2 failed in 129.37s (0:02:09)",
+      "tracked_path": "Worker_Log/Milestone_05/evidence/G10_v5/pilot-repair2.log.gz",
+      "uncompressed_sha256": "b7cee5d651e94048b22f4091e79ad2c1e32bee181f9501cfb4bd3f776253c0c1"
+    },
+    {
+      "byte_equal": true,
+      "compressed_sha256": "0f685fd62eaf038a469bac0a6b1f9e6ad05074978f0b8fc816f7a03b7e78bddb",
+      "external_uncompressed_path": "/workspace/G10_v5_artifacts/raw-logs/pilot-repaired.log",
+      "pytest_final_line": "2 failed in 94.99s (0:01:34)",
+      "tracked_path": "Worker_Log/Milestone_05/evidence/G10_v5/pilot-repaired.log.gz",
+      "uncompressed_sha256": "92ede0992f3c73c026482a5c189c0af92b62c2f69686cb614bedc04d52b406f2"
+    }
+  ],
+  "finished_combined_worker_snapshot": "ecace38b34e15fae65508b2ee9cd2f535a1b85c4",
+  "packet_preparation_note": "Initial manifest parser encountered a comment header; corrected to process only SHA-256 entries. No evidence or reviewed source changed.",
+  "physical_qualification": "unchanged blocked/open; binding_result=not_evaluated",
+  "prepared_utc": "2026-10-06T00:04:23.270043+00:00",
+  "process_check": "only defunct exited Python processes; no live scientific calculations",
+  "protected_diff_empty": true,
+  "protected_paths_checked": [
+    "fixtures",
+    "environment",
+    "models",
+    "pyproject.toml",
+    "tools",
+    "docs/project-0/specs",
+    "src/atm_mlmm/adapters/atom.py",
+    "src/atm_mlmm/workflow.py",
+    "src/atm_mlmm/persistence.py",
+    "src/atm_mlmm/analysis.py",
+    "Worker_Log/Milestone_03",
+    "Worker_Log/Milestone_04"
+  ],
+  "retained_logs": {
+    "full-cpu-suite.log": {
+      "final_line": "577 passed in 913.26s (0:15:13)",
+      "reported_skips": 0,
+      "sha256": "9db19fdcad39e00ed649fa24a359f5b5e330a554ef75f6999e2d08257b3c1ae3",
+      "verification": "read retained complete output; no scientific run repeated"
+    },
+    "pilot-probe-fix1.log": {
+      "final_line": "2 passed in 156.56s (0:02:36)",
+      "reported_skips": 0,
+      "sha256": "1c06ce1ccd553c60159d8b992c2108ecfb41d554cb6558895a024237c6e0fb51",
+      "verification": "read retained complete output; no scientific run repeated"
+    },
+    "required-post-repair.log": {
+      "final_line": "74 passed in 171.69s (0:02:51)",
+      "reported_skips": 0,
+      "sha256": "3b607ba9a4ce154222af6e603176d2d1cacf9f03df0006a42c3775cf9847d883",
+      "verification": "read retained complete output; no scientific run repeated"
+    }
+  },
+  "root_pause_docs_self_test": {
+    "command": "python3 tools/check_docs.py --self-test",
+    "errors": [],
+    "exit_code": 0,
+    "external_links_not_fetched": 57,
+    "local_links": 1485,
+    "markdown_files": 218,
+    "scope": "report-only pause packet; no scientific verification repeated",
+    "self_tests_passed": 8
+  },
+  "root_tracked_whitespace_check": {
+    "command": "git diff --check",
+    "exit_code": 0
+  },
+  "scope": "root verification for user-requested pre-audit pause; not independent review",
+  "standalone_design_audit_commit": "bd44b2c93a5cba40225dba632f0277e535467be9",
+  "submitted_snapshot_artifact_hashes": {
+    "Worker_Log/Milestone_05/Gate_10_v5_worker.md": "ee3d2f9b481ba1d0814bda198561cbf8d44a08532b63230ae615f6de65af347c",
+    "Worker_Log/Milestone_05/evidence/G10_v5/README.md": "42bc6e0d787f4d1bba24e66068e1bee51716a0935eead4c6c1656e44123e09ed",
+    "Worker_Log/Milestone_05/evidence/G10_v5/docs-self-test.json": "59b931487f506023553b03f063bdacc2f93bb614af7a1862939cb4285a5de5dc",
+    "Worker_Log/Milestone_05/evidence/G10_v5/export_pilot_evidence.py": "c0bbb3ee6665ad8eeb4722d681ab3bf294e46f61447dfd601070add3ee2f969b",
+    "Worker_Log/Milestone_05/evidence/G10_v5/final-pilot-export.json": "5d27fbcb1897879259ff04c660aaa1769326e2a713795c1cc490cd25fef5d277",
+    "Worker_Log/Milestone_05/evidence/G10_v5/full-cpu-suite.log": "9db19fdcad39e00ed649fa24a359f5b5e330a554ef75f6999e2d08257b3c1ae3",
+    "Worker_Log/Milestone_05/evidence/G10_v5/git-diff-check.txt": "3f243813064b4f5b5e7d0d87b4a8632bb832649b9e67cec6d3f479b927493723",
+    "Worker_Log/Milestone_05/evidence/G10_v5/pilot-final-focused.log.gz": "67846fd6a792f274194779f136bdc4d74151e4b985ec0b98c2770b88cf8d9f04",
+    "Worker_Log/Milestone_05/evidence/G10_v5/pilot-focused.log.gz": "b5c2c387cc4be890398085da89de7040fada22760d8edfa1b70f2ce922637798",
+    "Worker_Log/Milestone_05/evidence/G10_v5/pilot-probe-fix1.log": "1c06ce1ccd553c60159d8b992c2108ecfb41d554cb6558895a024237c6e0fb51",
+    "Worker_Log/Milestone_05/evidence/G10_v5/pilot-repair2.log.gz": "327a2ea1a7af30f0c849c9dc3ad6f3e9d373e0ed886ed531116f0016d384fbb6",
+    "Worker_Log/Milestone_05/evidence/G10_v5/pilot-repaired.log.gz": "0f685fd62eaf038a469bac0a6b1f9e6ad05074978f0b8fc816f7a03b7e78bddb",
+    "Worker_Log/Milestone_05/evidence/G10_v5/repair-diagnostics.json": "826538477cd6dbb2ac1ec1c7796586df87e277131cc9391b0ad6098ecf1e929e",
+    "Worker_Log/Milestone_05/evidence/G10_v5/required-post-repair.log": "3b607ba9a4ce154222af6e603176d2d1cacf9f03df0006a42c3775cf9847d883",
+    "Worker_Log/Milestone_05/evidence/G10_v5/run-pilots.sh": "19ab99647da71b9c0170c03bc0c72ded42222b8ac5ce7046cf7748bd2f7fae70",
+    "Worker_Log/Milestone_05/evidence/G10_v5/source-inventory.json": "197254138c9b89055bf2a6966837975e74fe52bf521bdd208357296ecab4dce7",
+    "Worker_Log/Milestone_05/evidence/G10_v5/source-snapshots/repair1-exchange.py": "4e592c9e045dd9ca1efbb084d81f07ac2c606c9f5366453a8ea02d8de62d01f9",
+    "Worker_Log/Milestone_05/evidence/G10_v5/source-snapshots/repair2-exchange.py": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+    "docs/project-0/STATUS.md": "43e3d938e3f89fe71caa4db46cee906440d931f361015b5d4545d66cffcb2577",
+    "examples/cloud_engine/README.md": "602d6b903e845d4a19ad310ac219a39965a8e7885597bc75451b50f3b460388b",
+    "fixtures/solvated_fragment/v2/abfe/config.json": "95442f332740badd917230a5d7fd96786640eb371383d184b3947405668a57ac",
+    "fixtures/solvated_fragment/v2/rbfe/config.json": "ea2accbd2902e9a3caa8eeea20deda99e2ff656bb3b7dac004b394950c11ecb9",
+    "src/atm_mlmm/exchange.py": "317fca331def3ef32be709f3ad77f63cd888788e3f335a8cf5ad45df67e1aec9",
+    "tests/workflow/test_multistate_exchange_pilots.py": "02f52a895c4b868840b7d178586e2f13546d6cf98dd6cd60bff8de8c6335a9e6"
+  }
+}
