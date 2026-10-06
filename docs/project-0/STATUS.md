@@ -21,6 +21,12 @@ The [audit-ready pause handoff](handoffs/G10-MULTISTATE-AUDIT-READY.md) remains
 historical provenance. Next: one bounded sequential repair batch and a new
 independent combined audit before multistate acceptance.
 
+Root defined the [three-task sequential repair batch](handoffs/G10-MULTISTATE-REPAIR-BATCH.md)
+after the auditor's complete FINAL: inert consistency/seals, restored clocks/
+geometry, then failure evidence/durability with final combined verification.
+All seven findings must be repaired and the entire batch completed before the
+next Sol 6.1/max implementation audit. No repair acceptance is yet claimed.
+
 **Completed G10 worker submission.** On `g10-engine-next`, the multistate core source/result commit
 `cef01748db1d872775c1cb88e67f881182066e6c` adds the bounded 3–8-state serial
 controller and analytic/fault regressions, with test-only archive follow-up

@@ -1,12 +1,12 @@
 # Main engine continuation on Codex Cloud
 
-**Latest steering:** the user selected “G10 design review, implementation, and
-audit”, then requested a pause immediately before the combined implementation
-audit. The [audit-ready handoff](G10-MULTISTATE-AUDIT-READY.md) contains the
-completed batch, exact snapshots and prepared review inputs. All workers are
-finished; the implementation audit has not started. This steering supersedes
-the preparation-only sentence below; it does not change physical safeguards
-or establish implementation acceptance.
+**Latest continuation:** the user resumed the G10 design/implementation/audit
+assignment after the historical [pre-audit pause](G10-MULTISTATE-AUDIT-READY.md).
+The completed [v5 combined audit](../../../Worker_Log/Milestone_05/Gate_10_v5_audit.md)
+is RED with seven material findings. The [bounded sequential repair batch](G10-MULTISTATE-REPAIR-BATCH.md)
+is the next assignment; finish every repair task before a new combined audit.
+This steering supersedes the preparation-only sentence below; physical safeguards
+remain unchanged and no multistate implementation acceptance is claimed.
 
 **Prepared:** 2026-10-05 UTC. **Branch:** `cloud-engine-continuation`.
 This is the current assignment; earlier handoffs describe historical snapshots.
