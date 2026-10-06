@@ -1,5 +1,7 @@
 # Current status
 
+[Final G10 engine handoff](handoffs/G10-MULTISTATE-FINAL-HANDOFF.md): bounded multistate CPU implementation accepted; child publication requested. Main and predecessor branches remain unchanged.
+
 **G10 multistate Tasks 1–4 plus repairs: v8 COMPLETE GREEN / accepted_for_scope.**
 The sole `gpt-6.1-sol / max` [final independent audit](../../Worker_Log/Milestone_05/Gate_10_v8_audit.md)
 reviews HEAD `2be9334aea5c8fc34a4bb7ca0ebf6c46802aee27`, worker submission

@@ -1,14 +1,6 @@
 # Main engine continuation on Codex Cloud
 
-**Latest continuation:** the user resumed the G10 design/implementation/audit
-assignment after the historical [pre-audit pause](G10-MULTISTATE-AUDIT-READY.md).
-The completed [v5 combined audit](../../../Worker_Log/Milestone_05/Gate_10_v5_audit.md)
-is RED with seven material findings. [Task A](../../../Worker_Log/Milestone_05/Gate_10_v6_worker.md)
-is complete and self-checked. The user requested less overhead; the [repair batch](G10-MULTISTATE-REPAIR-BATCH.md)
-now combines the remaining restore/durability repairs and final verification in
-one worker, followed by one complete combined audit.
-This steering supersedes the preparation-only sentence below; physical safeguards
-remain unchanged and no multistate implementation acceptance is claimed.
+**Latest continuation (2026-10-06):** G10 bounded multistate Tasks 1–4 plus repairs are **GREEN / accepted_for_scope**. See the [final handoff](G10-MULTISTATE-FINAL-HANDOFF.md) and [complete v8 audit](../../../Worker_Log/Milestone_05/Gate_10_v8_audit.md). Current child branch is `g10-engine-next`; source `3f93efa079ae36514d86d34f9dbc263722bcd1cd`, audited snapshot `2be9334aea5c8fc34a4bb7ca0ebf6c46802aee27`, audit `c28c04bc4d7507998044168f1a123bba1a4d23c3`. Full CPU631PASS/0skips and two fresh bounded v2 pilots passed. All20 scoped assertions and R1–R7 close. Historical v5/v7 RED findings and failures remain preserved. This supersedes the preparation-only scope below; physical safeguards/full-G10/M05/statistical limitations remain unchanged. The user requested publication of only this finished child branch, with no further audit this session.
 
 **Prepared:** 2026-10-05 UTC. **Branch:** `cloud-engine-continuation`.
 This is the current assignment; earlier handoffs describe historical snapshots.
