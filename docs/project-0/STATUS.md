@@ -1,19 +1,19 @@
 # Current status
 
-**G10 multistate Tasks 1–4: complete v7 independent audit RED / changes_required.**
-The sole `gpt-6.1-sol / max` auditor resumed and completed the same paused audit.
-[The complete report](../../Worker_Log/Milestone_05/Gate_10_v7_audit.md) closes
-R1 and R3–R7, but R2 remains open: coherent public clock histories move backward
-and still load, evaluate, integrate and publish. One finite origin overflows the
-clock bound; another has a finite bound but lacks monotonicity admission.
-Evidence includes 53 focused passes (0 skips), 44 supplementary PASS controls/cases,
-two product violations, 18 current saved-state molecular evaluations without new
-molecular preparation/integration, actual fsync/cached-failure/replay checks and
-all 20 coding/physics/mathematics decisions. Original harness failures and the
-[immutable pause](../../Worker_Log/Milestone_05/evidence/G10_v7_independent/CONTINUATION.md)
-remain preserved. No source repair or tolerance change was made during review.
-Next: bounded R2 admission repair, meaningful failing regressions and independent
-review before scoped multistate acceptance. Full G10/M05 and physical/statistical
+**G10 multistate Tasks 1–4: v8 R2 repair self-checked; final combined re-audit pending.**
+The [v7 independent report](../../Worker_Log/Milestone_05/Gate_10_v7_audit.md)
+remains RED on its frozen snapshot and closes R1/R3–R7. V8 starts at
+`263a4199a8835b9eef59fc8e33c463cb6ddd669d`; source/test commit
+`3f93efa079ae36514d86d34f9dbc263722bcd1cd` adds inert monotonicity admission and
+finite overflow-safe clock-envelope/residual checks. Both current-source public
+backward-clock counterexamples now reject with zero loads, evaluations, steps,
+pending directory or tree changes. The focused set passes 7 tests; fresh unchanged
+v2 ABFE/RBFE pilots pass 2 tests in 235.94 s. The required single full CPU suite
+passes **631 tests in 1238.59 s, no skip text** on the frozen source/tests. Details,
+raw logs, current-source counterexamples and fresh artifacts are recorded in
+[Gate_10_v8_worker.md](../../Worker_Log/Milestone_05/Gate_10_v8_worker.md).
+This is implementation self-check, not independent acceptance. R2 and C4/C8/M5
+remain subject to the final combined re-audit; full G10/M05 and physical/statistical
 blockers remain open; `binding_result=not_evaluated`.
 Task A (R1/R4/R7 and inert capture/report clock agreement) is now implemented in
 code/result commit `8157b24ee93a841dbf91cf10a02a19dd321e6c88`; its worker record

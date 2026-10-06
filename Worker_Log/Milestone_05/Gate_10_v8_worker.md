@@ -1,0 +1,20 @@
+# G10 R2 clock repair — v8 worker
+
+**Status:** R2 repaired and self-checked; the combined independent re-audit is pending. **Worker:** `gpt-6-luna / max`. **Branch:** `g10-engine-next`. **Base:** `263a4199a8835b9eef59fc8e33c463cb6ddd669d`. **Code/result commit:** `3f93efa079ae36514d86d34f9dbc263722bcd1cd`. **Completed:** 2026-10-06 15:43 UTC.
+
+The production change is confined to `_validate_expected_clock` in `exchange_journal.py`. It rejects decreasing times before clock-envelope arithmetic, computes the existing `gamma_n` and operation-error envelope from separately weighted finite terms, rounds its upper bound outward, and rejects nonfinite residuals or intermediates. Exact step increments and saved clock equality are unchanged. It permits coherent negative origins and positive-step clock stagnation when large-origin addition rounds to the same float. No physical tolerance or model/fixture/package input changed.
+
+The focused public regressions begin with current-source State/checkpoint/report/sample bundles. Before repair, both cases were accepted by public resume: origin `1e308 ps` to sample `.0005 ps` (naive envelope `inf`; independent finite envelope about `3.33066907387547e292 ps`) and origin `1e14 ps` to a one-ULP-backward sample (`-.015625 ps`; old finite bound `0.0333066907387547 ps`). Each RED case loaded three workers, performed 25 evaluations and three one-step calls, and changed the committed tree. After repair, both reject before loading with zero evaluations, steps, pending directory, or tree change.
+
+| Check | Result |
+| --- | --- |
+| Untouched-source public RED | 2 expected failures / 60 deselected; both product cases and side-effect watches are in `evidence/G10_v8/public-clock-red.log`. |
+| Focused final GREEN | 7 passed, 58 deselected, 8.11 s; includes both public cases, finite forward contradiction, residual-overflow fail-closed check, negative/large-stagnant origins and retained repeated-addition controls. `evidence/G10_v8/clock-focused-green-final.log`. |
+| Fresh unchanged v2 ABFE/RBFE pilots | 2 passed, no skip text, 235.94 s. Three workers, two boundaries, one step, only the four existing preparation-count overrides. Full artifacts: `/workspace/G10_v8_artifacts/v8-attempt-001`; indexed by `evidence/G10_v8/pilot-artifact-sha256.txt`. |
+| Final CPU suite | Exit 0; **631 passed**, no skip text, 1238.59 s (20:38), exactly one `python -m pytest -q` invocation on this frozen code/test commit. Raw output: `evidence/G10_v8/full-cpu-suite.log` (SHA-256 `55747b697c1fae7558058c2d2938dd717b49fd2dc57b6bd5c2f7f8f7f54dfd14`); byte-identical copy: `/workspace/g10-v8-raw-inputs/full-cpu-suite.log`. |
+
+The ABFE/RBFE pilots retain 224/233 atoms, six samples and four attempts each, exact prefix replay, both-map and stale-coordinate checks, current full-force/cap-parent reconstruction and `binding_result=not_evaluated`. Peak sampled pytest-parent RSS was 1,270,513,664 B (ABFE) and 2,092,961,792 B (RBFE); the configured machine limit is 8,589,934,592 B. This is sampled process RSS, not continuous or production hardware qualification.
+
+The test profile was serial CPU2/8 GiB with `/workspace/m05-cpu-setup-v2/activate.sh`, `OPENBLAS_NUM_THREADS=2`, and `PYTHONPATH="$PWD/src"`. Raw commands and outputs are in the v8 evidence index. `python tools/check_docs.py --self-test` and `git diff --check` pass. The final diff changes only `exchange_journal.py`, `test_persistent_exchange.py`, this worker/evidence, and the top G10 entry in STATUS; protected fixtures, models, packages, references, and physical limits are unchanged. The prior v7 audit remains RED as an audit of its frozen snapshot; this worker makes no independent acceptance claim. R1/R3–R7 decisions, C4/C8/M5 RED audit context, protected scientific limits, and all physical blockers remain with the single combined re-audit.
+
+No push, reset, rebase, or merge. The initial Luna capacity-selection failure occurred before work; this submission resumed with the same Luna/max setting. The report/evidence commit follows these final checks; its exact ID is in the completion handoff.
