@@ -27,13 +27,18 @@ The [audit-ready pause handoff](handoffs/G10-MULTISTATE-AUDIT-READY.md) remains
 historical provenance. Next: one bounded sequential repair batch and a new
 independent combined audit before multistate acceptance.
 
-Root defined the [three-task sequential repair batch](handoffs/G10-MULTISTATE-REPAIR-BATCH.md)
-after the auditor's complete FINAL: inert consistency/seals, restored clocks/
-geometry, then failure evidence/durability with final combined verification.
-Task A's scoped checks pass, but its worker self-check is not an independent
-closure. Root will verify the evidence before Task B; all seven findings and
-the full batch must be completed before the next Sol 6.1/max implementation
-audit.
+The [repair batch](handoffs/G10-MULTISTATE-REPAIR-BATCH.md) was shortened at
+the user's request: Task A followed by one combined runtime/durability worker.
+Completed [v6 Task A](../../Worker_Log/Milestone_05/Gate_10_v6_worker.md) has code
+commit `8157b24ee93a841dbf91cf10a02a19dd321e6c88` and clean report/evidence
+commit `f0bfbc5019e1741c23e9308f863054dd32c3bec0`. Its R1/R4/R7 and inert-clock
+self-checks pass **37 focused tests** (36 challenge PASS/0 VIOLATION) and
+**74 retained compatibility tests**, no skips. Root verified all 25 manifest
+entries at that report snapshot and unchanged protected paths. Original RED
+failures, harness trials, documentation and raw-trace whitespace failures are
+preserved. Next: one bounded Luna/max worker for R2/R3/R5/R6, fresh exact v2
+pilots and one final CPU suite, then one complete Sol 6.1/max combined audit.
+No independent repair acceptance is claimed; the v5 RED decision remains.
 
 **Completed G10 worker submission.** On `g10-engine-next`, the multistate core source/result commit
 `cef01748db1d872775c1cb88e67f881182066e6c` adds the bounded 3–8-state serial

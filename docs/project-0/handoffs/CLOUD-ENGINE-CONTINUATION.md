@@ -3,8 +3,10 @@
 **Latest continuation:** the user resumed the G10 design/implementation/audit
 assignment after the historical [pre-audit pause](G10-MULTISTATE-AUDIT-READY.md).
 The completed [v5 combined audit](../../../Worker_Log/Milestone_05/Gate_10_v5_audit.md)
-is RED with seven material findings. The [bounded sequential repair batch](G10-MULTISTATE-REPAIR-BATCH.md)
-is the next assignment; finish every repair task before a new combined audit.
+is RED with seven material findings. [Task A](../../../Worker_Log/Milestone_05/Gate_10_v6_worker.md)
+is complete and self-checked. The user requested less overhead; the [repair batch](G10-MULTISTATE-REPAIR-BATCH.md)
+now combines the remaining restore/durability repairs and final verification in
+one worker, followed by one complete combined audit.
 This steering supersedes the preparation-only sentence below; physical safeguards
 remain unchanged and no multistate implementation acceptance is claimed.
 
