@@ -1,0 +1,21 @@
+{
+  "errors": [
+    "docs/project-0/STATUS.md: missing target: ../../Worker_Log/Milestone_05/Gate_10_v8_audit.md"
+  ],
+  "counts": {
+    "markdown_files": 236,
+    "local_links": 1556,
+    "external_links_not_fetched": 57
+  },
+  "scope": "local documentation only; no external-link or scientific qualification",
+  "self_tests": {
+    "valid_links_and_duplicate_heading": true,
+    "broken_file_detected": true,
+    "broken_anchor_detected": true,
+    "undefined_reference_detected": true,
+    "escape_detected": true,
+    "unclosed_fence_detected": true,
+    "code_examples_are_not_live_links": true,
+    "implementation_audits_and_progress_are_allowed": true
+  }
+}

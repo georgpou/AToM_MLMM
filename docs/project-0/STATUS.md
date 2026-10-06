@@ -1,26 +1,26 @@
 # Current status
 
-**G10 multistate Tasks 1–4: v8 R2 repair self-checked; final combined re-audit pending.**
-The [v7 independent report](../../Worker_Log/Milestone_05/Gate_10_v7_audit.md)
-remains RED on its frozen snapshot and closes R1/R3–R7. V8 starts at
-`263a4199a8835b9eef59fc8e33c463cb6ddd669d`; source/test commit
-`3f93efa079ae36514d86d34f9dbc263722bcd1cd` adds inert monotonicity admission and
-finite overflow-safe clock-envelope/residual checks. Both current-source public
-backward-clock counterexamples now reject with zero loads, evaluations, steps,
-pending directory or tree changes. The focused set passes 7 tests; fresh unchanged
-v2 ABFE/RBFE pilots pass 2 tests in 235.94 s. The required single full CPU suite
-passes **631 tests in 1238.59 s, no skip text** on the frozen source/tests. Details,
-raw logs, current-source counterexamples and fresh artifacts are recorded in
-[Gate_10_v8_worker.md](../../Worker_Log/Milestone_05/Gate_10_v8_worker.md).
-This is implementation self-check, not independent acceptance. R2 and C4/C8/M5
-remain subject to the final combined re-audit; full G10/M05 and physical/statistical
-blockers remain open; `binding_result=not_evaluated`.
+**G10 multistate Tasks 1–4 plus repairs: v8 COMPLETE GREEN / accepted_for_scope.**
+The sole `gpt-6.1-sol / max` [final independent audit](../../Worker_Log/Milestone_05/Gate_10_v8_audit.md)
+reviews HEAD `2be9334aea5c8fc34a4bb7ca0ebf6c46802aee27`, worker submission
+`8bc2ced1d7f88e6503ec0b809e309456c307d786`, code `3f93efa079ae36514d86d34f9dbc263722bcd1cd`.
+All 20 assertions and R1–R7 close for this bounded scope. Eight fresh focused tests
+pass (0 skips, 57 deselected, 4.26 s); both public backward histories reject with
+zero loads/evaluations/steps/pending/mutation. Four finite outward-envelope checks
+pass Decimal120 comparison. Exact byte/diff checks support reuse of closed findings
+and unchanged scientific proofs. The worker's 631-pass/0-skip/1238.59-s full suite
+and two unchanged v2 pilots/235.94 s are verified retained evidence, not rerun.
+No source repair, tolerance change or new molecular preparation/integration occurred
+during review. The [v7 audit](../../Worker_Log/Milestone_05/Gate_10_v7_audit.md) and all
+failures stay immutable RED on that prior snapshot. This completes the session's
+final audit. Full G10/M05 and physical/statistical blockers remain open;
+`binding_result=not_evaluated`.
 Task A (R1/R4/R7 and inert capture/report clock agreement) is now implemented in
 code/result commit `8157b24ee93a841dbf91cf10a02a19dd321e6c88`; its worker record
 and evidence are in [Gate_10_v6_worker.md](../../Worker_Log/Milestone_05/Gate_10_v6_worker.md).
 Tasks B and C (R2/R3 and R5/R6) are implemented and self-checked in the v7
-worker report; the complete independent audit accepts R3/R5/R6 and leaves
-R2 elapsed-clock admission incomplete. This is not G10 acceptance.
+worker report; v8 additionally closes R2. Bounded Tasks 1–4 acceptance above
+does not close full G10/M05 or physical qualification.
 
 After the user resumed the saved pause, the sole independent `gpt-6.1-sol / max`
 [v5 combined audit](../../Worker_Log/Milestone_05/Gate_10_v5_audit.md) reviewed
@@ -40,7 +40,7 @@ remain frozen. The [independent evidence](../../Worker_Log/Milestone_05/evidence
 records exact commands, outcomes, hashes and minimal repairs/regressions.
 The [audit-ready pause handoff](handoffs/G10-MULTISTATE-AUDIT-READY.md) remains
 historical provenance. The complete v7 continuation above supersedes that prior
-combined decision: six findings close; bounded R2 repair/review remain next.
+combined decision; the final v8 audit above closes the remaining R2 finding.
 
 The [repair batch](handoffs/G10-MULTISTATE-REPAIR-BATCH.md) was shortened at
 the user's request: Task A followed by one combined runtime/durability worker.
@@ -55,8 +55,8 @@ durability worker](../../Worker_Log/Milestone_05/Gate_10_v7_worker.md) starts at
 tests**) and the one final CPU suite (**626 passed, no skip text**). Its exact
 RED/GREEN traces, test outputs and hashes are indexed in
 [G10 v7 evidence](../../Worker_Log/Milestone_05/evidence/G10_v7/README.md).
-The complete v7 independent audit closes R1/R3–R7 while leaving R2 open;
-the combined implementation remains RED / changes_required.
+The complete v7 audit closed R1/R3–R7 and left R2 open on that snapshot;
+the final v8 audit above closes R2 and accepts bounded Tasks 1–4 plus repairs.
 
 **Completed G10 worker submission.** On `g10-engine-next`, the multistate core source/result commit
 `cef01748db1d872775c1cb88e67f881182066e6c` adds the bounded 3–8-state serial
