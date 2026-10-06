@@ -1,0 +1,76 @@
+{
+  "task": "A/R1/R4/R7 plus inert-clock types/agreement",
+  "base": "c27358668499ef596a73468936bc21279ebb1b6a",
+  "code": "8157b24ee93a841dbf91cf10a02a19dd321e6c88",
+  "submitted": "f0bfbc5019e1741c23e9308f863054dd32c3bec0",
+  "root_plan": "bfbaa873cf13570313c945a9665f84580dde7439",
+  "worker_model": "gpt-6-luna",
+  "effort": "max",
+  "root_verified_manifest_at_named_submission": [
+    "src/atm_mlmm/exchange.py",
+    "src/atm_mlmm/exchange_journal.py",
+    "tests/workflow/test_multistate_inert_repairs.py",
+    "docs/project-0/STATUS.md",
+    "Worker_Log/Milestone_05/Gate_10_v6_worker.md",
+    "Worker_Log/Milestone_05/evidence/G10_v6/compatibility.log",
+    "Worker_Log/Milestone_05/evidence/G10_v6/diff-check.log",
+    "Worker_Log/Milestone_05/evidence/G10_v6/docs-self-test-incomplete-manifest.log",
+    "Worker_Log/Milestone_05/evidence/G10_v6/docs-self-test.log",
+    "Worker_Log/Milestone_05/evidence/G10_v6/focused-green.log",
+    "Worker_Log/Milestone_05/evidence/G10_v6/r1-green.log",
+    "Worker_Log/Milestone_05/evidence/G10_v6/r4-green.log",
+    "Worker_Log/Milestone_05/evidence/G10_v6/r7-green.log",
+    "Worker_Log/Milestone_05/evidence/G10_v6/diff-check.log.gz",
+    "Worker_Log/Milestone_05/evidence/G10_v6/focused-red-assertion-check.log.gz",
+    "Worker_Log/Milestone_05/evidence/G10_v6/focused-red-baseline.log.gz",
+    "Worker_Log/Milestone_05/evidence/G10_v6/focused-red-harness-check.log.gz",
+    "Worker_Log/Milestone_05/evidence/G10_v6/focused-green-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v6/focused-red-assertion-check-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v6/focused-red-baseline-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v6/focused-red-harness-check-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v6/r1-green-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v6/r4-green-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v6/r7-green-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v6/README.md"
+  ],
+  "actual_red_pytest": {
+    "failed": 34,
+    "passed": 3,
+    "raw": "focused-red-baseline.log.gz"
+  },
+  "actual_focused": {
+    "passed": 37,
+    "skipped": 0,
+    "seconds": 9.47
+  },
+  "challenge_json": {
+    "pass": 36,
+    "violation": 0,
+    "trees_unchanged": true
+  },
+  "actual_compatibility": {
+    "passed": 74,
+    "skipped": 0,
+    "seconds": 247.19
+  },
+  "docs": {
+    "errors": 0,
+    "selftests": 8,
+    "markdown": 223,
+    "local_links": 1532
+  },
+  "source_sha256": {
+    "exchange.py": "6579f553b08b5eb084db6eb7b1fa6902c6951ea4840854db477771e143cd129e",
+    "exchange_journal.py": "5f3dadf36f46fa9ec4789ea4545a9645d56269b9d81bb0a412e82ab2b9958768"
+  },
+  "protected_paths_unchanged": true,
+  "source_tests_equal_root_plan": true,
+  "root_source_edits": false,
+  "independent_acceptance": false,
+  "remaining_findings": [
+    "R2",
+    "R3",
+    "R5",
+    "R6"
+  ]
+}
