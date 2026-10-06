@@ -1,0 +1,155 @@
+{
+  "checks": [
+    {
+      "context_loads": 0,
+      "name": "eight-state-28-edge-selection",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: state_ids must be an ordered sequence",
+      "name": "ids-string",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: state_ids must be an ordered sequence",
+      "name": "ids-generator",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: state_ids must be distinct nonempty schedule identifiers",
+      "name": "ids-nonstrings",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: state_ids must be distinct nonempty schedule identifiers",
+      "name": "ids-blank",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: multistate exchange requires three to eight schedule states",
+      "name": "ids-two",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: multistate exchange requires three to eight schedule states",
+      "name": "ids-nine",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: state-pair indices must be distinct in-range integers",
+      "name": "pair-bool",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: state-pair indices must be distinct in-range integers",
+      "name": "pair-float",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: state-pair indices must be distinct in-range integers",
+      "name": "pair-self",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: an undirected state-pair edge may occur only once per sweep",
+      "name": "pair-duplicate",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: state-pair graph must be connected and cover every declared state",
+      "name": "pair-uncovered",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: state-pair indices must be distinct in-range integers",
+      "name": "pair-negative",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: state_pairs must be a nonempty ordered sequence",
+      "name": "pair-empty",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: state_pairs must be a nonempty ordered sequence",
+      "name": "pair-string",
+      "status": "PASS"
+    },
+    {
+      "inert_rejection": "MalformedInput: state-pair indices must be distinct in-range integers",
+      "name": "pair-out-of-range",
+      "status": "PASS"
+    },
+    {
+      "boundary_manifest_sha256": "e89906e8d6a412d2d9e9d7dae388bacc2f8ec5fdddab66d05c5e9373b17cab19",
+      "expected": "inert rejection before trusted worker loading",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "24505ae37f5e14e97e2be94693a6b450607d9000c508c6508acf96d08bfb3a4e",
+      "name": "record-inverse-inconsistent",
+      "reader_admitted": true,
+      "reader_error": null,
+      "resume_error": "LoadObserved: trusted worker loader reached",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "bd88b9dc56ca608371608f85ec5390499c20ccc3e78f68ee58c2c953d7cb4ded",
+      "expected": "inert rejection before trusted worker loading",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "24505ae37f5e14e97e2be94693a6b450607d9000c508c6508acf96d08bfb3a4e",
+      "name": "final-report-step-time-types",
+      "reader_admitted": true,
+      "reader_error": null,
+      "resume_error": "LoadObserved: trusted worker loader reached",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "64806fa56bc972718502c6ce216cc4f2016c00cbe3f9928e3e7b2a56ea437001",
+      "expected": "inert rejection before trusted worker loading",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "24505ae37f5e14e97e2be94693a6b450607d9000c508c6508acf96d08bfb3a4e",
+      "name": "sample-physical-transfer-identities",
+      "reader_admitted": true,
+      "reader_error": null,
+      "resume_error": "LoadObserved: trusted worker loader reached",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "36466e48e5ecbc1b53da40fc2dae0d5a0d4a285215b44501d29c1a780c463907",
+      "expected": "inert rejection before trusted worker loading",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "24505ae37f5e14e97e2be94693a6b450607d9000c508c6508acf96d08bfb3a4e",
+      "name": "python-gaussian-cache-overflow",
+      "reader_admitted": true,
+      "reader_error": null,
+      "resume_error": "LoadObserved: trusted worker loader reached",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "3ce0bccb9df5586eec7ed82a7ded6c5c25c740f9688824f8caa65c5e4e241039",
+      "expected": "inert rejection before trusted worker loading",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "24505ae37f5e14e97e2be94693a6b450607d9000c508c6508acf96d08bfb3a4e",
+      "name": "nested-unsealed-manifest",
+      "reader_admitted": true,
+      "reader_error": null,
+      "resume_error": "LoadObserved: trusted worker loader reached",
+      "status": "VIOLATION",
+      "top_manifest_unchanged_from_untampered_prefix": true
+    }
+  ],
+  "exit_status": 1,
+  "finished_utc": "2026-10-06T09:08:05.373392+00:00",
+  "negative_challenges": 5,
+  "positive_controls": 16,
+  "violation_count": 5
+}

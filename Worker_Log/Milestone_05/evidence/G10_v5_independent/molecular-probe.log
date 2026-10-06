@@ -1,0 +1,4 @@
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+{"case": "abfe", "elapsed_seconds": 33.56965499099897, "force_max": 0.0, "raw_max": 0.0, "status": "PASS"}
+{"case": "rbfe", "elapsed_seconds": 22.689739829002065, "force_max": 0.0, "raw_max": 0.0, "status": "PASS"}
+{"cases": 2, "exit_status": 0, "finished_utc": "2026-10-06T09:04:34.782925+00:00"}

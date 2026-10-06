@@ -1,0 +1,30 @@
+{
+  "cause": "New evidence README linked docs-self-test.log before the checker subprocess created that output file. All eight checker self-tests passed; one local missing-file error.",
+  "checker_result": {
+    "counts": {
+      "external_links_not_fetched": 57,
+      "local_links": 1519,
+      "markdown_files": 220
+    },
+    "errors": [
+      "Worker_Log/Milestone_05/evidence/G10_v5_independent/README.md: missing target: docs-self-test.log"
+    ],
+    "scope": "local documentation only; no external-link or scientific qualification",
+    "self_tests": {
+      "broken_anchor_detected": true,
+      "broken_file_detected": true,
+      "code_examples_are_not_live_links": true,
+      "escape_detected": true,
+      "implementation_audits_and_progress_are_allowed": true,
+      "unclosed_fence_detected": true,
+      "undefined_reference_detected": true,
+      "valid_links_and_duplicate_heading": true
+    }
+  },
+  "command": "source /workspace/m05-cpu-setup-v2/activate.sh\nexport OPENBLAS_NUM_THREADS=2 PYTHONPATH=\"$PWD/src\"\npython Worker_Log/Milestone_05/evidence/G10_v5_independent/finalize_evidence.py",
+  "exit_status": 1,
+  "finished_utc": "2026-10-06T09:25:11.346364+00:00",
+  "finished_utc_source": "redirected documentation log final mtime; outer tool returned exit 1",
+  "raw_checker_output": "docs-self-test-first-attempt.log",
+  "repair": "Precreate the own output log before running the link checker. No reviewed source/test/specification or scientific tolerance changed."
+}

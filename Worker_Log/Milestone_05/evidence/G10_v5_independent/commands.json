@@ -1,0 +1,149 @@
+{
+  "actual_model_effort": "gpt-6.1-sol / max",
+  "characterization_nonzero_exits": "intentional, complete 17 violating cases; see raw results",
+  "completion_command": "source /workspace/m05-cpu-setup-v2/activate.sh\nexport OPENBLAS_NUM_THREADS=2 PYTHONPATH=\"$PWD/src\"\npython Worker_Log/Milestone_05/evidence/G10_v5_independent/finalize_evidence.py",
+  "incidental_non_scientific_errors": "Exploratory reads used nonexistent test/development/G07 paths, corrected using rg --files; a wc glob included the generated __pycache__ directory. These read-only lookup errors produced no scientific result, changed no reviewed file, and did not replace failed evidence.",
+  "inspection_methods": [
+    "rg/rg --files",
+    "sed/cat",
+    "git diff/show",
+    "Python stdlib JSON/gzip/hashlib"
+  ],
+  "limits": {
+    "cpu_max": "200000 100000",
+    "memory_max_bytes": 8589934592,
+    "serial_scientific_jobs": true
+  },
+  "report_only_verification_first_attempt": {
+    "cause": "New evidence README linked docs-self-test.log before the checker subprocess created that output file. All eight checker self-tests passed; one local missing-file error.",
+    "checker_result": {
+      "counts": {
+        "external_links_not_fetched": 57,
+        "local_links": 1519,
+        "markdown_files": 220
+      },
+      "errors": [
+        "Worker_Log/Milestone_05/evidence/G10_v5_independent/README.md: missing target: docs-self-test.log"
+      ],
+      "scope": "local documentation only; no external-link or scientific qualification",
+      "self_tests": {
+        "broken_anchor_detected": true,
+        "broken_file_detected": true,
+        "code_examples_are_not_live_links": true,
+        "escape_detected": true,
+        "implementation_audits_and_progress_are_allowed": true,
+        "unclosed_fence_detected": true,
+        "undefined_reference_detected": true,
+        "valid_links_and_duplicate_heading": true
+      }
+    },
+    "command": "source /workspace/m05-cpu-setup-v2/activate.sh\nexport OPENBLAS_NUM_THREADS=2 PYTHONPATH=\"$PWD/src\"\npython Worker_Log/Milestone_05/evidence/G10_v5_independent/finalize_evidence.py",
+    "exit_status": 1,
+    "finished_utc": "2026-10-06T09:25:11.346364+00:00",
+    "finished_utc_source": "redirected documentation log final mtime; outer tool returned exit 1",
+    "raw_checker_output": "docs-self-test-first-attempt.log",
+    "repair": "Precreate the own output log before running the link checker. No reviewed source/test/specification or scientific tolerance changed."
+  },
+  "reviewed_head": "edd587679aaa110ea687cca29b9e3aee70b7b6f0",
+  "scientific_commands": [
+    {
+      "counts": {
+        "failed_logs": 4,
+        "frozen_bundles": 20,
+        "source_files": 38,
+        "submitted_hashes": 24
+      },
+      "cwd": "/workspace/AToM_MLMM-g10",
+      "exit_status": 0,
+      "finished_utc": "2026-10-06T08:54:52.532823+00:00",
+      "finished_utc_source": "complete probe result written at command completion",
+      "raw_log": "identity-probe.log",
+      "results": "identity-results.json",
+      "shell": "source /workspace/m05-cpu-setup-v2/activate.sh\nexport OPENBLAS_NUM_THREADS=2 PYTHONPATH=\"$PWD/src\"\npython Worker_Log/Milestone_05/evidence/G10_v5_independent/identity_probe.py >Worker_Log/Milestone_05/evidence/G10_v5_independent/identity-probe.log 2>&1"
+    },
+    {
+      "counts": {
+        "deselected": 20,
+        "passed": 42,
+        "seconds": 74.87,
+        "skipped": 0
+      },
+      "cwd": "/workspace/AToM_MLMM-g10",
+      "exit_status": 0,
+      "finished_utc": "2026-10-06T08:58:35.125587+00:00",
+      "finished_utc_source": "raw redirected log final mtime; tool returned exit 0",
+      "raw_log": "focused-pytest.log",
+      "shell": "source /workspace/m05-cpu-setup-v2/activate.sh\nexport OPENBLAS_NUM_THREADS=2 PYTHONPATH=\"$PWD/src\"\npython -m pytest tests/workflow/test_persistent_exchange.py tests/workflow/test_replica_exchange.py -k 'multistate or partial_integration' -q >Worker_Log/Milestone_05/evidence/G10_v5_independent/focused-pytest.log 2>&1"
+    },
+    {
+      "counts": {
+        "analytic_cases_passed": 2,
+        "challenges": 9,
+        "correct_rejections": 2,
+        "mathematical_control_passed": 1,
+        "violating_challenges": 7
+      },
+      "cwd": "/workspace/AToM_MLMM-g10",
+      "exit_status": 1,
+      "finished_utc": "2026-10-06T08:59:55.349347+00:00",
+      "finished_utc_source": "complete probe result written at command completion",
+      "raw_log": "analytic-admission-probe.log",
+      "results": "analytic-admission-results.json",
+      "shell": "source /workspace/m05-cpu-setup-v2/activate.sh\nexport OPENBLAS_NUM_THREADS=2 PYTHONPATH=\"$PWD/src\"\npython Worker_Log/Milestone_05/evidence/G10_v5_independent/analytic_admission_probe.py >Worker_Log/Milestone_05/evidence/G10_v5_independent/analytic-admission-probe.log 2>&1"
+    },
+    {
+      "counts": {
+        "violating_cases": 5
+      },
+      "cwd": "/workspace/AToM_MLMM-g10",
+      "exit_status": 1,
+      "finished_utc": "2026-10-06T09:01:44.582567+00:00",
+      "finished_utc_source": "complete probe result written at command completion",
+      "raw_log": "transaction-restore-probe.log",
+      "results": "transaction-restore-results.json",
+      "shell": "source /workspace/m05-cpu-setup-v2/activate.sh\nexport OPENBLAS_NUM_THREADS=2 PYTHONPATH=\"$PWD/src\"\npython Worker_Log/Milestone_05/evidence/G10_v5_independent/transaction_restore_probe.py >Worker_Log/Milestone_05/evidence/G10_v5_independent/transaction-restore-probe.log 2>&1"
+    },
+    {
+      "counts": {
+        "molecular_cases_passed": 2,
+        "new_integration_steps": 0,
+        "new_preparation_frames": 0,
+        "pair_matrices": 8,
+        "schedule_evaluations": 36
+      },
+      "cwd": "/workspace/AToM_MLMM-g10",
+      "exit_status": 0,
+      "finished_utc": "2026-10-06T09:04:34.782925+00:00",
+      "finished_utc_source": "complete probe result written at command completion",
+      "raw_log": "molecular-probe.log",
+      "results": "molecular-results.json",
+      "shell": "source /workspace/m05-cpu-setup-v2/activate.sh\nexport OPENBLAS_NUM_THREADS=2 PYTHONPATH=\"$PWD/src\"\npython Worker_Log/Milestone_05/evidence/G10_v5_independent/molecular_probe.py >Worker_Log/Milestone_05/evidence/G10_v5_independent/molecular-probe.log 2>&1"
+    },
+    {
+      "counts": {
+        "selection_controls_passed": 16,
+        "violating_challenges": 5
+      },
+      "cwd": "/workspace/AToM_MLMM-g10",
+      "exit_status": 1,
+      "finished_utc": "2026-10-06T09:08:05.373392+00:00",
+      "finished_utc_source": "complete probe result written at command completion",
+      "raw_log": "additional-inert-probe.log",
+      "results": "additional-inert-results.json",
+      "shell": "source /workspace/m05-cpu-setup-v2/activate.sh\nexport OPENBLAS_NUM_THREADS=2 PYTHONPATH=\"$PWD/src\"\npython Worker_Log/Milestone_05/evidence/G10_v5_independent/additional_inert_probe.py >Worker_Log/Milestone_05/evidence/G10_v5_independent/additional-inert-probe.log 2>&1"
+    },
+    {
+      "counts": {
+        "passed": 5,
+        "seconds": 7.31,
+        "skipped": 0
+      },
+      "cwd": "/workspace/AToM_MLMM-g10",
+      "exit_status": 0,
+      "finished_utc": "2026-10-06T09:13:16.069191+00:00",
+      "finished_utc_source": "raw redirected log final mtime; tool returned exit 0",
+      "raw_log": "pair-compatibility-pytest.log",
+      "shell": "source /workspace/m05-cpu-setup-v2/activate.sh\nexport OPENBLAS_NUM_THREADS=2 PYTHONPATH=\"$PWD/src\"\npython -m pytest tests/workflow/test_persistent_exchange.py::test_round_prefix_resume_preserves_rng_samples_states_and_analysis tests/workflow/test_replica_exchange.py::test_acceptance_uses_actual_reduced_energies -q >Worker_Log/Milestone_05/evidence/G10_v5_independent/pair-compatibility-pytest.log 2>&1"
+    }
+  ]
+}

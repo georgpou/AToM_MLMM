@@ -1,15 +1,27 @@
 # Current status
 
-**Paused at the user's request before the combined G10 implementation audit.**
-All workers have finished; no auditor or scientific calculation is running.
-The [audit-ready pause handoff](handoffs/G10-MULTISTATE-AUDIT-READY.md) records
-the exact completed worker submission `ecace38b34e15fae65508b2ee9cd2f535a1b85c4`,
-combined diff, requirements, failure history, hashes and prepared Sol 6.1/max
-instructions. No implementation audit or new acceptance is claimed. Resume
-the audit only when the user continues the work.
+**G10 multistate Tasks 1–4: independent combined audit RED / changes_required.**
+After the user resumed the saved pause, the sole independent `gpt-6.1-sol / max`
+[v5 combined audit](../../Worker_Log/Milestone_05/Gate_10_v5_audit.md) reviewed
+frozen HEAD `edd587679aaa110ea687cca29b9e3aee70b7b6f0`, source/test-identical to
+completed worker submission `ecace38b34e15fae65508b2ee9cd2f535a1b85c4`.
+Seven material findings require repairs: complete inert type/limit/identity
+admission, restored checkpoint clocks, geometry guards on restored coordinates,
+refreshed-energy consistency, postcommit failure records, cross-parent and
+rollback-file fsync coverage, and nested manifest sealing. The fresh independent
+checks include **47 pytest passes, no skips**, two analytic numerical controls,
+both exact v2 molecular records, 36 actual schedule evaluations and eight pair
+matrices, plus 17 violating characterization cases grouped into those findings.
+The Task 4 representation comparator passes its scoped numerical review; it
+does not close the other obligations. No implementation repair was made during
+the audit. Source, tests, specifications, worker reports and failed artifacts
+remain frozen. The [independent evidence](../../Worker_Log/Milestone_05/evidence/G10_v5_independent/README.md)
+records exact commands, outcomes, hashes and minimal repairs/regressions.
+The [audit-ready pause handoff](handoffs/G10-MULTISTATE-AUDIT-READY.md) remains
+historical provenance. Next: one bounded sequential repair batch and a new
+independent combined audit before multistate acceptance.
 
-**G10 multistate Tasks 1–4 are implemented; the independent combined audit is
-pending.** On `g10-engine-next`, the multistate core source/result commit
+**Completed G10 worker submission.** On `g10-engine-next`, the multistate core source/result commit
 `cef01748db1d872775c1cb88e67f881182066e6c` adds the bounded 3–8-state serial
 controller and analytic/fault regressions, with test-only archive follow-up
 `5a8ab584cc9af9e74afb7f2d926ca8b4af688e41`. Task 4 starts from exact clean
@@ -384,12 +396,13 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 ## Next work
 
 Continue the main engine on Codex Cloud using the
-[current assignment](handoffs/CLOUD-ENGINE-CONTINUATION.md). First extend G10's
-accepted pair-only controller through a standalone multistate transaction design.
+[current assignment](handoffs/CLOUD-ENGINE-CONTINUATION.md). First repair the
+seven required findings from the [G10 v5 combined implementation audit](../../Worker_Log/Milestone_05/Gate_10_v5_audit.md)
+as one bounded sequential batch, then obtain a new independent combined audit.
 The standalone [G10 v3 design](../../Worker_Log/Milestone_05/Gate_10_v3_worker.md)
 is **GREEN / accepted_for_scope** by the [Sol 6.1/max design audit](../../Worker_Log/Milestone_05/Gate_10_v3_audit.md)
-on `678aa3e2db9d5f77517ad8cfb278ac8a4df7032d`; runtime implementation and its
-independent acceptance remain pending. This is G10-T2/T3 technical work, not a new
+on `678aa3e2db9d5f77517ad8cfb278ac8a4df7032d`; runtime implementation is complete
+but its combined acceptance is RED / changes_required. This is G10-T2/T3 technical work, not a new
 gate definition or full M05 acceptance. Then advance deterministic G11/G12 protein and dual-ligand
 support and G13 packaging/resource measurements as their technical dependencies
 are satisfied. Preserve the shared engine and accepted pair regression path.
@@ -417,7 +430,7 @@ authorize a new QM budget or production continuation.
 | G07 / T4 physical-reference sensitivity | blocked | Seven sensitivity failures plus measured pilot force-approximation exceedances; one validated full-parent reference, 29 missing; runtime/scratch screens exceed current envelope |
 | M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
 | M04 / G08 analytic thermodynamic accounting | accepted | [GPT-6.1-sol/MAX v2 audit](../../Worker_Log/Milestone_04/Gate_08_v2_audit.md), exact c0280818/source8cf2494; G08-R1 closed, refined amendments and combined M04 analytic CPU accepted; 437 full/21 affected passes |
-| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial (full milestone) | [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) / [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md):543 full/52 independent CPU passes; denser/exchange/restart definition accepted; [G10 v3 standalone multistate design](../../Worker_Log/Milestone_05/Gate_10_v3_audit.md) is GREEN on `678aa3e2db9d5f77517ad8cfb278ac8a4df7032d`, runtime implementation pending; full M05 open. Earlier lineage: [G09 v4 audit](../../Worker_Log/Milestone_05/Gate_09_v4_audit.md): R1/R2 closed, bounded explicit-water G09 subsets and unchanged G10 pair scope accepted; 501 root CPU passes, 21 independent focused passes/six probes; full M05 open |
+| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial (full milestone); multistate changes_required | [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) / [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md):543 full/52 independent CPU passes; denser/exchange/restart definition accepted; [G10 v3 standalone multistate design](../../Worker_Log/Milestone_05/Gate_10_v3_audit.md) GREEN on `678aa3e2db9d5f77517ad8cfb278ac8a4df7032d`; [G10 v5 combined implementation audit](../../Worker_Log/Milestone_05/Gate_10_v5_audit.md) RED on `edd587679aaa110ea687cca29b9e3aee70b7b6f0`, seven required repairs, 47 fresh independent pytest passes plus numerical/fault controls; full M05 open. Earlier lineage: [G09 v4 audit](../../Worker_Log/Milestone_05/Gate_09_v4_audit.md): R1/R2 closed, bounded explicit-water G09 subsets and unchanged G10 pair scope accepted; 501 root CPU passes, 21 independent focused passes/six probes; full M05 open |
 | M06-M08 / G11-G13 | technical implementation pending / physical qualification deferred | Advance deterministic CPU engine support as relevant runtime prerequisites pass; reserve demanding protein calculations and Slurm settings for HPC; retain full-milestone qualification requirements |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |

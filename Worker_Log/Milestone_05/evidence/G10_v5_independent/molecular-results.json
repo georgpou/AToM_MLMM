@@ -1,0 +1,377 @@
+{
+  "cases": [
+    {
+      "actual_schedule_reduced_matrix": [
+        [
+          -285341.61908583384,
+          -285341.60435619066,
+          -285341.63695523835,
+          -285337.37818851776,
+          -285337.363290544,
+          -285337.4257867547
+        ],
+        [
+          -285341.12202946324,
+          -285341.1147872263,
+          -285341.15318298666,
+          -285336.82708844007,
+          -285336.8129771961,
+          -285336.8933675718
+        ],
+        [
+          -285340.62497309264,
+          -285340.6252182619,
+          -285340.66941073496,
+          -285336.2759883623,
+          -285336.26266384823,
+          -285336.3609483889
+        ]
+      ],
+      "alchemical_identity": "e0e1de3bf7a72ba8e85081044538c7299f02ea57411865db58f9d9a551953561",
+      "attempts": 4,
+      "binding_result": "not_evaluated",
+      "cap_parent_ids": [
+        "p4",
+        "p5"
+      ],
+      "checkpoint_sample_position_roundtrip_max_nm": 5.551115123125783e-17,
+      "elapsed_seconds": 33.56965499099897,
+      "exponent_max_abs_error": 0.0,
+      "full_force_max_abs_error_kJ_mol_nm": 0.0,
+      "identical_prefix_replay_hashes_equal": true,
+      "independent_mixing_formula_max_abs_error_kJ_mol": 0.0,
+      "kind": "abfe",
+      "ligand_atom_counts": [
+        6
+      ],
+      "manifest_hashes": {
+        "boundaries/000000": "23a666dc8876789bef8d40ddc8fc5f3587e12ecb0956c1bcbf7e6619f88b8af8",
+        "boundaries/000001": "9e316b90741860b0b8e9477217802131c12a2623c7adec5bb7e5e6060cb85782",
+        "initial": "92b4066ee3591bd9fd2e0ef12afc5aa9a6219d28feeec45988e6d17cebaa4137"
+      },
+      "matrix_max_abs_error": 0.0,
+      "outside_nonzero_entries": 18,
+      "pair_matrices": [
+        {
+          "accepted": true,
+          "actual_exponent": 0.0074874061974696815,
+          "actual_reduced_matrix": [
+            [
+              -285341.61908583384,
+              -285341.60435619066
+            ],
+            [
+              -285341.12202946324,
+              -285341.1147872263
+            ]
+          ],
+          "attempt": 0,
+          "boundary": 0,
+          "state_ids": [
+            "contact",
+            "middle"
+          ],
+          "worker_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "accepted": true,
+          "actual_exponent": 0.013284118846058846,
+          "actual_reduced_matrix": [
+            [
+              -285341.12202946324,
+              -285341.15318298666
+            ],
+            [
+              -285340.62497309264,
+              -285340.66941073496
+            ]
+          ],
+          "attempt": 1,
+          "boundary": 0,
+          "state_ids": [
+            "middle",
+            "separated"
+          ],
+          "worker_indices": [
+            0,
+            2
+          ]
+        },
+        {
+          "accepted": true,
+          "actual_exponent": 0.017894165066536516,
+          "actual_reduced_matrix": [
+            [
+              -285337.363290544,
+              -285337.4257867547
+            ],
+            [
+              -285336.8129771961,
+              -285336.8933675718
+            ]
+          ],
+          "attempt": 0,
+          "boundary": 1,
+          "state_ids": [
+            "contact",
+            "middle"
+          ],
+          "worker_indices": [
+            1,
+            2
+          ]
+        },
+        {
+          "accepted": true,
+          "actual_exponent": -0.0007867298554629087,
+          "actual_reduced_matrix": [
+            [
+              -285336.8129771961,
+              -285336.82708844007
+            ],
+            [
+              -285336.26266384823,
+              -285336.2759883623
+            ]
+          ],
+          "attempt": 1,
+          "boundary": 1,
+          "state_ids": [
+            "middle",
+            "separated"
+          ],
+          "worker_indices": [
+            1,
+            0
+          ]
+        }
+      ],
+      "physical_identity": "09635a263a620e1e99c8f81919c066c753f70440311739e062852be41e5224d1",
+      "process_high_water_rss_bytes": 833683456,
+      "raw_max_abs_error_kJ_mol": 0.0,
+      "real_atoms": 224,
+      "reconstruction_max_abs_error": 0.0,
+      "refresh_max_abs_error_kJ_mol": 0.0,
+      "retained_artifacts_unchanged": true,
+      "runtime_identity": "93485f1c629858c556c4758a1f735296e45d3ccbe6c908aa5e73d42f965cf56b",
+      "samples": 6,
+      "schedule_evaluations": 18,
+      "snapshot_identities": [
+        {
+          "each_identity_matches_its_own_snapshot": true,
+          "fresh_snapshot_identity": "152eaac52d351a6af180df09d3e63876feddc2d737948d08005f6a6bc1b2af3f",
+          "saved_snapshot_identity": "9d673e9d98d4a57715595412da5c47289dc38f17be57dc5ef9d67d13d7b91c18",
+          "walker": 0
+        },
+        {
+          "each_identity_matches_its_own_snapshot": true,
+          "fresh_snapshot_identity": "c98ffe4567f4493e8d65dd819f2a596653cecfc863107ed5bc5b99d96a47bcd3",
+          "saved_snapshot_identity": "79cfc6ff76fa86088393da3d94a8961f6afd625ba6663e848935c9249ece5667",
+          "walker": 1
+        },
+        {
+          "each_identity_matches_its_own_snapshot": true,
+          "fresh_snapshot_identity": "b8003caad2947c34198d742088c376fc301c769a6e52a681f52d1f3582d18bfa",
+          "saved_snapshot_identity": "e7caddaec5c37688968fcc5e8b42138587365cec6282c75c1577376dace85ee8",
+          "walker": 2
+        }
+      ],
+      "stale_coordinate_evaluate_calls": 0,
+      "stale_coordinate_rejection": "IdentityError: restored checkpoint coordinates differ from captured sample beyond unit-conversion roundoff",
+      "stale_pending_created": false,
+      "status": "PASS"
+    },
+    {
+      "actual_schedule_reduced_matrix": [
+        [
+          -505664.48285929975,
+          -505664.5069115946,
+          -505664.47441433807,
+          -505660.32514277473,
+          -505660.45243145956,
+          -505660.3423784742
+        ],
+        [
+          -505663.96234925976,
+          -505664.00036424334,
+          -505663.985360032,
+          -505659.6967681958,
+          -505659.8180401394,
+          -505659.75500129454
+        ],
+        [
+          -505663.4418392197,
+          -505663.4938168921,
+          -505663.4963057259,
+          -505659.06839361676,
+          -505659.1836488192,
+          -505659.1676241149
+        ]
+      ],
+      "alchemical_identity": "e1d11300ac0aad385d4b261e4c17dee03075e6e5a954ed3f6ea577b5a992054a",
+      "attempts": 4,
+      "binding_result": "not_evaluated",
+      "cap_parent_ids": [
+        "p4",
+        "p5"
+      ],
+      "checkpoint_sample_position_roundtrip_max_nm": 5.204170427930421e-18,
+      "elapsed_seconds": 22.689739829002065,
+      "exponent_max_abs_error": 5.820766091346741e-11,
+      "full_force_max_abs_error_kJ_mol_nm": 0.0,
+      "identical_prefix_replay_hashes_equal": true,
+      "independent_mixing_formula_max_abs_error_kJ_mol": 0.0,
+      "kind": "rbfe",
+      "ligand_atom_counts": [
+        6,
+        9
+      ],
+      "manifest_hashes": {
+        "boundaries/000000": "52ec5e7da4b07ad4f505165be378161d4d6180b6641eb6ce0e390b17d216a84c",
+        "boundaries/000001": "2c53fbd80ea3ecefb0c2567cb4963742e5fd886a8811b9fa422e16023bbf5231",
+        "initial": "55ffedf8b3f73688f084438fac3fdbc1032ff677671aaeee03f395d471ab4cde"
+      },
+      "matrix_max_abs_error": 5.820766091346741e-11,
+      "outside_nonzero_entries": 18,
+      "pair_matrices": [
+        {
+          "accepted": true,
+          "actual_exponent": 0.013962688681203872,
+          "actual_reduced_matrix": [
+            [
+              -505664.48285929975,
+              -505664.5069115946
+            ],
+            [
+              -505663.96234925976,
+              -505664.00036424334
+            ]
+          ],
+          "attempt": 0,
+          "boundary": 0,
+          "state_ids": [
+            "contact",
+            "middle"
+          ],
+          "worker_indices": [
+            0,
+            1
+          ]
+        },
+        {
+          "accepted": true,
+          "actual_exponent": 0.031455733929760754,
+          "actual_reduced_matrix": [
+            [
+              -505663.96234925976,
+              -505663.985360032
+            ],
+            [
+              -505663.4418392197,
+              -505663.4963057259
+            ]
+          ],
+          "attempt": 1,
+          "boundary": 0,
+          "state_ids": [
+            "middle",
+            "separated"
+          ],
+          "worker_indices": [
+            0,
+            2
+          ]
+        },
+        {
+          "accepted": true,
+          "actual_exponent": 0.04701414052397013,
+          "actual_reduced_matrix": [
+            [
+              -505660.45243145956,
+              -505660.3423784742
+            ],
+            [
+              -505659.8180401394,
+              -505659.75500129454
+            ]
+          ],
+          "attempt": 0,
+          "boundary": 1,
+          "state_ids": [
+            "contact",
+            "middle"
+          ],
+          "worker_indices": [
+            1,
+            2
+          ]
+        },
+        {
+          "accepted": true,
+          "actual_exponent": 0.0060167412157170475,
+          "actual_reduced_matrix": [
+            [
+              -505659.8180401394,
+              -505659.6967681958
+            ],
+            [
+              -505659.1836488192,
+              -505659.06839361676
+            ]
+          ],
+          "attempt": 1,
+          "boundary": 1,
+          "state_ids": [
+            "middle",
+            "separated"
+          ],
+          "worker_indices": [
+            1,
+            0
+          ]
+        }
+      ],
+      "physical_identity": "e8e1aeaaaacc3afc0bfa5845690a21e75c20861774f8716aa0a50edc22eaaaa4",
+      "process_high_water_rss_bytes": 1038000128,
+      "raw_max_abs_error_kJ_mol": 0.0,
+      "real_atoms": 233,
+      "reconstruction_max_abs_error": 5.820766091346741e-11,
+      "refresh_max_abs_error_kJ_mol": 0.0,
+      "retained_artifacts_unchanged": true,
+      "runtime_identity": "93485f1c629858c556c4758a1f735296e45d3ccbe6c908aa5e73d42f965cf56b",
+      "samples": 6,
+      "schedule_evaluations": 18,
+      "snapshot_identities": [
+        {
+          "each_identity_matches_its_own_snapshot": true,
+          "fresh_snapshot_identity": "73fe8ec6aeb5fbe2feab71b1ede4943629827ff05559482f3c815dc571be95ed",
+          "saved_snapshot_identity": "6c99ad14a9c5d198a9281e9e76b52ae898935b88ca3abf221d78cd3ce5ddb255",
+          "walker": 0
+        },
+        {
+          "each_identity_matches_its_own_snapshot": true,
+          "fresh_snapshot_identity": "624d4d5c044cb64fc68488f33ecaaa777d86dbd68e3119374173726d7a52cae3",
+          "saved_snapshot_identity": "42d55bd6bd69d285ae70fac379bdb458825dee739550355c1c7fad7ac014b1cb",
+          "walker": 1
+        },
+        {
+          "each_identity_matches_its_own_snapshot": true,
+          "fresh_snapshot_identity": "3b05dbc7d0fd331c13dd511c08003943828a62ea824fdb9ded785ee66c96bfef",
+          "saved_snapshot_identity": "7b920690ed666deae53c0c7c96877709b20eaf18a839bd21060340edf9abd357",
+          "walker": 2
+        }
+      ],
+      "stale_coordinate_evaluate_calls": 0,
+      "stale_coordinate_rejection": "IdentityError: restored checkpoint coordinates differ from captured sample beyond unit-conversion roundoff",
+      "stale_pending_created": false,
+      "status": "PASS"
+    }
+  ],
+  "exit_status": 0,
+  "finished_utc": "2026-10-06T09:04:34.782925+00:00",
+  "integration_steps_run": 0,
+  "new_preparation_frames": 0
+}

@@ -1,0 +1,124 @@
+{
+  "actual_model_effort": "gpt-6.1-sol / max",
+  "all_checks_passed": true,
+  "checks": [
+    {
+      "argv": [
+        "python",
+        "tools/check_docs.py",
+        "--self-test"
+      ],
+      "cwd": "/workspace/AToM_MLMM-g10",
+      "exit_status": 0,
+      "finished_utc": "2026-10-06T09:27:29.582080+00:00",
+      "stdout_stderr_log": "docs-self-test.log"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "cwd": "/workspace/AToM_MLMM-g10",
+      "exit_status": 0,
+      "finished_utc": "2026-10-06T09:27:29.650913+00:00",
+      "stdout_stderr_log": "diff-check.log"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--cached",
+        "--check"
+      ],
+      "cwd": "/workspace/AToM_MLMM-g10",
+      "exit_status": 0,
+      "finished_utc": "2026-10-06T09:27:29.670797+00:00",
+      "stdout_stderr_log": "staged-diff-check.log"
+    },
+    {
+      "argv": [
+        "git",
+        "diff",
+        "--exit-code",
+        "edd587679aaa110ea687cca29b9e3aee70b7b6f0",
+        "--",
+        "src",
+        "tests",
+        "fixtures",
+        "environment",
+        "models",
+        "examples/cloud_engine/README.md",
+        "docs/project-0/specs",
+        "Worker_Log/Milestone_03",
+        "Worker_Log/Milestone_05/Gate_10_v4_worker.md",
+        "Worker_Log/Milestone_05/Gate_10_v5_worker.md",
+        "Worker_Log/Milestone_05/evidence/G10_v4",
+        "Worker_Log/Milestone_05/evidence/G10_v5",
+        "Worker_Log/Milestone_05/evidence/G10_v5_review_packet"
+      ],
+      "cwd": "/workspace/AToM_MLMM-g10",
+      "exit_status": 0,
+      "finished_utc": "2026-10-06T09:27:29.695723+00:00",
+      "stdout_stderr_log": "frozen-review-check.log"
+    }
+  ],
+  "commit_and_clean_status": "recorded after committing in the final handoff",
+  "docs_result": {
+    "counts": {
+      "external_links_not_fetched": 57,
+      "local_links": 1521,
+      "markdown_files": 220
+    },
+    "errors": [],
+    "scope": "local documentation only; no external-link or scientific qualification",
+    "self_tests": {
+      "broken_anchor_detected": true,
+      "broken_file_detected": true,
+      "code_examples_are_not_live_links": true,
+      "escape_detected": true,
+      "implementation_audits_and_progress_are_allowed": true,
+      "unclosed_fence_detected": true,
+      "undefined_reference_detected": true,
+      "valid_links_and_duplicate_heading": true
+    }
+  },
+  "finished_utc": "2026-10-06T09:27:29.705907+00:00",
+  "implementation_repairs": 0,
+  "report_only_changes": true,
+  "reviewed_head": "edd587679aaa110ea687cca29b9e3aee70b7b6f0",
+  "source_inventory_files_unchanged": 38,
+  "staged_paths": [
+    "Worker_Log/Milestone_05/Gate_10_v5_audit.md",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/README.md",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/additional-inert-probe.log",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/additional-inert-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/additional_inert_probe.py",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/analytic-admission-probe.log",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/analytic-admission-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/analytic_admission_probe.py",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/commands.json",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/completion-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/diff-check.log",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/docs-self-test-first-attempt.log",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/docs-self-test.log",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/documentation-first-attempt.json",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/finalize_evidence.py",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/focused-pytest.log",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/frozen-review-check.log",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/identity-probe.log",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/identity-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/identity_probe.py",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/manifest.json",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/molecular-probe.log",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/molecular-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/molecular_probe.py",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/pair-compatibility-pytest.log",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/staged-diff-check.log",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/transaction-restore-probe.log",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/transaction-restore-results.json",
+    "Worker_Log/Milestone_05/evidence/G10_v5_independent/transaction_restore_probe.py",
+    "docs/project-0/STATUS.md"
+  ],
+  "staged_scope_check": "PASS"
+}
