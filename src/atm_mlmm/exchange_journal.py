@@ -138,8 +138,10 @@ def read_multistate_boundaries(directory, *, allow_pending=False):
         raise IdentityError('multistate initial artifact layout mismatch')
     initial_record=read_json(initial/'record.json')
     _validate_permutation(initial_record.get('walker_to_state'),n,'initial permutation')
+    _validate_permutation(initial_record.get('state_to_walker'),n,'initial record inverse')
     if (initial_record.get('run_id')!=metadata['run_id'] or
-        initial_record.get('walker_ids')!=workers or initial_record['walker_to_state']!=list(range(n))):
+        initial_record.get('walker_ids')!=workers or initial_record['walker_to_state']!=list(range(n)) or
+        initial_record['state_to_walker']!=list(range(n))):
         raise IdentityError('multistate initial walker/state identity mismatch')
     _validate_inverse(initial/'walker-to-state.json',list(range(n)),n)
     _validate_rng_document(read_json(initial/'rng.json'))
@@ -169,13 +171,20 @@ def read_multistate_boundaries(directory, *, allow_pending=False):
         manifest=verify_tree(path,index=index)
         record=read_json(path/'record.json')
         rng_parent=initial if index==0 else paths[index-1]
-        if (record.get('boundary_index')!=index or record.get('previous_manifest_sha256')!=previous or
-            record.get('rng_before_sha256')!=sha(rng_parent/'rng.json') or
-            record.get('walker_to_state_start')!=before):
+        if (type(record.get('boundary_index')) is not int or record['boundary_index']!=index or
+            record.get('previous_manifest_sha256')!=previous or
+            record.get('rng_before_sha256')!=sha(rng_parent/'rng.json')):
+            raise IdentityError('multistate boundary chain/permutation identity mismatch')
+        _validate_permutation(record.get('walker_to_state_start'),n,'start permutation')
+        if record['walker_to_state_start']!=before:
             raise IdentityError('multistate boundary chain/permutation identity mismatch')
         _validate_permutation(record.get('walker_to_state_final'),n,'final permutation')
+        expected_final_inverse=[record['walker_to_state_final'].index(i) for i in range(n)]
+        _validate_permutation(record.get('state_to_walker_final'),n,'final record inverse')
+        if record['state_to_walker_final']!=expected_final_inverse:
+            raise IdentityError('multistate final record inverse disagrees with its permutation')
         _validate_inverse(path/'walker-to-state.json',record['walker_to_state_final'],n)
-        if record.get('pair_count')!=len(schedule_pairs):
+        if type(record.get('pair_count')) is not int or record['pair_count']!=len(schedule_pairs):
             raise IdentityError('multistate boundary pair count mismatch')
         expected_files={'record.json','rng.json','walker-to-state.json','final-state-reports.json'}
         sample_rows=[]
@@ -187,9 +196,11 @@ def read_multistate_boundaries(directory, *, allow_pending=False):
             sample=read_json(path/'samples'/f'{stem}.json')
             sample_id=f"{metadata['run_id']}:walker-{w}:boundary-{index+1}"
             state_id=metadata['state_ids'][start[w]]
-            if (sample.get('sample_id')!=sample_id or sample_id in sample_ids or
-                sample.get('walker_id')!=workers[w] or sample.get('walker_index')!=w or
-                sample.get('state_id')!=state_id or sample.get('sequence_number')!=index+1 or
+            if (not isinstance(sample.get('sample_id'),str) or sample.get('sample_id')!=sample_id or sample_id in sample_ids or
+                not isinstance(sample.get('walker_id'),str) or sample.get('walker_id')!=workers[w] or
+                type(sample.get('walker_index')) is not int or sample.get('walker_index')!=w or
+                not isinstance(sample.get('state_id'),str) or sample.get('state_id')!=state_id or
+                type(sample.get('sequence_number')) is not int or sample.get('sequence_number')!=index+1 or
                 not _same_parameters(sample.get('parameters'),metadata['state_parameters'].get(state_id))):
                 raise IdentityError('multistate sample ID/sequence/state/parameter identity mismatch')
             _validate_sample(sample,metadata)
@@ -207,10 +218,16 @@ def read_multistate_boundaries(directory, *, allow_pending=False):
             pair_walkers=[workers[w] for w in selected]
             before_attempt=list(current)
             sample_ids_for_pair=[sample_rows[w]['sample_id'] for w in selected]
-            if (attempt.get('attempt_index')!=q or attempt.get('state_pair_indices')!=[state_left,state_right] or
-                attempt.get('state_ids')!=pair_states or attempt.get('worker_indices')!=selected or
-                attempt.get('walker_ids')!=pair_walkers or attempt.get('walker_to_state_before')!=before_attempt or
-                attempt.get('state_to_walker_before')!=inverse or
+            if type(attempt.get('attempt_index')) is not int or attempt['attempt_index']!=q:
+                raise IdentityError('multistate attempt index identity mismatch')
+            _validate_exact_int_list(attempt.get('state_pair_indices'),[state_left,state_right],
+                                     'attempt state-pair indices')
+            _validate_exact_int_list(attempt.get('worker_indices'),selected,'attempt worker indices')
+            _validate_permutation(attempt.get('walker_to_state_before'),n,'attempt before permutation')
+            _validate_permutation(attempt.get('state_to_walker_before'),n,'attempt before inverse')
+            if (attempt.get('state_ids')!=pair_states or
+                attempt.get('walker_ids')!=pair_walkers or attempt['walker_to_state_before']!=before_attempt or
+                attempt['state_to_walker_before']!=inverse or
                 attempt.get('sample_ids')!=sample_ids_for_pair):
                 raise IdentityError('multistate resolved attempt identity mismatch')
             evaluated=read_json(attempt_dir/'evaluated.json')
@@ -221,6 +238,14 @@ def read_multistate_boundaries(directory, *, allow_pending=False):
             expected_common={'attempt_index':q,'state_pair_indices':[state_left,state_right],
                 'worker_indices':selected,'walker_to_state_before':before_attempt}
             for document in (evaluated,decision,refreshed):
+                if type(document.get('attempt_index')) is not int or document['attempt_index']!=q:
+                    raise IdentityError('multistate attempt phase index is malformed')
+                _validate_exact_int_list(document.get('state_pair_indices'),[state_left,state_right],
+                                         'attempt phase state-pair indices')
+                _validate_exact_int_list(document.get('worker_indices'),selected,
+                                         'attempt phase worker indices')
+                _validate_permutation(document.get('walker_to_state_before'),n,
+                                      'attempt phase before permutation')
                 if any(document.get(key)!=value for key,value in expected_common.items()):
                     raise IdentityError('multistate attempt phase identity differs from its resolved pair')
             if any(decision.get(key)!=value for key,value in evaluated.items()):
@@ -231,25 +256,30 @@ def read_multistate_boundaries(directory, *, allow_pending=False):
             after=list(current)
             if accepted:
                 after[selected[0]],after[selected[1]]=after[selected[1]],after[selected[0]]
-            if (decision.get('walker_to_state_before')!=before_attempt or
-                decision.get('walker_to_state_after')!=after or
+            _validate_permutation(decision.get('walker_to_state_after'),n,'decision after permutation')
+            if (decision['walker_to_state_before']!=before_attempt or
+                decision['walker_to_state_after']!=after or
                 decision.get('state_ids_after')!=[metadata['state_ids'][after[w]] for w in selected]):
                 raise IdentityError('multistate decision permutation mismatch')
             for key in ('walker_ids','state_ids_before','state_ids_after','accepted',
                         'reduced_energies','exponent','raw_energies'):
                 if refreshed.get(key)!=decision.get(key):
                     raise IdentityError('multistate refreshed and decision phases disagree')
-            if (refreshed.get('walker_to_state_after')!=after or
+            _validate_permutation(refreshed.get('walker_to_state_after'),n,'refreshed after permutation')
+            if (refreshed['walker_to_state_after']!=after or
                 refreshed.get('physical_identity')!=metadata.get('physical_identity') or
                 refreshed.get('alchemical_identity')!=metadata.get('alchemical_identity') or
                 refreshed.get('runtime_identity')!=metadata.get('runtime_identity')):
                 raise IdentityError('multistate refreshed assignment/worker identity mismatch')
-            _validate_refreshed(refreshed,selected,after,metadata)
-            if (history.get('attempt')!=attempt or history.get('decision')!=decision or
-                history.get('walker_to_state_before')!=before_attempt or
-                history.get('walker_to_state_after')!=after or
-                history.get('resolved_state_to_walker')!=inverse or
-                history.get('accepted')!=accepted):
+            _validate_refreshed(refreshed,selected,after,metadata,evaluated)
+            _validate_permutation(history.get('walker_to_state_before'),n,'history before permutation')
+            _validate_permutation(history.get('walker_to_state_after'),n,'history after permutation')
+            _validate_permutation(history.get('resolved_state_to_walker'),n,'history resolved inverse')
+            if (type(history.get('accepted')) is not bool or
+                history.get('attempt')!=attempt or history.get('decision')!=decision or
+                history['walker_to_state_before']!=before_attempt or
+                history['walker_to_state_after']!=after or
+                history['resolved_state_to_walker']!=inverse or history.get('accepted')!=accepted):
                 raise IdentityError('multistate attempt history disagrees with durable phases')
             attempt_rows.append(history); current=after
         if current!=record['walker_to_state_final']:
@@ -278,7 +308,7 @@ def seal_tree(directory, *, index):
     for path in sorted(directory.rglob('*')):
         if path.is_symlink():
             raise IdentityError('multistate transaction cannot contain symbolic links')
-        if path.is_file() and path.name!='manifest.json':
+        if path.is_file() and path!=directory/'manifest.json':
             files[path.relative_to(directory).as_posix()]=sha(path)
     write_json(directory/'manifest.json',{'version':1,'index':index,'files':files})
     for path in sorted((p for p in directory.rglob('*') if p.is_file())):
@@ -298,7 +328,7 @@ def verify_tree(directory, *, index):
     for path in sorted(directory.rglob('*')):
         if path.is_symlink():
             raise IdentityError('multistate transaction contains a symbolic link')
-        if path.is_file() and path.name!='manifest.json':
+        if path.is_file() and path!=directory/'manifest.json':
             actual[path.relative_to(directory).as_posix()]=path
     if (manifest.get('version')!=1 or manifest.get('index')!=index or
         set(manifest.get('files',{}))!=set(actual)):
@@ -341,18 +371,25 @@ def _verify_multistate_source(directory,metadata):
 
 
 def _validate_multistate_metadata(metadata):
+    if not isinstance(metadata,dict):
+        raise IdentityError('multistate metadata must be an object')
     states=metadata.get('state_ids'); pairs=metadata.get('state_pairs'); walkers=metadata.get('walker_ids')
     if (type(metadata.get('version')) is not int or metadata['version']!=1 or
         type(metadata.get('boundaries')) is not int or not 1<=metadata['boundaries']<=500000 or
-        type(metadata.get('steps_per_boundary')) is not int or metadata['steps_per_boundary']<=0 or
+        type(metadata.get('steps_per_boundary')) is not int or not 0<metadata['steps_per_boundary']<1000000 or
+        type(metadata.get('host_rng_seed')) is not int or not 0<metadata['host_rng_seed']<2**31-10000 or
         not isinstance(metadata.get('run_id'),str) or not metadata['run_id']):
         raise IdentityError('multistate metadata limits or identity are malformed')
-    if (not isinstance(states,list) or not 3<=len(states)<=8 or len(set(states))!=len(states) or
-        any(not isinstance(s,str) or not s.strip() for s in states)):
+    if (not isinstance(states,list) or not 3<=len(states)<=8 or
+        any(not isinstance(s,str) or not s.strip() for s in states) or len(set(states))!=len(states)):
         raise IdentityError('multistate metadata state IDs are malformed')
-    if (not isinstance(walkers,list) or len(walkers)!=len(states) or len(set(walkers))!=len(walkers) or
-        any(not isinstance(w,str) or not w for w in walkers)):
+    if (not isinstance(walkers,list) or len(walkers)!=len(states) or
+        any(not isinstance(w,str) or not w for w in walkers) or len(set(walkers))!=len(walkers)):
         raise IdentityError('multistate metadata walker IDs are malformed')
+    if (type(metadata.get('integrator_seed_base')) is not int or
+        not 0<metadata['integrator_seed_base'] or
+        metadata['integrator_seed_base']+len(states)-1>=2**31):
+        raise IdentityError('multistate worker seed range is invalid for the complete schedule')
     if (not isinstance(pairs,list) or not pairs or len(pairs)>28 or
         any(not isinstance(p,list) or len(p)!=2 or any(type(i) is not int for i in p) for p in pairs)):
         raise IdentityError('multistate metadata pair sweep is malformed')
@@ -378,9 +415,12 @@ def _validate_multistate_metadata(metadata):
     if metadata.get('temperature_K')!=300. or metadata.get('beta_mol_per_kJ')!=1/(.00831446261815324*300.):
         raise IdentityError('multistate temperature/beta identity mismatch')
     real_ids=metadata.get('real_atom_ids')
-    if not isinstance(real_ids,list) or not real_ids or len(set(real_ids))!=len(real_ids):
+    if (not isinstance(real_ids,list) or not real_ids or
+        any(not isinstance(atom_id,str) for atom_id in real_ids) or len(set(real_ids))!=len(real_ids)):
         raise IdentityError('multistate real atom identity is malformed')
-    if not isinstance(metadata.get('profile'),dict) or not isinstance(metadata.get('runtime_identity'),str):
+    if (not isinstance(metadata.get('profile'),dict) or
+        not isinstance(metadata.get('runtime_identity'),str) or
+        not isinstance(metadata.get('worker_manifest_sha256'),str)):
         raise IdentityError('multistate runtime identity is malformed')
 
 
@@ -429,10 +469,20 @@ def _validate_permutation(value,n,name):
         raise IdentityError(f'multistate {name} is not a complete permutation')
 
 
+def _validate_exact_int_list(value,expected,name):
+    if (not isinstance(value,list) or len(value)!=len(expected) or
+        any(type(item) is not int for item in value) or value!=expected):
+        raise IdentityError(f'multistate {name} are malformed or inconsistent')
+
+
 def _validate_inverse(path,permutation,n):
     document=read_json(path)
     inverse=[permutation.index(i) for i in range(n)]
-    if (document.get('walker_to_state')!=permutation or document.get('state_to_walker')!=inverse):
+    if not isinstance(document,dict):
+        raise IdentityError('multistate full permutation/inverse document is malformed')
+    _validate_permutation(document.get('walker_to_state'),n,'inverse document permutation')
+    _validate_permutation(document.get('state_to_walker'),n,'inverse document inverse')
+    if document['walker_to_state']!=permutation or document['state_to_walker']!=inverse:
         raise IdentityError('multistate full permutation and inverse disagree')
 
 
@@ -442,7 +492,21 @@ def _tuple_tree(value):
 
 def _validate_rng_document(document):
     try:
-        random.Random().setstate(_tuple_tree(document['python']))
+        if not isinstance(document,dict):
+            raise ValueError('RNG document must be an object')
+        python=document.get('python')
+        if not isinstance(python,(list,tuple)) or len(python)!=3:
+            raise ValueError('invalid Python random-state shape')
+        version,internal,gaussian=python
+        if type(version) is not int or version!=3:
+            raise ValueError('invalid Python random-state version')
+        if (not isinstance(internal,(list,tuple)) or len(internal)!=625 or
+            any(type(value) is not int or not 0<=value<2**32 for value in internal[:-1]) or
+            type(internal[-1]) is not int or not 0<=internal[-1]<=624):
+            raise ValueError('invalid Python random-state internal vector or index')
+        if gaussian is not None and not _finite(gaussian):
+            raise ValueError('invalid Python Gaussian cache')
+        random.Random().setstate(_tuple_tree(python))
         numpy=document['numpy']
         if (not isinstance(numpy,list) or len(numpy)!=5 or numpy[0]!='MT19937' or
             not isinstance(numpy[1],list) or len(numpy[1])!=624 or
@@ -475,8 +539,16 @@ def _validate_raw(raw):
 
 def _validate_sample(sample,metadata):
     atoms=metadata['real_atom_ids']; count=len(atoms)
+    if not isinstance(sample,dict):
+        raise IdentityError('multistate sample must be an object')
     if sample.get('real_atom_ids')!=atoms or sample.get('temperature_K')!=300.:
         raise IdentityError('multistate sample atom/temperature identity mismatch')
+    if (sample.get('physical_identity')!=metadata.get('physical_identity') or
+        sample.get('transfer_identity')!=metadata.get('transfer_identity')):
+        raise IdentityError('multistate sample physical/transfer identity differs from sealed records')
+    if (type(sample.get('integrator_seed')) is not int or
+        sample['integrator_seed']!=metadata['integrator_seed_base']+sample['walker_index']):
+        raise IdentityError('multistate sample integrator-seed identity is malformed')
     for name in ('positions_nm','velocities_nm_ps','real_forces_kj_mol_nm'):
         rows=sample.get(name)
         if not isinstance(rows,list) or len(rows)!=count or any(not isinstance(row,list) or len(row)!=3 or any(not _finite(v) for v in row) for row in rows):
@@ -515,13 +587,27 @@ def _validate_pair_evaluations(evaluated,state_ids,walker_ids,metadata):
         raise IdentityError('multistate pair exponent arithmetic mismatch')
 
 
-def _validate_refreshed(report,selected,permutation,metadata):
+def _validate_refreshed(report,selected,permutation,metadata,evaluated):
     energies=report.get('energies_after_kj_mol')
     if not isinstance(energies,list) or len(energies)!=2 or any(not _finite(v) for v in energies):
         raise IdentityError('multistate refreshed energy report is incomplete')
     states=[metadata['state_ids'][permutation[w]] for w in selected]
     if report.get('state_ids_after')!=states:
         raise IdentityError('multistate refreshed parameters do not match final pair states')
+    evaluated_states=evaluated.get('state_ids_before')
+    raw=evaluated.get('raw_energies')
+    if (not isinstance(evaluated_states,list) or not isinstance(raw,list) or len(raw)!=2 or
+        any(not isinstance(row,list) or len(row)!=2 for row in raw)):
+        raise IdentityError('multistate refreshed report has no complete evaluated energy matrix')
+    for column,worker_index in enumerate(selected):
+        state_id=metadata['state_ids'][permutation[worker_index]]
+        try:
+            row=evaluated_states.index(state_id)
+        except ValueError as error:
+            raise IdentityError('multistate refreshed state is absent from its evaluated matrix') from error
+        expected=raw[row][column]['system_total_energy_kJ_mol']
+        if abs(energies[column]-expected)>1e-8:
+            raise IdentityError('multistate refreshed total disagrees with its evaluated raw-energy matrix')
 
 
 def _coordinate_digest(positions):
@@ -537,8 +623,11 @@ def _validate_final_reports(path,metadata,samples,expected_permutation=None):
     if not isinstance(rows,list) or len(rows)!=n:
         raise IdentityError('multistate final-state reports do not cover every worker')
     for w,row in enumerate(rows):
-        if row.get('walker_index')!=w or row.get('walker_id')!=metadata['walker_ids'][w]:
+        if (not isinstance(row,dict) or type(row.get('walker_index')) is not int or
+            row.get('walker_index')!=w or row.get('walker_id')!=metadata['walker_ids'][w]):
             raise IdentityError('multistate final-state report worker identity mismatch')
+        if (type(row.get('step')) is not int or row['step']<0 or not _finite(row.get('time_ps'))):
+            raise IdentityError('multistate final-state report clock is malformed')
         state=row.get('state_id')
         if state not in metadata['state_parameters'] or not _same_parameters(row.get('parameters'),metadata['state_parameters'][state]):
             raise IdentityError('multistate final-state report parameter identity mismatch')
@@ -562,6 +651,8 @@ def _validate_final_reports(path,metadata,samples,expected_permutation=None):
         if samples is not None:
             if row['coordinate_sha256']!=_coordinate_digest(samples[w]['positions_nm']):
                 raise IdentityError('multistate final-state report coordinates disagree with sample')
+            if row['step']!=samples[w]['step'] or row['time_ps']!=samples[w]['time_ps']:
+                raise IdentityError('multistate final-state report clock disagrees with captured sample')
 
 
 def preserve_pending(directory):

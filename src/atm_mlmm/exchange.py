@@ -685,6 +685,11 @@ def run_multistate_exchange(prepared_run,output,*,state_ids,state_pairs,boundari
         _integer(stop_after_boundaries,'stop_after_boundaries')
     prepared,prepared_metadata,bundle,runtime,states,pairs=_admit_multistate_prepared(
         prepared_run,state_ids,state_pairs)
+    settings=prepared_metadata['settings']
+    integrator_seed_base=settings.get('seed',seed)
+    _integer(integrator_seed_base,'prepared integrator seed',2**31)
+    if integrator_seed_base+len(states)-1>=2**31:
+        raise MalformedInput('prepared integrator seed range exceeds the signed worker limit')
     output=Path(output).resolve()
     if output.exists():
         raise FileExistsError(output)
@@ -698,9 +703,7 @@ def run_multistate_exchange(prepared_run,output,*,state_ids,state_pairs,boundari
         shutil.copytree(prepared/'worker',output/'worker')
         _verify_source_profile(output,prepared_metadata)
         (output/'boundaries').mkdir()
-        settings=dict(prepared_metadata['settings'])
-        integrator_seed_base=settings.get('seed',seed)
-        _integer(integrator_seed_base,'prepared integrator seed',2**31)
+        settings=dict(settings)
         run_id=uuid.uuid4().hex
         walker_ids=[f'{run_id}:walker-{w}' for w in range(len(states))]
         source_state=(output/'worker/handover_0.xml').read_text()
