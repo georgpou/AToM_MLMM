@@ -1,0 +1,381 @@
+{
+  "challenge_count": 24,
+  "challenges": [
+    {
+      "boundary_manifest_sha256": "04609d14987a7e45337338237b5baa9319637aadb222b75df6ce9c03b0efc537",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "5a680a6485e7e41425b57bbe4732efacaaa03a0bf1528f3422f0e5f4ee33653c",
+      "name": "steps-exclusive-limit",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "d52df69455ca450f7a3454fa7fd919d03f2114faccc12b0516c6795f61337732",
+      "run_tree_sha256_before": "d52df69455ca450f7a3454fa7fd919d03f2114faccc12b0516c6795f61337732",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "04609d14987a7e45337338237b5baa9319637aadb222b75df6ce9c03b0efc537",
+      "loader_calls": [
+        2147483646
+      ],
+      "metadata_sha256": "ddfdd6f3a5a350f2ca7efdfdb0609514db62e465e5097b4e8d74c8446f9e1d6e",
+      "name": "worker-seed-overflows-later-walkers",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "a6aa70a567b7adcddea77bc30d4ec2b7d25074d2f1f4cb9b9f337329eed14d46",
+      "run_tree_sha256_before": "a6aa70a567b7adcddea77bc30d4ec2b7d25074d2f1f4cb9b9f337329eed14d46",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "04609d14987a7e45337338237b5baa9319637aadb222b75df6ce9c03b0efc537",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "ebd47a5fe845d1402ed12112e732204347e809e8d6834375c1df5f86f5e26342",
+      "name": "host-seed-boolean",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "543142e119e2e9beefb77eb05c47365a25669cba0c1e14ffa8d892094950b5e2",
+      "run_tree_sha256_before": "543142e119e2e9beefb77eb05c47365a25669cba0c1e14ffa8d892094950b5e2",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "59301b0fc6d0dcd7176298a3e9005dfc11f2f71865d01e8ece783bc334952d1e",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "python-gaussian-cache-string",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "b7336403525072f02d9d4b7a02dc32b5053200ba8fbd445b1d266887d952a825",
+      "run_tree_sha256_before": "b7336403525072f02d9d4b7a02dc32b5053200ba8fbd445b1d266887d952a825",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "25bc1db3576c9a7f40e3747862d9878a6dba5349337d6e2bc8b4ca280f5935bb",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "python-gaussian-cache-overflow",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "480313dc875f65cea3af3199d035e7597f979464bdfd822314278f7d00a2af84",
+      "run_tree_sha256_before": "480313dc875f65cea3af3199d035e7597f979464bdfd822314278f7d00a2af84",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "04609d14987a7e45337338237b5baa9319637aadb222b75df6ce9c03b0efc537",
+      "loader_calls": [],
+      "metadata_sha256": "add19efabf6236e72f1f7babed7050b0d7152909f4a0bb0409be57eca3b86965",
+      "name": "initial-record-inverse-boolean",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": "IdentityError: multistate boundary chain/permutation identity mismatch",
+      "reader_rejected_with_identity_error": true,
+      "resume_error": "IdentityError: multistate boundary chain/permutation identity mismatch",
+      "run_tree_sha256_after": "bd5a6eb1c28f788fed8aceec35c8d565de2b7b474589d5cb662fd086524e624f",
+      "run_tree_sha256_before": "bd5a6eb1c28f788fed8aceec35c8d565de2b7b474589d5cb662fd086524e624f",
+      "status": "PASS"
+    },
+    {
+      "boundary_manifest_sha256": "04609d14987a7e45337338237b5baa9319637aadb222b75df6ce9c03b0efc537",
+      "loader_calls": [],
+      "metadata_sha256": "812b8b644e64cc63b50fc011ec759cf9f88c4a56e6bc8843771606f3be0593e0",
+      "name": "initial-inverse-document-boolean",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": "IdentityError: multistate boundary chain/permutation identity mismatch",
+      "reader_rejected_with_identity_error": true,
+      "resume_error": "IdentityError: multistate boundary chain/permutation identity mismatch",
+      "run_tree_sha256_after": "c4828ee4867b068a6f72f3116d8ae7d239193ee32bab659fc4ee4a1409f3a652",
+      "run_tree_sha256_before": "c4828ee4867b068a6f72f3116d8ae7d239193ee32bab659fc4ee4a1409f3a652",
+      "status": "PASS"
+    },
+    {
+      "boundary_manifest_sha256": "1f592919a52790796d431de54a54fb94bc4dfa58c2e281f3c6682046e921fcf2",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "boundary-inverse-document-boolean",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "08a1b40faf0b6e2675c68b3c9456bafe13bf4fa228eb0199d0a767cc75b0f94f",
+      "run_tree_sha256_before": "08a1b40faf0b6e2675c68b3c9456bafe13bf4fa228eb0199d0a767cc75b0f94f",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "491119e9d49cd3e1bb3e5608079471ecb89f6a5286cc951f371f1fbef04a35e5",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "attempt-inverse-boolean",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "0b44ed0b7d539fa7c4c8ea01b7e980b5907798b4ed139e2731baee5535ed639f",
+      "run_tree_sha256_before": "0b44ed0b7d539fa7c4c8ea01b7e980b5907798b4ed139e2731baee5535ed639f",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "466f7948bd742d51cb85becd8f6b370174ecebe29a173505d0b8807a5d546145",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "record-final-inverse-conflict",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "6560742ff953cbf6407ec470636b245c86c8fa487536cb306355b0b4b6a9274a",
+      "run_tree_sha256_before": "6560742ff953cbf6407ec470636b245c86c8fa487536cb306355b0b4b6a9274a",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "81669756cdf0f027297a994babae569f2eefa2f66af3f10d299128669acf8f4e",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "attempt-index-boolean",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "b7dc0118198c33f1c38491a19ea72318757f812b23279a7f135c9fb3b8be9dcf",
+      "run_tree_sha256_before": "b7dc0118198c33f1c38491a19ea72318757f812b23279a7f135c9fb3b8be9dcf",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "cb09844ac1204e0b51582baf9b823862b19cc55880da2b46ff976e2b07cb674d",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "attempt-pair-index-booleans",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "a46c9051543fb283961b0391fea65fdc38377785cf29a8ec51136b167e01980a",
+      "run_tree_sha256_before": "a46c9051543fb283961b0391fea65fdc38377785cf29a8ec51136b167e01980a",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "6d97160c0f932f3856329bcae4e1e20f18c705a1b7cdc6b91e8f6f26b13ed90e",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "sample-sequence-boolean",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "b982bf7d6345a1e74a0f233f38832f164e3e8f6d862c84d52de359b5c9a90289",
+      "run_tree_sha256_before": "b982bf7d6345a1e74a0f233f38832f164e3e8f6d862c84d52de359b5c9a90289",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "134579270e9c8b6ddf3bc9f315c880b7a9b38bcbab1985ce4b8247146190b2a2",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "sample-identity-zero-hashes",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "1b5953f7dc3e664b9bcbc749b78c5343f9371a6ba966ec9658a6090a09949be0",
+      "run_tree_sha256_before": "1b5953f7dc3e664b9bcbc749b78c5343f9371a6ba966ec9658a6090a09949be0",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "c3a16558e22c8eda20926c166d37f0d90ddf213ef8c487bc2976502fe1872167",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "sample-walker-index-boolean",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "fcbec9640cff4dae5ef0d3b087c991b88075cb2d9196297a9430446ced841227",
+      "run_tree_sha256_before": "fcbec9640cff4dae5ef0d3b087c991b88075cb2d9196297a9430446ced841227",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "e5500a0c30bce23ab91a2d5f5c3fc05da7054ae5d103073a7e8c29f578460c46",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "boundary-record-index-boolean",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "b1d9a6cad7f3ae6dfaabc4ad65ab8557b7afa9d493168e986bb66cca75ac4779",
+      "run_tree_sha256_before": "b1d9a6cad7f3ae6dfaabc4ad65ab8557b7afa9d493168e986bb66cca75ac4779",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "bb1efbe1c9ef3d6f7cdb370240f80ad1e3966c59e7d1e0f578b02b45718531f7",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "boundary-report-clock-types",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "4a5a13e594b56c5ee3a906ea8d4acb8c73c8ecfb7cfbecebb3776a1b612c81fd",
+      "run_tree_sha256_before": "4a5a13e594b56c5ee3a906ea8d4acb8c73c8ecfb7cfbecebb3776a1b612c81fd",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "dab06d31aaeb336236cd55958e1df1c5edcf861676d74afb8ba303f8b523a6a5",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "boundary-report-clock-disagrees-with-sample",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "2d35404c2178610bb481982b3938237f9a16722ecfb65446aef4644b6f36536a",
+      "run_tree_sha256_before": "2d35404c2178610bb481982b3938237f9a16722ecfb65446aef4644b6f36536a",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "04609d14987a7e45337338237b5baa9319637aadb222b75df6ce9c03b0efc537",
+      "loader_calls": [],
+      "metadata_sha256": "b4b34925d869efc02a99e4ec460be936ff16e9b974b9902f28f0fde2738cbe48",
+      "name": "initial-report-clock-types",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": "IdentityError: multistate boundary chain/permutation identity mismatch",
+      "reader_rejected_with_identity_error": true,
+      "resume_error": "IdentityError: multistate boundary chain/permutation identity mismatch",
+      "run_tree_sha256_after": "fd22010c8bb6a164ec92c49d3071aafb71379827d2ce47edf7063f222e3f907f",
+      "run_tree_sha256_before": "fd22010c8bb6a164ec92c49d3071aafb71379827d2ce47edf7063f222e3f907f",
+      "status": "PASS"
+    },
+    {
+      "error": "TypeError: 'builtins.NoneType' object does not support the context manager protocol",
+      "loader_calls": [
+        true
+      ],
+      "name": "public-run-seed-base-overflows-worker-count",
+      "output_exists": true,
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "398b489ff0a039e23f1ce8c303160a4ec6e42740e8a0055296f2af9e221a45a5",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "d69d7da07af05f4e995e6b7e7be2176943e94af17a395cebceacfd28a127898f",
+      "name": "refreshed-plus-123-decision-accepted-False",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "2ffe49d6effda20f5c8681fdfb64e5bb87714edd34424440bb0cb1760f475b40",
+      "run_tree_sha256_before": "2ffe49d6effda20f5c8681fdfb64e5bb87714edd34424440bb0cb1760f475b40",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "fa76fbd564578837389b34567181f8a13161c0c8c75a270b37c66e07b8bf4648",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "1377b2835b82acf4e1700a79090cf05df11008f0abf07370706b4e15a112c558",
+      "name": "refreshed-plus-123-decision-accepted-True",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "6cffde734d97d9cbc2b0b62cbdd0b7ecb2196dfd792730630a548fe9cf9c7d0c",
+      "run_tree_sha256_before": "6cffde734d97d9cbc2b0b62cbdd0b7ecb2196dfd792730630a548fe9cf9c7d0c",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "04609d14987a7e45337338237b5baa9319637aadb222b75df6ce9c03b0efc537",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "nested-manifest-added",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "6f068e41e1a9c67adc0da4e9f3bbc5dca4234abcc07995e2e413e6ea30f26eb9",
+      "run_tree_sha256_before": "6f068e41e1a9c67adc0da4e9f3bbc5dca4234abcc07995e2e413e6ea30f26eb9",
+      "status": "VIOLATION"
+    },
+    {
+      "boundary_manifest_sha256": "04609d14987a7e45337338237b5baa9319637aadb222b75df6ce9c03b0efc537",
+      "loader_calls": [
+        41
+      ],
+      "metadata_sha256": "de7eceb71cb94a9319aeaa82d90bdc63af1c6863821574ec005e589de274fd3f",
+      "name": "nested-manifest-modified-after-seal",
+      "pending_sha256_after": null,
+      "pending_sha256_before": null,
+      "reader_error": null,
+      "reader_rejected_with_identity_error": false,
+      "resume_error": "RuntimeError: trusted worker loader reached",
+      "run_tree_sha256_after": "75f34f3dc7d16d864c4d00b116abf3ac681cba1f36f84b25c97a4fb6f8670c2e",
+      "run_tree_sha256_before": "75f34f3dc7d16d864c4d00b116abf3ac681cba1f36f84b25c97a4fb6f8670c2e",
+      "status": "VIOLATION"
+    }
+  ],
+  "finished_utc": "2026-10-06T09:52:57.750900+00:00",
+  "source_sha256": "29c6aaa3aef92cdb326b39fce9264e5a018f1db9ea3af414e4bdd50d8794a9a8",
+  "violation_count": 21,
+  "worker_effort": "max",
+  "worker_model": "gpt-6-luna"
+}

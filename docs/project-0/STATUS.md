@@ -1,6 +1,12 @@
 # Current status
 
 **G10 multistate Tasks 1–4: independent combined audit RED / changes_required.**
+That v5 audit decision remains open pending one combined audit after all repairs.
+Task A (R1/R4/R7 and inert capture/report clock agreement) is now implemented in
+code/result commit `8157b24ee93a841dbf91cf10a02a19dd321e6c88`; its worker record
+and evidence are in [Gate_10_v6_worker.md](../../Worker_Log/Milestone_05/Gate_10_v6_worker.md).
+Tasks B and C (R2/R3 and R5/R6) remain open. This is not G10 acceptance.
+
 After the user resumed the saved pause, the sole independent `gpt-6.1-sol / max`
 [v5 combined audit](../../Worker_Log/Milestone_05/Gate_10_v5_audit.md) reviewed
 frozen HEAD `edd587679aaa110ea687cca29b9e3aee70b7b6f0`, source/test-identical to
@@ -24,8 +30,10 @@ independent combined audit before multistate acceptance.
 Root defined the [three-task sequential repair batch](handoffs/G10-MULTISTATE-REPAIR-BATCH.md)
 after the auditor's complete FINAL: inert consistency/seals, restored clocks/
 geometry, then failure evidence/durability with final combined verification.
-All seven findings must be repaired and the entire batch completed before the
-next Sol 6.1/max implementation audit. No repair acceptance is yet claimed.
+Task A's scoped checks pass, but its worker self-check is not an independent
+closure. Root will verify the evidence before Task B; all seven findings and
+the full batch must be completed before the next Sol 6.1/max implementation
+audit.
 
 **Completed G10 worker submission.** On `g10-engine-next`, the multistate core source/result commit
 `cef01748db1d872775c1cb88e67f881182066e6c` adds the bounded 3–8-state serial
