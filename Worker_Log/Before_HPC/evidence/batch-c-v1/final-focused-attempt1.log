@@ -1,0 +1,7 @@
+CWD=/workspace/AToM_MLMM-before-HPC
+ARGV=python -m pytest tests/sampling/test_exchange_uncertainty.py tests/unit/test_relative_binding_result.py tests/sampling/test_analytic_free_energy.py tests/unit/test_schedule.py tests/unit/test_binding_result_admission.py tests/unit/test_restraint_volume.py -m not slow -q
+START_UTC=2026-10-07T12:38:47Z
+...........................................                              [100%]
+43 passed, 1 deselected in 30.94s
+END_UTC=2026-10-07T12:39:19Z
+EXIT=0

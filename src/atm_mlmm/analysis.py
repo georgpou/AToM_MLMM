@@ -181,7 +181,8 @@ def combine_free_energies(state_ids, free_energies_kj_mol, covariance_kj2_mol2, 
     unresolved = [name for name in thermodynamics.correction_obligations
                   if name not in by_id or by_id[name].status == 'required_uncomputed']
     final = final_error = None
-    if thermodynamics.observable == 'standard_binding_free_energy' and not unresolved:
+    if thermodynamics.observable in ('standard_binding_free_energy',
+                                    'relative_standard_binding_free_energy') and not unresolved:
         resolved = [c for c in corrections if c.status != 'required_uncomputed']
         if joint_covariance_kj2_mol2 is None and any(c.standard_error_kj_mol != 0 for c in resolved):
             unresolved.append('correction_covariance')

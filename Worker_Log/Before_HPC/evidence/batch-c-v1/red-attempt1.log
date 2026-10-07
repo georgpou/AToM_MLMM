@@ -1,0 +1,45 @@
+FF                                                                       [100%]
+=================================== FAILURES ===================================
+____ test_relative_standard_definition_accepts_explicit_b_minus_a_endpoints ____
+
+    def test_relative_standard_definition_accepts_explicit_b_minus_a_endpoints():
+        corrections = tuple(CorrectionRecord(name, 'required_uncomputed', None, None, '')
+                            for name in OBLIGATIONS)
+>       spec = ThermodynamicSpec(
+            'relative_standard_binding_free_energy',
+            {'endpoint-B-id': 1., 'endpoint-A-id': -1.},
+            'B_minus_A', (('endpoint-A-id', 'bridge-id'), ('bridge-id', 'endpoint-B-id')),
+            {'endpoint-A-id': 'ligand A bound endpoint', 'endpoint-B-id': 'ligand B bound endpoint'},
+            OBLIGATIONS, corrections, 1.6605390671738466,
+            'matched standard-state domain and box', 'matched declared restraints',
+            'explicit orientation convention', 'explicit state-counting convention')
+
+tests/unit/test_relative_binding_result.py:13: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+<string>:15: in __init__
+    ???
+src/atm_mlmm/schema.py:112: in __post_init__
+    self._validate()
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = ThermodynamicSpec(observable='relative_standard_binding_free_energy', endpoint_weights=mappingproxy({'endpoint-B-id': ...ntation_description='explicit orientation convention', state_counting_description='explicit state-counting convention')
+
+    def _validate(self):
+        if self.observable not in ('restrained_free_energy', 'standard_binding_free_energy'):
+>           raise UnsupportedCapability('unadmitted thermodynamic observable')
+E           atm_mlmm.schema.UnsupportedCapability: unadmitted thermodynamic observable
+
+src/atm_mlmm/schema.py:756: UnsupportedCapability
+______________ test_exchange_analysis_api_is_explicit_and_opt_in _______________
+
+    def test_exchange_analysis_api_is_explicit_and_opt_in():
+>       from atm_mlmm.exchange_analysis import (ExchangeAnalysisInput,
+                                                ExchangeResamplingSpec,
+                                                analyze_exchange)
+E       ModuleNotFoundError: No module named 'atm_mlmm.exchange_analysis'
+
+tests/sampling/test_exchange_uncertainty.py:5: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/unit/test_relative_binding_result.py::test_relative_standard_definition_accepts_explicit_b_minus_a_endpoints
+FAILED tests/sampling/test_exchange_uncertainty.py::test_exchange_analysis_api_is_explicit_and_opt_in
+2 failed in 0.06s

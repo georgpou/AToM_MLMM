@@ -708,6 +708,50 @@ class EvaluationRecords(Record):
 
 
 @record
+class ExchangeAnalysisInput(Record):
+    """One correlated run plus its provenance-derived synchronized frame groups."""
+    records: EvaluationRecords
+    synchronized_frames: tuple[tuple[str, ...], ...]
+    run_id: str
+    retained_window_evidence: str
+
+    def _validate(self):
+        _required(self.run_id, self.retained_window_evidence)
+        if not self.synchronized_frames:
+            raise MalformedInput('at least one retained synchronized frame is required')
+        seen = set()
+        for frame in self.synchronized_frames:
+            _ids(frame)
+            if seen.intersection(frame):
+                raise IdentityError('sample ID appears in multiple synchronized frames')
+            seen.update(frame)
+        if self.records.provenance.get('run_id') != self.run_id:
+            raise IdentityError('exchange input run_id differs from raw record provenance')
+
+
+@record
+class ExchangeResamplingSpec(Record):
+    """Predeclared dependence-aware resampling method and design evidence."""
+    method: str
+    block_length_frames: int | None
+    bootstrap_replicates: int
+    seed: int
+    design_evidence: str
+
+    def _validate(self):
+        if self.method not in ('synchronized_blocks', 'independent_runs'):
+            raise UnsupportedCapability('unknown exchange resampling method')
+        if self.bootstrap_replicates < 2 or self.seed < 0:
+            raise MalformedInput('exchange bootstrap requires at least two draws and an explicit nonnegative seed')
+        _required(self.design_evidence)
+        if self.method == 'synchronized_blocks':
+            if self.block_length_frames is None or self.block_length_frames <= 0:
+                raise MalformedInput('synchronized block resampling requires a positive frame length')
+        elif self.block_length_frames is not None:
+            raise MalformedInput('independent-run resampling does not accept a block length')
+
+
+@record
 class CorrectionRecord(Record):
     """Additive S05 correction; missing computations never acquire zero values."""
     correction_id: str
@@ -752,7 +796,8 @@ class ThermodynamicSpec(Record):
     state_counting_description: str
 
     def _validate(self):
-        if self.observable not in ('restrained_free_energy', 'standard_binding_free_energy'):
+        if self.observable not in ('restrained_free_energy', 'standard_binding_free_energy',
+                                   'relative_standard_binding_free_energy'):
             raise UnsupportedCapability('unadmitted thermodynamic observable')
         _required(self.sign_convention, self.domain_description, self.restraint_description,
                   self.orientation_description, self.state_counting_description)
@@ -777,6 +822,13 @@ class ThermodynamicSpec(Record):
                 raise MalformedInput('standard binding requires bound-minus-bulk and standard volume')
             if not set(STANDARD_CORRECTION_OBLIGATIONS) <= set(self.correction_obligations):
                 raise MalformedInput('standard binding requires explicit correction obligations')
+        if self.observable == 'relative_standard_binding_free_energy':
+            nonzero = [weight for weight in self.endpoint_weights.values() if weight != 0]
+            if (self.sign_convention != 'B_minus_A' or self.standard_volume_nm3 is None or
+                    len(nonzero) != 2 or sorted(nonzero) != [-1., 1.]):
+                raise MalformedInput('relative standard binding requires B-minus-A endpoint weights and a standard volume')
+            if not set(STANDARD_CORRECTION_OBLIGATIONS) <= set(self.correction_obligations):
+                raise MalformedInput('relative standard binding requires explicit correction obligations')
 
 
 @record
@@ -820,7 +872,8 @@ class BindingResult(Record):
         if self.final_kj_mol is not None and (self.unresolved_corrections or self.final_standard_error_kj_mol < 0):
             raise MalformedInput('unresolved correction prevents a final binding result')
         if self.final_kj_mol is not None:
-            if self.thermodynamics is None or self.thermodynamics.observable != 'standard_binding_free_energy':
+            if (self.thermodynamics is None or self.thermodynamics.observable not in
+                    ('standard_binding_free_energy', 'relative_standard_binding_free_energy')):
                 raise MalformedInput('final binding result requires its standard thermodynamic definition')
             if not set(self.thermodynamics.correction_obligations) <= set(by_id) or uncomputed:
                 raise MalformedInput('final binding result requires a complete resolved correction ledger')
