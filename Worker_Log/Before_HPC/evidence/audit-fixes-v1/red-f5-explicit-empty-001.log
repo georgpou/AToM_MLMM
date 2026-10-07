@@ -1,0 +1,25 @@
+COMMAND: pytest -q tests/workflow/test_protein_input_admission.py::test_complete_input_only_manifest_accepts_explicit_none_and_empty_values
+2026-10-07T19:27:53Z
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___ test_complete_input_only_manifest_accepts_explicit_none_and_empty_values ___
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-72/test_complete_input_only_manif0')
+
+    def test_complete_input_only_manifest_accepts_explicit_none_and_empty_values(tmp_path):
+        from tools.prepare_protein_input import validate_manifest
+
+        manifest = _complete_input_only_fixture(tmp_path)
+        result = validate_manifest(manifest)
+>       assert result['status'] == 'validated_prepared_input_only'
+E       AssertionError: assert 'blocked' == 'validated_pr...ed_input_only'
+E
+E         - validated_prepared_input_only
+E         + blocked
+
+tests/workflow/test_protein_input_admission.py:265: AssertionError
+=========================== short test summary info ============================
+FAILED tests/workflow/test_protein_input_admission.py::test_complete_input_only_manifest_accepts_explicit_none_and_empty_values
+1 failed in 0.14s
+EXIT=1
+2026-10-07T19:27:53Z

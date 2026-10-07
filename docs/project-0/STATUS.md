@@ -506,7 +506,11 @@ accepted_for_scope**. Before HPC Batch A repairs the older fixed-window and
 pair restart admission paths on `before_HPC`; its worker evidence is in
 [Batch A v1](../../Worker_Log/Before_HPC/Batch_A_v1_worker.md). Those repairs
 are worker-tested and await any later authorized independent review. Batch A
-is complete; pause here for the user's decision before starting Batch B.
+is complete. The authorized F1–F5 implementation follow-up is recorded in the
+[Audit Fixes v1 worker report](../../Worker_Log/Before_HPC/Audit_Fixes_v1_worker.md);
+its worker tests do not constitute independent acceptance. The separate C3
+physical endpoint-definition gap remains open, and the scientific and release
+holds remain unchanged.
 Preserve the public restart APIs, accepted v8 behavior, and exact scientific
 limits. After the authorized Before HPC batches, resume deterministic G11/G12
 protein and dual-ligand support and G13 packaging/resource measurements as

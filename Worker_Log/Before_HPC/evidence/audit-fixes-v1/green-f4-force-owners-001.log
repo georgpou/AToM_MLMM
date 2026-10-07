@@ -1,0 +1,6 @@
+COMMAND: pytest -q tests/workflow/test_protein_input_admission.py -k physical_solvent_preparation
+2026-10-07T19:26:16Z
+...                                                                      [100%]
+3 passed, 5 deselected in 0.04s
+EXIT=0
+2026-10-07T19:26:17Z

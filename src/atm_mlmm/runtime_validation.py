@@ -2,7 +2,9 @@
 from collections.abc import Mapping
 import hashlib
 import math
+import os
 from pathlib import Path
+from pathlib import PurePosixPath
 import re
 
 from .schema import IdentityError
@@ -22,10 +24,32 @@ def verify_source_inventory(bundle_root: Path, manifest_files: Mapping[str, str]
     """
     if not isinstance(manifest_files, Mapping):
         raise IdentityError('worker manifest files must be a path-to-digest mapping')
-    root = Path(bundle_root).resolve()
-    source_root = Path(current_source_root).resolve()
+    raw_root, raw_source_root = Path(bundle_root), Path(current_source_root)
+    if raw_root.is_symlink() or raw_source_root.is_symlink():
+        raise IdentityError('worker bundle/source root must not be a symbolic link')
+    root = raw_root.resolve()
+    source_root = raw_source_root.resolve()
     if not root.is_dir() or not source_root.is_dir():
         raise IdentityError('worker bundle/source root is unavailable')
+
+    def python_files(tree, label):
+        paths = set()
+        def traversal_error(error):
+            raise IdentityError(f'{label} source tree cannot be traversed: {error}') from error
+        for directory, directories, filenames in os.walk(tree, followlinks=False, onerror=traversal_error):
+            base = Path(directory)
+            for name in directories:
+                if (base/name).is_symlink():
+                    raise IdentityError(f'{label} Python source tree contains a symbolic link')
+            for name in filenames:
+                path = base/name
+                if path.is_symlink():
+                    raise IdentityError(f'{label} Python source tree contains a symbolic link')
+                if name.endswith('.py'):
+                    if not path.is_file():
+                        raise IdentityError(f'{label} Python source tree contains a non-file module')
+                    paths.add(path)
+        return paths
 
     for name, digest in manifest_files.items():
         if (not isinstance(name, str) or not name or '\\' in name or
@@ -49,14 +73,21 @@ def verify_source_inventory(bundle_root: Path, manifest_files: Mapping[str, str]
         name for name in manifest_files
         if name.startswith(_SOURCE_PREFIX) and name.endswith('.py')
     }
-    current_paths = sorted(source_root.rglob('*.py'))
-    if any(path.is_symlink() for path in current_paths):
-        raise IdentityError('current Python source tree contains a symbolic link')
+    current_paths = sorted(python_files(source_root, 'current'))
     current_source = {
         _SOURCE_PREFIX + path.relative_to(source_root).as_posix()
         for path in current_paths
     }
-    if declared_source != current_source:
+    bundled_source_root = root.joinpath(*PurePosixPath(_SOURCE_PREFIX.rstrip('/')).parts)
+    if any((root.joinpath(*PurePosixPath(_SOURCE_PREFIX.rstrip('/')).parts[:index])).is_symlink()
+           for index in range(1, len(PurePosixPath(_SOURCE_PREFIX.rstrip('/')).parts) + 1)):
+        raise IdentityError('bundled Python source path contains a symbolic link')
+    bundled_paths = python_files(bundled_source_root, 'bundled') if bundled_source_root.is_dir() else set()
+    bundled_source = {
+        _SOURCE_PREFIX + path.relative_to(bundled_source_root).as_posix()
+        for path in bundled_paths
+    }
+    if declared_source != current_source or bundled_source != current_source:
         raise IdentityError('worker source inventory differs from the complete current Python source tree')
 
     for name in sorted(current_source):

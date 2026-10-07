@@ -1,0 +1,6 @@
+COMMAND: source /workspace/before-hpc-cpu-v2/activate.sh; export OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 PYTHONPATH="$PWD/src"; pytest -q tests/environment/test_hpc_profile.py
+START_UTC: 2026-10-07T19:23:34Z
+END_UTC: 2026-10-07T19:23:34Z
+EXIT: 1
+RESULT: 7 failed, 2 passed in 0.09s (pytest output summarized from original failing console run).
+FAILURES: format-only manifest authorized readiness; schema, resource, storage, checkpoint, and unknown top-level profile mutations each remained ready; CLI returned 0 for modified bundle bytes.

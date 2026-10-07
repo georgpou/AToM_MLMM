@@ -1,6 +1,6 @@
 # HPC profile and restart preparation
 
-The checked-in [profile template](profile-template.json) is intentionally incomplete. Replace every `null` with measured or allocation-documented values for the actual platform, device, driver, Python/OpenMM/model versions, source/wheel/asset/input hashes, storage path/filesystem, thread count, memory, wall time, worker count, and scheduler. Do not fill unknown fields with guessed cluster defaults. A local checker validates the record and optional bundle binding; it never submits or resumes a scheduler job:
+The checked-in [profile template](profile-template.json) is intentionally incomplete. Replace every `null` with measured or allocation-documented values for the actual platform, device, driver, Python/OpenMM/model versions, source/wheel/asset/input hashes, storage path/filesystem, thread count, memory, wall time, worker count, and scheduler. Do not fill unknown fields with guessed cluster defaults. The local checker validates typed profile values and the actual bytes in the supplied bundle directory; it never submits or resumes a scheduler job:
 
 ```bash
 cd /workspace/AToM_MLMM-before-HPC
@@ -12,6 +12,8 @@ python tools/check_hpc_profile.py environment/hpc/profile-template.json \
 ```
 
 A `held` result is expected while required values are unknown. The actual storage system must pass a local lock, atomic rename, and fsync trial before it is considered for a run directory. Record filesystem type and mount/options, directory ownership, quota, and measured behavior. A local validation result does not establish cluster parity.
+
+The profile schema accepts only its declared fields, integer schema version `1`, positive integer allocations, scheduler `none`, an absolute storage path, and the required lock/rename/fsync safeguard. Checkpoint compatibility is limited to `same-platform-identical-source-profile`; the profile must not promise portable-state RNG identity. Artifact hashes are bound to verified bundle inventory: `source_sha256` and `input_manifest_sha256` are SHA-256 of canonical JSON arrays containing each matching row's `bundle_path`, `bytes`, and `sha256`, sorted by path; `wheel_sha256` is the sole wheel row's content hash; `asset_manifest_sha256` is the content hash of `assets/mace-off23-small/manifest.json`. A manifest JSON object by itself cannot authorize readiness.
 
 Before any future allocation, compare the actual host/device, driver, software stack, precision, thread count, memory/time allocation, model and input identities, and output storage with the exact tested profile. Keep package/asset/source hashes alongside the run. Do not infer a scheduler or change a scientific profile to match one.
 

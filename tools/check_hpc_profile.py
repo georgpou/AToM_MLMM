@@ -18,8 +18,13 @@ def main():
     parser.add_argument("--output", type=Path, required=True)
     args = parser.parse_args()
     profile = json.loads(args.profile.read_text())
-    bundle = None if args.bundle_manifest is None else json.loads(args.bundle_manifest.read_text())
-    result = check_profile(profile, bundle_manifest=bundle)
+    if args.bundle_manifest is None:
+        result = check_profile(profile)
+    elif (args.bundle_manifest.name != "manifest.json" or args.bundle_manifest.is_symlink()
+          or not args.bundle_manifest.is_file()):
+        result = check_profile(profile, bundle_manifest={"format": "unverified"})
+    else:
+        result = check_profile(profile, bundle_directory=args.bundle_manifest.parent)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2, sort_keys=True) + "\n")
     print(json.dumps(result, indent=2, sort_keys=True))

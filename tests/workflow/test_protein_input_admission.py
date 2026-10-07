@@ -1,8 +1,11 @@
 """Protein input admission and solvent recipe rejection contracts."""
 import hashlib
 import json
+from dataclasses import replace
 from pathlib import Path
 import shutil
+
+import pytest
 
 from atm_mlmm.schema import to_json
 
@@ -97,6 +100,50 @@ def test_solvent_recipe_checker_blocks_missing_physical_liquid_definitions():
     assert result['hmr'] is False
 
 
+def _shape_only_solvent_recipe(stage_owners):
+    artifact = ROOT / 'fixtures/two_cut_control/original-mm.xml'
+    identity = {'name': 'input-only-shape-control', 'version': '1', 'path': str(artifact),
+                'artifact_sha256': hashlib.sha256(artifact.read_bytes()).hexdigest()}
+    return {
+        'schema': 'physical-solvent-recipe-v1', 'schema_version': 1,
+        'scope': 'physical_liquid_proposal',
+        'solute': {'parameter_identity': identity},
+        'solvent': {'parameter_identity': identity,
+                    'complete_molecules': [{'molecule_id': 'control-water', 'species': 'control',
+                                            'atom_ids': ['control-atom'],
+                                            'coordinates_nm': [[0., 0., 0.]], 'formal_charge': 0}]},
+        'ions': {'decision': {'kind': 'none'}},
+        'box': {'geometry_nm': [[3., 0., 0.], [0., 3., 0.], [0., 0., 3.]],
+                'density_definition': {'target_kg_m3': 1000., 'basis': 'shape-only control'}},
+        'nonbonded': {'cutoff_nm': 1., 'image_convention': 'orthorhombic'},
+        'constraints': {'definition': 'none'}, 'ensemble': {'kind': 'NVT'},
+        'preparation': {'active_force_owners': ['MM', 'ML', 'outside'],
+                        'stages': [{'stage': 'shape-only', 'ensemble': 'NVT', 'steps': 1,
+                                    'temperature_K': 300., 'active_force_owners': stage_owners}]},
+        'domain': {'both_map_checks': {'maps': ['map0', 'map1'],
+                                       'complete_static_host': True, 'all_atom_contacts': True}},
+        'outputs': {'unique_identity': {'run_id_prefix': 'shape-only',
+                                        'manifest_identity_rule': 'explicit'}},
+    }
+
+
+@pytest.mark.parametrize('stage_owners', ([], ['MM', 'outside']))
+def test_physical_solvent_preparation_requires_every_declared_force_owner(stage_owners):
+    from tools.validate_solvent_recipe import validate_recipe
+
+    with pytest.raises(ValueError, match='every preparation stage'):
+        validate_recipe(_shape_only_solvent_recipe(stage_owners), ROOT)
+
+
+def test_physical_solvent_preparation_accepts_complete_owner_declaration_only():
+    from tools.validate_solvent_recipe import validate_recipe
+
+    result = validate_recipe(_shape_only_solvent_recipe(['MM', 'ML', 'outside']), ROOT)
+    assert result['status'] == 'validated_input_definition_only'
+    assert result['physical_liquid'] is False
+    assert result['binding_result'] == 'not_evaluated'
+
+
 def test_solvent_recipe_rejects_implicit_npt_and_unknown_schema_versions():
     import pytest
     from tools.validate_solvent_recipe import validate_recipe
@@ -122,3 +169,102 @@ def test_existing_sixty_four_water_control_stays_a_synthetic_plumbing_fixture():
     assert result['physical_liquid'] is False
     assert result['binding_result'] == 'not_evaluated'
     assert result['source_files_verified'] > 0
+
+
+def _complete_input_only_fixture(tmp_path):
+    from atm_mlmm.schema import to_json
+    from atm_mlmm.workflow import load_configuration
+    from atm_mlmm.ledger import inventory_system
+    import openmm as mm
+
+    prepared = tmp_path / 'prepared-input-only'
+    shutil.copytree(ROOT / 'fixtures/cloud_fragment_controls/v1/abfe', prepared)
+    config_path = prepared / 'config.json'
+    config = load_configuration(config_path)
+    ligand = next(molecule for molecule in config.original.topology.molecules
+                  if molecule.role == 'ligand')
+    ligand_state = next(state for state in config.partition.component_states
+                        if set(state.atom_ids) == set(ligand.atom_ids))
+    partition = replace(config.partition, ml_ids=tuple(ligand.atom_ids), protein_ml_ids=(),
+                        permitted_cuts=(), component_states=(ligand_state,))
+
+    system = mm.XmlSerializer.deserialize(config.original.prepared_mm_artifact)
+    nonbonded = [force for force in system.getForces() if isinstance(force, mm.NonbondedForce)]
+    assert len(nonbonded) == 1
+    method_names = {mm.NonbondedForce.NoCutoff: 'NoCutoff',
+                    mm.NonbondedForce.CutoffNonPeriodic: 'CutoffNonPeriodic',
+                    mm.NonbondedForce.CutoffPeriodic: 'CutoffPeriodic',
+                    mm.NonbondedForce.Ewald: 'Ewald', mm.NonbondedForce.PME: 'PME',
+                    mm.NonbondedForce.LJPME: 'LJPME'}
+    conventions = {'method': method_names[nonbonded[0].getNonbondedMethod()]}
+    provenance = {**config.original.force_field_provenance,
+                  'nonbonded_conventions': conventions}
+    original = replace(config.original, force_field_provenance=provenance,
+                       prepared_mm_inventory_identity=inventory_system(system).content_identity)
+    records = {'system-input.json': original, 'partition.json': partition,
+               'snapshot.json': config.snapshot}
+    for name, record in records.items():
+        (prepared / name).write_text(to_json(record) + '\n')
+
+    input_manifest_path = prepared / 'manifest.json'
+    input_manifest = json.loads(input_manifest_path.read_text())
+    input_manifest['files'] = {
+        name: hashlib.sha256((prepared / name).read_bytes()).hexdigest()
+        for name in records
+    }
+    input_manifest_path.write_text(json.dumps(input_manifest, indent=2, sort_keys=True) + '\n')
+    config_document = json.loads(config_path.read_text())
+    config_document['input_manifest_sha256'] = hashlib.sha256(
+        input_manifest_path.read_bytes()).hexdigest()
+    config_path.write_text(json.dumps(config_document, indent=2, sort_keys=True) + '\n')
+
+    protein_ids = sorted(atom.atom_id for atom in original.topology.atoms
+                         if next(molecule for molecule in original.topology.molecules
+                                 if atom.atom_id in molecule.atom_ids).role == 'protein')
+    manifest = {
+        'schema': 'prepared-protein-input-v1', 'scope': 'complete_prepared_target',
+        'target_id': 'fixture-only-input-admission',
+        'source_structure': {'path': 'system-input.json',
+                             'sha256': hashlib.sha256((prepared / 'system-input.json').read_bytes()).hexdigest()},
+        'protein': {
+            'selection': {'atom_ids': protein_ids},
+            'protonation': {'source': 'prepared fixture as supplied'},
+            'stereochemistry': {'source': 'prepared fixture as supplied'},
+            'alternate_conformers': {'source': 'prepared fixture as supplied'},
+            'missing_atoms': {'source': 'prepared fixture as supplied'},
+            'missing_residues': {'source': 'prepared fixture as supplied'},
+        },
+        'ligand': {'chemistry': {'canonical_smiles': 'CO',
+                                 'source': 'existing fixture identity: neutral methanol',
+                                 'formal_charge': ligand.formal_charge,
+                                 'multiplicity': ligand.multiplicity},
+                   'atom_ids': list(ligand.atom_ids)},
+        'waters': {'decision': {'molecule_ids': []}},
+        'ions': {'decision': {'molecule_ids': []}},
+        'force_field': {'identity': provenance},
+        'system': {'masses_da': list(original.masses_da),
+                   'constraints': [list(row) for row in original.constraints],
+                   'periodic_box_nm': original.box_nm,
+                   'nonbonded_conventions': conventions},
+        'model': {'neutral_components': [
+            {'atom_ids': list(ligand_state.atom_ids),
+             'formal_charge': ligand_state.formal_charge,
+             'multiplicity': ligand_state.multiplicity}],
+            'permitted_c_c_cuts': []},
+        'artifacts': {'configuration': 'config.json', 'system_input': 'system-input.json',
+                      'partition': 'partition.json', 'snapshot': 'snapshot.json'},
+    }
+    manifest_path = prepared / 'target-manifest.json'
+    manifest_path.write_text(json.dumps(manifest, indent=2, sort_keys=True) + '\n')
+    return manifest_path
+
+
+def test_complete_input_only_manifest_accepts_explicit_none_and_empty_values(tmp_path):
+    from tools.prepare_protein_input import validate_manifest
+
+    manifest = _complete_input_only_fixture(tmp_path)
+    result = validate_manifest(manifest)
+    assert result['status'] == 'validated_prepared_input_only'
+    assert result['cuts'] == []
+    assert result['production_acceptance'] is False
+    assert result['binding_result'] == 'not_evaluated'

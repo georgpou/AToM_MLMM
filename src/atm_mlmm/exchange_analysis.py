@@ -98,7 +98,19 @@ def _journal_frames(document, history):
         if not np.array_equal(np.asarray(journal_values), np.asarray(values)):
             raise IdentityError(f'persistent journal {raw_name} differs from raw records')
     frames = tuple(tuple(sample['sample_id'] for sample in row['samples']) for row in rows)
-    initial_identity = hashlib.sha256((source/'initial'/'manifest.json').read_bytes()).hexdigest()
+    initial_directory = source/'initial'
+    worker_count = len(metadata['state_ids'])
+    initialization = {
+        'format': 'persistent-multistate-initialization-v1',
+        'initial_state_sha256': [
+            hashlib.sha256((initial_directory/'workers'/f'worker-{w:03d}-state.xml').read_bytes()).hexdigest()
+            for w in range(worker_count)],
+        'integrator_seeds': [metadata['integrator_seed_base']+w for w in range(worker_count)],
+        'runtime_identity': metadata['runtime_identity'],
+        'host_rng_state_sha256': hashlib.sha256((initial_directory/'rng.json').read_bytes()).hexdigest(),
+    }
+    initial_identity = hashlib.sha256(json.dumps(
+        initialization,sort_keys=True,separators=(',',':'),allow_nan=False).encode()).hexdigest()
     return frames, initial_identity
 
 
@@ -288,8 +300,11 @@ def analyze_exchange(histories, thermodynamics, *, resampling, estimator='pymbar
     if len(set(run_ids)) != len(run_ids):
         raise IdentityError('exchange run IDs must be distinct')
     initialization = [validation['initialization_identity'] for validation in validations]
-    if len(set(initialization)) != len(initialization):
-        raise IdentityError('independent histories repeat their initialization identity')
+    if resampling.method == 'independent_runs':
+        if any(identity is None or identity == '' for identity in initialization):
+            raise QualificationError('persistent independent-run initialization provenance is unresolved')
+        if len(set(initialization)) != len(initialization):
+            raise IdentityError('independent histories repeat their initialization identity')
     first = histories[0].records
     if any(history.records.schedule.content_identity != first.schedule.content_identity or
            history.records.physical_identity != first.physical_identity or

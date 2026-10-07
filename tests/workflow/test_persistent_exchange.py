@@ -50,7 +50,7 @@ def prepared(tmp_path):
     return root
 
 
-def prepare_multistate(root, *, kind='rbfe', temperature_K=300.):
+def prepare_multistate(root, *, kind='rbfe', temperature_K=300., initial_shift_nm=(0.,0.,0.)):
     from dataclasses import replace
     from atm_mlmm.adapters.atom import build_atom,export_worker_run
     from atm_mlmm.persistence import write_json
@@ -70,6 +70,9 @@ def prepare_multistate(root, *, kind='rbfe', temperature_K=300.):
         x[[snapshot.real_atom_ids.index(a) for a in ('b1','b2','b3')]]-=np.array((1.5,0.,0.))
         x[snapshot.real_atom_ids.index('protein')]-=np.array((0.,2.,0.))
         x[snapshot.real_atom_ids.index('env')]+=np.array((0.,2.,0.))
+        snapshot=replace(snapshot,positions_nm=x)
+    if tuple(initial_shift_nm)!=(0.,0.,0.):
+        x=np.asarray(snapshot.positions_nm,dtype=float)+np.asarray(initial_shift_nm,dtype=float)
         snapshot=replace(snapshot,positions_nm=x)
     schedule=production_schedule((
         ('first',production_parameters()),

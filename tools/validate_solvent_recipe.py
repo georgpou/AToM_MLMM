@@ -190,8 +190,10 @@ def _validate_complete_physical_definition(document, base_dir):
          len(owners) == len(set(owners)),
          'preparation.active_force_owners must enumerate unique force owners')
     need(all(isinstance(row.get('active_force_owners'), list) and
-             set(row['active_force_owners']) <= set(owners) for row in stages),
-         'every preparation stage must identify its active force owners')
+             all(isinstance(owner, str) and owner for owner in row['active_force_owners']) and
+             len(row['active_force_owners']) == len(set(row['active_force_owners'])) and
+             set(row['active_force_owners']) == set(owners) for row in stages),
+         'every preparation stage must retain every declared active force owner')
     checks = document['domain']['both_map_checks']
     need(isinstance(checks, dict) and checks.get('maps') == ['map0', 'map1'] and
          checks.get('complete_static_host') is True and

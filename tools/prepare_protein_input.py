@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 """Validate prepared-target choices without selecting or repairing a target."""
 import argparse
+from collections.abc import Mapping
 import hashlib
 import json
 from pathlib import Path
@@ -17,6 +18,8 @@ _TARGET_FIELDS = (
     'artifacts.configuration', 'artifacts.system_input', 'artifacts.partition',
     'artifacts.snapshot',
 )
+_EXPLICIT_NONE_FIELDS = frozenset({'system.periodic_box_nm'})
+_EXPLICIT_EMPTY_LIST_FIELDS = frozenset({'system.constraints', 'model.permitted_c_c_cuts'})
 
 
 def _sha(path):
@@ -27,12 +30,16 @@ def _missing(document, paths):
     missing = []
     for dotted in paths:
         value = document
+        present = True
         for part in dotted.split('.'):
             if not isinstance(value, dict) or part not in value:
-                value = None
+                present = False
                 break
             value = value[part]
-        if value is None or value == '' or value == [] or value == {}:
+        if (not present or value == '' or value == {} or
+                (value is None and dotted not in _EXPLICIT_NONE_FIELDS) or
+                (isinstance(value, list) and not value and
+                 dotted not in _EXPLICIT_EMPTY_LIST_FIELDS)):
             missing.append(dotted)
     return missing
 
@@ -52,8 +59,15 @@ def _load_control(base, manifest):
 
 
 def _json_equal(left, right):
-    return json.dumps(left, sort_keys=True, separators=(',', ':'), allow_nan=False) == \
-        json.dumps(right, sort_keys=True, separators=(',', ':'), allow_nan=False)
+    def plain(value):
+        if isinstance(value, Mapping):
+            return {key: plain(child) for key, child in value.items()}
+        if isinstance(value, (list, tuple)):
+            return [plain(child) for child in value]
+        return value
+
+    return json.dumps(plain(left), sort_keys=True, separators=(',', ':'), allow_nan=False) == \
+        json.dumps(plain(right), sort_keys=True, separators=(',', ':'), allow_nan=False)
 
 
 def _validate_complete_target(base, document, config, input_manifest):
