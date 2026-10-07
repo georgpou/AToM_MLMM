@@ -1,0 +1,455 @@
+FFFFFFFFFF.F                                                             [100%]
+=================================== FAILURES ===================================
+_______________ test_missing_bundled_source_rejects_before_load ________________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-1/test_missing_bundled_source_re0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0f70a8d390>
+
+    def test_missing_bundled_source_rejects_before_load(tmp_path,monkeypatch):
+        from atm_mlmm.adapters import atom
+        import atm_mlmm.workflow as workflow
+        from atm_mlmm.schema import IdentityError
+    
+        output = _analytic_fixed_window(tmp_path/'fixed')
+        manifest = _reseal_metadata_worker_manifest(output, drop_source='runtime/source/atm_mlmm/chemical_reference.py')
+        assert 'runtime/source/atm_mlmm/chemical_reference.py' not in manifest['files']
+        calls = []
+        monkeypatch.setattr(workflow, '_execute', lambda *args, **kwargs: calls.append('execute'))
+        monkeypatch.setattr(atom, 'load_worker_run', lambda *args, **kwargs: calls.append('load'))
+>       with pytest.raises(IdentityError, match='source|inventory'):
+E       Failed: DID NOT RAISE IdentityError
+
+tests/workflow/test_engine_restart.py:165: Failed
+_ test_worker_source_inventory_is_complete_before_executable_loading[extra-source] _
+
+exported_worker = (PosixPath('/tmp/pytest-of-agent/pytest-1/test_worker_source_inventory_i0/export'), '468dacf1993d6f18384ef5836f96aea754be239480ea7f6d66ed162ec4672510')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0f5eb97e50>
+mutation = 'extra-source'
+
+    @pytest.mark.parametrize('mutation', ('extra-source', 'changed-source'))
+    def test_worker_source_inventory_is_complete_before_executable_loading(
+            exported_worker,monkeypatch,mutation):
+        from atm_mlmm import atm
+        from atm_mlmm.adapters import atom
+        from atm_mlmm.persistence import read_json
+        from atm_mlmm.schema import IdentityError
+    
+        root,digest=exported_worker
+        manifest=read_json(root/'manifest.json')
+        prefix='runtime/source/atm_mlmm/'
+        if mutation=='extra-source':
+            name=prefix+'extra_untracked.py'
+            path=root/name
+            path.parent.mkdir(parents=True,exist_ok=True)
+            path.write_text('EXTRA_SOURCE = True\n')
+            manifest['files'][name]=hashlib.sha256(path.read_bytes()).hexdigest()
+        else:
+            name=next(name for name in manifest['files'] if name.startswith(prefix) and name.endswith('/chemical_reference.py'))
+            path=root/name
+            path.write_bytes(path.read_bytes()+b'\n# coherently rehashed mutation\n')
+            manifest['files'][name]=hashlib.sha256(path.read_bytes()).hexdigest()
+        digest=_rebind_manifest(root,manifest)
+    
+        attempted=[]
+        def forbidden(*args,**kwargs):
+            attempted.append(True)
+            raise AssertionError('worker executable bundle was deserialized before source admission')
+        monkeypatch.setattr(atm,'load_bundle',forbidden)
+        monkeypatch.setattr(atom.WorkerRun,'__init__',forbidden)
+        with pytest.raises(IdentityError,match='source|inventory|identity'):
+>           atom.load_worker_run(root,digest,trusted=True)
+
+tests/workflow/test_worker_handover.py:130: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/adapters/atom.py:314: in load_worker_run
+    bundle = load_bundle(directory/'bundle.json', manifest['files']['bundle.json'], trusted=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (PosixPath('/tmp/pytest-of-agent/pytest-1/test_worker_source_inventory_i0/export/bundle.json'), '5e26ec78ad82e9a706c08ec802bec7068ecbc2670eb6c963ef5636b5ee6498f8')
+kwargs = {'trusted': True}
+
+    def forbidden(*args,**kwargs):
+        attempted.append(True)
+>       raise AssertionError('worker executable bundle was deserialized before source admission')
+E       AssertionError: worker executable bundle was deserialized before source admission
+
+tests/workflow/test_worker_handover.py:126: AssertionError
+_ test_worker_source_inventory_is_complete_before_executable_loading[changed-source] _
+
+exported_worker = (PosixPath('/tmp/pytest-of-agent/pytest-1/test_worker_source_inventory_i1/export'), '468dacf1993d6f18384ef5836f96aea754be239480ea7f6d66ed162ec4672510')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0f70cfba90>
+mutation = 'changed-source'
+
+    @pytest.mark.parametrize('mutation', ('extra-source', 'changed-source'))
+    def test_worker_source_inventory_is_complete_before_executable_loading(
+            exported_worker,monkeypatch,mutation):
+        from atm_mlmm import atm
+        from atm_mlmm.adapters import atom
+        from atm_mlmm.persistence import read_json
+        from atm_mlmm.schema import IdentityError
+    
+        root,digest=exported_worker
+        manifest=read_json(root/'manifest.json')
+        prefix='runtime/source/atm_mlmm/'
+        if mutation=='extra-source':
+            name=prefix+'extra_untracked.py'
+            path=root/name
+            path.parent.mkdir(parents=True,exist_ok=True)
+            path.write_text('EXTRA_SOURCE = True\n')
+            manifest['files'][name]=hashlib.sha256(path.read_bytes()).hexdigest()
+        else:
+            name=next(name for name in manifest['files'] if name.startswith(prefix) and name.endswith('/chemical_reference.py'))
+            path=root/name
+            path.write_bytes(path.read_bytes()+b'\n# coherently rehashed mutation\n')
+            manifest['files'][name]=hashlib.sha256(path.read_bytes()).hexdigest()
+        digest=_rebind_manifest(root,manifest)
+    
+        attempted=[]
+        def forbidden(*args,**kwargs):
+            attempted.append(True)
+            raise AssertionError('worker executable bundle was deserialized before source admission')
+        monkeypatch.setattr(atm,'load_bundle',forbidden)
+        monkeypatch.setattr(atom.WorkerRun,'__init__',forbidden)
+        with pytest.raises(IdentityError,match='source|inventory|identity'):
+>           atom.load_worker_run(root,digest,trusted=True)
+
+tests/workflow/test_worker_handover.py:130: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/adapters/atom.py:314: in load_worker_run
+    bundle = load_bundle(directory/'bundle.json', manifest['files']['bundle.json'], trusted=True)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+args = (PosixPath('/tmp/pytest-of-agent/pytest-1/test_worker_source_inventory_i1/export/bundle.json'), '5e26ec78ad82e9a706c08ec802bec7068ecbc2670eb6c963ef5636b5ee6498f8')
+kwargs = {'trusted': True}
+
+    def forbidden(*args,**kwargs):
+        attempted.append(True)
+>       raise AssertionError('worker executable bundle was deserialized before source admission')
+E       AssertionError: worker executable bundle was deserialized before source admission
+
+tests/workflow/test_worker_handover.py:126: AssertionError
+____________ test_invalid_restored_geometry_rejects_before_step[0] _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-1/test_invalid_restored_geometry0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0f59c10190>
+map_index = 0
+
+    @pytest.mark.parametrize('map_index', (0, 1))
+    def test_invalid_restored_geometry_rejects_before_step(tmp_path, monkeypatch, map_index):
+        import openmm as mm
+        from openmm import unit
+        from atm_mlmm.persistence import read_json
+        from atm_mlmm.schema import NumericalDomainError
+        from atm_mlmm.workflow import _snapshot, resume_run
+    
+        output = _analytic_fixed_window(tmp_path/'fixed')
+    
+        def overlap(worker, _row):
+            physical = worker.bundle.physical
+            context = worker.evaluator.context
+            state = context.getState(getPositions=True)
+            positions = state.getPositions(asNumpy=True).value_in_unit(unit.nanometer)
+            ligand_index = physical.real_to_final['b1']
+            protein_index = physical.real_to_final['protein']
+            if map_index == 0:
+                positions[protein_index] = positions[ligand_index]
+            else:
+                displacement = np.asarray(worker.bundle.transfer.protocol.geometry_requests['displacement_nm'])
+                positions[protein_index] = positions[ligand_index] - displacement
+            context.setPositions(positions*unit.nanometer)
+            context.computeVirtualSites()
+    
+        row = _mutate_checkpoint(output, overlap)
+        assert row['state_id'] == 'first'
+        calls = _watch_admission_calls(monkeypatch)
+        with pytest.raises(NumericalDomainError, match=f'map{map_index} intermolecular Bondi ratio'):
+            resume_run(output, trusted=True)
+>       assert calls == {'energy': 0, 'steps': []}
+E       AssertionError: assert {'energy': 0, 'steps': [1]} == {'energy': 0, 'steps': []}
+E         
+E         Omitting 1 identical items, use -vv to show
+E         Differing items:
+E         {'steps': [1]} != {'steps': []}
+E         Use -v to get more diff
+
+tests/workflow/test_restored_state_admission.py:84: AssertionError
+____________ test_invalid_restored_geometry_rejects_before_step[1] _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-1/test_invalid_restored_geometry1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0f59c78fd0>
+map_index = 1
+
+    @pytest.mark.parametrize('map_index', (0, 1))
+    def test_invalid_restored_geometry_rejects_before_step(tmp_path, monkeypatch, map_index):
+        import openmm as mm
+        from openmm import unit
+        from atm_mlmm.persistence import read_json
+        from atm_mlmm.schema import NumericalDomainError
+        from atm_mlmm.workflow import _snapshot, resume_run
+    
+        output = _analytic_fixed_window(tmp_path/'fixed')
+    
+        def overlap(worker, _row):
+            physical = worker.bundle.physical
+            context = worker.evaluator.context
+            state = context.getState(getPositions=True)
+            positions = state.getPositions(asNumpy=True).value_in_unit(unit.nanometer)
+            ligand_index = physical.real_to_final['b1']
+            protein_index = physical.real_to_final['protein']
+            if map_index == 0:
+                positions[protein_index] = positions[ligand_index]
+            else:
+                displacement = np.asarray(worker.bundle.transfer.protocol.geometry_requests['displacement_nm'])
+                positions[protein_index] = positions[ligand_index] - displacement
+            context.setPositions(positions*unit.nanometer)
+            context.computeVirtualSites()
+    
+        row = _mutate_checkpoint(output, overlap)
+        assert row['state_id'] == 'first'
+        calls = _watch_admission_calls(monkeypatch)
+        with pytest.raises(NumericalDomainError, match=f'map{map_index} intermolecular Bondi ratio'):
+            resume_run(output, trusted=True)
+>       assert calls == {'energy': 0, 'steps': []}
+E       AssertionError: assert {'energy': 0, 'steps': [1]} == {'energy': 0, 'steps': []}
+E         
+E         Omitting 1 identical items, use -vv to show
+E         Differing items:
+E         {'steps': [1]} != {'steps': []}
+E         Use -v to get more diff
+
+tests/workflow/test_restored_state_admission.py:84: AssertionError
+_____________ test_restored_checkpoint_time_must_match_saved_state _____________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-1/test_restored_checkpoint_time_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0f59c72190>
+
+    def test_restored_checkpoint_time_must_match_saved_state(tmp_path, monkeypatch):
+        import openmm as mm
+        from openmm import unit
+        from atm_mlmm.schema import IdentityError
+        from atm_mlmm.workflow import resume_run
+    
+        output = _analytic_fixed_window(tmp_path/'fixed')
+    
+        def move_time(worker, _row):
+            worker.evaluator.context.setTime(1.0005*unit.picosecond)
+    
+        row = _mutate_checkpoint(output, move_time)
+        assert row['step'] == 1 and row['time_ps'] == .0005
+        calls = _watch_admission_calls(monkeypatch)
+>       with pytest.raises(IdentityError, match='clock|time'):
+E       Failed: DID NOT RAISE IdentityError
+
+tests/workflow/test_restored_state_admission.py:104: Failed
+________ test_saved_row_must_match_actual_restored_state[positions_nm] _________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-1/test_saved_row_must_match_actu0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0f59c0c2d0>
+field = 'positions_nm'
+
+    @pytest.mark.parametrize('field', ('positions_nm', 'velocities_nm_ps', 'box_nm', 'parameters'))
+    def test_saved_row_must_match_actual_restored_state(tmp_path, monkeypatch, field):
+        from atm_mlmm.persistence import read_json, write_json
+        from atm_mlmm.schema import IdentityError
+        from atm_mlmm.workflow import resume_run
+    
+        output = _analytic_fixed_window(tmp_path/'fixed')
+        chunk = output/'samples/000000'
+        row_path = chunk/'record.json'
+        row = read_json(row_path)
+        if field == 'positions_nm':
+            row[field][0][0] += .001
+        elif field == 'velocities_nm_ps':
+            row[field][0][0] += .1
+        elif field == 'box_nm':
+            row[field] = [[3.2, 0., 0.], [0., 3.2, 0.], [0., 0., 3.2]]
+        else:
+            row[field]['Lambda1'] += .01
+        write_json(row_path, row)
+        manifest_path = chunk/'manifest.json'
+        manifest = read_json(manifest_path)
+        manifest['files']['record.json'] = hashlib.sha256(row_path.read_bytes()).hexdigest()
+        write_json(manifest_path, manifest)
+    
+        calls = _watch_admission_calls(monkeypatch)
+>       with pytest.raises(IdentityError, match='saved|sample|coordinates|velocities|box|parameters'):
+E       Failed: DID NOT RAISE IdentityError
+
+tests/workflow/test_restored_state_admission.py:134: Failed
+______ test_saved_row_must_match_actual_restored_state[velocities_nm_ps] _______
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-1/test_saved_row_must_match_actu1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0f5ce7ee50>
+field = 'velocities_nm_ps'
+
+    @pytest.mark.parametrize('field', ('positions_nm', 'velocities_nm_ps', 'box_nm', 'parameters'))
+    def test_saved_row_must_match_actual_restored_state(tmp_path, monkeypatch, field):
+        from atm_mlmm.persistence import read_json, write_json
+        from atm_mlmm.schema import IdentityError
+        from atm_mlmm.workflow import resume_run
+    
+        output = _analytic_fixed_window(tmp_path/'fixed')
+        chunk = output/'samples/000000'
+        row_path = chunk/'record.json'
+        row = read_json(row_path)
+        if field == 'positions_nm':
+            row[field][0][0] += .001
+        elif field == 'velocities_nm_ps':
+            row[field][0][0] += .1
+        elif field == 'box_nm':
+            row[field] = [[3.2, 0., 0.], [0., 3.2, 0.], [0., 0., 3.2]]
+        else:
+            row[field]['Lambda1'] += .01
+        write_json(row_path, row)
+        manifest_path = chunk/'manifest.json'
+        manifest = read_json(manifest_path)
+        manifest['files']['record.json'] = hashlib.sha256(row_path.read_bytes()).hexdigest()
+        write_json(manifest_path, manifest)
+    
+        calls = _watch_admission_calls(monkeypatch)
+>       with pytest.raises(IdentityError, match='saved|sample|coordinates|velocities|box|parameters'):
+E       Failed: DID NOT RAISE IdentityError
+
+tests/workflow/test_restored_state_admission.py:134: Failed
+___________ test_saved_row_must_match_actual_restored_state[box_nm] ____________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-1/test_saved_row_must_match_actu2')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0f5ce32690>
+field = 'box_nm'
+
+    @pytest.mark.parametrize('field', ('positions_nm', 'velocities_nm_ps', 'box_nm', 'parameters'))
+    def test_saved_row_must_match_actual_restored_state(tmp_path, monkeypatch, field):
+        from atm_mlmm.persistence import read_json, write_json
+        from atm_mlmm.schema import IdentityError
+        from atm_mlmm.workflow import resume_run
+    
+        output = _analytic_fixed_window(tmp_path/'fixed')
+        chunk = output/'samples/000000'
+        row_path = chunk/'record.json'
+        row = read_json(row_path)
+        if field == 'positions_nm':
+            row[field][0][0] += .001
+        elif field == 'velocities_nm_ps':
+            row[field][0][0] += .1
+        elif field == 'box_nm':
+            row[field] = [[3.2, 0., 0.], [0., 3.2, 0.], [0., 0., 3.2]]
+        else:
+            row[field]['Lambda1'] += .01
+        write_json(row_path, row)
+        manifest_path = chunk/'manifest.json'
+        manifest = read_json(manifest_path)
+        manifest['files']['record.json'] = hashlib.sha256(row_path.read_bytes()).hexdigest()
+        write_json(manifest_path, manifest)
+    
+        calls = _watch_admission_calls(monkeypatch)
+>       with pytest.raises(IdentityError, match='saved|sample|coordinates|velocities|box|parameters'):
+E       Failed: DID NOT RAISE IdentityError
+
+tests/workflow/test_restored_state_admission.py:134: Failed
+_________ test_saved_row_must_match_actual_restored_state[parameters] __________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-1/test_saved_row_must_match_actu3')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0f5cced290>
+field = 'parameters'
+
+    @pytest.mark.parametrize('field', ('positions_nm', 'velocities_nm_ps', 'box_nm', 'parameters'))
+    def test_saved_row_must_match_actual_restored_state(tmp_path, monkeypatch, field):
+        from atm_mlmm.persistence import read_json, write_json
+        from atm_mlmm.schema import IdentityError
+        from atm_mlmm.workflow import resume_run
+    
+        output = _analytic_fixed_window(tmp_path/'fixed')
+        chunk = output/'samples/000000'
+        row_path = chunk/'record.json'
+        row = read_json(row_path)
+        if field == 'positions_nm':
+            row[field][0][0] += .001
+        elif field == 'velocities_nm_ps':
+            row[field][0][0] += .1
+        elif field == 'box_nm':
+            row[field] = [[3.2, 0., 0.], [0., 3.2, 0.], [0., 0., 3.2]]
+        else:
+            row[field]['Lambda1'] += .01
+        write_json(row_path, row)
+        manifest_path = chunk/'manifest.json'
+        manifest = read_json(manifest_path)
+        manifest['files']['record.json'] = hashlib.sha256(row_path.read_bytes()).hexdigest()
+        write_json(manifest_path, manifest)
+    
+        calls = _watch_admission_calls(monkeypatch)
+>       with pytest.raises(IdentityError, match='saved|sample|coordinates|velocities|box|parameters'):
+E       Failed: DID NOT RAISE IdentityError
+
+tests/workflow/test_restored_state_admission.py:134: Failed
+__________ test_pair_restored_checkpoint_time_must_match_saved_state ___________
+
+prepared = PosixPath('/tmp/pytest-of-agent/pytest-1/test_pair_restored_checkpoint_0/prepared')
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-1/test_pair_restored_checkpoint_0')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f0f5cf91d50>
+
+    def test_pair_restored_checkpoint_time_must_match_saved_state(prepared,tmp_path,monkeypatch):
+        import openmm as mm
+        from openmm import unit
+        from atm_mlmm.adapters import atom
+        from atm_mlmm.adapters.atom import load_worker_run
+        from atm_mlmm.exchange_journal import read_exchange_rounds,seal
+        from atm_mlmm.persistence import read_json
+        from atm_mlmm.schema import IdentityError
+    
+        run,resume,_=api()
+        output=tmp_path/'clock-mismatch'
+        run(prepared,output,rounds=2,steps_per_round=1,seed=73,trusted=True,stop_after_rounds=1)
+        metadata=read_json(output/'metadata.json')
+        boundary=output/'rounds/000000'
+        record=read_json(boundary/'record.json')
+        sample=record['samples'][0]
+        state_id=record['state_ids_after'][0]
+        checkpoint=boundary/'worker-0.chk'
+        with load_worker_run(output/'worker',metadata['worker_manifest_sha256'],trusted=True,
+                             integrator_seed=metadata['settings']['seed']) as worker:
+            worker.restore_checkpoint(checkpoint.read_bytes(),state_id)
+            worker.evaluator.context.setTime(1.0005*unit.picosecond)
+            checkpoint.write_bytes(worker.evaluator.context.createCheckpoint())
+        seal(boundary,index=0)
+        assert sample['step']==1 and sample['time_ps']==.0005
+>       assert len(read_exchange_rounds(output))==1
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/workflow/test_persistent_exchange.py:148: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/exchange_journal.py:104: in read_exchange_rounds
+    manifest=verify(path,index=index)
+             ^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+directory = PosixPath('/tmp/pytest-of-agent/pytest-1/test_pair_restored_checkpoint_0/clock-mismatch/rounds/000000')
+index = 0
+
+    def verify(directory, *, index=None):
+        if directory.is_symlink() or not directory.is_dir():
+            raise IdentityError('exchange transaction directory identity mismatch')
+        manifest=read_json(directory/'manifest.json')
+        required={'record.json','rng.json','worker-0.xml','worker-1.xml','worker-0.chk','worker-1.chk'}
+        if index is not None: required |= {'evaluated.json','decision.json','refreshed.json'}
+        if (manifest.get('version')!=1 or manifest.get('index')!=index or
+                set(manifest.get('files',{}))!=required or
+                {p.name for p in directory.iterdir()}!=required|{'manifest.json'}):
+>           raise IdentityError('exchange transaction complete artifact identity mismatch')
+E           atm_mlmm.schema.IdentityError: exchange transaction complete artifact identity mismatch
+
+src/atm_mlmm/exchange_journal.py:67: IdentityError
+=========================== short test summary info ============================
+FAILED tests/workflow/test_engine_restart.py::test_missing_bundled_source_rejects_before_load
+FAILED tests/workflow/test_worker_handover.py::test_worker_source_inventory_is_complete_before_executable_loading[extra-source]
+FAILED tests/workflow/test_worker_handover.py::test_worker_source_inventory_is_complete_before_executable_loading[changed-source]
+FAILED tests/workflow/test_restored_state_admission.py::test_invalid_restored_geometry_rejects_before_step[0]
+FAILED tests/workflow/test_restored_state_admission.py::test_invalid_restored_geometry_rejects_before_step[1]
+FAILED tests/workflow/test_restored_state_admission.py::test_restored_checkpoint_time_must_match_saved_state
+FAILED tests/workflow/test_restored_state_admission.py::test_saved_row_must_match_actual_restored_state[positions_nm]
+FAILED tests/workflow/test_restored_state_admission.py::test_saved_row_must_match_actual_restored_state[velocities_nm_ps]
+FAILED tests/workflow/test_restored_state_admission.py::test_saved_row_must_match_actual_restored_state[box_nm]
+FAILED tests/workflow/test_restored_state_admission.py::test_saved_row_must_match_actual_restored_state[parameters]
+FAILED tests/workflow/test_persistent_exchange.py::test_pair_restored_checkpoint_time_must_match_saved_state
+11 failed, 1 passed in 5.02s

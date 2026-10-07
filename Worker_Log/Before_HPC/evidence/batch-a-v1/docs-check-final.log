@@ -1,0 +1,9 @@
+{
+  "errors": [],
+  "counts": {
+    "markdown_files": 256,
+    "local_links": 1655,
+    "external_links_not_fetched": 57
+  },
+  "scope": "local documentation only; no external-link or scientific qualification"
+}
