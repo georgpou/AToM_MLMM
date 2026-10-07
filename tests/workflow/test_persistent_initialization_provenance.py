@@ -39,7 +39,7 @@ def _run(prepared, output, *, host_seed):
         steps_per_boundary=1, seed=host_seed, trusted=True)
 
 
-def _analysis_contract():
+def _analysis_contract(method="independent_runs"):
     from atm_mlmm.schema import ExchangeResamplingSpec, ThermodynamicSpec
 
     states = ("first", "middle", "third")
@@ -48,18 +48,22 @@ def _analysis_contract():
         "endpoint_difference", ((states[0], states[1]), (states[1], states[2])),
         {states[0]: "initial test state", states[2]: "final test state"},
         (), (), None, "bounded provenance control", "none", "none", "none")
-    resampling = ExchangeResamplingSpec(
-        "independent_runs", None, 2, 19, "bounded persistent initialization control")
+    if method == "synchronized_blocks":
+        resampling = ExchangeResamplingSpec(
+            "synchronized_blocks", 1, 2, 19, "bounded persistent initialization control")
+    else:
+        resampling = ExchangeResamplingSpec(
+            "independent_runs", None, 2, 19, "bounded persistent initialization control")
     return thermo, resampling
 
 
-def test_persistent_analyzer_rejects_duplicate_producer_streams_but_accepts_distinct_streams(
-        tmp_path):
-    from atm_mlmm.exchange_analysis import _validate_window, analyze_exchange
+@pytest.fixture(scope="module")
+def persistent_stream_cases(tmp_path_factory):
+    from atm_mlmm.exchange_analysis import _validate_window
     from atm_mlmm.persistence import read_json, write_json
-    from atm_mlmm.schema import IdentityError, QualificationError
     from tests.workflow.test_persistent_exchange import prepare_multistate
 
+    tmp_path = tmp_path_factory.mktemp("persistent-initialization")
     prepared = prepare_multistate(tmp_path / "prepared")
     duplicate_a = tmp_path / "duplicate-a"
     duplicate_b = tmp_path / "duplicate-b"
@@ -97,7 +101,6 @@ def test_persistent_analyzer_rejects_duplicate_producer_streams_but_accepts_dist
         duplicate_inputs[0],
         _analysis_input(distinct_state, tmp_path / "distinct-state-window.json"),
     )
-    thermo, resampling = _analysis_contract()
     duplicate_a_metadata = read_json(duplicate_a / "metadata.json")
     duplicate_b_metadata = read_json(duplicate_b / "metadata.json")
     duplicate_a_initialization = _validate_window(duplicate_inputs[0])["initialization_identity"]
@@ -125,19 +128,27 @@ def test_persistent_analyzer_rejects_duplicate_producer_streams_but_accepts_dist
     assert duplicate_a_metadata["integrator_seed_base"] == read_json(distinct_state / "metadata.json")["integrator_seed_base"]
     assert distinct_state_initialization != duplicate_a_initialization
 
+    return {
+        "duplicate_inputs": duplicate_inputs,
+        "distinct_inputs": (distinct_host_inputs, distinct_integrator_inputs, distinct_state_inputs),
+    }
+
+
+@pytest.mark.parametrize("method", ("independent_runs", "synchronized_blocks"))
+def test_persistent_analyzer_rejects_duplicate_producer_streams_but_accepts_distinct_streams(
+        persistent_stream_cases, method):
+    from atm_mlmm.exchange_analysis import analyze_exchange
+    from atm_mlmm.schema import IdentityError, QualificationError
+
+    thermo, resampling = _analysis_contract(method)
+    duplicate_inputs = persistent_stream_cases["duplicate_inputs"]
     with pytest.raises(IdentityError, match="initialization"):
         analyze_exchange(duplicate_inputs, thermo, resampling=resampling)
 
-    for changed_inputs in (distinct_host_inputs, distinct_integrator_inputs):
+    for changed_inputs in persistent_stream_cases["distinct_inputs"]:
         try:
             analyze_exchange(changed_inputs, thermo, resampling=resampling)
         except IdentityError as error:
             assert "initialization" not in str(error)
         except QualificationError:
             pass  # Two retained boundaries test stream admission, not sampling adequacy.
-    try:
-        analyze_exchange(distinct_state_inputs, thermo, resampling=resampling)
-    except IdentityError as error:
-        assert "initialization" not in str(error)
-    except QualificationError:
-        pass  # Two retained boundaries test state admission, not sampling adequacy.

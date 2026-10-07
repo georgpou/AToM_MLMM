@@ -303,8 +303,8 @@ def analyze_exchange(histories, thermodynamics, *, resampling, estimator='pymbar
     if resampling.method == 'independent_runs':
         if any(identity is None or identity == '' for identity in initialization):
             raise QualificationError('persistent independent-run initialization provenance is unresolved')
-        if len(set(initialization)) != len(initialization):
-            raise IdentityError('independent histories repeat their initialization identity')
+    if len(set(initialization)) != len(initialization):
+        raise IdentityError('exchange histories repeat their initialization identity')
     first = histories[0].records
     if any(history.records.schedule.content_identity != first.schedule.content_identity or
            history.records.physical_identity != first.physical_identity or

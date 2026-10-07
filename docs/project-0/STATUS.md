@@ -1,5 +1,13 @@
 # Current status
 
+**Before-HPC audit v2 follow-up:** V2-F1 and V2-F3 are implemented on
+`before_HPC`; focused RED reproduced the synchronized-block duplicate and
+journal-inventory gaps, GREEN passed 4 tests, and bounded compatibility passed
+10 tests. The exact worker record and raw outputs are in
+[Audit_Fixes_v2_worker.md](../../Worker_Log/Before_HPC/Audit_Fixes_v2_worker.md)
+and `Worker_Log/Before_HPC/evidence/audit-fixes-v2/`. Independent review,
+full-suite validation, and all scientific/release/HPC holds remain open.
+
 **Before HPC Batch E: installed CPU package and bounded CLI checks are recorded; consolidated suite and physical/HPC holds remain.**
 The [Batch E inline worker](../../Worker_Log/Before_HPC/Batch_E_v1_worker.md) commits
 source/tests at `b3504f09e224b6f8fc636615ec3284e9326c6d45` (tree

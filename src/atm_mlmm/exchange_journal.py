@@ -371,19 +371,9 @@ def _verify_multistate_source(directory,metadata):
     if sha(manifest_path)!=metadata.get('worker_manifest_sha256'):
         raise IdentityError('multistate worker manifest hash mismatch')
     manifest=read_json(manifest_path)
-    prefix='runtime/source/atm_mlmm/'
-    bundled={name for name in manifest.get('files',{}) if name.startswith(prefix) and name.endswith('.py')}
-    source_root=Path(__file__).resolve().parent
-    current={prefix+path.relative_to(source_root).as_posix() for path in source_root.rglob('*.py')}
-    if bundled!=current:
-        raise IdentityError('multistate recursive Python source inventory mismatch')
-    for name,digest in manifest.get('files',{}).items():
-        rel=Path(name)
-        path=(worker/rel).resolve()
-        if rel.is_absolute() or '..' in rel.parts or worker.resolve() not in path.parents or path.is_symlink() or not path.is_file() or sha(path)!=digest:
-            raise IdentityError(f'multistate worker artifact hash mismatch: {name}')
-        if name.startswith(prefix) and sha(source_root/name[len(prefix):])!=digest:
-            raise IdentityError(f'multistate current source hash mismatch: {name}')
+    from .runtime_validation import verify_source_inventory
+    verify_source_inventory(worker,manifest.get('files'),
+                            current_source_root=Path(__file__).resolve().parent)
 
 
 def _validate_multistate_metadata(metadata):

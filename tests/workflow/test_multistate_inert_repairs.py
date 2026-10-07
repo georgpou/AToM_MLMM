@@ -74,6 +74,30 @@ def _clone_prefix(valid_prefix, destination):
     return shutil.copytree(prefix, destination)
 
 
+@pytest.mark.parametrize('fault', ('nested-file', 'nested-symlink'))
+def test_multistate_journal_reader_checks_complete_recursive_source_inventory(
+        valid_prefix, tmp_path, fault):
+    from atm_mlmm.exchange_journal import read_multistate_boundaries
+    from atm_mlmm.schema import IdentityError
+
+    relocated = _clone_prefix(valid_prefix, tmp_path / 'relocated-matching')
+    assert len(read_multistate_boundaries(relocated)) == 1
+
+    challenge = _clone_prefix(valid_prefix, tmp_path / fault)
+    bundled_source = challenge / 'worker/runtime/source/atm_mlmm'
+    nested = bundled_source / 'nested'
+    nested.mkdir()
+    if fault == 'nested-file':
+        (nested / 'undeclared.py').write_text("VALUE = 'not declared in the manifest'\n")
+        expected = 'source inventory'
+    else:
+        (nested / 'linked-package').symlink_to(bundled_source, target_is_directory=True)
+        expected = 'symbolic link'
+
+    with pytest.raises(IdentityError, match=expected):
+        read_multistate_boundaries(challenge)
+
+
 def _tree_digest(root):
     digest = hashlib.sha256()
     for path in sorted(p for p in root.rglob('*') if p.is_file()):
