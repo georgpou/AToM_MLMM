@@ -45,6 +45,7 @@
   "resampling": {
     "synchronized_blocks_length_frames": 32,
     "bootstrap_replicates": 64,
+    "bootstrap_seed": 77031,
     "fixed_seeds_file": "seeds.json",
     "per_run_block_count": 128,
     "block_tail_policy": "all frames retained; 4096 is divisible by 32; any partial block rejects",
@@ -54,9 +55,13 @@
   },
   "predeclared_qualification_criteria": {
     "known_answer_each_estimator": "absolute point-estimate error <= 0.1 kJ/mol and <= 3 bootstrap standard errors from +1.5 kJ/mol; reverse weights must return the negated value and same standard error",
+    "known_answer_absolute_tolerance_kJ_mol": 0.1,
+    "known_answer_standard_error_multiplier": 3.0,
     "zero_restraint_answer": "independent analytic Gaussian integration returns zero within 1e-12 kJ/mol; this is not a molecular result",
     "identical_input_estimator_agreement": "absolute PyMBAR versus pinned UWHAM point-estimate difference <= 1e-6 kJ/mol",
+    "identical_input_estimator_agreement_limit_kJ_mol": 0.000001,
     "bootstrap_covariance_vs_independent_run_mean": "for the B-minus-A contrast, ratio of 64-draw resampled variance to sample variance of the 12 independent run point estimates divided by 12 must lie in [0.5, 2.0]; a zero/nonfinite denominator or any failed draw is a hold",
+    "bootstrap_to_independent_run_mean_variance_ratio": [0.5, 2.0],
     "no_tuning": "seeds, equations, block length, replicate count, estimator agreement limit, and covariance interval remain fixed after the first control result"
   },
   "interpretation": "Synthetic analytic evidence only. It does not measure scheduler mixing, conformational convergence, equilibrium sampling, molecular binding, or G08 acceptance."
