@@ -247,10 +247,17 @@ class ResolvedPartition(Record):
     component_identities: tuple[str, ...]
     rejected_conditions: tuple[str, ...]
     source_map: Mapping[str, int]
+    component_states: tuple[ComponentState, ...] = ()
 
     def _validate(self):
         _ids(self.ml_ids)
         _ids(self.protein_ml_ids, empty=True)
+        if self.component_states:
+            state_ids = [frozenset(state.atom_ids) for state in self.component_states]
+            if len(set(state_ids)) != len(state_ids) or set().union(*state_ids) != set(self.ml_ids):
+                raise IdentityError('resolved component chemistry must cover fixed ML membership exactly')
+            if any(state.formal_charge != 0 or state.multiplicity != 1 for state in self.component_states):
+                raise UnsupportedCapability('resolved components require declared neutral singlet chemistry')
 
 
 @record
@@ -397,11 +404,15 @@ class SystemInput(Record):
     constraints: tuple[tuple[str, str, float], ...]
     force_field_provenance: Mapping[str, Any]
     units: Units = Units()
+    prepared_mm_inventory_identity: str | None = None
 
     def _validate(self):
         _required(self.prepared_mm_artifact)
         if not re.fullmatch('[0-9a-f]{64}', self.prepared_mm_sha256):
             raise MalformedInput('prepared MM identity must be SHA-256')
+        if (self.prepared_mm_inventory_identity is not None and
+                not re.fullmatch('[0-9a-f]{64}', self.prepared_mm_inventory_identity)):
+            raise MalformedInput('prepared MM inventory identity must be SHA-256')
         ids = tuple(a.atom_id for a in self.topology.atoms)
         Snapshot(ids, self.positions_nm, self.box_nm)
         if len(self.masses_da) != len(ids) or any(m <= 0 for m in self.masses_da):
@@ -444,7 +455,8 @@ class LinkRecord(Record):
 
     def _validate(self):
         _ids((self.cap_id, self.ml_parent_id, self.mm_parent_id))
-        if self.final_particle_index < 0 or self.model_input_index < 0 or self.distance_nm <= 0:
+        if (self.final_particle_index < 0 or self.model_input_index < 0 or
+                not math.isfinite(self.distance_nm) or self.distance_nm <= 0):
             raise MalformedInput('invalid link index/distance')
         if self.virtual_site_type != 'LocalCoordinatesSite':
             raise UnsupportedCapability('only fixed-length LocalCoordinatesSite caps admitted')
@@ -470,6 +482,7 @@ class PhysicalBundle(Record):
     manifest: Mapping[str, Any]
     units: Units = Units()
     links: tuple[LinkRecord, ...] = ()
+    chemistry_states: tuple[ComponentState, ...] = ()
 
     @property
     def model_input_ids(self):
@@ -495,9 +508,63 @@ class PhysicalBundle(Record):
             raise MalformedInput('invalid final particle masses')
         if any(self.masses_da[i] <= 0 for i in indices):
             raise MalformedInput('real particle mass must be positive')
+        states = self.chemistry_states
+        if states:
+            state_ids = [frozenset(state.atom_ids) for state in states]
+            if len(set(state_ids)) != len(state_ids) or set().union(*state_ids) != set(self.ml_atom_ids):
+                raise IdentityError('sealed component chemistry must cover fixed ML membership exactly')
+            if any(state.formal_charge != 0 or state.multiplicity != 1 for state in states):
+                raise UnsupportedCapability('sealed components require declared neutral singlet chemistry')
+        version = self.manifest.get('boundary_builder_version')
+        if version is not None and (type(version) is not int or version not in (1, 2)):
+            raise UnsupportedCapability(f'unsupported boundary builder version: {version}')
+        if version == 1 and (len(self.links) > 1 or (not self.links and set(self.ml_atom_ids) != set(ids))):
+            raise UnsupportedCapability('boundary builder version 1 retains zero/one-cut all-ML semantics')
+        if version == 2:
+            if not (len(self.links) >= 2 or (not self.links and set(self.ml_atom_ids) < set(ids))):
+                raise UnsupportedCapability('boundary builder version 2 requires a cap collection or mixed zero-cut input')
+            if not states:
+                raise IdentityError('boundary builder version 2 requires explicit component chemistry')
+            if any(name not in self.manifest for name in
+                   ('boundary_edges', 'cap_distances_nm', 'cap_force_ownership')):
+                raise IdentityError('boundary builder version 2 requires complete edge, distance, and ownership records')
+        declared_edges = self.manifest.get('boundary_edges')
+        if declared_edges is not None:
+            if (not isinstance(declared_edges, (tuple, list)) or
+                    any(not isinstance(edge, (tuple, list)) or len(edge) != 2
+                        or any(not isinstance(atom_id, str) or not atom_id for atom_id in edge)
+                        for edge in declared_edges)):
+                raise IdentityError('declared boundary edges must be ordered atom-ID pairs')
+            if (len(declared_edges) != len(self.links) or
+                    set(map(tuple, declared_edges)) != {
+                        (link.ml_parent_id, link.mm_parent_id) for link in self.links
+                    }):
+                raise IdentityError('sealed cap collection differs from declared boundary edges')
+        distance_rows = self.manifest.get('cap_distances_nm')
+        if distance_rows is not None:
+            if (not isinstance(distance_rows, (tuple, list)) or
+                    any(not isinstance(row, (tuple, list)) or len(row) != 2
+                        for row in distance_rows)):
+                raise IdentityError('cap distances must be cap-ID/distance pairs')
+            distance_ids = tuple(row[0] for row in distance_rows)
+            if (any(not isinstance(cap_id, str) or not cap_id for cap_id in distance_ids) or
+                    len(distance_ids) != len(self.links) or len(set(distance_ids)) != len(distance_ids) or
+                    any(isinstance(row[1], bool) or not isinstance(row[1], Real) or
+                        not math.isfinite(row[1]) for row in distance_rows) or
+                    {row[0]: float(row[1]) for row in distance_rows} !=
+                    {link.cap_id: link.distance_nm for link in self.links}):
+                raise IdentityError('manifest cap distances disagree with actual sealed links')
         if self.links:
-            if self.manifest.get('boundary_builder_version') != 1 or len(self.links) != 1:
-                raise UnsupportedCapability('G04 boundary builder version 1 admits one cap')
+            cap_ids = tuple(link.cap_id for link in self.links)
+            cap_particles = tuple(link.final_particle_index for link in self.links)
+            cap_inputs = tuple(link.model_input_index for link in self.links)
+            mm_parents = tuple(link.mm_parent_id for link in self.links)
+            ml_parents = tuple(link.ml_parent_id for link in self.links)
+            edges = tuple((link.ml_parent_id, link.mm_parent_id) for link in self.links)
+            if (len(set(cap_ids)) != len(cap_ids) or len(set(cap_particles)) != len(cap_particles)
+                    or len(set(cap_inputs)) != len(cap_inputs) or len(set(mm_parents)) != len(mm_parents)
+                    or len(set(ml_parents)) != len(ml_parents) or len(set(edges)) != len(edges)):
+                raise IdentityError('duplicate cap identity, parent, model input, final particle, or edge')
             _ids(self.model_input_ids)
             for link in self.links:
                 if link.cap_id in ids:
@@ -510,6 +577,23 @@ class PhysicalBundle(Record):
                     raise IdentityError('cap has independent mass')
                 if link.model_input_index != self.model_input_ids.index(link.cap_id) or self.model_to_final[link.cap_id] != link.final_particle_index:
                     raise IdentityError('link/model map mismatch')
+                expected_id = 'cap:'+hashlib.sha256((link.ml_parent_id+'\0'+link.mm_parent_id).encode()).hexdigest()
+                if link.cap_id != expected_id:
+                    raise IdentityError('cap identity is not stable for its declared parents')
+            ownership = self.manifest.get('cap_force_ownership')
+            if ownership is not None:
+                if (not isinstance(ownership, (tuple, list)) or
+                        any(not isinstance(entry, Mapping) for entry in ownership) or
+                        len(ownership) != len(cap_ids) or
+                        {entry.get('cap_id') for entry in ownership} != set(cap_ids) or
+                        any(entry.get('raw_force_group') != 2 or
+                            entry.get('raw_force_owner') != 'mechanical-model' or
+                            entry.get('projection_owner') != 'native LocalCoordinatesSite exactly once'
+                            for entry in ownership)):
+                    raise IdentityError('cap force ownership must name every cap exactly once')
+        elif version == 2 and any(self.manifest[name] for name in
+                                  ('boundary_edges', 'cap_distances_nm', 'cap_force_ownership')):
+            raise IdentityError('mixed zero-cut v2 inputs cannot declare cap metadata')
         if set(indices) | {l.final_particle_index for l in self.links} != set(range(len(self.masses_da))):
             raise IdentityError('real/link maps must cover every final particle')
         if not self.ledger or not self.manifest:
@@ -924,6 +1008,10 @@ def _encode(value):
         # bytes/content identities and their nested transfer IDs stay unchanged.
         return dict(record_type=type(value).__name__, data={f.name: _encode(getattr(value, f.name)) for f in fields(value)
                     if not ((isinstance(value, PhysicalBundle) and f.name == 'links' and not value.links)
+                            or (isinstance(value, PhysicalBundle) and f.name == 'chemistry_states' and not value.chemistry_states)
+                            or (isinstance(value, ResolvedPartition) and f.name == 'component_states' and not value.component_states)
+                            or (isinstance(value, SystemInput) and f.name == 'prepared_mm_inventory_identity'
+                                and value.prepared_mm_inventory_identity is None)
                             or (isinstance(value, BindingResult) and f.name == 'thermodynamics'
                                 and value.thermodynamics is None))})
     if isinstance(value, Mapping):

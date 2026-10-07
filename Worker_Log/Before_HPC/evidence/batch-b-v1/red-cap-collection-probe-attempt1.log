@@ -1,0 +1,23 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___ test_two_cap_collection_probe_matches_independent_per_edge_force_oracle ____
+
+    def test_two_cap_collection_probe_matches_independent_per_edge_force_oracle():
+>       bundle, snapshot, probe = build_collection()
+                                  ^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_cap_collections.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_cap_collections.py:40: in build_collection
+    probe = collection_probe() if probe is None else probe
+            ^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def collection_probe():
+>       from atm_mlmm.models.analytic_caps import CapCollectionProbe, CapParameters, LigandTerm
+E       ModuleNotFoundError: No module named 'atm_mlmm.models.analytic_caps'
+
+tests/integration/test_cap_collections.py:12: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/integration/test_cap_collections.py::test_two_cap_collection_probe_matches_independent_per_edge_force_oracle
+1 failed, 1 deselected in 0.14s

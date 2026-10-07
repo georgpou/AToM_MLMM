@@ -1,0 +1,67 @@
+<?xml version="1.0" ?>
+<System openmmVersion="8.6.1" type="System" version="1">
+	<PeriodicBoxVectors>
+		<A x="2" y="0" z="0"/>
+		<B x="0" y="2" z="0"/>
+		<C x="0" y="0" z="2"/>
+	</PeriodicBoxVectors>
+	<Particles>
+		<Particle mass="12.011"/>
+		<Particle mass="12.011"/>
+		<Particle mass="12.011"/>
+		<Particle mass="12.011"/>
+		<Particle mass="1.008"/>
+		<Particle mass="1.008"/>
+		<Particle mass="12.011"/>
+		<Particle mass="1.008"/>
+		<Particle mass="12.011"/>
+		<Particle mass="1.008"/>
+		<Particle mass="1.008"/>
+		<Particle mass="1.008"/>
+		<Particle mass="1.008"/>
+		<Particle mass="12.011"/>
+		<Particle mass="12.011"/>
+	</Particles>
+	<Constraints/>
+	<Forces>
+		<Force alpha="0" cutoff="1" dispersionCorrection="0" ewaldTolerance=".0005" exceptionsUsePeriodic="0" forceGroup="0" includeDirectSpace="1" ljAlpha="0" ljnx="0" ljny="0" ljnz="0" method="0" name="NonbondedForce" nx="0" ny="0" nz="0" recipForceGroup="-1" rfDielectric="78.3" switchingDistance="-1" type="NonbondedForce" useSwitchingFunction="0" version="4">
+			<GlobalParameters/>
+			<ParticleOffsets/>
+			<ExceptionOffsets/>
+			<Particles>
+				<Particle eps=".08" q="-.2" sig=".25"/>
+				<Particle eps=".08700000000000001" q=".15" sig=".253"/>
+				<Particle eps=".094" q=".05" sig=".256"/>
+				<Particle eps=".101" q=".1" sig=".259"/>
+				<Particle eps=".108" q=".1" sig=".262"/>
+				<Particle eps=".115" q="-.05" sig=".265"/>
+				<Particle eps=".122" q="-.05" sig=".268"/>
+				<Particle eps=".129" q="-.03" sig=".271"/>
+				<Particle eps=".136" q=".2" sig=".274"/>
+				<Particle eps=".14300000000000002" q="-.1" sig=".277"/>
+				<Particle eps=".15000000000000002" q="-.1" sig=".28"/>
+				<Particle eps=".157" q="-.03" sig=".28300000000000003"/>
+				<Particle eps=".164" q="-.04" sig=".28600000000000003"/>
+				<Particle eps=".17099999999999999" q="0" sig=".289"/>
+				<Particle eps=".178" q="0" sig=".292"/>
+			</Particles>
+			<Exceptions/>
+		</Force>
+		<Force forceGroup="0" name="HarmonicBondForce" type="HarmonicBondForce" usesPeriodic="0" version="2">
+			<Bonds>
+				<Bond d=".15" k="800" p1="0" p2="2"/>
+				<Bond d=".30000000000000004" k="837" p1="2" p2="6"/>
+				<Bond d=".15297058540778352" k="874" p1="6" p2="8"/>
+				<Bond d=".09219544457292887" k="911" p1="0" p2="4"/>
+				<Bond d=".12569805089976532" k="948" p1="8" p2="10"/>
+				<Bond d=".28071337695236404" k="985" p1="2" p2="13"/>
+				<Bond d=".28071337695236404" k="1022" p1="6" p2="14"/>
+				<Bond d=".13416407864998736" k="1059" p1="1" p2="5"/>
+				<Bond d=".1414213562373095" k="1096" p1="1" p2="9"/>
+				<Bond d=".12688577540449517" k="1133" p1="3" p2="7"/>
+				<Bond d=".10440306508910548" k="1170" p1="3" p2="11"/>
+				<Bond d=".12247448713915893" k="1207" p1="3" p2="12"/>
+			</Bonds>
+		</Force>
+	</Forces>
+</System>

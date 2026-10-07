@@ -102,4 +102,4 @@ def resolve_partition(topology, spec):
             raise UnsupportedCapability(f'charged/ambiguous fragment unsupported: {sorted(ids)}')
     identities = tuple(hashlib.sha256('\0'.join(sorted(c)).encode()).hexdigest() for c in components)
     return ResolvedPartition(tuple(sorted(selected)), tuple(sorted(protein)), tuple(sorted(crossing)),
-                             identities, (), atom_index(topology))
+                             identities, (), atom_index(topology), spec.component_states)

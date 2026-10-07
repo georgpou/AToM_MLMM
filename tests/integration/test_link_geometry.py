@@ -309,8 +309,12 @@ def test_link_ids_cannot_alias_real_mm_ids():
     bundle,_=case()
     link=replace(bundle.links[0],cap_id='p5')
     model=dict(bundle.model_to_final);model.pop(bundle.links[0].cap_id);model['p5']=13
+    manifest=dict(bundle.manifest)
+    manifest['cap_distances_nm']=((link.cap_id,link.distance_nm),)
+    manifest['cap_force_ownership']=tuple({**entry,'cap_id':link.cap_id}
+                                          for entry in manifest['cap_force_ownership'])
     with pytest.raises(IdentityError,match='cap identity'):
-        replace(bundle,links=(link,),model_to_final=model)
+        replace(bundle,links=(link,),model_to_final=model,manifest=manifest)
 
 
 def test_complete_runtime_state_restored_after_cartesian_fd():

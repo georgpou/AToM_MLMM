@@ -1,0 +1,216 @@
+..FF.FF                                                                  [100%]
+=================================== FAILURES ===================================
+________ test_two_cut_native_build_admits_every_declared_cap_by_parent _________
+
+    def test_two_cut_native_build_admits_every_declared_cap_by_parent():
+        from atm_mlmm.embeddings.mechanical import seal_boundary_result
+        from atm_mlmm.hybrid import build_physical
+        from atm_mlmm.models.mace import model_spec
+        from atm_mlmm.partition import resolve_partition
+        from atm_mlmm.schema import EmbeddingSpec
+    
+        original, spec, _ = input_case()
+        resolved = resolve_partition(original.topology, spec)
+>       bundle = build_physical(
+            original, resolved, model_spec(),
+            EmbeddingSpec("mechanical", "1", "protein_c_c", "nonperiodic"),
+            cap_distance_nm=DATA["cap_distance_nm"],
+        )
+
+tests/contracts/test_general_input_admission.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/hybrid.py:110: in build_physical
+    topology = openmm_topology(original.topology)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/embeddings/mechanical.py:24: in openmm_topology
+    residue = topology.addResidue(molecule.role, chain, a.residue, a.insertion_code)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Topology; 2 chains, 2 residues, 2 atoms, 0 bonds>, name = 'protein'
+chain = <Chain 0>, id = '1', insertionCode = ''
+
+    def addResidue(self, name, chain, id=None, insertionCode=''):
+        """Create a new Residue and add it to the Topology.
+    
+        Parameters
+        ----------
+        name : string
+            The name of the residue to add
+        chain : Chain
+            The Chain to add it to
+        id : string=None
+            An optional identifier for the residue.  If this is omitted, an id
+            is generated based on the residue index.
+        insertionCode: string=''
+            An optional insertion code for the residue.
+    
+        Returns
+        -------
+        Residue
+             the newly created Residue
+        """
+        if len(chain._residues) > 0 and self._numResidues != chain._residues[-1].index+1:
+>           raise ValueError('All residues within a chain must be contiguous')
+E           ValueError: All residues within a chain must be contiguous
+
+../before-hpc-cpu-v2/env/lib/python3.11/site-packages/openmm/app/topology.py:163: ValueError
+______________ test_zero_cut_mixed_ligands_retain_mm_environment _______________
+
+    def test_zero_cut_mixed_ligands_retain_mm_environment():
+        from atm_mlmm.hybrid import build_physical
+        from atm_mlmm.models.mace import model_spec
+        from atm_mlmm.partition import resolve_partition
+        from atm_mlmm.schema import EmbeddingSpec
+    
+        original, spec, _ = input_case(mixed_zero_cut=True)
+        resolved = resolve_partition(original.topology, spec)
+>       bundle = build_physical(
+            original, resolved, model_spec(),
+            EmbeddingSpec("mechanical", "1", "protein_c_c", "nonperiodic"),
+            cap_distance_nm=DATA["cap_distance_nm"],
+        )
+
+tests/contracts/test_general_input_admission.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+src/atm_mlmm/hybrid.py:110: in build_physical
+    topology = openmm_topology(original.topology)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/embeddings/mechanical.py:24: in openmm_topology
+    residue = topology.addResidue(molecule.role, chain, a.residue, a.insertion_code)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Topology; 2 chains, 2 residues, 2 atoms, 0 bonds>, name = 'protein'
+chain = <Chain 0>, id = '1', insertionCode = ''
+
+    def addResidue(self, name, chain, id=None, insertionCode=''):
+        """Create a new Residue and add it to the Topology.
+    
+        Parameters
+        ----------
+        name : string
+            The name of the residue to add
+        chain : Chain
+            The Chain to add it to
+        id : string=None
+            An optional identifier for the residue.  If this is omitted, an id
+            is generated based on the residue index.
+        insertionCode: string=''
+            An optional insertion code for the residue.
+    
+        Returns
+        -------
+        Residue
+             the newly created Residue
+        """
+        if len(chain._residues) > 0 and self._numResidues != chain._residues[-1].index+1:
+>           raise ValueError('All residues within a chain must be contiguous')
+E           ValueError: All residues within a chain must be contiguous
+
+../before-hpc-cpu-v2/env/lib/python3.11/site-packages/openmm/app/topology.py:163: ValueError
+___ test_two_cap_collection_probe_matches_independent_per_edge_force_oracle ____
+
+    def test_two_cap_collection_probe_matches_independent_per_edge_force_oracle():
+>       bundle, snapshot, probe = build_collection()
+                                  ^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_cap_collections.py:99: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_cap_collections.py:41: in build_collection
+    bundle = build_physical(
+src/atm_mlmm/hybrid.py:110: in build_physical
+    topology = openmm_topology(original.topology)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/embeddings/mechanical.py:24: in openmm_topology
+    residue = topology.addResidue(molecule.role, chain, a.residue, a.insertion_code)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Topology; 2 chains, 2 residues, 2 atoms, 0 bonds>, name = 'protein'
+chain = <Chain 0>, id = '1', insertionCode = ''
+
+    def addResidue(self, name, chain, id=None, insertionCode=''):
+        """Create a new Residue and add it to the Topology.
+    
+        Parameters
+        ----------
+        name : string
+            The name of the residue to add
+        chain : Chain
+            The Chain to add it to
+        id : string=None
+            An optional identifier for the residue.  If this is omitted, an id
+            is generated based on the residue index.
+        insertionCode: string=''
+            An optional insertion code for the residue.
+    
+        Returns
+        -------
+        Residue
+             the newly created Residue
+        """
+        if len(chain._residues) > 0 and self._numResidues != chain._residues[-1].index+1:
+>           raise ValueError('All residues within a chain must be contiguous')
+E           ValueError: All residues within a chain must be contiguous
+
+../before-hpc-cpu-v2/env/lib/python3.11/site-packages/openmm/app/topology.py:163: ValueError
+___ test_zero_cut_mixed_collection_keeps_model_to_mm_environment_derivative ____
+
+    def test_zero_cut_mixed_collection_keeps_model_to_mm_environment_derivative():
+        from atm_mlmm.models.analytic_caps import CapCollectionProbe, EnvironmentTerm, LigandTerm
+    
+        probe = CapCollectionProbe(
+            cap_parameters=(),
+            environment_terms=(EnvironmentTerm("lA_c", "p1_env", 4.0),),
+            ligand_terms=(LigandTerm("lB_c", 1.25, (.6, .75, .0)),),
+        )
+>       bundle, snapshot, probe = build_collection(probe, mixed_zero_cut=True)
+                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests/integration/test_cap_collections.py:123: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/integration/test_cap_collections.py:41: in build_collection
+    bundle = build_physical(
+src/atm_mlmm/hybrid.py:110: in build_physical
+    topology = openmm_topology(original.topology)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+src/atm_mlmm/embeddings/mechanical.py:24: in openmm_topology
+    residue = topology.addResidue(molecule.role, chain, a.residue, a.insertion_code)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <Topology; 2 chains, 2 residues, 2 atoms, 0 bonds>, name = 'protein'
+chain = <Chain 0>, id = '1', insertionCode = ''
+
+    def addResidue(self, name, chain, id=None, insertionCode=''):
+        """Create a new Residue and add it to the Topology.
+    
+        Parameters
+        ----------
+        name : string
+            The name of the residue to add
+        chain : Chain
+            The Chain to add it to
+        id : string=None
+            An optional identifier for the residue.  If this is omitted, an id
+            is generated based on the residue index.
+        insertionCode: string=''
+            An optional insertion code for the residue.
+    
+        Returns
+        -------
+        Residue
+             the newly created Residue
+        """
+        if len(chain._residues) > 0 and self._numResidues != chain._residues[-1].index+1:
+>           raise ValueError('All residues within a chain must be contiguous')
+E           ValueError: All residues within a chain must be contiguous
+
+../before-hpc-cpu-v2/env/lib/python3.11/site-packages/openmm/app/topology.py:163: ValueError
+=========================== short test summary info ============================
+FAILED tests/contracts/test_general_input_admission.py::test_two_cut_native_build_admits_every_declared_cap_by_parent
+FAILED tests/contracts/test_general_input_admission.py::test_zero_cut_mixed_ligands_retain_mm_environment
+FAILED tests/integration/test_cap_collections.py::test_two_cap_collection_probe_matches_independent_per_edge_force_oracle
+FAILED tests/integration/test_cap_collections.py::test_zero_cut_mixed_collection_keeps_model_to_mm_environment_derivative
+4 failed, 3 passed in 0.24s

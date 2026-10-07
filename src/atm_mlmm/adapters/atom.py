@@ -115,20 +115,43 @@ def _topology(physical):
     topology = app.Topology()
     atoms = [(physical.real_to_final[a.atom_id],a) for a in physical.topology.atoms]
     atoms += [(link.final_particle_index,link) for link in physical.links]
-    lookup, chains, residues = {}, {}, {}
-    cap_residue = None
+    lookup = {}
+    chain = residue = None
+    source_chain = last_residue_key = None
+    seen_residues = set()
+    previous_kind = None
+    cap_chain = None
+    cap_number = 0
     for _,atom in sorted(atoms,key=lambda item:item[0]):
         if not hasattr(atom,'atom_id'):
-            if cap_residue is None:
-                cap_residue = topology.addResidue('CAP',topology.addChain('CAP'))
+            if previous_kind != 'cap':
+                cap_chain = topology.addChain('CAP')
+            cap_number += 1
+            cap_residue = topology.addResidue('CAP', cap_chain, str(cap_number))
             topology.addAtom('Hcap',app.element.hydrogen,cap_residue,atom.cap_id)
+            previous_kind = 'cap'
+            source_chain = last_residue_key = None
+            seen_residues.clear()
             continue
-        if atom.chain not in chains:
-            chains[atom.chain] = topology.addChain(atom.chain)
         key = atom.chain, atom.residue, atom.insertion_code
-        if key not in residues:
-            residues[key] = topology.addResidue('ANA', chains[atom.chain], atom.residue, atom.insertion_code)
-        lookup[atom.atom_id] = topology.addAtom(atom.atom_name, app.Element.getBySymbol(atom.element), residues[key], atom.atom_id)
+        if previous_kind != 'real' or atom.chain != source_chain:
+            chain = topology.addChain(atom.chain)
+            source_chain = atom.chain
+            last_residue_key = None
+            seen_residues.clear()
+        if key != last_residue_key:
+            # A source residue that reappears after another block must not be
+            # merged into the earlier block by OpenMM's PDB/topology handling.
+            if key in seen_residues:
+                chain = topology.addChain(atom.chain)
+                seen_residues.clear()
+            residue = topology.addResidue('ANA', chain, atom.residue, atom.insertion_code)
+            seen_residues.add(key)
+            last_residue_key = key
+        lookup[atom.atom_id] = topology.addAtom(
+            atom.atom_name, app.Element.getBySymbol(atom.element), residue, atom.atom_id
+        )
+        previous_kind = 'real'
     for bond in physical.topology.bonds:
         topology.addBond(lookup[bond.atom1], lookup[bond.atom2])
     return topology

@@ -1,0 +1,28 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____________ test_two_cap_parent_cartesian_derivatives_both_maps ______________
+
+    def test_two_cap_parent_cartesian_derivatives_both_maps():
+        from atm_mlmm.atm import AtmEvaluator, build_atm
+        from atm_mlmm.geometry import resolve_protocol
+        from atm_mlmm.protocols.rbfe import make_protocol
+        from atm_mlmm.schedule import linear_schedule
+        from atm_mlmm.schema import MobileGroup, RestraintSpec, RuntimeSpec
+        from tests.link_permutation import plain_result
+    
+        bundle, snapshot, probe = build_collection()
+        group_a = MobileGroup("A", ("lA_c", "lA_h1", "lA_h2"), ("ligand",), "ligand-A")
+        group_b = MobileGroup("B", ("lB_c", "lB_h1", "lB_h2", "lB_h3"), ("ligand",), "ligand-B")
+        transfer = resolve_protocol(bundle, make_protocol((group_a, group_b), (.04, -.025, .015)))
+        schedule = linear_schedule((("map0", 0.), ("map1", 1.)))
+        restraint = RestraintSpec("zero-spring-control", ("lA_c",), 0., DATA["positions_nm"][IDS.index("lA_c")])
+        atm = build_atm(bundle, transfer, schedule, restraint)
+        runtime = RuntimeSpec("Reference", "double", (), .0005, 300., "NVT", "Verlet")
+>       retained = mm.XmlSerializer.deserialize(bundle.physical.manifest["retained_mm_xml"])
+                                                ^^^^^^^^^^^^^^^
+E       AttributeError: 'PhysicalBundle' object has no attribute 'physical'
+
+tests/integration/test_cap_collections.py:154: AttributeError
+=========================== short test summary info ============================
+FAILED tests/integration/test_cap_collections.py::test_two_cap_parent_cartesian_derivatives_both_maps
+1 failed, 2 deselected in 0.25s

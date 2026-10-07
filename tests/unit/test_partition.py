@@ -21,7 +21,7 @@ def test_fixed_complete_mobile_groups(topology, partition_spec):
         resolve_partition(topology, replace(partition_spec, permitted_cuts=()))
 
 
-@pytest.mark.parametrize('fault', ['ring', 'peptide', 'charged', 'unknown_element', 'ambiguous', 'multiple_caps'])
+@pytest.mark.parametrize('fault', ['ring', 'peptide', 'disulfide', 'charged', 'unknown_element', 'ambiguous', 'multiple_caps'])
 def test_forbidden_boundaries_and_chemical_states(topology, partition_spec, fault):
     from atm_mlmm.partition import resolve_partition
     from atm_mlmm.schema import AtomIdentity, Bond, UnsupportedCapability
@@ -29,6 +29,8 @@ def test_forbidden_boundaries_and_chemical_states(topology, partition_spec, faul
         topology = replace(topology, bonds=topology.bonds + (Bond('p-a', 'p-h'),))
     elif fault == 'peptide':
         topology = replace(topology, bonds=(replace(topology.bonds[0], kind='peptide'),) + topology.bonds[1:])
+    elif fault == 'disulfide':
+        topology = replace(topology, bonds=(replace(topology.bonds[0], kind='disulfide'),) + topology.bonds[1:])
     elif fault in ('charged', 'ambiguous'):
         state = replace(partition_spec.component_states[0], formal_charge=1 if fault == 'charged' else None)
         partition_spec = replace(partition_spec, component_states=(state,) + partition_spec.component_states[1:])

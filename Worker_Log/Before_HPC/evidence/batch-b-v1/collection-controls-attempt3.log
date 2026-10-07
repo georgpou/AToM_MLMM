@@ -1,0 +1,35 @@
+...F                                                                     [100%]
+=================================== FAILURES ===================================
+_____________ test_two_cap_ledger_and_nonidentity_particle_mapping _____________
+
+    def test_two_cap_ledger_and_nonidentity_particle_mapping():
+        from atm_mlmm.atm import physical_system
+        from atm_mlmm.embeddings.mechanical import openmm_topology, seal_boundary_result
+        from atm_mlmm.partition import resolve_partition
+        from atm_mlmm.schema import IdentityError
+        from tests.link_permutation import permute_info
+    
+        bundle, snapshot, _ = build_collection()
+        expected_cuts = {frozenset(edge) for edge in DATA["permitted_cuts"]}
+        ml_ids = set(DATA["ml_ids"])
+        expected_removed = {frozenset((row["atom1"], row["atom2"])) for row in DATA["bonds"]
+                            if row["atom1"] in ml_ids and row["atom2"] in ml_ids}
+        expected_retained = {frozenset((row["atom1"], row["atom2"])) for row in DATA["bonds"]
+                             if row["atom1"] not in ml_ids or row["atom2"] not in ml_ids}
+        removed_bonds = {frozenset(row["atom_ids"]) for row in bundle.manifest["boundary_terms"]
+                         if row["kind"] == "bond" and row["disposition"] == "removed"}
+        retained_bonds = {frozenset(row["atom_ids"]) for row in bundle.manifest["boundary_terms"]
+                          if row["kind"] == "bond" and row["disposition"] == "retained"}
+        assert removed_bonds == expected_removed
+        assert retained_bonds == expected_retained
+>       assert expected_cuts <= removed_bonds
+E       AssertionError: assert {frozenset({'...l', 'p2_mm'})} <= {frozenset({'...p2_ml'}), ...}
+E         
+E         Extra items in the left set:
+E         frozenset({'p1_ml', 'p1_mm'})
+E         frozenset({'p2_ml', 'p2_mm'})
+
+tests/integration/test_cap_collections.py:315: AssertionError
+=========================== short test summary info ============================
+FAILED tests/integration/test_cap_collections.py::test_two_cap_ledger_and_nonidentity_particle_mapping
+1 failed, 3 passed, 3 deselected in 0.23s

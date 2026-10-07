@@ -1,0 +1,19 @@
+UTC 2026-10-07 11:46:22
+..................F.........                                             [100%]
+=================================== FAILURES ===================================
+____________________ test_link_ids_cannot_alias_real_mm_ids ____________________
+
+    def test_link_ids_cannot_alias_real_mm_ids():
+        from atm_mlmm.schema import IdentityError
+        bundle,_=case()
+        link=replace(bundle.links[0],cap_id='p5')
+        model=dict(bundle.model_to_final);model.pop(bundle.links[0].cap_id);model['p5']=13
+>       with pytest.raises(IdentityError,match='cap identity'):
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'cap identity'
+E         Actual message: 'manifest cap distances disagree with actual sealed links'
+
+tests/integration/test_link_geometry.py:312: AssertionError
+=========================== short test summary info ============================
+FAILED tests/integration/test_link_geometry.py::test_link_ids_cannot_alias_real_mm_ids
+1 failed, 27 passed in 16.54s

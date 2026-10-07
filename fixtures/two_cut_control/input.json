@@ -1,0 +1,592 @@
+{
+  "atoms": [
+    {
+      "atom_name": "CA",
+      "chain": "P",
+      "element": "C",
+      "id": "p1_ml",
+      "insertion_code": "",
+      "residue": "1"
+    },
+    {
+      "atom_name": "C1",
+      "chain": "A",
+      "element": "C",
+      "id": "lA_c",
+      "insertion_code": "",
+      "residue": "1"
+    },
+    {
+      "atom_name": "CB",
+      "chain": "P",
+      "element": "C",
+      "id": "p1_mm",
+      "insertion_code": "",
+      "residue": "1"
+    },
+    {
+      "atom_name": "C1",
+      "chain": "B",
+      "element": "C",
+      "id": "lB_c",
+      "insertion_code": "",
+      "residue": "1"
+    },
+    {
+      "atom_name": "HA",
+      "chain": "P",
+      "element": "H",
+      "id": "p1_h",
+      "insertion_code": "",
+      "residue": "1"
+    },
+    {
+      "atom_name": "H1",
+      "chain": "A",
+      "element": "H",
+      "id": "lA_h1",
+      "insertion_code": "",
+      "residue": "1"
+    },
+    {
+      "atom_name": "CB",
+      "chain": "P",
+      "element": "C",
+      "id": "p2_mm",
+      "insertion_code": "",
+      "residue": "2"
+    },
+    {
+      "atom_name": "H1",
+      "chain": "B",
+      "element": "H",
+      "id": "lB_h1",
+      "insertion_code": "",
+      "residue": "1"
+    },
+    {
+      "atom_name": "CA",
+      "chain": "P",
+      "element": "C",
+      "id": "p2_ml",
+      "insertion_code": "",
+      "residue": "2"
+    },
+    {
+      "atom_name": "H2",
+      "chain": "A",
+      "element": "H",
+      "id": "lA_h2",
+      "insertion_code": "",
+      "residue": "1"
+    },
+    {
+      "atom_name": "HA",
+      "chain": "P",
+      "element": "H",
+      "id": "p2_h",
+      "insertion_code": "",
+      "residue": "2"
+    },
+    {
+      "atom_name": "H2",
+      "chain": "B",
+      "element": "H",
+      "id": "lB_h2",
+      "insertion_code": "",
+      "residue": "1"
+    },
+    {
+      "atom_name": "H3",
+      "chain": "B",
+      "element": "H",
+      "id": "lB_h3",
+      "insertion_code": "",
+      "residue": "1"
+    },
+    {
+      "atom_name": "CG",
+      "chain": "P",
+      "element": "C",
+      "id": "p1_env",
+      "insertion_code": "",
+      "residue": "1"
+    },
+    {
+      "atom_name": "CG",
+      "chain": "P",
+      "element": "C",
+      "id": "p2_env",
+      "insertion_code": "",
+      "residue": "2"
+    }
+  ],
+  "bond_parameters": [
+    {
+      "atom1": "p1_ml",
+      "atom2": "p1_mm",
+      "k_kj_mol_nm2": 800.0,
+      "length_nm": 0.15
+    },
+    {
+      "atom1": "p1_mm",
+      "atom2": "p2_mm",
+      "k_kj_mol_nm2": 837.0,
+      "length_nm": 0.30000000000000004
+    },
+    {
+      "atom1": "p2_mm",
+      "atom2": "p2_ml",
+      "k_kj_mol_nm2": 874.0,
+      "length_nm": 0.15297058540778352
+    },
+    {
+      "atom1": "p1_ml",
+      "atom2": "p1_h",
+      "k_kj_mol_nm2": 911.0,
+      "length_nm": 0.09219544457292887
+    },
+    {
+      "atom1": "p2_ml",
+      "atom2": "p2_h",
+      "k_kj_mol_nm2": 948.0,
+      "length_nm": 0.12569805089976532
+    },
+    {
+      "atom1": "p1_mm",
+      "atom2": "p1_env",
+      "k_kj_mol_nm2": 985.0,
+      "length_nm": 0.28071337695236404
+    },
+    {
+      "atom1": "p2_mm",
+      "atom2": "p2_env",
+      "k_kj_mol_nm2": 1022.0,
+      "length_nm": 0.28071337695236404
+    },
+    {
+      "atom1": "lA_c",
+      "atom2": "lA_h1",
+      "k_kj_mol_nm2": 1059.0,
+      "length_nm": 0.13416407864998736
+    },
+    {
+      "atom1": "lA_c",
+      "atom2": "lA_h2",
+      "k_kj_mol_nm2": 1096.0,
+      "length_nm": 0.1414213562373095
+    },
+    {
+      "atom1": "lB_c",
+      "atom2": "lB_h1",
+      "k_kj_mol_nm2": 1133.0,
+      "length_nm": 0.12688577540449517
+    },
+    {
+      "atom1": "lB_c",
+      "atom2": "lB_h2",
+      "k_kj_mol_nm2": 1170.0,
+      "length_nm": 0.10440306508910548
+    },
+    {
+      "atom1": "lB_c",
+      "atom2": "lB_h3",
+      "k_kj_mol_nm2": 1207.0,
+      "length_nm": 0.12247448713915893
+    }
+  ],
+  "bonds": [
+    {
+      "atom1": "p1_ml",
+      "atom2": "p1_mm",
+      "kind": "ordinary",
+      "order": 1
+    },
+    {
+      "atom1": "p1_mm",
+      "atom2": "p2_mm",
+      "kind": "ordinary",
+      "order": 1
+    },
+    {
+      "atom1": "p2_mm",
+      "atom2": "p2_ml",
+      "kind": "ordinary",
+      "order": 1
+    },
+    {
+      "atom1": "p1_ml",
+      "atom2": "p1_h",
+      "kind": "ordinary",
+      "order": 1
+    },
+    {
+      "atom1": "p2_ml",
+      "atom2": "p2_h",
+      "kind": "ordinary",
+      "order": 1
+    },
+    {
+      "atom1": "p1_mm",
+      "atom2": "p1_env",
+      "kind": "ordinary",
+      "order": 1
+    },
+    {
+      "atom1": "p2_mm",
+      "atom2": "p2_env",
+      "kind": "ordinary",
+      "order": 1
+    },
+    {
+      "atom1": "lA_c",
+      "atom2": "lA_h1",
+      "kind": "ordinary",
+      "order": 1
+    },
+    {
+      "atom1": "lA_c",
+      "atom2": "lA_h2",
+      "kind": "ordinary",
+      "order": 1
+    },
+    {
+      "atom1": "lB_c",
+      "atom2": "lB_h1",
+      "kind": "ordinary",
+      "order": 1
+    },
+    {
+      "atom1": "lB_c",
+      "atom2": "lB_h2",
+      "kind": "ordinary",
+      "order": 1
+    },
+    {
+      "atom1": "lB_c",
+      "atom2": "lB_h3",
+      "kind": "ordinary",
+      "order": 1
+    }
+  ],
+  "box_nm": null,
+  "cap_distance_nm": 0.117,
+  "component_states": [
+    {
+      "atom_ids": [
+        "p1_ml",
+        "p1_h"
+      ],
+      "formal_charge": 0,
+      "multiplicity": 1
+    },
+    {
+      "atom_ids": [
+        "p2_ml",
+        "p2_h"
+      ],
+      "formal_charge": 0,
+      "multiplicity": 1
+    },
+    {
+      "atom_ids": [
+        "lA_c",
+        "lA_h1",
+        "lA_h2"
+      ],
+      "formal_charge": 0,
+      "multiplicity": 1
+    },
+    {
+      "atom_ids": [
+        "lB_c",
+        "lB_h1",
+        "lB_h2",
+        "lB_h3"
+      ],
+      "formal_charge": 0,
+      "multiplicity": 1
+    }
+  ],
+  "constraints": [],
+  "fixture_version": 1,
+  "force_field_provenance": {
+    "parameter_identity": "9b98af0091df887ab5743d0d8b3ea64c3b214e5c0dbd8bf97aacea9a3a5c923b",
+    "source": "frozen neutral analytic C-C control"
+  },
+  "masses_da": [
+    12.011,
+    12.011,
+    12.011,
+    12.011,
+    1.008,
+    1.008,
+    12.011,
+    1.008,
+    12.011,
+    1.008,
+    1.008,
+    1.008,
+    1.008,
+    12.011,
+    12.011
+  ],
+  "ml_ids": [
+    "p1_ml",
+    "lA_c",
+    "lB_c",
+    "p1_h",
+    "lA_h1",
+    "lB_h1",
+    "p2_ml",
+    "lA_h2",
+    "p2_h",
+    "lB_h2",
+    "lB_h3"
+  ],
+  "mm_nonbonded_parameters": [
+    {
+      "atom_id": "p1_ml",
+      "charge_e": -0.2,
+      "epsilon_kj_mol": 0.08,
+      "sigma_nm": 0.25
+    },
+    {
+      "atom_id": "lA_c",
+      "charge_e": 0.15,
+      "epsilon_kj_mol": 0.08700000000000001,
+      "sigma_nm": 0.253
+    },
+    {
+      "atom_id": "p1_mm",
+      "charge_e": 0.05,
+      "epsilon_kj_mol": 0.094,
+      "sigma_nm": 0.256
+    },
+    {
+      "atom_id": "lB_c",
+      "charge_e": 0.1,
+      "epsilon_kj_mol": 0.101,
+      "sigma_nm": 0.259
+    },
+    {
+      "atom_id": "p1_h",
+      "charge_e": 0.1,
+      "epsilon_kj_mol": 0.108,
+      "sigma_nm": 0.262
+    },
+    {
+      "atom_id": "lA_h1",
+      "charge_e": -0.05,
+      "epsilon_kj_mol": 0.115,
+      "sigma_nm": 0.265
+    },
+    {
+      "atom_id": "p2_mm",
+      "charge_e": -0.05,
+      "epsilon_kj_mol": 0.122,
+      "sigma_nm": 0.268
+    },
+    {
+      "atom_id": "lB_h1",
+      "charge_e": -0.03,
+      "epsilon_kj_mol": 0.129,
+      "sigma_nm": 0.271
+    },
+    {
+      "atom_id": "p2_ml",
+      "charge_e": 0.2,
+      "epsilon_kj_mol": 0.136,
+      "sigma_nm": 0.274
+    },
+    {
+      "atom_id": "lA_h2",
+      "charge_e": -0.1,
+      "epsilon_kj_mol": 0.14300000000000002,
+      "sigma_nm": 0.277
+    },
+    {
+      "atom_id": "p2_h",
+      "charge_e": -0.1,
+      "epsilon_kj_mol": 0.15000000000000002,
+      "sigma_nm": 0.28
+    },
+    {
+      "atom_id": "lB_h2",
+      "charge_e": -0.03,
+      "epsilon_kj_mol": 0.157,
+      "sigma_nm": 0.28300000000000003
+    },
+    {
+      "atom_id": "lB_h3",
+      "charge_e": -0.04,
+      "epsilon_kj_mol": 0.164,
+      "sigma_nm": 0.28600000000000003
+    },
+    {
+      "atom_id": "p1_env",
+      "charge_e": 0.0,
+      "epsilon_kj_mol": 0.17099999999999999,
+      "sigma_nm": 0.289
+    },
+    {
+      "atom_id": "p2_env",
+      "charge_e": 0.0,
+      "epsilon_kj_mol": 0.178,
+      "sigma_nm": 0.292
+    }
+  ],
+  "mm_parameter_identity": "9b98af0091df887ab5743d0d8b3ea64c3b214e5c0dbd8bf97aacea9a3a5c923b",
+  "mm_system_sha256": "f040851479b0af775bbc066452a7a4b5d165fe82671464cd9e2734e747691fba",
+  "molecules": [
+    {
+      "atom_ids": [
+        "p1_ml",
+        "p1_mm",
+        "p1_h",
+        "p2_mm",
+        "p2_ml",
+        "p2_h",
+        "p1_env",
+        "p2_env"
+      ],
+      "formal_charge": 0,
+      "molecule_id": "protein",
+      "multiplicity": 1,
+      "role": "protein"
+    },
+    {
+      "atom_ids": [
+        "lA_c",
+        "lA_h1",
+        "lA_h2"
+      ],
+      "formal_charge": 0,
+      "molecule_id": "ligand-A",
+      "multiplicity": 1,
+      "role": "ligand"
+    },
+    {
+      "atom_ids": [
+        "lB_c",
+        "lB_h1",
+        "lB_h2",
+        "lB_h3"
+      ],
+      "formal_charge": 0,
+      "molecule_id": "ligand-B",
+      "multiplicity": 1,
+      "role": "ligand"
+    }
+  ],
+  "permitted_cuts": [
+    [
+      "p1_ml",
+      "p1_mm"
+    ],
+    [
+      "p2_ml",
+      "p2_mm"
+    ]
+  ],
+  "positions_nm": [
+    [
+      0.0,
+      0.0,
+      0.0
+    ],
+    [
+      0.15,
+      0.8,
+      0.0
+    ],
+    [
+      0.15,
+      0.0,
+      0.0
+    ],
+    [
+      0.55,
+      0.8,
+      0.05
+    ],
+    [
+      -0.09,
+      0.0,
+      0.02
+    ],
+    [
+      0.25,
+      0.84,
+      0.08
+    ],
+    [
+      0.45,
+      0.0,
+      0.0
+    ],
+    [
+      0.65,
+      0.86,
+      0.1
+    ],
+    [
+      0.6,
+      0.0,
+      0.03
+    ],
+    [
+      0.15,
+      0.9,
+      0.1
+    ],
+    [
+      0.7,
+      0.03,
+      0.1
+    ],
+    [
+      0.55,
+      0.9,
+      0.08
+    ],
+    [
+      0.5,
+      0.75,
+      0.15
+    ],
+    [
+      0.15,
+      0.28,
+      0.02
+    ],
+    [
+      0.45,
+      0.28,
+      0.02
+    ]
+  ],
+  "protein_ml_ids": [
+    "p1_ml",
+    "p1_h",
+    "p2_ml",
+    "p2_h"
+  ],
+  "real_atom_order": [
+    "p1_ml",
+    "lA_c",
+    "p1_mm",
+    "lB_c",
+    "p1_h",
+    "lA_h1",
+    "p2_mm",
+    "lB_h1",
+    "p2_ml",
+    "lA_h2",
+    "p2_h",
+    "lB_h2",
+    "lB_h3",
+    "p1_env",
+    "p2_env"
+  ]
+}

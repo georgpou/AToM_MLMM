@@ -1,0 +1,128 @@
+.FFF                                                                     [100%]
+=================================== FAILURES ===================================
+________ test_resolved_partition_preserves_explicit_component_chemistry ________
+
+    def test_resolved_partition_preserves_explicit_component_chemistry():
+        from atm_mlmm.partition import resolve_partition
+    
+        _, spec, _ = input_case()
+        resolved = resolve_partition(input_case()[0].topology, spec)
+>       assert {frozenset(state.atom_ids) for state in resolved.component_states} == {
+                                                       ^^^^^^^^^^^^^^^^^^^^^^^^^
+            frozenset(state.atom_ids) for state in spec.component_states
+        }
+E       AttributeError: 'ResolvedPartition' object has no attribute 'component_states'
+
+tests/contracts/test_general_input_admission.py:28: AttributeError
+________ test_two_cut_native_build_admits_every_declared_cap_by_parent _________
+
+    def test_two_cut_native_build_admits_every_declared_cap_by_parent():
+        from atm_mlmm.embeddings.mechanical import seal_boundary_result
+        from atm_mlmm.hybrid import build_physical
+        from atm_mlmm.models.mace import model_spec
+        from atm_mlmm.partition import resolve_partition
+        from atm_mlmm.schema import EmbeddingSpec
+    
+        original, spec, _ = input_case()
+        resolved = resolve_partition(original.topology, spec)
+>       bundle = build_physical(
+            original, resolved, model_spec(),
+            EmbeddingSpec("mechanical", "1", "protein_c_c", "nonperiodic"),
+            cap_distance_nm=DATA["cap_distance_nm"],
+        )
+
+tests/contracts/test_general_input_admission.py:44: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+original = SystemInput(prepared_mm_artifact='<?xml version="1.0" ?>\n<System openmmVersion="8.6.1" type="System" version="1">\n\t... analytic C-C control'}), units=Units(positions='nm', energy='kJ/mol', forces='kJ/mol/nm', time='ps', temperature='K'))
+partition = ResolvedPartition(ml_ids=('lA_c', 'lA_h1', 'lA_h2', 'lB_c', 'lB_h1', 'lB_h2', 'lB_h3', 'p1_h', 'p1_ml', 'p2_h', 'p2_ml... 5, 'p2_mm': 6, 'lB_h1': 7, 'p2_ml': 8, 'lA_h2': 9, 'p2_h': 10, 'lB_h2': 11, 'lB_h3': 12, 'p1_env': 13, 'p2_env': 14}))
+model = ModelSpec(backend='mace-off23-small', asset_digest='165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f',...n='energy', elements=('H', 'C', 'N', 'O'), chemical_state_support='neutral_singlet', locality='local', dtype='float64')
+embedding = EmbeddingSpec(kind='mechanical', policy_version='1', boundary_policy='protein_c_c', periodic_convention='nonperiodic')
+probe = None, cap_distance_nm = 0.117, checkpoint = None
+
+    def build_physical(original, partition, model, embedding, *, probe=None, cap_distance_nm, checkpoint=None):
+        """Mechanical construction, one admitted C-C cut and provider."""
+        if (embedding.kind,embedding.policy_version,embedding.boundary_policy) != ('mechanical','1','protein_c_c') or embedding.periodic_convention not in ('nonperiodic','orthorhombic-pme-v1'):
+            raise UnsupportedCapability('unadmitted G04 embedding policy')
+        periodic = embedding.periodic_convention == 'orthorhombic-pme-v1'
+        if periodic != (original.box_nm is not None):
+            raise UnsupportedCapability('embedding convention and input box disagree')
+        real_model = model.backend == 'mace-off23-small'
+        if real_model:
+            from .models.mace import model_spec
+            if model != model_spec() or probe is not None:
+                raise UnsupportedCapability('unadmitted pinned MACE semantics or analytic probe')
+        else:
+            if probe is None or checkpoint is not None:
+                raise UnsupportedCapability('analytic provider requires its probe and no checkpoint')
+            locality = 'environment_dependent' if probe.environment_k else 'local'
+            backend = 'analytic-environment' if probe.environment_k else 'analytic-local'
+            if (model.backend,model.locality,model.dtype,model.output_energy_convention,model.chemical_state_support,model.asset_digest) != (backend,locality,'float64','declared_relative_energy','neutral_singlet',None):
+                raise UnsupportedCapability('unadmitted G04 analytic model semantics')
+        if not {a.element for a in original.topology.atoms if a.atom_id in partition.ml_ids} <= set(model.elements) or 'H' not in model.elements:
+            raise UnsupportedCapability('G04 model elements do not cover real atoms and cap')
+        ids = tuple(a.atom_id for a in original.topology.atoms)
+        if dict(partition.source_map) != {a:i for i,a in enumerate(ids)} or len(partition.boundary_edges)>1 or partition.rejected_conditions:
+>           raise IdentityError('builder needs a resolved original partition with zero or one admitted cut')
+E           atm_mlmm.schema.IdentityError: builder needs a resolved original partition with zero or one admitted cut
+
+src/atm_mlmm/hybrid.py:34: IdentityError
+______________ test_zero_cut_mixed_ligands_retain_mm_environment _______________
+
+    def test_zero_cut_mixed_ligands_retain_mm_environment():
+        from atm_mlmm.hybrid import build_physical
+        from atm_mlmm.models.mace import model_spec
+        from atm_mlmm.partition import resolve_partition
+        from atm_mlmm.schema import EmbeddingSpec
+    
+        original, spec, _ = input_case(mixed_zero_cut=True)
+        resolved = resolve_partition(original.topology, spec)
+>       bundle = build_physical(
+            original, resolved, model_spec(),
+            EmbeddingSpec("mechanical", "1", "protein_c_c", "nonperiodic"),
+            cap_distance_nm=DATA["cap_distance_nm"],
+        )
+
+tests/contracts/test_general_input_admission.py:66: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+original = SystemInput(prepared_mm_artifact='<?xml version="1.0" ?>\n<System openmmVersion="8.6.1" type="System" version="1">\n\t... analytic C-C control'}), units=Units(positions='nm', energy='kJ/mol', forces='kJ/mol/nm', time='ps', temperature='K'))
+partition = ResolvedPartition(ml_ids=('lA_c', 'lA_h1', 'lA_h2', 'lB_c', 'lB_h1', 'lB_h2', 'lB_h3'), protein_ml_ids=(), boundary_ed... 5, 'p2_mm': 6, 'lB_h1': 7, 'p2_ml': 8, 'lA_h2': 9, 'p2_h': 10, 'lB_h2': 11, 'lB_h3': 12, 'p1_env': 13, 'p2_env': 14}))
+model = ModelSpec(backend='mace-off23-small', asset_digest='165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f',...n='energy', elements=('H', 'C', 'N', 'O'), chemical_state_support='neutral_singlet', locality='local', dtype='float64')
+embedding = EmbeddingSpec(kind='mechanical', policy_version='1', boundary_policy='protein_c_c', periodic_convention='nonperiodic')
+probe = None, cap_distance_nm = 0.117, checkpoint = None
+
+    def build_physical(original, partition, model, embedding, *, probe=None, cap_distance_nm, checkpoint=None):
+        """Mechanical construction, one admitted C-C cut and provider."""
+        if (embedding.kind,embedding.policy_version,embedding.boundary_policy) != ('mechanical','1','protein_c_c') or embedding.periodic_convention not in ('nonperiodic','orthorhombic-pme-v1'):
+            raise UnsupportedCapability('unadmitted G04 embedding policy')
+        periodic = embedding.periodic_convention == 'orthorhombic-pme-v1'
+        if periodic != (original.box_nm is not None):
+            raise UnsupportedCapability('embedding convention and input box disagree')
+        real_model = model.backend == 'mace-off23-small'
+        if real_model:
+            from .models.mace import model_spec
+            if model != model_spec() or probe is not None:
+                raise UnsupportedCapability('unadmitted pinned MACE semantics or analytic probe')
+        else:
+            if probe is None or checkpoint is not None:
+                raise UnsupportedCapability('analytic provider requires its probe and no checkpoint')
+            locality = 'environment_dependent' if probe.environment_k else 'local'
+            backend = 'analytic-environment' if probe.environment_k else 'analytic-local'
+            if (model.backend,model.locality,model.dtype,model.output_energy_convention,model.chemical_state_support,model.asset_digest) != (backend,locality,'float64','declared_relative_energy','neutral_singlet',None):
+                raise UnsupportedCapability('unadmitted G04 analytic model semantics')
+        if not {a.element for a in original.topology.atoms if a.atom_id in partition.ml_ids} <= set(model.elements) or 'H' not in model.elements:
+            raise UnsupportedCapability('G04 model elements do not cover real atoms and cap')
+        ids = tuple(a.atom_id for a in original.topology.atoms)
+        if dict(partition.source_map) != {a:i for i,a in enumerate(ids)} or len(partition.boundary_edges)>1 or partition.rejected_conditions:
+            raise IdentityError('builder needs a resolved original partition with zero or one admitted cut')
+        if not partition.boundary_edges and (not real_model or set(partition.ml_ids) != set(ids)):
+>           raise UnsupportedCapability('uncut reference requires the complete all-ML real-model description')
+E           atm_mlmm.schema.UnsupportedCapability: uncut reference requires the complete all-ML real-model description
+
+src/atm_mlmm/hybrid.py:36: UnsupportedCapability
+=========================== short test summary info ============================
+FAILED tests/contracts/test_general_input_admission.py::test_resolved_partition_preserves_explicit_component_chemistry
+FAILED tests/contracts/test_general_input_admission.py::test_two_cut_native_build_admits_every_declared_cap_by_parent
+FAILED tests/contracts/test_general_input_admission.py::test_zero_cut_mixed_ligands_retain_mm_environment
+3 failed, 1 passed, 1 deselected in 0.21s

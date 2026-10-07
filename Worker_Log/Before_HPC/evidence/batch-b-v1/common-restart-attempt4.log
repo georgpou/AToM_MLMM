@@ -1,0 +1,58 @@
+UTC 2026-10-07 11:38:36
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_____ test_two_cap_bounded_restart_through_common_runner_in_fresh_process ______
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-11/test_two_cap_bounded_restart_t0')
+
+    def test_two_cap_bounded_restart_through_common_runner_in_fresh_process(tmp_path):
+        import hashlib
+        from atm_mlmm.schema import to_json
+        from atm_mlmm.workflow import run_configuration
+    
+        original, partition, snapshot = input_case()
+        # This restart input keeps the fixture's bonded geometry and identities,
+        # while placing the second complete ligand in a separated host-free region
+        # required by the common runner's bounded bulk-geometry admission.
+        separated = np.asarray(snapshot.positions_nm, dtype=float).copy()
+        for atom_id in ("lB_c", "lB_h1", "lB_h2", "lB_h3"):
+            separated[IDS.index(atom_id), 1] += 1.0
+        snapshot = replace(snapshot, positions_nm=tuple(tuple(row) for row in separated))
+        inputs = tmp_path / "inputs"
+        inputs.mkdir()
+        files = {}
+        for name, record in (("system-input.json", original), ("partition.json", partition),
+                             ("snapshot.json", snapshot)):
+            payload = to_json(record).encode()
+            (inputs / name).write_bytes(payload)
+            files[name] = hashlib.sha256(payload).hexdigest()
+        manifest_path = inputs / "manifest.json"
+        manifest_payload = json.dumps({"files": files}, sort_keys=True).encode()
+        manifest_path.write_bytes(manifest_payload)
+        config = inputs / "config.json"
+        config.write_text(json.dumps({
+            "version": 1,
+            "input_manifest": "manifest.json",
+            "input_manifest_sha256": hashlib.sha256(manifest_payload).hexdigest(),
+            "settings": {
+                "temperature_K": 300., "timestep_ps": .0005, "platform": "Reference",
+                "seed": 41, "temperatures_K": [10., 100., 300.],
+                "steps_per_phase": 1, "minimization_iterations": 3,
+                "frames_per_state": 1, "steps_per_frame": 1,
+                "displacement_nm": [0., 0., 1.2],
+                "outside_spring_kj_mol_nm2": 1., "protocol_kind": "rbfe",
+            },
+        }))
+        output = tmp_path / "bounded-run"
+        prefix = run_configuration(config, output, trusted=True, stop_after_samples=1)
+        assert prefix["status"] == "interrupted" and prefix["samples"] == 1
+>       assert len(json.loads((output / "worker/bundle.json").read_text())["physical"]["links"]) == 2
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+E       KeyError: 'physical'
+
+tests/integration/test_cap_collections.py:397: KeyError
+----------------------------- Captured stdout call -----------------------------
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+=========================== short test summary info ============================
+FAILED tests/integration/test_cap_collections.py::test_two_cap_bounded_restart_through_common_runner_in_fresh_process
+1 failed in 6.71s
