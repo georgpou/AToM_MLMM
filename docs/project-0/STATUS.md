@@ -15,9 +15,13 @@ and peak RSS on one synthetic 15-atom input; those rates are plumbing measuremen
 only. The local source/wheel/input/model/evidence bundle is hash verified and
 records `fully_offline_reinstall=false`; no project license, physical target,
 GPU profile, scheduler values, cluster parity, or binding result is claimed.
-No independent audit or gate/milestone acceptance occurred. The parent-owned
-single consolidated CPU suite remains reserved. Exact receipts and preserved
-failures are indexed in the [Batch E evidence folder](../../Worker_Log/Before_HPC/evidence/batch-e-v1/README.md).
+No independent audit or gate/milestone acceptance occurred. The one parent-owned
+consolidated `python -m pytest -q` attempt ran from 15:09:16 to 15:22:42 UTC and
+was killed with exit `-9` after 806.469 s, six failure markers, and no pytest
+summary. The cgroup reported peak `8592265216` bytes and `oom_kill=1`, consistent
+with the 8 GiB limit. Full-suite validation is interrupted and unresolved; the
+parent is collecting affected node names and running bounded diagnostics. Exact
+receipts and preserved failures are indexed in the [Batch E evidence folder](../../Worker_Log/Before_HPC/evidence/batch-e-v1/README.md).
 
 **Before HPC Batch D: worker implementation and bounded preflight checks complete; physical and target holds remain.**
 The [gpt-6-luna/max inline worker](../../Worker_Log/Before_HPC/Batch_D_v1_worker.md)
