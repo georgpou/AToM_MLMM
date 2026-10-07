@@ -1,0 +1,25 @@
+{
+  "start_utc": "2026-10-07T16:00:06.698211+00:00",
+  "end_utc": "2026-10-07T16:00:06.782205+00:00",
+  "wall_seconds": 0.08397020800111932,
+  "argv": [
+    "/workspace/before-hpc-cpu-v2/env/bin/python",
+    "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/audit-v1/admission_probes.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM-before-HPC",
+  "exit_code": 0,
+  "head": "a78af5ce9c74f09c8ddeba373187c99a7f72035b",
+  "source_tree": "51016ae33c65e6a19b553e623ccbb337a7c4aae1",
+  "script_sha256": "1530f5ee339a14fb0f0c7f5d4e3baaeb5c020bc65c650c937aa78fbbf9ee7214",
+  "log_sha256": "403e822e4171923f8b0d36a7f9dd417bd6a485980332cba0a84d4a243ad34e09",
+  "activation": "/workspace/before-hpc-cpu-v2/activate.sh",
+  "activation_sha256": "ab4585b8dce374bf6976c03dd2163a1672096b1d4adeb5587e57ef6c75ddecae",
+  "environment": {
+    "OPENBLAS_NUM_THREADS": "2",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "PYTHONPATH": "/workspace/AToM_MLMM-before-HPC/src",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "purpose": "read-only identity checks and inert admission characterization, no simulations or suite"
+}
