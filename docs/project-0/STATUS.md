@@ -1,5 +1,20 @@
 # Current status
 
+**Before HPC Batch D: worker implementation and bounded preflight checks complete; physical and target holds remain.**
+The [gpt-6-luna/max inline worker](../../Worker_Log/Before_HPC/Batch_D_v1_worker.md)
+started from `317a72e69391e9618b04d15b25c8b644b1e3221e`. Source, tests, fixtures,
+and captured evidence are at `e117a18ef253caa1bca354376c6d1badbd635515`
+(tree `e24d98ebc128b95290dff3c5243855adbde8a70e`). The required focused
+host/protein-input packet passed 9 tests with 0 skips; bounded structural
+controls passed 3 tests, and the affected host mechanics/restart file passed
+4 tests after final metadata regeneration. Evidence supports deterministic
+input admission and plumbing only. No physical host/solvent parameters, target,
+adequate trajectories, or molecular result were established. The actual
+protein target is explicitly deferred; the ABFE correction guide retrieval
+returned HTTP 403, and C3's unmatched-physical-state closure refusal contract
+remains an uncovered hold. No independent audit or gate/milestone acceptance
+occurred. Batch E and consolidated post-E checks remain pending authorization.
+
 **Before HPC Batch C: worker finished; bounded synthetic controls qualified; C3 partly held.**
 The [gpt-6-luna/max worker](../../Worker_Log/Before_HPC/Batch_C_v1_worker.md)
 at `0de7cc887adc77863d8bc3b9b888f6239c8c8687` adds opt-in synchronized
