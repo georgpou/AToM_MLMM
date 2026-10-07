@@ -1,0 +1,19 @@
+{
+  "argv": [
+    "/tmp/atom-mlmm-before-hpc-published-v1/installed/bin/python",
+    "-m",
+    "pip",
+    "install",
+    "--no-index",
+    "--no-deps",
+    "--force-reinstall",
+    "/tmp/atom-mlmm-before-hpc-published-v1/wheel/atom_mlmm-0.1.0-py3-none-any.whl"
+  ],
+  "cwd": "/tmp",
+  "start_utc": "2026-10-07T20:11:27.118360+00:00",
+  "end_utc": "2026-10-07T20:11:27.503264+00:00",
+  "wall_seconds": 0.3849198790048831,
+  "exit_code": 0,
+  "source_commit": "2f5f72091d48e4e6498c2d7aed1b06abe19cfbc4",
+  "log_sha256": "56464970a1381e58303b92486abf2318e078835c8b45518e98db2dae7f463e53"
+}

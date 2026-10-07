@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "python",
+    "Worker_Log/Before_HPC/evidence/audit-v2-fix-orchestration-v1/export_fresh_worker.py",
+    "/tmp/atom-mlmm-before-hpc-published-v1/fresh-worker"
+  ],
+  "start_utc": "2026-10-07T20:08:21.199923+00:00",
+  "end_utc": "2026-10-07T20:08:25.618634+00:00",
+  "wall_seconds": 4.418722402995627,
+  "exit_code": 0,
+  "source_commit": "2f5f72091d48e4e6498c2d7aed1b06abe19cfbc4",
+  "log_sha256": "71ecc282a61d0954ae0b60ecbfcd0e1e72b9019e92e41636cacfdedfcb7d9063"
+}

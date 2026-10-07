@@ -1,0 +1,18 @@
+{
+  "argv": [
+    "/workspace/before-hpc-cpu-v2/env/bin/python",
+    "tools/build_release_bundle.py",
+    "--verify-only",
+    "--output",
+    "/tmp/atom-mlmm-before-hpc-published-v1/bundle",
+    "--wheel",
+    "/tmp/atom-mlmm-before-hpc-published-v1/wheel/atom_mlmm-0.1.0-py3-none-any.whl"
+  ],
+  "cwd": "/workspace/AToM_MLMM-before-HPC",
+  "start_utc": "2026-10-07T20:11:24.539436+00:00",
+  "end_utc": "2026-10-07T20:11:24.754840+00:00",
+  "wall_seconds": 0.21541672299645143,
+  "exit_code": 0,
+  "source_commit": "2f5f72091d48e4e6498c2d7aed1b06abe19cfbc4",
+  "log_sha256": "6446e8d4ee1f97489aaa7d422afe66d9c949ed78de70397e2a331b18e116bac5"
+}

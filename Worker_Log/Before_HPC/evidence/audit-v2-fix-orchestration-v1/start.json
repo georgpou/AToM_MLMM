@@ -1,0 +1,43 @@
+{
+  "start_utc": "2026-10-07T19:58:05.246452+00:00",
+  "base_head": "0409da8dd7f6c8889a64bd37efbe7102cd9005ef",
+  "worker": "/root/audit_v2_fixes",
+  "scope": [
+    "V2-F1",
+    "V2-F3"
+  ],
+  "self_verification_by_root": true,
+  "new_astra_audit": false,
+  "push_authorized_if_checks_pass": true,
+  "remote_ref": "origin/before_HPC",
+  "audit_files": [
+    {
+      "path": "Worker_Log/Before_HPC/Before_HPC_Audit_v2.md",
+      "sha256": "b56fb9373743509414f966d6ad8c137de17cfdc74321dd8c8bfa524ea9138e11"
+    },
+    {
+      "path": "Worker_Log/Before_HPC/evidence/audit-v2/admission-probe-receipt.json",
+      "sha256": "87a90d580299384e1cdd3bb03f384689c8507cddda1675b0cbb9da0fa457ebbb"
+    },
+    {
+      "path": "Worker_Log/Before_HPC/evidence/audit-v2/admission-probe.log",
+      "sha256": "bc4cd00905ae8ea22525439c6e2c3106fbdca4fee287f4caeb9962b9d2bea77c"
+    },
+    {
+      "path": "Worker_Log/Before_HPC/evidence/audit-v2/admission_probe.py",
+      "sha256": "5ff7af8be39afdcd2cc10c962a766b23fc33e98ecf58abe2982f3910fe614587"
+    },
+    {
+      "path": "Worker_Log/Before_HPC/evidence/audit-v2/journal-inventory-probe-receipt.json",
+      "sha256": "186b04bfb9e88dbfb8515bb45b5ed8c8d023302905776db2b0ea9a60c3c1dbbd"
+    },
+    {
+      "path": "Worker_Log/Before_HPC/evidence/audit-v2/journal-inventory-probe.log",
+      "sha256": "523725e24c5856e70ddfb2d4b9e5deb35f29e342d7883e609b733c2af67ea1aa"
+    },
+    {
+      "path": "Worker_Log/Before_HPC/evidence/audit-v2/journal_inventory_probe.py",
+      "sha256": "f879b11948f6a054976c19c8d524ec4e585ca1a282acbaafef89b79566e024f1"
+    }
+  ]
+}

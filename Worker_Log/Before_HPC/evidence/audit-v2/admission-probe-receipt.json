@@ -1,0 +1,19 @@
+{
+  "command": "source /workspace/before-hpc-cpu-v2/activate.sh\nexport OPENBLAS_NUM_THREADS=2 OMP_NUM_THREADS=2 MKL_NUM_THREADS=2 PYTHONPATH=\"$PWD/src\"\npython Worker_Log/Before_HPC/evidence/audit-v2/admission_probe.py",
+  "cwd": "/workspace/AToM_MLMM-before-HPC",
+  "elapsed_seconds": 0.2346357740025269,
+  "end_utc": "2026-10-07T19:49:26.678093+00:00",
+  "exit_code": 0,
+  "head": "0409da8dd7f6c8889a64bd37efbe7102cd9005ef",
+  "memory_max": "8589934592",
+  "python": "/workspace/before-hpc-cpu-v2/env/bin/python",
+  "scope": "serial inert admission only; all fitting intercepted; no dynamics or model loads",
+  "script_sha256": "5ff7af8be39afdcd2cc10c962a766b23fc33e98ecf58abe2982f3910fe614587",
+  "source_tree": "9181b18a10900f17badc5b21eee2b1ea7bc4bc64",
+  "start_utc": "2026-10-07T19:49:26.443436+00:00",
+  "threads": {
+    "MKL_NUM_THREADS": "2",
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  }
+}

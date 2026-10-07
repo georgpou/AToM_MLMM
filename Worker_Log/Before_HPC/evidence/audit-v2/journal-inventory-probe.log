@@ -1,0 +1,9 @@
+{
+  "declared_modules": 44,
+  "matching_tree": "both_verifiers_accept",
+  "undeclared_nested_module_journal_verifier": "accepted",
+  "undeclared_nested_module_shared_verifier": "worker source inventory differs from the complete current Python source tree",
+  "undeclared_symlink_journal_verifier": "accepted",
+  "undeclared_symlink_shared_verifier": "bundled Python source tree contains a symbolic link"
+}
+CHARACTERIZATION CONFIRMED; copied source never imported or executed

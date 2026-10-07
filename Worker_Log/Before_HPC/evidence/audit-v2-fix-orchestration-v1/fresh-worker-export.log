@@ -1,0 +1,2 @@
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+{"caps": 2, "directory": "/tmp/atom-mlmm-before-hpc-published-v1/fresh-worker", "manifest_sha256": "86251f1dd29242d7d9e71f4ce23f6b3da238831b3124d2112a2ed7fee9d5ef7f", "real_atoms": 15, "scope": "fresh current-source synthetic worker; no dynamics"}

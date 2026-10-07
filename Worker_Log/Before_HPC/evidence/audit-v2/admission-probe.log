@@ -1,0 +1,6 @@
+{
+  "distinct_synchronized_blocks": "estimation_reached",
+  "duplicate_independent_runs": "independent histories repeat their initialization identity",
+  "duplicate_synchronized_blocks": "estimation_reached"
+}
+CHARACTERIZATION CONFIRMED; no estimator, model, dynamics or production executed

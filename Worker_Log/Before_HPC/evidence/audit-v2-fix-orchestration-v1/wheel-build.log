@@ -1,0 +1,9 @@
+Processing ./.
+  Preparing metadata (pyproject.toml): started
+  Preparing metadata (pyproject.toml): finished with status 'done'
+Building wheels for collected packages: atom-mlmm
+  Building wheel for atom-mlmm (pyproject.toml): started
+  Building wheel for atom-mlmm (pyproject.toml): finished with status 'done'
+  Created wheel for atom-mlmm: filename=atom_mlmm-0.1.0-py3-none-any.whl size=139294 sha256=852ff567ea55767368c6ce23cfc901bd6344bdacb60973da9143bd9a85dbb7db
+  Stored in directory: /tmp/pip-ephem-wheel-cache-9_ffe558/wheels/fd/d6/27/fc15debd0ec7272e0d94ae3eaeb44d4d1fd7567267ab03d506
+Successfully built atom-mlmm

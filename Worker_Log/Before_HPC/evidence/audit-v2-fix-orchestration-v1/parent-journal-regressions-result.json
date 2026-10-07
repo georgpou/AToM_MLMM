@@ -1,0 +1,15 @@
+{
+  "argv": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "tests/workflow/test_multistate_inert_repairs.py"
+  ],
+  "start_utc": "2026-10-07T20:06:51.030989+00:00",
+  "end_utc": "2026-10-07T20:06:58.491943+00:00",
+  "wall_seconds": 7.460953702000552,
+  "exit_code": 0,
+  "source_commit": "2f5f72091d48e4e6498c2d7aed1b06abe19cfbc4",
+  "log_sha256": "63fdb0257b838022625ca0d0c3c0d9d69f801f819f034bcc4a804c5aa990358f"
+}

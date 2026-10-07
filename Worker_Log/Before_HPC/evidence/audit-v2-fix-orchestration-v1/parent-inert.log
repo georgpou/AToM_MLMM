@@ -1,0 +1,14 @@
+{
+  "checks": 8,
+  "estimation_or_dynamics_executed": false,
+  "outcomes": {
+    "independent_runs_distinct": "admitted to estimation boundary",
+    "independent_runs_duplicate": "rejected before estimation",
+    "matching_source": "passed journal source admission",
+    "relocated_source": "passed journal source admission",
+    "synchronized_blocks_distinct": "admitted to estimation boundary",
+    "synchronized_blocks_duplicate": "rejected before estimation",
+    "undeclared_python_file": "rejected at journal source admission",
+    "undeclared_python_symlink": "rejected at journal source admission"
+  }
+}

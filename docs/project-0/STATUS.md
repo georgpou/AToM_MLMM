@@ -1,5 +1,9 @@
 # Current status
 
+## before_HPC publication checkpoint — 2026-10-07
+
+The remaining V2-F1/V2-F3 fixes are committed at `2f5f720`. The orchestrator inspected the patch and independently passed eight inert admission checks, 30 compatibility tests and 39 journal regressions (overlapping counts). A refreshed final-source wheel/bundle and installed fresh-worker fixed-coordinate proof passed. User-authorized publication targets only `before_HPC`. See [the publication handoff](../../Worker_Log/Before_HPC/Before_HPC_Published_v1_summary.md). C3, the interrupted whole-suite check and scientific/release/hardware holds remain open; no new independent audit or milestone acceptance is claimed.
+
 **Before-HPC audit v2 follow-up:** V2-F1 and V2-F3 are implemented on
 `before_HPC`; focused RED reproduced the synchronized-block duplicate and
 journal-inventory gaps, GREEN passed 4 tests, and bounded compatibility passed

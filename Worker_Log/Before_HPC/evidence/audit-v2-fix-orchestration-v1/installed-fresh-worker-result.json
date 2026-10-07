@@ -1,0 +1,13 @@
+{
+  "argv": [
+    "/tmp/atom-mlmm-before-hpc-published-v1/installed/bin/python",
+    "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/installed-fresh-worker-probe.py"
+  ],
+  "cwd": "/tmp",
+  "start_utc": "2026-10-07T20:11:27.506073+00:00",
+  "end_utc": "2026-10-07T20:11:31.929760+00:00",
+  "wall_seconds": 4.423701460000302,
+  "exit_code": 0,
+  "source_commit": "2f5f72091d48e4e6498c2d7aed1b06abe19cfbc4",
+  "log_sha256": "757e08a54c84407815b3c98ee2ddadb39492faba61755a57496dde5418fd3221"
+}
