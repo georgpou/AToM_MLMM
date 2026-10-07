@@ -16,12 +16,14 @@ import time
 import uuid
 
 from .exchange_journal import (controller_lock,preserve_pending,read_exchange_rounds,
-                               seal,sha,sync_directory,_clock_matches,
+                               seal,sha,sync_directory,
                                _sync_rename_parents)
 from .persistence import read_json,write_json
+from .runtime_validation import portable_state_clock, validate_restored_state, verify_source_inventory
 from .schema import (AlchemicalBundle,EvaluationRecords,IdentityError,MalformedInput,
                      RuntimeSpec,UnsupportedCapability,from_json,to_json)
-from .workflow import _archive_failure,_domain,_integer,_mapped_state_xml,_profile,_snapshot
+from .workflow import (_archive_failure,_compare_saved_evaluation,_compare_saved_sample_state,
+                       _domain,_integer,_mapped_state_xml,_profile,_snapshot)
 
 _MULTISTATE_COORDINATE_ROUNDTRIP_ATOL_NM=1.0e-15
 
@@ -33,18 +35,8 @@ def _verify_source_profile(directory,metadata):
     if sha(manifest_path)!=metadata['worker_manifest_sha256']:
         raise IdentityError('exchange worker manifest hash mismatch')
     manifest=read_json(manifest_path)
-    prefix='runtime/source/atm_mlmm/'
-    bundled={name for name in manifest['files'] if name.startswith(prefix) and name.endswith('.py')}
-    current={prefix+path.relative_to(Path(__file__).resolve().parent).as_posix()
-             for path in Path(__file__).resolve().parent.rglob('*.py')}
-    if bundled!=current:
-        raise IdentityError('exchange source inventory differs from the complete current Python source tree')
-    for name,digest in manifest['files'].items():
-        path=(directory/'worker'/name).resolve()
-        if (directory/'worker').resolve() not in path.parents or sha(path)!=digest:
-            raise IdentityError(f'exchange worker artifact mismatch: {name}')
-        if name.startswith(prefix) and sha(Path(__file__).parent/name[len(prefix):])!=digest:
-            raise IdentityError(f'exchange source differs from bundled source: {name}')
+    verify_source_inventory(directory/'worker',manifest.get('files'),
+                            current_source_root=Path(__file__).resolve().parent)
 
 
 def _multistate_selection(state_ids,state_pairs):
@@ -219,6 +211,8 @@ def run_exchange(prepared_run,output,*,rounds,steps_per_round,seed,trusted=False
 
 def _execute_exchange(directory,metadata,*,stop_after_rounds=None):
     from .adapters.atom import load_worker_run,attempt_pair_exchange
+    import openmm as mm
+    import numpy as np
     from openmm import unit
     rows=read_exchange_rounds(directory)
     boundary=directory/'initial' if not rows else directory/'rounds'/f'{len(rows)-1:06d}'
@@ -231,7 +225,21 @@ def _execute_exchange(directory,metadata,*,stop_after_rounds=None):
         bundle=workers[0].bundle
         for w,worker in enumerate(workers):
             worker.restore_checkpoint((boundary/f'worker-{w}.chk').read_bytes(),states[w])
-            snapshot=_snapshot(worker); _geometry(worker,snapshot,metadata['settings'])
+            portable_xml=(boundary/f'worker-{w}.xml').read_text()
+            sample=rows[-1]['samples'][w] if rows else None
+            if sample is None:
+                expected_step,expected_time=portable_state_clock(portable_xml)
+            else:
+                expected_step,expected_time=sample['step'],sample['time_ps']
+            snapshot=validate_restored_state(worker,state_id=states[w],
+                portable_state_xml=portable_xml,expected_step_count=expected_step,
+                expected_time_ps=expected_time)
+            if sample is not None:
+                _compare_saved_sample_state(snapshot,sample,worker)
+            _geometry(worker,snapshot,metadata['settings'])
+            if sample is not None:
+                sample_result=worker.evaluate(snapshot,sample['state_id'])
+                _compare_saved_evaluation(sample_result,sample)
             refreshed=worker.evaluate(snapshot,states[w])
             if rows:
                 last=rows[-1]['exchange']
@@ -239,6 +247,17 @@ def _execute_exchange(directory,metadata,*,stop_after_rounds=None):
                 if (abs(refreshed.total.energy_kj_mol-last['energies_after_kj_mol'][w])>1e-8 or
                     asdict(refreshed.raw)!=last['raw_energies'][s][w]):
                     raise IdentityError('stale saved exchange energies disagree with fresh checkpoint evaluation')
+            else:
+                portable=mm.XmlSerializer.deserialize(portable_xml)
+                portable_energy=portable.getPotentialEnergy().value_in_unit(unit.kilojoules_per_mole)
+                portable_forces=portable.getForces(asNumpy=True).value_in_unit(
+                    unit.kilojoules_per_mole/unit.nanometer)
+                particle_indices=[bundle.physical.real_to_final[a.atom_id]
+                                  for a in bundle.physical.topology.atoms]
+                if (abs(refreshed.total.energy_kj_mol-portable_energy)>1.e-8 or
+                        not np.allclose(refreshed.total.forces_kj_mol_nm,
+                                        portable_forces[particle_indices],atol=1.e-8,rtol=0)):
+                    raise IdentityError('fresh initial worker energy/full forces disagree with portable State')
         while len(rows)<metadata['rounds'] and (stop_after_rounds is None or added<stop_after_rounds):
             index=len(rows)
             pending=Path(tempfile.mkdtemp(prefix=f'.pending-{index:06d}-',dir=directory/'rounds'))
@@ -411,39 +430,16 @@ def _state_ids_for_permutation(state_ids,permutation):
 
 def _fresh_multistate_check(worker,index,walker_id,state_id,boundary,report,metadata,sample=None):
     import numpy as np
-    import openmm as mm
-    from openmm import unit
     from .schema import IdentityError,Snapshot
     checkpoint=(boundary/'workers'/f'worker-{index:03d}.chk').read_bytes()
     state_path=boundary/'workers'/f'worker-{index:03d}-state.xml'
     worker.restore_checkpoint(checkpoint,state_id)
-    snapshot=_snapshot(worker)
-    portable=mm.XmlSerializer.deserialize(state_path.read_text())
-    context=worker.evaluator.context
-    context_step=int(context.getStepCount())
-    context_time=float(context.getState().getTime().value_in_unit(unit.picosecond))
-    portable_step=int(portable.getStepCount())
-    portable_time=float(portable.getTime().value_in_unit(unit.picosecond))
-    if not _clock_matches(context_step,context_time,report['step'],report['time_ps']):
-        raise IdentityError('restored checkpoint clock disagrees with final-state report')
-    if not _clock_matches(portable_step,portable_time,context_step,context_time):
-        raise IdentityError('portable State clock disagrees with restored checkpoint')
-    if sample is not None and not _clock_matches(sample['step'],sample['time_ps'],report['step'],report['time_ps']):
+    snapshot=validate_restored_state(worker,state_id=state_id,
+        portable_state_xml=state_path.read_text(),expected_step_count=report['step'],
+        expected_time_ps=report['time_ps'])
+    if sample is not None and (sample['step']!=report['step'] or sample['time_ps']!=report['time_ps']):
         raise IdentityError('restored checkpoint clock disagrees with captured sample')
-    particle_indices=[worker.bundle.physical.real_to_final[a.atom_id] for a in worker.bundle.physical.topology.atoms]
-    portable_x=portable.getPositions(asNumpy=True).value_in_unit(unit.nanometer)[particle_indices]
-    portable_v=portable.getVelocities(asNumpy=True).value_in_unit(unit.nanometer/unit.picosecond)[particle_indices]
-    if not np.array_equal(np.asarray(snapshot.positions_nm),portable_x) or not np.array_equal(
-        np.asarray(snapshot.velocities_nm_ps),portable_v):
-        raise IdentityError('restored checkpoint coordinates/velocities disagree with portable State')
     actual_parameters=dict(worker.evaluator.context.getParameters())
-    portable_parameters=dict(portable.getParameters())
-    if portable_parameters!=actual_parameters:
-        raise IdentityError('restored checkpoint parameters disagree with portable State')
-    if snapshot.box_nm is not None:
-        portable_box=portable.getPeriodicBoxVectors(asNumpy=True).value_in_unit(unit.nanometer)
-        if not np.array_equal(np.asarray(snapshot.box_nm),portable_box):
-            raise IdentityError('restored checkpoint box vectors disagree with portable State')
     expected_parameters=metadata['state_parameters'][state_id]
     if any(actual_parameters.get(name)!=value for name,value in expected_parameters.items()):
         raise IdentityError('restored checkpoint parameters disagree with final assignment')

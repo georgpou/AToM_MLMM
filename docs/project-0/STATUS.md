@@ -434,17 +434,17 @@ The academic MACE-OFF23-small checkpoint and its pinned provenance/licence are c
 
 ## Next work
 
-Continue the main engine on Codex Cloud using the
-[current assignment](handoffs/CLOUD-ENGINE-CONTINUATION.md). First repair the
-seven required findings from the [G10 v5 combined implementation audit](../../Worker_Log/Milestone_05/Gate_10_v5_audit.md)
-as one bounded sequential batch, then obtain a new independent combined audit.
-The standalone [G10 v3 design](../../Worker_Log/Milestone_05/Gate_10_v3_worker.md)
-is **GREEN / accepted_for_scope** by the [Sol 6.1/max design audit](../../Worker_Log/Milestone_05/Gate_10_v3_audit.md)
-on `678aa3e2db9d5f77517ad8cfb278ac8a4df7032d`; runtime implementation is complete
-but its combined acceptance is RED / changes_required. This is G10-T2/T3 technical work, not a new
-gate definition or full M05 acceptance. Then advance deterministic G11/G12 protein and dual-ligand
-support and G13 packaging/resource measurements as their technical dependencies
-are satisfied. Preserve the shared engine and accepted pair regression path.
+The final [G10 v8 independent audit](../../Worker_Log/Milestone_05/Gate_10_v8_audit.md)
+accepts bounded multistate Tasks 1–4 plus repairs as **COMPLETE GREEN /
+accepted_for_scope**. Before HPC Batch A repairs the older fixed-window and
+pair restart admission paths on `before_HPC`; its worker evidence is in
+[Batch A v1](../../Worker_Log/Before_HPC/Batch_A_v1_worker.md). Those repairs
+are worker-tested and await any later authorized independent review. Batch A
+is complete; pause here for the user's decision before starting Batch B.
+Preserve the public restart APIs, accepted v8 behavior, and exact scientific
+limits. After the authorized Before HPC batches, resume deterministic G11/G12
+protein and dual-ligand support and G13 packaging/resource measurements as
+their technical dependencies are satisfied.
 
 Use existing tiny ABFE/RBFE controls and small serial CPU checks. The accepted
 18-crown-6/methanol input is ABFE only; a methanol-to-ethanol host–guest RBFE input
@@ -469,7 +469,7 @@ authorize a new QM budget or production continuation.
 | G07 / T4 physical-reference sensitivity | blocked | Seven sensitivity failures plus measured pilot force-approximation exceedances; one validated full-parent reference, 29 missing; runtime/scratch screens exceed current envelope |
 | M03 / G04-G07 | blocked | G04/G05 and G06/G07 numerical scopes accepted; resolve G07-T4 physical blockers and obtain closing physical acceptance |
 | M04 / G08 analytic thermodynamic accounting | accepted | [GPT-6.1-sol/MAX v2 audit](../../Worker_Log/Milestone_04/Gate_08_v2_audit.md), exact c0280818/source8cf2494; G08-R1 closed, refined amendments and combined M04 analytic CPU accepted; 437 full/21 affected passes |
-| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial (full milestone); multistate changes_required | [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) / [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md):543 full/52 independent CPU passes; denser/exchange/restart definition accepted; [G10 v3 standalone multistate design](../../Worker_Log/Milestone_05/Gate_10_v3_audit.md) GREEN on `678aa3e2db9d5f77517ad8cfb278ac8a4df7032d`; [G10 v5 combined implementation audit](../../Worker_Log/Milestone_05/Gate_10_v5_audit.md) RED on `edd587679aaa110ea687cca29b9e3aee70b7b6f0`, seven required repairs, 47 fresh independent pytest passes plus numerical/fault controls; full M05 open. Earlier lineage: [G09 v4 audit](../../Worker_Log/Milestone_05/Gate_09_v4_audit.md): R1/R2 closed, bounded explicit-water G09 subsets and unchanged G10 pair scope accepted; 501 root CPU passes, 21 independent focused passes/six probes; full M05 open |
+| M05 / G09-G10 cloud technical subsets | accepted_for_scope / partial (full milestone); G10 bounded multistate accepted_for_scope | [G09 v5 audit](../../Worker_Log/Milestone_05/Gate_09_v5_audit.md) / [G10 v2 combined audit](../../Worker_Log/Milestone_05/Gate_10_v2_audit.md): 543 full/52 independent CPU passes; denser/exchange/restart definition accepted. The [G10 v3 standalone multistate design](../../Worker_Log/Milestone_05/Gate_10_v3_audit.md) is GREEN; the [final G10 v8 audit](../../Worker_Log/Milestone_05/Gate_10_v8_audit.md) accepts bounded Tasks 1–4 plus repairs and closes R1–R7. Older fixed-window/pair restart admission repairs are worker-tested on `before_HPC` ([Batch A v1 worker](../../Worker_Log/Before_HPC/Batch_A_v1_worker.md)) and await any later authorized independent review. Full M05 remains open. Earlier lineage: [G09 v4 audit](../../Worker_Log/Milestone_05/Gate_09_v4_audit.md): R1/R2 closed, bounded explicit-water G09 subsets and unchanged G10 pair scope accepted; 501 root CPU passes, 21 independent focused passes/six probes; full M05 open |
 | M06-M08 / G11-G13 | technical implementation pending / physical qualification deferred | Advance deterministic CPU engine support as relevant runtime prerequisites pass; reserve demanding protein calculations and Slurm settings for HPC; retain full-milestone qualification requirements |
 | GPU profile | not_run | Separate environment/hardware and owning-gate numerical checks |
 | Real-model small-system chemical / protein qualification | accepted_for_scope / not_run | Sol 6.1/MAX v6 audit accepts neutral CPU G05 and all eight assertions; R1/R2/R3 closed. Protein qualification remains G07/later work. |

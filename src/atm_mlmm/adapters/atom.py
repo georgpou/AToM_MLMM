@@ -24,6 +24,7 @@ from ..atm import (AtmEvaluator, outside_force, seal_alchemical,
                    validate_physical_parameter_ownership, validate_runtime)
 from ..geometry import validate_transfer
 from ..routing import export_physical
+from ..runtime_validation import verify_source_inventory
 from ..schedule import schedule_state, validate_schedule
 from ..schema import IdentityError, MalformedInput, UnsupportedCapability
 
@@ -293,8 +294,6 @@ def export_worker_run(run, directory, snapshot, state_id, *, thermodynamics=None
 
 def load_worker_run(directory, expected_manifest_sha256, *, trusted=False, integrator_seed=None):
     """Validate the whole bundle before the actual pinned worker constructor."""
-    from ..atm import load_bundle
-    from ..schema import from_json
     if trusted is not True:
         raise UnsupportedCapability('worker System/PythonForce artifacts require explicitly trusted loading')
     directory = Path(directory).resolve()
@@ -304,13 +303,13 @@ def load_worker_run(directory, expected_manifest_sha256, *, trusted=False, integ
     manifest = json.loads(payload)
     if manifest.get('version') != 1 or manifest.get('basename') != 'handover':
         raise UnsupportedCapability('unsupported worker export contract')
-    for name, digest in manifest['files'].items():
-        path = (directory/name).resolve()
-        if directory not in path.parents or not path.is_file() or hashlib.sha256(path.read_bytes()).hexdigest() != digest:
-            raise IdentityError(f'worker file identity mismatch: {name}')
+    verify_source_inventory(directory, manifest.get('files'),
+                            current_source_root=Path(__file__).resolve().parents[1])
     required = {'bundle.json','runtime.json','snapshot.json','handover.pdb','handover_sys.xml','handover_0.xml'}
     if not required <= set(manifest['files']):
         raise IdentityError('worker files do not cover the complete pinned contract')
+    from ..atm import load_bundle
+    from ..schema import from_json
     bundle = load_bundle(directory/'bundle.json', manifest['files']['bundle.json'], trusted=True)
     runtime = from_json((directory/'runtime.json').read_text())
     if bundle.content_identity != manifest['alchemical_identity'] or runtime.content_identity != manifest['runtime_identity']:

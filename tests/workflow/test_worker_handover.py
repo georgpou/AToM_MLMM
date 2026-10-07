@@ -1,10 +1,28 @@
 """Exercise the actual pinned worker constructor and sealed file contract."""
 import hashlib
+import json
 from dataclasses import replace
+import shutil
 import numpy as np
 import pytest
 from tests.workflow.test_atom_force_routing import atom_case
 from tests.analytic_oracle import REFERENCE
+
+
+@pytest.fixture
+def exported_worker(tmp_path):
+    from atm_mlmm.adapters.atom import build_atom, export_worker_run
+    physical,transfer,schedule,restraints,snapshot=atom_case('abfe')
+    with build_atom(physical,transfer,schedule,restraints,REFERENCE) as source:
+        manifest,digest=export_worker_run(source,tmp_path/'export',snapshot,'first')
+    return manifest.parent,digest
+
+
+def _rebind_manifest(root, manifest):
+    from atm_mlmm.persistence import write_json
+    path=root/'manifest.json'
+    write_json(path,manifest)
+    return hashlib.sha256(path.read_bytes()).hexdigest()
 
 
 def test_real_worker_constructor_preserves_high_precision_state(tmp_path):
@@ -76,3 +94,48 @@ def test_checkpoint_continuity_and_portable_state_have_distinct_guarantees(tmp_p
         np.testing.assert_array_equal(actual.total.forces_kj_mol_nm,reference.total.forces_kj_mol_nm)
         # State restores position/velocity/parameters, while RNG is independently seeded.
         assert worker.integrator_seed==73
+
+
+@pytest.mark.parametrize('mutation', ('extra-source', 'changed-source'))
+def test_worker_source_inventory_is_complete_before_executable_loading(
+        exported_worker,monkeypatch,mutation):
+    from atm_mlmm import atm
+    from atm_mlmm.adapters import atom
+    from atm_mlmm.persistence import read_json
+    from atm_mlmm.schema import IdentityError
+
+    root,digest=exported_worker
+    manifest=read_json(root/'manifest.json')
+    prefix='runtime/source/atm_mlmm/'
+    if mutation=='extra-source':
+        name=prefix+'extra_untracked.py'
+        path=root/name
+        path.parent.mkdir(parents=True,exist_ok=True)
+        path.write_text('EXTRA_SOURCE = True\n')
+        manifest['files'][name]=hashlib.sha256(path.read_bytes()).hexdigest()
+    else:
+        name=next(name for name in manifest['files'] if name.startswith(prefix) and name.endswith('/chemical_reference.py'))
+        path=root/name
+        path.write_bytes(path.read_bytes()+b'\n# coherently rehashed mutation\n')
+        manifest['files'][name]=hashlib.sha256(path.read_bytes()).hexdigest()
+    digest=_rebind_manifest(root,manifest)
+
+    attempted=[]
+    def forbidden(*args,**kwargs):
+        attempted.append(True)
+        raise AssertionError('worker executable bundle was deserialized before source admission')
+    monkeypatch.setattr(atm,'load_bundle',forbidden)
+    monkeypatch.setattr(atom.WorkerRun,'__init__',forbidden)
+    with pytest.raises(IdentityError,match='source|inventory|identity'):
+        atom.load_worker_run(root,digest,trusted=True)
+    assert attempted==[]
+
+
+def test_byte_identical_worker_bundle_can_be_relocated(exported_worker,tmp_path):
+    from atm_mlmm.adapters.atom import load_worker_run
+
+    root,digest=exported_worker
+    relocated=tmp_path/'relocated-worker'
+    shutil.copytree(root,relocated)
+    with load_worker_run(relocated,digest,trusted=True) as worker:
+        assert worker.bundle.content_identity

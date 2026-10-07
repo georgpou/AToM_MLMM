@@ -2,9 +2,73 @@
 import json
 from pathlib import Path
 import shutil
+import hashlib
 import numpy as np
 import pytest
 from tests.workflow.test_cloud_host_guest import FIXTURE
+
+
+def _analytic_fixed_window(output, *, stop_after_samples=1):
+    """Build a fresh seven-atom analytic fixed-window prefix."""
+    from atm_mlmm.adapters.atom import build_atom, export_worker_run
+    from atm_mlmm.persistence import write_json
+    from atm_mlmm.workflow import _execute, _profile
+    from tests.workflow.test_atom_force_routing import atom_case
+    from tests.analytic_oracle import REFERENCE
+
+    physical, transfer, schedule, restraints, snapshot = atom_case('rbfe', marker=20.)
+    positions = np.asarray(snapshot.positions_nm, dtype=float).copy()
+    ids = snapshot.real_atom_ids
+    positions[[ids.index(atom) for atom in ('b1', 'b2', 'b3')]] -= np.array((1.5, 0., 0.))
+    positions[ids.index('protein')] += np.array((0., 2., 0.))
+    positions[ids.index('env')] -= np.array((0., 2., 0.))
+    from dataclasses import replace
+    snapshot = replace(snapshot, positions_nm=positions)
+    output = Path(output)
+    output.mkdir(parents=True, exist_ok=False)
+    with build_atom(physical, transfer, schedule, restraints, REFERENCE) as source:
+        answer = source.evaluate(snapshot, 'first')
+        _, digest = export_worker_run(source, output/'worker', snapshot, 'first', integrator_seed=41)
+    write_json(output/'handover-parity.json', {
+        'energy_kj_mol': answer.total.energy_kj_mol,
+        'raw': answer.raw.__dict__,
+        'all_real_forces_kj_mol_nm': answer.total.forces_kj_mol_nm,
+        'parameters': dict(answer.parameters),
+    })
+    metadata = {
+        'version': 1,
+        'run_id': 'analytic-restart-test',
+        'worker_manifest_sha256': digest,
+        'runtime_identity': REFERENCE.content_identity,
+        'profile': _profile(),
+        'settings': {
+            'frames_per_state': 2,
+            'steps_per_frame': 1,
+            'seed': 41,
+            'displacement_nm': list(transfer.protocol.geometry_requests['displacement_nm']),
+            'protocol_kind': 'rbfe',
+        },
+    }
+    write_json(output/'metadata.json', metadata)
+    (output/'metadata.sha256').write_text(hashlib.sha256((output/'metadata.json').read_bytes()).hexdigest()+'\n')
+    if stop_after_samples is not None:
+        _execute(output, metadata, stop_after_samples=stop_after_samples)
+    return output
+
+
+def _reseal_metadata_worker_manifest(output, *, drop_source=None):
+    from atm_mlmm.persistence import read_json, write_json
+    manifest_path = Path(output)/'worker/manifest.json'
+    manifest = read_json(manifest_path)
+    if drop_source is not None:
+        del manifest['files'][drop_source]
+    write_json(manifest_path, manifest)
+    metadata_path = Path(output)/'metadata.json'
+    metadata = read_json(metadata_path)
+    metadata['worker_manifest_sha256'] = hashlib.sha256(manifest_path.read_bytes()).hexdigest()
+    write_json(metadata_path, metadata)
+    (Path(output)/'metadata.sha256').write_text(hashlib.sha256(metadata_path.read_bytes()).hexdigest()+'\n')
+    return manifest
 
 
 def test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples(tmp_path):
@@ -92,3 +156,19 @@ def test_failed_counterfactual_is_saved_without_retriggering_failed_energy(tmp_p
     failure=out/'failure-000000'
     assert (failure/'state.xml').is_file() and (failure/'checkpoint.chk').is_file()
     assert json.loads((failure/'error.json').read_text())['error_type']=='NumericalDomainError'
+
+
+def test_missing_bundled_source_rejects_before_load(tmp_path,monkeypatch):
+    from atm_mlmm.adapters import atom
+    import atm_mlmm.workflow as workflow
+    from atm_mlmm.schema import IdentityError
+
+    output = _analytic_fixed_window(tmp_path/'fixed')
+    manifest = _reseal_metadata_worker_manifest(output, drop_source='runtime/source/atm_mlmm/chemical_reference.py')
+    assert 'runtime/source/atm_mlmm/chemical_reference.py' not in manifest['files']
+    calls = []
+    monkeypatch.setattr(workflow, '_execute', lambda *args, **kwargs: calls.append('execute'))
+    monkeypatch.setattr(atom, 'load_worker_run', lambda *args, **kwargs: calls.append('load'))
+    with pytest.raises(IdentityError, match='source|inventory'):
+        workflow.resume_run(output, trusted=True)
+    assert calls == []

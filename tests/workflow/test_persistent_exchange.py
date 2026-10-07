@@ -122,6 +122,53 @@ def test_round_prefix_resume_preserves_rng_samples_states_and_analysis(prepared,
     assert resume(interrupted,trusted=True)['samples']==8
 
 
+def test_pair_restored_checkpoint_time_must_match_saved_state(prepared,tmp_path,monkeypatch):
+    import openmm as mm
+    from openmm import unit
+    from atm_mlmm.adapters import atom
+    from atm_mlmm.adapters.atom import load_worker_run
+    from atm_mlmm.exchange_journal import read_exchange_rounds
+    from atm_mlmm.persistence import read_json,write_json
+    from atm_mlmm.schema import IdentityError
+
+    run,resume,_=api()
+    output=tmp_path/'clock-mismatch'
+    run(prepared,output,rounds=2,steps_per_round=1,seed=73,trusted=True,stop_after_rounds=1)
+    metadata=read_json(output/'metadata.json')
+    boundary=output/'rounds/000000'
+    record=read_json(boundary/'record.json')
+    sample=record['samples'][0]
+    state_id=record['state_ids_after'][0]
+    checkpoint=boundary/'worker-0.chk'
+    with load_worker_run(output/'worker',metadata['worker_manifest_sha256'],trusted=True,
+                         integrator_seed=metadata['settings']['seed']) as worker:
+        worker.restore_checkpoint(checkpoint.read_bytes(),state_id)
+        worker.evaluator.context.setTime(1.0005*unit.picosecond)
+        checkpoint.write_bytes(worker.evaluator.context.createCheckpoint())
+    manifest_path=boundary/'manifest.json'
+    manifest=read_json(manifest_path)
+    manifest['files']['worker-0.chk']=hashlib.sha256(checkpoint.read_bytes()).hexdigest()
+    write_json(manifest_path,manifest)
+    assert sample['step']==1 and sample['time_ps']==.0005
+    assert len(read_exchange_rounds(output))==1
+
+    calls={'energy':0,'steps':[]}
+    original_evaluate=atom.WorkerRun.evaluate
+    original_step=mm.LangevinMiddleIntegrator.step
+    def evaluate(self,*args,**kwargs):
+        calls['energy']+=1
+        return original_evaluate(self,*args,**kwargs)
+    def step(self,count):
+        calls['steps'].append(count)
+        return original_step(self,count)
+    monkeypatch.setattr(atom.WorkerRun,'evaluate',evaluate)
+    monkeypatch.setattr(mm.LangevinMiddleIntegrator,'step',step)
+    with pytest.raises(IdentityError,match='clock|time'):
+        resume(output,trusted=True)
+    assert calls=={'energy':0,'steps':[]}
+    assert len(read_exchange_rounds(output))==1 and not any((output/'rounds').glob('.pending-*'))
+
+
 @pytest.mark.parametrize('phase', ('evaluated','decision','refreshed'))
 def test_phase_failure_preserves_pending_and_explicit_rollback_replays(prepared,tmp_path,monkeypatch,phase):
     run,resume,read=api()

@@ -15,6 +15,8 @@ import time
 import uuid
 
 from .persistence import commit_sample_chunk, read_json, read_sample_chunks, write_json
+from .runtime_validation import (portable_state_clock, validate_restored_state,
+                                 verify_source_inventory)
 from .schema import (EvaluationRecords, IdentityError, MalformedInput, MobileGroup,
                      NumericalDomainError, PartitionSpec, RestraintSpec, RuntimeSpec,
                      ScheduleSpec, Snapshot, SystemInput, ThermodynamicSpec,
@@ -267,6 +269,79 @@ def _mapped_state_xml(payload, displacement):
     return ET.tostring(state,encoding='unicode')
 
 
+def _compare_saved_sample_state(snapshot, row, worker):
+    """Compare the restored real-particle snapshot with its captured row."""
+    import numpy as np
+
+    if tuple(row.get('real_atom_ids', ())) != snapshot.real_atom_ids:
+        raise IdentityError('restored checkpoint atom order disagrees with saved sample')
+    try:
+        saved_positions = np.asarray(row['positions_nm'], dtype=float)
+        saved_velocities = np.asarray(row['velocities_nm_ps'], dtype=float)
+        actual_positions = np.asarray(snapshot.positions_nm, dtype=float)
+        actual_velocities = np.asarray(snapshot.velocities_nm_ps, dtype=float)
+    except (KeyError, TypeError, ValueError) as error:
+        raise IdentityError(f'saved sample coordinates/velocities are malformed: {error}') from error
+    if (not np.isfinite(saved_positions).all() or not np.isfinite(saved_velocities).all() or
+            saved_positions.shape != actual_positions.shape or saved_velocities.shape != actual_velocities.shape):
+        raise IdentityError('saved sample coordinate/velocity shape or finiteness mismatch')
+    if not np.allclose(actual_positions, saved_positions, atol=1.e-15, rtol=0):
+        raise IdentityError('restored checkpoint coordinates disagree with saved sample')
+    if not np.array_equal(actual_velocities, saved_velocities):
+        raise IdentityError('restored checkpoint velocities disagree with saved sample')
+    saved_box = row.get('box_nm')
+    if saved_box is not None:
+        try:
+            saved_box = np.asarray(saved_box, dtype=float)
+        except (TypeError, ValueError) as error:
+            raise IdentityError(f'saved sample box is malformed: {error}') from error
+        if (saved_box.shape != (3, 3) or not np.isfinite(saved_box).all() or
+                not np.array_equal(saved_box, np.asarray(snapshot.box_nm, dtype=float))):
+            raise IdentityError('restored checkpoint box disagrees with saved sample')
+    elif snapshot.box_nm is not None:
+        raise IdentityError('restored checkpoint box disagrees with saved sample')
+    saved_parameters = row.get('parameters')
+    from .schedule import schedule_state
+    expected_parameters = dict(schedule_state(worker.bundle.schedule, row.get('state_id')).parameters)
+    if not isinstance(saved_parameters, dict) or expected_parameters != saved_parameters:
+        raise IdentityError('restored checkpoint parameters disagree with saved sample')
+    if (row.get('temperature_K') != worker.runtime.temperature_K or
+            row.get('integrator_seed') != worker.integrator_seed):
+        raise IdentityError('restored checkpoint runtime identity disagrees with saved sample')
+
+
+def _compare_saved_evaluation(result, saved, *, force_field='real_forces_kj_mol_nm', energy_field=None):
+    """Compare complete raw/total energies and every influencing real force."""
+    import numpy as np
+
+    actual_raw = asdict(result.raw)
+    saved_raw = saved.get('raw')
+    if not isinstance(saved_raw, dict) or set(actual_raw) != set(saved_raw):
+        raise IdentityError('fresh checkpoint raw energy record is incomplete')
+    try:
+        if any(not math.isfinite(float(actual_raw[name])) or not math.isfinite(float(saved_raw[name])) or
+               abs(float(actual_raw[name])-float(saved_raw[name])) > 1.e-8
+               for name in actual_raw):
+            raise IdentityError('fresh checkpoint raw energy record disagrees with saved state')
+        saved_forces = np.asarray(saved[force_field], dtype=float)
+        actual_forces = np.asarray(result.total.forces_kj_mol_nm, dtype=float)
+    except (KeyError, TypeError, ValueError) as error:
+        raise IdentityError(f'saved checkpoint energy/force record is malformed: {error}') from error
+    if (not np.isfinite(saved_forces).all() or not np.isfinite(actual_forces).all() or
+            saved_forces.shape != actual_forces.shape or
+            not np.allclose(actual_forces, saved_forces, atol=1.e-8, rtol=0)):
+        raise IdentityError('fresh checkpoint full real forces disagree with saved state')
+    if result.parameters != saved.get('parameters'):
+        raise IdentityError('fresh checkpoint parameters disagree with saved energy record')
+    if energy_field is not None:
+        try:
+            saved_energy = float(saved[energy_field])
+        except (KeyError, TypeError, ValueError) as error:
+            raise IdentityError(f'saved checkpoint total energy is malformed: {error}') from error
+        if not math.isfinite(saved_energy) or abs(result.total.energy_kj_mol-saved_energy) > 1.e-8:
+            raise IdentityError('fresh checkpoint total energy disagrees with saved state')
+
+
 def _archive_failure(directory, worker, error, identifiers):
     """Retain available evidence; secondary failures never replace the primary.
 
@@ -352,11 +427,39 @@ def _execute(directory,metadata,*,stop_after_samples=None):
             continue
         with load_worker_run(worker_path,metadata['worker_manifest_sha256'],trusted=True,
                              integrator_seed=settings['seed']+state_index) as worker:
-            if existing:
-                chunk = directory/'samples'/f'{rows.index(existing[-1]):06d}'
-                worker.restore_checkpoint((chunk/'checkpoint.chk').read_bytes(),state.state_id)
-            else:
-                worker.restore_portable_state(initial,state.state_id)
+            frame = len(existing)
+            try:
+                if existing:
+                    last = existing[-1]
+                    chunk = directory/'samples'/f'{rows.index(last):06d}'
+                    portable_xml = (chunk/'state.xml').read_text()
+                    worker.restore_checkpoint((chunk/'checkpoint.chk').read_bytes(),state.state_id)
+                    snapshot = validate_restored_state(worker,state_id=state.state_id,
+                        portable_state_xml=portable_xml,expected_step_count=last['step'],
+                        expected_time_ps=last['time_ps'])
+                    _compare_saved_sample_state(snapshot,last,worker)
+                else:
+                    worker.restore_portable_state(initial,state.state_id)
+                    expected_step,expected_time = portable_state_clock(initial)
+                    snapshot = validate_restored_state(worker,state_id=state.state_id,
+                        portable_state_xml=initial,expected_step_count=expected_step,
+                        expected_time_ps=expected_time,
+                        compare_portable_parameters=state.state_id==worker.manifest['state_id'])
+                _domain(bundle.physical.topology,snapshot,settings['displacement_nm'],settings['protocol_kind'],
+                        tuple((link.ml_parent_id,link.mm_parent_id) for link in bundle.physical.links))
+                refreshed = worker.evaluate(snapshot,state.state_id)
+                if existing:
+                    _compare_saved_evaluation(refreshed,existing[-1])
+                elif (state.state_id==worker.manifest['state_id'] and
+                      (directory/'handover-parity.json').is_file()):
+                    _compare_saved_evaluation(refreshed,read_json(directory/'handover-parity.json'),
+                        force_field='all_real_forces_kj_mol_nm',energy_field='energy_kj_mol')
+            except Exception as error:
+                _archive_failure(directory/f'failure-{len(rows):06d}',worker,error,{
+                    'state_id':state.state_id,'walker_id':f"{metadata['run_id']}:{state.state_id}",
+                    'attempted_sample_id':f"{metadata['run_id']}:{state.state_id}:{frame+1}",
+                    'sequence_number':frame+1,'journal_index':len(rows),'phase':'restored-state-admission'})
+                raise
             for frame in range(len(existing),settings['frames_per_state']):
                 step_start = time.perf_counter()
                 try:
@@ -499,12 +602,11 @@ def resume_run(directory,*,trusted=False,stop_after_samples=None):
     metadata = read_json(directory/'metadata.json')
     if metadata.get('version') != 1 or metadata['profile'] != _profile():
         raise UnsupportedCapability('checkpoint continuation requires identical admitted runtime/software profile')
-    # Current runtime code must match every exact bundled source file. Paths may
-    # relocate; changing source is a new run, never a silent restart.
-    manifest = read_json(directory/'worker/manifest.json')
-    source = Path(__file__).resolve().parent
-    for name,digest in manifest['files'].items():
-        prefix = 'runtime/source/atm_mlmm/'
-        if name.startswith(prefix) and _sha(source/name[len(prefix):]) != digest:
-            raise IdentityError(f'restart source differs from bundled source: {name}')
+    worker_path = directory/'worker'
+    manifest_path = worker_path/'manifest.json'
+    if _sha(manifest_path) != metadata.get('worker_manifest_sha256'):
+        raise IdentityError('restart worker manifest digest mismatch before source admission')
+    manifest = read_json(manifest_path)
+    verify_source_inventory(worker_path, manifest.get('files'),
+                            current_source_root=Path(__file__).resolve().parent)
     return _execute(directory,metadata,stop_after_samples=stop_after_samples)
