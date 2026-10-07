@@ -1,0 +1,27 @@
+{
+  "schema_version": "1.0",
+  "scope": "diagnose own-project build metadata contaminating exact worker runtime profile; preserve all dependency identities and the continuation guard",
+  "before": {
+    "context": "current checkout interpreter with PYTHONPATH=<checkout>/src before filtering",
+    "distribution_count": 157,
+    "installed_distribution_identity_sha256": "d02bec2bfb74209cae55d1b05631ad014249a47099c3f0110d63ee98592aa17b",
+    "only_self_distribution": {
+      "name": "atom-mlmm",
+      "version": "0.1.0",
+      "metadata_path": "src/atom_mlmm.egg-info"
+    }
+  },
+  "after": {
+    "context": "same interpreter after filtering only canonicalized atom-mlmm from the dependency inventory",
+    "distribution_count": 156,
+    "installed_distribution_identity_sha256": "1865672db5d5a8db6c4d6abc4035d2eb0d70339cb85c1958f85eac7e7800fbf1",
+    "fresh_export_profile_sha256": "1865672db5d5a8db6c4d6abc4035d2eb0d70339cb85c1958f85eac7e7800fbf1",
+    "fresh_relocated_worker_resume": "passed; see compat-fix-affected-001.log"
+  },
+  "guard_evidence": {
+    "runtime_profile_replacement_rejection": "passed; see compat-fix-affected-001.log",
+    "locked_dependency_version_drift_rejection": "passed; see compat-fix-affected-001.log",
+    "all_other_runtime_distribution_identities": "retained exactly; no lock changes"
+  },
+  "note": "All affected restart tests created fresh temporary exports from the fixed source. No previously sealed export was migrated or resumed."
+}

@@ -10,6 +10,7 @@ import json
 import math
 from pathlib import Path
 import platform
+import re
 import resource
 import time
 import uuid
@@ -222,7 +223,12 @@ def _domain(topology, snapshot, displacement, kind, boundary_edges=()):
 
 
 def _profile():
-    distributions = sorted((d.metadata['Name'],d.version) for d in importlib.metadata.distributions())
+    # Source builds can leave an atom-mlmm.egg-info directory on PYTHONPATH.
+    # Project source is fingerprinted separately; only runtime dependencies
+    # belong in this profile, and every other installed distribution stays exact.
+    distributions = sorted((d.metadata['Name'],d.version)
+                           for d in importlib.metadata.distributions()
+                           if re.sub(r'[-_.]+', '-', d.metadata['Name']).lower() != 'atom-mlmm')
     distribution_digest = hashlib.sha256(json.dumps(distributions,separators=(',',':')).encode()).hexdigest()
     return {'python':platform.python_version(),'machine':platform.machine(),
             'packages':{name:importlib.metadata.version(name) for name in ('openmm','numpy','torch','mace-torch','atom-openmm')},

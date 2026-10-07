@@ -3,6 +3,7 @@ import hashlib
 import importlib.metadata as metadata
 import inspect
 import json
+import os
 from pathlib import Path
 import platform
 import re
@@ -97,6 +98,10 @@ def characterize_environment(repository, setup_root):
     bundle = repository / 'environment/cloud-cpu'
     checks = []
     builds, inventories, locks = {}, {}, {}
+    # Validate the named installation's locked inventory, not metadata from
+    # whichever source checkout happened to invoke this function.
+    check_env = os.environ.copy()
+    check_env.pop('PYTHONPATH', None)
     for label, prefix in (('core', root/'env'), ('amber', root/'amber-env')):
         builds[label] = []
         for path in sorted((prefix/'conda-meta').glob('*.json')):
@@ -109,12 +114,12 @@ def characterize_environment(repository, setup_root):
             raise ValueError(f'missing {label} Conda builds')
         command = [str(prefix/'bin/python'), '-c',
                    'import importlib.metadata as m,json; print(json.dumps({d.metadata["Name"]:d.version for d in m.distributions()}))']
-        inventories[label] = json.loads(subprocess.check_output(command, text=True))
+        inventories[label] = json.loads(subprocess.check_output(command, text=True, env=check_env))
         for kind, command in (
             ('exact_versions', [str(prefix/'bin/python'), str(bundle/'check_versions.py'), str(root), label]),
             ('pip_check', [str(prefix/'bin/python'), '-m', 'pip', 'check']),
         ):
-            run = subprocess.run(command, text=True, capture_output=True)
+            run = subprocess.run(command, text=True, capture_output=True, env=check_env)
             checks.append(dict(name=f'{label}_{kind}', command=command, exit_code=run.returncode,
                                output=run.stdout+run.stderr))
         name = f'{label}-conda-linux-64.lock'

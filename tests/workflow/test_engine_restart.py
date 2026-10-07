@@ -71,6 +71,23 @@ def _reseal_metadata_worker_manifest(output, *, drop_source=None):
     return manifest
 
 
+def test_local_project_metadata_does_not_change_runtime_profile(monkeypatch):
+    """Generated wheel metadata is not a scientific runtime dependency."""
+    import importlib.metadata as metadata
+    from types import SimpleNamespace
+    from atm_mlmm.workflow import _profile
+
+    normalize = lambda name: name.lower().replace('_', '-').replace('.', '-')
+    dependencies = [d for d in metadata.distributions()
+                    if normalize(d.metadata['Name']) != 'atom-mlmm']
+    monkeypatch.setattr(metadata, 'distributions', lambda: iter(dependencies))
+    without_project = _profile()['installed_distribution_identity']
+    own_metadata = SimpleNamespace(metadata={'Name': 'atom-mlmm'}, version='0.1.0')
+    monkeypatch.setattr(metadata, 'distributions', lambda: iter([*dependencies, own_metadata]))
+    with_project = _profile()['installed_distribution_identity']
+    assert with_project == without_project
+
+
 def test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples(tmp_path):
     from atm_mlmm.workflow import run_configuration, resume_run, _execute
     from atm_mlmm.persistence import read_sample_chunks

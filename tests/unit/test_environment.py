@@ -139,9 +139,11 @@ def test_model_asset_hash_and_policy(tmp_path):
         altered[key] = value
         path = tmp_path / 'manifest.json'
         path.write_text(json.dumps(altered))
-        with pytest.raises(ValueError, match='authorization|policy'):
+        # The approved manifest hash is checked before its fields are parsed;
+        # altered authorization/policy fields therefore fail closed at admission.
+        with pytest.raises(ValueError, match='SHA-256|authorization|policy'):
             verify_asset(CHECKPOINT, path)
-    path.write_text(json.dumps(original))
+    path.write_bytes((CHECKPOINT.parent / 'manifest.json').read_bytes())
     with pytest.raises(ValueError, match='licence'):
         verify_asset(CHECKPOINT, path)
     (tmp_path / 'LICENSE.md').write_text('not the pinned academic licence')
