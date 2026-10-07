@@ -1,0 +1,12 @@
+START_UTC 2026-10-07T15:40:03Z
+SOURCE_COMMIT 92a50000144d5407b397572d418c2d7402d77078
+SOURCE_CODE_TREE e92bc45eb34dcbdd62a019387bcce5d35d78c193
+WHEEL_SHA256 616248d419eb826bead381949a20101c91fa25e5006c94101165dc996e1ddcf7
+SIDEcar_SOURCE installed wheel site-packages/atm_mlmm mirrored under installed root/src/atm_mlmm; unchanged bundle-003 environment/cloud-cpu under installed root/environment/cloud-cpu
+ARGV env -u PYTHONPATH ATOM_MLMM_MODEL_DIR=<bundle assets> <venv>/bin/python -c import-location; env -u PYTHONPATH ATOM_MLMM_MODEL_DIR=<bundle assets> <venv>/bin/python -m pytest -c /dev/null -q <worktree>/tests/workflow/test_engine_restart.py::test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples
+PACKAGE_LOCATION /tmp/atom-mlmm-batch-e-installed-final-001/lib/python3.11/site-packages/atm_mlmm/__init__.py
+PACKAGE_VERSION 0.1.0
+.                                                                        [100%]
+1 passed in 30.47s
+EXIT_CODE 0
+END_UTC 2026-10-07T15:40:36Z

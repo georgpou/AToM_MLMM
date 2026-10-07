@@ -1,0 +1,79 @@
+START_UTC 2026-10-07T15:39:26Z
+SOURCE_COMMIT 
+SOURCE_CODE_TREE e92bc45eb34dcbdd62a019387bcce5d35d78c193
+WHEEL_SHA256 616248d419eb826bead381949a20101c91fa25e5006c94101165dc996e1ddcf7
+ARGV env -u PYTHONPATH ATOM_MLMM_MODEL_DIR=<batch-e-release-bundle-003/assets/mace-off23-small> <venv>/bin/python -c import-location; env -u PYTHONPATH ATOM_MLMM_MODEL_DIR=<bundle assets> <venv>/bin/python -m pytest -c /dev/null -q <worktree>/tests/workflow/test_engine_restart.py::test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples
+PACKAGE_LOCATION /tmp/atom-mlmm-batch-e-installed-final-001/lib/python3.11/site-packages/atm_mlmm/__init__.py
+PACKAGE_VERSION 0.1.0
+F                                                                        [100%]
+=================================== FAILURES ===================================
+___ test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples ___
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-57/test_interrupted_actual_worker0')
+
+    def test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples(tmp_path):
+        from atm_mlmm.workflow import run_configuration, resume_run, _execute
+        from atm_mlmm.persistence import read_sample_chunks
+        base = json.loads((FIXTURE/'config.json').read_text())
+        base['input_manifest'] = str(FIXTURE/'manifest.json')
+        base['settings'].update(frames_per_state=2,steps_per_frame=1,minimization_iterations=3)
+        path = tmp_path/'config.json'
+        path.write_text(json.dumps(base))
+        complete, interrupted = tmp_path/'complete', tmp_path/'interrupted'
+>       first = run_configuration(path,interrupted,trusted=True,stop_after_samples=1)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+/workspace/AToM_MLMM-before-HPC/tests/workflow/test_engine_restart.py:100: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+atom-mlmm-batch-e-installed-final-001/lib/python3.11/site-packages/atm_mlmm/workflow.py:580: in run_configuration
+    manifest,digest = export_worker_run(source,directory/'worker',snapshot,initial_id,
+atom-mlmm-batch-e-installed-final-001/lib/python3.11/site-packages/atm_mlmm/adapters/atom.py:295: in export_worker_run
+    shutil.copyfile(root/'environment/cloud-cpu'/name, target)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+src = PosixPath('/tmp/atom-mlmm-batch-e-installed-final-001/lib/python3.11/environment/cloud-cpu/core-conda-linux-64.lock')
+dst = PosixPath('/tmp/pytest-of-agent/pytest-57/test_interrupted_actual_worker0/interrupted/worker/runtime/environment/core-conda-linux-64.lock')
+follow_symlinks = True
+
+    def copyfile(src, dst, *, follow_symlinks=True):
+        """Copy data from src to dst in the most efficient way possible.
+    
+        If follow_symlinks is not set and src is a symbolic link, a new
+        symlink will be created instead of copying the file it points to.
+    
+        """
+        sys.audit("shutil.copyfile", src, dst)
+    
+        if _samefile(src, dst):
+            raise SameFileError("{!r} and {!r} are the same file".format(src, dst))
+    
+        file_size = 0
+        for i, fn in enumerate([src, dst]):
+            try:
+                st = _stat(fn)
+            except OSError:
+                # File most likely does not exist
+                pass
+            else:
+                # XXX What about other special files? (sockets, devices...)
+                if stat.S_ISFIFO(st.st_mode):
+                    fn = fn.path if isinstance(fn, os.DirEntry) else fn
+                    raise SpecialFileError("`%s` is a named pipe" % fn)
+                if _WINDOWS and i == 0:
+                    file_size = st.st_size
+    
+        if not follow_symlinks and _islink(src):
+            os.symlink(os.readlink(src), dst)
+        else:
+>           with open(src, 'rb') as fsrc:
+                 ^^^^^^^^^^^^^^^
+E           FileNotFoundError: [Errno 2] No such file or directory: '/tmp/atom-mlmm-batch-e-installed-final-001/lib/python3.11/environment/cloud-cpu/core-conda-linux-64.lock'
+
+/workspace/before-hpc-cpu-v2/env/lib/python3.11/shutil.py:256: FileNotFoundError
+----------------------------- Captured stdout call -----------------------------
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+=========================== short test summary info ============================
+FAILED ../dev::test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples
+1 failed in 7.58s
+EXIT_CODE 1
+END_UTC 2026-10-07T15:39:36Z

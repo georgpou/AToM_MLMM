@@ -1,0 +1,25 @@
+{
+  "start_utc": "2026-10-07T15:27:47.692847+00:00",
+  "command": [
+    "python",
+    "-m",
+    "pytest",
+    "-q",
+    "--tb=short",
+    "tests/integration/test_cap_collections.py::test_two_cap_bounded_restart_through_common_runner_in_fresh_process",
+    "tests/unit/test_environment.py::test_environment_manifest_complete",
+    "tests/unit/test_environment.py::test_model_asset_hash_and_policy",
+    "tests/workflow/test_engine_fresh_process.py::test_offline_actual_worker_resume_with_original_checkout_and_caches_denied",
+    "tests/workflow/test_host_guest_rbfe.py::test_host_guest_direct_native_and_fresh_worker_restart_are_mechanism_checks",
+    "tests/workflow/test_solvated_process_restart.py::test_solvated_offline_cache_independent_reload_and_devices[abfe]",
+    "tests/workflow/test_solvated_process_restart.py::test_solvated_offline_cache_independent_reload_and_devices[rbfe]",
+    "tests/workflow/test_worker_handover.py::test_real_worker_constructor_preserves_high_precision_state",
+    "tests/workflow/test_worker_handover.py::test_worker_artifact_trust_and_identity_are_checked_before_loading",
+    "tests/workflow/test_worker_handover.py::test_checkpoint_continuity_and_portable_state_have_distinct_guarantees",
+    "tests/workflow/test_worker_handover.py::test_worker_source_inventory_is_complete_before_executable_loading[extra-source]",
+    "tests/workflow/test_worker_handover.py::test_worker_source_inventory_is_complete_before_executable_loading[changed-source]",
+    "tests/workflow/test_worker_handover.py::test_byte_identical_worker_bundle_can_be_relocated"
+  ],
+  "head": "6018317c8089a329925e5c0744906f28ff4f7283",
+  "provenance": "nodes inferred from interrupted run; targeted diagnostics"
+}
