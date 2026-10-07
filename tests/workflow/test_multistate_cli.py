@@ -16,6 +16,20 @@ def _cli(*args, cwd=ROOT):
                           cwd=cwd, env=environment, capture_output=True, text=True, timeout=30)
 
 
+def _prepare_multistate_in_cli_runtime(directory):
+    import os
+    environment = os.environ.copy()
+    environment["PYTHONPATH"] = str(ROOT / "src")
+    environment.update(OPENBLAS_NUM_THREADS="2", OMP_NUM_THREADS="2", MKL_NUM_THREADS="2")
+    prepare = (
+        "import sys; from tests.workflow.test_persistent_exchange import prepare_multistate; "
+        "prepare_multistate(sys.argv[1])"
+    )
+    result = subprocess.run([sys.executable, "-c", prepare, str(directory)], cwd=ROOT,
+                            env=environment, capture_output=True, text=True, timeout=60)
+    assert result.returncode == 0, result.stdout + result.stderr
+
+
 def test_existing_module_command_and_new_multistate_help_are_preserved():
     help_result = _cli("--help")
     assert help_result.returncode == 0
@@ -81,3 +95,33 @@ def test_analysis_cli_roundtrips_explicit_synthetic_records(tmp_path):
     output = json.loads(result.stdout)
     assert output["scope"].startswith("explicit exchange analysis")
     assert output["analysis_result"] == json.loads(to_json(expected))
+
+
+def test_multistate_cli_runs_and_resumes_a_tiny_interrupted_plan(tmp_path):
+    from atm_mlmm.exchange_journal import read_multistate_boundaries
+
+    prepared = tmp_path / "prepared"
+    _prepare_multistate_in_cli_runtime(prepared)
+    plan = tmp_path / "plan.json"
+    plan.write_text(json.dumps({
+        "state_ids": ["first", "middle", "third"],
+        "state_pairs": [[0, 1], [1, 2]],
+        "boundaries": 2,
+        "steps_per_boundary": 1,
+        "seed": 73,
+    }))
+    output = tmp_path / "exchange"
+
+    first = _cli("exchange-multistate", prepared, plan, "--output", output,
+                 "--stop-after-boundaries", 1, "--trusted")
+    assert first.returncode == 0, first.stdout + first.stderr
+    assert json.loads(first.stdout)["status"] == "interrupted"
+    assert len(read_multistate_boundaries(output)) == 1
+
+    resumed = _cli("resume-multistate", output, "--trusted")
+    assert resumed.returncode == 0, resumed.stdout + resumed.stderr
+    summary = json.loads(resumed.stdout)
+    assert summary["status"] == "complete"
+    assert summary["boundaries"] == 2
+    assert summary["samples"] == 6
+    assert len(read_multistate_boundaries(output)) == 2

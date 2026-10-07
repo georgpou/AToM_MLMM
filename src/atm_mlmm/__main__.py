@@ -35,6 +35,8 @@ def main():
     multi.add_argument('plan',type=Path,help='JSON: state_ids, full connected state_pairs, boundaries, steps_per_boundary, seed')
     multi.add_argument('--output',type=Path,required=True)
     multi.add_argument('--trusted',action='store_true',help='authorize loading sealed System/ML artifacts')
+    multi.add_argument('--stop-after-boundaries',type=int,default=None,
+        help='stop after this many committed boundaries for an explicit bounded continuation')
     resume_multi = commands.add_parser('resume-multistate',
         help='resume the verified multistate prefix; pending recovery is explicit')
     resume_multi.add_argument('directory',type=Path)
@@ -76,7 +78,8 @@ def main():
                 state_ids=tuple(plan['state_ids']),
                 state_pairs=tuple(tuple(pair) for pair in plan['state_pairs']),
                 boundaries=plan['boundaries'],steps_per_boundary=plan['steps_per_boundary'],
-                seed=plan['seed'],trusted=args.trusted)
+                seed=plan['seed'],trusted=args.trusted,
+                stop_after_boundaries=args.stop_after_boundaries)
         elif args.command == 'resume-multistate':
             from .exchange import resume_multistate_exchange
             result = resume_multistate_exchange(args.directory,trusted=args.trusted,
