@@ -1,0 +1,68 @@
+{
+  "accepted": true,
+  "exponent": -6.162612336879647e-06,
+  "raw_energies": [
+    [
+      {
+        "atm_expression_energy_kJ_mol": 93.65922726338341,
+        "delta_u_raw_kJ_mol": 0.4649688428345229,
+        "delta_u_softcore_kJ_mol": 0.2649688428345229,
+        "outside_energy_kJ_mol": 43.245017512436945,
+        "system_total_energy_kJ_mol": 136.90424477582036,
+        "u0_raw_kJ_mol": 91.67279064221,
+        "u1_raw_kJ_mol": 92.13775948504453
+      },
+      {
+        "atm_expression_energy_kJ_mol": 93.65904075128428,
+        "delta_u_raw_kJ_mol": 0.4650101912149296,
+        "delta_u_softcore_kJ_mol": 0.2650101912149296,
+        "outside_energy_kJ_mol": 43.24505973117353,
+        "system_total_energy_kJ_mol": 136.9041004824578,
+        "u0_raw_kJ_mol": 91.67259336989156,
+        "u1_raw_kJ_mol": 92.13760356110649
+      }
+    ],
+    [
+      {
+        "atm_expression_energy_kJ_mol": 93.86475735922156,
+        "delta_u_raw_kJ_mol": 0.4649688428345229,
+        "delta_u_softcore_kJ_mol": -0.2649688428345229,
+        "outside_energy_kJ_mol": 43.245017512436945,
+        "system_total_energy_kJ_mol": 137.1097748716585,
+        "u0_raw_kJ_mol": 91.67279064221,
+        "u1_raw_kJ_mol": 92.13775948504453
+      },
+      {
+        "atm_expression_energy_kJ_mol": 93.8645862187654,
+        "delta_u_raw_kJ_mol": 0.4650101912149296,
+        "delta_u_softcore_kJ_mol": -0.2650101912149296,
+        "outside_energy_kJ_mol": 43.24505973117353,
+        "system_total_energy_kJ_mol": 137.1096459499389,
+        "u0_raw_kJ_mol": 91.67259336989156,
+        "u1_raw_kJ_mol": 92.13760356110649
+      }
+    ]
+  ],
+  "reduced_energies": [
+    [
+      54.88598644844579,
+      54.885928600104016
+    ],
+    [
+      54.96838507730782,
+      54.96833339157838
+    ]
+  ],
+  "state_ids_after": [
+    "third",
+    "first"
+  ],
+  "state_ids_before": [
+    "first",
+    "third"
+  ],
+  "walker_ids": [
+    "c7adece7ee27496f97edbae45d91a6e9:walker-0",
+    "c7adece7ee27496f97edbae45d91a6e9:walker-1"
+  ]
+}

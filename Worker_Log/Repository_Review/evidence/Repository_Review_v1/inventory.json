@@ -1,0 +1,3144 @@
+{
+  "source_modules": [
+    {
+      "path": "src/atm_mlmm/__init__.py",
+      "lines": 1,
+      "sha256": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+      "definitions": []
+    },
+    {
+      "path": "src/atm_mlmm/__main__.py",
+      "lines": 61,
+      "sha256": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+      "definitions": [
+        {
+          "name": "main",
+          "line": 8,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/adapters/__init__.py",
+      "lines": 1,
+      "sha256": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+      "definitions": []
+    },
+    {
+      "path": "src/atm_mlmm/adapters/atom.py",
+      "lines": 480,
+      "sha256": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+      "definitions": [
+        {
+          "name": "timestep_fs_to_ps",
+          "line": 31,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "estimate_uwham",
+          "line": 38,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "atom_keywords",
+          "line": 91,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_topology",
+          "line": 113,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_check_and_normalize_conversion",
+          "line": 136,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "AtomRun",
+          "line": 152,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "build_atom",
+          "line": 212,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "export_worker_run",
+          "line": 236,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "load_worker_run",
+          "line": 294,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "WorkerRun",
+          "line": 341,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "attempt_pair_exchange",
+          "line": 421,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/analysis.py",
+      "lines": 200,
+      "sha256": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+      "definitions": [
+        {
+          "name": "_connected_support",
+          "line": 9,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "estimate_free_energies",
+          "line": 21,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_uncorrelated_indices",
+          "line": 64,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "analyze",
+          "line": 96,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_covariance",
+          "line": 123,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "directional_difference",
+          "line": 134,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "combine_free_energies",
+          "line": 146,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/analytic.py",
+      "lines": 135,
+      "sha256": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+      "definitions": [
+        {
+          "name": "SelectedHarmonic",
+          "line": 14,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "EnvironmentSpring",
+          "line": 30,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "seal_physical",
+          "line": 45,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "make_analytic_bundle",
+          "line": 72,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/atm.py",
+      "lines": 362,
+      "sha256": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+      "definitions": [
+        {
+          "name": "xml_digest",
+          "line": 25,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "force_digest",
+          "line": 29,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "physical_system",
+          "line": 36,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "outside_force",
+          "line": 56,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "validate_atm_schedule",
+          "line": 72,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "validate_physical_parameter_ownership",
+          "line": 87,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "seal_alchemical",
+          "line": 99,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "build_atm",
+          "line": 113,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "validate_runtime",
+          "line": 133,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "make_integrator",
+          "line": 142,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_Evaluator",
+          "line": 150,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "PhysicalEvaluator",
+          "line": 228,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "AtmEvaluator",
+          "line": 240,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "evaluate_physical",
+          "line": 336,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "evaluate_atm",
+          "line": 341,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "save_bundle",
+          "line": 346,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "load_bundle",
+          "line": 353,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/capabilities.py",
+      "lines": 62,
+      "sha256": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+      "definitions": [
+        {
+          "name": "validate_request",
+          "line": 5,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/chemical_reference.py",
+      "lines": 86,
+      "sha256": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+      "definitions": [
+        {
+          "name": "relative_errors",
+          "line": 11,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "force_metrics",
+          "line": 18,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "load_references",
+          "line": 28,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/derivatives.py",
+      "lines": 26,
+      "sha256": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+      "definitions": [
+        {
+          "name": "finite_difference_forces",
+          "line": 8,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/embeddings/__init__.py",
+      "lines": 1,
+      "sha256": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+      "definitions": []
+    },
+    {
+      "path": "src/atm_mlmm/embeddings/mechanical.py",
+      "lines": 120,
+      "sha256": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+      "definitions": [
+        {
+          "name": "openmm_topology",
+          "line": 12,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "original_system",
+          "line": 26,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "seal_boundary_result",
+          "line": 56,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/endpoints.py",
+      "lines": 29,
+      "sha256": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+      "definitions": [
+        {
+          "name": "check_reference",
+          "line": 7,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/environment.py",
+      "lines": 208,
+      "sha256": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+      "definitions": [
+        {
+          "name": "require_api",
+          "line": 14,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_selected_harmonic",
+          "line": 20,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "check_required_apis",
+          "line": 27,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_digest",
+          "line": 89,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "characterize_environment",
+          "line": 93,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "validate_environment_manifest",
+          "line": 154,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/evidence.py",
+      "lines": 101,
+      "sha256": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+      "definitions": [
+        {
+          "name": "_tree",
+          "line": 19,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_safe_name",
+          "line": 38,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "verify_evidence",
+          "line": 44,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "export_evidence",
+          "line": 65,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/exchange.py",
+      "lines": 860,
+      "sha256": "1d11414c3435119b485834698ecef4449df3b1418eab00763ecea960c904e095",
+      "definitions": [
+        {
+          "name": "_verify_source_profile",
+          "line": 29,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_multistate_selection",
+          "line": 50,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_admit_multistate_prepared",
+          "line": 86,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_rng_document",
+          "line": 122,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_rng_from_document",
+          "line": 127,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_host_rng",
+          "line": 137,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_record_phase",
+          "line": 148,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_publish_round",
+          "line": 155,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_capture",
+          "line": 163,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_geometry",
+          "line": 170,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "run_exchange",
+          "line": 178,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_execute_exchange",
+          "line": 220,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "resume_exchange",
+          "line": 306,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_durable_json",
+          "line": 322,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_durable_bytes",
+          "line": 330,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_new_durable_directory",
+          "line": 338,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_coordinate_digest",
+          "line": 343,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_capture_multistate",
+          "line": 349,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_multistate_report",
+          "line": 357,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_plain_document",
+          "line": 366,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_multistate_sample",
+          "line": 378,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_write_multistate_phase",
+          "line": 393,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_publish_multistate_boundary",
+          "line": 399,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_state_ids_for_permutation",
+          "line": 408,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_fresh_multistate_check",
+          "line": 412,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_fresh_multistate_energy_check",
+          "line": 473,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_archive_multistate_failure",
+          "line": 504,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_archive_published_multistate_failure",
+          "line": 529,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_execute_multistate",
+          "line": 584,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "run_multistate_exchange",
+          "line": 762,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "resume_multistate_exchange",
+          "line": 840,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/exchange_journal.py",
+      "lines": 763,
+      "sha256": "372bc93632909d2a3d9093f1782747a60da16489ff5cfd3267c049e3670d9e95",
+      "definitions": [
+        {
+          "name": "sha",
+          "line": 17,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "sync_directory",
+          "line": 21,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_sync_rename_parents",
+          "line": 27,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "controller_lock",
+          "line": 40,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "seal",
+          "line": 49,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "verify",
+          "line": 58,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "read_exchange_rounds",
+          "line": 75,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "read_multistate_boundaries",
+          "line": 129,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "seal_tree",
+          "line": 320,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "verify_tree",
+          "line": 338,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_verify_multistate_source",
+          "line": 368,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_validate_multistate_metadata",
+          "line": 389,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_validate_multistate_worker_contract",
+          "line": 443,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_validate_permutation",
+          "line": 483,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_validate_exact_int_list",
+          "line": 489,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_validate_inverse",
+          "line": 495,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_tuple_tree",
+          "line": 506,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_validate_rng_document",
+          "line": 510,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_same_parameters",
+          "line": 539,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_finite",
+          "line": 543,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_clock_matches",
+          "line": 547,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_validate_expected_clock",
+          "line": 551,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_validate_raw",
+          "line": 597,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_validate_sample",
+          "line": 607,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_validate_pair_evaluations",
+          "line": 637,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_validate_refreshed",
+          "line": 657,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_coordinate_digest",
+          "line": 680,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_validate_final_reports",
+          "line": 686,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "preserve_pending",
+          "line": 726,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "preserve_multistate_pending",
+          "line": 739,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/geometry.py",
+      "lines": 185,
+      "sha256": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+      "definitions": [
+        {
+          "name": "resolve_protocol",
+          "line": 6,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "final_positions",
+          "line": 29,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "orthorhombic_lengths",
+          "line": 57,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "minimum_image",
+          "line": 66,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "unwrap_molecules",
+          "line": 75,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "periodic_edges",
+          "line": 113,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "validate_bulk_clearance",
+          "line": 133,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "validate_transfer",
+          "line": 156,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "validate_sites",
+          "line": 161,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/hybrid.py",
+      "lines": 81,
+      "sha256": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+      "definitions": [
+        {
+          "name": "build_physical",
+          "line": 11,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/identity.py",
+      "lines": 34,
+      "sha256": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+      "definitions": [
+        {
+          "name": "atom_index",
+          "line": 5,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "find_atom",
+          "line": 9,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "validate_force_coverage",
+          "line": 17,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "validate_mobile_groups",
+          "line": 23,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/joint_reference.py",
+      "lines": 85,
+      "sha256": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+      "definitions": [
+        {
+          "name": "validate_capped_geometry",
+          "line": 9,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "quantum_job_matrix",
+          "line": 23,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/ledger.py",
+      "lines": 259,
+      "sha256": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+      "definitions": [
+        {
+          "name": "inventory_system",
+          "line": 12,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "boundary_dispositions",
+          "line": 85,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "validate_pme_system",
+          "line": 166,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_mask_diagnostic",
+          "line": 194,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "charge_mask_diagnostic",
+          "line": 254,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "lj_mask_diagnostic",
+          "line": 258,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/model_reference.py",
+      "lines": 77,
+      "sha256": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+      "definitions": [
+        {
+          "name": "NativeMACE",
+          "line": 8,
+          "kind": "ClassDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/models/__init__.py",
+      "lines": 1,
+      "sha256": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+      "definitions": []
+    },
+    {
+      "path": "src/atm_mlmm/models/analytic_boundary.py",
+      "lines": 98,
+      "sha256": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+      "definitions": [
+        {
+          "name": "BoundaryProbe",
+          "line": 11,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "BoundaryCallback",
+          "line": 32,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "registered_potential",
+          "line": 61,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/models/mace.py",
+      "lines": 163,
+      "sha256": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+      "definitions": [
+        {
+          "name": "_verified_bytes",
+          "line": 23,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "verify_asset",
+          "line": 73,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_imports",
+          "line": 79,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "load_model",
+          "line": 93,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "make_calculator",
+          "line": 112,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "PinnedASECalculator",
+          "line": 123,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "model_spec",
+          "line": 160,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/partition.py",
+      "lines": 105,
+      "sha256": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+      "definitions": [
+        {
+          "name": "_components",
+          "line": 9,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_is_ring_cut",
+          "line": 25,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "resolve_partition",
+          "line": 38,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/persistence.py",
+      "lines": 100,
+      "sha256": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+      "definitions": [
+        {
+          "name": "write_json",
+          "line": 10,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "read_json",
+          "line": 26,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "commit_sample_chunk",
+          "line": 32,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "read_sample_chunks",
+          "line": 71,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/prepare.py",
+      "lines": 95,
+      "sha256": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+      "definitions": [
+        {
+          "name": "PhysicalPreparation",
+          "line": 13,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "build_preparation",
+          "line": 33,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "prepare_phases",
+          "line": 37,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/protocols/__init__.py",
+      "lines": 1,
+      "sha256": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+      "definitions": []
+    },
+    {
+      "path": "src/atm_mlmm/protocols/abfe.py",
+      "lines": 11,
+      "sha256": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+      "definitions": [
+        {
+          "name": "make_protocol",
+          "line": 5,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/protocols/rbfe.py",
+      "lines": 11,
+      "sha256": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+      "definitions": [
+        {
+          "name": "make_protocol",
+          "line": 5,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/restraints.py",
+      "lines": 42,
+      "sha256": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+      "definitions": [
+        {
+          "name": "_positive",
+          "line": 10,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "finite_wall_volume_nm3",
+          "line": 17,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "translational_standard_state_correction",
+          "line": 37,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/routing.py",
+      "lines": 130,
+      "sha256": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+      "definitions": [
+        {
+          "name": "walk_forces",
+          "line": 13,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_reject_duplicates",
+          "line": 28,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "ProductionExport",
+          "line": 45,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "export_physical",
+          "line": 57,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "validate_routing",
+          "line": 74,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "check_active_forces",
+          "line": 119,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/schedule.py",
+      "lines": 117,
+      "sha256": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+      "definitions": [
+        {
+          "name": "linear_schedule",
+          "line": 21,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "production_schedule",
+          "line": 29,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "validate_schedule",
+          "line": 37,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "schedule_state",
+          "line": 63,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "softened_perturbation",
+          "line": 70,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "reduced_potentials",
+          "line": 83,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/schema.py",
+      "lines": 974,
+      "sha256": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+      "definitions": [
+        {
+          "name": "MalformedInput",
+          "line": 20,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "UnsupportedCapability",
+          "line": 24,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "IdentityError",
+          "line": 28,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "NumericalDomainError",
+          "line": 32,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "QualificationError",
+          "line": 36,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "_freeze",
+          "line": 40,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_coerce",
+          "line": 59,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "record",
+          "line": 101,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "Record",
+          "line": 107,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "_required",
+          "line": 122,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_ids",
+          "line": 127,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_coordinates",
+          "line": 135,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "Units",
+          "line": 141,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "AtomIdentity",
+          "line": 154,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "Bond",
+          "line": 167,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "MoleculeState",
+          "line": 180,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TopologyView",
+          "line": 193,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "ComponentState",
+          "line": 216,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "PartitionSpec",
+          "line": 226,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "ResolvedPartition",
+          "line": 243,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "ModelSpec",
+          "line": 257,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "EmbeddingSpec",
+          "line": 274,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "MobileGroup",
+          "line": 285,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "Endpoint",
+          "line": 298,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "ProtocolSpec",
+          "line": 307,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "CapabilitySet",
+          "line": 329,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "RuntimeSpec",
+          "line": 345,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "CalculationRequest",
+          "line": 361,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "Snapshot",
+          "line": 370,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "SystemInput",
+          "line": 390,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "EnergyForces",
+          "line": 420,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "LinkRecord",
+          "line": 436,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "PhysicalBundle",
+          "line": 454,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "TransferDefinition",
+          "line": 520,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "ScheduleState",
+          "line": 537,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "ScheduleSpec",
+          "line": 548,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "RestraintSpec",
+          "line": 565,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "EvaluationRecords",
+          "line": 585,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "CorrectionRecord",
+          "line": 627,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "ThermodynamicSpec",
+          "line": 656,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "BindingResult",
+          "line": 699,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "ForceOwnership",
+          "line": 749,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "AlchemicalBundle",
+          "line": 770,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "RawAtmEnergies",
+          "line": 793,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "AtmEvaluation",
+          "line": 810,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "ValidationReport",
+          "line": 826,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "ForceRecord",
+          "line": 846,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "ForceInventory",
+          "line": 861,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "AcceptanceRecord",
+          "line": 878,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "_encode",
+          "line": 921,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_decode",
+          "line": 936,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "to_json",
+          "line": 957,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "from_json",
+          "line": 963,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/solvent.py",
+      "lines": 141,
+      "sha256": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+      "definitions": [
+        {
+          "name": "_water_positions",
+          "line": 19,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "build_dense_control",
+          "line": 64,
+          "kind": "FunctionDef"
+        }
+      ]
+    },
+    {
+      "path": "src/atm_mlmm/workflow.py",
+      "lines": 510,
+      "sha256": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc",
+      "definitions": [
+        {
+          "name": "_sha",
+          "line": 30,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_number",
+          "line": 34,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_integer",
+          "line": 42,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "Configuration",
+          "line": 49,
+          "kind": "ClassDef"
+        },
+        {
+          "name": "load_configuration",
+          "line": 60,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_domain",
+          "line": 149,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_profile",
+          "line": 222,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_snapshot",
+          "line": 231,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_records",
+          "line": 244,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_mapped_state_xml",
+          "line": 256,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_archive_failure",
+          "line": 270,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "_execute",
+          "line": 328,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "run_configuration",
+          "line": 416,
+          "kind": "FunctionDef"
+        },
+        {
+          "name": "resume_run",
+          "line": 493,
+          "kind": "FunctionDef"
+        }
+      ]
+    }
+  ],
+  "test_modules": [
+    {
+      "path": "tests/__init__.py",
+      "sha256": "245ff252d3046c44fdce3334745f2e2c970998c473e93f77a4e5f905cbeb7b39",
+      "test_functions": []
+    },
+    {
+      "path": "tests/analytic_oracle.py",
+      "sha256": "51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+      "test_functions": []
+    },
+    {
+      "path": "tests/conftest.py",
+      "sha256": "322b2c77459f96a38e72d2af34c184d55a229433d9a6d49518f269c807aafe9e",
+      "test_functions": []
+    },
+    {
+      "path": "tests/contracts/test_architecture_boundaries.py",
+      "sha256": "735c3fdcd6947ed54ebe2aef80ba80d5e50edd84df087ebe3151aa0b1421304b",
+      "test_functions": [
+        "test_shared_contracts_have_no_model_import",
+        "test_new_transfer_modules_keep_upstream_knowledge_in_adapter"
+      ]
+    },
+    {
+      "path": "tests/contracts/test_capabilities.py",
+      "sha256": "5802147ec1d583439286c27668f6393ed5155ebe2686ba17bda6e29ba0328a23",
+      "test_functions": [
+        "test_unsupported_combination_fails_closed",
+        "test_runtime_metadata_does_not_admit_unqualified_settings",
+        "test_fixed_translation_description_rejects_wrong_shape_and_nonfinite",
+        "test_unreviewed_physics_policy_fields_fail_closed",
+        "test_environment_probe_declares_environment_dependence"
+      ]
+    },
+    {
+      "path": "tests/contracts/test_embedding_extension.py",
+      "sha256": "24ac3c39401c6d3c1b054a82f6d56d86b379c39dca2502a76a620f314d4513ac",
+      "test_functions": [
+        "test_environment_provider_reuses_atm_and_protocols",
+        "test_joint_checker_detects_cap_and_environment_faults"
+      ]
+    },
+    {
+      "path": "tests/contracts/test_evidence_schema.py",
+      "sha256": "fc27c2da5dd8403196aad0dd3a26374122eef7ca415a25c49df700f0f2e18a1b",
+      "test_functions": [
+        "test_acceptance_requires_evidence",
+        "test_blank_evidence_reference_cannot_accept_scope"
+      ]
+    },
+    {
+      "path": "tests/contracts/test_fault_injection.py",
+      "sha256": "be5c98115e5f4f7f4edd8a8deb1f74a750ae81eb463dcd96618f76a6360c47ba",
+      "test_functions": [
+        "test_known_transfer_errors_are_detected",
+        "test_actual_physical_force_faults_are_detected",
+        "test_executable_environment_callback_faults_are_detected",
+        "test_smallest_stale_callback_reproducer_after_fresh_reload"
+      ]
+    },
+    {
+      "path": "tests/contracts/test_m02_admission.py",
+      "sha256": "04d4fd65aad842dc30e243db759836c3cf74f7a1ca9bf1d6aacbd205fa65ed52",
+      "test_functions": [
+        "test_actual_expression_must_match_schedule",
+        "test_atm_itself_must_own_required_schedule_globals",
+        "test_linear_schedule_expression_and_globals_are_bound",
+        "test_required_atm_global_cannot_have_ambiguous_duplicate_ownership",
+        "test_harmless_expression_whitespace_preserves_numerics",
+        "test_whitespace_cannot_join_different_expression_tokens",
+        "test_fixed_physical_globals_reject_context_or_state_mutation",
+        "test_schedule_parameter_cannot_control_physical_child",
+        "test_collision_is_rejected_even_when_constructors_are_bypassed",
+        "test_linear_schedule_parameter_collision_is_rejected",
+        "test_fixed_global_positive_control_full_forces_and_state_changes",
+        "test_explicit_state_restoration_resets_physical_and_schedule_globals",
+        "test_duplicate_physical_content_cannot_be_hidden_by_labels",
+        "test_distinct_physical_parameters_with_same_label_are_admitted"
+      ]
+    },
+    {
+      "path": "tests/contracts/test_mace_candidate_admission.py",
+      "sha256": "ea3c61dcce1515b548cd430a652a4ab9769c96bcc67173b3ca8b28275a4920e2",
+      "test_functions": [
+        "test_pinned_mace_candidate_metadata"
+      ]
+    },
+    {
+      "path": "tests/contracts/test_physical_evaluator.py",
+      "sha256": "b741edf13ad4d1c71c10bc2a4a1083b3afb2a1a74caa1b67c6ccd2f4fa1bf039",
+      "test_functions": [
+        "test_environment_force_and_recomputed_mapping",
+        "test_evaluation_history_independence",
+        "test_force_order_box_and_runtime_rejection"
+      ]
+    },
+    {
+      "path": "tests/contracts/test_schema.py",
+      "sha256": "27add1acfba155b2d8e98d7bf2b2ed7c8d26b4be791f1c44e8dc94598a06c196",
+      "test_functions": [
+        "test_versioned_round_trip_and_units",
+        "test_records_own_immutable_data_and_full_real_forces",
+        "test_empty_duplicate_wrong_shape_and_unknown_fields_fail",
+        "test_protocol_presets_validate_counts_and_disjoint_groups",
+        "test_system_input_carries_original_identity_units_and_provenance"
+      ]
+    },
+    {
+      "path": "tests/contracts/test_transfer_protocols.py",
+      "sha256": "a424d78f5f71f98aa3100a3bf5e88be1c3598634d68b06c626715b2a23ca84c3",
+      "test_functions": [
+        "test_one_and_two_unequal_mobile_groups",
+        "test_nonidentity_old_to_new_and_record_roundtrip",
+        "test_reject_incomplete_membership_maps_and_unsupported_geometry",
+        "test_owned_records_and_nonfinite_rejection",
+        "test_second_group_has_nonzero_mapped_force"
+      ]
+    },
+    {
+      "path": "tests/environment/test_cloud_install.py",
+      "sha256": "f870834c1f502e9c3c1cdc8611975b3c48f56206b8cae5dcbbc11ed02a6b2180",
+      "test_functions": [
+        "test_cloud_fallback_uses_current_development_branch"
+      ]
+    },
+    {
+      "path": "tests/environment/test_cpu_smoke.py",
+      "sha256": "e9f49a2ecef97eef5f9a61031b606021d3e52514b88238289d23dfa7ee5cb987",
+      "test_functions": [
+        "test_cpu_smoke_preserves_safe_loading"
+      ]
+    },
+    {
+      "path": "tests/integration/test_boundary_ledger.py",
+      "sha256": "8b4aa650d66923c8ef5b2a82c6bbf41070d7626eab3db2832737ec856ae07ae7",
+      "test_functions": [
+        "test_each_boundary_term_disposition",
+        "test_saved_original_retained_hybrid_identity"
+      ]
+    },
+    {
+      "path": "tests/integration/test_checkpoint_loading.py",
+      "sha256": "8d597860105ee617468111bca7cb345af37919b7b5f2c2356438c14abca37d65",
+      "test_functions": [
+        "test_authorization_is_checked_before_deserialization",
+        "test_trusted_checkpoint_loads_in_fresh_process"
+      ]
+    },
+    {
+      "path": "tests/integration/test_chemical_reference.py",
+      "sha256": "4d2b01a411504647a53c5104f27626b9c278c9c9e0bb6aa4437cb06bbb6854bd",
+      "test_functions": [
+        "test_exact_capped_conformer_reference",
+        "test_frozen_contact_reference"
+      ]
+    },
+    {
+      "path": "tests/integration/test_joint_hybrid_atm.py",
+      "sha256": "c7f83b7039480a2d3d35a82c709af6fea669a5ba09a2829a3d6f409221ed0b6c",
+      "test_functions": [
+        "test_uncut_reference_description_uses_same_builder",
+        "test_direct_native_and_atom_agree",
+        "test_real_model_two_unequal_ligand_single_points",
+        "test_mm_boundary_parent_force",
+        "test_joint_contact_and_disconnected_graph",
+        "test_only_mobile_groups_translate",
+        "test_joint_periodic_geometry_and_forces",
+        "test_periodic_full_real_derivative_step_sweep"
+      ]
+    },
+    {
+      "path": "tests/integration/test_link_geometry.py",
+      "sha256": "2804e87da826497e1f35a8883de565bac7b93d3f2540c9c2cffa58a297235c23",
+      "test_functions": [
+        "test_fd_restores_snapshot_on_success_and_failure",
+        "test_cap_position_and_zero_mass",
+        "test_cap_parent_chain_rule",
+        "test_actual_and_nonidentity_index_maps",
+        "test_stationary_cap_force_under_atm",
+        "test_cap_environment_cross_derivative",
+        "test_cap_projected_force_and_torque_balance",
+        "test_trusted_fresh_process_reload",
+        "test_deliberate_derivative_faults",
+        "test_link_ids_cannot_alias_real_mm_ids",
+        "test_complete_runtime_state_restored_after_cartesian_fd",
+        "test_legacy_real_only_encoding_and_future_cap_version",
+        "test_nonidentity_capped_atm_matches_identity_case"
+      ]
+    },
+    {
+      "path": "tests/integration/test_locality.py",
+      "sha256": "9b5c702fdbfa6e37af40f14dafab55530cfbed26d1990a70cb3756bce4d28e4b",
+      "test_functions": [
+        "test_declared_local_component_additivity"
+      ]
+    },
+    {
+      "path": "tests/integration/test_mace_link_example.py",
+      "sha256": "f072b8e3e8ff277454bc0e523d73041b736e845e2bd6bb597a2d80f99b241c18",
+      "test_functions": [
+        "test_corrupt_checkpoint_is_rejected_before_loading",
+        "test_local_mace_link_calculation"
+      ]
+    },
+    {
+      "path": "tests/integration/test_masked_interactions.py",
+      "sha256": "0cf93d6dc3e573fe8555c850a340ed8a1a6112654c2912e1e90c73d140580458",
+      "test_functions": [
+        "test_pme_charge_mask_cross_identity",
+        "test_lj_mask_cross_and_switching",
+        "test_invalid_mask_sets_reject"
+      ]
+    },
+    {
+      "path": "tests/integration/test_mechanical_pme.py",
+      "sha256": "7183b6c054ed8a0ed0201066526611c18b1fa36f788289c054fe629acf97cddc",
+      "test_functions": [
+        "test_periodic_builder_admits_standard_pme",
+        "test_ml_mm_cross_interactions_retained",
+        "test_nonstandard_forces_and_box_rejected"
+      ]
+    },
+    {
+      "path": "tests/integration/test_model_adapter.py",
+      "sha256": "81340042ff5bc63d19009a9b758da96d883c3640e122fa647631c298d97ac9c9",
+      "test_functions": [
+        "test_native_and_openmm_energy_forces",
+        "test_real_parent_forces_with_model_caps",
+        "test_consistent_translation_rotation_and_permutation",
+        "test_nonidentity_final_map",
+        "test_component_finite_difference_sweep",
+        "test_deliberate_numeric_faults",
+        "test_mace_nested_atm_real_force_oracle",
+        "test_local_asset_fresh_process_reload"
+      ]
+    },
+    {
+      "path": "tests/integration/test_model_domain.py",
+      "sha256": "4ecb006bf70722960c2a67e2c593704597ddba7ae6772b232ce8c2a25f3ab6fa",
+      "test_functions": [
+        "test_contact_cutoff_and_counterfactual_scans"
+      ]
+    },
+    {
+      "path": "tests/integration/test_periodic_geometry.py",
+      "sha256": "b623dde7a9e592111d0c844c3ef8f4eed38e2bbfaee7760ec9974be82940c3a6",
+      "test_functions": [
+        "test_images_caps_and_bulk_separation",
+        "test_cap_wrapping_and_image_seam_continuity",
+        "test_backend_graph_matches_independent_geometry",
+        "test_runtime_unsafe_box_rejected",
+        "test_ambiguous_bond_image_is_outside_admitted_domain",
+        "test_wrapped_cap_derivative_fault_is_detected",
+        "test_actual_cap_graph_matches_enumerated_images"
+      ]
+    },
+    {
+      "path": "tests/integration/test_pythonforce_atm.py",
+      "sha256": "e3f80f69896c00e1abeafa045091867a67625d1feb6d36f270d222093baf1ab4",
+      "test_functions": [
+        "test_linear_endpoint_and_force_identity",
+        "test_permuted_subset_and_units",
+        "test_nonzero_outside_term_and_tuple_order",
+        "test_independent_harmonic_forces",
+        "test_nonlinear_mixing_force_chain_rule",
+        "test_fresh_process_serialization_offline",
+        "test_invalid_production_parameter_domains",
+        "test_production_linear_limits_and_offsets"
+      ]
+    },
+    {
+      "path": "tests/joint_oracle.py",
+      "sha256": "6fa6539328e8a2efcbce5967a0691f2a5167aac1a4865144ae2a9999118d4371",
+      "test_functions": []
+    },
+    {
+      "path": "tests/link_oracle.py",
+      "sha256": "8bc02479945b1c685df2f9b7b7ca9456af8ea2b2d62cb7812d5871cdfa162cdb",
+      "test_functions": []
+    },
+    {
+      "path": "tests/link_permutation.py",
+      "sha256": "57798656dbfb3689b1a72257f612758d5aa24a96be9c491c1124e6089eacc67f",
+      "test_functions": []
+    },
+    {
+      "path": "tests/model_oracle.py",
+      "sha256": "bb3346feb610cca855616e12a333cd0131e187aab79ccbce27a423782aabeb14",
+      "test_functions": []
+    },
+    {
+      "path": "tests/periodic_oracle.py",
+      "sha256": "bd736c543c782558f1dea9186d245b74b3c067328dc2d02ede1fd8bbe48319a1",
+      "test_functions": []
+    },
+    {
+      "path": "tests/sampling/test_analytic_free_energy.py",
+      "sha256": "115347e5e320576955c67cbdd1b167331397d0e09c87ea38de02da7d8388cac2",
+      "test_functions": [
+        "test_estimators_covariance_and_offsets",
+        "test_uwham_large_constant_state_offsets_are_a_gauge",
+        "test_repeated_seed_harmonic_md",
+        "test_estimator_rejects_disconnected_support_and_missing_counts",
+        "test_harmonic_known_difference"
+      ]
+    },
+    {
+      "path": "tests/unit/test_binding_result_admission.py",
+      "sha256": "a880bac7bc03435f8836b965960fc93c043b51245a89e2c0025a2b46bec9c7b9",
+      "test_functions": [
+        "test_final_requires_embedded_thermodynamic_definition",
+        "test_final_definition_identity_observable_and_ordered_ledger_match",
+        "test_uncomputed_correction_cannot_hide_its_unresolved_status",
+        "test_partial_and_covariance_aware_final_round_trips"
+      ]
+    },
+    {
+      "path": "tests/unit/test_environment.py",
+      "sha256": "8bdc003c5007fd2e25c8130c2626703d6653dfe123cadbe35aca20317bcbea92",
+      "test_functions": [
+        "test_required_apis_and_versions",
+        "test_environment_manifest_complete",
+        "test_missing_required_api_fails_clearly",
+        "test_mixed_system_info_is_exercised_and_missing_mapping_fails",
+        "test_version_drift_fails_before_numerical_probes",
+        "test_atomic_json_rejects_nonfinite_and_preserves_previous_file",
+        "test_model_asset_hash_and_policy"
+      ]
+    },
+    {
+      "path": "tests/unit/test_force_inventory.py",
+      "sha256": "b397bdcedd9f26b6cbe5bae5970bc6d48100a55b29607b0105464d4955b76877",
+      "test_functions": [
+        "test_original_mm_inventory_and_unknown_force",
+        "test_inventory_virtual_sites_have_explicit_parents_and_weights"
+      ]
+    },
+    {
+      "path": "tests/unit/test_host_role.py",
+      "sha256": "36f199065f213315a11559faf18fe6ee445cb749e6a1f67f9eb7af078c0e1f5d",
+      "test_functions": [
+        "test_neutral_complete_host_is_static",
+        "test_host_admission_rejects_unsupported_state"
+      ]
+    },
+    {
+      "path": "tests/unit/test_identity.py",
+      "sha256": "d4ea798f03946c528580719d01bd606115919ac23bf49b87a1bd73b45e7cbc46",
+      "test_functions": [
+        "test_chain_insertion_and_permutation_identity"
+      ]
+    },
+    {
+      "path": "tests/unit/test_joint_quantum_execution.py",
+      "sha256": "094d71ada6f3382b9f3b872088a242526c8f903ffd4123c11a6f04aba9287f30",
+      "test_functions": [
+        "test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget",
+        "test_copied_approval_cannot_reset_budget_by_changing_attempt",
+        "test_tampered_authorization_rejects_before_launch",
+        "test_matrix_tamper_rejects_even_with_rebound_authorization",
+        "test_stricter_resource_and_pilot_policy",
+        "test_pilot_completion_stops_for_assessment_and_durable_receipt",
+        "test_failed_pilot_receipt_is_never_promoted_and_retry_keeps_budget",
+        "test_timeout_kills_worker_and_charges_resume",
+        "test_resume_requires_pilot_assessment_and_rejects_changed_receipt",
+        "test_concurrent_queue_lease_blocks_launch",
+        "test_g07_guards_stop_safely_before_promoting",
+        "test_nonconverged_zero_exit_record_is_not_promoted",
+        "test_actual_psi4_1102_convergence_message_is_admitted",
+        "test_posthoc_validation_preserves_rejection_and_debit_without_qm",
+        "test_revalidation_rejects_changed_original_evidence",
+        "test_revalidation_respects_lease_and_live_worker",
+        "test_correction_cannot_change_original_measurements_before_admission",
+        "test_ordinary_recovery_cannot_bypass_correction_by_removing_markers",
+        "test_recovery_fsyncs_renamed_attempt_before_admitted_checkpoint",
+        "test_recovery_rejects_missing_or_changed_convergence_log",
+        "test_zero_projection_assessment_cannot_replace_measured_evidence",
+        "test_measured_pilot_continues_exact_matrix_and_never_recalculates",
+        "test_pilot_ceiling_cannot_reset_on_retry"
+      ]
+    },
+    {
+      "path": "tests/unit/test_joint_reference_plan.py",
+      "sha256": "d3292da6a4fad2475c6306817c0ecc039774dae8066e8b1f420605018fd88c18",
+      "test_functions": [
+        "test_frozen_joint_matrix_preserves_twenty_rows_and_fifty_descriptions",
+        "test_cap_reference_rejects_changed_geometry_before_reusing_quantum"
+      ]
+    },
+    {
+      "path": "tests/unit/test_partition.py",
+      "sha256": "36b50d6c5c2fc2cefb01f197b9c3b97a12f3b7758eaa3a624355170e71a7f90b",
+      "test_functions": [
+        "test_fixed_complete_mobile_groups",
+        "test_forbidden_boundaries_and_chemical_states",
+        "test_mobile_group_membership_matches_complete_ligand",
+        "test_cross_molecule_bond_and_multiple_component_cuts_fail"
+      ]
+    },
+    {
+      "path": "tests/unit/test_quantum_interruptions.py",
+      "sha256": "e116e6a65363d8f1fb53da80bac79b8d4a3ed4aa5114abc98993b28c0eca013f",
+      "test_functions": [
+        "test_coordinator_crash_cannot_leave_live_or_duplicate_work",
+        "test_progress_never_references_unsynced_record_or_receipt",
+        "test_legacy_and_salvaged_data_are_synced_before_new_progress",
+        "test_completion_boundary_crash_reuses_the_durable_record",
+        "test_legacy_live_worker_without_saved_identity_blocks_recovery",
+        "test_reused_pid_does_not_identify_an_unrelated_process_as_the_old_worker",
+        "test_known_failure_in_an_old_ready_checkpoint_is_rejected",
+        "test_resource_samples_include_reference_children_not_only_supervisor",
+        "test_uncheckpointed_supervisor_inherits_the_queue_lock",
+        "test_supervisor_loss_cleans_reference_group_before_next_launch",
+        "test_worker_completion_is_atomic_and_durable_before_replace",
+        "test_missing_promoted_copy_is_restored_from_validated_attempt"
+      ]
+    },
+    {
+      "path": "tests/unit/test_quantum_recovery.py",
+      "sha256": "d64e9b5a67725f03989656f149b47348c7bec60b8bdd53443584208203c43037",
+      "test_functions": [
+        "test_frozen_partial_check_schedules_only_38_and_preserves_history",
+        "test_completed_bundle_has_exact_names_runtime_allocation_and_durable_receipts",
+        "test_retry_reuses_successes_keeps_failed_attempt_and_debits_previous_time",
+        "test_tampered_reused_record_blocks_before_launch",
+        "test_invalid_runtime_memory_is_rejected",
+        "test_exhausted_budget_does_not_create_ready_manifest_or_launch",
+        "test_historical_content_is_validated_even_if_checkpoint_hash_is_updated",
+        "test_second_coordinator_is_rejected_by_lock",
+        "test_recovery_refuses_a_live_old_worker",
+        "test_record_saved_before_progress_survives_lost_worker_identity",
+        "test_resume_preserves_known_failed_exit_and_retries_computed_record",
+        "test_resume_does_not_salvage_a_record_with_a_known_stop_or_validation_failure",
+        "test_resume_keeps_genuinely_missing_exit_receipt_unknown",
+        "test_clean_file_cache_does_not_consume_unreclaimable_memory_headroom",
+        "test_timeout_terminates_worker_process_group_and_preserves_receipt"
+      ]
+    },
+    {
+      "path": "tests/unit/test_reference_metrics.py",
+      "sha256": "0738969cfc4f03ddefcb7051981998883ab21f5dba204d54d324b78460810efa",
+      "test_functions": [
+        "test_fixed_composition_zeros_and_force_maximum",
+        "test_missing_quantum_data_fail_closed",
+        "test_force_metric_cannot_broadcast_missing_atoms"
+      ]
+    },
+    {
+      "path": "tests/unit/test_reference_provenance.py",
+      "sha256": "adb511e9aff9e51d8ce18a8c0a218e815d02d5513dabc3c188df80e242e25b26",
+      "test_functions": [
+        "test_matching_synthetic_plan_binding_is_readable",
+        "test_reference_approval_requires_exact_plan_and_commit"
+      ]
+    },
+    {
+      "path": "tests/unit/test_restraint_volume.py",
+      "sha256": "a94050d92da64658cfeb10dd409297d024a4a46c8ae856dadce4170b02e2f57c",
+      "test_functions": [
+        "test_finite_wall_and_standard_state_sign",
+        "test_volume_rejects_invalid_or_undefined_domain",
+        "test_required_correction_cannot_default_to_zero",
+        "test_endpoint_weights_and_covariance_are_explicit",
+        "test_joint_correction_covariance_controls_final_uncertainty"
+      ]
+    },
+    {
+      "path": "tests/unit/test_schedule.py",
+      "sha256": "dbcae5eca66362826deae77674e8a5c164d2ccb49d0a6876b7389be430d9ba1e",
+      "test_functions": [
+        "test_reduced_energies_match_context",
+        "test_active_midpoint_difference_requires_bridge",
+        "test_raw_records_reject_lost_identity_duplicate_samples_and_nonfinite"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_active_force_groups.py",
+      "sha256": "c702cab61dab3064150effd98aa282536584cde6e895af709d722c608e5d1512",
+      "test_functions": [
+        "test_all_physical_groups_integrated",
+        "test_preparation_and_export_copies",
+        "test_integrator_mutation_rejected_before_production_evaluation",
+        "test_native_integrator_mask_guard"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_atom_force_routing.py",
+      "sha256": "6e202411be5d2aee839c377ef68bc3f043518f02deb7e451ca976a85963a4261",
+      "test_functions": [
+        "test_pythonforce_explicit_group_route",
+        "test_both_protocols_match_native_oracle",
+        "test_upstream_unit_and_key_conversion",
+        "test_duplicate_and_nested_atm_rejected",
+        "test_fixed_map_guard_after_construction",
+        "test_upstream_state_updates_reuse_worker_and_reject_bad_handover",
+        "test_loaded_routing_report_is_verified_before_context",
+        "test_femtosecond_conversion_at_upstream_boundary",
+        "test_runtime_bundle_replacement_rejected",
+        "test_runtime_profile_replacement_rejected",
+        "test_upstream_artifact_fresh_offline_reload"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_cloud_host_guest.py",
+      "sha256": "07318d8b0d8dc3f2197696fde6cdcc9268da3f5f680a264584c3c449db8106cb",
+      "test_functions": [
+        "test_frozen_host_guest_chemistry_and_maps",
+        "test_cloud_host_guest_actual_model_native_energy_and_forces"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_dense_solvent.py",
+      "sha256": "34c6e89016b357cc2ec27db0d80b2228252b1e760cac216667788f1bc74b9937",
+      "test_functions": [
+        "test_dense_control_preserves_solute_and_sixty_four_rigid_waters",
+        "test_dense_geometry_agrees_with_explicit_twenty_seven_image_oracle",
+        "test_dense_builder_reproduces_exact_fixture_without_overwrite",
+        "test_synthetic_water_input_uses_exact_box_faces_for_roundoff_coordinates",
+        "test_dense_both_map_full_forces_coupling_and_parent_solvent_step_sweeps"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_engine_configuration.py",
+      "sha256": "de2589380e076b2ff2409d5dcb6c4d3b91acbd8af309c3154e87e4987a2bcde8",
+      "test_functions": [
+        "test_configuration_rejects_unsupported_settings_before_execution",
+        "test_common_runner_preserves_raw_states_and_all_real_forces",
+        "test_original_clashing_pose_rejects_before_model_startup_and_is_preserved",
+        "test_same_runner_preserves_caps_and_multiple_complete_mobile_groups"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_engine_failure_retention.py",
+      "sha256": "5a70de7a007352895ca0db1f71f0984c94f9df95bbfeb3c9062512e774dc2134",
+      "test_functions": [
+        "test_advanced_actual_worker_failure_is_archived"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_engine_fresh_process.py",
+      "sha256": "31fbf63098d77f042a8721f1e2e840b28a32586798bcb8c4f3f373319b061530",
+      "test_functions": [
+        "test_offline_actual_worker_resume_with_original_checkout_and_caches_denied"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_engine_restart.py",
+      "sha256": "d6eebd56e622b946ebe7e1c263294593de1ff64897602fc893c15297757b165c",
+      "test_functions": [
+        "test_interrupted_actual_workers_resume_without_duplicate_or_lost_samples",
+        "test_journal_rejects_tampering_and_preserves_incomplete_transactions",
+        "test_failed_counterfactual_is_saved_without_retriggering_failed_energy"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_evidence_export.py",
+      "sha256": "14bfd2e4cbb049bc83c5f476757fba2e83011de043648cc70d90a69891f17ade",
+      "test_functions": [
+        "test_complete_copy_retains_failed_transaction_and_is_verified",
+        "test_verify_rejects_partial_or_changed_copy",
+        "test_copy_failure_keeps_local_and_partial_bytes",
+        "test_rejects_symlinks_and_recursive_copy",
+        "test_manifest_path_traversal_is_rejected_without_reading_outside"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_failure_archive_errors.py",
+      "sha256": "e19c64d3361124326a172f1f41638281f639d16a0d54e2232df90fd1a3a4da33",
+      "test_functions": [
+        "test_secondary_archive_error_keeps_primary_and_available_artifacts",
+        "test_normal_cli_surfaces_primary_and_secondary_archive_errors"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_failure_geometries.py",
+      "sha256": "8609e1adeeb8bd8009a248896b32bc3b37f2dce2994323dd8ed66d3521c797ef",
+      "test_functions": [
+        "test_failure_retains_both_mapped_coordinates"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_multistate_exchange_pilots.py",
+      "sha256": "02f52a895c4b868840b7d178586e2f13546d6cf98dd6cd60bff8de8c6335a9e6",
+      "test_functions": [
+        "test_solvated_abfe_and_unequal_rbfe_multistate_pilot"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_multistate_inert_repairs.py",
+      "sha256": "16abbd661b74c3adc350835e9a2ea0b1a210474189d5c352698e78519d499ae7",
+      "test_functions": [
+        "test_multistate_r1_challenges_reject_inertly",
+        "test_multistate_public_run_rejects_unusable_worker_seed_before_output",
+        "test_multistate_r4_refreshed_total_must_match_matrix_on_both_decisions",
+        "test_multistate_r7_nested_attempt_manifest_is_rejected",
+        "test_valid_eight_state_selection_and_finite_gaussian_cache_roundtrip"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_persistent_exchange.py",
+      "sha256": "931e11a498bc51926260cc3ecdfb76cd41ab10d1d89ad109d9fa886f5fda2cda",
+      "test_functions": [
+        "test_round_prefix_resume_preserves_rng_samples_states_and_analysis",
+        "test_phase_failure_preserves_pending_and_explicit_rollback_replays",
+        "test_round_journal_tamper_and_concurrent_controller_reject",
+        "test_journal_failure_before_publish_never_commits_half_a_pair",
+        "test_postpublish_reporting_failure_leaves_committed_round_authoritative",
+        "test_postrename_sync_failure_keeps_published_pair",
+        "test_refresh_failure_keeps_decision_and_does_not_reenter_energy",
+        "test_stale_saved_energy_is_rejected_on_checkpoint_refresh",
+        "test_guard_settings_must_describe_actual_sealed_maps",
+        "test_multistate_admission_requires_connected_three_to_eight_schedule_states",
+        "test_multistate_runtime_and_geometry_are_admitted_before_worker_load",
+        "test_pair_and_multistate_modes_cannot_resume_each_other",
+        "test_multistate_source_inventory_must_match_before_trusted_load",
+        "test_pair_source_inventory_rejects_a_missing_bundled_module_before_load",
+        "test_multistate_inert_admission_binds_runtime_and_initial_assignment",
+        "test_multistate_controller_preserves_caller_global_rng",
+        "test_multistate_sweep_resolves_overlapping_pairs_after_each_accept",
+        "test_multistate_sample_state_is_distinct_from_final_assignment",
+        "test_partial_integration_stages_worker_zero_and_replays_entire_boundary",
+        "test_multistate_primary_error_survives_secondary_worker_archive_failure",
+        "test_multistate_phase_persistence_failure_rolls_back_whole_sweep",
+        "test_multistate_capture_seal_and_precommit_failures_do_not_publish",
+        "test_multistate_postrename_failure_keeps_boundary_authoritative",
+        "test_multistate_postcommit_secondary_capture_error_keeps_primary_and_other_artifacts",
+        "test_multistate_restore_rejects_actual_clock_mismatch_before_evaluation",
+        "test_multistate_inert_samples_follow_declared_clock_increments",
+        "test_multistate_clock_roundoff_bound_covers_double_accumulation",
+        "test_multistate_clock_roundoff_bound_rejects_same_step_time_shift",
+        "test_multistate_public_backward_clocks_reject_inertly",
+        "test_multistate_finite_clock_envelope_rejects_forward_contradiction",
+        "test_multistate_clock_comparison_fails_closed_on_residual_overflow",
+        "test_multistate_clock_accepts_negative_and_stagnant_large_origins",
+        "test_multistate_guard_checks_actual_restored_coordinates_before_any_evaluation",
+        "test_multistate_publish_and_rollback_fsync_all_files_and_both_parents",
+        "test_multistate_inert_admission_rejects_tampered_artifacts_before_load",
+        "test_multistate_lock_rejects_concurrent_controller",
+        "test_multistate_checkpoint_energy_is_refreshed_after_restore_before_integration",
+        "test_multistate_fresh_restore_compares_complete_total_before_next_integration",
+        "test_multistate_restore_rejects_portable_parameter_disagreement_before_integration"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_preparation_phases.py",
+      "sha256": "8834817d0894b93712874ab63f0852dbbf5626b030e71b988f2f7b4ebdb3ec11",
+      "test_functions": [
+        "test_explicit_phases_keep_physical_hamiltonian_and_full_forces",
+        "test_bad_phase_settings_reject_before_context",
+        "test_phase_seeds_are_applied_before_context_initialization"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_replica_exchange.py",
+      "sha256": "4c0f8cc1f19fb174cec8eb467c7bb4ff30354fde46b5a022999ce1beea417a87",
+      "test_functions": [
+        "test_acceptance_uses_actual_reduced_energies",
+        "test_exchange_rejects_ambiguous_walker_labels_before_evaluation",
+        "test_parameter_update_and_state_history",
+        "test_exchange_rejects_incompatible_hamiltonians_before_sampling",
+        "test_multistate_decision_uses_fresh_nonlinear_outside_energies",
+        "test_multistate_actual_adapter_accept_and_reject_thresholds"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_solvated_handover.py",
+      "sha256": "3f39c857807f19bc17eed0ecde4a678e4851211a4247cd738e43296f018010e3",
+      "test_functions": [
+        "test_frozen_water_control_preserves_solute_and_fixed_membership",
+        "test_periodic_configuration_uses_existing_declared_convention",
+        "test_periodic_guard_detects_image_clash",
+        "test_periodic_bulk_guard_checks_full_static_solute_images",
+        "test_rbfe_bulk_guard_clears_the_other_complete_ligand",
+        "test_live_periodic_box_survives_snapshot_extraction",
+        "test_periodic_anchor_is_image_invariant",
+        "test_bulk_site_and_real_cross_forces",
+        "test_same_hamiltonian_in_preparation",
+        "test_worker_load_matches_direct_state",
+        "test_saved_raw_records_reconstruct_states",
+        "test_both_mapped_geometries_remain_admitted"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_solvated_process_restart.py",
+      "sha256": "c66d0be024ebb6495ce8c366fbb0f87abf449deb8ce11e492d12061acde57035",
+      "test_functions": [
+        "test_solvated_checkpoint_exact_continuation_and_portable_observables",
+        "test_solvated_offline_cache_independent_reload_and_devices"
+      ]
+    },
+    {
+      "path": "tests/workflow/test_worker_handover.py",
+      "sha256": "c801ab69931249094bb77870fab09b976567876032f6a068fa64004fe7113b95",
+      "test_functions": [
+        "test_real_worker_constructor_preserves_high_precision_state",
+        "test_worker_artifact_trust_and_identity_are_checked_before_loading",
+        "test_checkpoint_continuity_and_portable_state_have_distinct_guarantees"
+      ]
+    }
+  ],
+  "gate_planned_nodes": [
+    {
+      "path": "docs/project-0/gates/G00-environment-and-provenance.md",
+      "sha256": "e89413669763376d12d3dd5a6f24d9280fba52aa27f0012805ddd63de6fd9503",
+      "tasks": [
+        "G00-T1",
+        "G00-T2",
+        "G00-T3"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/unit/test_environment.py::test_required_apis_and_versions",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/unit/test_environment.py::test_environment_manifest_complete",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/unit/test_environment.py::test_model_asset_hash_and_policy",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_checkpoint_loading.py::test_trusted_checkpoint_loads_in_fresh_process",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/unit/test_environment.py::test_unavailable_platform_is_unqualified",
+          "file_exists": true,
+          "definition_exists": false
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G01-identity-partition-and-contracts.md",
+      "sha256": "b8eb455384b1ef78c5237f8b63c054d1e1d9d74c1371eb62d124e949d87b75d5",
+      "tasks": [
+        "G01-T1",
+        "G01-T2",
+        "G01-T3"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/unit/test_identity.py::test_chain_insertion_and_permutation_identity",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/unit/test_partition.py::test_fixed_complete_mobile_groups",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/contracts/test_schema.py::test_versioned_round_trip_and_units",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/contracts/test_architecture_boundaries.py::test_shared_contracts_have_no_model_import",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/contracts/test_capabilities.py::test_unsupported_combination_fails_closed",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/contracts/test_evidence_schema.py::test_acceptance_requires_evidence",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/unit/test_force_inventory.py::test_original_mm_inventory_and_unknown_force",
+          "file_exists": true,
+          "definition_exists": true
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+      "sha256": "2b42bd30b5723e249d92009c9135aab1fec7ef95602200440b6eb13baba19ba4",
+      "tasks": [
+        "G02-T1",
+        "G02-T2",
+        "G02-T3"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/integration/test_pythonforce_atm.py::test_linear_endpoint_and_force_identity",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_pythonforce_atm.py::test_permuted_subset_and_units",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_pythonforce_atm.py::test_nonzero_outside_term_and_tuple_order",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/contracts/test_transfer_protocols.py::test_one_and_two_unequal_mobile_groups",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/contracts/test_physical_evaluator.py::test_environment_force_and_recomputed_mapping",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/contracts/test_physical_evaluator.py::test_evaluation_history_independence",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/contracts/test_fault_injection.py::test_known_transfer_errors_are_detected",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_pythonforce_atm.py::test_independent_harmonic_forces",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_pythonforce_atm.py::test_nonlinear_mixing_force_chain_rule",
+          "file_exists": true,
+          "definition_exists": true
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+      "sha256": "5272c42d723a27eabf9507ed7dc87f4f93b83e36c8f4b07c4c84861b4686430c",
+      "tasks": [
+        "G03-T1",
+        "G03-T2",
+        "G03-T3"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/workflow/test_atom_force_routing.py::test_pythonforce_explicit_group_route",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/workflow/test_active_force_groups.py::test_all_physical_groups_integrated",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/workflow/test_active_force_groups.py::test_preparation_and_export_copies",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/workflow/test_atom_force_routing.py::test_both_protocols_match_native_oracle",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/workflow/test_atom_force_routing.py::test_upstream_unit_and_key_conversion",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/workflow/test_atom_force_routing.py::test_duplicate_and_nested_atm_rejected",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/workflow/test_atom_force_routing.py::test_fixed_map_guard_after_construction",
+          "file_exists": true,
+          "definition_exists": true
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+      "sha256": "a263bf94c852080d416bbe5cda7bfe64f7dea2a761fc7d050501471bb568b41d",
+      "tasks": [
+        "G04-T1",
+        "G04-T2",
+        "G04-T3"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/integration/test_link_geometry.py::test_cap_position_and_zero_mass",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_link_geometry.py::test_cap_parent_chain_rule",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_boundary_ledger.py::test_each_boundary_term_disposition",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_link_geometry.py::test_actual_and_nonidentity_index_maps",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_link_geometry.py::test_stationary_cap_force_under_atm",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_link_geometry.py::test_cap_environment_cross_derivative",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_link_geometry.py::test_cap_projected_force_and_torque_balance",
+          "file_exists": true,
+          "definition_exists": true
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G05-local-model-adapter.md",
+      "sha256": "535201a626a5b3f2ced30bd997ce0ba54b054e9146ea89248457608b772563d9",
+      "tasks": [
+        "G05-T1",
+        "G05-T2",
+        "G05-T3",
+        "G05-T4"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/integration/test_model_adapter.py::test_native_and_openmm_energy_forces",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_model_adapter.py::test_real_parent_forces_with_model_caps",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_locality.py::test_declared_local_component_additivity",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_model_adapter.py::test_consistent_translation_rotation_and_permutation",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_model_domain.py::test_contact_cutoff_and_counterfactual_scans",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_model_adapter.py::test_local_asset_fresh_process_reload",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_chemical_reference.py::test_exact_capped_conformer_reference",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_chemical_reference.py::test_frozen_contact_reference",
+          "file_exists": true,
+          "definition_exists": true
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G06-periodicity-and-interaction-ledger.md",
+      "sha256": "c48e1a80aaff23600912f0216a3293c176242f067f4a5ccd91240b0bd0af1001",
+      "tasks": [
+        "G06-T1",
+        "G06-T2",
+        "G06-T3"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/integration/test_mechanical_pme.py::test_ml_mm_cross_interactions_retained",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_masked_interactions.py::test_pme_charge_mask_cross_identity",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_periodic_geometry.py::test_images_caps_and_bulk_separation",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_periodic_geometry.py::test_cap_wrapping_and_image_seam_continuity",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_periodic_geometry.py::test_backend_graph_matches_independent_geometry",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_mechanical_pme.py::test_nonstandard_forces_and_box_rejected",
+          "file_exists": true,
+          "definition_exists": true
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+      "sha256": "25798444cd1180dd1111e39e59f7532f512e3c84ff285c5ffb148df50652bef3",
+      "tasks": [
+        "G07-T1",
+        "G07-T2",
+        "G07-T3",
+        "G07-T4",
+        "G05-T4"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/integration/test_joint_hybrid_atm.py::test_direct_native_and_atom_agree",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_joint_hybrid_atm.py::test_mm_boundary_parent_force",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_joint_hybrid_atm.py::test_joint_contact_and_disconnected_graph",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_joint_hybrid_atm.py::test_only_mobile_groups_translate",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/contracts/test_embedding_extension.py::test_environment_provider_reuses_atm_and_protocols",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_joint_hybrid_atm.py::test_joint_periodic_geometry_and_forces",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_joint_hybrid_atm.py::test_real_model_two_unequal_ligand_single_points",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/integration/test_boundary_reference.py::test_uncut_and_partitioned_reference",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/integration/test_boundary_reference.py::test_boundary_location_and_contact_sensitivity",
+          "file_exists": false,
+          "definition_exists": false
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G08-thermodynamics-and-estimators.md",
+      "sha256": "e45921db13deca87810546e5d8f395b46018ea2e13afe552e9e3df83f6669369",
+      "tasks": [
+        "G08-T1",
+        "G08-T2",
+        "G08-T3"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/sampling/test_analytic_free_energy.py::test_harmonic_known_difference",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/unit/test_schedule.py::test_reduced_energies_match_context",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/unit/test_schedule.py::test_active_midpoint_difference_requires_bridge",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/unit/test_restraint_volume.py::test_finite_wall_and_standard_state_sign",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/unit/test_restraint_volume.py::test_required_correction_cannot_default_to_zero",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/sampling/test_analytic_free_energy.py::test_estimators_covariance_and_offsets",
+          "file_exists": true,
+          "definition_exists": true
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G09-solvent-preparation-and-export.md",
+      "sha256": "b187998aadb373961288af31591f6c24598b8bf224f231ad0fbdfaef59b75f9f",
+      "tasks": [
+        "G09-T1",
+        "G09-T2",
+        "G09-T3"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/workflow/test_solvated_handover.py::test_bulk_site_and_real_cross_forces",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/workflow/test_solvated_handover.py::test_same_hamiltonian_in_preparation",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/workflow/test_solvated_handover.py::test_worker_load_matches_direct_state",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/workflow/test_solvated_handover.py::test_saved_raw_records_reconstruct_states",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/workflow/test_solvated_handover.py::test_both_mapped_geometries_remain_admitted",
+          "file_exists": true,
+          "definition_exists": true
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G10-restart-and-replica-exchange.md",
+      "sha256": "ddacd0baf1a5487f48223a01a322ff691c91d8fa316e8bca473863e4fda9a215",
+      "tasks": [
+        "G10-T1",
+        "G10-T2",
+        "G10-T3"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/workflow/test_fresh_process.py::test_offline_cache_independent_reload",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/workflow/test_restart.py::test_checkpoint_and_state_semantics",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/workflow/test_replica_exchange.py::test_acceptance_uses_actual_reduced_energies",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/workflow/test_replica_exchange.py::test_parameter_update_and_state_history",
+          "file_exists": true,
+          "definition_exists": true
+        },
+        {
+          "node": "tests/workflow/test_fresh_process.py::test_model_and_openmm_worker_device",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/workflow/test_restart.py::test_interruption_resume_without_duplicate_records",
+          "file_exists": false,
+          "definition_exists": false
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G11-protein-abfe.md",
+      "sha256": "02c24652db03bf1a9fda7c1ef96de86981a90287a360465a63342c9aa2449df2",
+      "tasks": [
+        "G11-T1",
+        "G11-T2",
+        "G11-T3"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/workflow/test_protein_abfe.py::test_prepared_target_and_every_boundary",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/workflow/test_protein_abfe.py::test_control_ensemble_and_identity",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/workflow/test_protein_abfe.py::test_abfe_result_correction_ledger",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/workflow/test_protein_abfe.py::test_bulk_placement_and_box_sensitivity_recorded",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/workflow/test_protein_abfe.py::test_protein_restart_exchange_and_domain",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/workflow/test_protein_abfe.py::test_all_boundary_parent_cartesian_derivatives",
+          "file_exists": false,
+          "definition_exists": false
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+      "sha256": "d7d3746e852fe6dff60301786f6f6c28c80ef0283bfd78af6472d6badde4742e",
+      "tasks": [
+        "G12-T1",
+        "G12-T2",
+        "G12-T3"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/workflow/test_rbfe_transforms.py::test_opposite_group_maps_and_cap_identity",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/workflow/test_rbfe_transforms.py::test_correct_bound_component_and_no_spurious_contact",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/sampling/test_binding_closure.py::test_symmetric_a_to_a_free_energy",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/sampling/test_binding_closure.py::test_reversed_pair_sign",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/sampling/test_binding_closure.py::test_abfe_rbfe_comparison_matches_states",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/workflow/test_rbfe_transforms.py::test_shared_pipeline_and_restart",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/sampling/test_binding_closure.py::test_independently_sampled_reverse_pair",
+          "file_exists": false,
+          "definition_exists": false
+        }
+      ]
+    },
+    {
+      "path": "docs/project-0/gates/G13-performance-and-release.md",
+      "sha256": "4ae0fd7c064843e8c5b97d28c1f102ca84ca32cfc673f1bed4a1166722ee77b1",
+      "tasks": [
+        "G13-T1",
+        "G13-T2",
+        "G13-T3"
+      ],
+      "planned_tests": [
+        {
+          "node": "tests/workflow/test_release_bundle.py::test_clean_offline_reproduction",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/contracts/test_release_evidence.py::test_claimed_profiles_have_required_evidence",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/unit/test_benchmark_metrics.py::test_time_and_resource_units",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/integration/test_optimization_equivalence.py::test_optimized_scope_preserves_hamiltonian",
+          "file_exists": false,
+          "definition_exists": false
+        },
+        {
+          "node": "tests/contracts/test_release_evidence.py::test_implementation_sampling_physics_separate",
+          "file_exists": false,
+          "definition_exists": false
+        }
+      ]
+    }
+  ],
+  "fixtures": {
+    "fixtures/analytic": [
+      "fixtures/analytic/README.md",
+      "fixtures/analytic/transfer-v1.json"
+    ],
+    "fixtures/chemical_reference": [
+      "fixtures/chemical_reference/input-manifest.json",
+      "fixtures/chemical_reference/reference-explicit.lock",
+      "fixtures/chemical_reference/reference-settings.json",
+      "fixtures/chemical_reference/structures/acetamide--20.json",
+      "fixtures/chemical_reference/structures/acetamide-0.json",
+      "fixtures/chemical_reference/structures/acetamide-20.json",
+      "fixtures/chemical_reference/structures/butane--60.json",
+      "fixtures/chemical_reference/structures/butane-120.json",
+      "fixtures/chemical_reference/structures/butane-180.json",
+      "fixtures/chemical_reference/structures/butane-60.json",
+      "fixtures/chemical_reference/structures/butane-acetamide-d3.4-r0.json",
+      "fixtures/chemical_reference/structures/butane-acetamide-d3.8-r0.json",
+      "fixtures/chemical_reference/structures/butane-acetamide-d3.8-r60.json",
+      "fixtures/chemical_reference/structures/butane-acetamide-d4.5-r0.json",
+      "fixtures/chemical_reference/structures/butane-acetamide-separated.json",
+      "fixtures/chemical_reference/structures/butane-methanol-d3.4-r0.json",
+      "fixtures/chemical_reference/structures/butane-methanol-d3.8-r0.json",
+      "fixtures/chemical_reference/structures/butane-methanol-d3.8-r60.json",
+      "fixtures/chemical_reference/structures/butane-methanol-d4.5-r0.json",
+      "fixtures/chemical_reference/structures/butane-methanol-separated.json",
+      "fixtures/chemical_reference/structures/ethanol--60.json",
+      "fixtures/chemical_reference/structures/ethanol-120.json",
+      "fixtures/chemical_reference/structures/ethanol-180.json",
+      "fixtures/chemical_reference/structures/ethanol-60.json",
+      "fixtures/chemical_reference/structures/ethanol-acetamide-d2.6-r0.json",
+      "fixtures/chemical_reference/structures/ethanol-acetamide-d3-r0.json",
+      "fixtures/chemical_reference/structures/ethanol-acetamide-d3-r60.json",
+      "fixtures/chemical_reference/structures/ethanol-acetamide-d3.5-r0.json",
+      "fixtures/chemical_reference/structures/ethanol-acetamide-separated.json",
+      "fixtures/chemical_reference/structures/ethanol-methanol-d2.6-r0.json",
+      "fixtures/chemical_reference/structures/ethanol-methanol-d3-r0.json",
+      "fixtures/chemical_reference/structures/ethanol-methanol-d3-r60.json",
+      "fixtures/chemical_reference/structures/ethanol-methanol-d3.5-r0.json",
+      "fixtures/chemical_reference/structures/ethanol-methanol-separated.json",
+      "fixtures/chemical_reference/structures/methanol-baseline.json",
+      "fixtures/chemical_reference/structures/methanol-oh60.json",
+      "fixtures/chemical_reference/structures/methanol-stretch003.json"
+    ],
+    "fixtures/chemical_reference_v3": [
+      "fixtures/chemical_reference_v3/input-manifest.json",
+      "fixtures/chemical_reference_v3/quadrature_controls/acetamide-0-rotation-0.json",
+      "fixtures/chemical_reference_v3/quadrature_controls/acetamide-0-rotation-1.json",
+      "fixtures/chemical_reference_v3/quadrature_controls/acetamide-0-rotation-2.json",
+      "fixtures/chemical_reference_v3/quadrature_controls/acetamide-0-rotation-3.json",
+      "fixtures/chemical_reference_v3/quadrature_controls/butane-180-rotation-0.json",
+      "fixtures/chemical_reference_v3/quadrature_controls/ethanol-180-rotation-0.json",
+      "fixtures/chemical_reference_v3/quadrature_controls/methanol-baseline-rotation-0.json",
+      "fixtures/chemical_reference_v3/quadrature_controls/methanol-baseline-rotation-1.json",
+      "fixtures/chemical_reference_v3/quadrature_controls/methanol-baseline-rotation-2.json",
+      "fixtures/chemical_reference_v3/quadrature_controls/methanol-baseline-rotation-3.json",
+      "fixtures/chemical_reference_v3/quantum/manifest.json",
+      "fixtures/chemical_reference_v3/quantum/records/acetamide--20.json",
+      "fixtures/chemical_reference_v3/quantum/records/acetamide-0-fine-grid.json",
+      "fixtures/chemical_reference_v3/quantum/records/acetamide-0-rotation-0.json",
+      "fixtures/chemical_reference_v3/quantum/records/acetamide-0-rotation-1.json",
+      "fixtures/chemical_reference_v3/quantum/records/acetamide-0-rotation-2.json",
+      "fixtures/chemical_reference_v3/quantum/records/acetamide-0-rotation-3.json",
+      "fixtures/chemical_reference_v3/quantum/records/acetamide-0.json",
+      "fixtures/chemical_reference_v3/quantum/records/acetamide-20.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane--60.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-120.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-180-rotation-0.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-180.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-60.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-acetamide-d3.4-r0.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-acetamide-d3.8-r0.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-acetamide-d3.8-r60.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-acetamide-d4.5-r0.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-acetamide-separated.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-methanol-d3.4-r0.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-methanol-d3.8-r0.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-methanol-d3.8-r60.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-methanol-d4.5-r0.json",
+      "fixtures/chemical_reference_v3/quantum/records/butane-methanol-separated.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol--60.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-120.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-180-rotation-0.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-180.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-60.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-acetamide-d2.6-r0.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-acetamide-d3-r0-fine-grid.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-acetamide-d3-r0.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-acetamide-d3-r60.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-acetamide-d3.5-r0.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-acetamide-separated.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-methanol-d2.6-r0.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-methanol-d3-r0.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-methanol-d3-r60.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-methanol-d3.5-r0.json",
+      "fixtures/chemical_reference_v3/quantum/records/ethanol-methanol-separated.json",
+      "fixtures/chemical_reference_v3/quantum/records/methanol-baseline-rotation-0.json",
+      "fixtures/chemical_reference_v3/quantum/records/methanol-baseline-rotation-1.json",
+      "fixtures/chemical_reference_v3/quantum/records/methanol-baseline-rotation-2.json",
+      "fixtures/chemical_reference_v3/quantum/records/methanol-baseline-rotation-3.json",
+      "fixtures/chemical_reference_v3/quantum/records/methanol-baseline.json",
+      "fixtures/chemical_reference_v3/quantum/records/methanol-oh60.json",
+      "fixtures/chemical_reference_v3/quantum/records/methanol-stretch003.json",
+      "fixtures/chemical_reference_v3/reference-explicit.lock",
+      "fixtures/chemical_reference_v3/reference-settings.json",
+      "fixtures/chemical_reference_v3/structures/acetamide--20.json",
+      "fixtures/chemical_reference_v3/structures/acetamide-0.json",
+      "fixtures/chemical_reference_v3/structures/acetamide-20.json",
+      "fixtures/chemical_reference_v3/structures/butane--60.json",
+      "fixtures/chemical_reference_v3/structures/butane-120.json",
+      "fixtures/chemical_reference_v3/structures/butane-180.json",
+      "fixtures/chemical_reference_v3/structures/butane-60.json",
+      "fixtures/chemical_reference_v3/structures/butane-acetamide-d3.4-r0.json",
+      "fixtures/chemical_reference_v3/structures/butane-acetamide-d3.8-r0.json",
+      "fixtures/chemical_reference_v3/structures/butane-acetamide-d3.8-r60.json",
+      "fixtures/chemical_reference_v3/structures/butane-acetamide-d4.5-r0.json",
+      "fixtures/chemical_reference_v3/structures/butane-acetamide-separated.json",
+      "fixtures/chemical_reference_v3/structures/butane-methanol-d3.4-r0.json",
+      "fixtures/chemical_reference_v3/structures/butane-methanol-d3.8-r0.json",
+      "fixtures/chemical_reference_v3/structures/butane-methanol-d3.8-r60.json",
+      "fixtures/chemical_reference_v3/structures/butane-methanol-d4.5-r0.json",
+      "fixtures/chemical_reference_v3/structures/butane-methanol-separated.json",
+      "fixtures/chemical_reference_v3/structures/ethanol--60.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-120.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-180.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-60.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-acetamide-d2.6-r0.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-acetamide-d3-r0.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-acetamide-d3-r60.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-acetamide-d3.5-r0.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-acetamide-separated.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-methanol-d2.6-r0.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-methanol-d3-r0.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-methanol-d3-r60.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-methanol-d3.5-r0.json",
+      "fixtures/chemical_reference_v3/structures/ethanol-methanol-separated.json",
+      "fixtures/chemical_reference_v3/structures/methanol-baseline.json",
+      "fixtures/chemical_reference_v3/structures/methanol-oh60.json",
+      "fixtures/chemical_reference_v3/structures/methanol-stretch003.json"
+    ],
+    "fixtures/cloud_fragment_controls/v1": [
+      "fixtures/cloud_fragment_controls/v1/abfe/config.json",
+      "fixtures/cloud_fragment_controls/v1/abfe/manifest.json",
+      "fixtures/cloud_fragment_controls/v1/abfe/partition.json",
+      "fixtures/cloud_fragment_controls/v1/abfe/snapshot.json",
+      "fixtures/cloud_fragment_controls/v1/abfe/system-input.json",
+      "fixtures/cloud_fragment_controls/v1/rbfe/config.json",
+      "fixtures/cloud_fragment_controls/v1/rbfe/manifest.json",
+      "fixtures/cloud_fragment_controls/v1/rbfe/partition.json",
+      "fixtures/cloud_fragment_controls/v1/rbfe/snapshot.json",
+      "fixtures/cloud_fragment_controls/v1/rbfe/system-input.json"
+    ],
+    "fixtures/cloud_host_guest/v1": [
+      "fixtures/cloud_host_guest/v1/manifest.json",
+      "fixtures/cloud_host_guest/v1/partition.json",
+      "fixtures/cloud_host_guest/v1/snapshot.json",
+      "fixtures/cloud_host_guest/v1/system-input.json"
+    ],
+    "fixtures/cloud_host_guest/v2": [
+      "fixtures/cloud_host_guest/v2/config.json",
+      "fixtures/cloud_host_guest/v2/manifest.json",
+      "fixtures/cloud_host_guest/v2/partition.json",
+      "fixtures/cloud_host_guest/v2/snapshot.json",
+      "fixtures/cloud_host_guest/v2/system-input.json"
+    ],
+    "fixtures/contracts": [
+      "fixtures/contracts/README.md",
+      "fixtures/contracts/original-mm.xml",
+      "fixtures/contracts/protocol-v1.json"
+    ],
+    "fixtures/fragment_ligand": [
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-d3.4-r0--alternative-ethane.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-d3.4-r0--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-d3.4-r0--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-d3.8-r0--alternative-ethane.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-d3.8-r0--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-d3.8-r0--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-d3.8-r60--alternative-ethane.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-d3.8-r60--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-d3.8-r60--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-d4.5-r0--alternative-ethane.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-d4.5-r0--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-d4.5-r0--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-separated--alternative-ethane.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-separated--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-acetamide-separated--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-d3.4-r0--alternative-ethane.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-d3.4-r0--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-d3.4-r0--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-d3.8-r0--alternative-ethane.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-d3.8-r0--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-d3.8-r0--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-d3.8-r60--alternative-ethane.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-d3.8-r60--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-d3.8-r60--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-d4.5-r0--alternative-ethane.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-d4.5-r0--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-d4.5-r0--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-separated--alternative-ethane.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-separated--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/butane-methanol-separated--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-acetamide-d2.6-r0--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-acetamide-d2.6-r0--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-acetamide-d3-r0--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-acetamide-d3-r0--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-acetamide-d3-r60--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-acetamide-d3-r60--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-acetamide-d3.5-r0--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-acetamide-d3.5-r0--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-acetamide-separated--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-acetamide-separated--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-methanol-d2.6-r0--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-methanol-d2.6-r0--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-methanol-d3-r0--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-methanol-d3-r0--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-methanol-d3-r60--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-methanol-d3-r60--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-methanol-d3.5-r0--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-methanol-d3.5-r0--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-methanol-separated--baseline.json",
+      "fixtures/fragment_ligand/descriptions-v1/ethanol-methanol-separated--uncut.json",
+      "fixtures/fragment_ligand/descriptions-v1/manifest.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/acetamide-molecule.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/butane-acetamide-parameters.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/butane-acetamide.xml",
+      "fixtures/fragment_ligand/prepared-mm-v1/butane-methanol-acetamide-parameters.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/butane-methanol-acetamide.xml",
+      "fixtures/fragment_ligand/prepared-mm-v1/butane-methanol-parameters.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/butane-methanol.xml",
+      "fixtures/fragment_ligand/prepared-mm-v1/butane-molecule.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/ethanol-acetamide-parameters.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/ethanol-acetamide.xml",
+      "fixtures/fragment_ligand/prepared-mm-v1/ethanol-methanol-acetamide-parameters.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/ethanol-methanol-acetamide.xml",
+      "fixtures/fragment_ligand/prepared-mm-v1/ethanol-methanol-parameters.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/ethanol-methanol.xml",
+      "fixtures/fragment_ligand/prepared-mm-v1/ethanol-molecule.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/gaff-cache.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/manifest.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/methanol-molecule.json",
+      "fixtures/fragment_ligand/prepared-mm-v1/quantum-job-matrix.json"
+    ],
+    "fixtures/mace_link": [
+      "fixtures/mace_link/README.md",
+      "fixtures/mace_link/input.json",
+      "fixtures/mace_link/mm-system.xml"
+    ],
+    "fixtures/one_cut_alkane": [
+      "fixtures/one_cut_alkane/README.md",
+      "fixtures/one_cut_alkane/input.json",
+      "fixtures/one_cut_alkane/original-mm.xml"
+    ],
+    "fixtures/periodic_ledger": [
+      "fixtures/periodic_ledger/diagnostics.json",
+      "fixtures/periodic_ledger/input.json",
+      "fixtures/periodic_ledger/ledger.json",
+      "fixtures/periodic_ledger/manifest.json",
+      "fixtures/periodic_ledger/original-mm.xml",
+      "fixtures/periodic_ledger/partition.json",
+      "fixtures/periodic_ledger/retained-mm.xml",
+      "fixtures/periodic_ledger/snapshot.json"
+    ],
+    "fixtures/solvated_fragment/v1": [
+      "fixtures/solvated_fragment/v1/README.md",
+      "fixtures/solvated_fragment/v1/abfe/config.json",
+      "fixtures/solvated_fragment/v1/abfe/manifest.json",
+      "fixtures/solvated_fragment/v1/abfe/partition.json",
+      "fixtures/solvated_fragment/v1/abfe/snapshot.json",
+      "fixtures/solvated_fragment/v1/abfe/system-input.json",
+      "fixtures/solvated_fragment/v1/rbfe/config.json",
+      "fixtures/solvated_fragment/v1/rbfe/manifest.json",
+      "fixtures/solvated_fragment/v1/rbfe/partition.json",
+      "fixtures/solvated_fragment/v1/rbfe/snapshot.json",
+      "fixtures/solvated_fragment/v1/rbfe/system-input.json"
+    ],
+    "fixtures/solvated_fragment/v2": [
+      "fixtures/solvated_fragment/v2/README.md",
+      "fixtures/solvated_fragment/v2/abfe/config.json",
+      "fixtures/solvated_fragment/v2/abfe/manifest.json",
+      "fixtures/solvated_fragment/v2/abfe/partition.json",
+      "fixtures/solvated_fragment/v2/abfe/snapshot.json",
+      "fixtures/solvated_fragment/v2/abfe/system-input.json",
+      "fixtures/solvated_fragment/v2/rbfe/config.json",
+      "fixtures/solvated_fragment/v2/rbfe/manifest.json",
+      "fixtures/solvated_fragment/v2/rbfe/partition.json",
+      "fixtures/solvated_fragment/v2/rbfe/snapshot.json",
+      "fixtures/solvated_fragment/v2/rbfe/system-input.json"
+    ]
+  },
+  "ancillary_entrypoints": {
+    "examples/g08_known_answer.py": "40b4cc0f15ffa54e50ee0cfe816ace7c01a4c638561ae1067eaccc3181597050",
+    "examples/mace_link_cpu.py": "06a337f4826066095c15dfc59a13ff4f0938470ce7bf0199ea48a1061f276727",
+    "tools/build_dense_solvent_control.py": "766d047785db298de058bac0f9a88d4fbaf88841b77b4856e20f01912149fb09",
+    "tools/build_solvent_control.py": "3b56b96b36ab56296ca76d3c9109c00bff8c919dbe895d3e504e3a43f78755ac",
+    "tools/check_docs.py": "5386af1444349af646f2bf03675756f1e194b6cd22be95e06142a5c4d334f635",
+    "tools/collect_joint_evidence.py": "75f6e3a41c30f2d99253117721fb9d9baf8f5223a50f2c0c831f7bfb37c11e8e",
+    "tools/freeze_joint_descriptions.py": "5d33900fb7f525beb82433aba0cb343428401da906ff6faacd4b32656b0ed531",
+    "tools/generate_neutral_quantum.py": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff",
+    "tools/monitor_cpu_check.py": "792cdd24ba7b231443851b3145b22a55357366c8a4013355132719241dcc94a6",
+    "tools/prepare_cloud_host_guest.py": "bbf6e2190670ca90097022fad8b0039e180e60c2c71d3c394a60c5fb541266ec",
+    "tools/prepare_joint_mm.py": "ef55b96f342a57b82e4f0859ed62e5a090407f3801d0386fc3616f444741e786",
+    "tools/prepare_neutral_references.py": "7ec02e9221597f0cc531e1dda18eed55d62807d830eea0d891494ec3e0fb420c",
+    "tools/probe_reference_water_boundary.py": "a2565395c9766dd094764fb6312f9f4b6472af16c4adee0825a39c867e6df74c",
+    "tools/quantum_worker_guard.py": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030",
+    "tools/repair_neutral_reference_controls.py": "4275f99cb6a3c08aaa2ef0a5d70b563a77f91d552aa04b9002b6819943229ce2",
+    "tools/resume_joint_quantum.py": "67372fbe9c8083aebfa77886240608fcadacba930a1d7c643d6ae9f11938f61f",
+    "tools/resume_neutral_quantum.py": "d7fd518d9663c60399e101c94c518f8f13b03625cff41e34546b96bfeae1e63d"
+  },
+  "packaging_files_present": []
+}

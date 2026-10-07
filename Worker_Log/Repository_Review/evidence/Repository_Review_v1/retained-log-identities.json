@@ -1,0 +1,26 @@
+{
+  "full-cpu-suite.log": {
+    "raw_sha256": "55747b697c1fae7558058c2d2938dd717b49fd2dc57b6bd5c2f7f8f7f54dfd14",
+    "gzip_sha256": "cee63ddff75dd9cf16e91b30f4e461dadea9f45bbcf6b7c6736a2a2fb822f74e",
+    "gzip_roundtrip_exact": true,
+    "last_line": "631 passed in 1238.59s (0:20:38)"
+  },
+  "clock-focused-green-final.log": {
+    "raw_sha256": "35a4c913317c59dfcf8ebe3cbe210627dd7dbdae96333420793afa6ce3bb5c32",
+    "gzip_sha256": "84213a6d5afa5826826aca8f58ba6c7456a4aaad012298a764fdc17f132976d6",
+    "gzip_roundtrip_exact": true,
+    "last_line": "7 passed, 58 deselected in 8.11s"
+  },
+  "v2-pilots.log": {
+    "raw_sha256": "e797d9151e979c682616657302ab30ef00abe2e7de01e22bc7c54a850e07b2fa",
+    "gzip_sha256": "49543d93224ee3437a38bffe783d00d37df40b1706e3188a47827008296b7d8e",
+    "gzip_roundtrip_exact": true,
+    "last_line": "2 passed in 235.94s (0:03:55)"
+  },
+  "public-clock-red.log": {
+    "raw_sha256": "b159cf9c49a7da20082dc825e3b1da1ac9a5e355b77423b3249e47947156c577",
+    "gzip_sha256": "145850335d1a8e76e77049c2e18a2da337ecedc60d3722a03b9ac4112cbce5a0",
+    "gzip_roundtrip_exact": true,
+    "last_line": "2 failed, 60 deselected in 5.42s"
+  }
+}

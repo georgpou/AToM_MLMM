@@ -1,0 +1,23 @@
+{
+  "command": [
+    "python",
+    "Worker_Log/Repository_Review/evidence/Repository_Review_v1/verify_report.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM-g10",
+  "start_utc": "2026-10-07T09:51:21.218487+00:00",
+  "end_utc": "2026-10-07T09:51:21.944351+00:00",
+  "exit_code": 0,
+  "elapsed_seconds": 0.7258031050000682,
+  "peak_child_rss_bytes": 74940416,
+  "source_head": "4ad8ee835809325ceec8a017222415043347967d",
+  "environment_prefix": "/workspace/repository-review-cpu-v3",
+  "python_executable": "/workspace/repository-review-cpu-v3/env/bin/python",
+  "thread_settings": {
+    "OPENBLAS_NUM_THREADS": "2",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2"
+  },
+  "pythonpath": "/workspace/AToM_MLMM-g10/src",
+  "log": "report-integrity.log",
+  "log_sha256": "7671ad9a9a7527af71426d6bcf607a42e029d02c898f9bf9faf6efcd2118d126"
+}

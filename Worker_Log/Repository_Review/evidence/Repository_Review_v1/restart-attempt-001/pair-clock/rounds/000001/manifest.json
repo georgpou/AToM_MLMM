@@ -1,0 +1,15 @@
+{
+  "files": {
+    "decision.json": "6d57c6281fe2035221acc651bc0a031cec75497e501ccd41d4ebe4989f176001",
+    "evaluated.json": "0261f256b9416f2ff48ed03bf31573c043ed343060dc2ed8f7253017be3c7bea",
+    "record.json": "88ea7e1ac821615836bc80ad392fd37ad782e7895fc9ee92e97628aaf7c14da0",
+    "refreshed.json": "4729ec775373adea4dabc494662b7502712180b26aa33bf0cd5302bdbf989025",
+    "rng.json": "fce0f8cbe83fdc41d68ede69bb25251ee9cb7f044ee5dacfd892bef1192b76fa",
+    "worker-0.chk": "3c56ab6f75d8cec4ce1bf0998a3734618bc54c0ffca1d653dc60a813e6e8c060",
+    "worker-0.xml": "2d656d74dc380a5ba1f0709910cf4c816600032e1880cf34a08a3aa27ee84b51",
+    "worker-1.chk": "28798347829a663920a7339d7b36c5f6dee97f65c9438c6ca999a31c8809ab35",
+    "worker-1.xml": "2f8cc252d653294d91278af4173d239a60f0304d2c904c2c23c05fd7a6b49ba0"
+  },
+  "index": 1,
+  "version": 1
+}

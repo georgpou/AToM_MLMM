@@ -1,0 +1,23 @@
+{
+  "command": [
+    "python",
+    "Worker_Log/Repository_Review/evidence/Repository_Review_v1/reproduce_restart.py"
+  ],
+  "cwd": "/workspace/AToM_MLMM-g10",
+  "start_utc": "2026-10-07T09:15:29.732941+00:00",
+  "end_utc": "2026-10-07T09:15:29.977529+00:00",
+  "exit_code": 1,
+  "elapsed_seconds": 0.24459397500004343,
+  "peak_child_rss_bytes": 78737408,
+  "source_head": "4ad8ee835809325ceec8a017222415043347967d",
+  "environment_prefix": "/workspace/repository-review-cpu-v3",
+  "python_executable": "/workspace/repository-review-cpu-v3/env/bin/python",
+  "thread_settings": {
+    "OPENBLAS_NUM_THREADS": "2",
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2"
+  },
+  "pythonpath": "/workspace/AToM_MLMM-g10/src",
+  "log": "restart-diagnostics.log",
+  "log_sha256": "7ffebc409ab59e34de854f5992cede2976fff5b029506058597008f01a368419"
+}

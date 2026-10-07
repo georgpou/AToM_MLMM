@@ -1,0 +1,37 @@
+<?xml version="1.0" ?>
+<State openmmVersion="8.6.1" stepCount="0" time="0" type="State" version="1">
+	<PeriodicBoxVectors>
+		<A x="2" y="0" z="0"/>
+		<B x="0" y="2" z="0"/>
+		<C x="0" y="0" z="2"/>
+	</PeriodicBoxVectors>
+	<Parameters Acore=".25" Alpha=".7" Direction="-1" Lambda1=".3" Lambda2=".7" RETemperature="300" UOffset=".2" Ubcore="1" Uh="2" Umax="10" W0=".9"/>
+	<Energies KineticEnergy="0" PotentialEnergy="137.10948640809715"/>
+	<Positions>
+		<Position x=".2" y=".1" z="-.1"/>
+		<Position x=".5" y="-2.1" z=".2"/>
+		<Position x=".4" y=".3" z=".1"/>
+		<Position x="-1.7" y=".1" z=".3"/>
+		<Position x=".1" y="2.2" z=".4"/>
+		<Position x="-1.5" y=".5" z="-.2"/>
+		<Position x="-1.3" y="-.3" z=".4"/>
+	</Positions>
+	<Velocities>
+		<Velocity x="0" y="0" z="0"/>
+		<Velocity x="0" y="0" z="0"/>
+		<Velocity x="0" y="0" z="0"/>
+		<Velocity x="0" y="0" z="0"/>
+		<Velocity x="0" y="0" z="0"/>
+		<Velocity x="0" y="0" z="0"/>
+		<Velocity x="0" y="0" z="0"/>
+	</Velocities>
+	<Forces>
+		<Force x="-6.484789943705971" y="3.1695798874119405" z="-1.2543698311179097"/>
+		<Force x="-3.968007183067164" y="41.63601436613433" z="-.9040215492014929"/>
+		<Force x="-1.8111885070925378" y="-24.377622985814927" z="-1.4335655212776115"/>
+		<Force x="5.4395978450798514" y="-1.1291956901597016" z=".26879353523955224"/>
+		<Force x="-8" y="-59.8" z="-9.600000000000001"/>
+		<Force x="9.542394971852985" y="-4.38478994370597" z="3.4271849155589553"/>
+		<Force x="7.815996408466418" y="1.3680071830671643" z="-1.0520107746007468"/>
+	</Forces>
+</State>

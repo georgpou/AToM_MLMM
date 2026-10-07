@@ -1,0 +1,1944 @@
+{
+  "utc": "2026-10-07T10:48:21.354774+00:00",
+  "branch": "before_HPC",
+  "published_base": "4ad8ee835809325ceec8a017222415043347967d",
+  "reviewed_base": "4ad8ee835809325ceec8a017222415043347967d",
+  "newer_delta": [],
+  "zip_sha256": "3ea08377daa8be8d378c6b191a138f11a88977fd873b8b3a5dc3c51b53b7f0e5",
+  "files": [
+    {
+      "path": "Worker_Log/Repository_Review/Repository_Review_v1_audit.md",
+      "sha256": "2a12110403afa8c2ac8955fac9c55cb13bd9a6f9355fd5fef67bc904af94dc47",
+      "bytes": 10026
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/README.md",
+      "sha256": "96ac04f3112e38280cf8eebd769c937cda08a3a7b663977b3fec79dca13f8688",
+      "bytes": 7983
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/arithmetic-results.json",
+      "sha256": "890066921877562d87dae56d333ed8429ef914eff112a518527c402171b0c5e0",
+      "bytes": 652
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/arithmetic_control.py",
+      "sha256": "96fa119d2310d247d999bb8f0fbe40957904dc09a7128b35248c8bda3e8dbc8f",
+      "bytes": 1682
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/backlog.md",
+      "sha256": "bab4af7917e4dc5b28a98fa945ddd0ccd7ef099bc4fb30d5c40d77c227430995",
+      "bytes": 12825
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/completion.json",
+      "sha256": "918ea75bbc3a702690bb5b968647be8049eacc1ed4c6c70a53c60ce1336ef764",
+      "bytes": 1984
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/component-reuse.json",
+      "sha256": "a0902084ada2fa079d1e74833d95c0848004cf7db4af97b371b6d43dff1f8462",
+      "bytes": 17365
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/coverage.md",
+      "sha256": "a4ab43fc58276b0999c242a4f9fc184af821c73eec829b21475d0a267a919680",
+      "bytes": 20440
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/documentation-final.json",
+      "sha256": "e018e833a5cb84de5bceb868217ae95b3ed23e7f61b503e2cbb7e86e0fe8d7e8",
+      "bytes": 800
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/documentation-final.log",
+      "sha256": "b351956b79d3b7242866e3b1da5069588b83491243fbb6f9b8abfa0b6867ab69",
+      "bytes": 565
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/environment/repository-review-cpu-install-replay.log",
+      "sha256": "29f680cabac4612dfeebd09cb5de02cbae7137c1e3dccbd889db8eaaf22126eb",
+      "bytes": 4294
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/environment/repository-review-cpu-install-v2.log",
+      "sha256": "40510c2abbb5d74d2d93c67bf2282d6dfedbd2c12587cd359092736cdf110a50",
+      "bytes": 9900
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/environment/repository-review-cpu-install-v3.log",
+      "sha256": "57905d718caf74de2b2f9b8d3ad70f40fbbb4ff659dcef264e38817d0b81277a",
+      "bytes": 49709
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/environment/repository-review-cpu-install.log",
+      "sha256": "9415f0d2005eae38baeb1f0702adf37eb151edd4598bbb1dd4a047aef30d314e",
+      "bytes": 9900
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/environment/validation-results.json",
+      "sha256": "8bc22ba9370294d51498ee62e00d80c36748ab62d12e57294dad83043578f94f",
+      "bytes": 10284
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/findings.md",
+      "sha256": "451b26958745f2c85c4551d72af62bc3f7abea5265a30aff7437923d03b612f3",
+      "bytes": 8926
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/frozen-input-sha256.json",
+      "sha256": "652744a23f45d4ab0f9fed93f2666a7bb3ca4836e719f557355f8b1cd1c4709c",
+      "bytes": 61992
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/independent-arithmetic.json",
+      "sha256": "994bc3018b5a93098e3ed51ba06e30ca964619be7b7a223bfee1d13e7b01af37",
+      "bytes": 845
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/independent-arithmetic.log",
+      "sha256": "890066921877562d87dae56d333ed8429ef914eff112a518527c402171b0c5e0",
+      "bytes": 652
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/inventory.json",
+      "sha256": "bfd12e9044110c4bef300d4929ec6c9466b32868b5c1116c279b1484831a1a63",
+      "bytes": 110723
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/manifest.json",
+      "sha256": "ef3584edb13acc4a566a691558b81e0ca973e47f5ef600394d292d1cc7fc58f0",
+      "bytes": 71539
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/physical-evidence.json",
+      "sha256": "462315d6c22057d380e8df8669e8c88e820bfdf23c0db06b6bb6ce4855b0f9da",
+      "bytes": 5610
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/probe-plan.md",
+      "sha256": "2017110047ad42be32238849a2c1e1058f9239f651d49d0989d156cd576a1690",
+      "bytes": 3076
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/provenance.json",
+      "sha256": "a1b1de1756b4fe9b2d3d5b66a2b4ae9e5b19633f60bb0d10bc57c8edfbd4c232",
+      "bytes": 4529
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/report-integrity.json",
+      "sha256": "9a19373427ea6b8bac73445ee139caae5a284dc11ed6a9084a77f195c081ceb3",
+      "bytes": 833
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/report-integrity.log",
+      "sha256": "7671ad9a9a7527af71426d6bcf607a42e029d02c898f9bf9faf6efcd2118d126",
+      "bytes": 403
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/reproduce_restart.py",
+      "sha256": "5109e9caff33390de41be5ac7540a82d72d0fcba2eb1d47a4aa3e79058dcca60",
+      "bytes": 9982
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/metadata.json",
+      "sha256": "2ad169fbd142276478c3ccb3bb03f79d51365546fc991825bb030c176f8e40b4",
+      "bytes": 891
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/metadata.sha256",
+      "sha256": "07f2c7c6118fa9eec50a60fb7b7b09733f8d4755a4460fa33e0e5e7f9fda3c26",
+      "bytes": 65
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/observations.json",
+      "sha256": "f2112fe1eac8c1393ae2743cee4db63681e528ea196ba9af913b973cf168062d",
+      "bytes": 25555
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/records.json",
+      "sha256": "915885a1083c667fabc49f0fdf9858c98425fad2d0391216bad08d89d30371b2",
+      "bytes": 3434
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000000/checkpoint.chk",
+      "sha256": "befc284bdea96e101360612e8b53a5af6defa3310f058af1b906d6142ca76c44",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000000/manifest.json",
+      "sha256": "265e728cc7839c17a8797d915e936d486fe6fd384ec3a20b9a6c6217555fb665",
+      "bytes": 312
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000000/record.json",
+      "sha256": "df7166eee0a66fa8e2e8ab987a47b819ad9862cd884dd3af985da93a885040fe",
+      "bytes": 3882
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000000/state.xml",
+      "sha256": "337eb7dde80aea6ffafa4b4c991747cbe81aaa54e1f11be3e3d670dfa39d25d7",
+      "bytes": 2277
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000001/checkpoint.chk",
+      "sha256": "36b96948fb1303ba0b322c1a35c669c39d13d19e9b1b5991fe1d3100b4489b57",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000001/manifest.json",
+      "sha256": "285c58215f78e40d1c25d7319bb00fabdc636a553989dc33e79a7db15c4f6929",
+      "bytes": 312
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000001/record.json",
+      "sha256": "f1d8a88081ce8830f5a469a25c2d7155ddfdf7ea01a8031483759e063d99ebdb",
+      "bytes": 3885
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000001/state.xml",
+      "sha256": "aa069af528448c35d2d1105bc394f4c5c56dda8ef0ecd21a8195f265498c9c25",
+      "bytes": 2279
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000002/checkpoint.chk",
+      "sha256": "5d6472b78a1f92156b1e1ee9b1d172553736fb573c21a90cbe6969d2f00bc64d",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000002/manifest.json",
+      "sha256": "26c5d30ad6b69f5565d100fd207a1863771bc82a10d434167b2a0e8d609cddfd",
+      "bytes": 312
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000002/record.json",
+      "sha256": "50d2034e3ae1953fdbfab2735fbe1fb0632c03eb3dae0d41fb848c773549e525",
+      "bytes": 3896
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000002/state.xml",
+      "sha256": "80d9eacb35393815a71be51bc3fdc3b92e8fa0fab6778d966c3a5f846cff4057",
+      "bytes": 2288
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000003/checkpoint.chk",
+      "sha256": "9ed049b337ad5b3b814eb070c66f2df0013763349cce0987704178c7faac3c14",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000003/manifest.json",
+      "sha256": "d065c4f52a5df0791ae594390bff259a053344ff6e9a63be5f6d392cefe0a4e6",
+      "bytes": 312
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000003/record.json",
+      "sha256": "fcd7237ed970bbc3476d0102bbc41ea2b179bceb64915e9fad4e997d4a9e6355",
+      "bytes": 3895
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000003/state.xml",
+      "sha256": "ee05d2f2462494b504638af1a0029a844c170a28f88cd870d77d8d9323e6b107",
+      "bytes": 2289
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000004/checkpoint.chk",
+      "sha256": "dcd55f5991d1155e203ed4d14cf64e46c0e26dde1a1380e2d626ea7e3f00cad7",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000004/manifest.json",
+      "sha256": "0f805e4a13da0f4b4b0872af297a86bfb709eadda7ae20df37d3fbf3e609bfe4",
+      "bytes": 312
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000004/record.json",
+      "sha256": "b6e9e3e87def5905d780b3ea2683666a97f03bf4d3c35aaa0022be7a902f92b6",
+      "bytes": 3882
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000004/state.xml",
+      "sha256": "0aeb0c1a57af5b3f6e2b6cbd8f528ef30d2478b1c604d71f23ec0eadbe97b4c0",
+      "bytes": 2277
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000005/checkpoint.chk",
+      "sha256": "c2a1e3bb2f412bca260407225743531763e9743ffe9bef0432857caa9075d994",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000005/manifest.json",
+      "sha256": "b3a202f8563d1000220cf688d5adb323a7878844dd67c48b2245fc47ee96f923",
+      "bytes": 312
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000005/record.json",
+      "sha256": "46e418b7cc15f0938a0ed9d04c3aabe3c3652eeeeae88348e67ed0f299af1e07",
+      "bytes": 3886
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/samples/000005/state.xml",
+      "sha256": "703e746a72fb435bdf2b257faa3f3d5ed067e8551c1783a7e9d510070b246d7c",
+      "bytes": 2284
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/summary.json",
+      "sha256": "d0367c2ca401e9c231ab7811dee5bab32bb1a61977d916624ddccb5f6bfd2cb0",
+      "bytes": 1552
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/bundle.json",
+      "sha256": "053b36a405c326e41d15428596a5f9fccc824792e8c57a355283c0e0cd733d7a",
+      "bytes": 26351
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/handover.pdb",
+      "sha256": "37c9d08c91f67e9fa4d95de3c1cabfecaf69db0be3894903e6c806ca052f3b82",
+      "bytes": 899
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/handover_0.xml",
+      "sha256": "41ec432eec25181c3c048708a0daaf902f271b6ad34d97a1df805f2a7b3b3664",
+      "bytes": 1527
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/handover_sys.xml",
+      "sha256": "7c716257e81166a373ce3554a7b7f038bc5ad6e08bb7a3d042ef37ec617815b2",
+      "bytes": 5023
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/manifest.json",
+      "sha256": "a21f96d914afbf4c62be6b78d2eb21784d09afbcceeeb41c81b778696e532a8a",
+      "bytes": 6215
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/environment/core-conda-linux-64.lock",
+      "sha256": "e1d29ae969d7eccbacdbd556925400f2cc0124400b8cffcab6d5b44a96361f9e",
+      "bytes": 37862
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/environment/core-pip-inventory.txt",
+      "sha256": "45fda8a230e27cc2e009e7489048ec82f4b3afb364995e837d2b5906ade6fb75",
+      "bytes": 2684
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/environment/package-identities.json",
+      "sha256": "f1293028717527cd36bd1d30abd709300138fa4b6f8523e1df1ace982b63104a",
+      "bytes": 2203
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/environment/upstream-sources.json",
+      "sha256": "f910598fb8689431e9475145840a4269b68a58ce49e86c1cca73c2eaecda7f4d",
+      "bytes": 915
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/__init__.py",
+      "sha256": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+      "bytes": 83
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/__main__.py",
+      "sha256": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+      "bytes": 3326
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/adapters/__init__.py",
+      "sha256": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+      "bytes": 77
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/adapters/atom.py",
+      "sha256": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+      "bytes": 28308
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/analysis.py",
+      "sha256": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+      "bytes": 11808
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/analytic.py",
+      "sha256": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+      "bytes": 7995
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/atm.py",
+      "sha256": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+      "bytes": 19383
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/capabilities.py",
+      "sha256": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+      "bytes": 4617
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/chemical_reference.py",
+      "sha256": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+      "bytes": 5335
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/derivatives.py",
+      "sha256": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+      "bytes": 1170
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/embeddings/__init__.py",
+      "sha256": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+      "bytes": 65
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/embeddings/mechanical.py",
+      "sha256": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+      "bytes": 8242
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/endpoints.py",
+      "sha256": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+      "bytes": 1609
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/environment.py",
+      "sha256": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+      "bytes": 12160
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/evidence.py",
+      "sha256": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+      "bytes": 4767
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/exchange.py",
+      "sha256": "1d11414c3435119b485834698ecef4449df3b1418eab00763ecea960c904e095",
+      "bytes": 53523
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/exchange_journal.py",
+      "sha256": "372bc93632909d2a3d9093f1782747a60da16489ff5cfd3267c049e3670d9e95",
+      "bytes": 46291
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/geometry.py",
+      "sha256": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+      "bytes": 10103
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/hybrid.py",
+      "sha256": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+      "bytes": 5765
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/identity.py",
+      "sha256": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+      "bytes": 1653
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/joint_reference.py",
+      "sha256": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+      "bytes": 5187
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/ledger.py",
+      "sha256": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+      "bytes": 16146
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/model_reference.py",
+      "sha256": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+      "bytes": 4291
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/models/__init__.py",
+      "sha256": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+      "bytes": 36
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/models/analytic_boundary.py",
+      "sha256": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+      "bytes": 4223
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/models/mace.py",
+      "sha256": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+      "bytes": 7976
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/partition.py",
+      "sha256": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+      "bytes": 5919
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/persistence.py",
+      "sha256": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+      "bytes": 4395
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/prepare.py",
+      "sha256": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+      "bytes": 5858
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/protocols/__init__.py",
+      "sha256": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+      "bytes": 79
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/protocols/abfe.py",
+      "sha256": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+      "bytes": 560
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/protocols/rbfe.py",
+      "sha256": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+      "bytes": 555
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/restraints.py",
+      "sha256": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+      "bytes": 2040
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/routing.py",
+      "sha256": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+      "bytes": 6599
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/schedule.py",
+      "sha256": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+      "bytes": 5759
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/schema.py",
+      "sha256": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+      "bytes": 39928
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/solvent.py",
+      "sha256": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+      "bytes": 8680
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime/source/atm_mlmm/workflow.py",
+      "sha256": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc",
+      "bytes": 31508
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/runtime.json",
+      "sha256": "80f8482db6152c11391b88a759d712b73db15ba84e850ec31e2ee40800e077aa",
+      "bytes": 237
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock/worker/snapshot.json",
+      "sha256": "454f22246d0ef1e44d30db1478800293f99b70b6591bb8ca67f00e7741b79749",
+      "bytes": 457
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock-000000-manifest.original.json",
+      "sha256": "b54c27834865f6ac0ee1a6609c6b801fd4a6ec04876cf076a321242a7a79edf8",
+      "bytes": 312
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-clock-checkpoint.original.chk",
+      "sha256": "cc24680c88376d1c972e09233c14507f43a44778a767912861de1a1a8a3e8c76",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/failure-000001/checkpoint.chk",
+      "sha256": "f4b8163f7790c39bbc62eb3465cd24ab91b399b6ba6a503666dd2d51b96bf497",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/failure-000001/error.json",
+      "sha256": "b9e16d63a1a5268138ca9ecfb0a74420a5d1532a857c9d1a96ff3e3033a029e6",
+      "bytes": 570
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/failure-000001/map0-state.xml",
+      "sha256": "c8ac9c730da4edeabef713e690738e3e8ff3ecac5ec146ddd956f15eee24be99",
+      "bytes": 1626
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/failure-000001/map1-state.xml",
+      "sha256": "70e36f294ab1881e0dda1dd9a521efc13efcfcbf8c851a7af74e2962ab5b840d",
+      "bytes": 1627
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/failure-000001/state.xml",
+      "sha256": "fa88f78822896b9aaae0734275ee394d4d5107e06cf7e078a49c92dd4bfb9dc9",
+      "bytes": 1616
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/metadata.json",
+      "sha256": "b1e77e3960245cf849800b8fedf406dca448e2daf9c3ccf85c0c31231d965c5a",
+      "bytes": 891
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/metadata.sha256",
+      "sha256": "2f36d32416d91edc5a5adc5df42ad56a5534409c02a88c4cb5d7cb2746cabf2a",
+      "bytes": 65
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/observations.json",
+      "sha256": "fff8319dc9bb642567fbc9275a49935255ec9677a46b7822b3edb682a76305d8",
+      "bytes": 4257
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/records.json",
+      "sha256": "bff97083ea074c98e6073bf37eb3ee64e5a6ef688df69b2b6aef86e4ab11f396",
+      "bytes": 2552
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/samples/000000/checkpoint.chk",
+      "sha256": "f4b8163f7790c39bbc62eb3465cd24ab91b399b6ba6a503666dd2d51b96bf497",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/samples/000000/manifest.json",
+      "sha256": "1ec609914831584733181cbd129de363e3079ebbf38dfe7bb223319d63a28326",
+      "bytes": 312
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/samples/000000/record.json",
+      "sha256": "16a99c7abf8d97a92f538d14ee91f6fea0cc72d2f3efa4908c6770c370887e8b",
+      "bytes": 3883
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/samples/000000/state.xml",
+      "sha256": "337eb7dde80aea6ffafa4b4c991747cbe81aaa54e1f11be3e3d670dfa39d25d7",
+      "bytes": 2277
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/summary.json",
+      "sha256": "2d29e79bedd6f70b6d7bd67ffbee4de96fe4830e907ec998c8abcaa8451bef5e",
+      "bytes": 1556
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/bundle.json",
+      "sha256": "053b36a405c326e41d15428596a5f9fccc824792e8c57a355283c0e0cd733d7a",
+      "bytes": 26351
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/handover.pdb",
+      "sha256": "37c9d08c91f67e9fa4d95de3c1cabfecaf69db0be3894903e6c806ca052f3b82",
+      "bytes": 899
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/handover_0.xml",
+      "sha256": "41ec432eec25181c3c048708a0daaf902f271b6ad34d97a1df805f2a7b3b3664",
+      "bytes": 1527
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/handover_sys.xml",
+      "sha256": "7c716257e81166a373ce3554a7b7f038bc5ad6e08bb7a3d042ef37ec617815b2",
+      "bytes": 5023
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/manifest.json",
+      "sha256": "a21f96d914afbf4c62be6b78d2eb21784d09afbcceeeb41c81b778696e532a8a",
+      "bytes": 6215
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/environment/core-conda-linux-64.lock",
+      "sha256": "e1d29ae969d7eccbacdbd556925400f2cc0124400b8cffcab6d5b44a96361f9e",
+      "bytes": 37862
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/environment/core-pip-inventory.txt",
+      "sha256": "45fda8a230e27cc2e009e7489048ec82f4b3afb364995e837d2b5906ade6fb75",
+      "bytes": 2684
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/environment/package-identities.json",
+      "sha256": "f1293028717527cd36bd1d30abd709300138fa4b6f8523e1df1ace982b63104a",
+      "bytes": 2203
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/environment/upstream-sources.json",
+      "sha256": "f910598fb8689431e9475145840a4269b68a58ce49e86c1cca73c2eaecda7f4d",
+      "bytes": 915
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/__init__.py",
+      "sha256": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+      "bytes": 83
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/__main__.py",
+      "sha256": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+      "bytes": 3326
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/adapters/__init__.py",
+      "sha256": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+      "bytes": 77
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/adapters/atom.py",
+      "sha256": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+      "bytes": 28308
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/analysis.py",
+      "sha256": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+      "bytes": 11808
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/analytic.py",
+      "sha256": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+      "bytes": 7995
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/atm.py",
+      "sha256": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+      "bytes": 19383
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/capabilities.py",
+      "sha256": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+      "bytes": 4617
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/chemical_reference.py",
+      "sha256": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+      "bytes": 5335
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/derivatives.py",
+      "sha256": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+      "bytes": 1170
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/embeddings/__init__.py",
+      "sha256": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+      "bytes": 65
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/embeddings/mechanical.py",
+      "sha256": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+      "bytes": 8242
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/endpoints.py",
+      "sha256": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+      "bytes": 1609
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/environment.py",
+      "sha256": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+      "bytes": 12160
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/evidence.py",
+      "sha256": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+      "bytes": 4767
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/exchange.py",
+      "sha256": "1d11414c3435119b485834698ecef4449df3b1418eab00763ecea960c904e095",
+      "bytes": 53523
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/exchange_journal.py",
+      "sha256": "372bc93632909d2a3d9093f1782747a60da16489ff5cfd3267c049e3670d9e95",
+      "bytes": 46291
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/geometry.py",
+      "sha256": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+      "bytes": 10103
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/hybrid.py",
+      "sha256": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+      "bytes": 5765
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/identity.py",
+      "sha256": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+      "bytes": 1653
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/joint_reference.py",
+      "sha256": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+      "bytes": 5187
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/ledger.py",
+      "sha256": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+      "bytes": 16146
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/model_reference.py",
+      "sha256": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+      "bytes": 4291
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/models/__init__.py",
+      "sha256": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+      "bytes": 36
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/models/analytic_boundary.py",
+      "sha256": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+      "bytes": 4223
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/models/mace.py",
+      "sha256": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+      "bytes": 7976
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/partition.py",
+      "sha256": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+      "bytes": 5919
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/persistence.py",
+      "sha256": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+      "bytes": 4395
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/prepare.py",
+      "sha256": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+      "bytes": 5858
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/protocols/__init__.py",
+      "sha256": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+      "bytes": 79
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/protocols/abfe.py",
+      "sha256": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+      "bytes": 560
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/protocols/rbfe.py",
+      "sha256": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+      "bytes": 555
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/restraints.py",
+      "sha256": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+      "bytes": 2040
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/routing.py",
+      "sha256": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+      "bytes": 6599
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/schedule.py",
+      "sha256": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+      "bytes": 5759
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/schema.py",
+      "sha256": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+      "bytes": 39928
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/solvent.py",
+      "sha256": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+      "bytes": 8680
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime/source/atm_mlmm/workflow.py",
+      "sha256": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc",
+      "bytes": 31508
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/runtime.json",
+      "sha256": "80f8482db6152c11391b88a759d712b73db15ba84e850ec31e2ee40800e077aa",
+      "bytes": 237
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry/worker/snapshot.json",
+      "sha256": "454f22246d0ef1e44d30db1478800293f99b70b6591bb8ca67f00e7741b79749",
+      "bytes": 457
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-invalid-geometry-000000-manifest.original.json",
+      "sha256": "af199b00bd6ae5c0eea3ede8c4cb0aa901fe47b4bb2b53df7fbb447ca8ecf7bd",
+      "bytes": 312
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/metadata.json",
+      "sha256": "4664813174555c6a7579235080666437f6289e4398d6ba73c40d6183285bf93f",
+      "bytes": 891
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/metadata.sha256",
+      "sha256": "1aba597b167512aafcc032e476f673a796bbdefa792f75c7457ac51e63928e0a",
+      "bytes": 65
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/observations.json",
+      "sha256": "b16820c828d778a55da949df1b928d966dc3231f22de8ae7bbfd9c70bdc73852",
+      "bytes": 4256
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/records.json",
+      "sha256": "0c5f13b3efbf81ae02df32648162c5b5c190cfe9167fbabdad43b2d8d7c7951b",
+      "bytes": 2552
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/samples/000000/checkpoint.chk",
+      "sha256": "cc24680c88376d1c972e09233c14507f43a44778a767912861de1a1a8a3e8c76",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/samples/000000/manifest.json",
+      "sha256": "5de6319a5dd87c587cdd6f3c8106421b140cd80a3e07481d7d0167545b419dfe",
+      "bytes": 312
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/samples/000000/record.json",
+      "sha256": "5c14e2d66306c5761d7b0cc6509bed41290e8d7632a346f87da04cb2744baf66",
+      "bytes": 3882
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/samples/000000/state.xml",
+      "sha256": "337eb7dde80aea6ffafa4b4c991747cbe81aaa54e1f11be3e3d670dfa39d25d7",
+      "bytes": 2277
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/summary.json",
+      "sha256": "074eb957437059767fe9a223309d513f16c1344f6bb55e724a2c7d0ad0e85535",
+      "bytes": 1555
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/bundle.json",
+      "sha256": "053b36a405c326e41d15428596a5f9fccc824792e8c57a355283c0e0cd733d7a",
+      "bytes": 26351
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/handover.pdb",
+      "sha256": "37c9d08c91f67e9fa4d95de3c1cabfecaf69db0be3894903e6c806ca052f3b82",
+      "bytes": 899
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/handover_0.xml",
+      "sha256": "41ec432eec25181c3c048708a0daaf902f271b6ad34d97a1df805f2a7b3b3664",
+      "bytes": 1527
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/handover_sys.xml",
+      "sha256": "7c716257e81166a373ce3554a7b7f038bc5ad6e08bb7a3d042ef37ec617815b2",
+      "bytes": 5023
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/manifest.json",
+      "sha256": "e2bdda62ca5bf959d155727149f42610b876271011a4a09825084ca48875b5b4",
+      "bytes": 6094
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/environment/core-conda-linux-64.lock",
+      "sha256": "e1d29ae969d7eccbacdbd556925400f2cc0124400b8cffcab6d5b44a96361f9e",
+      "bytes": 37862
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/environment/core-pip-inventory.txt",
+      "sha256": "45fda8a230e27cc2e009e7489048ec82f4b3afb364995e837d2b5906ade6fb75",
+      "bytes": 2684
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/environment/package-identities.json",
+      "sha256": "f1293028717527cd36bd1d30abd709300138fa4b6f8523e1df1ace982b63104a",
+      "bytes": 2203
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/environment/upstream-sources.json",
+      "sha256": "f910598fb8689431e9475145840a4269b68a58ce49e86c1cca73c2eaecda7f4d",
+      "bytes": 915
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/__init__.py",
+      "sha256": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+      "bytes": 83
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/__main__.py",
+      "sha256": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+      "bytes": 3326
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/adapters/__init__.py",
+      "sha256": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+      "bytes": 77
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/adapters/atom.py",
+      "sha256": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+      "bytes": 28308
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/analysis.py",
+      "sha256": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+      "bytes": 11808
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/analytic.py",
+      "sha256": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+      "bytes": 7995
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/atm.py",
+      "sha256": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+      "bytes": 19383
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/capabilities.py",
+      "sha256": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+      "bytes": 4617
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/chemical_reference.py",
+      "sha256": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+      "bytes": 5335
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/derivatives.py",
+      "sha256": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+      "bytes": 1170
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/embeddings/__init__.py",
+      "sha256": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+      "bytes": 65
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/embeddings/mechanical.py",
+      "sha256": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+      "bytes": 8242
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/endpoints.py",
+      "sha256": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+      "bytes": 1609
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/environment.py",
+      "sha256": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+      "bytes": 12160
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/evidence.py",
+      "sha256": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+      "bytes": 4767
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/exchange.py",
+      "sha256": "1d11414c3435119b485834698ecef4449df3b1418eab00763ecea960c904e095",
+      "bytes": 53523
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/exchange_journal.py",
+      "sha256": "372bc93632909d2a3d9093f1782747a60da16489ff5cfd3267c049e3670d9e95",
+      "bytes": 46291
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/geometry.py",
+      "sha256": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+      "bytes": 10103
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/hybrid.py",
+      "sha256": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+      "bytes": 5765
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/identity.py",
+      "sha256": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+      "bytes": 1653
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/joint_reference.py",
+      "sha256": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+      "bytes": 5187
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/ledger.py",
+      "sha256": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+      "bytes": 16146
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/model_reference.py",
+      "sha256": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+      "bytes": 4291
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/models/__init__.py",
+      "sha256": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+      "bytes": 36
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/models/analytic_boundary.py",
+      "sha256": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+      "bytes": 4223
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/models/mace.py",
+      "sha256": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+      "bytes": 7976
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/partition.py",
+      "sha256": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+      "bytes": 5919
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/persistence.py",
+      "sha256": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+      "bytes": 4395
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/prepare.py",
+      "sha256": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+      "bytes": 5858
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/protocols/__init__.py",
+      "sha256": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+      "bytes": 79
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/protocols/abfe.py",
+      "sha256": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+      "bytes": 560
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/protocols/rbfe.py",
+      "sha256": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+      "bytes": 555
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/restraints.py",
+      "sha256": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+      "bytes": 2040
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/routing.py",
+      "sha256": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+      "bytes": 6599
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/schedule.py",
+      "sha256": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+      "bytes": 5759
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/schema.py",
+      "sha256": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+      "bytes": 39928
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/solvent.py",
+      "sha256": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+      "bytes": 8680
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime/source/atm_mlmm/workflow.py",
+      "sha256": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc",
+      "bytes": 31508
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/runtime.json",
+      "sha256": "80f8482db6152c11391b88a759d712b73db15ba84e850ec31e2ee40800e077aa",
+      "bytes": 237
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/fixed-source-omission/worker/snapshot.json",
+      "sha256": "454f22246d0ef1e44d30db1478800293f99b70b6591bb8ca67f00e7741b79749",
+      "bytes": 457
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/geometry-checkpoint.original.chk",
+      "sha256": "cc24680c88376d1c972e09233c14507f43a44778a767912861de1a1a8a3e8c76",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/.controller.lock",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/initial/manifest.json",
+      "sha256": "d3a31a374af235da2078d08fa6afd092bb13edc453b16b57699917d64db9e087",
+      "bytes": 576
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/initial/record.json",
+      "sha256": "c2fd5e1e3a67d5dbd0027a61b1efee7895dec31dc6bad369b8f60bfb52b2b540",
+      "bytes": 170
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/initial/rng.json",
+      "sha256": "40c04acf8cbf90af678109ceab92f54f9596da2e0e0ccd8af38a6120bb5f45c9",
+      "bytes": 22251
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/initial/worker-0.chk",
+      "sha256": "46b15c08e0eb2cf4317d1ea671127f23bdb2a85f04eec14a326a6e6940ad2ca8",
+      "bytes": 679
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/initial/worker-0.xml",
+      "sha256": "41ec432eec25181c3c048708a0daaf902f271b6ad34d97a1df805f2a7b3b3664",
+      "bytes": 1527
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/initial/worker-1.chk",
+      "sha256": "297ebae1d2c6deee3d8d05268768cc9b7df629b65544e18420077bcbb4e777a2",
+      "bytes": 679
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/initial/worker-1.xml",
+      "sha256": "187759964f7d40c3824addbbbca4abe40fd2ecb2f6b3094a0e87c7e939078fdc",
+      "bytes": 1537
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/metadata.json",
+      "sha256": "777dd6359bf84b108ef532b400499d3d4e6362384d80541e430d9101e2efcb7d",
+      "bytes": 1213
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/metadata.sha256",
+      "sha256": "cf81b2559ff64341e713e39735217d87abc33fcea6f93fac3c9a78cb9b8b6e73",
+      "bytes": 65
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/observations.json",
+      "sha256": "263456d62c041394a2bea461d33a4c6bfe2c6812ea0c3f5d3ea426c3899c27b2",
+      "bytes": 16133
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/records.json",
+      "sha256": "cc004fc37fada20fb4011dc08cd07b1fff495b51c45a8b4e370881867dc667c2",
+      "bytes": 3122
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000000/decision.json",
+      "sha256": "cc1303c27e31495e4904e365f3a05b641698481718a686a1d688f2781e4f066f",
+      "bytes": 1995
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000000/evaluated.json",
+      "sha256": "db5539448fb23f12a62ddfe7c579d03318997efa8de7dd8f0c32ce1f6a280a8f",
+      "bytes": 1922
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000000/manifest.json",
+      "sha256": "4c3659ef6d3b335b6f7601bdbbdda0284938417c9fb3f75f060a9dd2fd7ec217",
+      "bytes": 842
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000000/record.json",
+      "sha256": "12653e1a542fe7e946a10a8256fbe806a366eaaefa24761edd99432a4c3e2e92",
+      "bytes": 11679
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000000/refreshed.json",
+      "sha256": "f3b5c70c378f47372fea837533b5929274e24da8f4596ef71df9870c885aa2da",
+      "bytes": 2433
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000000/rng.json",
+      "sha256": "336c7b55b1e432f8c0fd730fcb21d09f6e74d63f0514ae2f10d4768e49ef4e77",
+      "bytes": 22264
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000000/worker-0.chk",
+      "sha256": "3bb95c59613de9970ff056390b6bb7260a05a370ba1cc42c2b58866ef3b4acf3",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000000/worker-0.xml",
+      "sha256": "1bae9b99554928dcb550934d7e60b856467fe633031e1a95fd42420cbd239874",
+      "bytes": 2291
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000000/worker-1.chk",
+      "sha256": "6884e3579f0a59017f3ef97cb66e666f79dd31c43222898686110cb1f63df290",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000000/worker-1.xml",
+      "sha256": "4ba7cfda9f82e13ba41850d922e4081b138595ab329b69921d97ce1558a9b90c",
+      "bytes": 2288
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000001/decision.json",
+      "sha256": "6d57c6281fe2035221acc651bc0a031cec75497e501ccd41d4ebe4989f176001",
+      "bytes": 1992
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000001/evaluated.json",
+      "sha256": "0261f256b9416f2ff48ed03bf31573c043ed343060dc2ed8f7253017be3c7bea",
+      "bytes": 1919
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000001/manifest.json",
+      "sha256": "4df48f6bb589c886e4116447c56dea029f962b9aeaf67698f7893f2006c0d30c",
+      "bytes": 842
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000001/record.json",
+      "sha256": "88ea7e1ac821615836bc80ad392fd37ad782e7895fc9ee92e97628aaf7c14da0",
+      "bytes": 11670
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000001/refreshed.json",
+      "sha256": "4729ec775373adea4dabc494662b7502712180b26aa33bf0cd5302bdbf989025",
+      "bytes": 2432
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000001/rng.json",
+      "sha256": "fce0f8cbe83fdc41d68ede69bb25251ee9cb7f044ee5dacfd892bef1192b76fa",
+      "bytes": 22264
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000001/worker-0.chk",
+      "sha256": "3c56ab6f75d8cec4ce1bf0998a3734618bc54c0ffca1d653dc60a813e6e8c060",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000001/worker-0.xml",
+      "sha256": "2d656d74dc380a5ba1f0709910cf4c816600032e1880cf34a08a3aa27ee84b51",
+      "bytes": 2279
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000001/worker-1.chk",
+      "sha256": "28798347829a663920a7339d7b36c5f6dee97f65c9438c6ca999a31c8809ab35",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/rounds/000001/worker-1.xml",
+      "sha256": "2f8cc252d653294d91278af4173d239a60f0304d2c904c2c23c05fd7a6b49ba0",
+      "bytes": 2287
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/summary.json",
+      "sha256": "91beac4616c37cdd44cab204d32c6f360610d74223030b8c3c39f514a604ec4d",
+      "bytes": 1031
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/bundle.json",
+      "sha256": "053b36a405c326e41d15428596a5f9fccc824792e8c57a355283c0e0cd733d7a",
+      "bytes": 26351
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/handover.pdb",
+      "sha256": "37c9d08c91f67e9fa4d95de3c1cabfecaf69db0be3894903e6c806ca052f3b82",
+      "bytes": 899
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/handover_0.xml",
+      "sha256": "41ec432eec25181c3c048708a0daaf902f271b6ad34d97a1df805f2a7b3b3664",
+      "bytes": 1527
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/handover_sys.xml",
+      "sha256": "7c716257e81166a373ce3554a7b7f038bc5ad6e08bb7a3d042ef37ec617815b2",
+      "bytes": 5023
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/manifest.json",
+      "sha256": "a21f96d914afbf4c62be6b78d2eb21784d09afbcceeeb41c81b778696e532a8a",
+      "bytes": 6215
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/environment/core-conda-linux-64.lock",
+      "sha256": "e1d29ae969d7eccbacdbd556925400f2cc0124400b8cffcab6d5b44a96361f9e",
+      "bytes": 37862
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/environment/core-pip-inventory.txt",
+      "sha256": "45fda8a230e27cc2e009e7489048ec82f4b3afb364995e837d2b5906ade6fb75",
+      "bytes": 2684
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/environment/package-identities.json",
+      "sha256": "f1293028717527cd36bd1d30abd709300138fa4b6f8523e1df1ace982b63104a",
+      "bytes": 2203
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/environment/upstream-sources.json",
+      "sha256": "f910598fb8689431e9475145840a4269b68a58ce49e86c1cca73c2eaecda7f4d",
+      "bytes": 915
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/__init__.py",
+      "sha256": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+      "bytes": 83
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/__main__.py",
+      "sha256": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+      "bytes": 3326
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/adapters/__init__.py",
+      "sha256": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+      "bytes": 77
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/adapters/atom.py",
+      "sha256": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+      "bytes": 28308
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/analysis.py",
+      "sha256": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+      "bytes": 11808
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/analytic.py",
+      "sha256": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+      "bytes": 7995
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/atm.py",
+      "sha256": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+      "bytes": 19383
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/capabilities.py",
+      "sha256": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+      "bytes": 4617
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/chemical_reference.py",
+      "sha256": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+      "bytes": 5335
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/derivatives.py",
+      "sha256": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+      "bytes": 1170
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/embeddings/__init__.py",
+      "sha256": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+      "bytes": 65
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/embeddings/mechanical.py",
+      "sha256": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+      "bytes": 8242
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/endpoints.py",
+      "sha256": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+      "bytes": 1609
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/environment.py",
+      "sha256": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+      "bytes": 12160
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/evidence.py",
+      "sha256": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+      "bytes": 4767
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/exchange.py",
+      "sha256": "1d11414c3435119b485834698ecef4449df3b1418eab00763ecea960c904e095",
+      "bytes": 53523
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/exchange_journal.py",
+      "sha256": "372bc93632909d2a3d9093f1782747a60da16489ff5cfd3267c049e3670d9e95",
+      "bytes": 46291
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/geometry.py",
+      "sha256": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+      "bytes": 10103
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/hybrid.py",
+      "sha256": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+      "bytes": 5765
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/identity.py",
+      "sha256": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+      "bytes": 1653
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/joint_reference.py",
+      "sha256": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+      "bytes": 5187
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/ledger.py",
+      "sha256": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+      "bytes": 16146
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/model_reference.py",
+      "sha256": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+      "bytes": 4291
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/models/__init__.py",
+      "sha256": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+      "bytes": 36
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/models/analytic_boundary.py",
+      "sha256": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+      "bytes": 4223
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/models/mace.py",
+      "sha256": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+      "bytes": 7976
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/partition.py",
+      "sha256": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+      "bytes": 5919
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/persistence.py",
+      "sha256": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+      "bytes": 4395
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/prepare.py",
+      "sha256": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+      "bytes": 5858
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/protocols/__init__.py",
+      "sha256": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+      "bytes": 79
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/protocols/abfe.py",
+      "sha256": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+      "bytes": 560
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/protocols/rbfe.py",
+      "sha256": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+      "bytes": 555
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/restraints.py",
+      "sha256": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+      "bytes": 2040
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/routing.py",
+      "sha256": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+      "bytes": 6599
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/schedule.py",
+      "sha256": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+      "bytes": 5759
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/schema.py",
+      "sha256": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+      "bytes": 39928
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/solvent.py",
+      "sha256": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+      "bytes": 8680
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime/source/atm_mlmm/workflow.py",
+      "sha256": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc",
+      "bytes": 31508
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/runtime.json",
+      "sha256": "80f8482db6152c11391b88a759d712b73db15ba84e850ec31e2ee40800e077aa",
+      "bytes": 237
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock/worker/snapshot.json",
+      "sha256": "454f22246d0ef1e44d30db1478800293f99b70b6591bb8ca67f00e7741b79749",
+      "bytes": 457
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock-000000-manifest.original.json",
+      "sha256": "4d4a5088d0c939f45868eb050db89c82b5be584009b3ed31255bd48949ef88c6",
+      "bytes": 842
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-clock-checkpoint.original.chk",
+      "sha256": "4105111f5d291b7f5c5b0636e27f83c617b2b2c363540b4438f603d5cba2915b",
+      "bytes": 3188
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/metadata.json",
+      "sha256": "86d4834b5d69e59364caa65e4cf55fb7e8ad6162137937d8a1cb8e3867a69a2a",
+      "bytes": 790
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/metadata.sha256",
+      "sha256": "9f920552b15af40bae55d9924e69b518ee53d7330d56bf9c666a327bb117f4c0",
+      "bytes": 65
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/bundle.json",
+      "sha256": "053b36a405c326e41d15428596a5f9fccc824792e8c57a355283c0e0cd733d7a",
+      "bytes": 26351
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/handover.pdb",
+      "sha256": "37c9d08c91f67e9fa4d95de3c1cabfecaf69db0be3894903e6c806ca052f3b82",
+      "bytes": 899
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/handover_0.xml",
+      "sha256": "41ec432eec25181c3c048708a0daaf902f271b6ad34d97a1df805f2a7b3b3664",
+      "bytes": 1527
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/handover_sys.xml",
+      "sha256": "7c716257e81166a373ce3554a7b7f038bc5ad6e08bb7a3d042ef37ec617815b2",
+      "bytes": 5023
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/manifest.json",
+      "sha256": "a21f96d914afbf4c62be6b78d2eb21784d09afbcceeeb41c81b778696e532a8a",
+      "bytes": 6215
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/environment/core-conda-linux-64.lock",
+      "sha256": "e1d29ae969d7eccbacdbd556925400f2cc0124400b8cffcab6d5b44a96361f9e",
+      "bytes": 37862
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/environment/core-pip-inventory.txt",
+      "sha256": "45fda8a230e27cc2e009e7489048ec82f4b3afb364995e837d2b5906ade6fb75",
+      "bytes": 2684
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/environment/package-identities.json",
+      "sha256": "f1293028717527cd36bd1d30abd709300138fa4b6f8523e1df1ace982b63104a",
+      "bytes": 2203
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/environment/upstream-sources.json",
+      "sha256": "f910598fb8689431e9475145840a4269b68a58ce49e86c1cca73c2eaecda7f4d",
+      "bytes": 915
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/__init__.py",
+      "sha256": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+      "bytes": 83
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/__main__.py",
+      "sha256": "953992277d22bd7121fdee64a980c876f9b11a9208b94718efd233f5f7f2a61e",
+      "bytes": 3326
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/adapters/__init__.py",
+      "sha256": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+      "bytes": 77
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/adapters/atom.py",
+      "sha256": "9277425a758be184294de81f8db90a4c182ea92749ea416edd8b9f8fa3b35b36",
+      "bytes": 28308
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/analysis.py",
+      "sha256": "3b9870a6b386579abdaaca9479d197b7c2cd7831a08ad2b3ca830cf23fce2d06",
+      "bytes": 11808
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/analytic.py",
+      "sha256": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+      "bytes": 7995
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/atm.py",
+      "sha256": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+      "bytes": 19383
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/capabilities.py",
+      "sha256": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+      "bytes": 4617
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/chemical_reference.py",
+      "sha256": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+      "bytes": 5335
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/derivatives.py",
+      "sha256": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+      "bytes": 1170
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/embeddings/__init__.py",
+      "sha256": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+      "bytes": 65
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/embeddings/mechanical.py",
+      "sha256": "7158bc1c6176a08eb53339a2505c100810e17b4009d9f0d82869dc47d1e42303",
+      "bytes": 8242
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/endpoints.py",
+      "sha256": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+      "bytes": 1609
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/environment.py",
+      "sha256": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+      "bytes": 12160
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/evidence.py",
+      "sha256": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+      "bytes": 4767
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/exchange.py",
+      "sha256": "1d11414c3435119b485834698ecef4449df3b1418eab00763ecea960c904e095",
+      "bytes": 53523
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/exchange_journal.py",
+      "sha256": "372bc93632909d2a3d9093f1782747a60da16489ff5cfd3267c049e3670d9e95",
+      "bytes": 46291
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/geometry.py",
+      "sha256": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+      "bytes": 10103
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/hybrid.py",
+      "sha256": "6d7b014e35683d197e2822adc34fbe8b2b51efe1a95b48ad5158cfe1bb94fbcb",
+      "bytes": 5765
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/identity.py",
+      "sha256": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+      "bytes": 1653
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/joint_reference.py",
+      "sha256": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+      "bytes": 5187
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/ledger.py",
+      "sha256": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+      "bytes": 16146
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/model_reference.py",
+      "sha256": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+      "bytes": 4291
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/models/__init__.py",
+      "sha256": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+      "bytes": 36
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/models/analytic_boundary.py",
+      "sha256": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+      "bytes": 4223
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/models/mace.py",
+      "sha256": "dd4a117ee2e35ccdcf1d5ce48ecf64f49433107419d579038d3060682f6ac285",
+      "bytes": 7976
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/partition.py",
+      "sha256": "7ec15e0d71a3f3c8c0dcbd8fd76eac0813e3e3d14c8cf20fd10db1d9938b0f21",
+      "bytes": 5919
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/persistence.py",
+      "sha256": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+      "bytes": 4395
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/prepare.py",
+      "sha256": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+      "bytes": 5858
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/protocols/__init__.py",
+      "sha256": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+      "bytes": 79
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/protocols/abfe.py",
+      "sha256": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+      "bytes": 560
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/protocols/rbfe.py",
+      "sha256": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+      "bytes": 555
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/restraints.py",
+      "sha256": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+      "bytes": 2040
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/routing.py",
+      "sha256": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+      "bytes": 6599
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/schedule.py",
+      "sha256": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+      "bytes": 5759
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/schema.py",
+      "sha256": "8784fc886db6b22d4b3951f3701958a3969dc9bd415de15749e1ed8fef0db302",
+      "bytes": 39928
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/solvent.py",
+      "sha256": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+      "bytes": 8680
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime/source/atm_mlmm/workflow.py",
+      "sha256": "95c22454a30c13833cc41eca0b2b38d8079d40a64b25382dacf30bd1214982dc",
+      "bytes": 31508
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/runtime.json",
+      "sha256": "80f8482db6152c11391b88a759d712b73db15ba84e850ec31e2ee40800e077aa",
+      "bytes": 237
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/pair-preparation/worker/snapshot.json",
+      "sha256": "454f22246d0ef1e44d30db1478800293f99b70b6591bb8ca67f00e7741b79749",
+      "bytes": 457
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-attempt-001/source-manifest.original.json",
+      "sha256": "a21f96d914afbf4c62be6b78d2eb21784d09afbcceeeb41c81b778696e532a8a",
+      "bytes": 6215
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-diagnostics-invocation.json",
+      "sha256": "23b1bc9e4d70f3b1640ea06ec971878f537933f09bc5939f9946c00d8cf80434",
+      "bytes": 913
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-diagnostics-invocation.log",
+      "sha256": "72153a91bf9cc0f71535ead5ffc9badc0bd6117f412e8391751c0145c85ab817",
+      "bytes": 2021
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-diagnostics.json",
+      "sha256": "75dd59fe3b89d4c6f094cabd8c2d67a8b66340df601c327685963680b2839242",
+      "bytes": 841
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-diagnostics.log",
+      "sha256": "7ffebc409ab59e34de854f5992cede2976fff5b029506058597008f01a368419",
+      "bytes": 300
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/restart-results.json",
+      "sha256": "fb767ef55d2d813de48aa2e1332e3773a351baa75120988cc1c7ca70d1b89761",
+      "bytes": 2146
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/retained-log-identities.json",
+      "sha256": "fb29a07ff283d0499e664742fa9a02e87ed7b427ad7919defcef30bc4276babc",
+      "bytes": 1168
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/reuse-verification.json",
+      "sha256": "c21aa17269fe916597f6e9197360f60deb4d22f2241db75d57474998ded25b45",
+      "bytes": 542
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/run_command.py",
+      "sha256": "31c15a7d98dc98e21c680e61e3f2b307d4bb621451a616658507af1d8a73d223",
+      "bytes": 1591
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/scientific-trace.md",
+      "sha256": "73dc20a7e663b1c7e83e7809376ec39b9b92b906ea9051c205c2440b36a7d2aa",
+      "bytes": 20155
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/selected-analytic.json",
+      "sha256": "8ab0a5293bc8d103cc0e5aa338422e2de681159dccbc9c1904b35497e9cfd108",
+      "bytes": 1579
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/selected-analytic.log",
+      "sha256": "1f5e9c9034f9fd5c33b85d137e0caab2d17da91c270c72837d6ee327e1e493a8",
+      "bytes": 100
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/snapshot.json",
+      "sha256": "dc789451ab661302638b8e59329da366529871b7810c2c5029bdaff8d2595259",
+      "bytes": 5241
+    },
+    {
+      "path": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/verify_report.py",
+      "sha256": "7e926540d502e030a30ef131f85aa54476760aac753c607435f4edf290cd1b33",
+      "bytes": 2898
+    },
+    {
+      "path": "docs/project-0/handoffs/BEFORE-HPC-ORCHESTRATOR.md",
+      "sha256": "a2a1e45cb7bccfdc598688aff76fcc403767363b198dec310d15ba7e8a8699d0",
+      "bytes": 4171
+    },
+    {
+      "path": "docs/superpowers/plans/2026-10-07-before-hpc.md",
+      "sha256": "021445a6d9194fc1f67fe860a6e4d8b4a71b174615a65f41590c6bbe713584ee",
+      "bytes": 14611
+    },
+    {
+      "path": "docs/superpowers/plans/before-hpc/batch-a-restarts.md",
+      "sha256": "f1222f4b751efdf7ef59d676a2d458ad8cf6c858476b02fdd8b2989e25d787f0",
+      "bytes": 6292
+    },
+    {
+      "path": "docs/superpowers/plans/before-hpc/batch-b-inputs-caps.md",
+      "sha256": "f313ae62d6745912ca073db3f38c0b455bff11cad559eefc66fd387267ae85b1",
+      "bytes": 6190
+    },
+    {
+      "path": "docs/superpowers/plans/before-hpc/batch-c-analysis.md",
+      "sha256": "c33ae55743c28704b19ca35e1c36f694acdab829d68cea1587c7c668f270284c",
+      "bytes": 8861
+    },
+    {
+      "path": "docs/superpowers/plans/before-hpc/batch-d-molecular-preflight.md",
+      "sha256": "d77fb924a2846a3d7af41c6c161653a5fdd20ddce813ed4bd7639feef19f2943",
+      "bytes": 8094
+    },
+    {
+      "path": "docs/superpowers/plans/before-hpc/batch-e-release-hpc.md",
+      "sha256": "43ebae95305b752eb3d03edaa13102ca03360a13397d1e90f6a5d54d83190bb3",
+      "bytes": 9529
+    }
+  ],
+  "original_checkout": "/workspace/AToM_MLMM",
+  "original_branch": "work",
+  "original_head": "2d7bcc94f901738e39f536f16de84699d4e8d631",
+  "original_dirty_files": []
+}

@@ -1,0 +1,45 @@
+{
+  "completed_utc": "2026-10-07T09:54:09.835617+00:00",
+  "review_status": "one_pass_complete",
+  "mathematics": "verified_within_declared_small_profiles_and_explicit_limits",
+  "physics_chemistry": "G07_T4_M03_physically_blocked",
+  "computation": "bounded_multistate_acceptance_retained; three_confirmed_older_restart_admission_defects",
+  "reviewed_head": "4ad8ee835809325ceec8a017222415043347967d",
+  "branch": "repository-review-20261007-v1",
+  "initial_status": "clean",
+  "ending_status": "?? Worker_Log/Repository_Review/\n",
+  "changes": "uncommitted review/evidence additions only; no source/test/input/model/lock/contract/history edits",
+  "source_repaired": false,
+  "subagents": 0,
+  "publication": false,
+  "commits_created": 0,
+  "full_suite_rerun": false,
+  "reference_quantum_jobs_launched": 0,
+  "fresh_molecular_pilots": 0,
+  "gpu_or_cluster_trials": 0,
+  "fresh_pytest": {
+    "passed": 31,
+    "skipped": 0,
+    "pytest_seconds": 16.8
+  },
+  "diagnostic_cases": 4,
+  "confirmed_defect_ids": [
+    "RR-01",
+    "RR-02",
+    "RR-03"
+  ],
+  "all_selected_diagnostics_reproduced": true,
+  "main_report_lines": 64,
+  "main_report_sha256": "2a12110403afa8c2ac8955fac9c55cb13bd9a6f9355fd5fef67bc904af94dc47",
+  "final_documentation_exit": 0,
+  "final_integrity_exit": 0,
+  "failed_setup_and_import_outputs_preserved": true,
+  "commands_receipt_sha256": {
+    "selected-analytic.json": "8ab0a5293bc8d103cc0e5aa338422e2de681159dccbc9c1904b35497e9cfd108",
+    "restart-diagnostics.json": "75dd59fe3b89d4c6f094cabd8c2d67a8b66340df601c327685963680b2839242",
+    "restart-diagnostics-invocation.json": "23b1bc9e4d70f3b1640ea06ec971878f537933f09bc5939f9946c00d8cf80434",
+    "independent-arithmetic.json": "994bc3018b5a93098e3ed51ba06e30ca964619be7b7a223bfee1d13e7b01af37",
+    "report-integrity.json": "9a19373427ea6b8bac73445ee139caae5a284dc11ed6a9084a77f195c081ceb3",
+    "documentation-final.json": "e018e833a5cb84de5bceb868217ae95b3ed23e7f61b503e2cbb7e86e0fe8d7e8"
+  }
+}

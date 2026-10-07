@@ -1,0 +1,44 @@
+# Batch C — exchanging-data uncertainty and thermodynamic records
+
+**Worker:** gpt-6-luna/max; no subagents. Depends on A's valid producer history. Read S05, S06 sampling/covariance, G08 and `analysis.py`; use the already verified reconstruction and estimators. This task must not add another ATM or Metropolis implementation.
+
+**Purpose:** Develop B05's missing dependence-aware analysis and B06's relative-result representation, with small independent controls. New statistical support remains worker-tested/development scope until an authorized independent review; actual molecular uncertainty requires adequate data.
+
+**Files:** `analysis.py`, `schema.py`, `evidence.py`, `restraints.py` only for missing ledger utilities; create `exchange_analysis.py`, `tests/sampling/test_exchange_uncertainty.py`, `tests/unit/test_relative_binding_result.py`, and `fixtures/analytic/exchange-analysis-v1/` design/seed records. Extend existing schedule/result/covariance tests where behavior changes.
+
+**Interfaces:** Preserve `analyze`, `reduced_potentials`, `estimate_free_energies`, `combine_free_energies` and fixed-state thinning. Add explicit record types:
+
+- `ExchangeAnalysisInput(records: EvaluationRecords, synchronized_frames: tuple[tuple[str, ...], ...], run_id: str, retained_window_evidence: str)`: frame entries are sample IDs; each frame contains exactly one observation per stable walker and the declared state permutation. Derive groups from verified journal boundaries, never guess them from array position.
+- `ExchangeResamplingSpec(method: str, block_length_frames: int | None, bootstrap_replicates: int, seed: int, design_evidence: str)`: method is `synchronized_blocks` or `independent_runs`; positive explicit applicable settings, at least two draws, predeclared evidence. No automatic tuning to improve a result.
+- `analyze_exchange(histories: tuple[ExchangeAnalysisInput, ...], thermodynamics: ThermodynamicSpec, *, resampling: ExchangeResamplingSpec, estimator='pymbar', joint_covariance_kj2_mol2=None) -> BindingResult`: the opt-in development path. Old `analyze` continues rejecting correlated histories that change states.
+
+These are analysis records, not new physical definitions. Implement serialization with explicit version/compatibility semantics. Worker D/E receive the concrete JSON/API examples.
+
+## C1 — synchronized histories and predeclared statistical controls
+
+- [ ] Validate every original raw observation via the existing complete reduced-energy reconstruction before any selection. Validate unique sample IDs, walker/frame/run identity, complete permutation/counts, monotone history and provenance. Reject missing/duplicated frames, mixed physical identities and mislabeled independent histories.
+- [ ] Freeze the small control design before executing it: exact S05 harmonic answer +1.5 kJ/mol, reverse -1.5, zero-restraint zero; known state marginals; controlled temporal and cross-walker dependence. Use 12 fixed independent seeds, 4096 synchronized frames/run, block length 32 and 64 bootstrap draws as the initial bounded synthetic design. Save the generating equations/seeds and expected answers independently from the analyzer.
+- [ ] Include both an independent analytic baseline and correlated Gaussian/AR(1) controls with predeclared correlation (for example rho=0.5) and shared noise. State/walker label swaps exercise grouping. Clearly label synthetic histories; they are not evidence of real scheduler mixing or equilibrated MD.
+- [ ] Create a fault that resamples walker/state labels apart from energies or drops the nonzero outside term. It must violate the analytic/accounting control. Independently inspect reconstructed `beta=1/(R*T)` and all state constants; at 300 K beta is about 0.4009078501424201 mol/kJ.
+
+## C2 — block/run resampling without destroying dependence
+
+- [ ] Fit the point estimate on the retained input using existing state-contiguous ordering/counts and the same pinned PyMBAR/UWHAM states. Do not reuse the fixed-state thin-then-iid uncertainty for exchanging data.
+- [ ] In `synchronized_blocks`, resample whole nonoverlapping time blocks within each run, retaining all walkers, state assignments and raw/outside records together. Keep each run's contribution size fixed. Require enough full blocks and an explicitly declared divisible retained window; never silently drop a partial tail. Preserve excluded/retained-window provenance.
+- [ ] In `independent_runs`, resample complete independently initialized runs, retaining their full correlated histories; require enough runs under the predeclared design. Do not add a second block variance or naive nested resampling that double-counts the same fluctuation. Distinguish the two methods and their applicable controls in diagnostics.
+- [ ] Rebuild state counts for each draw and refit with the pinned estimator. Repeated original sample indices are bootstrap multiplicities, not newly unique physical samples. Align free energies to the same gauge; use sample covariance of the fitted vectors for the sampling covariance. Preserve failed/disconnected/nonfinite draws and fail the uncertainty result; never discard difficult draws silently.
+- [ ] Keep correction-estimator cross covariance under the existing joint-covariance contract. An uncertain correction with no valid joint matrix leaves final binding undefined. When corrections share trajectory samples, resampling must include those linked observables or keep the obligation unresolved.
+- [ ] Report block count/length, run count, bootstrap seed/draws, raw sample IDs, state/walker visits, solver residual, overlap, contribution diagnostics and limitations. Distinguish iid weight contribution counts from correlation-adjusted information. Show mean uncertainty separately from across-run spread.
+- [ ] Use S06's known-answer requirement: within three reported standard errors **and** 0.1 kJ/mol after adequate analytic sampling. Compare both estimators on identical inputs. Also check resampled covariance against the independent across-run control; record the comparison criterion before calculation. Do not inflate errors or tune block sizes/seeds/tolerances after seeing failures. If the bounded design cannot establish qualification, preserve it and report that hold.
+- [ ] Include full/last-half estimates and their proper dependence warning, state-visit/overlap diagnostics, and no claim that overlap proves conformational convergence. Insufficient blocks or missing correlation design rejects uncertainty output while preserving raw analysis evidence.
+
+## C3 — relative binding definition, corrections and analytic closure
+
+- [ ] Extend `ThermodynamicSpec.observable` with `relative_standard_binding_free_energy` for S05's `B_minus_A` convention. Reuse `BindingResult`; do not create an RBFE analysis engine. Require explicit domain/restraint/state-counting descriptions, endpoint graph/weights and correction obligations. Standard-volume cancellation requires evidence, not an automatic zero.
+- [ ] Update the complete result/serialization checks so ABFE remains bound-minus-bulk and relative final results mean `Gbind(B)-Gbind(A)`; negative favors B. A final value/error exists only with every obligation resolved and the required joint covariance. Maintain existing old-record behavior and reject unknown future formats.
+- [ ] Add independent endpoint/reversal/state-permutation tests: sign follows the declared physical endpoints, not alphabetical IDs or directory names. Test signed additive corrections, missing bridge/release/orientation/state-counting entries, uncertain shared corrections, constant shifts and serialization bypass rejection.
+- [ ] Add analytic A→A and B−A reversal/closure controls with matching spectator/box/cavity/constraints/restraints metadata. A→A's equilibrium difference is zero-compatible; its instantaneous perturbation need not vanish. A comparison with unmatched physical states refuses a closure claim.
+- [ ] Produce molecular correction-ledger templates for D: translation standard state, bound release, orientation, conformation, state counting and midpoint bridge, each `required_uncomputed` unless actual evidence resolves it. Do not calculate a physical correction by averaging a diagnostic energy difference.
+- [ ] Run the new analysis/result files plus affected `test_analytic_free_energy.py`, `test_schedule.py`, `test_binding_result_admission.py` and relevant restraint covariance nodes. Commit and write `Batch_C_vN_worker.md`, reporting implemented versus actually qualified statistical scope and all retained limitations.
+
+**Done:** explicit exchanging-history analysis exists with honest, bounded analytic evidence; relative thermodynamic results serialize safely; incomplete ledgers still withhold final binding. No molecular affinity, complete G08 acceptance or convergence is inferred from this batch.

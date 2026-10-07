@@ -1,0 +1,100 @@
+{
+  "Worker_Log/Milestone_03/evidence/G07_v1/region-sensitivity.json": {
+    "sha256": "cad9bc9283ac66ed5d337141e32c848bb3e54905ade36eb6d79daa34674fd67f",
+    "summary": {
+      "scope": "hybrid description sensitivity; Qfull/alternative references absent",
+      "physical_acceptance": "blocked",
+      "physical_reference_qualified": false,
+      "reference_settings_sha256": "483461026da33db22fe9e980840185a6fd9193593f4f96352105f02de30c511f",
+      "descriptions_manifest_sha256": "274990a53795cf25e9aede12014eabcc90d267aa8d5e9fdb59924a88a0063a95",
+      "numerical_summary_sha256": "e7f2602bb39ae863ffa373ad1a9464e75254c66bf48678e4e94918d1346f9169",
+      "unit_conversion_kj_mol_nm_per_eV_angstrom": 964.8533288249877,
+      "energy_limit_kcal_mol": 1.0,
+      "net_force_limit_eV_angstrom": 0.05,
+      "geometries": 20,
+      "descriptions": 50,
+      "pair_comparisons": 40,
+      "failure_count": 7,
+      "max_energy_difference_kcal_mol": 0.9744628863435872,
+      "max_net_force_difference_eV_angstrom": 0.12165016265111903
+    }
+  },
+  "Worker_Log/Milestone_03/evidence/G07_v2/actual-revalidation-result.json": {
+    "sha256": "668254d3c95d563bbd98434672ad14ba268020fa6b7607dbf695e444a6d93d5c",
+    "summary": {
+      "completed_utc": "2026-10-04T12:31:17.836193+00:00",
+      "source_commit": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+      "execution_audit_sha256": "102f678257013779989ca400a4a1fb42645f55e154af685e319ff81894b15ff5",
+      "command_spec_sha256": "554049fb3e8f2d69ab11e092e960baa1a6fd51b03ebd1560e5e7bced3940f8fc",
+      "coordinator_exit": 1,
+      "coordinator_exit_notice": "Queue incomplete, successful validation-only recovery; no worker launched.",
+      "admitted_count": 1,
+      "remaining_count": 29,
+      "quantum_worker_launches": 1,
+      "validation_only_attempts": 1,
+      "original_attempt_byte_identical": true,
+      "wall_seconds_debited": 2325.6446500519996,
+      "prior_wall_seconds_debited": 2325.6432226409997,
+      "progress_sha256": "8e5fee37b95288137d9c6b5a7cefe1307a9435a2ef33d03be0f560d8c2f2c0c6"
+    }
+  },
+  "Worker_Log/Milestone_03/evidence/G07_v2/pilot-assessment.json": {
+    "sha256": "8296da765bfb7444c5654a2b0a253a2a3c7d5c9898d6a5bcc96aae14627dc9b5",
+    "summary": {
+      "pilot_record_sha256": "c1e34ea209bf4949c0f200859a75a35072ee5cf6e1750f8d7a9044a7259f0eed",
+      "pilot_receipt_sha256": "2b8ea63e59a1806bdec9af1c9867ab31de526d009c9a95f93c97c9984bef03ef",
+      "pilot_resources_sha256": "69b475a5a59b351b6d66161b34f6e8f5e567d4554563a3b1957659fca9b7b41b",
+      "pilot_wall_seconds": 2325.6233955589996,
+      "pilot_rss_peak_bytes": 3425435648,
+      "pilot_scratch_peak_bytes": 9679518016,
+      "continue_authorized": false,
+      "matrix_sha256": "4e8e9eac08cd9676022c122298e53f16041db7989c757e320a6b8dc065bf776a",
+      "assessed_utc": "2026-10-04T12:33:23.949549+00:00",
+      "source_commit": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+      "progress_sha256": "8e5fee37b95288137d9c6b5a7cefe1307a9435a2ef33d03be0f560d8c2f2c0c6",
+      "admitted_count": 1,
+      "remaining_new_count": 29,
+      "remaining_full_parent_count": 19,
+      "remaining_alternative_count": 10,
+      "wall_seconds_debited": 2325.6446500519996,
+      "remaining_wall_seconds": 84074.355349948,
+      "projected_remaining_worker_seconds": 122992.52458401839,
+      "projected_max_rss_bytes": 5189601468,
+      "projected_scratch_bytes": 17997534324,
+      "runtime_screen": "2 * measured pilot receipt wall time * sum of remaining nuclear-charge composition ratios cubed; reviewed screening floor, not guaranteed future runtimes.",
+      "scratch_screen": "Measured pilot scratch peak times largest exact Naux*Norb^2 size ratio; screening estimate, not measured larger-job scratch.",
+      "rss_screen": "Measured pilot peak RSS times largest exact orbital basis-size ratio squared; estimate, not a verified upper bound.",
+      "basis_sizing_sha256": "ccfdb7fa742f82468396fc733b5aeb0e23b80c30b18129323431403ef75ed045",
+      "disposition": "Checkpoint with one valid full-parent pilot; no continuation or rerun. Preserve all incomplete jobs and every existing control/failure.",
+      "user_session_quota_reset": "Does not reset cumulative quantum-worker or pilot time budgets.",
+      "cleanup": "Private pilot scratch already gone. Installation-cache candidates total1.325GiB; optional disk reclamation cannot resolve the time screen."
+    }
+  },
+  "Worker_Log/Milestone_03/evidence/G07_v2/quantum-attempt-v1/progress.json": {
+    "sha256": "8e5fee37b95288137d9c6b5a7cefe1307a9435a2ef33d03be0f560d8c2f2c0c6",
+    "summary": {
+      "prior_wall_seconds": 0.0,
+      "ready_for_comparison": false,
+      "wall_seconds_debited": 2325.6446500519996,
+      "remaining_wall_seconds": 84074.355349948,
+      "updated_utc": "2026-10-04T12:30:48.071817+00:00"
+    }
+  },
+  "Worker_Log/Milestone_03/evidence/G07_v2/pilot-force-comparison.json": {
+    "sha256": "becf5c2b0511343965b07c5e29988a7b4892fe00401d4cac0871d3d38143217a",
+    "summary": {
+      "row": "ethanol-methanol-d3-r0",
+      "scope": "single contact force diagnostic only; no physical acceptance",
+      "energy_comparison": "Full-parent separated QM absent; no cross-composition absolute-energy comparison made.",
+      "script_sha256": "142f6500eb90e6e91842fc7911c9787294d266b7d3a74dc9db11bfea1ff40c9e",
+      "seven_existing_exceedances_preserved": true
+    }
+  },
+  "g05_records": {
+    "manifest_sha256": "48565f02f39afae45132ea4048ea8302f170b3e0efef0702228fa6ff3c809ad0",
+    "files_verified": 46,
+    "record_count": 46,
+    "mismatches": [],
+    "ancestor_fixture_delta": ""
+  }
+}
