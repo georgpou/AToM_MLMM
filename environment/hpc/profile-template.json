@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "profile_id": null,
+  "platform": {
+    "name": null,
+    "device": null,
+    "driver": null
+  },
+  "software": {
+    "python": null,
+    "openmm": null,
+    "model": null
+  },
+  "artifacts": {
+    "source_sha256": null,
+    "wheel_sha256": null,
+    "asset_manifest_sha256": null,
+    "input_manifest_sha256": null
+  },
+  "storage": {
+    "path": null,
+    "filesystem": null,
+    "lock_rename_fsync_test_required": true
+  },
+  "allocation": {
+    "threads": null,
+    "memory_gib": null,
+    "walltime_seconds": null,
+    "workers": null,
+    "scheduler": null
+  },
+  "checkpoint": {
+    "compatible_with": null,
+    "portable_state_promises_identical_rng": false
+  }
+}

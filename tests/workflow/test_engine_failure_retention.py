@@ -39,7 +39,7 @@ def test_advanced_actual_worker_failure_is_archived(tmp_path,monkeypatch,origin)
             raise NumericalDomainError('injected integration failure')
     def evaluate(worker,*args,**kwargs):
         result=normal_evaluate(worker,*args,**kwargs)
-        if origin=='final_state':
+        if origin=='final_state' and worker.evaluator.context.getStepCount()>0:
             capture(worker)
             fault['next_state_fails']=True
         return result

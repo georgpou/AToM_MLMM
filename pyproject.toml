@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools==84.0.0", "wheel==0.48.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "atom-mlmm"
+version = "0.1.0"
+description = "Scoped CPU implementation tools for AToM/ML-MM research"
+requires-python = ">=3.11"
+
+[project.scripts]
+atm-mlmm = "atm_mlmm.__main__:main"
+
+[tool.setuptools]
+package-dir = {"" = "src"}
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+# The repository has no project-level license decision. The MACE asset retains
+# its own academic noncommercial license and authorization in the asset bundle.

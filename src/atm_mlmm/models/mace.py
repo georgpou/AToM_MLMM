@@ -9,10 +9,14 @@ from ..schema import IdentityError, ModelSpec, UnsupportedCapability
 
 
 ROOT = Path(__file__).resolve().parents[3]
-ASSET = ROOT / 'models/mace-off23-small'
+_configured_asset_dir = os.environ.get('ATOM_MLMM_MODEL_DIR')
+ASSET = (Path(_configured_asset_dir).expanduser().resolve() if _configured_asset_dir
+         else ROOT / 'models/mace-off23-small')
 CHECKPOINT = ASSET / 'MACE-OFF23_small.model'
 CHECKPOINT_SHA256 = '165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f'
 LICENSE_SHA256 = '6a77e88bfed86fe9476ed36e453e2ea1e154ff1ec464b0fdeb3e079b6112d71e'
+MANIFEST_SHA256 = '6d78f71f779798b67d73da573c67e2ce65ba6c2bfe1d1d3b8fa6c72d603a0926'
+USER_AUTHORIZATION = 'I will use it for academic purposes.'
 UPSTREAM_COMMIT = '91a78c5a9c300d1104700d9352c8bfe449227737'
 ELEMENTS = ('H', 'C', 'N', 'O')
 # CODATA 2014 constants: the independently recorded convention of pinned ASE.
@@ -22,6 +26,8 @@ EV_A_TO_KJ_MOL_NM = 10. * EV_TO_KJ_MOL
 
 def _verified_bytes(checkpoint, manifest_path):
     checkpoint = Path(checkpoint)
+    if checkpoint.is_symlink():
+        raise IdentityError('approved model checkpoint must not be a symlink')
     try:
         payload = checkpoint.read_bytes()
     except OSError as exc:
@@ -29,15 +35,20 @@ def _verified_bytes(checkpoint, manifest_path):
     if hashlib.sha256(payload).hexdigest() != CHECKPOINT_SHA256:
         raise IdentityError('MACE checkpoint SHA-256 differs from the approved asset')
     manifest_path = Path(manifest_path) if manifest_path is not None else checkpoint.parent / 'manifest.json'
+    if manifest_path.is_symlink() or (manifest_path.parent / 'LICENSE.md').is_symlink():
+        raise IdentityError('approved model manifest and licence must not be symlinks')
     try:
-        manifest = json.loads(manifest_path.read_text())
+        manifest_bytes = manifest_path.read_bytes()
+        manifest = json.loads(manifest_bytes)
     except (OSError, ValueError) as exc:
         raise IdentityError('approved model manifest is absent or malformed') from exc
     if not isinstance(manifest, dict):
         raise IdentityError('approved model manifest must be an object')
     authorization = manifest.get('user_authorization')
-    if not isinstance(authorization, str) or not authorization.strip():
-        raise IdentityError('model authorization record is missing')
+    if authorization != USER_AUTHORIZATION:
+        raise IdentityError('model authorization record differs from the approved user authorization')
+    if hashlib.sha256(manifest_bytes).hexdigest() != MANIFEST_SHA256:
+        raise IdentityError('model manifest SHA-256 differs from the approved asset manifest')
     expected = {
         'name': 'MACE-OFF23-small',
         'upstream_repository': 'https://github.com/ACEsuit/mace-off',
