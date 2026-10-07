@@ -17,3 +17,9 @@ A: complete, implemented and worker-tested; source 8757c0e37cb7530eeb695b9db6576
 Checkpoint 2026-10-07T11:14:09.817251+00:00: /root/batch_a finished. No other worker has been spawned. B–E not started; Batch B requires explicit user approval. Final consolidated CPU suite and final documentation self-test remain reserved for after E. No independent audit occurred.
 
 Evidence limits: first collection-error output was overwritten; exact early RED shell argv not captured. Meaningful RED output and final packet command/output preserved. Raw log whitespace retained. No A code/input blocker reported.
+
+B: user approved at the next turn; active /root/batch_b, gpt-6-luna/max, fork none, started 2026-10-07T11:18:58.647036+00:00. Base 9dc4758caa7e51efc1df76c59688d739098a422c. CPU v2 reused unchanged, no reinstall/setup replay. Stop/report after B; C–E require later explicit approval.
+
+B: complete, implemented and worker-tested; /root/batch_b finished. Combined source/evidence commit 63cdaffaedee01891b50bfc08358b552ec8c5fa1; source Git tree d5cc16ef725df2f08fb14675038b3294ad957593. Packet-focused command 30 passed/0 skipped/16.74 s; affected single-cap/worker compatibility 28 passed/0 skipped/15.13 s; MACE derivative, fresh reload, and common restart passed. Counts overlap across isolated checks and are not summed. No upstream construction blocker for the bounded case; synthetic geometry is derivative/architecture evidence only.
+
+Checkpoint 2026-10-07T11:55:41.460159+00:00: Batch C has not been spawned. C–E and final consolidated checks pending approval/execution. No independent audit occurred. All 386 supplied file identities unchanged. Tested current source/test bytes have no delta after worker commit; receipt evidence/checkpoint-b-v1/identity.json.

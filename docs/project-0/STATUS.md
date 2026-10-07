@@ -1,5 +1,17 @@
 # Current status
 
+**Before HPC Batch B: implemented and worker-tested on `before_HPC`.**
+The [gpt-6-luna/max worker](../../Worker_Log/Before_HPC/Batch_B_v1_worker.md)
+at `63cdaffaedee01891b50bfc08358b552ec8c5fa1` adds explicit v2 component/MM identities,
+zero-cut mixed inputs, and bounded two-cap collections through the common builder.
+Its packet-focused run passed 30 tests and affected single-cap/worker checks passed
+28 tests, all with zero skips; fixed-coordinate MACE derivative, fresh-process
+reload, and bounded common restart controls passed. The synthetic fixture qualifies
+architecture/derivatives only; protein chemistry, arbitrary caps, charged states,
+affinity, full G11/G12 and physical/HPC obligations remain open. No independent
+audit or new gate/milestone acceptance occurred. C–E and consolidated checks await
+further user-approved execution.
+
 [Final G10 engine handoff](handoffs/G10-MULTISTATE-FINAL-HANDOFF.md): bounded multistate CPU implementation accepted; child publication requested. Main and predecessor branches remain unchanged.
 
 **G10 multistate Tasks 1–4 plus repairs: v8 COMPLETE GREEN / accepted_for_scope.**
