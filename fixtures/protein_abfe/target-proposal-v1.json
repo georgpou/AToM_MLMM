@@ -1,0 +1,7 @@
+{
+  "schema": "prepared-protein-input-v1",
+  "scope": "complete_prepared_target",
+  "status": "proposal_only",
+  "binding_result": "not_evaluated",
+  "note": "No target, ligand, protonation state, atom/residue repair choice, ion placement, or production parameterization has been selected. Supply and hash a complete prepared input; this file is an actionable checklist, not a target placeholder for execution."
+}

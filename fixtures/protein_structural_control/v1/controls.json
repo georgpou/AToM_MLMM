@@ -1,0 +1,28 @@
+{
+  "schema": "protein-structural-control-v1",
+  "scope": "synthetic_structural_control_only",
+  "source_fixture": "fixtures/two_cut_control",
+  "binding_result": "not_evaluated",
+  "control_models": {
+    "all_mm": {
+      "status": "original_mm_reference",
+      "builder": "original_system",
+      "meaning": "Original prepared MM SystemInput is checked for inventory identity; it is not a protein target."
+    },
+    "ligand_only": {
+      "status": "bounded_structural_control",
+      "builder": "common_build_physical",
+      "cuts": [],
+      "meaning": "Complete neutral ligand ML region at zero cuts; boundary-builder v2."
+    },
+    "cavity_inclusive": {
+      "status": "bounded_structural_control",
+      "builder": "common_build_physical",
+      "cuts": "source fixture permitted two cuts",
+      "meaning": "Cavity-inclusive two-cap structural control; boundary-builder v2."
+    }
+  },
+  "comparability": "same input/masses/constraints/box; distinct intended Hamiltonians",
+  "target_selection": "none; no complete target or protonation state was selected",
+  "parameter_route": "source fixture only; not a production protein/ligand parameter assignment"
+}

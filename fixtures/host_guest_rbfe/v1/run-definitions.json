@@ -1,0 +1,169 @@
+{
+  "S06_uncertainty_needs": {
+    "convergence_claim": "none; S06 flags are not universal convergence laws and no readiness uncertainty target is adopted here",
+    "investigation_triggers_only": [
+      "fewer than 100 effectively contributing samples",
+      "incompatible full/last-half estimates"
+    ],
+    "report": [
+      "connected overlap support (necessary, not sufficient)",
+      "effective contribution counts",
+      "correlation",
+      "independent seeds",
+      "estimate stability versus retained time",
+      "full/last-half comparisons",
+      "covariance for combined differences"
+    ]
+  },
+  "binding_result": "not_evaluated",
+  "cross_protocol_closure_definition": {
+    "closure_expression": null,
+    "currently_unmatched": [
+      "physical host parameters",
+      "physical solvent definition",
+      "bound/bulk domains and restraint references",
+      "applicable correction procedure"
+    ],
+    "hold": "C3 general unmatched-physical-state closure refusal contract remains uncovered; no closure equation or molecular result is inferred.",
+    "matched_conventions_to_freeze": [
+      "host",
+      "spectator",
+      "model",
+      "caps",
+      "box",
+      "constraints",
+      "restraints",
+      "endpoint domain and reference atoms"
+    ],
+    "member_run_ids": [
+      "ABFE_A_bound_to_bulk",
+      "ABFE_B_bound_to_bulk",
+      "RBFE_bound_A_to_B",
+      "RBFE_bulk_A_to_B"
+    ],
+    "member_run_seeds": {
+      "ABFE_A_bound_to_bulk": 19005,
+      "ABFE_B_bound_to_bulk": 19006,
+      "RBFE_bound_A_to_B": 19007,
+      "RBFE_bulk_A_to_B": 19008
+    },
+    "resource_estimate": {
+      "cpu_threads_per_worker": 2,
+      "memory_limit_gib": 8,
+      "operation_count_formula": "sum(member_schedule_states * member_retained_frames * member_steps_per_frame)",
+      "status": "blocked_until_member_protocols_and_sampling_ceilings_are_defined"
+    },
+    "run_id": "matched_ABFE_RBFE_closure",
+    "sampling": "no member run is executed; each retention ceiling and resource budget requires predeclaration after the physical route is admitted",
+    "status": "blocked_unmatched_physical_terms_and_uncovered_C3_refusal_contract"
+  },
+  "performance_separation": "Predictive Pearson r/Kendall tau are dataset metrics; they do not establish convergence of individual endpoint energies.",
+  "resource_scope": "Known worker/thread/memory shape and operation-count formula are recorded. Wall-time estimation is blocked until a physical parameter route, production retention, and a measured admitted profile exist.",
+  "runs": [
+    {
+      "correlation": "estimate per-state integrated autocorrelation and effective sample count",
+      "direction": "methanol_A_to_methanol_A",
+      "initialization": "independent deterministic start from frozen geometry",
+      "overlap": "report adjacent-state overlap and endpoint support",
+      "resource_estimate": {
+        "cpu_threads_per_worker": 2,
+        "memory_limit_gib": 8,
+        "operation_count_formula": "schedule_states * retained_frames_per_state * integration_steps_per_frame",
+        "schedule_states": 3,
+        "status": "wall_time_blocked_until_physical_rate_and_retention_are_defined",
+        "workers": 3
+      },
+      "retention": {
+        "frame_count_and_sampling_ceiling": "predeclare only after physical input and resource profile are admitted",
+        "retain_all_declared_frames_and_raw_state_energies": true
+      },
+      "run_id": "A_to_A_identity",
+      "seed": 19001,
+      "status": "proposed_not_run",
+      "uncertainty": "block resampling or independent-run resampling after adequate sampling; report standard error separately from replicate spread and include covariance when combining legs"
+    },
+    {
+      "correlation": "estimate per-state integrated autocorrelation and effective sample count",
+      "direction": "methanol_A_to_ethanol_B",
+      "initialization": "frozen map0 geometry",
+      "overlap": "report adjacent-state overlap and endpoint support",
+      "resource_estimate": {
+        "cpu_threads_per_worker": 2,
+        "memory_limit_gib": 8,
+        "operation_count_formula": "schedule_states * retained_frames_per_state * integration_steps_per_frame",
+        "schedule_states": 3,
+        "status": "wall_time_blocked_until_physical_rate_and_retention_are_defined",
+        "workers": 3
+      },
+      "retention": {
+        "frame_count_and_sampling_ceiling": "predeclare only after physical input and resource profile are admitted",
+        "retain_all_declared_frames_and_raw_state_energies": true
+      },
+      "run_id": "forward_A_to_B",
+      "seed": 19002,
+      "status": "proposed_not_run",
+      "uncertainty": "block resampling or independent-run resampling after adequate sampling; report standard error separately from replicate spread and include covariance when combining legs"
+    },
+    {
+      "correlation": "estimate separately from forward trajectory",
+      "direction": "ethanol_B_to_methanol_A",
+      "initialization": "independently initialize from frozen map1 geometry",
+      "overlap": "report reverse adjacent-state overlap and endpoint support",
+      "resource_estimate": {
+        "cpu_threads_per_worker": 2,
+        "memory_limit_gib": 8,
+        "operation_count_formula": "schedule_states * retained_frames_per_state * integration_steps_per_frame",
+        "schedule_states": 3,
+        "status": "wall_time_blocked_until_physical_rate_and_retention_are_defined",
+        "workers": 3
+      },
+      "retention": {
+        "frame_count_and_sampling_ceiling": "predeclare only after physical input and resource profile are admitted",
+        "retain_all_declared_frames_and_raw_state_energies": true
+      },
+      "run_id": "independent_reverse_B_to_A",
+      "seed": 19003,
+      "status": "proposed_not_run",
+      "uncertainty": "block resampling or independent-run resampling; compare with forward estimate, report replicate spread separately and include covariance when combining legs"
+    },
+    {
+      "correlation": "estimate by window after physical route is admitted",
+      "direction": "A_to_B_to_A cycle",
+      "initialization": "independent cycle controls with matched host, spectator, model, caps, box, constraints and restraints",
+      "overlap": "report state-wise overlap after physical route is admitted",
+      "resource_estimate": {
+        "cpu_threads_per_worker": 2,
+        "memory_limit_gib": 8,
+        "operation_count_formula": "schedule_states * retained_frames_per_state * integration_steps_per_frame",
+        "schedule_states": 6,
+        "status": "blocked_unmatched_physical_terms",
+        "workers": 6
+      },
+      "retention": {
+        "frame_count_and_sampling_ceiling": "predeclare only after every physical closure term and resource profile are admitted",
+        "retain_all_declared_frames_and_raw_state_energies": true
+      },
+      "run_id": "matched_cycle_closure",
+      "seed": 19004,
+      "status": "blocked_unmatched_physical_terms",
+      "uncertainty": "block/independent-run resampling and covariance after physical route is admitted; S06 effective-support flags trigger investigation only",
+      "unmatched_terms": [
+        "physical solvent/host parameters",
+        "domain/restraint correction definitions"
+      ]
+    }
+  ],
+  "sampling_ceiling": "future runs use predeclared ceilings; current tiny worker proof is plumbing-only.",
+  "schema": "host-guest-rbfe-run-definitions-v1",
+  "scope": "frozen proposals only; no adequate sampling authorized or performed",
+  "shared_conventions": {
+    "box": "nonperiodic",
+    "caps": "none",
+    "constraints": [],
+    "host": "same complete 18-crown-6 atoms and coordinates",
+    "model": "same all-ML selected real atoms; B common builder zero-cut path",
+    "physical_parameter_route": "blocked_missing_host_parameters",
+    "restraints": "static host anchor for mechanics only; no correction interpretation",
+    "spectator": "none in this plumbing fixture; physical solvent remains undefined"
+  }
+}

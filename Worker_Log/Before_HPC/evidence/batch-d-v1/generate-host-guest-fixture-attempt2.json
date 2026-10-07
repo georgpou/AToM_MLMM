@@ -1,0 +1,46 @@
+{
+  "activation_script": "/workspace/before-hpc-cpu-v2/activate.sh",
+  "activation_script_sha256": "ab4585b8dce374bf6976c03dd2163a1672096b1d4adeb5587e57ef6c75ddecae",
+  "argv": [
+    "python",
+    "tools/prepare_host_guest_rbfe.py",
+    "--output",
+    "fixtures/host_guest_rbfe/v1"
+  ],
+  "cwd": "/workspace/AToM_MLMM-before-HPC",
+  "end_utc": "2026-10-07T14:01:02Z",
+  "environment": {
+    "MKL_NUM_THREADS": "2",
+    "OMP_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2",
+    "PYTHONPATH": "/workspace/AToM_MLMM-before-HPC/src",
+    "memory_limit": "8 GiB cgroup"
+  },
+  "exit_code": 0,
+  "head": "317a72e69391e9618b04d15b25c8b644b1e3221e",
+  "log": "Worker_Log/Before_HPC/evidence/batch-d-v1/generate-host-guest-fixture-attempt2.log",
+  "pytest_counts": {
+    "deselected": 0,
+    "errors": 0,
+    "failed": 0,
+    "passed": 0,
+    "skipped": 0
+  },
+  "pytest_summary": null,
+  "source_files": {
+    "fixtures/protein_abfe/abfe-correction-ledger-v1.json": "fb92b7f925ad26fae02eb9179ee179cb1543dd12c6b2adc3011b2d001b2437b7",
+    "fixtures/protein_abfe/target-proposal-v1.json": "e837e2627a20b96a18b179a5e54fcdc7a2ef0f2e7ab88540c9acec49683b45fd",
+    "fixtures/protein_abfe/thermodynamics-v1.json": "f30e5db1d1e2a92171816a1c4d4b73eb20569a2246dc0b426d1c358d8d0300bf",
+    "fixtures/protein_structural_control/v1/controls.json": "eedcbad6f21c23033aa8c2ecef56bab4de58aa00357fd44c788cf4a9d9b7029a",
+    "fixtures/solvent_recipe/v1/physical-solvent-proposal.json": "f5ed3a714bdf2496b7d0c6489ab4b3d7b23d0c4cd9a637f86c73433c32fb382b",
+    "fixtures/solvent_recipe/v1/synthetic-64-water-reference.json": "d5a133d7bd103c326560375a313c6cc35ae7fd6b85514c95311c21bf1252456e",
+    "tests/workflow/test_host_guest_rbfe.py": "1df3acb79711edbddd2e47a128cd69a2e286ae5991fd8937c5a8a6adff4cd5d5",
+    "tests/workflow/test_protein_abfe.py": "cbe94565635d748ec66e1a357634f943bdbbb25513d23f6c27f01dd0bfbd6e03",
+    "tests/workflow/test_protein_input_admission.py": "d5b7649a4d50adc7674a8befcc0070ef5c2e237f5d516ca3ea6f915488505532",
+    "tools/prepare_host_guest_rbfe.py": "193e9e545a4bb38c8b2d6df1265f6157fc4e02d81e5010720cc5fbcfb0e92819",
+    "tools/prepare_protein_input.py": "bbdfac4081db4c4a46b402f54e570ad822858653278362001bcce63efb03170a",
+    "tools/validate_solvent_recipe.py": "ce934df6c41bf28ce3fb45fbe6ef07cfbaca159814dfe86ad08c05767b78cff8"
+  },
+  "source_patch_identity_sha256": "e21fbd1315953623c99a6eadcde76882fd48e70a6f5a215dbc1d7f9871f3ace9",
+  "start_utc": "2026-10-07T14:01:02Z"
+}

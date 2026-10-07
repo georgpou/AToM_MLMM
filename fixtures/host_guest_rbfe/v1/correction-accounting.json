@@ -1,0 +1,104 @@
+{
+  "binding_result": "not_evaluated",
+  "domain_atoms": {
+    "bound": null,
+    "bulk": null,
+    "host": [
+      "h000",
+      "h001",
+      "h002",
+      "h003",
+      "h004",
+      "h005",
+      "h006",
+      "h007",
+      "h008",
+      "h009",
+      "h010",
+      "h011",
+      "h012",
+      "h013",
+      "h014",
+      "h015",
+      "h016",
+      "h017",
+      "h018",
+      "h019",
+      "h020",
+      "h021",
+      "h022",
+      "h023",
+      "h024",
+      "h025",
+      "h026",
+      "h027",
+      "h028",
+      "h029",
+      "h030",
+      "h031",
+      "h032",
+      "h033",
+      "h034",
+      "h035",
+      "h036",
+      "h037",
+      "h038",
+      "h039",
+      "h040",
+      "h041"
+    ],
+    "restraint_atoms": null
+  },
+  "interpretation": "Applicability and computation are separate. No numerical correction is authorized from this preflight.",
+  "obligations": [
+    {
+      "accounting_classification": "not_yet_computed",
+      "additive_calculation_authorized": false,
+      "applicability": "unresolved_for_physical_protocol",
+      "id": "translation_standard_state",
+      "status": "required_uncomputed"
+    },
+    {
+      "accounting_classification": "not_yet_computed",
+      "additive_calculation_authorized": false,
+      "applicability": "unresolved_without_domain_and_restraint_definitions",
+      "id": "bound_release",
+      "status": "required_uncomputed"
+    },
+    {
+      "accounting_classification": "not_yet_computed",
+      "additive_calculation_authorized": false,
+      "applicability": "unresolved_without_reference_atoms_and_restraint_definition",
+      "id": "orientation",
+      "status": "required_uncomputed"
+    },
+    {
+      "accounting_classification": "not_yet_computed",
+      "additive_calculation_authorized": false,
+      "applicability": "unresolved_without_adequate_sampling",
+      "id": "conformation",
+      "status": "required_uncomputed"
+    },
+    {
+      "accounting_classification": "not_yet_computed",
+      "additive_calculation_authorized": false,
+      "applicability": "unresolved_without_physical_state_definition",
+      "id": "state_counting",
+      "status": "required_uncomputed"
+    },
+    {
+      "accounting_classification": "already_in_path",
+      "additive_calculation_authorized": false,
+      "applicability": "present_as_an_explicit_intermediate_state_in_the_proposed_schedule",
+      "id": "midpoint_bridge",
+      "status": "required_uncomputed"
+    }
+  ],
+  "schema": "correction-accounting-v1",
+  "source_procedure": {
+    "U15": "AToM-OpenMM v8.5.0 abfe_structprep.py; preparation sets positional/orientation restraint machinery; file does not define a postprocessing correction equation.",
+    "installed_distribution": "atom-openmm==8.5.0b0",
+    "method_status": "not_claimed: U37 guide retrieval returned HTTP 403; applicability and correction equations remain a hold",
+    "source_release_tag": "v8.5.0"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "schema": "physical-solvent-recipe-v1",
+  "schema_version": 1,
+  "scope": "physical_liquid_proposal",
+  "status": "proposal_with_missing_definitions",
+  "binding_result": "not_evaluated",
+  "solute": {"parameter_identity": null},
+  "solvent": {"complete_molecules": null, "parameter_identity": null},
+  "ions": {"decision": null},
+  "box": {"geometry_nm": null, "density_definition": null},
+  "nonbonded": {"cutoff_nm": null, "image_convention": null},
+  "constraints": {"definition": null},
+  "ensemble": {"kind": null},
+  "preparation": {"stages": null, "active_force_owners": null},
+  "domain": {"both_map_checks": null},
+  "outputs": {"unique_identity": null},
+  "policy": "No implicit NPT, pressure/virial route, HMR, MTS, force-field selection, or solvent-model substitution is authorized."
+}

@@ -1,0 +1,34 @@
+{
+  "checks": [
+    {
+      "bound": "methanol_A",
+      "bulk": "ethanol_B",
+      "map": "map0",
+      "whole_host": true
+    },
+    {
+      "bound": "ethanol_B",
+      "bulk": "methanol_A",
+      "map": "map1",
+      "whole_host": true
+    }
+  ],
+  "complete_static_host": true,
+  "displacement_nm": [
+    2.4,
+    0.0,
+    0.0
+  ],
+  "geometry_only": true,
+  "guest_guest_contact_check": "complete_all_atom_pairs_both_maps",
+  "maps": [
+    "map0",
+    "map1"
+  ],
+  "periodic_images": "not_applicable_nonperiodic_input",
+  "required_bondi_ratio": 0.65,
+  "required_bulk_static_clearance_nm": 0.65,
+  "schema": "host-guest-geometry-admission-v1",
+  "selection": "fixed candidate ordering; no scored pose choice",
+  "status": "geometry_admitted_only; not a physical parameter or affinity result"
+}

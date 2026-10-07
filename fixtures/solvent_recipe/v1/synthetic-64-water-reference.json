@@ -1,0 +1,9 @@
+{
+  "schema": "physical-solvent-recipe-v1",
+  "schema_version": 1,
+  "scope": "synthetic_plumbing_reference",
+  "fixture": "../../solvated_fragment/v2/abfe",
+  "manifest": "manifest.json",
+  "binding_result": "not_evaluated",
+  "classification": "64 local TIP3P waters are a synthetic plumbing control, not an equilibrated physical liquid or density qualification."
+}

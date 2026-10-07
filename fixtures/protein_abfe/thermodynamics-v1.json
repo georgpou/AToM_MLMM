@@ -1,0 +1,35 @@
+{
+  "data": {
+    "correction_obligations": [
+      "translation_standard_state",
+      "bound_release",
+      "orientation",
+      "conformation",
+      "state_counting",
+      "midpoint_bridge"
+    ],
+    "corrections": [
+      {"data": {"correction_id": "translation_standard_state", "evidence": "No calculation or applicability decision without a prepared physical target.", "standard_error_kj_mol": null, "status": "required_uncomputed", "value_kj_mol": null}, "record_type": "CorrectionRecord"},
+      {"data": {"correction_id": "bound_release", "evidence": "No domain/reference atom/restraint definition or release calculation is present.", "standard_error_kj_mol": null, "status": "required_uncomputed", "value_kj_mol": null}, "record_type": "CorrectionRecord"},
+      {"data": {"correction_id": "orientation", "evidence": "No restraint references or documented correction procedure are established.", "standard_error_kj_mol": null, "status": "required_uncomputed", "value_kj_mol": null}, "record_type": "CorrectionRecord"},
+      {"data": {"correction_id": "conformation", "evidence": "Adequate physical sampling is not authorized or available.", "standard_error_kj_mol": null, "status": "required_uncomputed", "value_kj_mol": null}, "record_type": "CorrectionRecord"},
+      {"data": {"correction_id": "state_counting", "evidence": "The target/protonation/ligand physical state has not been selected.", "standard_error_kj_mol": null, "status": "required_uncomputed", "value_kj_mol": null}, "record_type": "CorrectionRecord"},
+      {"data": {"correction_id": "midpoint_bridge", "evidence": "No ABFE bridge or endpoint free energy has been sampled.", "standard_error_kj_mol": null, "status": "required_uncomputed", "value_kj_mol": null}, "record_type": "CorrectionRecord"}
+    ],
+    "domain_description": "Bound and bulk domains, target atoms, box, spectators, and ligand restraints are unresolved pending a complete prepared target.",
+    "endpoint_descriptions": {
+      "bound": "Declared complete ligand state in a future prepared target; not selected.",
+      "bulk": "Same declared ligand state in a future explicitly defined bulk domain; not selected."
+    },
+    "endpoint_weights": {"bound": 1.0, "bulk": -1.0},
+    "observable": "standard_binding_free_energy",
+    "orientation_description": "Reference atoms and any orientation-restraint correction are unresolved.",
+    "restraint_description": "No physical bound/bulk restraint definitions or release values have been computed.",
+    "sign_convention": "bound_minus_bulk",
+    "standard_volume_nm3": 1.6605390671738467,
+    "state_connections": [["bound", "bulk"]],
+    "state_counting_description": "One ligand endpoint pair is proposed; target/protonation/state degeneracies are unresolved."
+  },
+  "record_type": "ThermodynamicSpec",
+  "schema_version": "1.0"
+}

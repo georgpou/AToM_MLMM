@@ -1,0 +1,40 @@
+{
+  "schema": "abfe-correction-ledger-v1",
+  "binding_result": "not_evaluated",
+  "correction_source": "C relative-binding schema template; ABFE interpretation explicit",
+  "protocol": {
+    "U15_url": "https://raw.githubusercontent.com/Gallicchio-Lab/AToM-OpenMM/v8.5.0/atom_openmm/abfe_structprep.py",
+    "U15_source_sha256": "171bf698ea95ccd6e7653fa5b5596e192a233c7d2a4940bb1fa1dfcaef10856b",
+    "U15_retrieved_utc": "2026-10-07T13:48:06Z",
+    "U15_local_copy": "Worker_Log/Before_HPC/evidence/batch-d-v1/upstream/U15-abfe_structprep-v8.5.0.py",
+    "upstream_release_tag": "v8.5.0",
+    "installed_distribution": "atom-openmm==8.5.0b0",
+    "source_equivalence": "retrieved v8.5.0 abfe_structprep.py is byte-identical to the installed 8.5.0b0 module; distribution/tag version strings differ",
+    "U15_scope": "Preparation code uses positional/orientation restraint machinery; it does not state a postprocessing correction equation.",
+    "U37_url": "https://gallicchio-lab.github.io/AToM-OpenMM/user-guide/abfe/",
+    "U37_access": "HTTP 403; document unavailable in this environment",
+    "U37_retrieved_utc": "2026-10-07T13:48:02Z",
+    "correction_procedure_status": "not_claimed: cited guide returned HTTP 403 and U15 does not provide the postprocessing equation; applicability/equations are held pending the documented AToM procedure"
+  },
+  "domain": {
+    "bound": null,
+    "bulk": null,
+    "restraint_reference_atoms": null,
+    "target_and_protonation": null
+  },
+  "additive_calculation_authorized": false,
+  "obligations": [
+    {"id": "translation_standard_state", "status": "required_uncomputed", "applicability": "unresolved_without_physical_domains", "accounting_classification": "not_yet_computed", "value_kj_mol": null, "standard_error_kj_mol": null, "additive_calculation_authorized": false},
+    {"id": "bound_release", "status": "required_uncomputed", "applicability": "unresolved_without_restraints_and_domain", "accounting_classification": "not_yet_computed", "value_kj_mol": null, "standard_error_kj_mol": null, "additive_calculation_authorized": false},
+    {"id": "orientation", "status": "required_uncomputed", "applicability": "unresolved_without_reference_atoms_and_source_procedure", "accounting_classification": "not_yet_computed", "value_kj_mol": null, "standard_error_kj_mol": null, "additive_calculation_authorized": false},
+    {"id": "conformation", "status": "required_uncomputed", "applicability": "required_for_physical_sampling_but_not_yet_computed", "accounting_classification": "not_yet_computed", "value_kj_mol": null, "standard_error_kj_mol": null, "additive_calculation_authorized": false},
+    {"id": "state_counting", "status": "required_uncomputed", "applicability": "unresolved_without_selected_physical_states", "accounting_classification": "not_yet_computed", "value_kj_mol": null, "standard_error_kj_mol": null, "additive_calculation_authorized": false},
+    {"id": "midpoint_bridge", "status": "required_uncomputed", "applicability": "unresolved_until_a_documented_ABFE_path_defines_whether_a_bridge_is_needed", "accounting_classification": "applicability_unresolved", "value_kj_mol": null, "standard_error_kj_mol": null, "additive_calculation_authorized": false}
+  ],
+  "assumptions_and_holds": [
+    "No target, ligand, protonation, missing-atom/residue treatment, water/ion policy, or production parameter route has been selected.",
+    "No adequate trajectory or cluster run is authorized.",
+    "A configured restraint is not itself a computed correction; no additional correction is double-counted or set to zero.",
+    "The six schema rows are an obligation ledger, not six automatic extra calculations. Applicability and calculation status are separately stated."
+  ]
+}
