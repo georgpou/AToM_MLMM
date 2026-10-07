@@ -13,7 +13,9 @@ adequate trajectories, or molecular result were established. The actual
 protein target is explicitly deferred; the ABFE correction guide retrieval
 returned HTTP 403, and C3's unmatched-physical-state closure refusal contract
 remains an uncovered hold. No independent audit or gate/milestone acceptance
-occurred. Batch E and consolidated post-E checks remain pending authorization.
+occurred. [Checkpoint v4](../../Worker_Log/Before_HPC/Before_HPC_v4_summary.md)
+records preservation identities, tested snapshots and exact holds. Batch E and
+consolidated post-E checks remain pending authorization.
 
 **Before HPC Batch C: worker finished; bounded synthetic controls qualified; C3 partly held.**
 The [gpt-6-luna/max worker](../../Worker_Log/Before_HPC/Batch_C_v1_worker.md)
@@ -26,8 +28,8 @@ closure refusal contract is absent; C3 remains partly held. Molecular correction
 linked correction covariance, molecular uncertainty/convergence and G08 remain
 unresolved. No independent audit or new gate/milestone acceptance occurred.
 [Checkpoint v3](../../Worker_Log/Before_HPC/Before_HPC_v3_summary.md) records
-the exact scope and evidence limits. D/E await further user approval; consolidated
-checks remain reserved for after E.
+the exact scope and evidence limits. D's bounded preflight checkpoint is above;
+E awaits further user approval, and consolidated checks remain reserved for after E.
 
 **Before HPC Batch B: implemented and worker-tested on `before_HPC`.**
 The [gpt-6-luna/max worker](../../Worker_Log/Before_HPC/Batch_B_v1_worker.md)
@@ -39,7 +41,7 @@ reload, and bounded common restart controls passed. The synthetic fixture qualif
 architecture/derivatives only; protein chemistry, arbitrary caps, charged states,
 affinity, full G11/G12 and physical/HPC obligations remain open. No independent
 audit or new gate/milestone acceptance occurred. These B checks retain their
-recorded snapshot scope; C's checkpoint is above, and D/E remain pending.
+recorded snapshot scope; C/D checkpoints are above, and E remains pending.
 
 [Final G10 engine handoff](handoffs/G10-MULTISTATE-FINAL-HANDOFF.md): bounded multistate CPU implementation accepted; child publication requested. Main and predecessor branches remain unchanged.
 
