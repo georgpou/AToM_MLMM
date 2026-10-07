@@ -1,0 +1,71 @@
+{
+  "utc": "2026-10-07T10:51:45.038171+00:00",
+  "prefix": "/workspace/before-hpc-cpu-v2",
+  "installer_exit": 0,
+  "first_attempt_exit": 1,
+  "first_attempt_reason": "read-only standard Conda registry at /home/agent/.conda",
+  "original_logs": [
+    {
+      "path": "/workspace/before-hpc-cpu-v1/logs/install-20261007T104855Z-796.log",
+      "bytes": 9886,
+      "sha256": "3aaf2f3d0b91528e5ca449a746f271fd145b99c8df6d370d045899f865fb6ed0"
+    },
+    {
+      "path": "/workspace/before-hpc-cpu-v2/logs/install-20261007T105017Z-997.log",
+      "bytes": 48554,
+      "sha256": "fc834a954f2c7766d7a602d09910c9c90864bc9aa8618f8654586d1fbf631810"
+    },
+    {
+      "path": "/workspace/before-hpc-cpu-v2/logs/validation-20261007T105100Z-2151/amber_exact_versions.log",
+      "bytes": 80,
+      "sha256": "ded9ee57aa24260dc1fe96b15244a7f8f90e2ba6c6717f0c730cd5c0f586269d"
+    },
+    {
+      "path": "/workspace/before-hpc-cpu-v2/logs/validation-20261007T105100Z-2151/amber_pip_check.log",
+      "bytes": 30,
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+    },
+    {
+      "path": "/workspace/before-hpc-cpu-v2/logs/validation-20261007T105100Z-2151/atom_uwham.log",
+      "bytes": 98,
+      "sha256": "a992ed7d25f33c38049513f06d7a6f70960cc7721f9c785d404ffbaacc47e294"
+    },
+    {
+      "path": "/workspace/before-hpc-cpu-v2/logs/validation-20261007T105100Z-2151/core_exact_versions.log",
+      "bytes": 80,
+      "sha256": "5201adc82f839dbd7ad1bb9cfde34e449687690d1748ec51a59256be7d10555c"
+    },
+    {
+      "path": "/workspace/before-hpc-cpu-v2/logs/validation-20261007T105100Z-2151/core_pip_check.log",
+      "bytes": 30,
+      "sha256": "9261363b733079a641c2e4cc9bc46ffa1d8336945a87f807b6cf68847dbc9b09"
+    },
+    {
+      "path": "/workspace/before-hpc-cpu-v2/logs/validation-20261007T105100Z-2151/cpu_potentials_and_atm.log",
+      "bytes": 5677,
+      "sha256": "3228b2ebd9824fef69ab5c9d2de91620892b7f8d1c6dae55226abf90aa45fcb4"
+    },
+    {
+      "path": "/workspace/before-hpc-cpu-v2/logs/validation-20261007T105100Z-2151/openmm_installation.log",
+      "bytes": 312,
+      "sha256": "492b030f62481f3e92f96fc82fcaa5b2d44ec69116148b62001d9bdd187b4a91"
+    },
+    {
+      "path": "/workspace/before-hpc-cpu-v2/logs/validation-20261007T105100Z-2151/repository_documentation.log",
+      "bytes": 565,
+      "sha256": "b29e0e864a13a6ab64fcc154bc2ded4dcb0fd62822a4a300c448fccbd252377d"
+    },
+    {
+      "path": "/workspace/before-hpc-cpu-v2/logs/validation-20261007T105100Z-2151/results.json",
+      "bytes": 10110,
+      "sha256": "b0aea7d18a9d5182d0d46ad1ece91bd1fcf0349fa4edd50b30027b285e2ae2d9"
+    },
+    {
+      "path": "/workspace/before-hpc-cpu-v2/logs/validation-20261007T105100Z-2151/separate_ambertools_integration.log",
+      "bytes": 119,
+      "sha256": "5f10a1a3e6357d62e322e4b15c680ac27163ece4a7f6026a123a5c6fc47835a0"
+    }
+  ],
+  "memory_limit_bytes": 8589934592,
+  "threads": 2
+}
