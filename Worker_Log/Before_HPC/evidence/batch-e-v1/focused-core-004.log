@@ -1,0 +1,8 @@
+START_UTC 2026-10-07T14:42:25Z
+ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
+THREADS OPENBLAS=2 OMP=2 MKL=2
+ARGV python -m pytest -q tests/unit/test_benchmark_metrics.py tests/contracts/test_release_evidence.py tests/environment/test_hpc_profile.py tests/workflow/test_release_bundle.py tests/workflow/test_multistate_cli.py tests/integration/test_checkpoint_loading.py
+...........................                                              [100%]
+27 passed in 7.42s
+EXIT_CODE 0
+END_UTC 2026-10-07T14:42:34Z

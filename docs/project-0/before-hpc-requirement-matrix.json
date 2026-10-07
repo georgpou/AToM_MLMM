@@ -1,0 +1,1008 @@
+{
+  "assertion_count": 93,
+  "assertions": [
+    {
+      "assertion_id": "P0-TEST-G00-01",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_01/Gate_00_v2_audit.md",
+      "evidence_snapshot": "a7768e375476667139db374dc0091999263a37de",
+      "gate": "G00",
+      "gate_document": "docs/project-0/gates/G00-environment-and-provenance.md",
+      "planned_assertion": "| P0-TEST-G00-01 | `tests/unit/test_environment.py::test_required_apis_and_versions` | Confirm native ATMForce, PythonForce selected-particle support, mixed-system info API, serialization APIs, and reported versions; missing requirements fail clearly. | P0-REQ-014 |",
+      "scope_limit": "G00-T2 pinned asset/loading scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G00-02",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_01/Gate_00_v2_audit.md",
+      "evidence_snapshot": "a7768e375476667139db374dc0091999263a37de",
+      "gate": "G00",
+      "gate_document": "docs/project-0/gates/G00-environment-and-provenance.md",
+      "planned_assertion": "| P0-TEST-G00-02 | `tests/unit/test_environment.py::test_environment_manifest_complete` | Record package builds, full source commits, platform, Python patch version and dependency result; tag and reported package version remain separate. | P0-REQ-014 |",
+      "scope_limit": "G00-T2 pinned asset/loading scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G00-03",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_01/Gate_00_v2_audit.md",
+      "evidence_snapshot": "a7768e375476667139db374dc0091999263a37de",
+      "gate": "G00",
+      "gate_document": "docs/project-0/gates/G00-environment-and-provenance.md",
+      "planned_assertion": "| P0-TEST-G00-03 | `tests/unit/test_environment.py::test_model_asset_hash_and_policy` | A wrong digest or absent authorization record is rejected before deserialization; an approved local asset is identifiable without network. | P0-REQ-014, P0-REQ-029 |",
+      "scope_limit": "G00-T2 pinned asset/loading scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G00-04",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_01/Gate_00_v2_audit.md",
+      "evidence_snapshot": "a7768e375476667139db374dc0091999263a37de",
+      "gate": "G00",
+      "gate_document": "docs/project-0/gates/G00-environment-and-provenance.md",
+      "planned_assertion": "| P0-TEST-G00-04 | `tests/integration/test_checkpoint_loading.py::test_trusted_checkpoint_loads_in_fresh_process` | Exercise the actual PyTorch/checkpoint loading policy in a fresh process; never globally weaken loading policy to admit arbitrary files. | P0-REQ-014 |",
+      "scope_limit": "G00-T2 pinned asset/loading scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G00-05",
+      "classification": "unavailable_hardware",
+      "evidence_path": "Worker_Log/Milestone_01/Gate_00_v2_audit.md",
+      "evidence_snapshot": "a7768e375476667139db374dc0091999263a37de",
+      "gate": "G00",
+      "gate_document": "docs/project-0/gates/G00-environment-and-provenance.md",
+      "planned_assertion": "| P0-TEST-G00-05 | `tests/unit/test_environment.py::test_unavailable_platform_is_unqualified` | Absent CUDA records not_run/unsupported profile, never a successful GPU qualification. | P0-REQ-032 |",
+      "scope_limit": "GPU/device task is not_run or unsupported; no successful GPU qualification."
+    },
+    {
+      "assertion_id": "P0-TEST-G01-01",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_01/Gate_01_v2_audit.md",
+      "evidence_snapshot": "04944c67fc04c1667723f5292a07f8401cb94184",
+      "gate": "G01",
+      "gate_document": "docs/project-0/gates/G01-identity-partition-and-contracts.md",
+      "planned_assertion": "| P0-TEST-G01-01 | `tests/unit/test_identity.py::test_chain_insertion_and_permutation_identity` | Duplicate residue numbers across chains remain distinct; real IDs survive reordering; ambiguous identities fail explicitly. | P0-REQ-002 |",
+      "scope_limit": "M01 core analytic CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G01-02",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_01/Gate_01_v2_audit.md",
+      "evidence_snapshot": "04944c67fc04c1667723f5292a07f8401cb94184",
+      "gate": "G01",
+      "gate_document": "docs/project-0/gates/G01-identity-partition-and-contracts.md",
+      "planned_assertion": "| P0-TEST-G01-02 | `tests/unit/test_partition.py::test_fixed_complete_mobile_groups` | Resolve complete ligands and all boundary edges; reject incomplete ligands, ring/ligand cuts, duplicate group membership and unsupported fragments. | P0-REQ-002, P0-REQ-023 |",
+      "scope_limit": "M01 core analytic CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G01-03",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_01/Gate_01_v2_audit.md",
+      "evidence_snapshot": "04944c67fc04c1667723f5292a07f8401cb94184",
+      "gate": "G01",
+      "gate_document": "docs/project-0/gates/G01-identity-partition-and-contracts.md",
+      "planned_assertion": "| P0-TEST-G01-03 | `tests/contracts/test_schema.py::test_versioned_round_trip_and_units` | Round-trip reviewed JSON fixtures without changing order/units; reject unknown major schema versions and incompatible required fields. | P0-REQ-024, P0-REQ-010 |",
+      "scope_limit": "M01 core analytic CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G01-04",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_01/Gate_01_v2_audit.md",
+      "evidence_snapshot": "04944c67fc04c1667723f5292a07f8401cb94184",
+      "gate": "G01",
+      "gate_document": "docs/project-0/gates/G01-identity-partition-and-contracts.md",
+      "planned_assertion": "| P0-TEST-G01-04 | `tests/contracts/test_architecture_boundaries.py::test_shared_contracts_have_no_model_import` | Import shared records/protocol descriptions without OpenMM, model weights or CUDA; reject disallowed module dependencies. | P0-REQ-001, P0-REQ-021 |",
+      "scope_limit": "M01 core analytic CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G01-05",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_01/Gate_01_v2_audit.md",
+      "evidence_snapshot": "04944c67fc04c1667723f5292a07f8401cb94184",
+      "gate": "G01",
+      "gate_document": "docs/project-0/gates/G01-identity-partition-and-contracts.md",
+      "planned_assertion": "| P0-TEST-G01-05 | `tests/contracts/test_capabilities.py::test_unsupported_combination_fails_closed` | A requested actual electrostatic profile is rejected rather than relabeled mechanical; a declared capability is not marked qualified. | P0-REQ-023, P0-REQ-028 |",
+      "scope_limit": "M01 core analytic CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G01-06",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_01/Gate_01_v2_audit.md",
+      "evidence_snapshot": "04944c67fc04c1667723f5292a07f8401cb94184",
+      "gate": "G01",
+      "gate_document": "docs/project-0/gates/G01-identity-partition-and-contracts.md",
+      "planned_assertion": "| P0-TEST-G01-06 | `tests/contracts/test_evidence_schema.py::test_acceptance_requires_evidence` | A status update without requirement/test/profile/reviewer evidence cannot satisfy the acceptance schema. | P0-REQ-025, P0-REQ-026 |",
+      "scope_limit": "M01 core analytic CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G01-07",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_01/Gate_01_v2_audit.md",
+      "evidence_snapshot": "04944c67fc04c1667723f5292a07f8401cb94184",
+      "gate": "G01",
+      "gate_document": "docs/project-0/gates/G01-identity-partition-and-contracts.md",
+      "planned_assertion": "| P0-TEST-G01-07 | `tests/unit/test_force_inventory.py::test_original_mm_inventory_and_unknown_force` | Preserve an independently specified original-MM inventory of particles, masses, constraints, force terms, exceptions, offsets, and box settings; reject unsupported force classes rather than omitting them. | P0-REQ-003, P0-REQ-023 |",
+      "scope_limit": "M01 core analytic CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G02-01",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G02",
+      "gate_document": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+      "planned_assertion": "| P0-TEST-G02-01 | `tests/integration/test_pythonforce_atm.py::test_linear_endpoint_and_force_identity` | At lambda 0, 0.37 and 1, raw child energies match hand-transformed direct evaluations and forces match their analytic weighted sum. | P0-REQ-013 |",
+      "scope_limit": "M02 analytic native ATM CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G02-02",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G02",
+      "gate_document": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+      "planned_assertion": "| P0-TEST-G02-02 | `tests/integration/test_pythonforce_atm.py::test_permuted_subset_and_units` | A selected-particle order [2, 0] gives the correct energy/force scatter; a factor-of-ten force error fails. | P0-REQ-002, P0-REQ-010, P0-REQ-030 |",
+      "scope_limit": "M02 analytic native ATM CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G02-03",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G02",
+      "gate_document": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+      "planned_assertion": "| P0-TEST-G02-03 | `tests/integration/test_pythonforce_atm.py::test_nonzero_outside_term_and_tuple_order` | Unpack u1,u0,energy explicitly; a nonzero outside restraint appears once in total energy and not in raw child energy. | P0-REQ-011, P0-REQ-013 |",
+      "scope_limit": "M02 analytic native ATM CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G02-04",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G02",
+      "gate_document": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+      "planned_assertion": "| P0-TEST-G02-04 | `tests/contracts/test_transfer_protocols.py::test_one_and_two_unequal_mobile_groups` | The same assembler accepts ABFE and RBFE with unequal group sizes and noncontiguous IDs; only specified groups move. | P0-REQ-022 |",
+      "scope_limit": "M02 analytic native ATM CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G02-05",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G02",
+      "gate_document": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+      "planned_assertion": "| P0-TEST-G02-05 | `tests/contracts/test_physical_evaluator.py::test_environment_force_and_recomputed_mapping` | For the S04 harmonic coupling, moving only the MM atom changes energy; ATM translation changes its force; all real derivatives match. | P0-REQ-006, P0-REQ-007 |",
+      "scope_limit": "M02 analytic native ATM CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G02-06",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G02",
+      "gate_document": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+      "planned_assertion": "| P0-TEST-G02-06 | `tests/contracts/test_physical_evaluator.py::test_evaluation_history_independence` | Evaluate geometry A, then B, then A; the final A result matches the first and does not reuse stale mapped descriptors. | P0-REQ-007 |",
+      "scope_limit": "M02 analytic native ATM CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G02-07",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G02",
+      "gate_document": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+      "planned_assertion": "| P0-TEST-G02-07 | `tests/contracts/test_fault_injection.py::test_known_transfer_errors_are_detected` | Deliberate wrong-index, omitted force, reversed raw tuple and stale-environment injections fail the appropriate checks. | P0-REQ-030 |",
+      "scope_limit": "M02 analytic native ATM CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G02-08",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G02",
+      "gate_document": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+      "planned_assertion": "| P0-TEST-G02-08 | `tests/integration/test_pythonforce_atm.py::test_independent_harmonic_forces` | Harmonic endpoint and outside forces match hand-derived negative energy gradients at independently mapped coordinates. | P0-REQ-013, P0-REQ-030 |",
+      "scope_limit": "M02 analytic native ATM CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G02-09",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G02",
+      "gate_document": "docs/project-0/gates/G02-analytic-force-in-native-atm.md",
+      "planned_assertion": "| P0-TEST-G02-09 | `tests/integration/test_pythonforce_atm.py::test_nonlinear_mixing_force_chain_rule` | The admitted nonlinear production expression gives endpoint weights from independent differentiation and agrees with coordinate finite differences, including soft-core/softplus transitions. | P0-REQ-013, P0-REQ-030 |",
+      "scope_limit": "M02 analytic native ATM CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G03-01",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_03_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G03",
+      "gate_document": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+      "planned_assertion": "| P0-TEST-G03-01 | `tests/workflow/test_atom_force_routing.py::test_pythonforce_explicit_group_route` | The intended Python force is a child of ATM exactly once; the default name-based route is not accepted as proof. | P0-REQ-011, P0-REQ-021 |",
+      "scope_limit": "M02 analytic routing/integration CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G03-02",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_03_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G03",
+      "gate_document": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+      "planned_assertion": "| P0-TEST-G03-02 | `tests/workflow/test_active_force_groups.py::test_all_physical_groups_integrated` | Compare full force with the integrator-selected force using a deliberately large marker force in each relevant group. | P0-REQ-012 |",
+      "scope_limit": "M02 analytic routing/integration CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G03-03",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_03_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G03",
+      "gate_document": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+      "planned_assertion": "| P0-TEST-G03-03 | `tests/workflow/test_active_force_groups.py::test_preparation_and_export_copies` | The physical preparation copy is all-active; the reserved-group production copy cannot silently omit a physical term. | P0-REQ-012 |",
+      "scope_limit": "M02 analytic routing/integration CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G03-04",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_03_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G03",
+      "gate_document": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+      "planned_assertion": "| P0-TEST-G03-04 | `tests/workflow/test_atom_force_routing.py::test_both_protocols_match_native_oracle` | ABFE and RBFE upstream construction paths reproduce the same native-ATM observables without changing the physical builder. | P0-REQ-021, P0-REQ-022 |",
+      "scope_limit": "M02 analytic routing/integration CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G03-05",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_03_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G03",
+      "gate_document": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+      "planned_assertion": "| P0-TEST-G03-05 | `tests/workflow/test_atom_force_routing.py::test_upstream_unit_and_key_conversion` | Convert 0.5 fs to 0.0005 ps and nm displacements to Angstrom once; select protocol-specific upstream ligand keys only inside the adapter. | P0-REQ-010, P0-REQ-021 |",
+      "scope_limit": "M02 analytic routing/integration CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G03-06",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_03_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G03",
+      "gate_document": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+      "planned_assertion": "| P0-TEST-G03-06 | `tests/workflow/test_atom_force_routing.py::test_duplicate_and_nested_atm_rejected` | Reject an already nested ATM input, an occupied reserved force group, and a physical force left both outside and inside. | P0-REQ-011, P0-REQ-023 |",
+      "scope_limit": "M02 analytic routing/integration CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G03-07",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_02/Gate_03_v2_audit.md",
+      "evidence_snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12",
+      "gate": "G03",
+      "gate_document": "docs/project-0/gates/G03-atom-routing-and-integration.md",
+      "planned_assertion": "| P0-TEST-G03-07 | `tests/workflow/test_atom_force_routing.py::test_fixed_map_guard_after_construction` | Every native/upstream construction and reload preserves the fixed full-particle maps; a runtime parameter/map mutation is rejected before evaluation. | P0-REQ-002, P0-REQ-013, P0-REQ-021 |",
+      "scope_limit": "M02 analytic routing/integration CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G04-01",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_04_v1_audit.md",
+      "evidence_snapshot": "35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a",
+      "gate": "G04",
+      "gate_document": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+      "planned_assertion": "| P0-TEST-G04-01 | `tests/integration/test_link_geometry.py::test_cap_position_and_zero_mass` | Construct the stated fixed-length cap from its actual parents; verify virtual-site type, mass, parameters and final count. | P0-REQ-008 |",
+      "scope_limit": "analytic cap/link CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G04-02",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_04_v1_audit.md",
+      "evidence_snapshot": "35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a",
+      "gate": "G04",
+      "gate_document": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+      "planned_assertion": "| P0-TEST-G04-02 | `tests/integration/test_link_geometry.py::test_cap_parent_chain_rule` | For axial/perpendicular real-parent perturbations, the analytic Jacobian and energy finite differences agree with returned real forces. | P0-REQ-004 |",
+      "scope_limit": "analytic cap/link CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G04-03",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_04_v1_audit.md",
+      "evidence_snapshot": "35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a",
+      "gate": "G04",
+      "gate_document": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+      "planned_assertion": "| P0-TEST-G04-03 | `tests/integration/test_boundary_ledger.py::test_each_boundary_term_disposition` | Distinct bond, angle, proper/improper torsion, exception and constraint fixtures have exactly the reviewed retained/removed disposition. | P0-REQ-003, P0-REQ-008 |",
+      "scope_limit": "analytic cap/link CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G04-04",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_04_v1_audit.md",
+      "evidence_snapshot": "35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a",
+      "gate": "G04",
+      "gate_document": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+      "planned_assertion": "| P0-TEST-G04-04 | `tests/integration/test_link_geometry.py::test_actual_and_nonidentity_index_maps` | Consume current appended-site mapping and a synthetic nonidentity map; cap and ligand identities remain correct. | P0-REQ-002 |",
+      "scope_limit": "analytic cap/link CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G04-05",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_04_v1_audit.md",
+      "evidence_snapshot": "35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a",
+      "gate": "G04",
+      "gate_document": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+      "planned_assertion": "| P0-TEST-G04-05 | `tests/integration/test_link_geometry.py::test_stationary_cap_force_under_atm` | Both real parents receive exactly one cap contribution inside ATM; energy agreement alone cannot satisfy this check. | P0-REQ-004, P0-REQ-013 |",
+      "scope_limit": "analytic cap/link CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G04-06",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_04_v1_audit.md",
+      "evidence_snapshot": "35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a",
+      "gate": "G04",
+      "gate_document": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+      "planned_assertion": "| P0-TEST-G04-06 | `tests/integration/test_link_geometry.py::test_cap_environment_cross_derivative` | A harmonic cap-MM environment term produces both parent derivatives and the real environment derivative without double redistribution. | P0-REQ-004, P0-REQ-006 |",
+      "scope_limit": "analytic cap/link CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G04-07",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_04_v1_audit.md",
+      "evidence_snapshot": "35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a",
+      "gate": "G04",
+      "gate_document": "docs/project-0/gates/G04-link-boundary-and-derivatives.md",
+      "planned_assertion": "| P0-TEST-G04-07 | `tests/integration/test_link_geometry.py::test_cap_projected_force_and_torque_balance` | An isolated translation/rotation-invariant cap-dependent potential has zero net real force and torque after projection; each parent component matches the independent Jacobian and finite differences. | P0-REQ-004, P0-REQ-006, P0-REQ-030 |",
+      "scope_limit": "analytic cap/link CPU scope"
+    },
+    {
+      "assertion_id": "P0-TEST-G05-01",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_05_v6_audit.md",
+      "evidence_snapshot": "a99a4448f14386e79c1546dd32fd83a33b9ac424",
+      "gate": "G05",
+      "gate_document": "docs/project-0/gates/G05-local-model-adapter.md",
+      "planned_assertion": "| P0-TEST-G05-01 | `tests/integration/test_model_adapter.py::test_native_and_openmm_energy_forces` | Same asset, ordered coordinates, box, dtype and energy convention agree within calibrated reference tolerances. | P0-REQ-010 |",
+      "scope_limit": "neutral nonperiodic model/local-reference profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G05-02",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_05_v6_audit.md",
+      "evidence_snapshot": "a99a4448f14386e79c1546dd32fd83a33b9ac424",
+      "gate": "G05",
+      "gate_document": "docs/project-0/gates/G05-local-model-adapter.md",
+      "planned_assertion": "| P0-TEST-G05-02 | `tests/integration/test_model_adapter.py::test_real_parent_forces_with_model_caps` | Native raw cap derivatives, projected by the independent oracle, match real-parent OpenMM forces. | P0-REQ-004, P0-REQ-006 |",
+      "scope_limit": "neutral nonperiodic model/local-reference profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G05-03",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_05_v6_audit.md",
+      "evidence_snapshot": "a99a4448f14386e79c1546dd32fd83a33b9ac424",
+      "gate": "G05",
+      "gate_document": "docs/project-0/gates/G05-local-model-adapter.md",
+      "planned_assertion": "| P0-TEST-G05-03 | `tests/integration/test_locality.py::test_declared_local_component_additivity` | A disconnected joint ML graph equals separately evaluated compatible components; the assertion is not applied to the total hybrid energy or a nonlocal provider. | P0-REQ-009 |",
+      "scope_limit": "neutral nonperiodic model/local-reference profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G05-04",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_05_v6_audit.md",
+      "evidence_snapshot": "a99a4448f14386e79c1546dd32fd83a33b9ac424",
+      "gate": "G05",
+      "gate_document": "docs/project-0/gates/G05-local-model-adapter.md",
+      "planned_assertion": "| P0-TEST-G05-04 | `tests/integration/test_model_adapter.py::test_consistent_translation_rotation_and_permutation` | Joint coordinate/box transformations and atom reordering preserve the expected scalar/vector behavior. | P0-REQ-010, P0-REQ-030 |",
+      "scope_limit": "neutral nonperiodic model/local-reference profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G05-05",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_05_v6_audit.md",
+      "evidence_snapshot": "a99a4448f14386e79c1546dd32fd83a33b9ac424",
+      "gate": "G05",
+      "gate_document": "docs/project-0/gates/G05-local-model-adapter.md",
+      "planned_assertion": "| P0-TEST-G05-05 | `tests/integration/test_model_domain.py::test_contact_cutoff_and_counterfactual_scans` | Admitted contact and cutoff scans yield finite values and interpretable repulsion; preserve failing alternate geometry and graph for diagnosis. | P0-REQ-020 |",
+      "scope_limit": "neutral nonperiodic model/local-reference profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G05-06",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_05_v6_audit.md",
+      "evidence_snapshot": "a99a4448f14386e79c1546dd32fd83a33b9ac424",
+      "gate": "G05",
+      "gate_document": "docs/project-0/gates/G05-local-model-adapter.md",
+      "planned_assertion": "| P0-TEST-G05-06 | `tests/integration/test_model_adapter.py::test_local_asset_fresh_process_reload` | The exact checkpoint and output convention survive offline reload; no cache-dependent replacement or dtype change occurs. | P0-REQ-014, P0-REQ-029 |",
+      "scope_limit": "neutral nonperiodic model/local-reference profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G05-07",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_05_v6_audit.md",
+      "evidence_snapshot": "a99a4448f14386e79c1546dd32fd83a33b9ac424",
+      "gate": "G05",
+      "gate_document": "docs/project-0/gates/G05-local-model-adapter.md",
+      "planned_assertion": "| P0-TEST-G05-07 | `tests/integration/test_chemical_reference.py::test_exact_capped_conformer_reference` | Exact capped neutral conformer relative energies and Cartesian forces meet predeclared, reviewed quantum-reference limits with frozen provenance. | P0-REQ-033 |",
+      "scope_limit": "neutral nonperiodic model/local-reference profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G05-08",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_05_v6_audit.md",
+      "evidence_snapshot": "a99a4448f14386e79c1546dd32fd83a33b9ac424",
+      "gate": "G05",
+      "gate_document": "docs/project-0/gates/G05-local-model-adapter.md",
+      "planned_assertion": "| P0-TEST-G05-08 | `tests/integration/test_chemical_reference.py::test_frozen_contact_reference` | Joint capped-fragment/ligand contacts and separated controls meet reviewed reference limits using one documented energy-zero/composition convention. | P0-REQ-009, P0-REQ-033 |",
+      "scope_limit": "neutral nonperiodic model/local-reference profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G06-01",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_06_v1_audit.md",
+      "evidence_snapshot": "ad994d68333a7dabffd4cbcc68dfc9a4a2114b0b",
+      "gate": "G06",
+      "gate_document": "docs/project-0/gates/G06-periodicity-and-interaction-ledger.md",
+      "planned_assertion": "| P0-TEST-G06-01 | `tests/integration/test_mechanical_pme.py::test_ml_mm_cross_interactions_retained` | Moving an MM probe changes expected real ML-MM Coulomb/LJ interactions; the cap creates no new classical interaction center. | P0-REQ-003, P0-REQ-006 |",
+      "scope_limit": "small fixed-volume Reference-double CPU profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G06-02",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_06_v1_audit.md",
+      "evidence_snapshot": "ad994d68333a7dabffd4cbcc68dfc9a4a2114b0b",
+      "gate": "G06",
+      "gate_document": "docs/project-0/gates/G06-periodicity-and-interaction-ledger.md",
+      "planned_assertion": "| P0-TEST-G06-02 | `tests/integration/test_masked_interactions.py::test_pme_charge_mask_cross_identity` | Four charge-mask evaluations reproduce the cross contribution with consistent mesh, exceptions and nonneutral-background convention. | P0-REQ-003 |",
+      "scope_limit": "small fixed-volume Reference-double CPU profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G06-03",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_06_v1_audit.md",
+      "evidence_snapshot": "ad994d68333a7dabffd4cbcc68dfc9a4a2114b0b",
+      "gate": "G06",
+      "gate_document": "docs/project-0/gates/G06-periodicity-and-interaction-ledger.md",
+      "planned_assertion": "| P0-TEST-G06-03 | `tests/integration/test_periodic_geometry.py::test_images_caps_and_bulk_separation` | Catch a periodic cavity/cap/ligand reconnection missed by primary-box distances, including full-protein clearance. | P0-REQ-005 |",
+      "scope_limit": "small fixed-volume Reference-double CPU profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G06-04",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_06_v1_audit.md",
+      "evidence_snapshot": "ad994d68333a7dabffd4cbcc68dfc9a4a2114b0b",
+      "gate": "G06",
+      "gate_document": "docs/project-0/gates/G06-periodicity-and-interaction-ledger.md",
+      "planned_assertion": "| P0-TEST-G06-04 | `tests/integration/test_periodic_geometry.py::test_cap_wrapping_and_image_seam_continuity` | Whole-molecule wrapping and admitted image-choice seams preserve the specified energy/force behavior or are explicitly excluded from the admitted domain. | P0-REQ-005 |",
+      "scope_limit": "small fixed-volume Reference-double CPU profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G06-05",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_06_v1_audit.md",
+      "evidence_snapshot": "ad994d68333a7dabffd4cbcc68dfc9a4a2114b0b",
+      "gate": "G06",
+      "gate_document": "docs/project-0/gates/G06-periodicity-and-interaction-ledger.md",
+      "planned_assertion": "| P0-TEST-G06-05 | `tests/integration/test_periodic_geometry.py::test_backend_graph_matches_independent_geometry` | Actual model edges, including periodic shifts, agree with the admitted independent distance/image search. | P0-REQ-005, P0-REQ-009 |",
+      "scope_limit": "small fixed-volume Reference-double CPU profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G06-06",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_06_v1_audit.md",
+      "evidence_snapshot": "ad994d68333a7dabffd4cbcc68dfc9a4a2114b0b",
+      "gate": "G06",
+      "gate_document": "docs/project-0/gates/G06-periodicity-and-interaction-ledger.md",
+      "planned_assertion": "| P0-TEST-G06-06 | `tests/integration/test_mechanical_pme.py::test_nonstandard_forces_and_box_rejected` | Charge offsets, LJPME, unqualified custom mixing or triclinic cells are rejected rather than approximated silently. | P0-REQ-023 |",
+      "scope_limit": "small fixed-volume Reference-double CPU profile only"
+    },
+    {
+      "assertion_id": "P0-TEST-G07-01",
+      "classification": "partial_prior_physical_hold",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_07_v4_audit.md",
+      "evidence_snapshot": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+      "gate": "G07",
+      "gate_document": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+      "planned_assertion": "| P0-TEST-G07-01 | `tests/integration/test_joint_hybrid_atm.py::test_direct_native_and_atom_agree` | Direct physical, native ATM and AToM-built child/total energies and real forces match at both maps and intermediate states. | P0-REQ-013, P0-REQ-021 |",
+      "scope_limit": "partial arithmetic accepted; physical G07-T4 blocked"
+    },
+    {
+      "assertion_id": "P0-TEST-G07-02",
+      "classification": "partial_prior_physical_hold",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_07_v4_audit.md",
+      "evidence_snapshot": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+      "gate": "G07",
+      "gate_document": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+      "planned_assertion": "| P0-TEST-G07-02 | `tests/integration/test_joint_hybrid_atm.py::test_mm_boundary_parent_force` | An MM boundary parent receives its full cap-induced derivative at both coordinate maps; omitted propagation fails. | P0-REQ-004, P0-REQ-006 |",
+      "scope_limit": "partial arithmetic accepted; physical G07-T4 blocked"
+    },
+    {
+      "assertion_id": "P0-TEST-G07-03",
+      "classification": "partial_prior_physical_hold",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_07_v4_audit.md",
+      "evidence_snapshot": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+      "gate": "G07",
+      "gate_document": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+      "planned_assertion": "| P0-TEST-G07-03 | `tests/integration/test_joint_hybrid_atm.py::test_joint_contact_and_disconnected_graph` | Contacting input uses a joint graph; separated local-component behavior matches G05 without changing ML membership. | P0-REQ-002, P0-REQ-009 |",
+      "scope_limit": "partial arithmetic accepted; physical G07-T4 blocked"
+    },
+    {
+      "assertion_id": "P0-TEST-G07-04",
+      "classification": "partial_prior_physical_hold",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_07_v4_audit.md",
+      "evidence_snapshot": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+      "gate": "G07",
+      "gate_document": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+      "planned_assertion": "| P0-TEST-G07-04 | `tests/integration/test_joint_hybrid_atm.py::test_only_mobile_groups_translate` | Protein real atoms, cap parents and cap sites have zero explicit displacement while complete ligand IDs move. | P0-REQ-002, P0-REQ-013 |",
+      "scope_limit": "partial arithmetic accepted; physical G07-T4 blocked"
+    },
+    {
+      "assertion_id": "P0-TEST-G07-05",
+      "classification": "partial_prior_physical_hold",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_07_v4_audit.md",
+      "evidence_snapshot": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+      "gate": "G07",
+      "gate_document": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+      "planned_assertion": "| P0-TEST-G07-05 | `tests/contracts/test_embedding_extension.py::test_environment_provider_reuses_atm_and_protocols` | Swap only the analytic physical provider and reuse both protocols, assembler, records and checker; no embedding branch is added to common code. | P0-REQ-001, P0-REQ-028 |",
+      "scope_limit": "partial arithmetic accepted; physical G07-T4 blocked"
+    },
+    {
+      "assertion_id": "P0-TEST-G07-06",
+      "classification": "partial_prior_physical_hold",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_07_v4_audit.md",
+      "evidence_snapshot": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+      "gate": "G07",
+      "gate_document": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+      "planned_assertion": "| P0-TEST-G07-06 | `tests/integration/test_joint_hybrid_atm.py::test_joint_periodic_geometry_and_forces` | Repeat the small admitted periodic version after the nonperiodic oracle passes; preserve both geometries on failure. | P0-REQ-005 |",
+      "scope_limit": "partial arithmetic accepted; physical G07-T4 blocked"
+    },
+    {
+      "assertion_id": "P0-TEST-G07-07",
+      "classification": "partial_prior_physical_hold",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_07_v4_audit.md",
+      "evidence_snapshot": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+      "gate": "G07",
+      "gate_document": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+      "planned_assertion": "| P0-TEST-G07-07 | `tests/integration/test_joint_hybrid_atm.py::test_real_model_two_unequal_ligand_single_points` | One capped cavity and two unequal complete ligands reproduce direct/native/AToM energy and all real forces at both maps without changing shared modules or membership. | P0-REQ-022, P0-REQ-006 |",
+      "scope_limit": "partial arithmetic accepted; physical G07-T4 blocked"
+    },
+    {
+      "assertion_id": "P0-TEST-G07-08",
+      "classification": "partial_prior_physical_hold",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_07_v4_audit.md",
+      "evidence_snapshot": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+      "gate": "G07",
+      "gate_document": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+      "planned_assertion": "| P0-TEST-G07-08 | `tests/integration/test_boundary_reference.py::test_uncut_and_partitioned_reference` | The declared uncut/partitioned comparison characterizes cap/ledger approximation against a reviewed frozen reference, with no assumption of exact Hamiltonian equality. | P0-REQ-003, P0-REQ-033 |",
+      "scope_limit": "Reference comparison remains blocked by 29 missing references, seven saved sensitivity exceedances and original failures."
+    },
+    {
+      "assertion_id": "P0-TEST-G07-09",
+      "classification": "partial_prior_physical_hold",
+      "evidence_path": "Worker_Log/Milestone_03/Gate_07_v4_audit.md",
+      "evidence_snapshot": "fcc1de9619f58934ff0c5835e01ecf3848a8a48c",
+      "gate": "G07",
+      "gate_document": "docs/project-0/gates/G07-joint-cavity-ligand-atm.md",
+      "planned_assertion": "| P0-TEST-G07-09 | `tests/integration/test_boundary_reference.py::test_boundary_location_and_contact_sensitivity` | Alternative admitted cuts/ML-region choices quantify relative/contact energy and force sensitivity within predeclared limits; failing comparisons narrow or block the profile. | P0-REQ-004, P0-REQ-033 |",
+      "scope_limit": "Reference comparison remains blocked by 29 missing references, seven saved sensitivity exceedances and original failures."
+    },
+    {
+      "assertion_id": "P0-TEST-G08-01",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_04/Gate_08_v2_audit.md",
+      "evidence_snapshot": "c0280818ad18fa5e95a022eccc892e2310a41721",
+      "gate": "G08",
+      "gate_document": "docs/project-0/gates/G08-thermodynamics-and-estimators.md",
+      "planned_assertion": "| P0-TEST-G08-01 | `tests/sampling/test_analytic_free_energy.py::test_harmonic_known_difference` | The specified constants give F1-F0=+1.5 kJ/mol, reverse=-1.5; kr=0 gives zero; quadrature and analytic samples agree. | P0-REQ-016, P0-REQ-030 |",
+      "scope_limit": "analytic/synthetic estimator scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G08-02",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_04/Gate_08_v2_audit.md",
+      "evidence_snapshot": "c0280818ad18fa5e95a022eccc892e2310a41721",
+      "gate": "G08",
+      "gate_document": "docs/project-0/gates/G08-thermodynamics-and-estimators.md",
+      "planned_assertion": "| P0-TEST-G08-02 | `tests/unit/test_schedule.py::test_reduced_energies_match_context` | For every declared state, reconstructed raw/softened/outside total equals direct context evaluation on saved frames. | P0-REQ-018 |",
+      "scope_limit": "analytic/synthetic estimator scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G08-03",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_04/Gate_08_v2_audit.md",
+      "evidence_snapshot": "c0280818ad18fa5e95a022eccc892e2310a41721",
+      "gate": "G08",
+      "gate_document": "docs/project-0/gates/G08-thermodynamics-and-estimators.md",
+      "planned_assertion": "| P0-TEST-G08-03 | `tests/unit/test_schedule.py::test_active_midpoint_difference_requires_bridge` | A deliberately different directional midpoint is detected; including its independently evaluated bridge restores the known result. | P0-REQ-017 |",
+      "scope_limit": "analytic/synthetic estimator scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G08-04",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_04/Gate_08_v2_audit.md",
+      "evidence_snapshot": "c0280818ad18fa5e95a022eccc892e2310a41721",
+      "gate": "G08",
+      "gate_document": "docs/project-0/gates/G08-thermodynamics-and-estimators.md",
+      "planned_assertion": "| P0-TEST-G08-04 | `tests/unit/test_restraint_volume.py::test_finite_wall_and_standard_state_sign` | Full finite-wall integral matches quadrature and limiting cases; standard-state sign follows the declared bound-minus-bulk convention. | P0-REQ-016 |",
+      "scope_limit": "analytic/synthetic estimator scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G08-05",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_04/Gate_08_v2_audit.md",
+      "evidence_snapshot": "c0280818ad18fa5e95a022eccc892e2310a41721",
+      "gate": "G08",
+      "gate_document": "docs/project-0/gates/G08-thermodynamics-and-estimators.md",
+      "planned_assertion": "| P0-TEST-G08-05 | `tests/unit/test_restraint_volume.py::test_required_correction_cannot_default_to_zero` | Required uncomputed orientation/release/bridge entries prevent a final standard binding result; demonstrated zero needs evidence. | P0-REQ-016, P0-REQ-017 |",
+      "scope_limit": "analytic/synthetic estimator scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G08-06",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_04/Gate_08_v2_audit.md",
+      "evidence_snapshot": "c0280818ad18fa5e95a022eccc892e2310a41721",
+      "gate": "G08",
+      "gate_document": "docs/project-0/gates/G08-thermodynamics-and-estimators.md",
+      "planned_assertion": "| P0-TEST-G08-06 | `tests/sampling/test_analytic_free_energy.py::test_estimators_covariance_and_offsets` | Independent estimators agree on identical reduced states; constant energy shifts cancel; covariance and correlated samples are treated as specified. | P0-REQ-018, P0-REQ-019 |",
+      "scope_limit": "analytic/synthetic estimator scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G09-01",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_05/Gate_09_v5_audit.md",
+      "evidence_snapshot": "bc6fd520308fba7e7448929138eb91e80ca6f063",
+      "gate": "G09",
+      "gate_document": "docs/project-0/gates/G09-solvent-preparation-and-export.md",
+      "planned_assertion": "| P0-TEST-G09-01 | `tests/workflow/test_solvated_handover.py::test_bulk_site_and_real_cross_forces` | Bulk placement clears the full solute and relevant images; ligand retains classical solvent interactions. | P0-REQ-003, P0-REQ-005 |",
+      "scope_limit": "bounded 64-water local plumbing; no liquid/accuracy claim"
+    },
+    {
+      "assertion_id": "P0-TEST-G09-02",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_05/Gate_09_v5_audit.md",
+      "evidence_snapshot": "bc6fd520308fba7e7448929138eb91e80ca6f063",
+      "gate": "G09",
+      "gate_document": "docs/project-0/gates/G09-solvent-preparation-and-export.md",
+      "planned_assertion": "| P0-TEST-G09-02 | `tests/workflow/test_solvated_handover.py::test_same_hamiltonian_in_preparation` | Minimization/thermalization and production export share physical identity, constraints and all-active force semantics. | P0-REQ-012, P0-REQ-021 |",
+      "scope_limit": "bounded 64-water local plumbing; no liquid/accuracy claim"
+    },
+    {
+      "assertion_id": "P0-TEST-G09-03",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_05/Gate_09_v5_audit.md",
+      "evidence_snapshot": "bc6fd520308fba7e7448929138eb91e80ca6f063",
+      "gate": "G09",
+      "gate_document": "docs/project-0/gates/G09-solvent-preparation-and-export.md",
+      "planned_assertion": "| P0-TEST-G09-03 | `tests/workflow/test_solvated_handover.py::test_worker_load_matches_direct_state` | Reload expected PDB/System/State handover, then compare coordinates, box, parameters, constraints, energies and real forces before stepping. | P0-REQ-015, P0-REQ-021 |",
+      "scope_limit": "bounded 64-water local plumbing; no liquid/accuracy claim"
+    },
+    {
+      "assertion_id": "P0-TEST-G09-04",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_05/Gate_09_v5_audit.md",
+      "evidence_snapshot": "bc6fd520308fba7e7448929138eb91e80ca6f063",
+      "gate": "G09",
+      "gate_document": "docs/project-0/gates/G09-solvent-preparation-and-export.md",
+      "planned_assertion": "| P0-TEST-G09-04 | `tests/workflow/test_solvated_handover.py::test_saved_raw_records_reconstruct_states` | Every saved pilot record preserves unambiguous raw energies, direction and state ID and permits independent reevaluation. | P0-REQ-018 |",
+      "scope_limit": "bounded 64-water local plumbing; no liquid/accuracy claim"
+    },
+    {
+      "assertion_id": "P0-TEST-G09-05",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_05/Gate_09_v5_audit.md",
+      "evidence_snapshot": "bc6fd520308fba7e7448929138eb91e80ca6f063",
+      "gate": "G09",
+      "gate_document": "docs/project-0/gates/G09-solvent-preparation-and-export.md",
+      "planned_assertion": "| P0-TEST-G09-05 | `tests/workflow/test_solvated_handover.py::test_both_mapped_geometries_remain_admitted` | Pilot frames check caps, periodic separation, graph edges and nonfinite alternate-state behavior; failures archive both geometries. | P0-REQ-020, P0-REQ-005 |",
+      "scope_limit": "bounded 64-water local plumbing; no liquid/accuracy claim"
+    },
+    {
+      "assertion_id": "P0-TEST-G10-01",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_05/Gate_10_v8_audit.md",
+      "evidence_snapshot": "2be9334aea5c8fc34a4bb7ca0ebf6c46802aee27",
+      "gate": "G10",
+      "gate_document": "docs/project-0/gates/G10-restart-and-replica-exchange.md",
+      "planned_assertion": "| P0-TEST-G10-01 | `tests/workflow/test_fresh_process.py::test_offline_cache_independent_reload` | The trusted bundle reconstructs with networking disabled and original model cache absent; exact asset identity remains unchanged. | P0-REQ-029, P0-REQ-015 |",
+      "scope_limit": "bounded serial multistate CPU scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G10-02",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_05/Gate_10_v8_audit.md",
+      "evidence_snapshot": "2be9334aea5c8fc34a4bb7ca0ebf6c46802aee27",
+      "gate": "G10",
+      "gate_document": "docs/project-0/gates/G10-restart-and-replica-exchange.md",
+      "planned_assertion": "| P0-TEST-G10-02 | `tests/workflow/test_restart.py::test_checkpoint_and_state_semantics` | Fixed-coordinate energy, forces, constraints, box and parameters agree; checkpoint and State guarantees are distinguished. | P0-REQ-015 |",
+      "scope_limit": "bounded serial multistate CPU scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G10-03",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_05/Gate_10_v8_audit.md",
+      "evidence_snapshot": "2be9334aea5c8fc34a4bb7ca0ebf6c46802aee27",
+      "gate": "G10",
+      "gate_document": "docs/project-0/gates/G10-restart-and-replica-exchange.md",
+      "planned_assertion": "| P0-TEST-G10-03 | `tests/workflow/test_replica_exchange.py::test_acceptance_uses_actual_reduced_energies` | For a proposed swap, compare the actual exponent with independently evaluated cross-state reduced energies and state labels. | P0-REQ-018, P0-REQ-015 |",
+      "scope_limit": "bounded serial multistate CPU scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G10-04",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_05/Gate_10_v8_audit.md",
+      "evidence_snapshot": "2be9334aea5c8fc34a4bb7ca0ebf6c46802aee27",
+      "gate": "G10",
+      "gate_document": "docs/project-0/gates/G10-restart-and-replica-exchange.md",
+      "planned_assertion": "| P0-TEST-G10-04 | `tests/workflow/test_replica_exchange.py::test_parameter_update_and_state_history` | After each state change and restart, raw parameters/energies and state/replica histories are current, not stale or inferred from directories. | P0-REQ-015, P0-REQ-018 |",
+      "scope_limit": "bounded serial multistate CPU scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G10-05",
+      "classification": "unavailable_hardware",
+      "evidence_path": "Worker_Log/Milestone_05/Gate_10_v8_audit.md",
+      "evidence_snapshot": "2be9334aea5c8fc34a4bb7ca0ebf6c46802aee27",
+      "gate": "G10",
+      "gate_document": "docs/project-0/gates/G10-restart-and-replica-exchange.md",
+      "planned_assertion": "| P0-TEST-G10-05 | `tests/workflow/test_fresh_process.py::test_model_and_openmm_worker_device` | Admitted GPU worker uses the intended OpenMM device and model-tensor device; unavailable multigpu evidence stays unqualified. | P0-REQ-015, P0-REQ-032 |",
+      "scope_limit": "GPU/device task is not_run or unsupported; no successful GPU qualification."
+    },
+    {
+      "assertion_id": "P0-TEST-G10-06",
+      "classification": "accepted_prior_narrow",
+      "evidence_path": "Worker_Log/Milestone_05/Gate_10_v8_audit.md",
+      "evidence_snapshot": "2be9334aea5c8fc34a4bb7ca0ebf6c46802aee27",
+      "gate": "G10",
+      "gate_document": "docs/project-0/gates/G10-restart-and-replica-exchange.md",
+      "planned_assertion": "| P0-TEST-G10-06 | `tests/workflow/test_restart.py::test_interruption_resume_without_duplicate_records` | Interrupt/resume preserves sample identity and avoids duplicated output or silently discarded records. | P0-REQ-015, P0-REQ-019 |",
+      "scope_limit": "bounded serial multistate CPU scope only"
+    },
+    {
+      "assertion_id": "P0-TEST-G11-01",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G11",
+      "gate_document": "docs/project-0/gates/G11-protein-abfe.md",
+      "planned_assertion": "| P0-TEST-G11-01 | `tests/workflow/test_protein_abfe.py::test_prepared_target_and_every_boundary` | All selected identities/caps and chemistry are reviewed; at least one derivative component per real parent pair is checked. | P0-REQ-002, P0-REQ-004 |",
+      "scope_limit": "generic structural input controls; no protein target worker"
+    },
+    {
+      "assertion_id": "P0-TEST-G11-02",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G11",
+      "gate_document": "docs/project-0/gates/G11-protein-abfe.md",
+      "planned_assertion": "| P0-TEST-G11-02 | `tests/workflow/test_protein_abfe.py::test_control_ensemble_and_identity` | All-MM, ligand-only and cavity-inclusive controls distinguish exact matched-constraint checks from intentional different-model ensembles. | P0-REQ-003, P0-REQ-013 |",
+      "scope_limit": "generic structural input controls; no protein target worker"
+    },
+    {
+      "assertion_id": "P0-TEST-G11-03",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G11",
+      "gate_document": "docs/project-0/gates/G11-protein-abfe.md",
+      "planned_assertion": "| P0-TEST-G11-03 | `tests/workflow/test_protein_abfe.py::test_abfe_result_correction_ledger` | The reported result includes explicit signs, restraints, midpoint connection and standard-state/release status. | P0-REQ-016, P0-REQ-017 |",
+      "scope_limit": "generic structural input controls; no protein target worker"
+    },
+    {
+      "assertion_id": "P0-TEST-G11-04",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G11",
+      "gate_document": "docs/project-0/gates/G11-protein-abfe.md",
+      "planned_assertion": "| P0-TEST-G11-04 | `tests/workflow/test_protein_abfe.py::test_bulk_placement_and_box_sensitivity_recorded` | Alternative admitted bulk placement and justified box-size checks produce a separate physical sensitivity record. | P0-REQ-005, P0-REQ-019 |",
+      "scope_limit": "generic structural input controls; no protein target worker"
+    },
+    {
+      "assertion_id": "P0-TEST-G11-05",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G11",
+      "gate_document": "docs/project-0/gates/G11-protein-abfe.md",
+      "planned_assertion": "| P0-TEST-G11-05 | `tests/workflow/test_protein_abfe.py::test_protein_restart_exchange_and_domain` | Realistic topology retains admitted force, restart, graph and counterfactual-domain behavior before sampled interpretation. | P0-REQ-015, P0-REQ-020 |",
+      "scope_limit": "generic structural input controls; no protein target worker"
+    },
+    {
+      "assertion_id": "P0-TEST-G11-06",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G11",
+      "gate_document": "docs/project-0/gates/G11-protein-abfe.md",
+      "planned_assertion": "| P0-TEST-G11-06 | `tests/workflow/test_protein_abfe.py::test_all_boundary_parent_cartesian_derivatives` | Every real parent at every protein cut is checked in x/y/z at both maps by unconstrained coordinate step sweeps and recomputed virtual sites. | P0-REQ-004, P0-REQ-006, P0-REQ-030 |",
+      "scope_limit": "generic structural input controls; no protein target worker"
+    },
+    {
+      "assertion_id": "P0-TEST-G12-01",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G12",
+      "gate_document": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+      "planned_assertion": "| P0-TEST-G12-01 | `tests/workflow/test_rbfe_transforms.py::test_opposite_group_maps_and_cap_identity` | Complete A/B groups receive the prescribed opposite translations; protein/cap maps and identities remain unchanged. | P0-REQ-022, P0-REQ-002 |",
+      "scope_limit": "host\u2013guest input plumbing only; parameters and closure absent"
+    },
+    {
+      "assertion_id": "P0-TEST-G12-02",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G12",
+      "gate_document": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+      "planned_assertion": "| P0-TEST-G12-02 | `tests/workflow/test_rbfe_transforms.py::test_correct_bound_component_and_no_spurious_contact` | Each endpoint connects the intended local-model ligand to the cavity and excludes unintended other-ligand/image contacts. | P0-REQ-005, P0-REQ-009 |",
+      "scope_limit": "host\u2013guest input plumbing only; parameters and closure absent"
+    },
+    {
+      "assertion_id": "P0-TEST-G12-03",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G12",
+      "gate_document": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+      "planned_assertion": "| P0-TEST-G12-03 | `tests/sampling/test_binding_closure.py::test_symmetric_a_to_a_free_energy` | Symmetric A-to-A equilibrium difference is compatible with zero under predeclared uncertainty criteria, without requiring instantaneous perturbation zero. | P0-REQ-016 |",
+      "scope_limit": "host\u2013guest input plumbing only; parameters and closure absent"
+    },
+    {
+      "assertion_id": "P0-TEST-G12-04",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G12",
+      "gate_document": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+      "planned_assertion": "| P0-TEST-G12-04 | `tests/sampling/test_binding_closure.py::test_reversed_pair_sign` | Reversed endpoint labels negate the intended relative observable while preserving the same physical model and correction accounting. | P0-REQ-016, P0-REQ-031 |",
+      "scope_limit": "host\u2013guest input plumbing only; parameters and closure absent"
+    },
+    {
+      "assertion_id": "P0-TEST-G12-05",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G12",
+      "gate_document": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+      "planned_assertion": "| P0-TEST-G12-05 | `tests/sampling/test_binding_closure.py::test_abfe_rbfe_comparison_matches_states` | Account for spectator-ligand, restraint, cavity/model/constraint and finite-box differences before interpreting closure. | P0-REQ-031, P0-REQ-019 |",
+      "scope_limit": "host\u2013guest input plumbing only; parameters and closure absent"
+    },
+    {
+      "assertion_id": "P0-TEST-G12-06",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G12",
+      "gate_document": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+      "planned_assertion": "| P0-TEST-G12-06 | `tests/workflow/test_rbfe_transforms.py::test_shared_pipeline_and_restart` | The larger joint input uses the same physical builder, ATM assembler, observable schema and restart contracts without per-RBFE physics forks. | P0-REQ-001, P0-REQ-022, P0-REQ-015 |",
+      "scope_limit": "host\u2013guest input plumbing only; parameters and closure absent"
+    },
+    {
+      "assertion_id": "P0-TEST-G12-07",
+      "classification": "physical_input_hold",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "evidence_snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+      "gate": "G12",
+      "gate_document": "docs/project-0/gates/G12-dual-ligand-rbfe.md",
+      "planned_assertion": "| P0-TEST-G12-07 | `tests/sampling/test_binding_closure.py::test_independently_sampled_reverse_pair` | Independently initialized reverse sampling on a small molecular fixture gives the opposite observable within predeclared uncertainty/overlap criteria; deterministic relabeling alone cannot pass. | P0-REQ-016, P0-REQ-019, P0-REQ-031 |",
+      "scope_limit": "host\u2013guest input plumbing only; parameters and closure absent"
+    },
+    {
+      "assertion_id": "P0-TEST-G13-01",
+      "classification": "worker_tested_pending_review",
+      "evidence_path": "Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-committed-001.log",
+      "evidence_sha256": "b6776dca42b4df7bfd168e71fbda40691b076437e6392945afabcc51941abbcd",
+      "evidence_snapshot": "b3504f09e224b6f8fc636615ec3284e9326c6d45; 31 focused tests passed, zero skips",
+      "gate": "G13",
+      "gate_document": "docs/project-0/gates/G13-performance-and-release.md",
+      "planned_assertion": "| P0-TEST-G13-01 | `tests/workflow/test_release_bundle.py::test_clean_offline_reproduction` | A clean admitted environment and offline asset bundle reproduce deterministic checks and required workflow evidence. | P0-REQ-025, P0-REQ-029 |",
+      "scope_limit": "Batch E worker evidence is limited to the named tiny CLI, schema/metric, package bundle, support-matrix and profile-check tests; full dependency-cache reinstall, HPC parity, physical qualification and independent review remain open."
+    },
+    {
+      "assertion_id": "P0-TEST-G13-02",
+      "classification": "worker_tested_pending_review",
+      "evidence_path": "Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-committed-001.log",
+      "evidence_sha256": "b6776dca42b4df7bfd168e71fbda40691b076437e6392945afabcc51941abbcd",
+      "evidence_snapshot": "b3504f09e224b6f8fc636615ec3284e9326c6d45; 31 focused tests passed, zero skips",
+      "gate": "G13",
+      "gate_document": "docs/project-0/gates/G13-performance-and-release.md",
+      "planned_assertion": "| P0-TEST-G13-02 | `tests/contracts/test_release_evidence.py::test_claimed_profiles_have_required_evidence` | Every claimed capability references accepted gate/profile evidence; absent GPU or extended sampling results cannot be promoted. | P0-REQ-025, P0-REQ-032 |",
+      "scope_limit": "Batch E worker evidence is limited to the named tiny CLI, schema/metric, package bundle, support-matrix and profile-check tests; full dependency-cache reinstall, HPC parity, physical qualification and independent review remain open."
+    },
+    {
+      "assertion_id": "P0-TEST-G13-03",
+      "classification": "worker_tested_pending_review",
+      "evidence_path": "Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-committed-001.log",
+      "evidence_sha256": "b6776dca42b4df7bfd168e71fbda40691b076437e6392945afabcc51941abbcd",
+      "evidence_snapshot": "b3504f09e224b6f8fc636615ec3284e9326c6d45; 31 focused tests passed, zero skips",
+      "gate": "G13",
+      "gate_document": "docs/project-0/gates/G13-performance-and-release.md",
+      "planned_assertion": "| P0-TEST-G13-03 | `tests/unit/test_benchmark_metrics.py::test_time_and_resource_units` | Distinguish startup and steady state; ns/day=0.0864*dt_fs/step_seconds; aggregate resource estimates do not double-count replicas. | P0-REQ-027 |",
+      "scope_limit": "Batch E worker evidence is limited to the named tiny CLI, schema/metric, package bundle, support-matrix and profile-check tests; full dependency-cache reinstall, HPC parity, physical qualification and independent review remain open."
+    },
+    {
+      "assertion_id": "P0-TEST-G13-04",
+      "classification": "not_applicable_no_optimization",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_E_v1_worker.md",
+      "evidence_snapshot": "b3504f09e224b6f8fc636615ec3284e9326c6d45; no optimization, precision, timestep or Hamiltonian change",
+      "gate": "G13",
+      "gate_document": "docs/project-0/gates/G13-performance-and-release.md",
+      "planned_assertion": "| P0-TEST-G13-04 | `tests/integration/test_optimization_equivalence.py::test_optimized_scope_preserves_hamiltonian` | Any admitted routing/precision/invariant-term change passes endpoint, force, known-answer and affected regression checks. | P0-REQ-027, P0-REQ-011 |",
+      "scope_limit": "No optimization, precision/timestep change, or physical behavior change was introduced in Batch E."
+    },
+    {
+      "assertion_id": "P0-TEST-G13-05",
+      "classification": "worker_tested_pending_review",
+      "evidence_path": "Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-committed-001.log",
+      "evidence_sha256": "b6776dca42b4df7bfd168e71fbda40691b076437e6392945afabcc51941abbcd",
+      "evidence_snapshot": "b3504f09e224b6f8fc636615ec3284e9326c6d45; 31 focused tests passed, zero skips",
+      "gate": "G13",
+      "gate_document": "docs/project-0/gates/G13-performance-and-release.md",
+      "planned_assertion": "| P0-TEST-G13-05 | `tests/contracts/test_release_evidence.py::test_implementation_sampling_physics_separate` | Release statements distinguish implemented, smoke-tested, sampled, physically assessed and explicitly unsupported combinations. | P0-REQ-025, P0-REQ-028, P0-REQ-032 |",
+      "scope_limit": "Batch E worker evidence is limited to the named tiny CLI, schema/metric, package bundle, support-matrix and profile-check tests; full dependency-cache reinstall, HPC parity, physical qualification and independent review remain open."
+    }
+  ],
+  "format": "atom-mlmm-before-hpc-requirement-matrix-v1",
+  "frozen_g07_obligations": {
+    "accepted_g05_records": {
+      "count": 46,
+      "source_manifest_sha256": "48565f02f39afae45132ea4048ea8302f170b3e0efef0702228fa6ff3c809ad0",
+      "status": "preserved; not regenerated"
+    },
+    "original_failures": "Retained immutable under historical G07 worker/evidence directories; Batch E does not regenerate or rewrite them.",
+    "reference_inventory": {
+      "alternate_cap": 10,
+      "full_parent": 19,
+      "inventory_regenerated": false,
+      "source": "Worker_Log/Repository_Review/evidence/Repository_Review_v1/physical-evidence.json",
+      "source_sha256": "462315d6c22057d380e8df8669e8c88e820bfdf23c0db06b6bb6ce4855b0f9da",
+      "total_missing": 29
+    },
+    "sensitivity_exceedances": {
+      "count": 7,
+      "sha256": "cad9bc9283ac66ed5d337141e32c848bb3e54905ade36eb6d79daa34674fd67f",
+      "source": "Worker_Log/Milestone_03/evidence/G07_v1/region-sensitivity.json"
+    }
+  },
+  "m05_conditions": [
+    {
+      "classification": "accepted_prior_narrow",
+      "condition_id": "M05-bounded-worker-exchange",
+      "evidence_path": "Worker_Log/Milestone_05/Gate_10_v8_audit.md",
+      "scope": "bounded 3\u20138-state serial worker controller on the accepted 224/233-atom fixtures; no mixing or binding claim",
+      "snapshot": "2be9334aea5c8fc34a4bb7ca0ebf6c46802aee27"
+    },
+    {
+      "classification": "physical_input_hold",
+      "condition_id": "M05-dense-liquid",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "scope": "64-water controls are geometry/plumbing; no physical-liquid density/equilibration",
+      "snapshot": "e117a18ef253caa1bca354376c6d1badbd635515"
+    },
+    {
+      "classification": "physical_input_hold",
+      "condition_id": "M05-statistical-molecular",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_C_v1_worker.md",
+      "scope": "known-answer controls are synthetic only; no adequate molecular uncertainty/convergence",
+      "snapshot": "0de7cc887adc77863d8bc3b9b888f6239c8c8687"
+    },
+    {
+      "classification": "physical_input_hold",
+      "condition_id": "M05-protein-and-rbfe",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+      "scope": "generic controls only; no real protein target and no physical host/solvent parameter route",
+      "snapshot": "e117a18ef253caa1bca354376c6d1badbd635515"
+    },
+    {
+      "classification": "not_performed_this_batch",
+      "condition_id": "M05-independent-combined-review",
+      "evidence_path": "Worker_Log/Before_HPC/Batch_E_v1_worker.md",
+      "scope": "no independent review or milestone acceptance occurred in Batch E",
+      "snapshot": "Batch E source tree in evidence receipt"
+    }
+  ],
+  "qm_feasibility": {
+    "authorized": false,
+    "charged_seconds": 2325.6446500519996,
+    "decision": "no reset, budget increase or launch",
+    "existing_continuation_estimate_seconds": 122992.52458401839,
+    "remaining_seconds": 84074.355349948,
+    "source": "Worker_Log/Milestone_03/evidence/G07_v2/quantum-attempt-v1/progress.json",
+    "source_sha256": "8e5fee37b95288137d9c6b5a7cefe1307a9435a2ef33d03be0f560d8c2f2c0c6"
+  },
+  "schema_version": 1
+}

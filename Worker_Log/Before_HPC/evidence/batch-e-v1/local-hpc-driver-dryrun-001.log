@@ -1,0 +1,59 @@
+START_UTC 2026-10-07T15:06:42Z
+SOURCE_COMMIT b3504f09e224b6f8fc636615ec3284e9326c6d45
+SOURCE_TREE 97a88372e4edafba6d3e7ee8ab8202117578c00c
+HPC_TEMPLATE_SHA afdaf6e287fc7bc0796542c1846e3b1a76a60c4fd9153ef7c6caa4f3db5ae9a0  environment/hpc/profile-template.json
+ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
+ARGV python tools/run_before_hpc_checks.py
+{
+  "mode": "dry_run",
+  "commands": [
+    [
+      "/workspace/before-hpc-cpu-v2/env/bin/python",
+      "-m",
+      "pytest",
+      "tests/workflow/test_release_bundle.py",
+      "tests/contracts/test_release_evidence.py",
+      "tests/unit/test_benchmark_metrics.py",
+      "tests/environment/test_hpc_profile.py",
+      "-q"
+    ]
+  ],
+  "full_suite": "parent-owned single run",
+  "hidden_jobs": false
+}
+DRIVER_EXIT 0
+ARGV python tools/check_hpc_profile.py environment/hpc/profile-template.json --output /tmp/atom-mlmm-batch-e-hpc-profile-default-001.json
+{
+  "errors": [],
+  "missing_fields": [
+    "allocation.memory_gib",
+    "allocation.scheduler",
+    "allocation.threads",
+    "allocation.walltime_seconds",
+    "allocation.workers",
+    "artifacts.asset_manifest_sha256",
+    "artifacts.input_manifest_sha256",
+    "artifacts.source_sha256",
+    "artifacts.wheel_sha256",
+    "checkpoint.compatible_with",
+    "platform.device",
+    "platform.driver",
+    "platform.name",
+    "profile_id",
+    "software.model",
+    "software.openmm",
+    "software.python",
+    "storage.filesystem",
+    "storage.path",
+    "verified_release_bundle"
+  ],
+  "profile_id": null,
+  "scheduler_submission": "not_implemented",
+  "scope": "profile validation and local trial dry-run only; cluster parity/restart remains untested",
+  "status": "held",
+  "submission_performed": false
+}
+PROFILE_EXIT 2 (2 is expected while platform/storage/allocation values remain unknown)
+9bbe80e2e65ce3e60aeae3984dc988828f1a8b04f21d2e8816ba6fbfe7889e87  /tmp/atom-mlmm-batch-e-hpc-profile-default-001.json
+SUBMISSION 0; scheduler guess none
+END_UTC 2026-10-07T15:06:42Z

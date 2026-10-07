@@ -1,0 +1,8 @@
+START_UTC 2026-10-07T14:47:26Z
+ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
+THREADS OPENBLAS=2 OMP=2 MKL=2
+ARGV python -m venv --system-site-packages /tmp/atom-mlmm-batch-e-installed-004
+FAILED ATTEMPT: after changing working directory to /tmp, the logging path remained relative; tee could not open Worker_Log/Before_HPC/evidence/batch-e-v1/package-install-final-001.log, so pip install and probes did not run.
+OBSERVED: tee: Worker_Log/Before_HPC/evidence/batch-e-v1/package-install-final-001.log: No such file or directory
+EXIT_CODE 1
+END_UTC recorded by orchestration 2026-10-07T14:47:26Z

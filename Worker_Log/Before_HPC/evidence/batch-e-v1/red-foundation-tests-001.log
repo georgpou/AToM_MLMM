@@ -1,0 +1,120 @@
+FFFFFFFFFFFFF                                                            [100%]
+=================================== FAILURES ===================================
+___________ test_ns_per_day_uses_declared_timestep_and_step_seconds ____________
+
+    def test_ns_per_day_uses_declared_timestep_and_step_seconds():
+>       from atm_mlmm.benchmark import ns_per_day
+E       ModuleNotFoundError: No module named 'atm_mlmm.benchmark'
+
+tests/unit/test_benchmark_metrics.py:5: ModuleNotFoundError
+_____________ test_ns_per_day_rejects_nonpositive_inputs[0.0-1.0] ______________
+
+timestep = 0.0, seconds = 1.0
+
+    @pytest.mark.parametrize("timestep,seconds", [(0.0, 1.0), (-0.5, 1.0), (0.5, 0.0), (0.5, -1.0)])
+    def test_ns_per_day_rejects_nonpositive_inputs(timestep, seconds):
+>       from atm_mlmm.benchmark import ns_per_day
+E       ModuleNotFoundError: No module named 'atm_mlmm.benchmark'
+
+tests/unit/test_benchmark_metrics.py:12: ModuleNotFoundError
+_____________ test_ns_per_day_rejects_nonpositive_inputs[-0.5-1.0] _____________
+
+timestep = -0.5, seconds = 1.0
+
+    @pytest.mark.parametrize("timestep,seconds", [(0.0, 1.0), (-0.5, 1.0), (0.5, 0.0), (0.5, -1.0)])
+    def test_ns_per_day_rejects_nonpositive_inputs(timestep, seconds):
+>       from atm_mlmm.benchmark import ns_per_day
+E       ModuleNotFoundError: No module named 'atm_mlmm.benchmark'
+
+tests/unit/test_benchmark_metrics.py:12: ModuleNotFoundError
+_____________ test_ns_per_day_rejects_nonpositive_inputs[0.5-0.0] ______________
+
+timestep = 0.5, seconds = 0.0
+
+    @pytest.mark.parametrize("timestep,seconds", [(0.0, 1.0), (-0.5, 1.0), (0.5, 0.0), (0.5, -1.0)])
+    def test_ns_per_day_rejects_nonpositive_inputs(timestep, seconds):
+>       from atm_mlmm.benchmark import ns_per_day
+E       ModuleNotFoundError: No module named 'atm_mlmm.benchmark'
+
+tests/unit/test_benchmark_metrics.py:12: ModuleNotFoundError
+_____________ test_ns_per_day_rejects_nonpositive_inputs[0.5--1.0] _____________
+
+timestep = 0.5, seconds = -1.0
+
+    @pytest.mark.parametrize("timestep,seconds", [(0.0, 1.0), (-0.5, 1.0), (0.5, 0.0), (0.5, -1.0)])
+    def test_ns_per_day_rejects_nonpositive_inputs(timestep, seconds):
+>       from atm_mlmm.benchmark import ns_per_day
+E       ModuleNotFoundError: No module named 'atm_mlmm.benchmark'
+
+tests/unit/test_benchmark_metrics.py:12: ModuleNotFoundError
+_______ test_benchmark_summary_separates_startup_and_repeat_variability ________
+
+    def test_benchmark_summary_separates_startup_and_repeat_variability():
+>       from atm_mlmm.benchmark import summarize_case
+E       ModuleNotFoundError: No module named 'atm_mlmm.benchmark'
+
+tests/unit/test_benchmark_metrics.py:19: ModuleNotFoundError
+_____ test_serial_replicas_are_not_double_counted_as_aggregate_throughput ______
+
+    def test_serial_replicas_are_not_double_counted_as_aggregate_throughput():
+>       from atm_mlmm.benchmark import serial_resource_totals
+E       ModuleNotFoundError: No module named 'atm_mlmm.benchmark'
+
+tests/unit/test_benchmark_metrics.py:44: ModuleNotFoundError
+________ test_claimed_profiles_require_exact_profile_and_evidence_level ________
+
+    def test_claimed_profiles_require_exact_profile_and_evidence_level():
+>       from atm_mlmm.release import validate_support_matrix
+E       ModuleNotFoundError: No module named 'atm_mlmm.release'
+
+tests/contracts/test_release_evidence.py:11: ModuleNotFoundError
+____________ test_code_checkbox_cannot_promote_unrun_gpu_or_physics ____________
+
+    def test_code_checkbox_cannot_promote_unrun_gpu_or_physics():
+>       from atm_mlmm.release import validate_support_matrix
+E       ModuleNotFoundError: No module named 'atm_mlmm.release'
+
+tests/contracts/test_release_evidence.py:22: ModuleNotFoundError
+__________ test_release_validator_rejects_missing_profile_dimensions ___________
+
+    def test_release_validator_rejects_missing_profile_dimensions():
+>       from atm_mlmm.release import validate_support_matrix
+E       ModuleNotFoundError: No module named 'atm_mlmm.release'
+
+tests/contracts/test_release_evidence.py:34: ModuleNotFoundError
+___ test_hpc_profile_template_is_incomplete_and_defaults_to_validation_only ____
+
+    def test_hpc_profile_template_is_incomplete_and_defaults_to_validation_only():
+>       from atm_mlmm.hpc import check_profile
+E       ModuleNotFoundError: No module named 'atm_mlmm.hpc'
+
+tests/environment/test_hpc_profile.py:13: ModuleNotFoundError
+__________ test_complete_profile_only_authorizes_local_trial_dry_run ___________
+
+    def test_complete_profile_only_authorizes_local_trial_dry_run():
+>       from atm_mlmm.hpc import check_profile
+E       ModuleNotFoundError: No module named 'atm_mlmm.hpc'
+
+tests/environment/test_hpc_profile.py:23: ModuleNotFoundError
+_______ test_hpc_profile_rejects_unknown_scheduler_or_missing_input_hash _______
+
+    def test_hpc_profile_rejects_unknown_scheduler_or_missing_input_hash():
+>       from atm_mlmm.hpc import check_profile
+E       ModuleNotFoundError: No module named 'atm_mlmm.hpc'
+
+tests/environment/test_hpc_profile.py:46: ModuleNotFoundError
+=========================== short test summary info ============================
+FAILED tests/unit/test_benchmark_metrics.py::test_ns_per_day_uses_declared_timestep_and_step_seconds
+FAILED tests/unit/test_benchmark_metrics.py::test_ns_per_day_rejects_nonpositive_inputs[0.0-1.0]
+FAILED tests/unit/test_benchmark_metrics.py::test_ns_per_day_rejects_nonpositive_inputs[-0.5-1.0]
+FAILED tests/unit/test_benchmark_metrics.py::test_ns_per_day_rejects_nonpositive_inputs[0.5-0.0]
+FAILED tests/unit/test_benchmark_metrics.py::test_ns_per_day_rejects_nonpositive_inputs[0.5--1.0]
+FAILED tests/unit/test_benchmark_metrics.py::test_benchmark_summary_separates_startup_and_repeat_variability
+FAILED tests/unit/test_benchmark_metrics.py::test_serial_replicas_are_not_double_counted_as_aggregate_throughput
+FAILED tests/contracts/test_release_evidence.py::test_claimed_profiles_require_exact_profile_and_evidence_level
+FAILED tests/contracts/test_release_evidence.py::test_code_checkbox_cannot_promote_unrun_gpu_or_physics
+FAILED tests/contracts/test_release_evidence.py::test_release_validator_rejects_missing_profile_dimensions
+FAILED tests/environment/test_hpc_profile.py::test_hpc_profile_template_is_incomplete_and_defaults_to_validation_only
+FAILED tests/environment/test_hpc_profile.py::test_complete_profile_only_authorizes_local_trial_dry_run
+FAILED tests/environment/test_hpc_profile.py::test_hpc_profile_rejects_unknown_scheduler_or_missing_input_hash
+13 failed in 0.05s

@@ -1,0 +1,38 @@
+START_UTC 2026-10-07T14:47:43Z
+ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
+THREADS OPENBLAS=2 OMP=2 MKL=2
+ARGV python -m venv --system-site-packages /tmp/atom-mlmm-batch-e-installed-005
+ARGV env -u PYTHONPATH installed-005/bin/python -m pip install --no-index --no-deps --force-reinstall wheel-003
+Processing ./atom-mlmm-batch-e-wheel-003/atom_mlmm-0.1.0-py3-none-any.whl
+Installing collected packages: atom-mlmm
+Successfully installed atom-mlmm-0.1.0
+ARGV env -u PYTHONPATH installed-005/bin/python analytic-probe.py
+{"energy_kj_mol": 0.04000000000000001, "force_kj_mol_nm": [[-0.4, 0.0, 0.0]], "package_location": "/tmp/atom-mlmm-batch-e-installed-005/lib/python3.11/site-packages/atm_mlmm/__init__.py", "project_install_prefix": "/tmp/atom-mlmm-batch-e-installed-005", "scope": "installed analytic one-particle harmonic energy/force", "source_checkout_excluded": true}
+ARGV env -u PYTHONPATH installed-005/bin/python -m atm_mlmm --help
+usage: python -m atm_mlmm [-h]
+                          {check,run,resume,exchange,resume-exchange,exchange-multistate,resume-multistate,analyze}
+                          ...
+
+positional arguments:
+  {check,run,resume,exchange,resume-exchange,exchange-multistate,resume-multistate,analyze}
+    check               validate declarative inputs without executing
+                        artifacts
+    run                 bounded fixed-window engine preflight
+    resume              continue the verified committed prefix on the
+                        identical profile
+    exchange            bounded transactional two-worker exchange from a
+                        prepared run
+    resume-exchange     continue verified complete exchange rounds
+    exchange-multistate
+                        run the existing bounded serial 3–8-state controller
+                        from an explicit connected-pair plan
+    resume-multistate   resume the verified multistate prefix; pending
+                        recovery is explicit
+    analyze             analyze declared exchange records with explicit
+                        thermodynamics, resampling and optional joint
+                        covariance
+
+options:
+  -h, --help            show this help message and exit
+END_UTC 2026-10-07T14:47:46Z
+75f4a5572cc99b37d2042763394c08ee26e3c4774a9404530d2d5e977376c6fd  /tmp/atom-mlmm-batch-e-wheel-003/atom_mlmm-0.1.0-py3-none-any.whl

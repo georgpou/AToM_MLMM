@@ -1,0 +1,1927 @@
+{
+  "dependencies": {
+    "fully_offline_reinstall": false,
+    "note": "The bundle does not assert a complete cached dependency artifact set; use the validated locked CPU profile."
+  },
+  "files": [
+    {
+      "bundle_path": "assets/mace-off23-small/LICENSE.md",
+      "bytes": 16366,
+      "category": "asset",
+      "sha256": "6a77e88bfed86fe9476ed36e453e2ea1e154ff1ec464b0fdeb3e079b6112d71e",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/models/mace-off23-small/LICENSE.md"
+    },
+    {
+      "bundle_path": "assets/mace-off23-small/MACE-OFF23_small.model",
+      "bytes": 7347350,
+      "category": "asset",
+      "sha256": "165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/models/mace-off23-small/MACE-OFF23_small.model"
+    },
+    {
+      "bundle_path": "assets/mace-off23-small/manifest.json",
+      "bytes": 1369,
+      "category": "asset",
+      "sha256": "6d78f71f779798b67d73da573c67e2ce65ba6c2bfe1d1d3b8fa6c72d603a0926",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/models/mace-off23-small/manifest.json"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/analysis-cli-roundtrip-001.log",
+      "bytes": 342,
+      "category": "evidence",
+      "sha256": "fec055714971e50a8351a341a545953dd1bbb6660af0780067cb02fdb8311754",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/analysis-cli-roundtrip-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/benchmark-all-mm-smoke-001.log",
+      "bytes": 899,
+      "category": "evidence",
+      "sha256": "8256a40b86ff33119e06ba6a7dbfc2915d37e522abbd7e24a4c95b16780c67fa",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-all-mm-smoke-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/benchmark-atm-smoke-001.log",
+      "bytes": 1060,
+      "category": "evidence",
+      "sha256": "1ab362a3965be6e5c12d80aad4589fc681cb2181303cee24b5f8e951f1731c7d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-atm-smoke-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/benchmark-cases-final-001.json",
+      "bytes": 1736,
+      "category": "evidence",
+      "sha256": "a5758d06757f9a30f4ef82e9d2da9b0720a32b3d4682122e46be35c475e4e88c",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-cases-final-001.json"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/benchmark-cavity-smoke-001.log",
+      "bytes": 1073,
+      "category": "evidence",
+      "sha256": "842d58216a0cb8c2d0896b9833d0389328c6722fcf70550802932ffe02fb221a",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-cavity-smoke-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/benchmark-final-001.log",
+      "bytes": 38552,
+      "category": "evidence",
+      "sha256": "b0d61c7df784c8d847a782a3be34d9755a3438325d372144d495b4568ecbb4d8",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-final-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/benchmark-ligand-smoke-001.log",
+      "bytes": 1280,
+      "category": "evidence",
+      "sha256": "51c70a0a74986c07545fc4804afbf1301d9069566cf34636385b8995705833d3",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-ligand-smoke-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/benchmark-ligand-smoke-002.log",
+      "bytes": 946,
+      "category": "evidence",
+      "sha256": "7aa657fc966e99632c30e2800d6be04bd5f7b4d2cc27e5eb416e0c3a559ae9c5",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-ligand-smoke-002.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/benchmark-ligand-smoke-003.log",
+      "bytes": 1510,
+      "category": "evidence",
+      "sha256": "3adb737047eb1f5956024d6e6a8f52acf734a1991b542326f113c50078fa3da9",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-ligand-smoke-003.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/benchmark-ligand-smoke-004.log",
+      "bytes": 1057,
+      "category": "evidence",
+      "sha256": "17be1ef6d8b217551dc2b57807d2352bef6855ccaa57433b7bd34f5fc51cc088",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-ligand-smoke-004.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/benchmark-receipt-final-001.json",
+      "bytes": 38205,
+      "category": "evidence",
+      "sha256": "ad75e2cddd4a86f08f915dda974f25b4deb529c4de1ef7ed37e431d099e29d79",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-receipt-final-001.json"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/benchmark-worker-smoke-001.log",
+      "bytes": 1362,
+      "category": "evidence",
+      "sha256": "0c2b3faf8043edda91b6d8e76dba9d5a7fd6b9bbf71103535e4f42a731f55232",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-worker-smoke-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/benchmark-worker-smoke-002.log",
+      "bytes": 1054,
+      "category": "evidence",
+      "sha256": "9f0ef454135fe7e9e8aeb51a8564911e69e86505361ae95e5c76405351432e62",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-worker-smoke-002.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/durable-failure-001.log",
+      "bytes": 4821,
+      "category": "evidence",
+      "sha256": "d654e2bff6099e27d2a6a3accdd8fd7e23b36cb73048857cdf40a8dd39c1d983",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/durable-failure-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/durable-failure-002.log",
+      "bytes": 375,
+      "category": "evidence",
+      "sha256": "bc7c4c950db11990e5d59f866668a1fabc4c950f2841c98ee14de79d99e63a3e",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/durable-failure-002.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/focused-core-001.log",
+      "bytes": 1761,
+      "category": "evidence",
+      "sha256": "20a11317b5d80be3818b1f777664101820fb43c49fa99ca26503e6966fcf7c5c",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/focused-core-002.log",
+      "bytes": 1219,
+      "category": "evidence",
+      "sha256": "74fee5df26a26beb3191dd45952565ac9d4cdae695acc046a240901c837927e2",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-002.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/focused-core-003.log",
+      "bytes": 99,
+      "category": "evidence",
+      "sha256": "29680a96da0fb4e585730694fbf09e8386a72b7ebebe44b0f1c0fa802f639aa2",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-003.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/focused-core-004.log",
+      "bytes": 516,
+      "category": "evidence",
+      "sha256": "8108895f6832f17b6879cb77b91953dd732422a6b2e07629fb369ae74be576fd",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-004.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/focused-core-005.log",
+      "bytes": 613,
+      "category": "evidence",
+      "sha256": "6b9fe9ba3aaef157d562639f28d99034eb6fadb859262a882a6aaccdbe4b719d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-005.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/focused-core-committed-001.log",
+      "bytes": 911,
+      "category": "evidence",
+      "sha256": "b6776dca42b4df7bfd168e71fbda40691b076437e6392945afabcc51941abbcd",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-committed-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/focused-core-final-001.log",
+      "bytes": 614,
+      "category": "evidence",
+      "sha256": "99217566c333695a0a84caa189681f1af5327cdec63e666104301560d32fdc22",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-final-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/focused-core-final-002.log",
+      "bytes": 906,
+      "category": "evidence",
+      "sha256": "129568df400974ee180ff93b72f04a179e2bc06a840e05370a19aaea13e3f607",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-final-002.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/focused-machine-data-001.log",
+      "bytes": 814,
+      "category": "evidence",
+      "sha256": "b35c85a903c80fa5564358c8e77e25384295b5c5287a11f0d1bce4e60aec978d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/focused-machine-data-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/focused-machine-data-final-001.log",
+      "bytes": 814,
+      "category": "evidence",
+      "sha256": "bccc0a7d9b1b01928c5a847cf5173d87f5044432f8256652f1d252557882eaf8",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/focused-machine-data-final-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/focused-support-001.log",
+      "bytes": 288,
+      "category": "evidence",
+      "sha256": "9638f9836844d684f5b6c61105c59e6d06cfcf24b09cc9928f28de4e0d386202",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/focused-support-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/fresh-worker-export-001.log",
+      "bytes": 623,
+      "category": "evidence",
+      "sha256": "0851d04e3cf2d2fb124702fc287f1c3acc5f5b9d1ffb34079894dae955479572",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/fresh-worker-export-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/installed-analytic-probe.py",
+      "bytes": 1527,
+      "category": "evidence",
+      "sha256": "65fff72b30a893debcfc8b83e384cb817dfb25414ab085036c4d4bf94a7ffa3d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/installed-analytic-probe.py"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/installed-bundle-worker-001.log",
+      "bytes": 2052,
+      "category": "evidence",
+      "sha256": "981e83587ea07582f2aec2cce19e2f9267e011ef57757b9820caf5da85ea7d6a",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/installed-bundle-worker-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/installed-bundle-worker-probe.py",
+      "bytes": 3412,
+      "category": "evidence",
+      "sha256": "b404896f461bca2072ce3a4067a23e711b0b2c087320ba1aee6632e4ca021e64",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/installed-bundle-worker-probe.py"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/installed-fresh-worker-001.log",
+      "bytes": 1542,
+      "category": "evidence",
+      "sha256": "a3d696e47da89b913a1740755a5233e2315a9a4e952927c784bb48e0d524ff87",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/installed-fresh-worker-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/installed-fresh-worker-002.log",
+      "bytes": 2089,
+      "category": "evidence",
+      "sha256": "061fd05dfdf1d311107c4f3c6abf32f033cd0c10adca7a76f3735cb7f30cb11c",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/installed-fresh-worker-002.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/installed-fresh-worker-probe.py",
+      "bytes": 3500,
+      "category": "evidence",
+      "sha256": "a801fec1fa9eb7d77df8881ffd8fad4006224b0f91ef0ba1be5e79ecd50757bc",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/installed-fresh-worker-probe.py"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/local-hpc-driver-dryrun-001.log",
+      "bytes": 1997,
+      "category": "evidence",
+      "sha256": "8ebc9965fd0b050a04699afad64f86e9eef707547d21706a0d6a5f8423dd0fc3",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/local-hpc-driver-dryrun-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/multistate-cli-roundtrip-001.log",
+      "bytes": 2105,
+      "category": "evidence",
+      "sha256": "b30f21d84c4aa3cdebd751e5eb465d1e312cf9d1c895f3b4a7c0307fe77c9408",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/multistate-cli-roundtrip-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/multistate-cli-roundtrip-002.log",
+      "bytes": 666,
+      "category": "evidence",
+      "sha256": "cdc894cfadb2b0dd5588f60e5f4a73a7ace6ec4d2303f09565cf28d9989b5c2e",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/multistate-cli-roundtrip-002.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/multistate-cli-roundtrip-red-001.log",
+      "bytes": 2289,
+      "category": "evidence",
+      "sha256": "756c75bb6da529b186d12376fa34eb6a8359a171e6ff7878bac246095a2eade6",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/multistate-cli-roundtrip-red-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/package-install-002.log",
+      "bytes": 1439,
+      "category": "evidence",
+      "sha256": "fdf4b80c2edbd35bf1a2be823d0b478e2ce1aac78792f0e23efbe778c2d8aa05",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/package-install-002.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/package-install-003.log",
+      "bytes": 953,
+      "category": "evidence",
+      "sha256": "ddaff88b9c09689f49a8e7ef08866a0ca9c21aaa6f409a18a523658249cf5bd1",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/package-install-003.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/package-install-final-001.log",
+      "bytes": 600,
+      "category": "evidence",
+      "sha256": "ddbf1dcafb7793ed0774c84023ff43dbbec84913889025e4516033adc0db0584",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/package-install-final-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/package-install-final-002.log",
+      "bytes": 2378,
+      "category": "evidence",
+      "sha256": "64c65bb48c37f81b39379f2e6797c388fb9ad4f898003fea06f065b717d5c09c",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/package-install-final-002.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/package-wheel-001.log",
+      "bytes": 625,
+      "category": "evidence",
+      "sha256": "5ab2d540221e37de6cb9d8eeed996949f95f2a24b49414a1265ec4935380f2c6",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/package-wheel-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/package-wheel-final-001.log",
+      "bytes": 972,
+      "category": "evidence",
+      "sha256": "de2ca29d5d19c55cd3fecb0bcf99b02b1ea39e868b1f72318aa877a5e1c93104",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/package-wheel-final-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/package-wheel-final-002.log",
+      "bytes": 1192,
+      "category": "evidence",
+      "sha256": "92353e1e8b56cf62d58c66b4d73a51cbcfc051cac812c03e43a20c0adc92fdd3",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/package-wheel-final-002.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/red-bundle-assets-001.log",
+      "bytes": 9261,
+      "category": "evidence",
+      "sha256": "574c25198d356ac97b9eb042202d49c8cd84a7b6580e1793f0f70d3f0b7eac2f",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/red-bundle-assets-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/red-foundation-tests-001.log",
+      "bytes": 6512,
+      "category": "evidence",
+      "sha256": "447f8e1f4c2440954652ca30e4573a9f1c4abd31cbb488c2e76f6efc6621e196",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/red-foundation-tests-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/release-bundle-build-001.log",
+      "bytes": 136394,
+      "category": "evidence",
+      "sha256": "93f669fbedee861c0738ab59da8bd29aa42bc9f0a2007be1d7c9e546888da9c8",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/release-bundle-build-001.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/release-bundle-build-001.log.output",
+      "bytes": 135410,
+      "category": "evidence",
+      "sha256": "73aabf827d17520190b9b19de4b26dc42e60148e6970a1b8206016903c13f924",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/release-bundle-build-001.log.output"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/release-bundle-build-final-002.log",
+      "bytes": 1464,
+      "category": "evidence",
+      "sha256": "320db8f519eb1c9dfc17183db5a9ca18b4d7e1f1f9061d5944a8cc00a4297522",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/release-bundle-build-final-002.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/release-bundle-build-final-003.log",
+      "bytes": 734,
+      "category": "evidence",
+      "sha256": "99eb7841e0549f843e91ff28e339e2d92488f29b6853e1c59770a12a18d8497e",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/release-bundle-build-final-003.log"
+    },
+    {
+      "bundle_path": "evidence/batch-e-v1/release-bundle-verify-001.log",
+      "bytes": 1401,
+      "category": "evidence",
+      "sha256": "6b1ee04a518a57b659336a5ba02abd1a957a2746fea69a1eae159bc34fa61af4",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/Worker_Log/Before_HPC/evidence/batch-e-v1/release-bundle-verify-001.log"
+    },
+    {
+      "bundle_path": "inputs/two_cut_control/README.md",
+      "bytes": 1143,
+      "category": "input",
+      "sha256": "a3aa7428f76d841e6d51c1b2882084bbb35152a350d836dfdb81e70f0f7033a9",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/fixtures/two_cut_control/README.md"
+    },
+    {
+      "bundle_path": "inputs/two_cut_control/input.json",
+      "bytes": 10204,
+      "category": "input",
+      "sha256": "9f371e3b830dfcdaf6a6c97eb05ec9f672f63653a874c330258d1d043ce8025b",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/fixtures/two_cut_control/input.json"
+    },
+    {
+      "bundle_path": "inputs/two_cut_control/original-mm.xml",
+      "bytes": 2759,
+      "category": "input",
+      "sha256": "f040851479b0af775bbc066452a7a4b5d165fe82671464cd9e2734e747691fba",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/fixtures/two_cut_control/original-mm.xml"
+    },
+    {
+      "bundle_path": "inputs/worker/bundle.json",
+      "bytes": 26351,
+      "category": "input",
+      "sha256": "053b36a405c326e41d15428596a5f9fccc824792e8c57a355283c0e0cd733d7a",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/bundle.json"
+    },
+    {
+      "bundle_path": "inputs/worker/handover.pdb",
+      "bytes": 899,
+      "category": "input",
+      "sha256": "37c9d08c91f67e9fa4d95de3c1cabfecaf69db0be3894903e6c806ca052f3b82",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/handover.pdb"
+    },
+    {
+      "bundle_path": "inputs/worker/handover_0.xml",
+      "bytes": 1527,
+      "category": "input",
+      "sha256": "41ec432eec25181c3c048708a0daaf902f271b6ad34d97a1df805f2a7b3b3664",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/handover_0.xml"
+    },
+    {
+      "bundle_path": "inputs/worker/handover_sys.xml",
+      "bytes": 5023,
+      "category": "input",
+      "sha256": "7c716257e81166a373ce3554a7b7f038bc5ad6e08bb7a3d042ef37ec617815b2",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/handover_sys.xml"
+    },
+    {
+      "bundle_path": "inputs/worker/manifest.json",
+      "bytes": 6907,
+      "category": "input",
+      "sha256": "b63044c4ca9dcfe1d2f126c2e5bc861af869ac09fa804ce097c0e1ca221821f3",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/manifest.json"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime.json",
+      "bytes": 237,
+      "category": "input",
+      "sha256": "80f8482db6152c11391b88a759d712b73db15ba84e850ec31e2ee40800e077aa",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime.json"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/environment/core-conda-linux-64.lock",
+      "bytes": 37862,
+      "category": "input",
+      "sha256": "e1d29ae969d7eccbacdbd556925400f2cc0124400b8cffcab6d5b44a96361f9e",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/environment/core-conda-linux-64.lock"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/environment/core-pip-inventory.txt",
+      "bytes": 2684,
+      "category": "input",
+      "sha256": "45fda8a230e27cc2e009e7489048ec82f4b3afb364995e837d2b5906ade6fb75",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/environment/core-pip-inventory.txt"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/environment/package-identities.json",
+      "bytes": 2203,
+      "category": "input",
+      "sha256": "f1293028717527cd36bd1d30abd709300138fa4b6f8523e1df1ace982b63104a",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/environment/package-identities.json"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/environment/upstream-sources.json",
+      "bytes": 915,
+      "category": "input",
+      "sha256": "f910598fb8689431e9475145840a4269b68a58ce49e86c1cca73c2eaecda7f4d",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/environment/upstream-sources.json"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/__init__.py",
+      "bytes": 83,
+      "category": "input",
+      "sha256": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/__init__.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/__main__.py",
+      "bytes": 7508,
+      "category": "input",
+      "sha256": "f71f8d8233d499622cdf2645ff60df88f872cdca1ca27ff55eb8b855a6c46d97",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/__main__.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/adapters/__init__.py",
+      "bytes": 77,
+      "category": "input",
+      "sha256": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/adapters/__init__.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/adapters/atom.py",
+      "bytes": 29048,
+      "category": "input",
+      "sha256": "0fce43d402b98019bcb0f3b63a2dab30e51aef991ca78ba7c119068d0d2f0cab",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/adapters/atom.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/analysis.py",
+      "bytes": 11887,
+      "category": "input",
+      "sha256": "c1200815962d5459fdd2b22f24385ca119b2fef46714423740b4d3e863a22950",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/analysis.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/analytic.py",
+      "bytes": 7995,
+      "category": "input",
+      "sha256": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/analytic.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/atm.py",
+      "bytes": 19383,
+      "category": "input",
+      "sha256": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/atm.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/benchmark.py",
+      "bytes": 2922,
+      "category": "input",
+      "sha256": "7d321ef04bc0000f174fbac60b804a8e6e091362dfee247795405a6ea4b4b289",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/benchmark.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/capabilities.py",
+      "bytes": 4617,
+      "category": "input",
+      "sha256": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/capabilities.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/chemical_reference.py",
+      "bytes": 5335,
+      "category": "input",
+      "sha256": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/chemical_reference.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/derivatives.py",
+      "bytes": 1170,
+      "category": "input",
+      "sha256": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/derivatives.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/embeddings/__init__.py",
+      "bytes": 65,
+      "category": "input",
+      "sha256": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/embeddings/__init__.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/embeddings/mechanical.py",
+      "bytes": 12294,
+      "category": "input",
+      "sha256": "5c1e9cb8e5ecdd1399013c38ed8c817501fd10451b6a2ad5872f48410a2737a1",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/embeddings/mechanical.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/endpoints.py",
+      "bytes": 1609,
+      "category": "input",
+      "sha256": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/endpoints.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/environment.py",
+      "bytes": 12160,
+      "category": "input",
+      "sha256": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/environment.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/evidence.py",
+      "bytes": 4767,
+      "category": "input",
+      "sha256": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/evidence.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/exchange.py",
+      "bytes": 52954,
+      "category": "input",
+      "sha256": "2343c4b5d1b966edfef08c6e6f775b35f74114462ed8657b0d5e042f14576ba6",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/exchange.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/exchange_analysis.py",
+      "bytes": 26572,
+      "category": "input",
+      "sha256": "11de3aadc537a72459b4e02c1baa58e94c9d83413628350a0a767d5ea2e3eaf6",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/exchange_analysis.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/exchange_journal.py",
+      "bytes": 46291,
+      "category": "input",
+      "sha256": "372bc93632909d2a3d9093f1782747a60da16489ff5cfd3267c049e3670d9e95",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/exchange_journal.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/geometry.py",
+      "bytes": 10103,
+      "category": "input",
+      "sha256": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/geometry.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/hpc.py",
+      "bytes": 2360,
+      "category": "input",
+      "sha256": "ce26aeeebcb2678b877cef0135ee14cee1fb509c7b6437a8f38bad3edd56ded4",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/hpc.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/hybrid.py",
+      "bytes": 8826,
+      "category": "input",
+      "sha256": "19b5f1ce1cd518e44c4a18d52469dfc8969da12b8004711e29d74214406cb148",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/hybrid.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/identity.py",
+      "bytes": 1653,
+      "category": "input",
+      "sha256": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/identity.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/joint_reference.py",
+      "bytes": 5187,
+      "category": "input",
+      "sha256": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/joint_reference.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/ledger.py",
+      "bytes": 16146,
+      "category": "input",
+      "sha256": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/ledger.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/model_reference.py",
+      "bytes": 4291,
+      "category": "input",
+      "sha256": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/model_reference.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/models/__init__.py",
+      "bytes": 36,
+      "category": "input",
+      "sha256": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/models/__init__.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/models/analytic_boundary.py",
+      "bytes": 4223,
+      "category": "input",
+      "sha256": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/models/analytic_boundary.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/models/analytic_caps.py",
+      "bytes": 10463,
+      "category": "input",
+      "sha256": "78695338c96f828b00a7888ef7b244f1fb898f6e796be062cf6bdd6ca441bdbf",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/models/analytic_caps.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/models/mace.py",
+      "bytes": 8775,
+      "category": "input",
+      "sha256": "bf51e91051d0eeb9fe4b854d55f79be2d7f628c2657c7c25f98b54f1ee0b380d",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/models/mace.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/partition.py",
+      "bytes": 5942,
+      "category": "input",
+      "sha256": "074c29d111c887d39126017a973ff57218116a4440d390a3d6d74f7ecb3ca1b1",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/partition.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/persistence.py",
+      "bytes": 4395,
+      "category": "input",
+      "sha256": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/persistence.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/prepare.py",
+      "bytes": 5858,
+      "category": "input",
+      "sha256": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/prepare.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/protocols/__init__.py",
+      "bytes": 79,
+      "category": "input",
+      "sha256": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/protocols/__init__.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/protocols/abfe.py",
+      "bytes": 560,
+      "category": "input",
+      "sha256": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/protocols/abfe.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/protocols/rbfe.py",
+      "bytes": 555,
+      "category": "input",
+      "sha256": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/protocols/rbfe.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/release.py",
+      "bytes": 12861,
+      "category": "input",
+      "sha256": "08d2cfdc502048c5232d1e1d127cf09fd149781b6ca603a59a898a093d2fa518",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/release.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/restraints.py",
+      "bytes": 2040,
+      "category": "input",
+      "sha256": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/restraints.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/routing.py",
+      "bytes": 6599,
+      "category": "input",
+      "sha256": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/routing.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/runtime_validation.py",
+      "bytes": 10199,
+      "category": "input",
+      "sha256": "691ccca11e8ecc3cf33c66b7b905554a525531981a601ab01be3a182b01323fb",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/runtime_validation.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/schedule.py",
+      "bytes": 5759,
+      "category": "input",
+      "sha256": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/schedule.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/schema.py",
+      "bytes": 49595,
+      "category": "input",
+      "sha256": "51054783c9690a328283b87f991b3a98f9a40d36e3859e00111587eef719a887",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/schema.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/solvent.py",
+      "bytes": 8680,
+      "category": "input",
+      "sha256": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/solvent.py"
+    },
+    {
+      "bundle_path": "inputs/worker/runtime/source/atm_mlmm/workflow.py",
+      "bytes": 38243,
+      "category": "input",
+      "sha256": "43be77eb5e9cfd0dd54e4382e86b641eacfcce9638dc0fa03c22febd14ae36e1",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/runtime/source/atm_mlmm/workflow.py"
+    },
+    {
+      "bundle_path": "inputs/worker/snapshot.json",
+      "bytes": 457,
+      "category": "input",
+      "sha256": "454f22246d0ef1e44d30db1478800293f99b70b6591bb8ca67f00e7741b79749",
+      "source_path": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker/snapshot.json"
+    },
+    {
+      "bundle_path": "source/docs/project-0/before-hpc-requirement-matrix.json",
+      "bytes": 70241,
+      "category": "source",
+      "sha256": "a8d8093034635f9678c14f48ea30561825749407313d0448e6de89aa2ba56586",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/docs/project-0/before-hpc-requirement-matrix.json"
+    },
+    {
+      "bundle_path": "source/docs/project-0/before-hpc-resource-note.md",
+      "bytes": 2137,
+      "category": "source",
+      "sha256": "9ab886c407c413afd75fd291530e1c67fce72e17e6b5be495af820cb2c33dbfe",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/docs/project-0/before-hpc-resource-note.md"
+    },
+    {
+      "bundle_path": "source/docs/project-0/before-hpc-user-flow.md",
+      "bytes": 3252,
+      "category": "source",
+      "sha256": "88e3770b82ffebf50dca1b5a57f3049dce15f883fbd8f41fe8324548bd407a6c",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/docs/project-0/before-hpc-user-flow.md"
+    },
+    {
+      "bundle_path": "source/docs/project-0/support-matrix.json",
+      "bytes": 23469,
+      "category": "source",
+      "sha256": "8e081415494dc9cd76f96c99600954f2b28b455d18e1161ab655612b24874faf",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/docs/project-0/support-matrix.json"
+    },
+    {
+      "bundle_path": "source/environment/cloud-cpu/core-conda-linux-64.lock",
+      "bytes": 37862,
+      "category": "source",
+      "sha256": "e1d29ae969d7eccbacdbd556925400f2cc0124400b8cffcab6d5b44a96361f9e",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/environment/cloud-cpu/core-conda-linux-64.lock"
+    },
+    {
+      "bundle_path": "source/environment/cloud-cpu/core-pip-inventory.txt",
+      "bytes": 2684,
+      "category": "source",
+      "sha256": "45fda8a230e27cc2e009e7489048ec82f4b3afb364995e837d2b5906ade6fb75",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/environment/cloud-cpu/core-pip-inventory.txt"
+    },
+    {
+      "bundle_path": "source/environment/cloud-cpu/package-identities.json",
+      "bytes": 2203,
+      "category": "source",
+      "sha256": "f1293028717527cd36bd1d30abd709300138fa4b6f8523e1df1ace982b63104a",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/environment/cloud-cpu/package-identities.json"
+    },
+    {
+      "bundle_path": "source/environment/cloud-cpu/upstream-sources.json",
+      "bytes": 915,
+      "category": "source",
+      "sha256": "f910598fb8689431e9475145840a4269b68a58ce49e86c1cca73c2eaecda7f4d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/environment/cloud-cpu/upstream-sources.json"
+    },
+    {
+      "bundle_path": "source/environment/hpc/profile-template.json",
+      "bytes": 699,
+      "category": "source",
+      "sha256": "afdaf6e287fc7bc0796542c1846e3b1a76a60c4fd9153ef7c6caa4f3db5ae9a0",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/environment/hpc/profile-template.json"
+    },
+    {
+      "bundle_path": "source/environment/hpc/run-guide.md",
+      "bytes": 2420,
+      "category": "source",
+      "sha256": "ae4c1152c4fe469c18821f87ad9a5a5a39dde122763a8f528b478e2f2f8f479e",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/environment/hpc/run-guide.md"
+    },
+    {
+      "bundle_path": "source/pyproject.toml",
+      "bytes": 563,
+      "category": "source",
+      "sha256": "95e84afa80f46b16a270b468a3b860fa43b8ea5b264b12f01b25ed0e4463dc35",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/pyproject.toml"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/__init__.py",
+      "bytes": 83,
+      "category": "source",
+      "sha256": "f9adf76c8e3aef11a6d24c9429d9b6c88abde966f5886fc1fdab79d0dd91f5b5",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/__init__.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/__main__.py",
+      "bytes": 7508,
+      "category": "source",
+      "sha256": "f71f8d8233d499622cdf2645ff60df88f872cdca1ca27ff55eb8b855a6c46d97",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/__main__.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/adapters/__init__.py",
+      "bytes": 77,
+      "category": "source",
+      "sha256": "a510143b825fa73765ff41c1550d95b866da13c9bdad1da53f2b2ced85b82deb",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/adapters/__init__.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/adapters/atom.py",
+      "bytes": 29048,
+      "category": "source",
+      "sha256": "0fce43d402b98019bcb0f3b63a2dab30e51aef991ca78ba7c119068d0d2f0cab",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/adapters/atom.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/analysis.py",
+      "bytes": 11887,
+      "category": "source",
+      "sha256": "c1200815962d5459fdd2b22f24385ca119b2fef46714423740b4d3e863a22950",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/analysis.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/analytic.py",
+      "bytes": 7995,
+      "category": "source",
+      "sha256": "06dfbf9a9a27847223a17f562cbd241809a4a450f9dd6adea9668ade0874cbba",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/analytic.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/atm.py",
+      "bytes": 19383,
+      "category": "source",
+      "sha256": "89096e64cd902afea2fd985bf80a7e26c90b5beac70dfaa406bc191a23f72494",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/atm.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/benchmark.py",
+      "bytes": 2922,
+      "category": "source",
+      "sha256": "7d321ef04bc0000f174fbac60b804a8e6e091362dfee247795405a6ea4b4b289",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/benchmark.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/capabilities.py",
+      "bytes": 4617,
+      "category": "source",
+      "sha256": "c83136dc96da8c3881708703d14939ec64dfd1429dffc5e4491c1cf945ff16f4",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/capabilities.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/chemical_reference.py",
+      "bytes": 5335,
+      "category": "source",
+      "sha256": "9d16c1d72b6cf74af441ad767a7037d46fafe154525add08064d8265ca78d7d9",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/chemical_reference.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/derivatives.py",
+      "bytes": 1170,
+      "category": "source",
+      "sha256": "571c098cb22b7012a6d7ead5e9ebf1cc13e6c4c0f9385cd0c769af213ed65582",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/derivatives.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/embeddings/__init__.py",
+      "bytes": 65,
+      "category": "source",
+      "sha256": "b9dbb6500deaad3571b9fe3f2978fc09ad1af91ca524f5966e023e1c082bc8b1",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/embeddings/__init__.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/embeddings/mechanical.py",
+      "bytes": 12294,
+      "category": "source",
+      "sha256": "5c1e9cb8e5ecdd1399013c38ed8c817501fd10451b6a2ad5872f48410a2737a1",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/embeddings/mechanical.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/endpoints.py",
+      "bytes": 1609,
+      "category": "source",
+      "sha256": "82782bb92390b789c438158953cdbfaf458fa4267049cff1fbe9477fc7ebfb71",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/endpoints.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/environment.py",
+      "bytes": 12160,
+      "category": "source",
+      "sha256": "4a99a083343054cd5d31fe777a167d0f5fb59ad60b85595d86d4dcc569a5e691",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/environment.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/evidence.py",
+      "bytes": 4767,
+      "category": "source",
+      "sha256": "4447077619717192c20536bd67c69ee2f6e8e9f21763a8c7fafc74dc968f62bb",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/evidence.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/exchange.py",
+      "bytes": 52954,
+      "category": "source",
+      "sha256": "2343c4b5d1b966edfef08c6e6f775b35f74114462ed8657b0d5e042f14576ba6",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/exchange.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/exchange_analysis.py",
+      "bytes": 26572,
+      "category": "source",
+      "sha256": "11de3aadc537a72459b4e02c1baa58e94c9d83413628350a0a767d5ea2e3eaf6",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/exchange_analysis.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/exchange_journal.py",
+      "bytes": 46291,
+      "category": "source",
+      "sha256": "372bc93632909d2a3d9093f1782747a60da16489ff5cfd3267c049e3670d9e95",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/exchange_journal.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/geometry.py",
+      "bytes": 10103,
+      "category": "source",
+      "sha256": "9bf7845ff18c684a0588806560e1f43957b02accc99f2a74d745ec20c7ad0c3e",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/geometry.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/hpc.py",
+      "bytes": 2360,
+      "category": "source",
+      "sha256": "ce26aeeebcb2678b877cef0135ee14cee1fb509c7b6437a8f38bad3edd56ded4",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/hpc.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/hybrid.py",
+      "bytes": 8826,
+      "category": "source",
+      "sha256": "19b5f1ce1cd518e44c4a18d52469dfc8969da12b8004711e29d74214406cb148",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/hybrid.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/identity.py",
+      "bytes": 1653,
+      "category": "source",
+      "sha256": "306a27c9d9d61ccb6e3c57efba4944c23153a29a2b951e689697c80b53294aec",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/identity.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/joint_reference.py",
+      "bytes": 5187,
+      "category": "source",
+      "sha256": "254729aeb5cb31f2d5e6278da927f2fb8b4669e669a32839896212b1dc95592a",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/joint_reference.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/ledger.py",
+      "bytes": 16146,
+      "category": "source",
+      "sha256": "9eeeab10d3f20527ed0d03b6abaec045bf7cf92ca046b8fbcfc94a446c680b3c",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/ledger.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/model_reference.py",
+      "bytes": 4291,
+      "category": "source",
+      "sha256": "eca099491be8347625570db8d799c62514b8b36a62e4c87253e9dfa02428626b",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/model_reference.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/models/__init__.py",
+      "bytes": 36,
+      "category": "source",
+      "sha256": "ea51a063a184a1d428f6ba3afb9d4d30da0f2a9dd413e577583d8a1ea1bb309d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/models/__init__.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/models/analytic_boundary.py",
+      "bytes": 4223,
+      "category": "source",
+      "sha256": "549efbc9a7e68ad389d1698f23d70356c95362d7d95fdddfcbcaabde1b6fcbec",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/models/analytic_boundary.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/models/analytic_caps.py",
+      "bytes": 10463,
+      "category": "source",
+      "sha256": "78695338c96f828b00a7888ef7b244f1fb898f6e796be062cf6bdd6ca441bdbf",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/models/analytic_caps.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/models/mace.py",
+      "bytes": 8775,
+      "category": "source",
+      "sha256": "bf51e91051d0eeb9fe4b854d55f79be2d7f628c2657c7c25f98b54f1ee0b380d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/models/mace.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/partition.py",
+      "bytes": 5942,
+      "category": "source",
+      "sha256": "074c29d111c887d39126017a973ff57218116a4440d390a3d6d74f7ecb3ca1b1",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/partition.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/persistence.py",
+      "bytes": 4395,
+      "category": "source",
+      "sha256": "ba59f2a165a2e766862234feb878a01df275d8b8eaeb10e4c6c501f64ed98591",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/persistence.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/prepare.py",
+      "bytes": 5858,
+      "category": "source",
+      "sha256": "b3bca549248de25dcbc14275d4eab011370a9987974c074868e15153aec21bc0",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/prepare.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/protocols/__init__.py",
+      "bytes": 79,
+      "category": "source",
+      "sha256": "624577ee463b67b16691d6b3734bcefaecc6c733e16ba2c2869bf0a239d79d1d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/protocols/__init__.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/protocols/abfe.py",
+      "bytes": 560,
+      "category": "source",
+      "sha256": "4bcd1460eb01a5d1a197d4e7e579b6b71b8b64ed70b6485584b46cd8a5814177",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/protocols/abfe.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/protocols/rbfe.py",
+      "bytes": 555,
+      "category": "source",
+      "sha256": "d93e55aa874b93df300387ea7599a8f9140a127e5ca4c7f8e7f6ca5695f733a9",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/protocols/rbfe.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/release.py",
+      "bytes": 12861,
+      "category": "source",
+      "sha256": "08d2cfdc502048c5232d1e1d127cf09fd149781b6ca603a59a898a093d2fa518",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/release.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/restraints.py",
+      "bytes": 2040,
+      "category": "source",
+      "sha256": "0c49cf8e4eb3671e8dae8a30f358daacf71447281e96cea351b9ef16737aa995",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/restraints.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/routing.py",
+      "bytes": 6599,
+      "category": "source",
+      "sha256": "bab2f2ff9c9c0125a8348d15b7e33f912758a8e02e586d9d10a258a3713e6564",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/routing.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/runtime_validation.py",
+      "bytes": 10199,
+      "category": "source",
+      "sha256": "691ccca11e8ecc3cf33c66b7b905554a525531981a601ab01be3a182b01323fb",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/runtime_validation.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/schedule.py",
+      "bytes": 5759,
+      "category": "source",
+      "sha256": "e492de791faf2613559305e207439293f863bb3bdc8c1e129abf12fc51157888",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/schedule.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/schema.py",
+      "bytes": 49595,
+      "category": "source",
+      "sha256": "51054783c9690a328283b87f991b3a98f9a40d36e3859e00111587eef719a887",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/schema.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/solvent.py",
+      "bytes": 8680,
+      "category": "source",
+      "sha256": "d7c4877de1c6aa972a808f72a81986f4c906eb206a7c329cbabf9b916d240ce5",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/solvent.py"
+    },
+    {
+      "bundle_path": "source/src/atm_mlmm/workflow.py",
+      "bytes": 38243,
+      "category": "source",
+      "sha256": "43be77eb5e9cfd0dd54e4382e86b641eacfcce9638dc0fa03c22febd14ae36e1",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/workflow.py"
+    },
+    {
+      "bundle_path": "source/tests/__init__.py",
+      "bytes": 65,
+      "category": "source",
+      "sha256": "245ff252d3046c44fdce3334745f2e2c970998c473e93f77a4e5f905cbeb7b39",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/__init__.py"
+    },
+    {
+      "bundle_path": "source/tests/analytic_oracle.py",
+      "bytes": 6939,
+      "category": "source",
+      "sha256": "51c70c5fe4a69ee1b16600cfe7eb613b4d293aeef214de385c11fe6170a5dcf6",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/analytic_oracle.py"
+    },
+    {
+      "bundle_path": "source/tests/cap_collection_oracle.py",
+      "bytes": 5797,
+      "category": "source",
+      "sha256": "a9eded8c98e0ff9afc4c845da6559491682832e111532e68e8131236342d21a3",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/cap_collection_oracle.py"
+    },
+    {
+      "bundle_path": "source/tests/conftest.py",
+      "bytes": 1638,
+      "category": "source",
+      "sha256": "322b2c77459f96a38e72d2af34c184d55a229433d9a6d49518f269c807aafe9e",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/conftest.py"
+    },
+    {
+      "bundle_path": "source/tests/contracts/test_architecture_boundaries.py",
+      "bytes": 2758,
+      "category": "source",
+      "sha256": "735c3fdcd6947ed54ebe2aef80ba80d5e50edd84df087ebe3151aa0b1421304b",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/contracts/test_architecture_boundaries.py"
+    },
+    {
+      "bundle_path": "source/tests/contracts/test_capabilities.py",
+      "bytes": 6211,
+      "category": "source",
+      "sha256": "5802147ec1d583439286c27668f6393ed5155ebe2686ba17bda6e29ba0328a23",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/contracts/test_capabilities.py"
+    },
+    {
+      "bundle_path": "source/tests/contracts/test_embedding_extension.py",
+      "bytes": 5437,
+      "category": "source",
+      "sha256": "24ac3c39401c6d3c1b054a82f6d56d86b379c39dca2502a76a620f314d4513ac",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/contracts/test_embedding_extension.py"
+    },
+    {
+      "bundle_path": "source/tests/contracts/test_evidence_schema.py",
+      "bytes": 2525,
+      "category": "source",
+      "sha256": "fc27c2da5dd8403196aad0dd3a26374122eef7ca415a25c49df700f0f2e18a1b",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/contracts/test_evidence_schema.py"
+    },
+    {
+      "bundle_path": "source/tests/contracts/test_fault_injection.py",
+      "bytes": 6751,
+      "category": "source",
+      "sha256": "be5c98115e5f4f7f4edd8a8deb1f74a750ae81eb463dcd96618f76a6360c47ba",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/contracts/test_fault_injection.py"
+    },
+    {
+      "bundle_path": "source/tests/contracts/test_general_input_admission.py",
+      "bytes": 5958,
+      "category": "source",
+      "sha256": "e18e7ee7b83c13863587e9da7670b59b91f3a4f2049b3b5f7cefa3e98083626e",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/contracts/test_general_input_admission.py"
+    },
+    {
+      "bundle_path": "source/tests/contracts/test_m02_admission.py",
+      "bytes": 14972,
+      "category": "source",
+      "sha256": "04d4fd65aad842dc30e243db759836c3cf74f7a1ca9bf1d6aacbd205fa65ed52",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/contracts/test_m02_admission.py"
+    },
+    {
+      "bundle_path": "source/tests/contracts/test_mace_candidate_admission.py",
+      "bytes": 1473,
+      "category": "source",
+      "sha256": "ea3c61dcce1515b548cd430a652a4ab9769c96bcc67173b3ca8b28275a4920e2",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/contracts/test_mace_candidate_admission.py"
+    },
+    {
+      "bundle_path": "source/tests/contracts/test_physical_evaluator.py",
+      "bytes": 3749,
+      "category": "source",
+      "sha256": "b741edf13ad4d1c71c10bc2a4a1083b3afb2a1a74caa1b67c6ccd2f4fa1bf039",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/contracts/test_physical_evaluator.py"
+    },
+    {
+      "bundle_path": "source/tests/contracts/test_release_evidence.py",
+      "bytes": 3003,
+      "category": "source",
+      "sha256": "a74433ca8e98f36ba2111ab1d55103450ff3adf770d6b1c4afea28ad4d68ca1f",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/contracts/test_release_evidence.py"
+    },
+    {
+      "bundle_path": "source/tests/contracts/test_schema.py",
+      "bytes": 5207,
+      "category": "source",
+      "sha256": "27add1acfba155b2d8e98d7bf2b2ed7c8d26b4be791f1c44e8dc94598a06c196",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/contracts/test_schema.py"
+    },
+    {
+      "bundle_path": "source/tests/contracts/test_transfer_protocols.py",
+      "bytes": 3982,
+      "category": "source",
+      "sha256": "a424d78f5f71f98aa3100a3bf5e88be1c3598634d68b06c626715b2a23ca84c3",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/contracts/test_transfer_protocols.py"
+    },
+    {
+      "bundle_path": "source/tests/environment/test_cloud_install.py",
+      "bytes": 2534,
+      "category": "source",
+      "sha256": "f870834c1f502e9c3c1cdc8611975b3c48f56206b8cae5dcbbc11ed02a6b2180",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/environment/test_cloud_install.py"
+    },
+    {
+      "bundle_path": "source/tests/environment/test_cpu_smoke.py",
+      "bytes": 1065,
+      "category": "source",
+      "sha256": "e9f49a2ecef97eef5f9a61031b606021d3e52514b88238289d23dfa7ee5cb987",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/environment/test_cpu_smoke.py"
+    },
+    {
+      "bundle_path": "source/tests/environment/test_hpc_profile.py",
+      "bytes": 2853,
+      "category": "source",
+      "sha256": "4626b91477ad03220f48dfec30f57ff6e799074eb9fc1774ed9560933f9f173d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/environment/test_hpc_profile.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_boundary_ledger.py",
+      "bytes": 4798,
+      "category": "source",
+      "sha256": "8b4aa650d66923c8ef5b2a82c6bbf41070d7626eab3db2832737ec856ae07ae7",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_boundary_ledger.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_cap_collections.py",
+      "bytes": 31294,
+      "category": "source",
+      "sha256": "f22388f31a35510ee94465210a640b0943f2d1dc7ceb9e678f5b4e337ffcb816",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_cap_collections.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_checkpoint_loading.py",
+      "bytes": 6443,
+      "category": "source",
+      "sha256": "81a0fd6e1c01414bd1a65246086535282f4d1ad70789dc76ce83591e0ff2880d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_checkpoint_loading.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_chemical_reference.py",
+      "bytes": 10154,
+      "category": "source",
+      "sha256": "4d2b01a411504647a53c5104f27626b9c278c9c9e0bb6aa4437cb06bbb6854bd",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_chemical_reference.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_joint_hybrid_atm.py",
+      "bytes": 9534,
+      "category": "source",
+      "sha256": "c7f83b7039480a2d3d35a82c709af6fea669a5ba09a2829a3d6f409221ed0b6c",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_joint_hybrid_atm.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_link_geometry.py",
+      "bytes": 21366,
+      "category": "source",
+      "sha256": "c8b0c13f93186f70da1cc6d4cf384a43709ab3f1ea79bb97c272aec1fe9e1c1b",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_link_geometry.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_locality.py",
+      "bytes": 2071,
+      "category": "source",
+      "sha256": "9b5c702fdbfa6e37af40f14dafab55530cfbed26d1990a70cb3756bce4d28e4b",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_locality.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_mace_link_example.py",
+      "bytes": 2310,
+      "category": "source",
+      "sha256": "f072b8e3e8ff277454bc0e523d73041b736e845e2bd6bb597a2d80f99b241c18",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_mace_link_example.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_masked_interactions.py",
+      "bytes": 3561,
+      "category": "source",
+      "sha256": "0cf93d6dc3e573fe8555c850a340ed8a1a6112654c2912e1e90c73d140580458",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_masked_interactions.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_mechanical_pme.py",
+      "bytes": 4910,
+      "category": "source",
+      "sha256": "7183b6c054ed8a0ed0201066526611c18b1fa36f788289c054fe629acf97cddc",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_mechanical_pme.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_model_adapter.py",
+      "bytes": 16901,
+      "category": "source",
+      "sha256": "81340042ff5bc63d19009a9b758da96d883c3640e122fa647631c298d97ac9c9",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_model_adapter.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_model_domain.py",
+      "bytes": 4906,
+      "category": "source",
+      "sha256": "4ecb006bf70722960c2a67e2c593704597ddba7ae6772b232ce8c2a25f3ab6fa",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_model_domain.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_periodic_geometry.py",
+      "bytes": 7928,
+      "category": "source",
+      "sha256": "b623dde7a9e592111d0c844c3ef8f4eed38e2bbfaee7760ec9974be82940c3a6",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_periodic_geometry.py"
+    },
+    {
+      "bundle_path": "source/tests/integration/test_pythonforce_atm.py",
+      "bytes": 8785,
+      "category": "source",
+      "sha256": "e3f80f69896c00e1abeafa045091867a67625d1feb6d36f270d222093baf1ab4",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/integration/test_pythonforce_atm.py"
+    },
+    {
+      "bundle_path": "source/tests/joint_oracle.py",
+      "bytes": 9278,
+      "category": "source",
+      "sha256": "6fa6539328e8a2efcbce5967a0691f2a5167aac1a4865144ae2a9999118d4371",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/joint_oracle.py"
+    },
+    {
+      "bundle_path": "source/tests/link_oracle.py",
+      "bytes": 5701,
+      "category": "source",
+      "sha256": "8bc02479945b1c685df2f9b7b7ca9456af8ea2b2d62cb7812d5871cdfa162cdb",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/link_oracle.py"
+    },
+    {
+      "bundle_path": "source/tests/link_permutation.py",
+      "bytes": 3374,
+      "category": "source",
+      "sha256": "57798656dbfb3689b1a72257f612758d5aa24a96be9c491c1124e6089eacc67f",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/link_permutation.py"
+    },
+    {
+      "bundle_path": "source/tests/model_oracle.py",
+      "bytes": 2706,
+      "category": "source",
+      "sha256": "bb3346feb610cca855616e12a333cd0131e187aab79ccbce27a423782aabeb14",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/model_oracle.py"
+    },
+    {
+      "bundle_path": "source/tests/periodic_oracle.py",
+      "bytes": 6427,
+      "category": "source",
+      "sha256": "bd736c543c782558f1dea9186d245b74b3c067328dc2d02ede1fd8bbe48319a1",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/periodic_oracle.py"
+    },
+    {
+      "bundle_path": "source/tests/sampling/test_analytic_free_energy.py",
+      "bytes": 9195,
+      "category": "source",
+      "sha256": "115347e5e320576955c67cbdd1b167331397d0e09c87ea38de02da7d8388cac2",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/sampling/test_analytic_free_energy.py"
+    },
+    {
+      "bundle_path": "source/tests/sampling/test_exchange_uncertainty.py",
+      "bytes": 24963,
+      "category": "source",
+      "sha256": "4f43a3c5ed7a8ff9d8c288dfb314085270bb143cd50caeeb80b4b6d69555b291",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/sampling/test_exchange_uncertainty.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_benchmark_metrics.py",
+      "bytes": 2032,
+      "category": "source",
+      "sha256": "9877613b1a0cc85f858b2f32ab6cc70218f0ae43254150164143e604f988e0cd",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_benchmark_metrics.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_binding_result_admission.py",
+      "bytes": 5591,
+      "category": "source",
+      "sha256": "a880bac7bc03435f8836b965960fc93c043b51245a89e2c0025a2b46bec9c7b9",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_binding_result_admission.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_environment.py",
+      "bytes": 6752,
+      "category": "source",
+      "sha256": "8bdc003c5007fd2e25c8130c2626703d6653dfe123cadbe35aca20317bcbea92",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_environment.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_force_inventory.py",
+      "bytes": 5213,
+      "category": "source",
+      "sha256": "b397bdcedd9f26b6cbe5bae5970bc6d48100a55b29607b0105464d4955b76877",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_force_inventory.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_host_role.py",
+      "bytes": 2192,
+      "category": "source",
+      "sha256": "36f199065f213315a11559faf18fe6ee445cb749e6a1f67f9eb7af078c0e1f5d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_host_role.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_identity.py",
+      "bytes": 1338,
+      "category": "source",
+      "sha256": "d4ea798f03946c528580719d01bd606115919ac23bf49b87a1bd73b45e7cbc46",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_identity.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_joint_quantum_execution.py",
+      "bytes": 22233,
+      "category": "source",
+      "sha256": "094d71ada6f3382b9f3b872088a242526c8f903ffd4123c11a6f04aba9287f30",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_joint_quantum_execution.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_joint_reference_plan.py",
+      "bytes": 1736,
+      "category": "source",
+      "sha256": "d3292da6a4fad2475c6306817c0ecc039774dae8066e8b1f420605018fd88c18",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_joint_reference_plan.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_partition.py",
+      "bytes": 4894,
+      "category": "source",
+      "sha256": "555ab3cc67531ef1c6d53cf6ea202d407cc2cc5f1e61b6dc76c823b402137761",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_partition.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_quantum_interruptions.py",
+      "bytes": 15807,
+      "category": "source",
+      "sha256": "e116e6a65363d8f1fb53da80bac79b8d4a3ed4aa5114abc98993b28c0eca013f",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_quantum_interruptions.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_quantum_recovery.py",
+      "bytes": 15903,
+      "category": "source",
+      "sha256": "d64e9b5a67725f03989656f149b47348c7bec60b8bdd53443584208203c43037",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_quantum_recovery.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_reference_metrics.py",
+      "bytes": 1259,
+      "category": "source",
+      "sha256": "0738969cfc4f03ddefcb7051981998883ab21f5dba204d54d324b78460810efa",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_reference_metrics.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_reference_provenance.py",
+      "bytes": 3802,
+      "category": "source",
+      "sha256": "adb511e9aff9e51d8ce18a8c0a218e815d02d5513dabc3c188df80e242e25b26",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_reference_provenance.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_relative_binding_result.py",
+      "bytes": 8794,
+      "category": "source",
+      "sha256": "25b5f6d9ce201b4f7dbdbb8d252e342c4ee64afe44b09de9fe3f8140a17b36f2",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_relative_binding_result.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_restraint_volume.py",
+      "bytes": 7262,
+      "category": "source",
+      "sha256": "a94050d92da64658cfeb10dd409297d024a4a46c8ae856dadce4170b02e2f57c",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_restraint_volume.py"
+    },
+    {
+      "bundle_path": "source/tests/unit/test_schedule.py",
+      "bytes": 7776,
+      "category": "source",
+      "sha256": "dbcae5eca66362826deae77674e8a5c164d2ccb49d0a6876b7389be430d9ba1e",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/unit/test_schedule.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_active_force_groups.py",
+      "bytes": 4923,
+      "category": "source",
+      "sha256": "c702cab61dab3064150effd98aa282536584cde6e895af709d722c608e5d1512",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_active_force_groups.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_atom_force_routing.py",
+      "bytes": 15770,
+      "category": "source",
+      "sha256": "6e202411be5d2aee839c377ef68bc3f043518f02deb7e451ca976a85963a4261",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_atom_force_routing.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_cloud_host_guest.py",
+      "bytes": 4666,
+      "category": "source",
+      "sha256": "07318d8b0d8dc3f2197696fde6cdcc9268da3f5f680a264584c3c449db8106cb",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_cloud_host_guest.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_dense_solvent.py",
+      "bytes": 9215,
+      "category": "source",
+      "sha256": "34c6e89016b357cc2ec27db0d80b2228252b1e760cac216667788f1bc74b9937",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_dense_solvent.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_engine_configuration.py",
+      "bytes": 5503,
+      "category": "source",
+      "sha256": "de2589380e076b2ff2409d5dcb6c4d3b91acbd8af309c3154e87e4987a2bcde8",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_engine_configuration.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_engine_failure_retention.py",
+      "bytes": 3854,
+      "category": "source",
+      "sha256": "c5dbafb0e0d93f034391b9ec23f8a842dda9b000ffc0bfa59a4651be1c294f6e",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_engine_failure_retention.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_engine_fresh_process.py",
+      "bytes": 3530,
+      "category": "source",
+      "sha256": "31fbf63098d77f042a8721f1e2e840b28a32586798bcb8c4f3f373319b061530",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_engine_fresh_process.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_engine_restart.py",
+      "bytes": 8838,
+      "category": "source",
+      "sha256": "2688a82431c3f165768f3a2638798c7a1296a587a1d2618e8975c2ec635eead3",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_engine_restart.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_evidence_export.py",
+      "bytes": 3690,
+      "category": "source",
+      "sha256": "14bfd2e4cbb049bc83c5f476757fba2e83011de043648cc70d90a69891f17ade",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_evidence_export.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_failure_archive_errors.py",
+      "bytes": 6612,
+      "category": "source",
+      "sha256": "e19c64d3361124326a172f1f41638281f639d16a0d54e2232df90fd1a3a4da33",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_failure_archive_errors.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_failure_geometries.py",
+      "bytes": 1363,
+      "category": "source",
+      "sha256": "8609e1adeeb8bd8009a248896b32bc3b37f2dce2994323dd8ed66d3521c797ef",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_failure_geometries.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_host_guest_rbfe.py",
+      "bytes": 10265,
+      "category": "source",
+      "sha256": "c82c7a9acb948344c8e90b6b0c5bc5698acefdfbebed4a218d06cf13e7335b44",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_host_guest_rbfe.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_multistate_cli.py",
+      "bytes": 5367,
+      "category": "source",
+      "sha256": "fc043c9a51d66f5befa7dfc90e74869335c97702ab56e32274bd9d34dae9b085",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_multistate_cli.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_multistate_exchange_pilots.py",
+      "bytes": 31207,
+      "category": "source",
+      "sha256": "02f52a895c4b868840b7d178586e2f13546d6cf98dd6cd60bff8de8c6335a9e6",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_multistate_exchange_pilots.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_multistate_inert_repairs.py",
+      "bytes": 18459,
+      "category": "source",
+      "sha256": "16abbd661b74c3adc350835e9a2ea0b1a210474189d5c352698e78519d499ae7",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_multistate_inert_repairs.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_persistent_exchange.py",
+      "bytes": 75561,
+      "category": "source",
+      "sha256": "b4a781eecbc42d0ad79e2ec10293f59f3d6cd0ccfe25ce12389c411b13ad3a51",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_persistent_exchange.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_preparation_phases.py",
+      "bytes": 2426,
+      "category": "source",
+      "sha256": "8834817d0894b93712874ab63f0852dbbf5626b030e71b988f2f7b4ebdb3ec11",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_preparation_phases.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_protein_abfe.py",
+      "bytes": 6080,
+      "category": "source",
+      "sha256": "ac55876500aa72a663f080ad9b1ba20ae29af6202faea7667e5cb8ce5b99ed27",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_protein_abfe.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_protein_input_admission.py",
+      "bytes": 5730,
+      "category": "source",
+      "sha256": "3e25de23b023fe61e37277ae76f0913b5be118c27f3fa2657b863e83b98bd3e8",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_protein_input_admission.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_release_bundle.py",
+      "bytes": 2623,
+      "category": "source",
+      "sha256": "a62089d56fd3d0946238587b438da5382ff7844f37e3436075ebddd28352ce4b",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_release_bundle.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_replica_exchange.py",
+      "bytes": 15736,
+      "category": "source",
+      "sha256": "4c0f8cc1f19fb174cec8eb467c7bb4ff30354fde46b5a022999ce1beea417a87",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_replica_exchange.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_restored_state_admission.py",
+      "bytes": 7226,
+      "category": "source",
+      "sha256": "1d3ad6da99b9537335ce3ea6a36714d235e6e735fe2cf0146977942df8257907",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_restored_state_admission.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_solvated_handover.py",
+      "bytes": 18147,
+      "category": "source",
+      "sha256": "3f39c857807f19bc17eed0ecde4a678e4851211a4247cd738e43296f018010e3",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_solvated_handover.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_solvated_process_restart.py",
+      "bytes": 6124,
+      "category": "source",
+      "sha256": "c66d0be024ebb6495ce8c366fbb0f87abf449deb8ce11e492d12061acde57035",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_solvated_process_restart.py"
+    },
+    {
+      "bundle_path": "source/tests/workflow/test_worker_handover.py",
+      "bytes": 7464,
+      "category": "source",
+      "sha256": "1c029f56508b7766fc77205652b224e06ad38ccc9f1415644877ff9c1a2c6707",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tests/workflow/test_worker_handover.py"
+    },
+    {
+      "bundle_path": "source/tools/benchmark_case.py",
+      "bytes": 11501,
+      "category": "source",
+      "sha256": "027b3ad9302ab8168e9539afb78533ff47e9166cfd93c2a4b848218037ba529a",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/benchmark_case.py"
+    },
+    {
+      "bundle_path": "source/tools/benchmark_cpu.py",
+      "bytes": 5871,
+      "category": "source",
+      "sha256": "4f557698e64c534869d5e6e2fe5f120ed3c11ad9fc6fb490868d520b11727d89",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/benchmark_cpu.py"
+    },
+    {
+      "bundle_path": "source/tools/build_dense_solvent_control.py",
+      "bytes": 310,
+      "category": "source",
+      "sha256": "766d047785db298de058bac0f9a88d4fbaf88841b77b4856e20f01912149fb09",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/build_dense_solvent_control.py"
+    },
+    {
+      "bundle_path": "source/tools/build_release_bundle.py",
+      "bytes": 1867,
+      "category": "source",
+      "sha256": "b014d94815cd6706416b3841b44faa3ab039aee82e17868dd48defac1e8b5485",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/build_release_bundle.py"
+    },
+    {
+      "bundle_path": "source/tools/build_solvent_control.py",
+      "bytes": 6695,
+      "category": "source",
+      "sha256": "3b56b96b36ab56296ca76d3c9109c00bff8c919dbe895d3e504e3a43f78755ac",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/build_solvent_control.py"
+    },
+    {
+      "bundle_path": "source/tools/check_docs.py",
+      "bytes": 6131,
+      "category": "source",
+      "sha256": "5386af1444349af646f2bf03675756f1e194b6cd22be95e06142a5c4d334f635",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/check_docs.py"
+    },
+    {
+      "bundle_path": "source/tools/check_hpc_profile.py",
+      "bytes": 1060,
+      "category": "source",
+      "sha256": "7db2e1a2f1d7ef60a4084a89372789722f8cb5b55582f76f614d372a6173ed34",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/check_hpc_profile.py"
+    },
+    {
+      "bundle_path": "source/tools/collect_joint_evidence.py",
+      "bytes": 4072,
+      "category": "source",
+      "sha256": "75f6e3a41c30f2d99253117721fb9d9baf8f5223a50f2c0c831f7bfb37c11e8e",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/collect_joint_evidence.py"
+    },
+    {
+      "bundle_path": "source/tools/freeze_joint_descriptions.py",
+      "bytes": 2745,
+      "category": "source",
+      "sha256": "5d33900fb7f525beb82433aba0cb343428401da906ff6faacd4b32656b0ed531",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/freeze_joint_descriptions.py"
+    },
+    {
+      "bundle_path": "source/tools/generate_neutral_quantum.py",
+      "bytes": 10138,
+      "category": "source",
+      "sha256": "f8555fd12670bd6a434c981297b9234de7dfaf6ca22738f88ea393de987cfeff",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/generate_neutral_quantum.py"
+    },
+    {
+      "bundle_path": "source/tools/monitor_cpu_check.py",
+      "bytes": 3675,
+      "category": "source",
+      "sha256": "792cdd24ba7b231443851b3145b22a55357366c8a4013355132719241dcc94a6",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/monitor_cpu_check.py"
+    },
+    {
+      "bundle_path": "source/tools/prepare_cloud_host_guest.py",
+      "bytes": 6845,
+      "category": "source",
+      "sha256": "bbf6e2190670ca90097022fad8b0039e180e60c2c71d3c394a60c5fb541266ec",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/prepare_cloud_host_guest.py"
+    },
+    {
+      "bundle_path": "source/tools/prepare_host_guest_rbfe.py",
+      "bytes": 25981,
+      "category": "source",
+      "sha256": "b96b1736be6b688c9d9305e4773d7b4c00e121531ef1a58b8838b773d10885e7",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/prepare_host_guest_rbfe.py"
+    },
+    {
+      "bundle_path": "source/tools/prepare_joint_mm.py",
+      "bytes": 6224,
+      "category": "source",
+      "sha256": "ef55b96f342a57b82e4f0859ed62e5a090407f3801d0386fc3616f444741e786",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/prepare_joint_mm.py"
+    },
+    {
+      "bundle_path": "source/tools/prepare_neutral_references.py",
+      "bytes": 13292,
+      "category": "source",
+      "sha256": "7ec02e9221597f0cc531e1dda18eed55d62807d830eea0d891494ec3e0fb420c",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/prepare_neutral_references.py"
+    },
+    {
+      "bundle_path": "source/tools/prepare_protein_input.py",
+      "bytes": 10627,
+      "category": "source",
+      "sha256": "5358c27aa9f4cc387df2e0fc91752bd2c2f90adbf08adf1c6944d04b9b585036",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/prepare_protein_input.py"
+    },
+    {
+      "bundle_path": "source/tools/probe_reference_water_boundary.py",
+      "bytes": 3310,
+      "category": "source",
+      "sha256": "a2565395c9766dd094764fb6312f9f4b6472af16c4adee0825a39c867e6df74c",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/probe_reference_water_boundary.py"
+    },
+    {
+      "bundle_path": "source/tools/quantum_worker_guard.py",
+      "bytes": 4012,
+      "category": "source",
+      "sha256": "5dc02bb86f411bb62ab74e4a0f7579e9e54dafbf3b41ffa79be58f00b9e60030",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/quantum_worker_guard.py"
+    },
+    {
+      "bundle_path": "source/tools/repair_neutral_reference_controls.py",
+      "bytes": 6686,
+      "category": "source",
+      "sha256": "4275f99cb6a3c08aaa2ef0a5d70b563a77f91d552aa04b9002b6819943229ce2",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/repair_neutral_reference_controls.py"
+    },
+    {
+      "bundle_path": "source/tools/resume_joint_quantum.py",
+      "bytes": 19254,
+      "category": "source",
+      "sha256": "67372fbe9c8083aebfa77886240608fcadacba930a1d7c643d6ae9f11938f61f",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/resume_joint_quantum.py"
+    },
+    {
+      "bundle_path": "source/tools/resume_neutral_quantum.py",
+      "bytes": 34302,
+      "category": "source",
+      "sha256": "d7fd518d9663c60399e101c94c518f8f13b03625cff41e34546b96bfeae1e63d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/resume_neutral_quantum.py"
+    },
+    {
+      "bundle_path": "source/tools/run_before_hpc_checks.py",
+      "bytes": 1794,
+      "category": "source",
+      "sha256": "47ff73c16103469b27dd96ff79aebfeeed678a031ab890ec0195bc720caa7f3d",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/run_before_hpc_checks.py"
+    },
+    {
+      "bundle_path": "source/tools/validate_solvent_recipe.py",
+      "bytes": 11280,
+      "category": "source",
+      "sha256": "ce934df6c41bf28ce3fb45fbe6ef07cfbaca159814dfe86ad08c05767b78cff8",
+      "source_path": "/workspace/AToM_MLMM-before-HPC/tools/validate_solvent_recipe.py"
+    },
+    {
+      "bundle_path": "wheel/atom_mlmm-0.1.0-py3-none-any.whl",
+      "bytes": 137101,
+      "category": "wheel",
+      "sha256": "35e2b39662de8eef54491fb878be1ca41ed470348e1a99d89ade892c48481480",
+      "source_path": "/tmp/atom-mlmm-batch-e-wheel-004/atom_mlmm-0.1.0-py3-none-any.whl"
+    }
+  ],
+  "format": "atom-mlmm-release-bundle-v1",
+  "model_asset": {
+    "authorization": "I will use it for academic purposes.",
+    "authorization_sha256": "ffcb14ae9337eb106da9eeab080e21a58d2dfec15e2af5c2fe61651b9d9ef18d",
+    "checkpoint_sha256": "165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f",
+    "license": "Academic Software Licence v1.0; academic noncommercial use",
+    "license_sha256": "6a77e88bfed86fe9476ed36e453e2ea1e154ff1ec464b0fdeb3e079b6112d71e",
+    "manifest_sha256": "6d78f71f779798b67d73da573c67e2ce65ba6c2bfe1d1d3b8fa6c72d603a0926"
+  },
+  "project_license": "not_declared; external distribution is a release hold",
+  "source_identity": {
+    "commit": "b3504f09e224b6f8fc636615ec3284e9326c6d45",
+    "tree": "97a88372e4edafba6d3e7ee8ab8202117578c00c",
+    "working_tree_dirty": true
+  }
+}

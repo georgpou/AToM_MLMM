@@ -1,0 +1,15 @@
+START_UTC 2026-10-07T15:04:40Z
+SOURCE_COMMIT b3504f09e224b6f8fc636615ec3284e9326c6d45
+SOURCE_TREE 97a88372e4edafba6d3e7ee8ab8202117578c00c
+WHEEL_SHA 35e2b39662de8eef54491fb878be1ca41ed470348e1a99d89ade892c48481480  /tmp/atom-mlmm-batch-e-release-bundle-002/wheel/atom_mlmm-0.1.0-py3-none-any.whl
+BUNDLE_MANIFEST_SHA 3c22e7b4af9fda2011677546afb03a63fd4d6e11160f7be1c52a522a82318a5d  /tmp/atom-mlmm-batch-e-release-bundle-002/manifest.json
+VALIDATED_BASE /workspace/before-hpc-cpu-v2/activate.sh; derived venv includes its installed dependencies
+ARGV pip install --no-index --no-deps /tmp/atom-mlmm-batch-e-release-bundle-002/wheel/atom_mlmm-0.1.0-py3-none-any.whl
+Processing /tmp/atom-mlmm-batch-e-release-bundle-002/wheel/atom_mlmm-0.1.0-py3-none-any.whl
+Installing collected packages: atom-mlmm
+Successfully installed atom-mlmm-0.1.0
+ARGV env -u PYTHONPATH ATOM_MLMM_MODEL_DIR=<bundle asset> <venv>/bin/python <installed-fresh-worker-probe.py>
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+{"asset_directory": "/tmp/atom-mlmm-batch-e-release-bundle-002/assets/mace-off23-small", "atoms": 7, "authorization": "I will use it for academic purposes.", "checkpoint_sha256": "165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f", "finite_results": true, "license_sha256": "6a77e88bfed86fe9476ed36e453e2ea1e154ff1ec464b0fdeb3e079b6112d71e", "model_energy_ev": -7214.0248486862565, "model_force_count": 7, "model_manifest_sha256": "6d78f71f779798b67d73da573c67e2ce65ba6c2bfe1d1d3b8fa6c72d603a0926", "network_access": "blocked", "package_location": "/tmp/atom-mlmm-batch-e-installed-008/lib/python3.11/site-packages/atm_mlmm/__init__.py", "scope": "installed final wheel; bundled local model; fresh source worker; fixed-coordinate evaluation", "worker_directory": "/tmp/atom-mlmm-batch-e-fresh-worker-001/prepared/worker", "worker_energy_kj_mol": 136.90394472928705, "worker_force_count": 7, "worker_manifest_sha256": "b63044c4ca9dcfe1d2f126c2e5bc861af869ac09fa804ce097c0e1ca221821f3"}
+EXIT_CODE 0
+END_UTC 2026-10-07T15:04:44Z

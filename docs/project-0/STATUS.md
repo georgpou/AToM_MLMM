@@ -1,5 +1,24 @@
 # Current status
 
+**Before HPC Batch E: installed CPU package and bounded CLI checks are recorded; consolidated suite and physical/HPC holds remain.**
+The [Batch E inline worker](../../Worker_Log/Before_HPC/Batch_E_v1_worker.md) commits
+source/tests at `b3504f09e224b6f8fc636615ec3284e9326c6d45` (tree
+`97a88372e4edafba6d3e7ee8ab8202117578c00c`). The final wheel is built with
+pinned setuptools/wheel and installed outside the checkout with `PYTHONPATH`
+unset; the explicit local asset route and a fresh 7-atom actual worker both
+produce finite fixed-coordinate results. The CLI roundtrip covers a bounded
+3-state exchange, one committed boundary, fresh-process resume to two boundaries
+and six samples, plus a serialized synthetic analysis roundtrip. The focused E
+set passes 31 tests with zero skips. Five fresh serial CPU benchmark processes
+record startup, first/repeated evaluation timing, tiny stepping, process wall/CPU,
+and peak RSS on one synthetic 15-atom input; those rates are plumbing measurements
+only. The local source/wheel/input/model/evidence bundle is hash verified and
+records `fully_offline_reinstall=false`; no project license, physical target,
+GPU profile, scheduler values, cluster parity, or binding result is claimed.
+No independent audit or gate/milestone acceptance occurred. The parent-owned
+single consolidated CPU suite remains reserved. Exact receipts and preserved
+failures are indexed in the [Batch E evidence folder](../../Worker_Log/Before_HPC/evidence/batch-e-v1/README.md).
+
 **Before HPC Batch D: worker implementation and bounded preflight checks complete; physical and target holds remain.**
 The [gpt-6-luna/max inline worker](../../Worker_Log/Before_HPC/Batch_D_v1_worker.md)
 started from `317a72e69391e9618b04d15b25c8b644b1e3221e`. Source, tests, fixtures,
@@ -29,7 +48,7 @@ linked correction covariance, molecular uncertainty/convergence and G08 remain
 unresolved. No independent audit or new gate/milestone acceptance occurred.
 [Checkpoint v3](../../Worker_Log/Before_HPC/Before_HPC_v3_summary.md) records
 the exact scope and evidence limits. D's bounded preflight checkpoint is above;
-E awaits further user approval, and consolidated checks remain reserved for after E.
+Batch E is recorded above, and its consolidated checks remain reserved for the parent.
 
 **Before HPC Batch B: implemented and worker-tested on `before_HPC`.**
 The [gpt-6-luna/max worker](../../Worker_Log/Before_HPC/Batch_B_v1_worker.md)
@@ -41,7 +60,7 @@ reload, and bounded common restart controls passed. The synthetic fixture qualif
 architecture/derivatives only; protein chemistry, arbitrary caps, charged states,
 affinity, full G11/G12 and physical/HPC obligations remain open. No independent
 audit or new gate/milestone acceptance occurred. These B checks retain their
-recorded snapshot scope; C/D checkpoints are above, and E remains pending.
+recorded snapshot scope; C/D checkpoints and the completed Batch E worker are above.
 
 [Final G10 engine handoff](handoffs/G10-MULTISTATE-FINAL-HANDOFF.md): bounded multistate CPU implementation accepted; child publication requested. Main and predecessor branches remain unchanged.
 

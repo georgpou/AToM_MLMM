@@ -1,0 +1,87 @@
+START_UTC 2026-10-07T14:42:39Z
+ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
+THREADS OPENBLAS=2 OMP=2 MKL=2
+ARGV python -m pytest -q tests/workflow/test_engine_failure_retention.py::test_advanced_actual_worker_failure_is_archived
+.F                                                                       [100%]
+=================================== FAILURES ===================================
+_________ test_advanced_actual_worker_failure_is_archived[final_state] _________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-43/test_advanced_actual_worker_fa1')
+monkeypatch = <_pytest.monkeypatch.MonkeyPatch object at 0x7f6c01ac9650>
+origin = 'final_state'
+
+    @pytest.mark.parametrize('origin',('integration','final_state'))
+    def test_advanced_actual_worker_failure_is_archived(tmp_path,monkeypatch,origin):
+        import atm_mlmm.adapters.atom as adapter
+        from atm_mlmm.workflow import _execute
+        physical,transfer,schedule,restraints,snapshot=atom_case('abfe')
+        out=tmp_path/'attempt'
+        with adapter.build_atom(physical,transfer,schedule,restraints,REFERENCE) as source:
+            _,digest=adapter.export_worker_run(source,out/'worker',snapshot,'first')
+        owners,fault={},{}
+        normal_load=adapter.load_worker_run
+        normal_step=mm.LangevinMiddleIntegrator.step
+        normal_state=mm.Context.getState
+        normal_evaluate=adapter.WorkerRun.evaluate
+        def track_load(*args,**kwargs):
+            worker=normal_load(*args,**kwargs)
+            owners[id(worker.evaluator.integrator)]=worker
+            return worker
+        def capture(worker):
+            from atom_openmm.ommworker import OMMWorkerATMSync
+            assert type(worker.worker) is OMMWorkerATMSync
+            context=worker.evaluator.context
+            state=normal_state(context,getPositions=True,getVelocities=True,getParameters=True)
+            fault.update(xml=mm.XmlSerializer.serialize(state),checkpoint=context.createCheckpoint(),
+                         actual_step=context.getStepCount(),triggered=True)
+        def step(integrator,steps):
+            assert steps==1
+            normal_step(integrator,1)
+            if origin=='integration':
+                capture(owners[id(integrator)])
+                raise NumericalDomainError('injected integration failure')
+        def evaluate(worker,*args,**kwargs):
+            result=normal_evaluate(worker,*args,**kwargs)
+            if origin=='final_state':
+                capture(worker)
+                fault['next_state_fails']=True
+            return result
+        def state(context,*args,**kwargs):
+            if fault.get('next_state_fails') and kwargs.get('getPositions'):
+                fault['next_state_fails']=False
+                raise NumericalDomainError('injected final_state failure')
+            if fault.get('triggered') and (kwargs.get('getEnergy') or kwargs.get('getForces')):
+                raise RuntimeError('archiving must not retrigger failed energy')
+            return normal_state(context,*args,**kwargs)
+        monkeypatch.setattr(adapter,'load_worker_run',track_load)
+        monkeypatch.setattr(mm.LangevinMiddleIntegrator,'step',step)
+        monkeypatch.setattr(adapter.WorkerRun,'evaluate',evaluate)
+        monkeypatch.setattr(mm.Context,'getState',state)
+        # This test targets exception boundaries, without a molecular domain claim.
+        import atm_mlmm.workflow as workflow
+        monkeypatch.setattr(workflow,'_domain',lambda *args:[])
+        metadata={'settings':{'frames_per_state':1,'steps_per_frame':1,'seed':41,
+                            'displacement_nm':[.3,0.,0.],'protocol_kind':'abfe'},
+                  'worker_manifest_sha256':digest,'run_id':'R1',
+                  'runtime_identity':REFERENCE.content_identity,'profile':{}}
+        with pytest.raises(NumericalDomainError,match=f'injected {origin} failure'):
+            _execute(out,metadata)
+        failed=out/'failure-000000'
+>       assert (failed/'state.xml').read_text()==fault['xml']
+E       assert '<?xml versio...>\n</State>\n' == '<?xml versio...>\n</State>\n'
+E         
+E         Skipping 53 identical leading characters in diff, use -v to show
+E         - tepCount="0" time="0" type="State" version="1">
+E         ?           ^
+E         + tepCount="1" time=".0005" type="State" version="1">
+E         ?           ^        + +++
+E           	<PeriodicBoxVectors>...
+E         
+E         ...Full output truncated (38 lines hidden), use '-vv' to show
+
+tests/workflow/test_engine_failure_retention.py:67: AssertionError
+=========================== short test summary info ============================
+FAILED tests/workflow/test_engine_failure_retention.py::test_advanced_actual_worker_failure_is_archived[final_state]
+1 failed, 1 passed in 0.63s
+EXIT_CODE 1
+END_UTC 2026-10-07T14:42:40Z

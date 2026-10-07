@@ -1,0 +1,12 @@
+START_UTC 2026-10-07T15:06:54Z
+SOURCE_COMMIT b3504f09e224b6f8fc636615ec3284e9326c6d45
+SOURCE_TREE 97a88372e4edafba6d3e7ee8ab8202117578c00c
+SUPPORT_MATRIX_SHA 8e081415494dc9cd76f96c99600954f2b28b455d18e1161ab655612b24874faf  docs/project-0/support-matrix.json
+REQUIREMENT_MATRIX_SHA a8d8093034635f9678c14f48ea30561825749407313d0448e6de89aa2ba56586  docs/project-0/before-hpc-requirement-matrix.json
+HPC_TEMPLATE_SHA afdaf6e287fc7bc0796542c1846e3b1a76a60c4fd9153ef7c6caa4f3db5ae9a0  environment/hpc/profile-template.json
+ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
+ARGV python -m pytest -q tests/contracts/test_release_evidence.py tests/environment/test_hpc_profile.py
+.......                                                                  [100%]
+7 passed in 0.02s
+EXIT_CODE 0
+END_UTC 2026-10-07T15:06:54Z

@@ -1,0 +1,17 @@
+START_UTC 2026-10-07T14:50:32Z
+ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
+ARGV python tools/build_release_bundle.py --output /tmp/atom-mlmm-batch-e-release-bundle-001 --wheel /tmp/atom-mlmm-batch-e-wheel-003/atom_mlmm-0.1.0-py3-none-any.whl --verify-only
+{
+  "file_count": 401,
+  "fully_offline_reinstall": false,
+  "status": "verified"
+}
+manifest_sha256 73aabf827d17520190b9b19de4b26dc42e60148e6970a1b8206016903c13f924
+file_count 401
+bundle_bytes 186145198
+source_identity {'commit': 'a31574f2ea9db64cc402c354733006d75cee2642', 'tree': '0d25b3156f88eeceb483b4d168c837b4ed56dfec', 'working_tree_dirty': True}
+wheel_sha256 75f4a5572cc99b37d2042763394c08ee26e3c4774a9404530d2d5e977376c6fd
+model_asset {'authorization': 'I will use it for academic purposes.', 'authorization_sha256': 'ffcb14ae9337eb106da9eeab080e21a58d2dfec15e2af5c2fe61651b9d9ef18d', 'checkpoint_sha256': '165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f', 'license': 'Academic Software Licence v1.0; academic noncommercial use', 'license_sha256': '6a77e88bfed86fe9476ed36e453e2ea1e154ff1ec464b0fdeb3e079b6112d71e', 'manifest_sha256': '6d78f71f779798b67d73da573c67e2ce65ba6c2bfe1d1d3b8fa6c72d603a0926'}
+dependencies {'fully_offline_reinstall': False, 'note': 'The bundle does not assert a complete cached dependency artifact set; use the validated locked CPU profile.'}
+EXIT_CODE 0
+END_UTC 2026-10-07T14:50:32Z

@@ -1,0 +1,21 @@
+........F................                                                [100%]
+=================================== FAILURES ===================================
+____________ test_code_checkbox_cannot_promote_unrun_gpu_or_physics ____________
+
+    def test_code_checkbox_cannot_promote_unrun_gpu_or_physics():
+        from atm_mlmm.release import validate_support_matrix
+    
+        matrix = json.loads((ROOT / "docs/project-0/support-matrix.json").read_text())
+        row = next(row for row in matrix["claims"] if row["claim_id"] == "g13-cuda-device")
+        row["implementation"] = "implemented"
+        row["evidence_status"] = "accepted"
+        row["evidence"] = ["code-checkbox:complete"]
+>       with pytest.raises(ValueError, match="accepted evidence"):
+E       AssertionError: Regex pattern did not match.
+E         Expected regex: 'accepted evidence'
+E         Actual message: 'claim g13-cuda-device has an unknown evidence_status'
+
+tests/contracts/test_release_evidence.py:30: AssertionError
+=========================== short test summary info ============================
+FAILED tests/contracts/test_release_evidence.py::test_code_checkbox_cannot_promote_unrun_gpu_or_physics
+1 failed, 24 passed in 0.66s

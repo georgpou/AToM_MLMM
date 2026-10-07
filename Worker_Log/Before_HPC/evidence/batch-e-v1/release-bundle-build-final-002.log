@@ -1,0 +1,9 @@
+START_UTC 2026-10-07T15:03:48Z
+SOURCE_COMMIT b3504f09e224b6f8fc636615ec3284e9326c6d45
+SOURCE_TREE 97a88372e4edafba6d3e7ee8ab8202117578c00c
+WHEEL_SHA 35e2b39662de8eef54491fb878be1ca41ed470348e1a99d89ade892c48481480  /tmp/atom-mlmm-batch-e-wheel-004/atom_mlmm-0.1.0-py3-none-any.whl
+ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
+ARGV python build_release_bundle API: tracked src/tools/tests, E docs/HPC profile, wheel-004, fresh worker export, frozen two-cut input, current Batch E evidence
+{"bundle_bytes": 9967202, "file_count": 265, "fully_offline_reinstall": false, "manifest_sha256": "3c22e7b4af9fda2011677546afb03a63fd4d6e11160f7be1c52a522a82318a5d", "model_asset": {"authorization": "I will use it for academic purposes.", "authorization_sha256": "ffcb14ae9337eb106da9eeab080e21a58d2dfec15e2af5c2fe61651b9d9ef18d", "checkpoint_sha256": "165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f", "license": "Academic Software Licence v1.0; academic noncommercial use", "license_sha256": "6a77e88bfed86fe9476ed36e453e2ea1e154ff1ec464b0fdeb3e079b6112d71e", "manifest_sha256": "6d78f71f779798b67d73da573c67e2ce65ba6c2bfe1d1d3b8fa6c72d603a0926"}, "source_identity": {"commit": "b3504f09e224b6f8fc636615ec3284e9326c6d45", "tree": "97a88372e4edafba6d3e7ee8ab8202117578c00c", "working_tree_dirty": true}, "status": "verified", "wheel_sha256": "35e2b39662de8eef54491fb878be1ca41ed470348e1a99d89ade892c48481480"}
+EXIT_CODE 0
+END_UTC 2026-10-07T15:03:49Z

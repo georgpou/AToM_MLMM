@@ -1,0 +1,8 @@
+START_UTC 2026-10-07T14:44:41Z
+ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
+THREADS OPENBLAS=2 OMP=2 MKL=2
+ARGV python -m pytest -q tests/unit/test_benchmark_metrics.py tests/contracts/test_release_evidence.py tests/environment/test_hpc_profile.py tests/workflow/test_release_bundle.py tests/workflow/test_multistate_cli.py tests/integration/test_checkpoint_loading.py tests/workflow/test_engine_failure_retention.py::test_advanced_actual_worker_failure_is_archived
+.............................                                            [100%]
+29 passed in 8.07s
+EXIT_CODE 0
+END_UTC 2026-10-07T14:44:51Z

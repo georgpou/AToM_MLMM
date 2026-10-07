@@ -1,0 +1,41 @@
+START_UTC 2026-10-07T14:53:19Z
+ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
+ARGV python -m pytest -q tests/workflow/test_multistate_cli.py::test_multistate_cli_runs_and_resumes_a_tiny_interrupted_plan
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_________ test_multistate_cli_runs_and_resumes_a_tiny_interrupted_plan _________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-48/test_multistate_cli_runs_and_r0')
+
+    def test_multistate_cli_runs_and_resumes_a_tiny_interrupted_plan(tmp_path):
+        from atm_mlmm.exchange_journal import read_multistate_boundaries
+        from tests.workflow.test_persistent_exchange import prepare_multistate
+    
+        prepared = prepare_multistate(tmp_path / "prepared")
+        plan = tmp_path / "plan.json"
+        plan.write_text(json.dumps({
+            "state_ids": ["first", "middle", "third"],
+            "state_pairs": [[0, 1], [1, 2]],
+            "boundaries": 2,
+            "steps_per_boundary": 1,
+            "seed": 73,
+        }))
+        output = tmp_path / "exchange"
+    
+        first = _cli("exchange-multistate", prepared, plan, "--output", output,
+                     "--stop-after-boundaries", 1, "--trusted")
+>       assert first.returncode == 0, first.stdout + first.stderr
+E       AssertionError: usage: python -m atm_mlmm [-h]
+E                                   {check,run,resume,exchange,resume-exchange,exchange-multistate,resume-multistate,analyze}
+E                                   ...
+E         python -m atm_mlmm: error: unrecognized arguments: --stop-after-boundaries 1
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/workspace/before-hpc-cpu-v2/env/bin/python', '-m', 'atm_mlmm', 'exchange-multistate', '/tmp/p...alyze}\n                          ...\npython -m atm_mlmm: error: unrecognized arguments: --stop-after-boundaries 1\n').returncode
+
+tests/workflow/test_multistate_cli.py:103: AssertionError
+=========================== short test summary info ============================
+FAILED tests/workflow/test_multistate_cli.py::test_multistate_cli_runs_and_resumes_a_tiny_interrupted_plan
+1 failed in 0.54s
+EXIT_CODE 1
+END_UTC 2026-10-07T14:53:20Z

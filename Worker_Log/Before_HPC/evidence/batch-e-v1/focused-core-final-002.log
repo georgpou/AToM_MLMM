@@ -1,0 +1,11 @@
+START_UTC 2026-10-07T14:56:31Z
+BASE_COMMIT 155dd4af4c0b801d0a32d799128e5a0779923ce7
+BASE_TREE 0fb4afae528e3dfa19ffb6cec50735b102834aba
+SOURCE_SHA f71f8d8233d499622cdf2645ff60df88f872cdca1ca27ff55eb8b855a6c46d97  src/atm_mlmm/__main__.py
+CLI_TEST_SHA fc043c9a51d66f5befa7dfc90e74869335c97702ab56e32274bd9d34dae9b085  tests/workflow/test_multistate_cli.py
+ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
+ARGV python -m pytest -q tests/unit/test_benchmark_metrics.py tests/contracts/test_release_evidence.py tests/environment/test_hpc_profile.py tests/workflow/test_release_bundle.py tests/workflow/test_multistate_cli.py tests/integration/test_checkpoint_loading.py tests/workflow/test_engine_failure_retention.py::test_advanced_actual_worker_failure_is_archived
+...............................                                          [100%]
+31 passed in 14.35s
+EXIT_CODE 0
+END_UTC 2026-10-07T14:56:47Z

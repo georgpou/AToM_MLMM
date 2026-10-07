@@ -1,0 +1,486 @@
+{
+  "claims": [
+    {
+      "claim_id": "g00-mace-loading",
+      "description": "Pinned academic asset identity and offline CPU loading are accepted for the stated loader scope.",
+      "evidence": [
+        {
+          "evidence_kind": "reviewed_gate",
+          "path": "Worker_Log/Milestone_01/Gate_00_v2_audit.md",
+          "profile_id": "g00-mace-cpu-loading",
+          "review_id": "Gate_00_v2",
+          "sha256": "2cec449eb4f7e1ff58ccb5f6c232dd17d1e42f98f6e60a6c7e40a4276fbe2f6c",
+          "snapshot": "a7768e375476667139db374dc0091999263a37de"
+        }
+      ],
+      "evidence_status": "accepted_prior",
+      "implementation": "implemented",
+      "profile_id": "g00-mace-cpu-loading",
+      "support_claim": true
+    },
+    {
+      "claim_id": "m01-core-analytic",
+      "description": "Core identity, contracts and analytic CPU profile accepted for its recorded scope.",
+      "evidence": [
+        {
+          "evidence_kind": "reviewed_gate",
+          "path": "Worker_Log/Milestone_01/Gate_01_v2_audit.md",
+          "profile_id": "core-analytic-cpu",
+          "review_id": "Gate_01_v2",
+          "sha256": "47b7edbf33fe8df0e39899f7226d54b5c6a96dd96100cc9786f75f050423f1cf",
+          "snapshot": "04944c67fc04c1667723f5292a07f8401cb94184"
+        }
+      ],
+      "evidence_status": "accepted_prior",
+      "implementation": "implemented",
+      "profile_id": "core-analytic-cpu",
+      "support_claim": true
+    },
+    {
+      "claim_id": "m02-native-atm",
+      "description": "Analytic native ATM force path accepted for its recorded CPU profile.",
+      "evidence": [
+        {
+          "evidence_kind": "reviewed_gate",
+          "path": "Worker_Log/Milestone_02/Gate_02_v2_audit.md",
+          "profile_id": "core-analytic-cpu",
+          "review_id": "Gate_02_v2",
+          "sha256": "b8dc666296ffff72a6f4e78b6bbbcfa763331b6a9bcb1b888978517370a073a1",
+          "snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12"
+        }
+      ],
+      "evidence_status": "accepted_prior",
+      "implementation": "implemented",
+      "profile_id": "core-analytic-cpu",
+      "support_claim": true
+    },
+    {
+      "claim_id": "m02-routing",
+      "description": "Pinned AToM routing and bounded analytic integration accepted for its recorded profile.",
+      "evidence": [
+        {
+          "evidence_kind": "reviewed_gate",
+          "path": "Worker_Log/Milestone_02/Gate_03_v2_audit.md",
+          "profile_id": "core-analytic-cpu",
+          "review_id": "Gate_03_v2",
+          "sha256": "45acd6689e8907d7092127e6deea740ca817b48756c14e9bc5514174f0bc4826",
+          "snapshot": "6015a652c4a9a9c968ab7933c07ac7bbb4573e12"
+        }
+      ],
+      "evidence_status": "accepted_prior",
+      "implementation": "implemented",
+      "profile_id": "core-analytic-cpu",
+      "support_claim": true
+    },
+    {
+      "claim_id": "g04-analytic-link",
+      "description": "Analytic link geometry and derivative profile accepted; this does not qualify a different model or protein input.",
+      "evidence": [
+        {
+          "evidence_kind": "reviewed_gate",
+          "path": "Worker_Log/Milestone_03/Gate_04_v1_audit.md",
+          "profile_id": "core-analytic-cpu",
+          "review_id": "Gate_04_v1",
+          "sha256": "161b46365475c8442ee9bc4f4b631fc697aec05a8756e4b9e2fd4bb03451ee5a",
+          "snapshot": "35b48dbe0ac00e2f2270c0fb983b5e10bac9e86a"
+        }
+      ],
+      "evidence_status": "accepted_prior",
+      "implementation": "implemented",
+      "profile_id": "core-analytic-cpu",
+      "support_claim": true
+    },
+    {
+      "claim_id": "g05-neutral-reference",
+      "description": "G05 accepted only for the frozen neutral local-reference CPU scope.",
+      "evidence": [
+        {
+          "evidence_kind": "reviewed_gate",
+          "path": "Worker_Log/Milestone_03/Gate_05_v6_audit.md",
+          "profile_id": "g05-neutral-reference-cpu",
+          "review_id": "Gate_05_v6",
+          "sha256": "4705a7452ce55cb1cea658422b5779a63111b23a0ddfd183a7ff7b75c88e0796",
+          "snapshot": "a99a4448f14386e79c1546dd32fd83a33b9ac424"
+        }
+      ],
+      "evidence_status": "accepted_prior",
+      "implementation": "implemented",
+      "profile_id": "g05-neutral-reference-cpu",
+      "support_claim": true
+    },
+    {
+      "claim_id": "g06-fixed-reference",
+      "description": "G06 accepted only for fixed-volume Reference-double CPU single points on the frozen scope.",
+      "evidence": [
+        {
+          "evidence_kind": "reviewed_gate",
+          "path": "Worker_Log/Milestone_03/Gate_06_v1_audit.md",
+          "profile_id": "g06-fixed-orthorhombic-reference-cpu",
+          "review_id": "Gate_06_v1",
+          "sha256": "91bdce11656b2e860a613c56c97712b1f8f97ea1f172f4fda38f8461ed78d393",
+          "snapshot": "ad994d68333a7dabffd4cbcc68dfc9a4a2114b0b"
+        }
+      ],
+      "evidence_status": "accepted_prior",
+      "implementation": "implemented",
+      "profile_id": "g06-fixed-orthorhombic-reference-cpu",
+      "support_claim": true
+    },
+    {
+      "claim_id": "g07-physical-qualification",
+      "description": "Full physical G07 qualification is blocked.",
+      "evidence": [],
+      "evidence_status": "physical_hold",
+      "hold_reason": "29 missing new references (19 full-parent plus 10 alternate-cap), seven preserved sensitivity exceedances, original force failures, and no authorized QM continuation.",
+      "implementation": "missing_or_partial",
+      "profile_id": "g05-neutral-reference-cpu",
+      "support_claim": false
+    },
+    {
+      "claim_id": "g08-synthetic-analysis",
+      "description": "Analytic and synthetic estimator controls accepted only for the predeclared record designs.",
+      "evidence": [
+        {
+          "evidence_kind": "reviewed_gate",
+          "path": "Worker_Log/Milestone_04/Gate_08_v2_audit.md",
+          "profile_id": "g08-analytic-synthetic-nvt-cpu",
+          "review_id": "Gate_08_v2",
+          "sha256": "6df43b62ecb3972bb5bc3cf0c6efa931d5f95b34f702b9c3ad0998d767d058a1",
+          "snapshot": "c0280818ad18fa5e95a022eccc892e2310a41721"
+        }
+      ],
+      "evidence_status": "accepted_prior",
+      "implementation": "implemented",
+      "profile_id": "g08-analytic-synthetic-nvt-cpu",
+      "support_claim": true
+    },
+    {
+      "claim_id": "g09-bounded-water",
+      "description": "Bounded 64-water local plumbing profile accepted; no liquid equilibrium or physical accuracy claim.",
+      "evidence": [
+        {
+          "evidence_kind": "reviewed_gate",
+          "path": "Worker_Log/Milestone_05/Gate_09_v5_audit.md",
+          "profile_id": "solvated-fragment-v2-cpu",
+          "review_id": "Gate_09_v5",
+          "sha256": "2c1eb8ea306a5ea2daf29e8294bcdb4759785e57fa3e376d97d87df3a06c1f58",
+          "snapshot": "bc6fd520308fba7e7448929138eb91e80ca6f063"
+        }
+      ],
+      "evidence_status": "accepted_prior",
+      "implementation": "implemented",
+      "profile_id": "solvated-fragment-v2-cpu",
+      "support_claim": true
+    },
+    {
+      "claim_id": "g10-bounded-multistate",
+      "description": "Bounded serial multistate runtime accepted for its exact CPU fixtures; no molecular mixing or convergence claim.",
+      "evidence": [
+        {
+          "evidence_kind": "reviewed_gate",
+          "path": "Worker_Log/Milestone_05/Gate_10_v8_audit.md",
+          "profile_id": "bounded-multistate-water-cpu",
+          "review_id": "Gate_10_v8",
+          "sha256": "ca43bd2b556c7d682b5dc96e91d865201e0e2a14b62af32c4bdf74d575afa068",
+          "snapshot": "2be9334aea5c8fc34a4bb7ca0ebf6c46802aee27"
+        }
+      ],
+      "evidence_status": "accepted_prior",
+      "implementation": "implemented",
+      "profile_id": "bounded-multistate-water-cpu",
+      "support_claim": true
+    },
+    {
+      "claim_id": "g11-structural-input-controls",
+      "description": "Generic protein-input admission and structural controls are worker-tested; no real target/worker.",
+      "evidence": [
+        {
+          "evidence_kind": "worker_run",
+          "path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+          "sha256": "385096034ffce7febd93d383259dfe31b0840a045f76fd94608df670a869940a",
+          "snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+          "source_tree": "e24d98ebc128b95290dff3c5243855adbde8a70e"
+        }
+      ],
+      "evidence_status": "worker_tested_pending_review",
+      "implementation": "implemented",
+      "profile_id": "batch-d-input-structure-cpu",
+      "support_claim": false
+    },
+    {
+      "claim_id": "g11-protein-abfe",
+      "description": "Complete protein ABFE claim is held.",
+      "evidence": [],
+      "evidence_status": "physical_hold",
+      "hold_reason": "No target, complete protein derivative, physical parameters, actual protein worker/restart, or adequate sampling was run.",
+      "implementation": "missing_or_partial",
+      "profile_id": "batch-d-input-structure-cpu",
+      "support_claim": false
+    },
+    {
+      "claim_id": "g12-host-guest-plumbing",
+      "description": "18-crown-6/methanol-to-ethanol RBFE input plumbing is worker-tested only.",
+      "evidence": [
+        {
+          "evidence_kind": "worker_run",
+          "path": "Worker_Log/Before_HPC/Batch_D_v1_worker.md",
+          "sha256": "385096034ffce7febd93d383259dfe31b0840a045f76fd94608df670a869940a",
+          "snapshot": "e117a18ef253caa1bca354376c6d1badbd635515",
+          "source_tree": "e24d98ebc128b95290dff3c5243855adbde8a70e"
+        }
+      ],
+      "evidence_status": "worker_tested_pending_review",
+      "implementation": "implemented",
+      "profile_id": "batch-d-input-structure-cpu",
+      "support_claim": false
+    },
+    {
+      "claim_id": "g12-rbfe-physical-result",
+      "description": "Host\u2013guest physical RBFE result is held.",
+      "evidence": [],
+      "evidence_status": "physical_hold",
+      "hold_reason": "Crown/physical-solvent parameters, upstream correction equation/domain choices, matched molecular sampling and closure inputs are absent.",
+      "implementation": "missing_or_partial",
+      "profile_id": "batch-d-input-structure-cpu",
+      "support_claim": false
+    },
+    {
+      "claim_id": "g13-package-cli-hpc",
+      "description": "Final pinned wheel, installed-path analytic and actual-worker fixed-coordinate checks, multistate/analyze CLI roundtrips, bundle identity, and local HPC validation; evidence is pending independent review.",
+      "evidence": [
+        {
+          "evidence_kind": "worker_run",
+          "path": "Worker_Log/Before_HPC/evidence/batch-e-v1/focused-core-committed-001.log",
+          "sha256": "b6776dca42b4df7bfd168e71fbda40691b076437e6392945afabcc51941abbcd",
+          "snapshot": "b3504f09e224b6f8fc636615ec3284e9326c6d45; 31 focused tests passed, zero skips; includes exchange/resume/analyze CLI paths, support and HPC validators",
+          "source_tree": "97a88372e4edafba6d3e7ee8ab8202117578c00c"
+        },
+        {
+          "evidence_kind": "worker_run",
+          "path": "Worker_Log/Before_HPC/evidence/batch-e-v1/package-wheel-final-002.log",
+          "sha256": "92353e1e8b56cf62d58c66b4d73a51cbcfc051cac812c03e43a20c0adc92fdd3",
+          "snapshot": "b3504f09e224b6f8fc636615ec3284e9326c6d45; wheel 35e2b39662de8eef54491fb878be1ca41ed470348e1a99d89ade892c48481480 built with pinned setuptools/wheel, no dependency fetch",
+          "source_tree": "97a88372e4edafba6d3e7ee8ab8202117578c00c"
+        },
+        {
+          "evidence_kind": "worker_run",
+          "path": "Worker_Log/Before_HPC/evidence/batch-e-v1/installed-fresh-worker-002.log",
+          "sha256": "061fd05dfdf1d311107c4f3c6abf32f033cd0c10adca7a76f3735cb7f30cb11c",
+          "snapshot": "b3504f09e224b6f8fc636615ec3284e9326c6d45; installed outside checkout with PYTHONPATH unset; wheel 35e2b39662de8eef54491fb878be1ca41ed470348e1a99d89ade892c48481480; fresh worker manifest b63044c4ca9dcfe1d2f126c2e5bc861af869ac09fa804ce097c0e1ca221821f3",
+          "source_tree": "97a88372e4edafba6d3e7ee8ab8202117578c00c"
+        },
+        {
+          "evidence_kind": "worker_run",
+          "path": "Worker_Log/Before_HPC/evidence/batch-e-v1/release-bundle-build-final-002.log",
+          "sha256": "320db8f519eb1c9dfc17183db5a9ca18b4d7e1f1f9061d5944a8cc00a4297522",
+          "snapshot": "verified local bundle 002; wheel, source, fresh worker input, two-cut fixture, approved asset, evidence; full offline dependency reinstall false",
+          "source_tree": "97a88372e4edafba6d3e7ee8ab8202117578c00c"
+        },
+        {
+          "evidence_kind": "worker_run",
+          "path": "Worker_Log/Before_HPC/evidence/batch-e-v1/local-hpc-driver-dryrun-001.log",
+          "sha256": "8ebc9965fd0b050a04699afad64f86e9eef707547d21706a0d6a5f8423dd0fc3",
+          "snapshot": "b3504f09e224b6f8fc636615ec3284e9326c6d45; bounded-driver dry-run lists only reserved focused commands; default HPC template is held; no submission",
+          "source_tree": "97a88372e4edafba6d3e7ee8ab8202117578c00c"
+        }
+      ],
+      "evidence_status": "worker_tested_pending_review",
+      "implementation": "tested within the listed narrow scope",
+      "profile_id": "batch-e-installed-worker-cpu",
+      "support_claim": false
+    },
+    {
+      "claim_id": "g13-bounded-cpu-costs",
+      "description": "Five measured fresh serial CPU cases on one small matched fixture; resource measurements only, no GPU extrapolation.",
+      "evidence": [
+        {
+          "evidence_kind": "worker_run",
+          "path": "Worker_Log/Before_HPC/evidence/batch-e-v1/benchmark-receipt-final-001.json",
+          "sha256": "ad75e2cddd4a86f08f915dda974f25b4deb529c4de1ef7ed37e431d099e29d79",
+          "snapshot": "a31574f2ea9db64cc402c354733006d75cee2642; five fresh processes, eight repeats each",
+          "source_tree": "0d25b3156f88eeceb483b4d168c837b4ed56dfec"
+        }
+      ],
+      "evidence_status": "worker_tested_pending_review",
+      "implementation": "measured within the listed tiny fixture scope",
+      "profile_id": "batch-e-two-cut-cpu-benchmark",
+      "support_claim": false
+    },
+    {
+      "claim_id": "g13-cuda-device",
+      "description": "No CUDA/GPU support claim is made.",
+      "evidence": [],
+      "evidence_status": "unavailable_hardware",
+      "hold_reason": "No GPU hardware run, driver, precision or device-tensor evidence is available.",
+      "implementation": "missing_or_partial",
+      "profile_id": "gpu-profile-unavailable",
+      "support_claim": false
+    },
+    {
+      "claim_id": "g13-offline-dependency-reinstall",
+      "description": "The local artifact bundle does not prove a fully offline dependency reinstall.",
+      "evidence": [],
+      "evidence_status": "not_assessed",
+      "hold_reason": "The project wheel/source/model/input/evidence bundle is hashed, while a complete independently reproduced dependency cache has not been assembled.",
+      "implementation": "missing_or_partial",
+      "profile_id": "core-analytic-cpu",
+      "support_claim": false
+    },
+    {
+      "claim_id": "m05-full-closure",
+      "description": "Full M05 closure and molecular binding result remain open.",
+      "evidence": [],
+      "evidence_status": "physical_hold",
+      "hold_reason": "B07 physical references, protein/RBFE target inputs, adequate trajectories, linked correction covariance, convergence and full dependency review remain unresolved.",
+      "implementation": "missing_or_partial",
+      "profile_id": "solvated-fragment-v2-cpu",
+      "support_claim": false
+    },
+    {
+      "claim_id": "b14-cluster-parity",
+      "description": "No cluster parity/restart trial was run.",
+      "evidence": [],
+      "evidence_status": "unavailable_hardware",
+      "hold_reason": "Target platform/device/driver/storage/allocation/checkpoint compatibility details are unavailable; only validation templates are supplied.",
+      "implementation": "missing_or_partial",
+      "profile_id": "hpc-target-profile-unknown",
+      "support_claim": false
+    },
+    {
+      "claim_id": "c3-unmatched-state-refusal",
+      "description": "General unmatched-physical-state closure refusal is not implemented or qualified.",
+      "evidence": [],
+      "evidence_status": "missing_implementation",
+      "hold_reason": "No endpoint physical-metadata schema or closure-comparison service exists; do not infer closure from shared thermodynamic descriptions.",
+      "implementation": "missing_or_partial",
+      "profile_id": "g08-analytic-synthetic-nvt-cpu",
+      "support_claim": false
+    }
+  ],
+  "format": "atom-mlmm-support-matrix-v1",
+  "interpretation": "accepted_prior is limited to the exact referenced snapshot/profile. worker_tested_pending_review is implementation evidence only. Code presence never promotes physics or hardware claims.",
+  "profiles": [
+    {
+      "embedding": "mechanical analytic provider",
+      "ensemble": "NVT 300 K only where sampling applies; no molecular convergence claim",
+      "hardware": "Linux x86_64 CPU; OpenMM Reference",
+      "input": "frozen analytic controls and small declared fixtures",
+      "model": "analytic harmonic/cap controls; no licensed weights",
+      "precision": "float64 / Reference double",
+      "profile_id": "core-analytic-cpu",
+      "protocol": "ABFE/RBFE transfer contracts; fixed-coordinate and bounded analytic NVT"
+    },
+    {
+      "embedding": "not exercised by loader check",
+      "ensemble": "not applicable",
+      "hardware": "Linux x86_64 CPU",
+      "input": "MACE asset, neutral local reference fixtures; candidate domain only",
+      "model": "MACE-OFF23-small exact pinned checkpoint",
+      "precision": "PyTorch float64; MACE Default head",
+      "profile_id": "g00-mace-cpu-loading",
+      "protocol": "trusted local model load and fixed-coordinate candidate check"
+    },
+    {
+      "embedding": "local neutral reference only",
+      "ensemble": "single-point reference structures",
+      "hardware": "Linux x86_64 CPU",
+      "input": "46 accepted G05 records; 7 G07 sensitivity exceedances remain separate",
+      "model": "MACE-OFF23-small exact pinned checkpoint",
+      "precision": "float64",
+      "profile_id": "g05-neutral-reference-cpu",
+      "protocol": "frozen neutral small-molecule reference comparisons"
+    },
+    {
+      "embedding": "mechanical retained-MM / PME accounting scope",
+      "ensemble": "fixed-volume single points",
+      "hardware": "OpenMM 8.6.1 Reference CPU; no CUDA",
+      "input": "declared orthorhombic controls; not protein or binding free energy",
+      "model": "MACE-OFF23-small exact pinned checkpoint",
+      "precision": "OpenMM Reference double and MACE float64",
+      "profile_id": "g06-fixed-orthorhombic-reference-cpu",
+      "protocol": "small fixed-volume single points"
+    },
+    {
+      "embedding": "synthetic record inputs",
+      "ensemble": "synthetic NVT record designs",
+      "hardware": "CPU",
+      "input": "frozen known-answer analytic and exchange-analysis-v1 records",
+      "model": "analytic/synthetic reduced potentials",
+      "precision": "float64",
+      "profile_id": "g08-analytic-synthetic-nvt-cpu",
+      "protocol": "PyMBAR/UWHAM and dependence-aware resampling controls"
+    },
+    {
+      "embedding": "mechanical; retained MM and PME ledger",
+      "ensemble": "NVT 300 K; 0.0005 ps timestep in accepted local-water scope",
+      "hardware": "OpenMM Reference CPU",
+      "input": "224/233 real-atom 64-water geometry-only fixtures",
+      "model": "MACE-OFF23-small exact pinned checkpoint",
+      "precision": "Reference double / model float64",
+      "profile_id": "solvated-fragment-v2-cpu",
+      "protocol": "bounded ABFE/RBFE worker and exchange plumbing"
+    },
+    {
+      "embedding": "mechanical; full real forces and both maps",
+      "ensemble": "NVT 300 K; no mixing/convergence claim",
+      "hardware": "OpenMM Reference CPU; two-thread worker profile",
+      "input": "accepted 224/233 real-atom 64-water plumbing fixtures; tiny boundaries only",
+      "model": "MACE-OFF23-small exact pinned checkpoint",
+      "precision": "Reference double / model float64",
+      "profile_id": "bounded-multistate-water-cpu",
+      "protocol": "serial 3\u20138 state persistent exchange; finite bounded histories"
+    },
+    {
+      "embedding": "mechanical input schema only",
+      "ensemble": "not applicable",
+      "hardware": "CPU; no full protein worker execution",
+      "input": "generic proposals, 18-crown-6 plumbing, two-cap synthetic structure",
+      "model": "no energy model in structural admission control",
+      "precision": "JSON identities plus OpenMM Reference where structural checks apply",
+      "profile_id": "batch-d-input-structure-cpu",
+      "protocol": "generic protein/host input admission and structural controls"
+    },
+    {
+      "embedding": "not qualified",
+      "ensemble": "not assessed",
+      "hardware": "CUDA/GPU not available or exercised",
+      "input": "no GPU fixture run",
+      "model": "MACE-OFF23-small candidate only",
+      "precision": "GPU precision not measured",
+      "profile_id": "gpu-profile-unavailable",
+      "protocol": "no GPU protocol execution"
+    },
+    {
+      "embedding": "future exact profile required",
+      "ensemble": "trial only after separate authorization",
+      "hardware": "target cluster/device unknown",
+      "input": "no cluster-specific input admitted",
+      "model": "future explicit artifact identity required",
+      "precision": "target precision unknown",
+      "profile_id": "hpc-target-profile-unknown",
+      "protocol": "fixed-coordinate parity and restart trial not run"
+    },
+    {
+      "embedding": "mechanical; admitted two-cut cavity and ligand-only zero-cut comparison",
+      "ensemble": "fixed coordinates; eight repeats and one tiny step; no sampling or convergence claim",
+      "hardware": "Linux x86_64 CPU AMD EPYC 9V74 80-Core Processor; OpenMM Reference",
+      "input": "fixtures/two_cut_control; 15 real atoms; input identity 2c9a2addb366ce3ba14d81ad5a489fbe6b53140eb2700ff22c4d15b5783d6c41",
+      "model": "MACE-OFF23-small; checkpoint sha256 165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f; all-MM baseline separately marked not applicable",
+      "precision": "OpenMM Reference double; MACE float64",
+      "profile_id": "batch-e-two-cut-cpu-benchmark",
+      "protocol": "all-MM, ligand-only, cavity-inclusive, native ATM, actual worker; fixed-coordinate evaluations and one 0.5 fs step"
+    },
+    {
+      "embedding": "mechanical two-cut fixture; ligand-only zero-cut and cavity cap paths",
+      "ensemble": "single fixed-coordinate evaluation; no ensemble or convergence claim",
+      "hardware": "Linux x86_64 CPU AMD EPYC 9V74 80-Core Processor; OpenMM Reference",
+      "input": "15-real-atom two_cut_control benchmark input identity 2c9a2addb366ce3ba14d81ad5a489fbe6b53140eb2700ff22c4d15b5783d6c41; separate fresh 7-real-atom worker export manifest b63044c4ca9dcfe1d2f126c2e5bc861af869ac09fa804ce097c0e1ca221821f3; plumbing only",
+      "model": "MACE-OFF23-small pinned checkpoint sha256 165cce4cfec5a34b9c64d4ebf95de15d71106bb584b7291c8470f0749977c46f",
+      "precision": "MACE float64; OpenMM Reference double",
+      "profile_id": "batch-e-installed-worker-cpu",
+      "protocol": "installed package asset route; fixed-coordinate model evaluation and trusted actual-worker load"
+    }
+  ],
+  "project_license": "not declared; external distribution/release is held pending a rights decision",
+  "schema_version": 1
+}

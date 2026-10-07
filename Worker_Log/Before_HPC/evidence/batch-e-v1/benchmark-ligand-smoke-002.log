@@ -1,0 +1,14 @@
+cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
+Traceback (most recent call last):
+  File "/workspace/AToM_MLMM-before-HPC/tools/benchmark_case.py", line 189, in <module>
+    raise SystemExit(main())
+                     ^^^^^^
+  File "/workspace/AToM_MLMM-before-HPC/tools/benchmark_case.py", line 184, in main
+    print(json.dumps(run(args.case,args.workdir),sort_keys=True,allow_nan=False))
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/AToM_MLMM-before-HPC/tools/benchmark_case.py", line 69, in run
+    transfer = resolve_protocol(physical, make_protocol(
+                                          ^^^^^^^^^^^^^^
+  File "/workspace/AToM_MLMM-before-HPC/src/atm_mlmm/protocols/abfe.py", line 8, in make_protocol
+    raise UnsupportedCapability('ABFE requires one complete mobile group')
+atm_mlmm.schema.UnsupportedCapability: ABFE requires one complete mobile group

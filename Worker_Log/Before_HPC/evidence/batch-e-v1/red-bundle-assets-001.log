@@ -1,0 +1,163 @@
+FFFFFFF                                                                  [100%]
+=================================== FAILURES ===================================
+______ test_release_bundle_hashes_source_wheel_inputs_assets_and_evidence ______
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-37/test_release_bundle_hashes_sou0')
+
+    def test_release_bundle_hashes_source_wheel_inputs_assets_and_evidence(tmp_path):
+>       from atm_mlmm.release import build_release_bundle, verify_release_bundle
+E       ModuleNotFoundError: No module named 'atm_mlmm.release'
+
+tests/workflow/test_release_bundle.py:14: ModuleNotFoundError
+__________ test_release_bundle_is_immutable_and_rejects_asset_damage ___________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-37/test_release_bundle_is_immutab0')
+
+    def test_release_bundle_is_immutable_and_rejects_asset_damage(tmp_path):
+>       from atm_mlmm.release import build_release_bundle
+E       ModuleNotFoundError: No module named 'atm_mlmm.release'
+
+tests/workflow/test_release_bundle.py:48: ModuleNotFoundError
+____________________ test_release_bundle_refuses_overwrite _____________________
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-37/test_release_bundle_refuses_ov0')
+
+    def test_release_bundle_refuses_overwrite(tmp_path):
+>       from atm_mlmm.release import build_release_bundle
+E       ModuleNotFoundError: No module named 'atm_mlmm.release'
+
+tests/workflow/test_release_bundle.py:68: ModuleNotFoundError
+____ test_installed_asset_directory_routes_without_changing_asset_identity _____
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-37/test_installed_asset_directory0')
+
+    @pytest.mark.model_assets
+    def test_installed_asset_directory_routes_without_changing_asset_identity(tmp_path):
+        asset_dir = tmp_path / "approved-assets"
+        shutil.copytree(ASSET, asset_dir)
+        probe = '''
+    import hashlib, json
+    from pathlib import Path
+    from atm_mlmm.models import mace
+    assert mace.ASSET.resolve() == Path(__import__("os").environ["ATOM_MLMM_MODEL_DIR"]).resolve()
+    manifest = mace.verify_asset()
+    assert hashlib.sha256(mace.CHECKPOINT.read_bytes()).hexdigest() == manifest["files"]["MACE-OFF23_small.model"]["sha256"]
+    print(json.dumps({"asset": str(mace.ASSET), "checkpoint": manifest["files"]["MACE-OFF23_small.model"]["sha256"],
+                      "license": manifest["files"]["LICENSE.md"]["sha256"],
+                      "authorization": manifest["user_authorization"]}))
+    '''
+        environment = os.environ.copy()
+        environment.update(ATOM_MLMM_MODEL_DIR=str(asset_dir), PYTHONPATH=str(ROOT / "src"))
+        result = subprocess.run([sys.executable, "-c", probe], cwd=tmp_path, env=environment,
+                                capture_output=True, text=True, timeout=30)
+>       assert result.returncode == 0, result.stdout + result.stderr
+E       AssertionError: Traceback (most recent call last):
+E           File "<string>", line 5, in <module>
+E         AssertionError
+E         
+E       assert 1 == 0
+E        +  where 1 = CompletedProcess(args=['/workspace/before-hpc-cpu-v2/env/bin/python', '-c', '\nimport hashlib, json\nfrom pathlib impo...de=1, stdout='', stderr='Traceback (most recent call last):\n  File "<string>", line 5, in <module>\nAssertionError\n').returncode
+
+tests/integration/test_checkpoint_loading.py:113: AssertionError
+_ test_installed_asset_directory_rejects_invalid_assets_before_loading[missing] _
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-37/test_installed_asset_directory1')
+mutation = 'missing'
+
+    @pytest.mark.model_assets
+    @pytest.mark.parametrize("mutation", ["missing", "modified", "untrusted"])
+    def test_installed_asset_directory_rejects_invalid_assets_before_loading(tmp_path, mutation):
+        asset_dir = tmp_path / "approved-assets"
+        shutil.copytree(ASSET, asset_dir)
+        if mutation == "missing":
+            (asset_dir / "LICENSE.md").unlink()
+        elif mutation == "modified":
+            (asset_dir / "MACE-OFF23_small.model").write_bytes(b"modified")
+        else:
+            manifest = json.loads((asset_dir / "manifest.json").read_text())
+            manifest.pop("user_authorization")
+            (asset_dir / "manifest.json").write_text(json.dumps(manifest))
+        probe = '''
+    from atm_mlmm.models.mace import verify_asset
+    verify_asset()
+    '''
+        environment = os.environ.copy()
+        environment.update(ATOM_MLMM_MODEL_DIR=str(asset_dir), PYTHONPATH=str(ROOT / "src"))
+        result = subprocess.run([sys.executable, "-c", probe], cwd=tmp_path, env=environment,
+                                capture_output=True, text=True, timeout=30)
+>       assert result.returncode != 0
+E       AssertionError: assert 0 != 0
+E        +  where 0 = CompletedProcess(args=['/workspace/before-hpc-cpu-v2/env/bin/python', '-c', '\nfrom atm_mlmm.models.mace import verify_asset\nverify_asset()\n'], returncode=0, stdout='', stderr='').returncode
+
+tests/integration/test_checkpoint_loading.py:141: AssertionError
+_ test_installed_asset_directory_rejects_invalid_assets_before_loading[modified] _
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-37/test_installed_asset_directory2')
+mutation = 'modified'
+
+    @pytest.mark.model_assets
+    @pytest.mark.parametrize("mutation", ["missing", "modified", "untrusted"])
+    def test_installed_asset_directory_rejects_invalid_assets_before_loading(tmp_path, mutation):
+        asset_dir = tmp_path / "approved-assets"
+        shutil.copytree(ASSET, asset_dir)
+        if mutation == "missing":
+            (asset_dir / "LICENSE.md").unlink()
+        elif mutation == "modified":
+            (asset_dir / "MACE-OFF23_small.model").write_bytes(b"modified")
+        else:
+            manifest = json.loads((asset_dir / "manifest.json").read_text())
+            manifest.pop("user_authorization")
+            (asset_dir / "manifest.json").write_text(json.dumps(manifest))
+        probe = '''
+    from atm_mlmm.models.mace import verify_asset
+    verify_asset()
+    '''
+        environment = os.environ.copy()
+        environment.update(ATOM_MLMM_MODEL_DIR=str(asset_dir), PYTHONPATH=str(ROOT / "src"))
+        result = subprocess.run([sys.executable, "-c", probe], cwd=tmp_path, env=environment,
+                                capture_output=True, text=True, timeout=30)
+>       assert result.returncode != 0
+E       AssertionError: assert 0 != 0
+E        +  where 0 = CompletedProcess(args=['/workspace/before-hpc-cpu-v2/env/bin/python', '-c', '\nfrom atm_mlmm.models.mace import verify_asset\nverify_asset()\n'], returncode=0, stdout='', stderr='').returncode
+
+tests/integration/test_checkpoint_loading.py:141: AssertionError
+_ test_installed_asset_directory_rejects_invalid_assets_before_loading[untrusted] _
+
+tmp_path = PosixPath('/tmp/pytest-of-agent/pytest-37/test_installed_asset_directory3')
+mutation = 'untrusted'
+
+    @pytest.mark.model_assets
+    @pytest.mark.parametrize("mutation", ["missing", "modified", "untrusted"])
+    def test_installed_asset_directory_rejects_invalid_assets_before_loading(tmp_path, mutation):
+        asset_dir = tmp_path / "approved-assets"
+        shutil.copytree(ASSET, asset_dir)
+        if mutation == "missing":
+            (asset_dir / "LICENSE.md").unlink()
+        elif mutation == "modified":
+            (asset_dir / "MACE-OFF23_small.model").write_bytes(b"modified")
+        else:
+            manifest = json.loads((asset_dir / "manifest.json").read_text())
+            manifest.pop("user_authorization")
+            (asset_dir / "manifest.json").write_text(json.dumps(manifest))
+        probe = '''
+    from atm_mlmm.models.mace import verify_asset
+    verify_asset()
+    '''
+        environment = os.environ.copy()
+        environment.update(ATOM_MLMM_MODEL_DIR=str(asset_dir), PYTHONPATH=str(ROOT / "src"))
+        result = subprocess.run([sys.executable, "-c", probe], cwd=tmp_path, env=environment,
+                                capture_output=True, text=True, timeout=30)
+>       assert result.returncode != 0
+E       AssertionError: assert 0 != 0
+E        +  where 0 = CompletedProcess(args=['/workspace/before-hpc-cpu-v2/env/bin/python', '-c', '\nfrom atm_mlmm.models.mace import verify_asset\nverify_asset()\n'], returncode=0, stdout='', stderr='').returncode
+
+tests/integration/test_checkpoint_loading.py:141: AssertionError
+=========================== short test summary info ============================
+FAILED tests/workflow/test_release_bundle.py::test_release_bundle_hashes_source_wheel_inputs_assets_and_evidence
+FAILED tests/workflow/test_release_bundle.py::test_release_bundle_is_immutable_and_rejects_asset_damage
+FAILED tests/workflow/test_release_bundle.py::test_release_bundle_refuses_overwrite
+FAILED tests/integration/test_checkpoint_loading.py::test_installed_asset_directory_routes_without_changing_asset_identity
+FAILED tests/integration/test_checkpoint_loading.py::test_installed_asset_directory_rejects_invalid_assets_before_loading[missing]
+FAILED tests/integration/test_checkpoint_loading.py::test_installed_asset_directory_rejects_invalid_assets_before_loading[modified]
+FAILED tests/integration/test_checkpoint_loading.py::test_installed_asset_directory_rejects_invalid_assets_before_loading[untrusted]
+7 failed in 0.31s
