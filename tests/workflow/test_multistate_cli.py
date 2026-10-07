@@ -53,3 +53,31 @@ def test_analysis_cli_rejects_incomplete_serialized_inputs(tmp_path):
     result = _cli("analyze", document)
     assert result.returncode == 2
     assert "nonempty list" in result.stderr
+
+
+def test_analysis_cli_roundtrips_explicit_synthetic_records(tmp_path):
+    from atm_mlmm.exchange_analysis import ExchangeResamplingSpec, analyze_exchange
+    from atm_mlmm.schema import to_json
+    from tests.sampling.test_exchange_uncertainty import make_synthetic_history, restrained_spec
+
+    history = make_synthetic_history(tmp_path, 0, seed=104729, frames=32)
+    thermodynamics = restrained_spec()
+    resampling = ExchangeResamplingSpec(
+        "synchronized_blocks", 8, 8, 91,
+        "fixtures/analytic/exchange-analysis-v1/design.json")
+    expected = analyze_exchange((history,), thermodynamics, resampling=resampling,
+                                estimator="pymbar")
+    input_file = tmp_path / "analysis.json"
+    input_file.write_text(json.dumps({
+        "histories": [json.loads(to_json(history))],
+        "thermodynamics": json.loads(to_json(thermodynamics)),
+        "resampling": json.loads(to_json(resampling)),
+        "estimator": "pymbar",
+    }))
+
+    result = _cli("analyze", input_file)
+
+    assert result.returncode == 0, result.stdout + result.stderr
+    output = json.loads(result.stdout)
+    assert output["scope"].startswith("explicit exchange analysis")
+    assert output["analysis_result"] == json.loads(to_json(expected))
