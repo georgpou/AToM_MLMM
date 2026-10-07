@@ -1,0 +1,20 @@
+{
+  "design_id": "exchange-analysis-v1",
+  "answers_kJ_mol": {
+    "restrained_B_minus_A": 1.5,
+    "restrained_A_minus_B": -1.5,
+    "zero_restraint_B_minus_A": 0.0
+  },
+  "endpoint_states": {
+    "endpoint-A-id": {"lambda": 0.0, "weight_in_B_minus_A": -1.0},
+    "endpoint-B-id": {"lambda": 1.0, "weight_in_B_minus_A": 1.0}
+  },
+  "expected_marginals": {
+    "endpoint-A-id": {"mean_nm": 0.0, "variance_nm2": "R*T/(k+k_restraint)"},
+    "endpoint-B-id": {"mean_nm": -0.2, "variance_nm2": "R*T/(k+k_restraint)"}
+  },
+  "independent_accounting_faults": [
+    "detach walker/state labels from their raw energy bundles and the state-conditional means no longer match the declared marginal oracle",
+    "drop the nonzero outside harmonic term and the restrained +1.5 kJ/mol answer no longer matches; the corrupted input also fails observed-total reconstruction"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "design_id": "exchange-analysis-v1",
+  "status": "frozen_before_qualification",
+  "scope": "synthetic analytic controls for dependence-aware exchange analysis",
+  "source_contracts": ["S05-protocol-and-thermodynamic-contracts.md", "S06-validation-and-tolerances.md"],
+  "temperature_K": 300.0,
+  "gas_constant_kJ_mol_K": 0.00831446261815324,
+  "rt_kJ_mol": 2.4943387854459722,
+  "beta_mol_kJ": 0.40090785014242009,
+  "harmonic_model": {
+    "k_kJ_mol_nm2": 100.0,
+    "k_restraint_kJ_mol_nm2": 50.0,
+    "displacement_nm": 0.3,
+    "u0_kJ_mol": "0.5*k*x^2",
+    "u1_kJ_mol": "0.5*k*(x+d)^2",
+    "outside_kJ_mol": "0.5*k_restraint*x^2",
+    "schedule": [
+      {"state_id": "endpoint-A-id", "lambda": 0.0},
+      {"state_id": "endpoint-B-id", "lambda": 1.0}
+    ],
+    "sampling_distribution": {
+      "mean_nm": "-lambda*k*d/(k+k_restraint)",
+      "variance_nm2": "R*T/(k+k_restraint)"
+    },
+    "known_delta_f_B_minus_A_kJ_mol": 1.5,
+    "reverse_delta_f_A_minus_B_kJ_mol": -1.5,
+    "zero_restraint_k_restraint_kJ_mol_nm2": 0.0,
+    "zero_restraint_delta_f_kJ_mol": 0.0
+  },
+  "runs": 12,
+  "synchronized_frames_per_run": 4096,
+  "walkers_per_frame": 2,
+  "state_permutation": "walker-0 and walker-1 swap endpoint labels on alternating frames; each frame still contains both states exactly once",
+  "independent_analytic_baseline": {
+    "temporal_ar1_rho": 0.0,
+    "shared_innovation_variance_fraction": 0.0
+  },
+  "correlated_gaussian_control": {
+    "temporal_ar1_rho": 0.5,
+    "shared_innovation_variance_fraction": 0.5,
+    "equation": "z[t,w]=rho*z[t-1,w]+sqrt(1-rho^2)*(sqrt(1-shared_fraction)*epsilon[t,w]+sqrt(shared_fraction)*eta[t])",
+    "stationary_initialization": "same innovation equation without the AR combination at t=0",
+    "correlation_note": "The common eta component yields a predeclared same-frame cross-walker residual correlation of 0.5; no scheduler or physical exchange is simulated."
+  },
+  "resampling": {
+    "synchronized_blocks_length_frames": 32,
+    "bootstrap_replicates": 64,
+    "fixed_seeds_file": "seeds.json",
+    "per_run_block_count": 128,
+    "block_tail_policy": "all frames retained; 4096 is divisible by 32; any partial block rejects",
+    "draw_policy": "sample nonoverlapping time blocks with replacement separately within each run; retain both walkers, sampled states, and all raw/outside energies from each selected frame; preserve each run's 4096-frame contribution",
+    "independent_runs_policy": "sample 12 complete independently seeded runs with replacement; retain each selected run's full correlated history; do not add block or iid variance",
+    "failed_draw_policy": "preserve draw number, selected raw sample IDs and failure reason; any failed, disconnected, or nonfinite draw withholds sampling covariance"
+  },
+  "predeclared_qualification_criteria": {
+    "known_answer_each_estimator": "absolute point-estimate error <= 0.1 kJ/mol and <= 3 bootstrap standard errors from +1.5 kJ/mol; reverse weights must return the negated value and same standard error",
+    "zero_restraint_answer": "independent analytic Gaussian integration returns zero within 1e-12 kJ/mol; this is not a molecular result",
+    "identical_input_estimator_agreement": "absolute PyMBAR versus pinned UWHAM point-estimate difference <= 1e-6 kJ/mol",
+    "bootstrap_covariance_vs_independent_run_mean": "for the B-minus-A contrast, ratio of 64-draw resampled variance to sample variance of the 12 independent run point estimates divided by 12 must lie in [0.5, 2.0]; a zero/nonfinite denominator or any failed draw is a hold",
+    "no_tuning": "seeds, equations, block length, replicate count, estimator agreement limit, and covariance interval remain fixed after the first control result"
+  },
+  "interpretation": "Synthetic analytic evidence only. It does not measure scheduler mixing, conformational convergence, equilibrium sampling, molecular binding, or G08 acceptance."
+}

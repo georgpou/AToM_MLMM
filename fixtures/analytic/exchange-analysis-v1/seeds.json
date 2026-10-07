@@ -1,0 +1,5 @@
+{
+  "design_id": "exchange-analysis-v1",
+  "seed_policy": "one fixed integer seed per independently generated run; same ordered list is used for the paired iid and AR(1) controls, with separate fresh generators per scenario",
+  "seeds": [104729, 130363, 155921, 181081, 205759, 230003, 254347, 278933, 303091, 327673, 352057, 376127]
+}
