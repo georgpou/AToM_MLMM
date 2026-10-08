@@ -1,7 +1,0 @@
-{
-  "command": [
-    "/workspace/atom-mlmm-g07/env/bin/python",
-    "-c",
-    "from pathlib import Path; Path('/workspace/AToM_MLMM/Worker_Log/Milestone_03/evidence/G07_v2_execution_independent/pytest-repaired/test_uncheckpointed_supervisor0/unauthorized-execution').touch()"
-  ]
-}

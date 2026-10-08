@@ -1,0 +1,65 @@
+[
+  {
+    "ligand": "but",
+    "real_atoms": 23106,
+    "real_ml_atoms": 55,
+    "caps": 3,
+    "model_atoms": 58,
+    "ligand_atoms": 14,
+    "only_complete_ligand_moves": true,
+    "timestep_ps": 0.0005,
+    "all_preparation_loop_steps": [
+      2,
+      2,
+      2
+    ],
+    "geometry": {
+      "minimum_distance_nm": 1.9390873935952446,
+      "required_distance_nm": 1.1,
+      "scope": "initial geometry diagnostic, not a free-energy correction"
+    },
+    "setup_sha256": "07eb449ecf0f648893dd54050247e5e2d43c5112ec41acfb8f077c369181e759"
+  },
+  {
+    "ligand": "prp",
+    "real_atoms": 22899,
+    "real_ml_atoms": 52,
+    "caps": 3,
+    "model_atoms": 55,
+    "ligand_atoms": 11,
+    "only_complete_ligand_moves": true,
+    "timestep_ps": 0.0005,
+    "all_preparation_loop_steps": [
+      2,
+      2,
+      2
+    ],
+    "geometry": {
+      "minimum_distance_nm": 1.9117561716913583,
+      "required_distance_nm": 1.1,
+      "scope": "initial geometry diagnostic, not a free-energy correction"
+    },
+    "setup_sha256": "c61fc67b76438b2013d81636420f68e5a27da59eba92ac3c797d150a723483d6"
+  },
+  {
+    "ligand": "dap",
+    "real_atoms": 23203,
+    "real_ml_atoms": 68,
+    "caps": 3,
+    "model_atoms": 71,
+    "ligand_atoms": 27,
+    "only_complete_ligand_moves": true,
+    "timestep_ps": 0.0005,
+    "all_preparation_loop_steps": [
+      2,
+      2,
+      2
+    ],
+    "geometry": {
+      "minimum_distance_nm": 1.8656819718269249,
+      "required_distance_nm": 1.1,
+      "scope": "initial geometry diagnostic, not a free-energy correction"
+    },
+    "setup_sha256": "9d9a1bc85eeaf23d5f91d60ed37b6822c997885183cca95c013389edc56c8d75"
+  }
+]

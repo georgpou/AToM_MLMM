@@ -1,4 +1,0 @@
-  Threads set to 2 by Python driver.
-
-  Memory set to   5.000 GiB by Python driver.
-{"name": "butane-180", "status": "computed", "wall_seconds": 231.8499852140012}

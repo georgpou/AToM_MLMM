@@ -28,7 +28,7 @@ complete ABFE/RBFE workflow remain unqualified.
 |---|---|---|
 | [M00 v3](../../../Worker_Log/Milestone_00/Milestone_00_v3_audit.md) | `a825f5f1c2d8cf4146133c2049ef1c4eca550e93` | Astra/high/fresh accepted design; 965 geometry and 131 provenance checks |
 | [G05 v1 software](../../../Worker_Log/Milestone_03/Gate_05_v1_audit.md) | `a7768e375476667139db374dc0091999263a37de` | G00-T2 and six G05 software assertions accepted; importer R1 required repair |
-| [G05 v2 repair](../../../Worker_Log/Milestone_03/Gate_05_v2_audit.md) | `3124c6d275bf19a32ce364dfdb83b11115828ac5` | R1 closed; prepared-loading readiness accepted; no chemical/full-gate verdict |
+| [G05 v2 repair](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_03/Gate_05_v2_audit.md) | `3124c6d275bf19a32ce364dfdb83b11115828ac5` | R1 closed; prepared-loading readiness accepted; no chemical/full-gate verdict |
 
 The first software reviewer was interrupted by the quota pause and supplied
 no verdict; its saved evidence remains historical. Actual fresh-context
@@ -42,7 +42,7 @@ G02/G03/admission/G04 checks passed **78/38/74/24**, strict environment **9/9**,
 upstream **1**. These are earlier saved runs, not new runs at this pause.
 The checkpoint verifies **270 source/input hashes**, all **46 frozen-plan
 file hashes**, the **105-package reference lock**, and the eight saved records.
-See [v3 worker](../../../Worker_Log/Milestone_03/Gate_05_v3_worker.md) and
+See [v3 worker](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_03/Gate_05_v3_worker.md) and
 [checkpoint evidence](../../../Worker_Log/Milestone_00/evidence/M00_reference_v3/README.md).
 
 ## Approved scientific choices

@@ -1,6 +1,0 @@
-COMMAND: pytest -q tests/workflow/test_runtime_source_inventory_recursive.py
-2026-10-07T19:25:48Z
-..                                                                       [100%]
-2 passed in 0.07s
-EXIT=0
-2026-10-07T19:25:48Z

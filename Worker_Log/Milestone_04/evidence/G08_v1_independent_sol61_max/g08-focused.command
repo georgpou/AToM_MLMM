@@ -1,1 +1,0 @@
-python -m pytest tests/sampling/test_analytic_free_energy.py tests/unit/test_schedule.py tests/unit/test_restraint_volume.py -v --basetemp /workspace/AToM_MLMM/Worker_Log/Milestone_04/evidence/G08_v1_independent_sol61_max/focused-pytest-temp 

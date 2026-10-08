@@ -1,2 +1,0 @@
-SCF has converged.
-tampered diagnostic

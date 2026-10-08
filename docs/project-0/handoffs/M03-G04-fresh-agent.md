@@ -46,7 +46,7 @@ checkout requires preserving its changes, using isolation if needed.
    [M01 v2 audit](../../../Worker_Log/Milestone_01/Gate_01_v2_audit.md),
    [G02 v2 audit](../../../Worker_Log/Milestone_02/Gate_02_v2_audit.md),
    [G03/M02 v2 audit](../../../Worker_Log/Milestone_02/Gate_03_v2_audit.md),
-   and the [M02 acceptance/evidence guide](../../../Worker_Log/Milestone_02/evidence/M02_v2_closure/README.md).
+   and the [M02 acceptance/evidence guide](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_02/evidence/M02_v2_closure/README.md).
 4. [CPU environment guide](../../../environment/cloud-cpu/README.md). Inspect
    the pinned installed OpenMM-ML sources when integrating its boundary builder.
    Read G05/G06/G07 and G08 only as needed to understand later dependencies.

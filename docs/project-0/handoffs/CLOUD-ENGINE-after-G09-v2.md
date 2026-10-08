@@ -26,13 +26,13 @@ potential reconstruction and checkpoint continuation for these examples:
 | Capped-fragment ABFE | 32 | Mixed ML/MM and cap-force control |
 | Capped-fragment RBFE | 41 | Unequal complete-ligand control |
 
-The [v1 audit](../../../Worker_Log/Milestone_05/Gate_09_v1_audit.md) accepted the
+The [v1 audit](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/Gate_09_v1_audit.md) accepted the
 bounded host/vacuum design and found G09-R1: integration exceptions could bypass
 failed-state archiving. Tested repair source is
 `3246f0cbd6f66702e4b196bace593efba776a25e`; frozen submission is
 `9fe93357f0852d7c018ab41923cc0d58cb0615e1`. The
-[v2 worker](../../../Worker_Log/Milestone_05/Gate_09_v2_worker.md) and
-[actual GPT-6.1-sol/MAX v2 audit](../../../Worker_Log/Milestone_05/Gate_09_v2_audit.md)
+[v2 worker](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/Gate_09_v2_worker.md) and
+[actual GPT-6.1-sol/MAX v2 audit](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/Gate_09_v2_audit.md)
 record **accepted_for_scope, G09-R1 closed**: nine fresh affected passes and six
 independent actual-worker prefix/failure challenges. Their submitted artifacts
 and earlier attempts are frozen; subsequent reports/publication change no
@@ -60,8 +60,8 @@ python -m atm_mlmm check fixtures/cloud_host_guest/v2/config.json
 The [runner guide](../../../examples/cloud_engine/README.md) explains settings,
 new output directories, trusted loading and relocation. Full local portable
 attempts are `/workspace/cloud-engine-pilots/host-v1` and `host-v2` under the same
-parent directory. Tracked [v1 evidence](../../../Worker_Log/Milestone_05/evidence/G09_v1/README.md)
-and [v2 evidence](../../../Worker_Log/Milestone_05/evidence/G09_v2/README.md)
+parent directory. Tracked [v1 evidence](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G09_v1/README.md)
+and [v2 evidence](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G09_v2/README.md)
 include raw records, States/checkpoints and manifests; their captures omit
 duplicate source/model/environment payloads and are not standalone installations.
 Checkpoint comparisons must use the exact same saved System/State and seed;

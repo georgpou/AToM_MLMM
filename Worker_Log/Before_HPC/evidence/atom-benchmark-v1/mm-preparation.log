@@ -1,0 +1,79 @@
+ML/MM preparation uses all physical force groups; all warmup loops use fixed-volume NVT.
+
+========================================
+AToM ABFE Structure Preparation
+========================================
+
+Started at: Thu Oct  8 08:05:21 2026
+Options: {'TEMPERATURES': [300.0], 'LAMBDAS': [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0], 'DIRECTION': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], 'INTERMEDIATE': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'LAMBDA1': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'LAMBDA2': [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0], 'ALPHA': [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1], 'U0': [110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0], 'W0COEFF': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'WALL_TIME': 1, 'MAX_SAMPLES': 1, 'CYCLE_TIME': 10, 'CHECKPOINT_TIME': 1200, 'SUBJOBS_BUFFER_SIZE': 1.0, 'PRODUCTION_STEPS': 1, 'PRNT_FREQUENCY': 1, 'TRJ_FREQUENCY': 1, 'CM_KF': 25.0, 'CM_TOL': 5, 'POSRE_FORCE_CONSTANT': 0.0, 'POSRE_TOLERANCE': 3.5, 'UMAX': 200.0, 'ACORE': 0.0625, 'UBCORE': 100.0, 'FRICTION_COEFF': 0.5, 'HMASS': 1.0, 'TIME_STEP': 0.0005, 'VERBOSE': False, 'LIGAND_FORCE_FIELD': 'openff-2.3.0', 'INTEGRATOR': 'langevinmiddle', 'VARIABLE_FORCE_GROUP': 1, 'OPENMM_PLATFORM': 'CPU', 'RE_MODE': 'async', 'MINTHERM_RESTRAIN_SOLUTES': 'NO', 'POS_RESTRAINED_ATOMS': None, 'THERMALIZATION_STEPS': 2, 'ANNEALING_STEPS': 2, 'EQUILIBRATION_STEPS': 2, 'STEPS_PER_CYCLE': 1, 'BASENAME': 'fkbp12-but-mm', 'DISPLACEMENT': [0.0, 0.0, 40.0], 'LIGAND_ATOMS': [1663, 1664, 1665, 1666, 1667, 1668, 1669, 1670, 1671, 1672, 1673, 1674, 1675, 1676], 'LIGAND_CM_ATOMS': [1663, 1664, 1665, 1666, 1667, 1674], 'RCPT_CM_ATOMS': [531, 870, 1507], 'LIGOFFSET': [-2.413402177808992, -4.00824459147378, 1.7921917163773182]}
+
+2026-10-08 08:05:21 - INFO     - abfe_structprep                - OpenMM version 8.6.1
+2026-10-08 08:05:23 - INFO     - abfe_structprep                - Integrator: langevinmiddle
+2026-10-08 08:05:23 - INFO     - abfe_structprep                - Temperature: 300.0 K
+2026-10-08 08:05:23 - INFO     - abfe_structprep                - Friction: 0.5 /ps
+2026-10-08 08:05:23 - INFO     - abfe_structprep                - Step size: 0.0005 ps
+2026-10-08 08:05:23 - INFO     - abfe_structprep                - Constraint tolerance: 1e-05
+Using platform CPU
+Potential energy before minimization = -162305.10672208306 kJ/mol
+Energy minimizing the system ...
+Potential energy after minimization = -382381.25487642706 kJ/mol
+Thermalization ...
+#"Step","Potential Energy (kJ/mole)","Temperature (K)","Box Volume (nm^3)","Speed (ns/day)"
+1,-382381.32644108037,0.028461182283429438,244.77611862631207,0
+2,-382381.4752081031,0.12319604655150712,244.77611862631207,0.291
+NPT equilibration ...
+3,-382381.4791427303,0.27894936658955954,244.77611862631207,0.107
+4,-382381.4235963175,0.43069428602194715,244.77611862631207,0.13
+NVT equilibration ...
+5,-382381.09180577035,0.5806083477269085,244.77611862631207,0.0908
+6,-382380.33039418136,0.7262039662213312,244.77611862631207,0.103
+2026-10-08 08:11:33 - INFO     - abfe_structprep                - OpenMM version 8.6.1
+2026-10-08 08:11:35 - INFO     - abfe_structprep                - Adding Force HarmonicBondForce to ATMForce
+2026-10-08 08:11:35 - INFO     - abfe_structprep                - Adding Force NonbondedForce to ATMForce
+2026-10-08 08:11:35 - INFO     - abfe_structprep                - Adding Force PeriodicTorsionForce to ATMForce
+2026-10-08 08:11:35 - INFO     - abfe_structprep                - Adding Force HarmonicAngleForce to ATMForce
+2026-10-08 08:11:35 - INFO     - abfe_structprep                - System's Forces after adding variable Forces to ATMForce:
+2026-10-08 08:11:35 - INFO     - abfe_structprep                -    CustomCentroidBondForce
+2026-10-08 08:11:35 - INFO     - abfe_structprep                -    ATMForce
+2026-10-08 08:11:35 - INFO     - abfe_structprep                - Integrator: langevinmiddle
+2026-10-08 08:11:35 - INFO     - abfe_structprep                - Temperature: 300.0 K
+2026-10-08 08:11:35 - INFO     - abfe_structprep                - Friction: 0.5 /ps
+2026-10-08 08:11:35 - INFO     - abfe_structprep                - Step size: 0.0005 ps
+2026-10-08 08:11:35 - INFO     - abfe_structprep                - Constraint tolerance: 1e-05
+Using platform CPU
+LoadState ...
+Potential Energy = -382380.3339557377 kJ/mol
+Annealing to lambda = 1/2 ...
+#"Step","Potential Energy (kJ/mole)","Temperature (K)","Speed (ns/day)"
+7,-382378.99019969645,0.8685913063456072,0
+8,-381454.8862357882,1.0118997475799438,0.0603
+SaveState ...
+2026-10-08 08:11:39 - INFO     - abfe_structprep                - OpenMM version 8.6.1
+2026-10-08 08:11:41 - INFO     - abfe_structprep                - Adding Force HarmonicBondForce to ATMForce
+2026-10-08 08:11:41 - INFO     - abfe_structprep                - Adding Force NonbondedForce to ATMForce
+2026-10-08 08:11:41 - INFO     - abfe_structprep                - Adding Force PeriodicTorsionForce to ATMForce
+2026-10-08 08:11:41 - INFO     - abfe_structprep                - Adding Force HarmonicAngleForce to ATMForce
+2026-10-08 08:11:41 - INFO     - abfe_structprep                - System's Forces after adding variable Forces to ATMForce:
+2026-10-08 08:11:41 - INFO     - abfe_structprep                -    CustomCentroidBondForce
+2026-10-08 08:11:41 - INFO     - abfe_structprep                -    ATMForce
+2026-10-08 08:11:42 - INFO     - abfe_structprep                - Integrator: langevinmiddle
+2026-10-08 08:11:42 - INFO     - abfe_structprep                - Temperature: 300.0 K
+2026-10-08 08:11:42 - INFO     - abfe_structprep                - Friction: 0.5 /ps
+2026-10-08 08:11:42 - INFO     - abfe_structprep                - Step size: 0.0005 ps
+2026-10-08 08:11:42 - INFO     - abfe_structprep                - Constraint tolerance: 1e-05
+Using platform CPU
+LoadState ...
+Potential Energy = -380532.9316547077 kJ/mol
+Equilibration at lambda = 1/2 ...
+#"Step","Potential Energy (kJ/mole)","Temperature (K)","Speed (ns/day)"
+9,-380531.16512341454,1.1566177415187988,0
+10,-380529.819911111,1.2915086351733205,0.142
+SaveState ...
+{
+  "schema": "atom-benchmark-preparation-v1",
+  "setup_sha256": "37735cfc4827a86b6c4981bfbe1b5120cfaba45b8df4d2511081d543fb531108",
+  "state_file": "fkbp12-but-mm_0.xml",
+  "state_sha256": "d0d8400c67a93135b576a14ec9888158ea56fce6b7681543522acc486c2a9ac7",
+  "ensemble": "NVT",
+  "physical_acceptance": false
+}

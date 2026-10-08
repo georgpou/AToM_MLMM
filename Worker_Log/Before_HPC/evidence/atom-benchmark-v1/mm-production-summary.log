@@ -1,0 +1,25 @@
+AToM ABFE Asynchronous Replica Exchange
+Started at: Thu Oct  8 08:13:13 2026
+Options: {'TEMPERATURES': [300.0], 'LAMBDAS': [0.0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0], 'DIRECTION': [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1, -1], 'INTERMEDIATE': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'LAMBDA1': [0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], 'LAMBDA2': [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.4, 0.3, 0.2, 0.1, 0.0], 'ALPHA': [0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1, 0.1], 'U0': [110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0, 110.0], 'W0COEFF': [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], 'WALL_TIME': 1, 'MAX_SAMPLES': 1, 'CYCLE_TIME': 10, 'CHECKPOINT_TIME': 1200, 'SUBJOBS_BUFFER_SIZE': 1.0, 'PRODUCTION_STEPS': 1, 'PRNT_FREQUENCY': 1, 'TRJ_FREQUENCY': 1, 'CM_KF': 25.0, 'CM_TOL': 5, 'POSRE_FORCE_CONSTANT': 0.0, 'POSRE_TOLERANCE': 3.5, 'UMAX': 200.0, 'ACORE': 0.0625, 'UBCORE': 100.0, 'FRICTION_COEFF': 0.5, 'HMASS': 1.0, 'TIME_STEP': 0.0005, 'VERBOSE': False, 'LIGAND_FORCE_FIELD': 'openff-2.3.0', 'INTEGRATOR': 'langevinmiddle', 'VARIABLE_FORCE_GROUP': 1, 'OPENMM_PLATFORM': 'CPU', 'RE_MODE': 'async', 'MINTHERM_RESTRAIN_SOLUTES': 'NO', 'POS_RESTRAINED_ATOMS': None, 'THERMALIZATION_STEPS': 2, 'ANNEALING_STEPS': 2, 'EQUILIBRATION_STEPS': 2, 'STEPS_PER_CYCLE': 1, 'BASENAME': 'fkbp12-but-mm', 'DISPLACEMENT': [0.0, 0.0, 40.0], 'LIGAND_ATOMS': [1663, 1664, 1665, 1666, 1667, 1668, 1669, 1670, 1671, 1672, 1673, 1674, 1675, 1676], 'LIGAND_CM_ATOMS': [1663, 1664, 1665, 1666, 1667, 1674], 'RCPT_CM_ATOMS': [531, 870, 1507], 'LIGOFFSET': [-2.413402177808992, -4.00824459147378, 1.7921917163773182], 'WORKDIR': '/workspace/fkbp-mm-validation/fkbp12-but-mm', 'NODEFILE': '/workspace/fkbp-cpu.nodes'}
+2026-10-08 08:13:13 - INFO     - async_re.openmm_async_re       - compute nodes: localhost CPU
+2026-10-08 08:13:13 - INFO     - async_re.openmm_async_re       - OPENMM_PLATFORM: CPU
+2026-10-08 08:13:13 - INFO     - async_re.openmm_async_re       - NODEFILE: /workspace/fkbp-cpu.nodes
+2026-10-08 08:13:15 - INFO     - async_re.openmm_async_re       - Adding Force HarmonicBondForce to ATMForce
+2026-10-08 08:13:15 - INFO     - async_re.openmm_async_re       - Adding Force NonbondedForce to ATMForce
+2026-10-08 08:13:15 - INFO     - async_re.openmm_async_re       - Adding Force PeriodicTorsionForce to ATMForce
+2026-10-08 08:13:15 - INFO     - async_re.openmm_async_re       - Adding Force HarmonicAngleForce to ATMForce
+2026-10-08 08:13:15 - INFO     - async_re.openmm_async_re       - Step size: 0.0005 ps
+2026-10-08 08:13:19 - INFO     - async_re.openmm_async_re       - Adding Force HarmonicBondForce to ATMForce
+2026-10-08 08:13:19 - INFO     - async_re.openmm_async_re       - Adding Force NonbondedForce to ATMForce
+2026-10-08 08:13:19 - INFO     - async_re.openmm_async_re       - Adding Force PeriodicTorsionForce to ATMForce
+2026-10-08 08:13:19 - INFO     - async_re.openmm_async_re       - Adding Force HarmonicAngleForce to ATMForce
+2026-10-08 08:13:19 - INFO     - async_re.openmm_async_re       - Step size: 0.0005 ps
+2026-10-08 08:13:19 - INFO     - async_re.openmm_async_re       - Worker using CPU OpenMM platform
+2026-10-08 08:14:18 - INFO     - async_re.openmm_async_re       - Adding Force HarmonicBondForce to ATMForce
+2026-10-08 08:14:18 - INFO     - async_re.openmm_async_re       - Adding Force NonbondedForce to ATMForce
+2026-10-08 08:14:18 - INFO     - async_re.openmm_async_re       - Adding Force PeriodicTorsionForce to ATMForce
+2026-10-08 08:14:18 - INFO     - async_re.openmm_async_re       - Adding Force HarmonicAngleForce to ATMForce
+2026-10-08 08:14:18 - INFO     - async_re.openmm_async_re       - Step size: 0.0005 ps
+2026-10-08 08:14:18 - INFO     - async_re.openmm_async_re       - Worker using CPU OpenMM platform
+2026-10-08 08:14:23 - INFO     - async_re.openmm_async_re       - Requested simulation time completed (1 mins)
+2026-10-08 08:14:23 - INFO     - async_re.openmm_async_re       - Normal termination.

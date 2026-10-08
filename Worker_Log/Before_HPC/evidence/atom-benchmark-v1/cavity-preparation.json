@@ -1,0 +1,8 @@
+{
+  "schema": "atom-benchmark-preparation-v1",
+  "setup_sha256": "07eb449ecf0f648893dd54050247e5e2d43c5112ec41acfb8f077c369181e759",
+  "state_file": "fkbp12-but-cavity_0.xml",
+  "state_sha256": "bc962042d7fcc99ff3aee9f7acf0b8dc7b8d0452b2697da3b58a60c5e3f33e8e",
+  "ensemble": "NVT",
+  "physical_acceptance": false
+}

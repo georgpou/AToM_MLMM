@@ -1,0 +1,28 @@
+{
+  "review_context": "fresh subagent /root/final_review, read-only",
+  "review_scope": "AToM benchmark workflow and cleanup, not a scientific gate",
+  "initial_result": "changes_required",
+  "findings": [
+    {
+      "importance": "Important",
+      "issue": "Interrupted preparation could overwrite partial outputs on retry",
+      "repair": "fsynced attempt marker before upstream call; reject re-entry; BaseException diagnostic and re-raise",
+      "closure": "independent abrupt os._exit(17) stub retained marker and original bytes; retry refused"
+    },
+    {
+      "importance": "Minor",
+      "issue": "Centroid offset used equal rather than stock implicit mass weights",
+      "repair": "Use actual particle masses",
+      "closure": "Independent stock centroid zero-energy test passed"
+    }
+  ],
+  "additional_fix": {
+    "issue": "Pinned stock massage resets preparation timestep to 1 fs",
+    "repair": "Scoped hook preserves declared 0.5 fs and restores both upstream hooks",
+    "closure": "Independent actual preparation integrator step 0.0005 ps"
+  },
+  "focused_result": "26 passed in 0.43 s",
+  "final_result": "no material findings on reviewed repairs",
+  "source_edits": false,
+  "md_qm_or_full_suite": false
+}

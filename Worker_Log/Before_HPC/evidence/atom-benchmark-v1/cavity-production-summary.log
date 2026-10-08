@@ -1,0 +1,28 @@
+AToM ABFE Asynchronous Replica Exchange
+Started at: Thu Oct  8 08:34:27 2026
+2026-10-08 08:34:27 - INFO     - async_re.openmm_async_re       - compute nodes: localhost CPU
+2026-10-08 08:34:27 - INFO     - async_re.openmm_async_re       - OPENMM_PLATFORM: CPU
+2026-10-08 08:34:27 - INFO     - async_re.openmm_async_re       - NODEFILE: /workspace/fkbp-cpu.nodes
+2026-10-08 08:34:28 - INFO     - async_re.openmm_async_re       - Adding Force HarmonicBondForce to ATMForce
+2026-10-08 08:34:28 - INFO     - async_re.openmm_async_re       - Adding Force NonbondedForce to ATMForce
+2026-10-08 08:34:28 - INFO     - async_re.openmm_async_re       - Adding Force PeriodicTorsionForce to ATMForce
+2026-10-08 08:34:28 - INFO     - async_re.openmm_async_re       - Adding Force HarmonicAngleForce to ATMForce
+2026-10-08 08:34:28 - INFO     - async_re.openmm_async_re       - Adding Force PythonForce to ATMForce
+2026-10-08 08:34:28 - INFO     - async_re.openmm_async_re       - Step size: 0.0005 ps
+2026-10-08 08:34:28 - INFO     - async_re.openmm_async_re       - Worker using Reference OpenMM platform
+2026-10-08 08:34:30 - INFO     - async_re.openmm_async_re       - Adding Force HarmonicBondForce to ATMForce
+2026-10-08 08:34:30 - INFO     - async_re.openmm_async_re       - Adding Force NonbondedForce to ATMForce
+2026-10-08 08:34:30 - INFO     - async_re.openmm_async_re       - Adding Force PeriodicTorsionForce to ATMForce
+2026-10-08 08:34:30 - INFO     - async_re.openmm_async_re       - Adding Force HarmonicAngleForce to ATMForce
+2026-10-08 08:34:30 - INFO     - async_re.openmm_async_re       - Adding Force PythonForce to ATMForce
+2026-10-08 08:34:30 - INFO     - async_re.openmm_async_re       - Step size: 0.0005 ps
+2026-10-08 08:34:30 - INFO     - async_re.openmm_async_re       - Worker using CPU OpenMM platform
+2026-10-08 08:35:31 - INFO     - async_re.openmm_async_re       - Adding Force HarmonicBondForce to ATMForce
+2026-10-08 08:35:31 - INFO     - async_re.openmm_async_re       - Adding Force NonbondedForce to ATMForce
+2026-10-08 08:35:31 - INFO     - async_re.openmm_async_re       - Adding Force PeriodicTorsionForce to ATMForce
+2026-10-08 08:35:31 - INFO     - async_re.openmm_async_re       - Adding Force HarmonicAngleForce to ATMForce
+2026-10-08 08:35:31 - INFO     - async_re.openmm_async_re       - Adding Force PythonForce to ATMForce
+2026-10-08 08:35:32 - INFO     - async_re.openmm_async_re       - Step size: 0.0005 ps
+2026-10-08 08:35:32 - INFO     - async_re.openmm_async_re       - Worker using CPU OpenMM platform
+2026-10-08 08:35:39 - INFO     - async_re.openmm_async_re       - Requested simulation time completed (1 mins)
+2026-10-08 08:35:39 - INFO     - async_re.openmm_async_re       - Normal termination.

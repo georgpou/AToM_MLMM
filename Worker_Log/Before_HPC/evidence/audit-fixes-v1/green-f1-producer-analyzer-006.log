@@ -1,6 +1,0 @@
-COMMAND: pytest -q tests/workflow/test_persistent_initialization_provenance.py
-2026-10-07T19:30:01Z
-.                                                                        [100%]
-1 passed in 7.26s
-EXIT=0
-2026-10-07T19:30:09Z

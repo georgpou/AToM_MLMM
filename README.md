@@ -1,42 +1,57 @@
 # AToM ML/MM
 
-Build a cavity-inclusive ML/MM Hamiltonian for ATM absolute and relative binding free energies. Start with mechanical embedding, complete neutral ligands and capped neutral protein fragments. Keep the physical energy builder independent of coordinate transfer and analysis.
+Capped mechanical ML/MM binding calculations using the pinned AToM-OpenMM
+preparation and production APIs. The initial protein benchmark is **FKBP12 with
+BUT, PRP and neutral DAP**, taken from AToM's own fragment example.
 
-**Current state:** the shared CPU engine implements capped ML/MM evaluation, ABFE/RBFE transfer, thermodynamic accounting, solvated preparation, portable worker export, checkpoint recovery and persistent two-replica exchange. These have bounded independent numerical/runtime acceptance; physical accuracy and full milestone closure remain separate. [STATUS](docs/project-0/STATUS.md) records the evidence and open gates.
+<a id="start-here"></a>
 
-## Start here
+## Run the benchmark
 
-Use `cloud-engine-continuation` as the development predecessor. Read the [current engine handoff](docs/project-0/handoffs/CLOUD-ENGINE-CONTINUATION.md) for the next cloud-feasible scope, accepted baseline and HPC boundary. Preserve existing changes and use an unused child branch name:
-
-```bash
-git status --short --branch
-git fetch origin refs/heads/cloud-engine-continuation:refs/remotes/origin/cloud-engine-continuation
-git switch --no-track -c g10-engine-next origin/cloud-engine-continuation
-```
-
-Work and push on the child branch. Keep main and accepted predecessor branches unchanged. Record the fetched commit in the new task's worker log.
-
-From the repository root, install and activate:
+Read the [benchmark and run guide](benchmarks/fkbp/README.md) for the ligand
+chemistry, MM comparison modes, preparation settings and worker allocation.
+From the repository root:
 
 ```bash
 bash environment/cloud-cpu/install.sh
 source /workspace/.onboarding/atom-mlmm/activate.sh
-python -m pytest -q
+python scripts/run_benchmark.py plan
+python scripts/run_benchmark.py setup --ligand but --mode cavity --output runs/fkbp
+python scripts/run_benchmark.py prepare --ligand but --mode cavity --output runs/fkbp
+python scripts/run_benchmark.py run --ligand but --mode cavity --output runs/fkbp --nodefile /absolute/path/nodes.local
 ```
 
-Read [AGENTS.md](AGENTS.md), the [CPU setup guide](environment/cloud-cpu/README.md), and [development guide](docs/DEVELOPMENT.md). The installer carries the exact locks, wheels and source archives; a fresh agent needs no previous agent's filesystem. Its default prefix is external to the checkout and can be customized.
+`plan` only validates inputs and lists jobs. `setup` builds systems without MD;
+`prepare` minimizes, warms up and anneals; `run` calls AToM's production scheduler.
+Run directories are ignored by Git. CPU and Reference are the current model
+profile; GPU execution and quantitative protein affinities remain unqualified.
 
-The next technical increment is G10 runtime generalization beyond the accepted two-replica controller. Continue deterministic CPU implementation and small checks here; reserve expensive references and production sampling for HPC. The handoff identifies design/review requirements and subsequent G11–G13 work. This does not close M03 physical qualification or full M05.
+## Repository layout
 
-## Quick MACE calculation
+| Path | Purpose |
+|---|---|
+| `src/atm_mlmm/` | Shared physical builder, transfer/analysis records and narrow AToM adapter |
+| `scripts/` | Benchmark stage launcher |
+| `benchmarks/fkbp/` | Versioned receptor, ligands, source hashes and AToM settings |
+| `tests/`, `fixtures/` | Numerical regressions and retained scientific references |
+| `environment/`, `models/` | Locked environments and approved model assets |
+| `docs/` | Usage, scientific contracts and current status |
+| `tools/`, `examples/` | Reference/release utilities and small demonstrations |
+| `Worker_Log/` | Current task records and required prior acceptance/reference evidence |
+| `runs/` | Untracked generated systems, states, trajectories and logs |
 
-The small MACE-OFF23 checkpoint is bundled for the user's academic use. After activation, run:
+This work starts from `before_HPC` at
+`590cb5258696042b29856df37f6053ba820d2f56` on the child branch
+`hpc-atom-benchmark`. Main and the predecessor remain unchanged.
+The [history guide](Worker_Log/README.md) explains recovery of retired run data.
+There are no active Colab notebooks in this checkout; notebook-era generated
+evidence has been retired with the other closed-run artifacts.
 
-```bash
-python examples/mace_link_cpu.py --output /workspace/.onboarding/atom-mlmm/mace-link-result.json
-```
-
-The [example guide](examples/README.md) explains the 13-real-atom GAFF/MACE fixture, its one massless link atom, loading policy, energy/force checks and model licence. The run uses local weights and needs no download.
+Read [AGENTS.md](AGENTS.md), [CPU setup](environment/cloud-cpu/README.md),
+[development](docs/DEVELOPMENT.md), and [STATUS](docs/project-0/STATUS.md).
+Environment locks, cached replay inputs, approved weights, accepted audits and
+chemical-reference data are retained. The shared CPU engine's bounded numerical
+acceptance does not establish protein accuracy or cluster parity.
 
 ## Roadmap
 

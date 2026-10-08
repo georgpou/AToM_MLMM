@@ -5,3 +5,7 @@ __pycache__/
 build/
 dist/
 .venv/
+
+# Generated benchmark jobs and cluster outputs
+runs/
+slurm-*.out

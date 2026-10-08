@@ -1,9 +1,0 @@
-{
-  "command": [
-    "python",
-    "tools/check_docs.py",
-    "--self-test"
-  ],
-  "exit": 0,
-  "utc": "2026-10-04T10:25:31.422455+00:00"
-}

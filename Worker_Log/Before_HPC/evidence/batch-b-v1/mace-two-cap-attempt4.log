@@ -1,8 +1,0 @@
-UTC 2026-10-07 11:51:06
-links [('p1_ml', 'p1_mm', 0.117), ('p2_ml', 'p2_mm', 0.117)]
-cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
-energy_kj_mol -411985.8983744822
-steps_nm (0.0001, 1e-05)
-parent_environment_rms_errors [0.16131876668196674, 0.0016128555971008098]
-rms_reference_force 13654.95813770698 s06_limit 1.366495813770698
-MACE_TWO_CAP_CROSSCHECK_PASS

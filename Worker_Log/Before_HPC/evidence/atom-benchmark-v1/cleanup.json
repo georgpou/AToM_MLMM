@@ -1,0 +1,28 @@
+{
+  "base_commit": "590cb5258696042b29856df37f6053ba820d2f56",
+  "removed_files": 7965,
+  "removed_bytes": 216057640,
+  "retained_files": 842,
+  "retained_bytes": 51964500,
+  "all_retained_bytes_verified": true,
+  "documentation_files_relinked": [
+    "docs/project-0/STATUS.md",
+    "docs/project-0/handoffs/BEFORE-HPC-ORCHESTRATOR.md",
+    "docs/project-0/handoffs/CLOUD-ENGINE-after-G09-v2.md",
+    "docs/project-0/handoffs/CLOUD-ENGINE-after-G09-v4.md",
+    "docs/project-0/handoffs/ENGINE-READINESS-fresh-agent-v1.md",
+    "docs/project-0/handoffs/G10-MULTISTATE-AUDIT-READY.md",
+    "docs/project-0/handoffs/G10-MULTISTATE-FINAL-HANDOFF.md",
+    "docs/project-0/handoffs/G10-MULTISTATE-REPAIR-BATCH.md",
+    "docs/project-0/handoffs/M02-fresh-agent-continuation.md",
+    "docs/project-0/handoffs/M02-implementation-and-audit.md",
+    "docs/project-0/handoffs/M03-G04-fresh-agent.md",
+    "docs/project-0/handoffs/M03-G05-continuation.md",
+    "docs/project-0/handoffs/M03-G05-fresh-session.md",
+    "docs/project-0/handoffs/M03-after-G04.md",
+    "docs/project-0/handoffs/REPOSITORY-ONE-PASS-REVIEW.md",
+    "docs/project-0/reference/M00-neutral-reference-plan-v2.md",
+    "docs/project-0/reference/M00-neutral-reference-plan-v3.md",
+    "docs/project-0/specs/cloud-solvent-control-amendment.md"
+  ]
+}

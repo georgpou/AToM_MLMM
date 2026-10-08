@@ -1,1 +1,0 @@
-"""Lazy physical model adapters."""

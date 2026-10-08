@@ -1,0 +1,15 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+______ test_initial_offset_matches_stock_mass_weighted_centroid_restraint ______
+
+    def test_initial_offset_matches_stock_mass_weighted_centroid_restraint():
+        from atm_mlmm.adapters import atom
+        from atom_openmm.utils.AtomUtils import AtomUtils
+        offset_function = getattr(atom, '_benchmark_centroid_offset', None)
+>       assert offset_function is not None
+E       assert None is not None
+
+tests/workflow/test_benchmark_atom_adapter.py:78: AssertionError
+=========================== short test summary info ============================
+FAILED tests/workflow/test_benchmark_atom_adapter.py::test_initial_offset_matches_stock_mass_weighted_centroid_restraint
+1 failed in 0.47s

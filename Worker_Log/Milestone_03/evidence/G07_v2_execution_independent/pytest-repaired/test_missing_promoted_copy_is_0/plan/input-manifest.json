@@ -1,8 +1,0 @@
-{
-  "files": {
-    "reference-explicit.lock": "acbdd0e0e94fe40dcd74482b72c3fcf8b3d977dc8e8c4afbd29ec4f3f249745d",
-    "reference-settings.json": "081d3a0b0af340b33745bb1b5b5b277f60e9032cbf89da09eeb9b0c7fb0a48d1",
-    "structures/one.json": "bbc01b83d202e9f46e74ee7b903232f343e461b4f3863d42d3900e3042dc54f6",
-    "structures/two.json": "ab145d27245fe148555d525f2344390d9a81975e38e3e0b5beffdb4e875a5571"
-  }
-}

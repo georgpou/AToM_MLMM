@@ -15,6 +15,7 @@ from numbers import Real
 from pathlib import Path
 from types import SimpleNamespace
 import xml.etree.ElementTree as ET
+from contextlib import contextmanager
 
 import numpy as np
 import openmm as mm
@@ -27,6 +28,218 @@ from ..routing import export_physical
 from ..runtime_validation import verify_source_inventory
 from ..schedule import schedule_state, validate_schedule
 from ..schema import IdentityError, MalformedInput, UnsupportedCapability
+
+
+def benchmark_preparation_class():
+    """Preparation class changes: full physical force mask and fixed volume."""
+    from atom_openmm.abfe_structprep import OMMSystemABFEnoATM
+
+    class FixedVolumeBarostat(mm.MonteCarloBarostat):
+        def setFrequency(self, frequency):
+            # Stock warmup requests NPT. This admitted profile stays NVT even
+            # during that loop; report this explicitly in prepare_benchmark_job.
+            super().setFrequency(0)
+
+    class HybridPreparation(OMMSystemABFEnoATM):
+        def set_integrator(self, *args, **kwargs):
+            super().set_integrator(*args, **kwargs)
+            self.integrator.setIntegrationForceGroups(
+                {force.getForceGroup() for force in self.system.getForces()})
+
+        def set_barostat(self, temperature, pressure, frequency):
+            self.barostat = FixedVolumeBarostat(pressure, temperature)
+            self.barostat.setFrequency(0)
+            self.system.addForce(self.barostat)
+
+    return HybridPreparation
+
+
+@contextmanager
+def benchmark_preparation_hooks():
+    """Scope the upstream API extension to one synchronous preparation call."""
+    import importlib
+    upstream = importlib.import_module('atom_openmm.abfe_structprep')
+    original = upstream.OMMSystemABFEnoATM
+    original_massage = upstream.massage_keywords
+    replacement = benchmark_preparation_class()
+    def preserve_timestep(keywords, *args, **kwargs):
+        timestep = keywords['TIME_STEP']
+        result = original_massage(keywords, *args, **kwargs)
+        keywords['TIME_STEP'] = timestep
+        return result
+    upstream.OMMSystemABFEnoATM = replacement
+    upstream.massage_keywords = preserve_timestep
+    try:
+        yield upstream
+    finally:
+        upstream.OMMSystemABFEnoATM = original
+        upstream.massage_keywords = original_massage
+
+
+def _benchmark_upstream():
+    if importlib.metadata.version('atom-openmm') != '8.5.0b0':
+        raise UnsupportedCapability('benchmark requires pinned AToM 8.5.0b0')
+    # Verify source bytes, not only a mutable distribution version label.
+    import atom_openmm
+    root = Path(atom_openmm.__file__).parent
+    identities = json.loads((Path(__file__).resolve().parents[3] /
+                             'benchmarks/fkbp/atom-source-sha256.json').read_text())
+    for relative, expected in identities.items():
+        if hashlib.sha256((root / relative).read_bytes()).hexdigest() != expected:
+            raise IdentityError(f'benchmark AToM source mismatch: {relative}')
+
+
+def _benchmark_centroid_offset(system, positions_nm, ligand_indices, receptor_indices):
+    """Match stock CustomCentroidBondForce's implicit particle-mass weights."""
+    masses = np.array([system.getParticleMass(i).value_in_unit(unit.dalton)
+                       for i in range(system.getNumParticles())])
+    return (np.average(positions_nm[ligand_indices], axis=0, weights=masses[ligand_indices])
+            - np.average(positions_nm[receptor_indices], axis=0, weights=masses[receptor_indices]))
+
+
+def setup_benchmark_job(manifest, directory, job, *, smoke=False, platform='CPU'):
+    """Call stock AToM parameterization; substitute only the shared physical builder."""
+    _benchmark_upstream()
+    from atom_openmm.make_atm_system_from_rcpt_lig import make_system
+    from ..benchmark_workflow import load_benchmark
+    from ..protein_input import benchmark_partition, prepared_benchmark_input
+    from ..hybrid import build_physical
+    from ..partition import resolve_partition
+    from ..schema import EmbeddingSpec, MobileGroup, Snapshot, to_json
+    from ..geometry import final_positions, resolve_protocol, validate_bulk_clearance
+    from ..protocols.abfe import make_protocol
+    from ..models.mace import model_spec, verify_asset
+    data = load_benchmark(manifest)
+    base = Path(manifest).parent
+    ligand = next(l for l in data['ligands'] if l['id'] == job['ligand_id'])
+    options = json.loads((base / 'atom.json').read_text())
+    options.update(BASENAME=job['basename'], OPENMM_PLATFORM=platform,
+                   DISPLACEMENT=[10.*v for v in data['displacement_nm']])
+    if smoke:
+        options.update(THERMALIZATION_STEPS=2, ANNEALING_STEPS=2,
+                       EQUILIBRATION_STEPS=2, STEPS_PER_CYCLE=1,
+                       PRODUCTION_STEPS=1, PRNT_FREQUENCY=1,
+                       TRJ_FREQUENCY=1, MAX_SAMPLES=1, WALL_TIME=1)
+    if job['mode'] != 'mm':
+        verify_asset()
+    make_system(receptorfile=str(base / data['receptor']),
+                lig1file=str(base / ligand['path']),
+                displacement=options['DISPLACEMENT'],
+                xmloutfile=str(directory / 'mm_sys.xml'),
+                pdboutfile=str(directory / 'mm.pdb'),
+                ligandforcefield=options['LIGAND_FORCE_FIELD'],
+                hmass=options['HMASS'], ffcachefile=str(directory / 'ff-cache.json'))
+    pdb = app.PDBFile(str(directory / 'mm.pdb'))
+    system = mm.XmlSerializer.deserialize((directory / 'mm_sys.xml').read_text())
+    # Define this new prepared input's cell once in the PDB's portable precision,
+    # so stock loaders and the sealed XML use exactly the same fixed box.
+    system.setDefaultPeriodicBoxVectors(*pdb.topology.getPeriodicBoxVectors())
+    cutoff_nm = 0.
+    for force in system.getForces():
+        if isinstance(force, mm.NonbondedForce):
+            force.setUseDispersionCorrection(False)  # existing admitted PME policy
+            cutoff_nm = max(cutoff_nm, force.getCutoffDistance().value_in_unit(unit.nanometer))
+    (directory / 'mm_sys.xml').write_text(mm.XmlSerializer.serialize(system))
+    original = prepared_benchmark_input(pdb, system, ligand, dict(
+        protein='amber14-all.xml', solvent='amber14/tip3p.xml',
+        ligand=options['LIGAND_FORCE_FIELD'], source=data['source'],
+        ligand_chemistry=ligand, hydrogen_mass_da=options['HMASS'],
+        nonbonded_conventions='PME, fixed orthorhombic cell, no analytical dispersion correction',
+        input_files=data['files']))
+    (directory / 'original.json').write_text(to_json(original) + '\n')
+    ids = tuple(a.atom_id for a in original.topology.atoms)
+    atom_map = dict(zip(ids, range(len(ids))))
+    positions, topology, cap_indices = pdb.positions, pdb.topology, []
+    if job['mode'] != 'mm':
+        spec = benchmark_partition(original.topology, job['mode'], data['cavity'])
+        partition = resolve_partition(original.topology, spec)
+        physical = build_physical(original, partition, model_spec(),
+            EmbeddingSpec('mechanical', '1', 'protein_c_c', 'orthorhombic-pme-v1'),
+            cap_distance_nm=data['cavity']['cap_distance_nm'])
+        export = export_physical(physical, reserved_group=1)
+        system = export.system
+        topology = _topology(physical)
+        topology.setPeriodicBoxVectors(pdb.topology.getPeriodicBoxVectors())
+        positions = final_positions(physical, Snapshot(ids, original.positions_nm, original.box_nm))
+        # Native virtual sites supply the initial cap coordinates without loading
+        # a replacement model or duplicating link geometry/derivatives.
+        integrator = mm.VerletIntegrator(.0005)
+        context = mm.Context(system, integrator, mm.Platform.getPlatformByName('Reference'))
+        context.setPositions(positions)
+        context.computeVirtualSites()
+        positions = context.getState(getPositions=True).getPositions()
+        del context, integrator
+        atom_map = dict(physical.real_to_final)
+        cap_indices = [link.final_particle_index for link in physical.links]
+        mobile = next(m for m in original.topology.molecules if m.role == 'ligand')
+        transfer = resolve_protocol(physical, make_protocol(
+            (MobileGroup('ligand', mobile.atom_ids, ('ligand',), mobile.molecule_id),),
+            tuple(data['displacement_nm'])))
+        (directory / 'transfer.json').write_text(to_json(transfer) + '\n')
+        (directory / 'physical.json').write_text(to_json(physical) + '\n')
+        (directory / 'partition.json').write_text(to_json(spec) + '\n')
+    else:
+        for force in system.getForces():
+            force.setForceGroup(1)
+    ligand_ids = next(m.atom_ids for m in original.topology.molecules if m.role == 'ligand')
+    options['LIGAND_ATOMS'] = [atom_map[a] for a in ligand_ids]
+    options['LIGAND_CM_ATOMS'] = [atom_map[a.atom_id] for a in original.topology.atoms
+                                if a.atom_id in ligand_ids and a.element != 'H']
+    frame = [a for a in original.topology.atoms if a.chain == data['cavity']['chain']
+             and a.residue in data['cavity']['residues'] and a.atom_name == 'CA']
+    if len(frame) != len(data['cavity']['residues']):
+        raise IdentityError('binding-site reference atoms are absent or ambiguous')
+    options['RCPT_CM_ATOMS'] = [atom_map[a.atom_id] for a in frame]
+    x = np.asarray(positions.value_in_unit(unit.nanometer))
+    protein_ids = {a for m in original.topology.molecules if m.role == 'protein' for a in m.atom_ids}
+    clearance = validate_bulk_clearance(
+        x[options['LIGAND_ATOMS']] + np.asarray(data['displacement_nm']),
+        x[[atom_map[a] for a in protein_ids]], x[cap_indices], original.box_nm,
+        cutoff_nm=cutoff_nm, margin_nm=.2)
+    (directory / 'geometry.json').write_text(json.dumps(clearance, indent=2) + '\n')
+    offset = _benchmark_centroid_offset(system, x, options['LIGAND_CM_ATOMS'], options['RCPT_CM_ATOMS'])
+    options['LIGOFFSET'] = (10.*offset).tolist()
+    (directory / (job['basename'] + '_sys.xml')).write_text(mm.XmlSerializer.serialize(system))
+    with (directory / (job['basename'] + '.pdb')).open('w') as handle:
+        app.PDBFile.writeFile(topology, positions, handle, keepIds=True)
+    (directory / 'options.json').write_text(json.dumps(options, indent=2) + '\n')
+
+
+def prepare_benchmark_job(directory):
+    _benchmark_upstream()
+    from atom_openmm.utils.AtomUtils import set_directory
+    options = json.loads((directory / 'options.json').read_text())
+    print('ML/MM preparation uses all physical force groups; all warmup loops use fixed-volume NVT.')
+    with set_directory(directory), benchmark_preparation_hooks() as upstream:
+        upstream.abfe_structprep(options=options.copy())
+
+
+def produce_benchmark_job(directory, nodefile):
+    _benchmark_upstream()
+    from atom_openmm.abfe_production import abfe_production
+    from atom_openmm.utils.AtomUtils import set_directory
+    options = json.loads((directory / 'options.json').read_text())
+    options.update(WORKDIR=str(directory), NODEFILE=str(nodefile))
+    with set_directory(directory):
+        abfe_production(options=options)
+
+
+def validate_benchmark_nodefile(path):
+    """Admit only explicit local workers for the current CPU model profile."""
+    import re
+    seen = set()
+    for line in Path(path).read_text().splitlines():
+        fields = [field.strip() for field in line.split(',')]
+        if (len(fields) != 6 or fields[0] != 'localhost'
+                or re.fullmatch(r'\d+:\d+', fields[1]) is None
+                or not fields[2].isdigit() or int(fields[2]) <= 0
+                or fields[3] not in ('CPU', 'Reference')
+                or not Path(fields[5]).is_absolute() or not Path(fields[5]).is_dir()
+                or fields[1] in seen):
+            raise ValueError('nodefile requires unique localhost slots, positive threads, CPU/Reference and existing absolute scratch')
+        seen.add(fields[1])
+    if not seen:
+        raise ValueError('nodefile needs at least one explicit worker')
 
 
 def timestep_fs_to_ps(timestep_fs):

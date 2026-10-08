@@ -1,7 +1,0 @@
-START_UTC 2026-10-07T14:51:50Z
-ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
-ARGV python -m pytest -q tests/workflow/test_multistate_cli.py::test_analysis_cli_roundtrips_explicit_synthetic_records
-.                                                                        [100%]
-1 passed in 4.34s
-EXIT_CODE 0
-END_UTC 2026-10-07T14:51:55Z

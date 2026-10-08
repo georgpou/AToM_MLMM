@@ -1,4 +1,0 @@
-  Threads set to 2 by Python driver.
-
-  Memory set to   5.000 GiB by Python driver.
-{"name": "acetamide-20", "status": "computed", "wall_seconds": 101.15577743599715}

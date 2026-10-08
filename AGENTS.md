@@ -2,7 +2,7 @@
 
 ## Start and scope
 
-Work on a child of the current development predecessor, `cloud-engine-continuation`; use the [current engine handoff](docs/project-0/handoffs/CLOUD-ENGINE-CONTINUATION.md). Retain the accepted setup and scientific lineage. Keep main unchanged and publish only your working branch. Preserve existing user changes; use the existing checkout unless isolation is actually needed.
+The active benchmark workflow starts from `before_HPC` at `590cb5258696042b29856df37f6053ba820d2f56`; use the [benchmark guide](benchmarks/fkbp/README.md) for protein preparation and production. The [engine handoff](docs/project-0/handoffs/CLOUD-ENGINE-CONTINUATION.md) retains earlier scientific context. Retain the accepted setup and scientific lineage. Keep main unchanged and publish only your working branch. Preserve existing user changes; use the existing checkout unless isolation is actually needed.
 
 Read [STATUS](docs/project-0/STATUS.md), the assigned gate and only its relevant specification sections. [README](README.md#roadmap) locates milestones; [DEVELOPMENT](docs/DEVELOPMENT.md) explains source layout, tools and test commands. [CPU setup](environment/cloud-cpu/README.md) is the environment authority. Historical audits are available in Git history and are not required onboarding.
 

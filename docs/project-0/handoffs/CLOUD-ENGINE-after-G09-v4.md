@@ -34,8 +34,8 @@ metadata and CLI exception notes. Existing failure directories are preserved.
 |---|---|
 | Solvent/exchange source `5645db24f707adbdaff34dc7de6ac04b518d7d6b`; v3 submission `b11c16750ad111a2fcafcda7a2d51c6690254e97` | 489 full CPU passes; both CLI controls save nine frames/18 sampling steps, six preparation steps, full forces/boxes; peak RSS below 0.85 GiB |
 | Repair source `027f8173babc13606afb24d96f58148704e38b1b`; frozen review `09a85d979fe9fce2ceca23da74509846254df9b1` | 12 RED regressions, 19 affected passes, **501 full CPU passes in 498.74 s**, no skips |
-| [G09 v4 audit](../../../Worker_Log/Milestone_05/Gate_09_v4_audit.md) | **21 independent focused passes/six probes**, 49 hashes matched; R1/R2 closed, bounded G09 subsets accepted |
-| [G10 v1 audit](../../../Worker_Log/Milestone_05/Gate_10_v1_audit.md) carried forward by v4 | Single actual-worker pair scope accepted; full G10/M05 open |
+| [G09 v4 audit](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/Gate_09_v4_audit.md) | **21 independent focused passes/six probes**, 49 hashes matched; R1/R2 closed, bounded G09 subsets accepted |
+| [G10 v1 audit](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/Gate_10_v1_audit.md) carried forward by v4 | Single actual-worker pair scope accepted; full G10/M05 open |
 
 The [scientific amendment](../specs/cloud-solvent-control-amendment.md) is accepted
 for scope. Key rulings: sparse waters establish coupling/runtime only; worker
@@ -65,8 +65,8 @@ See the [runner guide](../../../examples/cloud_engine/README.md) for new outputs
 trusted runs/resume, both water configurations and the pair API. Serialize jobs
 on the two-CPU/8-GiB/no-swap machine. Complete local v3 portable attempts are
 `/workspace/cloud-engine-pilots/water-v3/abfe` and `rbfe`; they stay frozen and
-source-bound. Tracked [v3](../../../Worker_Log/Milestone_05/evidence/G09_v3/README.md)
-and [v4](../../../Worker_Log/Milestone_05/evidence/G09_v4/README.md) captures retain
+source-bound. Tracked [v3](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G09_v3/README.md)
+and [v4](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G09_v4/README.md) captures retain
 raw records/failures/hashes; they omit duplicate source/model/environment
 payloads and are not standalone installations.
 

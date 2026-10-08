@@ -1,7 +1,7 @@
 # G10 v5 RED — bounded sequential repair batch
 
 **Prepared:** 2026-10-06 UTC. **Branch:** `g10-engine-next`.
-The complete Sol 6.1/max [v5 audit](../../../Worker_Log/Milestone_05/Gate_10_v5_audit.md)
+The complete Sol 6.1/max [v5 audit](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/Gate_10_v5_audit.md)
 finished RED before repairs began (`a90e192ec0d87524e8fbf77a18d62b4b81a37195`).
 Its seven findings and every failed characterization remain preserved. Root
 verified all 29 independent hashes and unchanged reviewed source. Numerical
@@ -26,8 +26,8 @@ repair/review loop if material findings remain. Self-checks are not independent
 acceptance. Root does not implement fixes.
 
 Use the [reviewed amendment](../specs/g10-multistate-runtime-amendment.md),
-[v3 plan](../../../Worker_Log/Milestone_05/evidence/G10_v3/implementation-plan.md),
-complete v5 audit and [independent reproducers/results](../../../Worker_Log/Milestone_05/evidence/G10_v5_independent/README.md).
+[v3 plan](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v3/implementation-plan.md),
+complete v5 audit and [independent reproducers/results](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v5_independent/README.md).
 Every negative must reach its intended validator: R2/R3 energy-consistent cases
 must pass repaired inert arithmetic/type checks. Verify no loader/output mutation
 for inert failures, and no evaluation/pending/step for invalid restored clocks or

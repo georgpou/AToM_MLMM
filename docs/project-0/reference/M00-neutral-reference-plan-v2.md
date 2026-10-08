@@ -103,7 +103,7 @@ the proposed chemical force budget. It is not a G05/G07 chemical comparison.
 The first environment failed before calculation because LibXC 7.1.2 removed a
 functional expected by Psi4's registry; both environments and failed evidence
 are preserved. Only the compatible 7.0.0 build is proposed. See
-[quantum-only evidence](../../../Worker_Log/Milestone_00/evidence/M00_reference_v2/working-libxc-7.0.0/methane-pilot.json.gz).
+[quantum-only evidence](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_00/evidence/M00_reference_v2/working-libxc-7.0.0/methane-pilot.json.gz).
 Convergence confirmation on acetamide-0 and ethanol-acetamide-d3-r0 uses
 199 radial / 974 spherical points, energy convergence 1e-12 and density
 convergence 1e-11. Require absolute energy repeatability within 0.02 kcal/mol,

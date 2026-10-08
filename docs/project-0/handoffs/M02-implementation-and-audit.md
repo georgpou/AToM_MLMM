@@ -71,7 +71,7 @@ M01 review findings **M01-R1** and **M01-R2** are closed. Preserve the explicit 
 Useful saved evidence:
 
 - [G00 worker](../../../Worker_Log/Milestone_01/Gate_00_v1_worker.md), [environment manifest](../../../Worker_Log/Milestone_01/evidence/M01_v1/environment-manifest.json.gz) and [repair validation output](../../../Worker_Log/Milestone_01/evidence/M01_v2/validation.json.gz).
-- [Original-MM inventory](../../../Worker_Log/Milestone_01/evidence/M01_v2/original-mm-inventory.json) and [M01 acceptance record](../../../Worker_Log/Milestone_01/evidence/M01_v2/acceptance.json).
+- [Original-MM inventory](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_01/evidence/M01_v2/original-mm-inventory.json) and [M01 acceptance record](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_01/evidence/M01_v2/acceptance.json).
 
 ## Reuse the implemented code
 

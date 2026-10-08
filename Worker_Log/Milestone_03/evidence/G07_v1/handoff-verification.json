@@ -1,9 +1,0 @@
-{
-  "source_snapshot_commit": "c584086da68654b07f1a477d7ce1e48da42a9838",
-  "source_snapshot_hashes_verified": 181,
-  "accepted_report_only_changes": [
-    "docs/project-0/STATUS.md"
-  ],
-  "documentation_errors": 0,
-  "documentation_self_tests_passed": 8
-}

@@ -1,0 +1,84 @@
+{
+  "schema": "atom-protein-benchmark-v1",
+  "target_id": "fkbp12",
+  "source": {
+    "repository": "https://github.com/Gallicchio-Lab/AToM-OpenMM",
+    "commit": "9e26c5a3811038be1c98e3be6af4c78cd0dd57a7",
+    "tag": "v8.5.0",
+    "distribution_version": "8.5.0b0",
+    "example": "examples/ABFE/fkbp"
+  },
+  "receptor": "inputs/receptor/fkbp.pdb",
+  "ligands": [
+    {
+      "id": "but",
+      "name": "4-hydroxybutan-2-one",
+      "smiles": "CC(=O)CCO",
+      "path": "inputs/ligands/but.sdf",
+      "atom_count": 14,
+      "formal_charge": 0,
+      "multiplicity": 1
+    },
+    {
+      "id": "prp",
+      "name": "1-hydroxypropan-2-one",
+      "smiles": "CC(=O)CO",
+      "path": "inputs/ligands/prp.sdf",
+      "atom_count": 11,
+      "formal_charge": 0,
+      "multiplicity": 1
+    },
+    {
+      "id": "dap",
+      "name": "4-(diethylamino)butan-2-one",
+      "smiles": "CC(=O)CCN(CC)CC",
+      "path": "inputs/ligands/dap.sdf",
+      "atom_count": 27,
+      "formal_charge": 0,
+      "multiplicity": 1
+    }
+  ],
+  "cavity": {
+    "chain": "A",
+    "residues": [
+      "36",
+      "56",
+      "99"
+    ],
+    "cut": [
+      "CB",
+      "CA"
+    ],
+    "cap_distance_nm": 0.109,
+    "component_charge": 0,
+    "component_multiplicity": 1
+  },
+  "displacement_nm": [
+    0.0,
+    0.0,
+    4.0
+  ],
+  "files": {
+    "UPSTREAM-LICENSE": "ff3f218e37a4f7f8aa714a954629a6b499235631ea7c1cc9788925f4f954c601",
+    "inputs/ligands/but.sdf": "f49511ec0d9bb67bd649b11fad0970e3d143771203ce2437dcd21de83ead4a6a",
+    "inputs/ligands/dap.sdf": "b2f747da44ff428287fe95cdfe1f16f788985b67ab1012f64048b4b9d7c53148",
+    "inputs/ligands/prp.sdf": "c4642b2e90289c98210933f3ff490ad369638c03d819367ec4411c3683df63c1",
+    "inputs/receptor/fkbp.pdb": "62f5d6c7d98e1a1e6447f2a050fc5ebc56d905f2eebd00594f643e89c7a9e1ee",
+    "atom.json": "bc0c3085407c8af006266ba038639cff70b0122deaf54866cd89bfeb81b17518",
+    "atom-source-sha256.json": "95796e43fd0f652c3d6b42a811de2dfdf2c48c56d18df1be0864f3c4b9503d7f"
+  },
+  "references": [
+    {
+      "kind": "upstream_AToM_example",
+      "url": "https://github.com/Gallicchio-Lab/AToM-OpenMM/tree/9e26c5a3811038be1c98e3be6af4c78cd0dd57a7/examples/ABFE/fkbp"
+    },
+    {
+      "kind": "published_MD_and_FEP_reference_not_ATM",
+      "doi": "10.1021/acs.jctc.7b00172"
+    }
+  ],
+  "reference_values": {
+    "status": "not_transcribed",
+    "note": "Literature and experimental values must be distinguished; no guessed affinities. DAP is the explicit neutral computational state, not DAPP."
+  }
+}

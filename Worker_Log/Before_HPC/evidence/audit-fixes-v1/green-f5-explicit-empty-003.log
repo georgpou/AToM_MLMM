@@ -1,6 +1,0 @@
-COMMAND: pytest -q tests/workflow/test_protein_input_admission.py::test_complete_input_only_manifest_accepts_explicit_none_and_empty_values tests/workflow/test_protein_input_admission.py::test_unselected_complete_protein_target_is_rejected_with_missing_choices
-2026-10-07T19:28:22Z
-..                                                                       [100%]
-2 passed in 0.15s
-EXIT=0
-2026-10-07T19:28:22Z

@@ -31,7 +31,7 @@ G05-T4's missing actual quantum references before any model comparison runs.
 Inherited G02/G03/admission/G04 results are **78/38/74/24**; strict environment
 **9/9**, upstream **1**, analytic **272 passes / 22 deselected**, docs zero errors/eight self-tests. Larger arrays,
 including diagnostic extreme inputs and every failed attempt, are under
-[G05 evidence](../../../Worker_Log/Milestone_03/evidence/G05_v1/README.md).
+[G05 evidence](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_03/evidence/G05_v1/README.md).
 
 The software-reviewed snapshot is `a7768e375476667139db374dc0091999263a37de`.
 The first software reviewer was interrupted for the user's quota pause after
@@ -43,13 +43,13 @@ software snapshot and accepts G00-T2 plus six G05 software assertions in the
 [v1 audit](../../../Worker_Log/Milestone_03/Gate_05_v1_audit.md). Its prepared-T4 importer finding
 has been repaired in the child after six intended RED rejection failures and
 ten GREEN integrity/metric checks. The original proposal and all chemical
-inputs/settings/limits remain unchanged. The [v2 worker](../../../Worker_Log/Milestone_03/Gate_05_v2_worker.md)
-and [270-file repair manifest](../../../Worker_Log/Milestone_03/evidence/G05_v2/source-input-manifest.json)
-identify this code-only repair. The [v2 audit](../../../Worker_Log/Milestone_03/Gate_05_v2_audit.md)
+inputs/settings/limits remain unchanged. The [v2 worker](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_03/Gate_05_v2_worker.md)
+and [270-file repair manifest](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_03/evidence/G05_v2/source-input-manifest.json)
+identify this code-only repair. The [v2 audit](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_03/Gate_05_v2_audit.md)
 independently closes R1 and accepts prepared-loading readiness on exact
 `3124c6d275bf19a32ce364dfdb83b11115828ac5`; full chemical/G05 acceptance
 remains pending. See
-[resume state](../../../Worker_Log/Milestone_03/evidence/G05_resume_20261003/resume-state.json).
+[resume state](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_03/evidence/G05_resume_20261003/resume-state.json).
 
 ## Frozen M00 decision
 

@@ -1,9 +1,0 @@
-{
-  "continue_authorized": true,
-  "matrix_sha256": "4e8e9eac08cd9676022c122298e53f16041db7989c757e320a6b8dc065bf776a",
-  "pilot_record_sha256": "2122d50d0ae77dbf866101bea8cff8a10c1bd8029cfb5230a98e6a165fcbbb1b",
-  "pilot_receipt_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
-  "projected_remaining_worker_seconds": 0,
-  "projected_max_rss_bytes": 0,
-  "projected_scratch_bytes": 0
-}

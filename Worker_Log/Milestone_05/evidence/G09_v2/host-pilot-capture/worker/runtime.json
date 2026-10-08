@@ -1,1 +1,0 @@
-{"data": {"device_allocation": [], "ensemble": "NVT", "integrator": "LangevinMiddle", "platform": "Reference", "precision": "double", "temperature_K": 300.0, "timestep_ps": 0.0005}, "record_type": "RuntimeSpec", "schema_version": "1.0"}

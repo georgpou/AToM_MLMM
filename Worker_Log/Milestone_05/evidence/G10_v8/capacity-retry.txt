@@ -1,1 +1,0 @@
-2026-10-06: Initial Luna 6/max capacity selection failed before any repair work began. Root reissued the same assignment with the same model and effort. This v8 run continues on Luna 6/max; no fallback model used.

@@ -58,7 +58,7 @@ The authoritative v1 reproducer/results are [probe_admission.py](../../../Worker
 
 ## Unverified draft and proposed repair ideas
 
-[regression-draft.py.txt](../../../Worker_Log/Milestone_02/handoff/regression-draft.py.txt) preserves **34 proposed parameterized cases**. It is deliberately outside `tests/` with a `.txt` suffix. It has never been imported, collected or run and may itself contain mistakes. Review, rewrite or discard it; do not count it as evidence or assume its proposed coverage is sufficient.
+[regression-draft.py.txt](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_02/handoff/regression-draft.py.txt) preserves **34 proposed parameterized cases**. It is deliberately outside `tests/` with a `.txt` suffix. It has never been imported, collected or run and may itself contain mistakes. Review, rewrite or discard it; do not count it as evidence or assume its proposed coverage is sufficient.
 
 The implementer considered checking actual versus declared ATM expression after whitespace normalization (pinned upstream has a harmless whitespace difference), required ATM schedule globals, and collisions with physical child globals at sealing and reload. Another idea is to pin all non-schedule Context global parameters in the common runtime guard so preparation is covered. For duplicates, a separate name/group-independent duplicate fingerprint could retain the existing name-preserving routing-report digest, preserving valid v1 artifact compatibility. **These are proposals, not applied or reviewed repairs.** Independently determine the smallest correct design and applicable tests before implementation.
 

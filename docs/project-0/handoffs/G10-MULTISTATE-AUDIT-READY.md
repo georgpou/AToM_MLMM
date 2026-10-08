@@ -43,22 +43,22 @@ completed records. Earlier reviews need reopening only for a relevant change
 or new failure.
 
 - [Reviewed multistate design](../specs/g10-multistate-runtime-amendment.md),
-  [implementation plan](../../../Worker_Log/Milestone_05/evidence/G10_v3/implementation-plan.md),
-  [design worker](../../../Worker_Log/Milestone_05/Gate_10_v3_worker.md) and
-  [standalone design audit](../../../Worker_Log/Milestone_05/Gate_10_v3_audit.md).
-- [Core worker](../../../Worker_Log/Milestone_05/Gate_10_v4_worker.md) and its
-  [RED/GREEN history](../../../Worker_Log/Milestone_05/evidence/G10_v4/red-green-regressions.md).
-- [Pilot/combined worker](../../../Worker_Log/Milestone_05/Gate_10_v5_worker.md),
-  [evidence index](../../../Worker_Log/Milestone_05/evidence/G10_v5/README.md),
-  [repair diagnostics](../../../Worker_Log/Milestone_05/evidence/G10_v5/repair-diagnostics.json),
-  [source inventories](../../../Worker_Log/Milestone_05/evidence/G10_v5/source-inventory.json) and
-  [compact actual-context/replay export](../../../Worker_Log/Milestone_05/evidence/G10_v5/final-pilot-export.json).
-- [Prepared auditor instructions](../../../Worker_Log/Milestone_05/evidence/G10_v5_review_packet/auditor-instructions.md),
-  [original core assignment](../../../Worker_Log/Milestone_05/evidence/G10_v5_review_packet/core-worker-instructions.md) and
-  [original pilot assignment](../../../Worker_Log/Milestone_05/evidence/G10_v5_review_packet/pilot-worker-instructions.md).
-- [Exact combined runtime/test/usage diff](../../../Worker_Log/Milestone_05/evidence/G10_v5_review_packet/combined-runtime.diff.gz),
-  [complete changed-path list](../../../Worker_Log/Milestone_05/evidence/G10_v5_review_packet/combined-changed-paths.txt) and
-  [root verification with hashes](../../../Worker_Log/Milestone_05/evidence/G10_v5_review_packet/orchestrator-verification.json).
+  [implementation plan](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v3/implementation-plan.md),
+  [design worker](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/Gate_10_v3_worker.md) and
+  [standalone design audit](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/Gate_10_v3_audit.md).
+- [Core worker](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/Gate_10_v4_worker.md) and its
+  [RED/GREEN history](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v4/red-green-regressions.md).
+- [Pilot/combined worker](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/Gate_10_v5_worker.md),
+  [evidence index](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v5/README.md),
+  [repair diagnostics](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v5/repair-diagnostics.json),
+  [source inventories](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v5/source-inventory.json) and
+  [compact actual-context/replay export](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v5/final-pilot-export.json).
+- [Prepared auditor instructions](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v5_review_packet/auditor-instructions.md),
+  [original core assignment](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v5_review_packet/core-worker-instructions.md) and
+  [original pilot assignment](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v5_review_packet/pilot-worker-instructions.md).
+- [Exact combined runtime/test/usage diff](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v5_review_packet/combined-runtime.diff.gz),
+  [complete changed-path list](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v5_review_packet/combined-changed-paths.txt) and
+  [root verification with hashes](https://github.com/georgpou/AToM_MLMM/blob/590cb5258696042b29856df37f6053ba820d2f56/Worker_Log/Milestone_05/evidence/G10_v5_review_packet/orchestrator-verification.json).
 
 The compact diff is from the accepted design audit `bd44b2c…` to the completed
 worker submission `ecace38…`: six implementation/test/usage files, 2,569

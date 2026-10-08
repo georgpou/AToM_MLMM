@@ -1,6 +1,0 @@
-COMMAND: pytest -q tests/workflow/test_persistent_initialization_provenance.py tests/sampling/test_exchange_uncertainty.py::test_mislabeled_iid_histories_and_reused_initializations_are_rejected tests/sampling/test_exchange_uncertainty.py::test_independent_run_resampling_keeps_complete_runs_without_nested_blocks tests/workflow/test_persistent_exchange.py::test_multistate_source_inventory_must_match_before_trusted_load tests/workflow/test_runtime_source_inventory_recursive.py tests/environment/test_hpc_profile.py tests/workflow/test_protein_input_admission.py
-2026-10-07T19:30:16Z
-...........................                                              [100%]
-27 passed in 8.61s
-EXIT=0
-2026-10-07T19:30:25Z

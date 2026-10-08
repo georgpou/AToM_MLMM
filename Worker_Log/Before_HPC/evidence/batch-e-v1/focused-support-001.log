@@ -1,7 +1,0 @@
-START_UTC 2026-10-07T14:50:00Z
-ACTIVATION /workspace/before-hpc-cpu-v2/activate.sh
-ARGV python -m pytest -q tests/contracts/test_release_evidence.py
-....                                                                     [100%]
-4 passed in 0.01s
-EXIT_CODE 0
-END_UTC 2026-10-07T14:50:00Z

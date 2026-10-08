@@ -1,0 +1,5 @@
+
+!!!!!!!!!!!!!!!!!!!! KeyboardInterrupt: interruption probe !!!!!!!!!!!!!!!!!!!!!
+/workspace/AToM_MLMM/tests/workflow/test_benchmark_workflow.py:122: KeyboardInterrupt: interruption probe
+(to show a full traceback on KeyboardInterrupt use --full-trace)
+no tests ran in 0.17s

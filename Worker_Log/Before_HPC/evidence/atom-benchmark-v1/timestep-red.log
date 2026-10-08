@@ -1,0 +1,16 @@
+F                                                                        [100%]
+=================================== FAILURES ===================================
+_______________ test_preparation_preserves_the_declared_timestep _______________
+
+    def test_preparation_preserves_the_declared_timestep():
+        from atm_mlmm.adapters.atom import benchmark_preparation_hooks
+        options = {'TIME_STEP': .0005}
+        with benchmark_preparation_hooks() as upstream:
+            upstream.massage_keywords(options, restrain_solutes=False)
+>       assert options['TIME_STEP'] == .0005
+E       assert 0.001 == 0.0005
+
+tests/workflow/test_benchmark_atom_adapter.py:68: AssertionError
+=========================== short test summary info ============================
+FAILED tests/workflow/test_benchmark_atom_adapter.py::test_preparation_preserves_the_declared_timestep
+1 failed in 0.34s

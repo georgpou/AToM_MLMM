@@ -1,4 +1,0 @@
-...{"case": "overflow-origin", "error": "multistate sample clock moves backward", "evaluations": 0, "loader_seeds": [], "pending_exists": false, "step_calls": [], "tree_unchanged": true}
-.{"case": "finite-one-ulp-backward", "error": "multistate sample clock moves backward", "evaluations": 0, "loader_seeds": [], "pending_exists": false, "step_calls": [], "tree_unchanged": true}
-...
-7 passed, 58 deselected in 4.10s

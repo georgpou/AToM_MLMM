@@ -1,5 +1,0 @@
-Traceback (most recent call last):
-  File "/workspace/AToM_MLMM/Worker_Log/Milestone_05/evidence/G09_v1_independent_sol61_max/numerical_probe.py", line 86, in <module>
-    outside+=.5*bundle.restraints.spring_constant*float(delta@delta)
-                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-AttributeError: 'RestraintSpec' object has no attribute 'spring_constant'

@@ -1,7 +1,0 @@
-links [('p1_ml', 'p1_mm', 0.117), ('p2_ml', 'p2_mm', 0.117)]
-model_inputs ('lA_c', 'lA_h1', 'lA_h2', 'lB_c', 'lB_h1', 'lB_h2', 'lB_h3', 'p1_h', 'p1_ml', 'p2_h', 'p2_ml', 'cap:e24f166f5a48e3d0be8d7a32faea75018795d240b74255f617ef7088202bbcc6', 'cap:e605757baf99ad120765e597d53899cfda30e673096a194031a2023c42f40a72')
-cuequivariance or cuequivariance_torch is not available. Cuequivariance acceleration will be disabled.
-energy_kj_mol -411985.8983744822
-Traceback (most recent call last):
-  File "<stdin>", line 30, in <module>
-TypeError: tuple indices must be integers or slices, not tuple
