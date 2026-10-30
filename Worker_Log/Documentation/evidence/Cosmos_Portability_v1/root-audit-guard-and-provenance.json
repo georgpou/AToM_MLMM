@@ -1,0 +1,79 @@
+{
+  "audited_at_utc": "2026-10-30T16:11:56.763470+00:00",
+  "base": "4d5b266d982e5e72596e475712eafbbe110e001f",
+  "source_sha256": {
+    "base": "d7fd518d9663c60399e101c94c518f8f13b03625cff41e34546b96bfeae1e63d",
+    "current": "5ebc9d4096251f4f58f57e91d4c0edbd4ccf308a61513401647d2bf96e37e800"
+  },
+  "method": "Executed actual resource-guard AST blocks from base/current, with independent synthetic readings; no QM or production execution.",
+  "guard_cases": [
+    {
+      "case": "neutral_rss",
+      "limit_bytes": 8589934592,
+      "rss_bytes": 6979321856,
+      "pressure_bytes": 1073741824,
+      "base": {
+        "reason": null,
+        "rss_max_bytes": 7516192768,
+        "pressure_stop": false
+      },
+      "current": {
+        "reason": "memory_headroom_exhausted",
+        "rss_max_bytes": 6442450944,
+        "pressure_stop": false
+      }
+    },
+    {
+      "case": "neutral_pressure",
+      "limit_bytes": 6442450944,
+      "rss_bytes": 1073741824,
+      "pressure_bytes": 6442450944,
+      "base": {
+        "reason": null,
+        "rss_max_bytes": 7516192768,
+        "pressure_stop": false
+      },
+      "current": {
+        "reason": "memory_headroom_exhausted",
+        "rss_max_bytes": 4294967296,
+        "pressure_stop": true
+      }
+    },
+    {
+      "case": "g07_rss",
+      "limit_bytes": 8589934592,
+      "rss_bytes": 6979321856,
+      "pressure_bytes": 1073741824,
+      "base": {
+        "reason": "process_group_rss_exhausted",
+        "rss_max_bytes": 6442450944,
+        "pressure_stop": false
+      },
+      "current": {
+        "reason": "process_group_rss_exhausted",
+        "rss_max_bytes": 6442450944,
+        "pressure_stop": false
+      }
+    },
+    {
+      "case": "g07_pressure",
+      "limit_bytes": 6442450944,
+      "rss_bytes": 1073741824,
+      "pressure_bytes": 6442450944,
+      "base": {
+        "reason": "memory_headroom_exhausted",
+        "rss_max_bytes": 4294967296,
+        "pressure_stop": true
+      },
+      "current": {
+        "reason": "memory_headroom_exhausted",
+        "rss_max_bytes": 4294967296,
+        "pressure_stop": true
+      }
+    }
+  ],
+  "neutral_policy_regression_reproduced": true,
+  "g07_behavior_matches_in_probed_cases": true,
+  "protected_blobs_checked": 1160,
+  "protected_blob_changes": []
+}

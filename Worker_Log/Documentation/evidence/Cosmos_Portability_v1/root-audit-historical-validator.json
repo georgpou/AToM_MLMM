@@ -1,0 +1,19 @@
+{
+  "audited_at_utc": "2026-10-30T16:16:44.472429+00:00",
+  "base": "4d5b266d982e5e72596e475712eafbbe110e001f",
+  "frozen_correction": "Worker_Log/Milestone_03/evidence/G07_v2/quantum-attempt-v1/jobs/ethanol-methanol-d3-r0--full-parent/attempt-0002/revalidation.json",
+  "frozen_correction_sha256": "214e4174d58a08298bbd5b5e12cbfa6cff4d5593cb76693bca68fbb9bfd82920",
+  "recorded_validator_sha256": "67372fbe9c8083aebfa77886240608fcadacba930a1d7c643d6ae9f11938f61f",
+  "base_script_sha256": "67372fbe9c8083aebfa77886240608fcadacba930a1d7c643d6ae9f11938f61f",
+  "current_script_sha256": "f5da75945da12d08da7452c5f631aa259f3101189616354c74eb93113ec7123f",
+  "method": "Executed actual expected-dictionary and identity-comparison AST against unchanged historical correction; no canonical path relocation, receipt edit, QM launch or full recovery.",
+  "results": {
+    "base": {
+      "accepted_by_actual_identity_comparison": true
+    },
+    "current": {
+      "accepted_by_actual_identity_comparison": false,
+      "error": "validation correction statement differs from original evidence"
+    }
+  }
+}

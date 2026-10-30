@@ -1,0 +1,35 @@
+{
+  "base": "4d5b266d982e5e72596e475712eafbbe110e001f",
+  "branch": "cosmos/portability-repair",
+  "author": "root Codex, exact model/version and effort not exposed",
+  "red": {
+    "job": 4067784,
+    "passed": 3,
+    "failed": 3,
+    "pytest_seconds": 6.79,
+    "state": "FAILED",
+    "exit": "1:0"
+  },
+  "targeted": {
+    "job": 4067914,
+    "passed": 13,
+    "pytest_seconds": 18.8
+  },
+  "full_cpu": {
+    "job": 4067914,
+    "passed": 733,
+    "deselected": 57,
+    "pytest_seconds": 767.44,
+    "state": "COMPLETED",
+    "exit": "0:0",
+    "scheduler_elapsed": "00:13:12",
+    "cpus": 8,
+    "memory_gib": 12,
+    "node": "cn131"
+  },
+  "full_command": "python -m pytest -m 'not gpu and not model_assets and not slow' -q --basetemp=\"${TMPDIR}/repair-full-${SLURM_JOB_ID}\"",
+  "protected_base_blobs_verified": 1160,
+  "protected_blob_changes": [],
+  "review_status": "fresh user-selected audit pending; no post-repair independent approval",
+  "publication": "delegated to another Codex account by user; no commit/push/PR in this academic session"
+}
