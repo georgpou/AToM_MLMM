@@ -11,6 +11,7 @@ import fcntl
 import json
 import math
 import os
+import re
 from pathlib import Path
 import shutil
 import signal
@@ -238,23 +239,153 @@ def attempt_processes(output):
     return live
 
 
-def measurements(pid=None):
-    data = {}
-    for name in ('memory.current', 'memory.peak', 'memory.max', 'memory.events'):
-        path = Path('/sys/fs/cgroup') / name
-        if path.exists():
-            raw = path.read_text().strip()
-            data[name] = int(raw) if raw.isdigit() else raw
-    stat_path = Path('/sys/fs/cgroup') / 'memory.stat'
-    if stat_path.exists():
-        stats = {key: int(value) for key, value in
-                 (line.split() for line in stat_path.read_text().splitlines())}
-        data['memory.stat'] = stats
-        # Clean page cache and reclaimable slab can be evicted under pressure.
-        # Keep anonymous RAM, shared memory, unreclaimable kernel and dirty IO.
-        data['memory.pressure_bytes'] = (stats.get('anon', 0) + stats.get('shmem', 0)
-            + max(0, stats.get('kernel', 0) - stats.get('slab_reclaimable', 0))
-            + stats.get('file_dirty', 0) + stats.get('file_writeback', 0))
+def filesystem_anchor(path):
+    """Return the nearest existing directory on the target output filesystem."""
+    candidate = Path(path).resolve()
+    while not candidate.exists():
+        parent = candidate.parent
+        if parent == candidate:
+            raise FileNotFoundError(f'no existing parent for output path: {path}')
+        candidate = parent
+    return candidate if candidate.is_dir() else candidate.parent
+
+
+def cgroup_v2_memory_resources(proc_cgroup_text=None, mountinfo_text=None, job_id=None):
+    """Read memory resources from this process's Slurm job hierarchy only."""
+    if proc_cgroup_text is None:
+        proc_cgroup_text = Path('/proc/self/cgroup').read_text()
+    if mountinfo_text is None:
+        mountinfo_text = Path('/proc/self/mountinfo').read_text()
+    if job_id is None:
+        job_id = os.environ.get('SLURM_JOB_ID')
+
+    unified = []
+    for line in proc_cgroup_text.splitlines():
+        fields = line.split(':', 2)
+        if len(fields) != 3:
+            raise ValueError('unsupported cgroup layout: malformed /proc/self/cgroup')
+        if fields[0] == '0' and not fields[1]:
+            unified.append(Path(fields[2]))
+    if len(unified) != 1 or not unified[0].is_absolute():
+        raise ValueError('unsupported cgroup layout: unified cgroup-v2 process path is unavailable')
+
+    mounts = []
+    for line in mountinfo_text.splitlines():
+        if ' - ' not in line:
+            raise ValueError('unsupported cgroup layout: malformed /proc/self/mountinfo')
+        left, right = line.split(' - ', 1)
+        before, after = left.split(), right.split()
+        if after and after[0] == 'cgroup2':
+            if len(before) < 5:
+                raise ValueError('unsupported cgroup layout: malformed cgroup-v2 mount')
+            unescape = lambda value: re.sub(r'\\([0-7]{3})', lambda match: chr(int(match.group(1), 8)), value)
+            mounts.append((Path(unescape(before[3])), Path(unescape(before[4]))))
+    if len(mounts) != 1:
+        raise ValueError('unsupported cgroup layout: expected one cgroup-v2 mount')
+    mount_root, mountpoint = mounts[0]
+    process_cgroup = unified[0]
+    if (not mount_root.is_absolute() or not mountpoint.is_absolute()
+            or not process_cgroup.is_relative_to(mount_root)):
+        raise ValueError('unsupported cgroup layout: process path is outside the cgroup-v2 mount root')
+
+    components = process_cgroup.parts
+    job_components = [index for index, part in enumerate(components)
+                      if part.startswith('job_') and part[4:].isdigit()]
+    if job_id:
+        expected = 'job_' + str(job_id)
+        matches = [index for index, part in enumerate(components) if part == expected]
+        if len(matches) != 1:
+            raise ValueError('unsupported cgroup layout: SLURM_JOB_ID does not match a job_<id> ancestor')
+        job_index = matches[0]
+    elif len(job_components) == 1:
+        job_index = job_components[0]
+    else:
+        raise ValueError('unsupported cgroup layout: unique Slurm job boundary is unavailable')
+
+    job_cgroup = Path(*components[:job_index + 1])
+    if not job_cgroup.is_relative_to(mount_root):
+        raise ValueError('unsupported cgroup layout: Slurm job boundary is outside the cgroup-v2 mount root')
+    process_path = (mountpoint / process_cgroup.relative_to(mount_root)).resolve()
+    job_path = (mountpoint / job_cgroup.relative_to(mount_root)).resolve()
+
+    def required(path, name):
+        try:
+            return (path / name).read_text().strip()
+        except OSError as error:
+            raise ValueError(f'unsupported cgroup-v2 scope {path}: required {name} is unavailable') from error
+
+    scopes = []
+    scope_path = process_path
+    while scope_path == job_path or job_path in scope_path.parents:
+        maximum = required(scope_path, 'memory.max')
+        if maximum != 'max':
+            if not maximum.isdigit():
+                raise ValueError(f'malformed cgroup-v2 memory.max at {scope_path}')
+            maximum = int(maximum)
+        current = required(scope_path, 'memory.current')
+        if not current.isdigit():
+            raise ValueError(f'malformed cgroup-v2 memory.current at {scope_path}')
+        raw_stat = required(scope_path, 'memory.stat')
+        stats = {}
+        for line in raw_stat.splitlines():
+            fields = line.split()
+            if len(fields) != 2 or not fields[1].isdigit() or fields[0] in stats:
+                raise ValueError(f'malformed cgroup-v2 memory.stat at {scope_path}')
+            stats[fields[0]] = int(fields[1])
+        pressure_fields = ('anon', 'shmem', 'kernel', 'slab_reclaimable', 'file_dirty', 'file_writeback')
+        if any(name not in stats for name in pressure_fields):
+            raise ValueError(f'malformed cgroup-v2 memory.stat at {scope_path}: required fields are missing')
+        raw_events = required(scope_path, 'memory.events')
+        events = {}
+        for line in raw_events.splitlines():
+            fields = line.split()
+            if len(fields) != 2 or not fields[1].isdigit() or fields[0] in events:
+                raise ValueError(f'malformed cgroup-v2 memory.events at {scope_path}')
+            events[fields[0]] = int(fields[1])
+        if any(name not in events for name in ('oom', 'oom_kill', 'oom_group_kill')):
+            raise ValueError(f'malformed cgroup-v2 memory.events at {scope_path}: OOM counters are missing')
+        pressure = (stats['anon'] + stats['shmem']
+            + max(0, stats['kernel'] - stats['slab_reclaimable'])
+            + stats['file_dirty'] + stats['file_writeback'])
+        scope = {'path':str(scope_path), 'memory.max':maximum, 'memory.current':int(current),
+                 'memory.events':events, 'memory.events_raw':raw_events,
+                 'memory.stat':stats, 'memory.pressure_bytes':pressure}
+        peak_path = scope_path / 'memory.peak'
+        if peak_path.exists():
+            peak = required(scope_path, 'memory.peak')
+            if not peak.isdigit():
+                raise ValueError(f'malformed cgroup-v2 memory.peak at {scope_path}')
+            scope['memory.peak'] = int(peak)
+        scopes.append(scope)
+        if scope_path == job_path:
+            break
+        scope_path = scope_path.parent
+    if not scopes or scopes[-1]['path'] != str(job_path):
+        raise ValueError('unsupported cgroup layout: process hierarchy does not reach the Slurm job boundary')
+
+    finite = [scope for scope in scopes if isinstance(scope['memory.max'], int)]
+    if not finite:
+        raise ValueError('unsupported cgroup-v2 job scope: no finite memory.max limit is available')
+    effective_limit = min(scope['memory.max'] for scope in finite)
+    selected = next(scope for scope in reversed(scopes) if scope['memory.max'] == effective_limit)
+    provenance = dict(mount_root=str(mount_root), mount_point=str(mountpoint),
+        process_path=str(process_path), job_path=str(job_path), selected_scope=selected['path'],
+        job_id=str(job_id) if job_id else selected['path'].split('job_')[-1].split('/')[0])
+    result = {'memory.max':effective_limit, 'memory.current':selected['memory.current'],
+        'memory.events':selected['memory.events_raw'], 'memory.stat':selected['memory.stat'],
+        'memory.pressure_bytes':selected['memory.pressure_bytes'], 'memory_scopes':scopes,
+        'cgroup_v2':provenance}
+    if 'memory.peak' in selected:
+        result['memory.peak'] = selected['memory.peak']
+    for name in ('cpu.max', 'memory.swap.current', 'memory.swap.max', 'memory.pressure', 'cpuset.cpus.effective'):
+        path = selected['path'] + '/' + name
+        if Path(path).is_file():
+            result[name] = Path(path).read_text().strip()
+    return result
+
+
+def measurements(*, filesystem_path, pid=None):
+    data = cgroup_v2_memory_resources()
     if pid is not None:
         # Include the supervisor and all current same-group worker processes.
         # Sampling the small supervisor alone would conceal reference RAM.
@@ -272,11 +403,7 @@ def measurements(pid=None):
             except (OSError, IndexError, ValueError):
                 continue
         data['rss_scope'] = 'supervisor and same-process-group workers'
-    data['disk_free_bytes'] = shutil.disk_usage('/workspace').free
-    for name in ('cpu.max', 'memory.swap.current', 'memory.swap.max', 'memory.pressure'):
-        path = Path('/sys/fs/cgroup') / name
-        if path.exists():
-            data[name] = path.read_text().strip()
+    data['disk_free_bytes'] = shutil.disk_usage(filesystem_anchor(filesystem_path)).free
     return data
 
 
@@ -456,7 +583,7 @@ def run(args, *, plan_validator=validate_plan, queue_builder=queue, policy=None,
                         state['provenance'][name]['receipt_sha256'] = digest(record.with_name('receipt.json'))
                 break
         session = dict(started_utc=utc(), status='running', wall_seconds=0., runtime_memory=allocation,
-                       wall_cap_seconds=wall_cap, resources_at_start=measurements())
+                       wall_cap_seconds=wall_cap, resources_at_start=measurements(filesystem_path=output))
         state['sessions'].append(session)
         began = time.monotonic()
         previous_debit = prior_wall + sum(s['wall_seconds'] for s in state['sessions'][:-1])
@@ -485,7 +612,7 @@ def run(args, *, plan_validator=validate_plan, queue_builder=queue, policy=None,
             if pilot and pilot_remaining <= .02:
                 session['stop_reason'] = 'pilot_budget_exhausted'
                 break
-            before = measurements()
+            before = measurements(filesystem_path=output)
             if before['disk_free_bytes'] < policy.get('disk_min_bytes', 2 * 2**30):
                 session['stop_reason'] = 'scratch_disk_headroom_exhausted'
                 break
@@ -503,7 +630,7 @@ def run(args, *, plan_validator=validate_plan, queue_builder=queue, policy=None,
                        str(Path(__file__).with_name('generate_neutral_quantum.py').resolve()),
                        '--worker', str(attempt / 'order.json')]
             receipt = dict(name=name, command=command, started_utc=utc(),
-                           resources_before=measurements(), runtime_memory=allocation)
+                           resources_before=measurements(filesystem_path=output), runtime_memory=allocation)
             launch_path = attempt / 'launch.json'
             exclusive_dump(launch_path, dict(command=command, coordinator_pid=os.getpid(),
                                            coordinator_start_ticks=process_identity(os.getpid())))
@@ -534,7 +661,7 @@ def run(args, *, plan_validator=validate_plan, queue_builder=queue, policy=None,
                         while process.poll() is None:
                             sample = dict(utc=utc(), job_name=name, process_group=process.pid,
                                           elapsed_seconds=time.monotonic() - worker_started,
-                                          **measurements(process.pid))
+                                          **measurements(filesystem_path=output, pid=process.pid))
                             if policy:
                                 sample['scratch_bytes'] = directory_bytes(scratch)
                             rss_peak = max(rss_peak, sample.get('VmHWM', 0), sample.get('VmRSS', 0))
@@ -543,21 +670,31 @@ def run(args, *, plan_validator=validate_plan, queue_builder=queue, policy=None,
                             samples.flush()
                             checkpoint()
                             actual_limit = sample.get('memory.max')
-                            pressure_max = policy.get('pressure_max_bytes', 7 * 2**30)
+                            pressure_max = policy.get('pressure_base_max_bytes',
+                                                     policy.get('pressure_max_bytes', 7 * 2**30))
                             rss_max = policy.get('rss_max_bytes', 7 * 2**30)
                             if isinstance(actual_limit, int) and policy:
                                 rss_max = min(rss_max, actual_limit - 2 * 2**30)
-                                pressure_max = min(pressure_max, actual_limit - 512 * 2**20)
-                            events = dict(line.split() for line in sample.get('memory.events', '').splitlines())
-                            initial_events = dict(line.split() for line in before.get('memory.events', '').splitlines())
+                            initial_scopes = {scope['path']:scope for scope in before['memory_scopes']}
+                            sample_scopes = {scope['path']:scope for scope in sample['memory_scopes']}
+                            if set(sample_scopes) != set(initial_scopes):
+                                raise ValueError('cgroup-v2 memory scope changed during a worker')
+                            pressure_exhausted = any(
+                                scope['memory.pressure_bytes'] > (
+                                    min(pressure_max, scope['memory.max'] - 512 * 2**20)
+                                    if policy else pressure_max)
+                                for scope in sample_scopes.values() if isinstance(scope['memory.max'], int))
+                            oom_event = any(
+                                scope['memory.events'][key] > initial_scopes[path]['memory.events'][key]
+                                for path, scope in sample_scopes.items()
+                                for key in ('oom', 'oom_kill', 'oom_group_kill'))
                             if state['remaining_wall_seconds'] <= 0 or time.monotonic() >= worker_deadline:
                                 reason = 'timeout'
                             elif sample.get('VmRSS', 0) > rss_max:
                                 reason = 'process_group_rss_exhausted' if policy else 'memory_headroom_exhausted'
-                            elif sample.get('memory.pressure_bytes', sample.get('memory.current', 0)) > pressure_max:
+                            elif pressure_exhausted:
                                 reason = 'memory_headroom_exhausted'
-                            elif any(int(events.get(key, 0)) > int(initial_events.get(key, 0))
-                                     for key in ('oom', 'oom_kill', 'oom_group_kill')):
+                            elif oom_event:
                                 reason = 'cgroup_oom_event'
                             elif sample['disk_free_bytes'] < policy.get('disk_min_bytes', 2 * 2**30):
                                 reason = 'scratch_disk_headroom_exhausted'
@@ -585,7 +722,7 @@ def run(args, *, plan_validator=validate_plan, queue_builder=queue, policy=None,
                     os.close(control_read)
                 session.pop('active_worker', None)
             receipt.update(ended_utc=utc(), wall_seconds=time.monotonic() - worker_started,
-                           resources_after=measurements())
+                           resources_after=measurements(filesystem_path=output))
             if receipt['exit'] == 0 and reason is None:
                 try:
                     record_validator(record, order)
@@ -625,7 +762,7 @@ def run(args, *, plan_validator=validate_plan, queue_builder=queue, policy=None,
             if policy.get('stop_on_failure') and not admitted(receipt):
                 session['stop_reason'] = 'worker_failed_or_invalid'
                 break
-        session.update(status='finished', ended_utc=utc(), resources_at_end=measurements())
+        session.update(status='finished', ended_utc=utc(), resources_at_end=measurements(filesystem_path=output))
         checkpoint()
         if state['ready_for_comparison']:
             for name, sha in state['record_hashes'].items():

@@ -43,6 +43,21 @@ def test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget(tmp_path):
     assert not (tmp_path/'output').exists()
 
 
+def test_check_resume_does_not_require_execution_cgroup(monkeypatch):
+    from argparse import Namespace
+    monkeypatch.syspath_prepend(str(REPO/'tools'))
+    monkeypatch.delenv('SLURM_JOB_ID', raising=False)
+    import resume_joint_quantum as joint
+    monkeypatch.setattr(joint.recovery, 'measurements',
+                        lambda *args, **kwargs: pytest.fail('read-only check-resume requested cgroup resources'))
+    approval = json.loads(AUTH.read_text())
+    args = Namespace(plan_root=str(PLAN), approval=str(AUTH), matrix=str(MATRIX),
+        output=approval['attempt_path'], reference_python=None, check_resume=True,
+        memory_gib=3., wall_limit_seconds=None, continue_batch=False, pilot_assessment=None)
+
+    assert joint.run(args) == 0
+
+
 def test_copied_approval_cannot_reset_budget_by_changing_attempt(tmp_path):
     result = subprocess.run(command(tmp_path/'fresh-ledger', ['--check-resume']), capture_output=True, text=True)
     assert result.returncode == 2, 'copied authorization incorrectly admitted a fresh 86400-second budget'
@@ -196,7 +211,7 @@ def test_concurrent_queue_lease_blocks_launch(synthetic):
     assert not (output/'progress.json').exists()
 
 
-@pytest.mark.parametrize('guard', ['rss', 'disk', 'oom'])
+@pytest.mark.parametrize('guard', ['rss', 'disk', 'oom', 'ancestor_oom', 'ancestor_pressure'])
 def test_g07_guards_stop_safely_before_promoting(monkeypatch, synthetic, guard):
     from argparse import Namespace
     monkeypatch.syspath_prepend(str(REPO/'tools'))
@@ -208,18 +223,32 @@ def test_g07_guards_stop_safely_before_promoting(monkeypatch, synthetic, guard):
         check_resume=False,memory_gib=3.,wall_limit_seconds=None,
         continue_batch=False,pilot_assessment=None)
     actual = joint.recovery.measurements
-    def measured(pid=None):
-        data = actual(pid)
+    def measured(*, filesystem_path, pid=None):
+        data = actual(filesystem_path=filesystem_path, pid=pid)
         if guard == 'disk':data['disk_free_bytes'] = 5*2**30-1
         if pid is not None and guard == 'rss':data['VmRSS'] = 6*2**30+1
-        if guard == 'oom':data['memory.events'] = 'oom 1\noom_kill 0\n' if pid else 'oom 0\noom_kill 0\n'
+        if pid is not None and guard in ('oom', 'ancestor_oom'):
+            scopes=[dict(scope, **{'memory.events':dict(scope['memory.events'])})
+                    for scope in data['memory_scopes']]
+            finite=[scope for scope in scopes if isinstance(scope['memory.max'],int)]
+            target=(next(scope for scope in scopes
+                         if scope['path']==data['cgroup_v2']['selected_scope'])
+                    if guard=='oom' else finite[-1])
+            target['memory.events']['oom_kill'] += 1
+            data['memory_scopes']=scopes
+        if pid is not None and guard == 'ancestor_pressure':
+            scopes=[dict(scope) for scope in data['memory_scopes']]
+            finite=[scope for scope in scopes if isinstance(scope['memory.max'],int)]
+            finite[-1]['memory.pressure_bytes']=8*2**30
+            data['memory_scopes']=scopes
         return data
     monkeypatch.setattr(joint.recovery,'measurements',measured)
     assert joint.run(args) == 1
     state = json.loads((output/'progress.json').read_text())
     assert not state['record_hashes']
     assert state['sessions'][-1]['stop_reason'] == {'rss':'process_group_rss_exhausted',
-        'disk':'scratch_disk_headroom_exhausted','oom':'cgroup_oom_event'}[guard]
+        'disk':'scratch_disk_headroom_exhausted','oom':'cgroup_oom_event',
+        'ancestor_oom':'cgroup_oom_event','ancestor_pressure':'memory_headroom_exhausted'}[guard]
     for path in output.glob('jobs/*/attempt-*/receipt.json'):
         assert json.loads(path.read_text())['group_cleanup_verified']
 
@@ -438,3 +467,32 @@ def test_pilot_ceiling_cannot_reset_on_retry(synthetic):
     assert run_fake(synthetic).returncode == 1
     assert len(list(output.glob('jobs/*/attempt-*'))) == 1
     assert json.loads(path.read_text())['sessions'][-1]['stop_reason'] == 'pilot_budget_exhausted'
+
+
+@pytest.mark.parametrize('identity,accepted', [('historical', True), ('unknown', False)])
+def test_correction_validator_provenance_admission(
+        synthetic, rejected_converged_pilot, identity, accepted):
+    import resume_joint_quantum as joint
+    from generate_neutral_quantum import digest
+    receipt_path = revalidate_fake(synthetic)
+    correction_path = receipt_path.with_name('revalidation.json')
+    correction = json.loads(correction_path.read_text())
+    historical_path = (REPO / 'Worker_Log/Milestone_03/evidence/G07_v2/quantum-attempt-v1/jobs'
+                       / joint.PILOT / 'attempt-0002/revalidation.json')
+    historical = json.loads(historical_path.read_text())
+    assert historical['validator_source_sha256'] == '67372fbe9c8083aebfa77886240608fcadacba930a1d7c643d6ae9f11938f61f'
+    correction['validator_source_sha256'] = (historical['validator_source_sha256']
+                                           if identity == 'historical' else '0'*64)
+    correction_path.write_text(json.dumps(correction))
+    receipt = json.loads(receipt_path.read_text())
+    receipt['diagnostic_sha256']['revalidation.json'] = digest(correction_path)
+    receipt_path.write_text(json.dumps(receipt))
+    original_bytes = rejected_converged_pilot.read_bytes()
+    progress_bytes = (synthetic[1] / 'progress.json').read_bytes()
+    if accepted:
+        assert joint.validate_correction(receipt_path.parent) == receipt
+    else:
+        with pytest.raises(ValueError, match='validator|correction'):
+            joint.validate_correction(receipt_path.parent)
+    assert rejected_converged_pilot.read_bytes() == original_bytes
+    assert (synthetic[1] / 'progress.json').read_bytes() == progress_bytes

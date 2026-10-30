@@ -19,6 +19,9 @@ PILOT = 'ethanol-methanol-d3-r0--full-parent'
 APPROVAL_PATH = Path(__file__).resolve().parents[1]/'Worker_Log/Milestone_03/evidence/G07_v2/authorization.json'
 APPROVAL_SHA256 = 'fb20e06a6179df03ef6ced63cc09a4d1bdc74e024fc08cb5c5e301bd1079d216'
 REJECTED_PILOT_RECEIPT_SHA256 = 'b42dd4aff42a8e5e52f3ab00a0e857dd58d8de6bdcc1a819becbce5f885a5f1f'
+# Validator that created the retained, approved pilot correction. Its recorded
+# identity is historical provenance, not the current operational script version.
+APPROVED_CORRECTION_VALIDATOR_SHA256 = '67372fbe9c8083aebfa77886240608fcadacba930a1d7c643d6ae9f11938f61f'
 REVALIDATION_NOTE = ('No QM launch. Order, launch, worker identities, samples and wall time are historical copies. '
                      'Psi4 1.10.2 explicitly reports Energy and wave function converged.; strict validation passes. '
                      'Original rejection remains immutable; cumulative quantum debit is unchanged.')
@@ -115,10 +118,13 @@ def validate_correction(target):
             raise ValueError('validation correction copied original differs: ' + name)
     correction_path = target/'revalidation.json'
     correction = json.loads(correction_path.read_text())
+    validator_sha = correction.get('validator_source_sha256')
+    if validator_sha not in (digest(Path(__file__)), APPROVED_CORRECTION_VALIDATOR_SHA256):
+        raise ValueError('unapproved correction validator identity')
     expected_correction = dict(kind='validation_only_correction', revalidated_utc=correction['revalidated_utc'],
         original_attempt=str(source), original_receipt_sha256=REJECTED_PILOT_RECEIPT_SHA256,
         original_validation_error=original['validation_error'], copied_file_sha256=copied,
-        validator_source_sha256=digest(Path(__file__)), note=REVALIDATION_NOTE)
+        validator_source_sha256=validator_sha, note=REVALIDATION_NOTE)
     recovery.dt.datetime.fromisoformat(correction['revalidated_utc'])
     if correction != expected_correction:
         raise ValueError('validation correction statement differs from original evidence')
@@ -215,16 +221,19 @@ def revalidate_pilot(output, root, approval, matrix, reference_python):
         return target/'receipt.json'
 
 
-def execution_policy(approval, continuation):
-    measurements = recovery.measurements()
+def execution_policy(approval, continuation, *, measure_resources=True):
+    measurements = (recovery.measurements(filesystem_path=approval['attempt_path'])
+                    if measure_resources else {})
     limit = measurements.get('memory.max')
     rss = 6*2**30
-    pressure = 7.5*2**30
+    pressure_base = 7.5*2**30
+    pressure = pressure_base
     if isinstance(limit, int):
         rss = min(rss, limit - 2*2**30)
         pressure = min(pressure, limit - 512*2**20)
     return dict(wall_hours=24, pilot_job=PILOT, pilot_wall_seconds=3600,
-                rss_max_bytes=rss, pressure_max_bytes=pressure, disk_min_bytes=5*2**30,
+                rss_max_bytes=rss, pressure_max_bytes=pressure, pressure_base_max_bytes=pressure_base,
+                disk_min_bytes=5*2**30,
                 require_receipt=True, stop_on_failure=True,
                 diagnostic_suffixes=('.psi4.txt', '.psi4.log'),
                 stop_after_job=None if continuation else PILOT)
@@ -280,7 +289,7 @@ def validate_assessment(path, output, approval, matrix=None):
         raise ValueError('measured pilot projections are below the screening envelope')
     policy = execution_policy(approval, True)
     if (seconds > 86400 - state['wall_seconds_debited'] or rss > policy['rss_max_bytes']
-            or scratch + policy['disk_min_bytes'] > recovery.measurements()['disk_free_bytes']):
+            or scratch + policy['disk_min_bytes'] > recovery.measurements(filesystem_path=output)['disk_free_bytes']):
         raise ValueError('pilot projections exceed the remaining resource/budget envelope')
 
 
@@ -297,9 +306,10 @@ def run(args):
         raise ValueError('attempt path differs from the separately bound G07 budget ledger')
     if args.memory_gib != 3:
         raise ValueError('G07 execution requires exactly 3 GiB internal allocation')
-    if args.continue_batch:
+    if args.continue_batch and not args.check_resume:
         validate_assessment(args.pilot_assessment, output, approval, matrix)
-    policy = execution_policy(approval, args.continue_batch)
+    policy = execution_policy(approval, args.continue_batch,
+                              measure_resources=not args.check_resume)
     # One canonical lease is inherited by the supervisor, even across a crash.
     policy['queue_lease_path'] = output.parent/'queue-lease.lock'
     args.resume_from = args.stop_state = args.prior_launch = None

@@ -23,6 +23,39 @@ def write(path, data):
     path.write_text(json.dumps(data, indent=2, allow_nan=False) + '\n')
 
 
+def write_memory_scope(path, *, maximum='max', current=0, stats=None, events=None):
+    path.mkdir(parents=True, exist_ok=True)
+    values = {'anon': 0, 'file': 0, 'shmem': 0, 'kernel': 0,
+              'slab_reclaimable': 0, 'file_dirty': 0, 'file_writeback': 0}
+    values.update(stats or {})
+    counts = {'low': 0, 'high': 0, 'max': 0, 'oom': 0,
+              'oom_kill': 0, 'oom_group_kill': 0}
+    counts.update(events or {})
+    (path / 'memory.max').write_text(str(maximum))
+    (path / 'memory.current').write_text(str(current))
+    (path / 'memory.stat').write_text(''.join(f'{key} {value}\n' for key, value in values.items()))
+    (path / 'memory.events').write_text(''.join(f'{key} {value}\n' for key, value in counts.items()))
+
+
+def synthetic_cgroup_v2(tmp_path, job_id='123', mount_root='/system.slice/slurmstepd.scope'):
+    hierarchy = Path(mount_root)
+    job_path = hierarchy / f'job_{job_id}'
+    step_path = job_path / 'step_batch'
+    user_path = step_path / 'user'
+    leaf_path = user_path / 'task_0'
+    mountpoint = tmp_path / 'cgroup2'
+    mountpoint.mkdir()
+    mapped = lambda path: mountpoint / path.relative_to(hierarchy)
+    paths = dict(host=mountpoint, job=mapped(job_path), step=mapped(step_path),
+                 user=mapped(user_path), leaf=mapped(leaf_path))
+    for path in paths.values():
+        write_memory_scope(path)
+    proc_cgroup = f'0::{leaf_path}\n'
+    mountinfo = f'29 23 0:45 {mount_root} {mountpoint} rw,nosuid,nodev - cgroup2 cgroup rw\n'
+    return dict(job_id=job_id, mount_root=mount_root, mountpoint=mountpoint,
+                paths=paths, proc_cgroup=proc_cgroup, mountinfo=mountinfo)
+
+
 def sha(path):
     return hashlib.sha256(path.read_bytes()).hexdigest()
 
@@ -306,15 +339,108 @@ def test_resume_keeps_genuinely_missing_exit_receipt_unknown(synthetic):
 def test_clean_file_cache_does_not_consume_unreclaimable_memory_headroom(tmp_path, monkeypatch):
     monkeypatch.syspath_prepend(str(REPO / 'tools'))
     functions = runpy.run_path(str(PROGRAM))
-    (tmp_path / 'memory.current').write_text(str(8 * 2**30))
-    (tmp_path / 'memory.stat').write_text('anon 1073741824\nfile 6442450944\n'
-                                         'shmem 0\nkernel 1073741824\nslab_reclaimable 536870912\n'
-                                         'file_dirty 0\nfile_writeback 0\n')
-    original = Path
-    monkeypatch.setitem(functions['measurements'].__globals__, 'Path',
-                        lambda p: tmp_path if p == '/sys/fs/cgroup' else original(p))
-    sample = functions['measurements']()
+    tree = synthetic_cgroup_v2(tmp_path)
+    gib = 2**30
+    write_memory_scope(tree['paths']['job'], maximum=12*gib, current=8*gib,
+        stats={'anon':gib, 'file':6*gib, 'kernel':gib, 'slab_reclaimable':gib//2})
+    sample = functions['cgroup_v2_memory_resources'](
+        tree['proc_cgroup'], tree['mountinfo'], job_id=tree['job_id'])
     assert sample.get('memory.pressure_bytes') == int(1.5 * 2**30)
+
+
+def test_cgroup_v2_uses_finite_job_scope_and_ignores_host_totals(tmp_path, monkeypatch):
+    monkeypatch.syspath_prepend(str(REPO / 'tools'))
+    functions = runpy.run_path(str(PROGRAM))
+    tree = synthetic_cgroup_v2(tmp_path)
+    gib = 2**30
+    write_memory_scope(tree['paths']['host'], current=50*gib,
+        stats={'anon': 20*gib, 'file': 30*gib}, events={'oom': 99, 'oom_kill': 99})
+    write_memory_scope(tree['paths']['job'], maximum=12*gib, current=3*gib,
+        stats={'anon': 2*gib}, events={'oom': 0, 'oom_kill': 0})
+
+    sample = functions['cgroup_v2_memory_resources'](
+        tree['proc_cgroup'], tree['mountinfo'], job_id=tree['job_id'])
+
+    assert sample['memory.max'] == 12*gib
+    assert sample['memory.current'] == 3*gib
+    assert sample['memory.pressure_bytes'] == 2*gib
+    assert sample['cgroup_v2']['selected_scope'] == str(tree['paths']['job'])
+    assert all(str(tree['paths']['job']) in scope['path']
+               or scope['path'] == str(tree['paths']['job']) for scope in sample['memory_scopes'])
+    assert not any(scope['path'] == str(tree['paths']['host']) for scope in sample['memory_scopes'])
+
+
+def test_cgroup_v2_resolves_a_nonroot_mount_root(tmp_path, monkeypatch):
+    monkeypatch.syspath_prepend(str(REPO / 'tools'))
+    functions = runpy.run_path(str(PROGRAM))
+    tree = synthetic_cgroup_v2(tmp_path, mount_root='/slice/slurmstepd.scope')
+    write_memory_scope(tree['paths']['job'], maximum=12*2**30)
+
+    sample = functions['cgroup_v2_memory_resources'](
+        tree['proc_cgroup'], tree['mountinfo'], job_id=tree['job_id'])
+
+    assert sample['cgroup_v2']['mount_root'] == '/slice/slurmstepd.scope'
+    assert sample['cgroup_v2']['mount_point'] == str(tree['mountpoint'])
+    assert sample['cgroup_v2']['process_path'] == str(tree['paths']['leaf'])
+    assert sample['cgroup_v2']['job_path'] == str(tree['paths']['job'])
+
+
+def test_cgroup_v2_selects_tighter_leaf_and_retains_ancestor_samples(tmp_path, monkeypatch):
+    monkeypatch.syspath_prepend(str(REPO / 'tools'))
+    functions = runpy.run_path(str(PROGRAM))
+    tree = synthetic_cgroup_v2(tmp_path)
+    gib = 2**30
+    write_memory_scope(tree['paths']['leaf'], maximum=6*gib, current=4*gib,
+        stats={'anon': 4*gib})
+    write_memory_scope(tree['paths']['job'], maximum=12*gib, current=5*gib,
+        stats={'anon': 5*gib})
+
+    sample = functions['cgroup_v2_memory_resources'](
+        tree['proc_cgroup'], tree['mountinfo'], job_id=tree['job_id'])
+
+    assert sample['memory.max'] == 6*gib
+    assert sample['memory.current'] == 4*gib
+    assert sample['cgroup_v2']['selected_scope'] == str(tree['paths']['leaf'])
+    assert {scope['path'] for scope in sample['memory_scopes']} >= {
+        str(tree['paths']['leaf']), str(tree['paths']['job'])}
+
+
+@pytest.mark.parametrize('defect', ['missing-memory-max', 'malformed-memory-events', 'job-id-mismatch'])
+def test_cgroup_v2_rejects_missing_or_malformed_scope_data(tmp_path, monkeypatch, defect):
+    monkeypatch.syspath_prepend(str(REPO / 'tools'))
+    functions = runpy.run_path(str(PROGRAM))
+    tree = synthetic_cgroup_v2(tmp_path)
+    if defect == 'missing-memory-max':
+        (tree['paths']['leaf'] / 'memory.max').unlink()
+        job_id = tree['job_id']
+    elif defect == 'malformed-memory-events':
+        (tree['paths']['job'] / 'memory.events').write_text('oom invalid\n')
+        job_id = tree['job_id']
+    else:
+        job_id = '999'
+
+    with pytest.raises(ValueError, match='cgroup|memory'):
+        functions['cgroup_v2_memory_resources'](
+            tree['proc_cgroup'], tree['mountinfo'], job_id=job_id)
+
+
+def test_measurements_uses_existing_attempt_filesystem_for_disk_headroom(tmp_path, monkeypatch):
+    monkeypatch.syspath_prepend(str(REPO / 'tools'))
+    functions = runpy.run_path(str(PROGRAM))
+    output = tmp_path / 'not-created-yet' / 'attempt'
+    assert not output.exists()
+    actual_disk_usage = shutil.disk_usage
+    measured_paths = []
+
+    def record_disk_usage(path):
+        measured_paths.append(Path(path).resolve())
+        return actual_disk_usage(path)
+
+    monkeypatch.setattr(functions['shutil'], 'disk_usage', record_disk_usage)
+    sample = functions['measurements'](filesystem_path=output)
+
+    assert measured_paths == [tmp_path.resolve()]
+    assert sample['disk_free_bytes'] == actual_disk_usage(tmp_path).free
 
 
 def test_timeout_terminates_worker_process_group_and_preserves_receipt(synthetic):
@@ -327,3 +453,38 @@ def test_timeout_terminates_worker_process_group_and_preserves_receipt(synthetic
     child_pid = int((output.parent / 'child.pid').read_text())
     status = Path('/proc') / str(child_pid) / 'stat'
     assert not status.exists() or status.read_text().split()[2] == 'Z'
+
+
+@pytest.mark.parametrize('use_joint_policy', [False, True])
+@pytest.mark.parametrize('guard,limit_gib,rss_gib,pressure_gib', [
+    ('rss', 8, 6.5, 1), ('pressure', 6, 1, 6)])
+def test_neutral_thresholds_preserved_with_finite_cgroup_limits(
+        synthetic, monkeypatch, use_joint_policy, guard, limit_gib, rss_gib, pressure_gib):
+    from argparse import Namespace
+    monkeypatch.syspath_prepend(str(REPO / 'tools'))
+    import resume_neutral_quantum as recovery
+    root, approval, executable, output = synthetic
+    gib = 2**30
+    def measured(*, filesystem_path, pid=None):
+        events = dict(oom=0, oom_kill=0, oom_group_kill=0)
+        scope = {'path': str(output.parent / 'job-scope'), 'memory.max': limit_gib*gib,
+                 'memory.current': int(pressure_gib*gib),
+                 'memory.pressure_bytes': int(pressure_gib*gib), 'memory.events': events}
+        return {'memory.max': limit_gib*gib, 'memory.current': int(pressure_gib*gib),
+                'memory.pressure_bytes': int(pressure_gib*gib), 'memory_scopes': [scope],
+                'memory.events': 'oom 0\noom_kill 0\noom_group_kill 0\n',
+                'disk_free_bytes': 20*gib, 'VmRSS': int(rss_gib*gib) if pid else 0}
+    monkeypatch.setattr(recovery, 'measurements', measured)
+    args = Namespace(plan_root=str(root), approval=str(approval), output=str(output),
+                     reference_python=str(executable), memory_gib=5., check_resume=False,
+                     wall_limit_seconds=None, resume_from=None, stop_state=None, prior_launch=None)
+    policy = {'rss_max_bytes': 6*gib, 'pressure_max_bytes': 7.5*gib} if use_joint_policy else None
+    result = recovery.run(args, policy=policy)
+    state = json.loads((output / 'progress.json').read_text())
+    if use_joint_policy:
+        assert result == 1 and not state['record_hashes']
+        assert state['sessions'][-1]['stop_reason'] == (
+            'process_group_rss_exhausted' if guard == 'rss' else 'memory_headroom_exhausted')
+    else:
+        assert result == 0
+        assert set(state['record_hashes']) == {'one', 'two', 'one-fine-grid'}

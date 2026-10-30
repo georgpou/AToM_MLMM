@@ -245,7 +245,7 @@ def test_resource_samples_include_reference_children_not_only_supervisor(tmp_pat
     process = subprocess.Popen([sys.executable, '-c', code], start_new_session=True)
     try:
         assert wait_for(marker.exists)
-        assert functions['measurements'](process.pid)['VmRSS'] > 64 * 2**20
+        assert functions['measurements'](filesystem_path=tmp_path, pid=process.pid)['VmRSS'] > 64 * 2**20
     finally:
         os.killpg(process.pid, signal.SIGKILL)
         process.wait()

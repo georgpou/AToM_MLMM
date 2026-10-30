@@ -4,6 +4,10 @@
 
 `COSMOS` is the integration and main working branch for this project on LUNARC Cosmos. Start every new task branch from its current head; target all Cosmos PRs to `COSMOS` and merge them there. Preserve `main`, `hpc-atom-benchmark` and earlier Cloud lineage. Read the [Cosmos handoff](docs/project-0/handoffs/COSMOS-HANDOFF.md) for activation, current failures and the ordered gate-reproduction procedure. The [benchmark guide](benchmarks/fkbp/README.md) retains molecular workflow instructions. Historical Cloud handoffs provide prior scientific evidence, not the active Cosmos assignment or an inherited delegation mandate.
 
+For Codex execution on Cosmos, read the repository-local [Cosmos execution skill](.agents/skills/cosmos-execution/SKILL.md), including its namespace/approval troubleshooting.
+
+Before each review, ask the user to choose the reviewing model and whether the reviewer is the orchestrator or a spawned agent. Do not assign Luna as a reviewer. Do not merge a Cosmos PR without the user's required review.
+
 Only modify files inside this repository; read-only inspection elsewhere is allowed. Keep environments, caches, logs and temporary files local; do not change HOME, user shell startup files or shared installations. Use one agent by default and timed waits for queued/running jobs; avoid frequent polling, repeated full suites and unnecessary agents under the user's usage budget. Preserve existing user changes; use the current checkout unless isolation is actually needed. Scientific acceptance remains profile-specific; Cloud passes are not new Cosmos gate acceptance.
 
 Read [STATUS](docs/project-0/STATUS.md), the assigned gate and only its relevant specification sections. [README](README.md#roadmap) locates milestones; [DEVELOPMENT](docs/DEVELOPMENT.md) explains source layout, tools and test commands. [CPU setup](environment/cloud-cpu/README.md) is the environment authority. Historical audits are available in Git history and are not required onboarding.
