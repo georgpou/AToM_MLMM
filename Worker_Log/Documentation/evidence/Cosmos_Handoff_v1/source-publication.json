@@ -1,0 +1,12 @@
+{
+  "repository": "georgpou/AToM_MLMM",
+  "branch": "COSMOS",
+  "source_commit": "773daf3853cfcf3f45005685e372757bfbb9f9cd",
+  "source_tree": "3688ca269c3af9b98a01ef87e8204ef4e5e0850d",
+  "parent_commit": "70ad284745617122627f217cd86d58237a2435ee",
+  "remote_tree_matches_local_index": true,
+  "local_and_remote_commit_match": true,
+  "initial_published_checkout_clean": true,
+  "main_and_benchmark_heads_unchanged": true,
+  "publication_method": "authenticated connected GitHub Git tree/commit/ref tools; local public fetch and expected-old update-ref"
+}

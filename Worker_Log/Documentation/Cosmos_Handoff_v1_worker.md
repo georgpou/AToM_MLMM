@@ -1,7 +1,7 @@
 # Cosmos continuation handoff and integration branch - attempt 1 - worker
 
 **Scope:** Finish the setup report with a next-agent handoff; include activation, exact passed/failed checks, failure classifications, a Cosmos gate/milestone reproduction procedure, and the user's COSMOS integration/child-branch/PR policy. Create and publish COSMOS carrying the preserved setup and handoff. No portability implementation, molecular calculations or new gate acceptance.
-**Outcome:** partial: documentation complete; verification and authorized publication are the final delivery steps.
+**Outcome:** ready_for_audit for the handoff and published COSMOS baseline; no scientific gate or full CPU-suite acceptance.
 **Model/version:** GPT-6-based Codex per session instructions; exact version not exposed.
 **Reasoning setting:** not exposed.
 **Updated:** 2026-10-30T14:53:49+01:00.
@@ -28,3 +28,13 @@ The user explicitly requested COSMOS creation and publication after handoff comp
 Publication identity and final check outcomes will be appended after the first verified branch publication. Source/setup snapshot references are separate from a later report-only closure commit. No independent gate approval, protection-rule configuration or PR merge is claimed by this publication task.
 
 Staging detected trailing whitespace in a captured pytest traceback. Added a narrow .gitattributes whitespace exemption for raw evidence .log files; preserved their original bytes and the prior source hash manifest rather than rewriting submitted diagnostic evidence.
+
+## Verified publication and handoff result
+
+The preserved 45-file setup/handoff snapshot was published as COSMOS source commit **773daf3853cfcf3f45005685e372757bfbb9f9cd**, tree **3688ca269c3af9b98a01ef87e8204ef4e5e0850d**, directly descending from 70ad284745617122627f217cd86d58237a2435ee. GitHub's created tree matched local git write-tree exactly before ref publication. Public fetch verified the commit/tree; an expected-old update-ref attached local COSMOS without resetting files. Local tracking is origin/COSMOS; its fetch ref was added locally because the supplied clone was single-branch. Local and remote heads matched and the source checkout was clean. Remote main and hpc-atom-benchmark heads stayed unchanged. No Git author identity or credential configuration was written to the home folder; the connected GitHub account created the commit.
+
+Documentation verification before source publication: **183 Markdown files, 1221 local links, zero errors, all eight self-tests passed**. git diff --check and staged whitespace checks passed; raw traceback bytes were preserved via the narrow .gitattributes rule. No numerical tests or Slurm jobs were repeated for this handoff task. Prior setup results remain nine installation checks passed, four focused setup tests passed, and the complete CPU result 654 passed / 50 failed / 12 errors / 57 deselected. Those 62 outcomes remain open portability findings, not waived scientific checks.
+
+Source receipt: evidence/Cosmos_Handoff_v1/source-publication.json. This closing report/evidence update is a separate report-only child commit; it does not change the handoff, environment helpers, scientific code, packages or source-publication tree. The final thread reports the final published closure SHA after expected-head fast-forward and remote/local verification. The next agent starts from the then-current published COSMOS head, branches for the bounded portability repair and targets COSMOS in its PR. Independent review, if requested, uses Cosmos_Handoff_v1_audit.md; no self-review is represented as independent approval.
+
+**Finished:** 2026-10-30T15:01:06+01:00. Final report-only documentation/self-tests and git diff --check passed; no simulation or environment check was repeated.
