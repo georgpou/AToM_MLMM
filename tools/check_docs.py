@@ -8,6 +8,7 @@ Historical ZIP contents are deliberately not treated as active documentation.
 from __future__ import annotations
 import argparse
 import json
+import os
 import re
 import tempfile
 from pathlib import Path
@@ -35,7 +36,12 @@ def check(root: Path) -> dict:
     root = root.resolve()
     errors: list[str] = []
     counts = {'markdown_files': 0, 'local_links': 0, 'external_links_not_fetched': 0}
-    paths = [p for p in sorted(root.rglob('*.md')) if '.git' not in p.parts]
+    paths = []
+    for directory, subdirs, files in os.walk(root):
+        # Prune before traversal: local Conda trees are large third-party inputs.
+        subdirs[:] = [name for name in subdirs if name not in {'.git', '.runtime', '.tmp'}]
+        paths.extend(Path(directory) / name for name in files if name.endswith('.md'))
+    paths.sort()
     texts = {p.resolve(): p.read_text(encoding='utf-8') for p in paths}
     for path, text in texts.items():
         rel = path.relative_to(root).as_posix()

@@ -1,0 +1,38 @@
+{
+  "errors": [
+    ".tmp/pytest-4064390/test_job_paths_and_input_alias0/benchmark/README.md: missing target: ../../environment/cloud-cpu/README.md",
+    ".tmp/pytest-4064390/test_job_paths_and_input_alias0/benchmark/README.md: missing target: ../../environment/hpc/run-guide.md",
+    ".tmp/pytest-4064390/test_job_paths_and_input_alias0/benchmark/README.md: missing target: ../../docs/project-0/STATUS.md",
+    ".tmp/pytest-4064390/test_job_paths_and_input_alias1/benchmark/README.md: missing target: ../../environment/cloud-cpu/README.md",
+    ".tmp/pytest-4064390/test_job_paths_and_input_alias1/benchmark/README.md: missing target: ../../environment/hpc/run-guide.md",
+    ".tmp/pytest-4064390/test_job_paths_and_input_alias1/benchmark/README.md: missing target: ../../docs/project-0/STATUS.md",
+    ".tmp/pytest-4064390/test_tampered_source_is_reject0/benchmark/README.md: missing target: ../../environment/cloud-cpu/README.md",
+    ".tmp/pytest-4064390/test_tampered_source_is_reject0/benchmark/README.md: missing target: ../../environment/hpc/run-guide.md",
+    ".tmp/pytest-4064390/test_tampered_source_is_reject0/benchmark/README.md: missing target: ../../docs/project-0/STATUS.md",
+    ".tmp/pytest-4064390/test_unsupported_inputs_fail_e0/benchmark/README.md: missing target: ../../environment/cloud-cpu/README.md",
+    ".tmp/pytest-4064390/test_unsupported_inputs_fail_e0/benchmark/README.md: missing target: ../../environment/hpc/run-guide.md",
+    ".tmp/pytest-4064390/test_unsupported_inputs_fail_e0/benchmark/README.md: missing target: ../../docs/project-0/STATUS.md",
+    ".tmp/pytest-4064390/test_unsupported_inputs_fail_e1/benchmark/README.md: missing target: ../../environment/cloud-cpu/README.md",
+    ".tmp/pytest-4064390/test_unsupported_inputs_fail_e1/benchmark/README.md: missing target: ../../environment/hpc/run-guide.md",
+    ".tmp/pytest-4064390/test_unsupported_inputs_fail_e1/benchmark/README.md: missing target: ../../docs/project-0/STATUS.md",
+    ".tmp/pytest-4064390/test_unsupported_inputs_fail_e2/benchmark/README.md: missing target: ../../environment/cloud-cpu/README.md",
+    ".tmp/pytest-4064390/test_unsupported_inputs_fail_e2/benchmark/README.md: missing target: ../../environment/hpc/run-guide.md",
+    ".tmp/pytest-4064390/test_unsupported_inputs_fail_e2/benchmark/README.md: missing target: ../../docs/project-0/STATUS.md"
+  ],
+  "counts": {
+    "markdown_files": 210,
+    "local_links": 1221,
+    "external_links_not_fetched": 121
+  },
+  "scope": "local documentation only; no external-link or scientific qualification",
+  "self_tests": {
+    "valid_links_and_duplicate_heading": true,
+    "broken_file_detected": true,
+    "broken_anchor_detected": true,
+    "undefined_reference_detected": true,
+    "escape_detected": true,
+    "unclosed_fence_detected": true,
+    "code_examples_are_not_live_links": true,
+    "implementation_audits_and_progress_are_allowed": true
+  }
+}

@@ -1,0 +1,2 @@
+# Captured raw diagnostic logs preserve their original whitespace.
+Worker_Log/Documentation/evidence/**/*.log -whitespace

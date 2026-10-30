@@ -1,0 +1,22 @@
+F
+=================================== FAILURES ===================================
+_______ test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget ________
+
+tmp_path = PosixPath('/lunarc/nobackup/projects/snic2019-35-66/George/AToM_MLMM/.tmp/first-failure-4064390/test_only_frozen_thirty_jobs_w0')
+
+    def test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget(tmp_path):
+        approved_output = json.loads(AUTH.read_text())['attempt_path']
+        result = subprocess.run([sys.executable,str(PROGRAM),'--plan-root',str(PLAN),
+            '--approval',str(AUTH),'--matrix',str(MATRIX),'--output',approved_output,'--check-resume'],
+            capture_output=True,text=True)
+>       assert result.returncode == 0, result.stderr
+E       AssertionError: G07 execution rejected: [Errno 2] No such file or directory: '/workspace'
+E         
+E       assert 2 == 0
+E        +  where 2 = CompletedProcess(args=['/lunarc/nobackup/projects/snic2019-35-66/George/AToM_MLMM/.runtime/cosmos-cpu/env/bin/python',...esume'], returncode=2, stdout='', stderr="G07 execution rejected: [Errno 2] No such file or directory: '/workspace'\n").returncode
+
+tests/unit/test_joint_quantum_execution.py:37: AssertionError
+=========================== short test summary info ============================
+FAILED tests/unit/test_joint_quantum_execution.py::test_only_frozen_thirty_jobs_with_pilot_first_and_no_g05_budget
+!!!!!!!!!!!!!!!!!!!!!!!!!! stopping after 1 failures !!!!!!!!!!!!!!!!!!!!!!!!!!!
+1 failed in 1.06s

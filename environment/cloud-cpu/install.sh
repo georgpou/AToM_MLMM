@@ -15,7 +15,7 @@ test -f "${atom_mlmm_repo}/tools/check_docs.py"
 mkdir -p "${atom_mlmm_install_root}"
 atom_mlmm_install_root="$(cd -- "${atom_mlmm_install_root}" && pwd)"
 if [[ "${atom_mlmm_install_root}" == "${atom_mlmm_repo}" || "${atom_mlmm_install_root}" == "${atom_mlmm_script_dir}" ]]; then
-    echo 'Choose an installation prefix outside the repository.' >&2
+    echo 'Choose a separate installation subdirectory.' >&2
     exit 2
 fi
 mkdir -p "${atom_mlmm_install_root}/logs" "${atom_mlmm_install_root}/bootstrap" "${atom_mlmm_install_root}/cache"
@@ -38,10 +38,10 @@ export CONDA_PKGS_DIRS="${atom_mlmm_install_root}/mamba/pkgs"
 export MAMBA_ROOT_PREFIX="${atom_mlmm_install_root}/mamba"
 export XDG_CACHE_HOME="${atom_mlmm_install_root}/cache"
 export PIP_CACHE_DIR="${atom_mlmm_install_root}/cache/pip"
-export GIT_SSL_CAINFO=/etc/ssl/certs/ca-certificates.crt
-export PIP_CERT=/etc/ssl/certs/ca-certificates.crt
-export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
-export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+export GIT_SSL_CAINFO="${ATOM_MLMM_CA_BUNDLE:-/etc/ssl/certs/ca-certificates.crt}"
+export PIP_CERT="${GIT_SSL_CAINFO}"
+export REQUESTS_CA_BUNDLE="${GIT_SSL_CAINFO}"
+export SSL_CERT_FILE="${GIT_SSL_CAINFO}"
 test -r "${SSL_CERT_FILE}"
 
 if [[ ! -x "${atom_mlmm_install_root}/conda/bin/conda" ]]; then
@@ -58,10 +58,17 @@ for atom_mlmm_pair in 'env core-conda-linux-64.lock' 'amber-env amber-conda-linu
     read -r atom_mlmm_prefix_name atom_mlmm_lock_name <<< "${atom_mlmm_pair}"
     atom_mlmm_operation=create
     [[ ! -x "${atom_mlmm_install_root}/${atom_mlmm_prefix_name}/bin/python" ]] || atom_mlmm_operation=install
-    "${atom_mlmm_install_root}/conda/bin/mamba" --no-rc "${atom_mlmm_operation}" --yes --quiet \
-        --ssl-verify "${SSL_CERT_FILE}" \
-        --prefix "${atom_mlmm_install_root}/${atom_mlmm_prefix_name}" \
-        --file "${atom_mlmm_install_root}/${atom_mlmm_lock_name}"
+    if [[ "${ATOM_MLMM_PACKAGE_MANAGER:-mamba}" == conda ]]; then
+        # Conda honors CONDA_REGISTER_ENVS=false for repository-only installs.
+        "${atom_mlmm_install_root}/conda/bin/conda" --no-plugins "${atom_mlmm_operation}" --yes --quiet \
+            --solver classic --prefix "${atom_mlmm_install_root}/${atom_mlmm_prefix_name}" \
+            --file "${atom_mlmm_install_root}/${atom_mlmm_lock_name}"
+    else
+        "${atom_mlmm_install_root}/conda/bin/mamba" --no-rc "${atom_mlmm_operation}" --yes --quiet \
+            --ssl-verify "${SSL_CERT_FILE}" \
+            --prefix "${atom_mlmm_install_root}/${atom_mlmm_prefix_name}" \
+            --file "${atom_mlmm_install_root}/${atom_mlmm_lock_name}"
+    fi
 done
 (cd "${atom_mlmm_install_root}" && sha256sum -c wheels.sha256)
 "${atom_mlmm_install_root}/env/bin/python" -m pip install --no-index \

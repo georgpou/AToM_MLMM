@@ -5,10 +5,10 @@ conda activate "${atom_mlmm_setup_root}/env"
 export CONDA_PKGS_DIRS="${atom_mlmm_setup_root}/mamba/pkgs"
 export XDG_CACHE_HOME="${atom_mlmm_setup_root}/cache"
 export PIP_CACHE_DIR="${atom_mlmm_setup_root}/cache/pip"
-export GIT_SSL_CAINFO=/etc/ssl/certs/ca-certificates.crt
-export PIP_CERT=/etc/ssl/certs/ca-certificates.crt
-export REQUESTS_CA_BUNDLE=/etc/ssl/certs/ca-certificates.crt
-export SSL_CERT_FILE=/etc/ssl/certs/ca-certificates.crt
+export GIT_SSL_CAINFO="${ATOM_MLMM_CA_BUNDLE:-/etc/ssl/certs/ca-certificates.crt}"
+export PIP_CERT="${GIT_SSL_CAINFO}"
+export REQUESTS_CA_BUNDLE="${GIT_SSL_CAINFO}"
+export SSL_CERT_FILE="${GIT_SSL_CAINFO}"
 export OMP_NUM_THREADS=2
 export MKL_NUM_THREADS=2
 export OPENMM_CPU_THREADS=2

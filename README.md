@@ -6,6 +6,13 @@ BUT, PRP and neutral DAP**, taken from AToM's own fragment example.
 
 <a id="start-here"></a>
 
+## Work on Cosmos
+
+Use the **[COSMOS branch and continuation handoff](docs/project-0/handoffs/COSMOS-HANDOFF.md)**.
+Activate with `source environment/hpc/cosmos/activate.sh`. New task branches start
+from `COSMOS`, and their PRs target `COSMOS`. The handoff records installation
+results, the known portability failures and the gate-by-gate reproduction order.
+
 ## Run the benchmark
 
 Read the [benchmark and run guide](benchmarks/fkbp/README.md) for the ligand
@@ -13,8 +20,7 @@ chemistry, MM comparison modes, preparation settings and worker allocation.
 From the repository root:
 
 ```bash
-bash environment/cloud-cpu/install.sh
-source /workspace/.onboarding/atom-mlmm/activate.sh
+source environment/hpc/cosmos/activate.sh
 python scripts/run_benchmark.py plan
 python scripts/run_benchmark.py setup --ligand but --mode cavity --output runs/fkbp
 python scripts/run_benchmark.py prepare --ligand but --mode cavity --output runs/fkbp
@@ -40,9 +46,11 @@ profile; GPU execution and quantitative protein affinities remain unqualified.
 | `Worker_Log/` | Current task records and required prior acceptance/reference evidence |
 | `runs/` | Untracked generated systems, states, trajectories and logs |
 
-This work starts from `before_HPC` at
-`590cb5258696042b29856df37f6053ba820d2f56` on the child branch
-`hpc-atom-benchmark`. Main and the predecessor remain unchanged.
+`COSMOS` starts from `hpc-atom-benchmark` at
+`70ad284745617122627f217cd86d58237a2435ee`, carrying the preserved local
+Cosmos setup and handoff changes. The benchmark predecessor itself descends from
+`before_HPC` at `590cb5258696042b29856df37f6053ba820d2f56`.
+Main and those published predecessors remain unchanged.
 The [history guide](Worker_Log/README.md) explains recovery of retired run data.
 There are no active Colab notebooks in this checkout; notebook-era generated
 evidence has been retired with the other closed-run artifacts.

@@ -1,0 +1,5 @@
+{
+  "amber_python": "/lunarc/nobackup/projects/snic2019-35-66/George/AToM_MLMM/.runtime/cosmos-cpu/amber-env/bin/python",
+  "python_version": "3.11.16",
+  "numpy": "1.26.4"
+}

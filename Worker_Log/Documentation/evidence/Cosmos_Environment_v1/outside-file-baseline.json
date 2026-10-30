@@ -1,0 +1,22 @@
+{
+  "/home/geopou/.bashrc": {
+    "exists": true,
+    "sha256": "d8a58544212366a541f29b60d1fbfbd7e047cfdda989825a57836ab847846c49"
+  },
+  "/home/geopou/.bash_profile": {
+    "exists": true,
+    "sha256": "734ba6d2ab5c26eaf1ae5efbd650dd1fd359c72e68003f108521dab1b6cd9a96"
+  },
+  "/home/geopou/.bash_aliases": {
+    "exists": false,
+    "sha256": null
+  },
+  "/home/geopou/.condarc": {
+    "exists": true,
+    "sha256": "c1e998b59cfd493042fa66285e0ed95fb40483fb7731130e48ebb9d7f2f144c9"
+  },
+  "/home/geopou/.conda/environments.txt": {
+    "exists": true,
+    "sha256": "de51104b08e8bfe1bd2263da838d2c2df101739984ad3ba1c42f9e9f845a84b2"
+  }
+}

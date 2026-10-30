@@ -1,0 +1,9 @@
+{
+  "main_python": "/lunarc/nobackup/projects/snic2019-35-66/George/AToM_MLMM/.runtime/cosmos-cpu/env/bin/python",
+  "python_version": "3.11.16",
+  "numpy": "2.4.6",
+  "openmm": "8.6.1",
+  "amberhome": "/lunarc/nobackup/projects/snic2019-35-66/George/AToM_MLMM/.runtime/cosmos-cpu/amber-env",
+  "ca_bundle": "/etc/pki/tls/certs/ca-bundle.crt",
+  "tmpdir": "/lunarc/nobackup/projects/snic2019-35-66/George/AToM_MLMM/.runtime/cosmos-cpu/tmp"
+}

@@ -9,3 +9,7 @@ dist/
 # Generated benchmark jobs and cluster outputs
 runs/
 slurm-*.out
+
+# Repository-local Cosmos environments, caches, temporary files and job logs
+.runtime/
+.tmp/

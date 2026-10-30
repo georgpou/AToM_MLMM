@@ -1,5 +1,40 @@
 # Current status
 
+## Cosmos continuation handoff — 2026-10-30
+
+The user designated `COSMOS` as the Cosmos integration branch: all future task
+branches descend from it, with PRs and merges targeting `COSMOS`. The
+[active handoff](handoffs/COSMOS-HANDOFF.md) records activation, exact current
+passes/failures, the first bounded portability repair and subsequent gate and
+milestone reproduction order. This assignment publishes the preserved setup and
+handoff on that branch; publication adds no scientific or cluster acceptance.
+See the [handoff worker](../../Worker_Log/Documentation/Cosmos_Handoff_v1_worker.md)
+for verification and publication evidence. The installation and red full-suite
+results below remain unchanged; no numerical tests were repeated for this doc task.
+
+## Cosmos environment setup — 2026-10-30
+
+The exact CPU ML/MM and separate AmberTools environments are installed locally
+under `.runtime/cosmos-cpu`; activate via
+`source environment/hpc/cosmos/activate.sh`. All nine installation checks passed
+on Slurm CPU node cn024. The full CPU regression remains red: **654 passed,
+50 failed, 12 errors, 57 deselected**. Failures expose old `/workspace` assumptions
+in quantum recovery tooling and a relocation-test guard incompatible with
+repository-local temporary output. See the
+[worker record](../../Worker_Log/Documentation/Cosmos_Environment_v1_worker.md)
+and [Cosmos usage guide](../../environment/hpc/cosmos/README.md).
+This is installation evidence; cluster/workflow parity, GPU and scientific holds
+remain unqualified. No scientific definition or frozen approval was changed.
+
+## Local checkout refresh — 2026-10-30
+
+The local non-Git folder was backed up and replaced with `hpc-atom-benchmark` at
+`70ad284745617122627f217cd86d58237a2435ee`. File-copy/Git integrity checks,
+documentation checks and six dependency-light identity/schema tests passed.
+This administrative refresh adds no environment, model, hardware or scientific
+qualification. See the [refresh record](../../Worker_Log/Documentation/Repository_Refresh_v2_worker.md)
+for backup verification, cleanup and exact scope.
+
 ## FKBP benchmark and repository cleanup — completed 2026-10-08
 
 Current work is on `hpc-atom-benchmark`, a child of `before_HPC` at
